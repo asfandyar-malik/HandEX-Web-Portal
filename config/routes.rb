@@ -27,10 +27,14 @@ Rails.application.routes.draw do
             get 'listing'
             get 'pricing'
             get 'description'
+            get 'attachment_upload'
             get 'year'
             get 'location'
             get 'document_type'
         end
+
+        resources :attachments, only: [:create, :destroy]
+
     end
 
 end

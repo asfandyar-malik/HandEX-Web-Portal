@@ -19,6 +19,14 @@
         <% end %>
     </li>
 
+    <li class="sidebar-item">
+        <%= link_to "Attachments", attachment_upload_invoice_path, class: "sidebar-link active" %>
+        <% if !@invoice.belong_me.blank? %>
+            <span id="attachment_check" class="pull-right text-babu"><i class="fa fa-check"> </i></span>
+        <% end %>
+    </li>
+
+
 </ul>
 
 <% is_ready = !@invoice.belong_me%>

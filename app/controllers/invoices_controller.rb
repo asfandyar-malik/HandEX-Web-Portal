@@ -2,7 +2,7 @@ class InvoicesController < ApplicationController
 
     before_action :set_invoice, except: [:index, :new, :create]
     before_action :authenticate_user!, except: [:show]
-    before_action :is_authorised, only: [:listing, :pricing, :description, :update]
+    before_action :is_authorised, only: [:listing, :pricing, :description,:attachment_upload, :update]
 
     def index
         @invoices = current_user.invoices
@@ -23,6 +23,7 @@ class InvoicesController < ApplicationController
     end
 
     def show
+        @attachments = @invoice.attachments
     end
 
     def listing
@@ -34,7 +35,8 @@ class InvoicesController < ApplicationController
     def description
     end
 
-    def amenities
+    def attachment_upload
+        @attachments = @invoice.attachments
     end
 
     def location
@@ -56,7 +58,7 @@ class InvoicesController < ApplicationController
     end
 
     def is_ready_invoice
-        !@invoice.invoice_type? && !@invoice.year
+        !@invoice.belong_me? && !@invoice.defect_free
     end
 
     def is_authorised

@@ -1,5 +1,6 @@
 class Invoice < ApplicationRecord
     belongs_to :user
+    has_many :attachments
 
     # validates :belong_me, presence: true
     # validates :defect_free, presence: true

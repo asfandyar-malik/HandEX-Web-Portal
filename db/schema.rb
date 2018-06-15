@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_15_173821) do
+ActiveRecord::Schema.define(version: 2018_06_15_215929) do
+
+  create_table "attachments", force: :cascade do |t|
+    t.integer "invoice_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["invoice_id"], name: "index_attachments_on_invoice_id"
+  end
 
   create_table "documents", force: :cascade do |t|
     t.boolean "belong_me"

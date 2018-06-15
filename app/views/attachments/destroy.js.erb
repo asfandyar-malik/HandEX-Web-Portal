@@ -1,0 +1,12 @@
+$('#attachments').html("<%= j render 'attachments_list' %>")
+
+<% if @invoice.attachments.blank? %>
+$('#attachment_check').hide();
+<% end %>
+
+
+<% if !@invoice.defect_free.blank? && !@invoice.defect_free.blank? %>
+$('#publish_button').attr('disabled', false);
+<% else %>
+$('#publish_button').attr('disabled', true);
+<% end %>
