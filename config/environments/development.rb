@@ -31,7 +31,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -49,7 +49,7 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  # Suppress logger output for asset requests.
+  # Suppress logger output for asset requests.x``
   config.assets.quiet = true
 
   # Raises error for missing translations
@@ -60,4 +60,24 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      address: 'smtp.mailgun.org',
+      port: 587,
+      domain: 'sandboxe678f8db8f8246fca3cdff41f56321ff.mailgun.org',
+      authentication: 'plain',
+      user_name: 'postmaster@sandboxe678f8db8f8246fca3cdff41f56321ff.mailgun.org',
+      password: '104cf74078f0d3463d6b483277f86d11-47317c98-9625379a'
+  }
+
+  # config.action_mailer.smtp_settings = {
+  #     address: 'smtp.gmail.com',
+  #     port: 587,
+  #     enable_starttls_auto: true,
+  #     authentication: 'plain',
+  #     user_name: 'umairjanjua420@gmail.com',
+  #     password: 'mertesacker14'
+  # }
+
 end

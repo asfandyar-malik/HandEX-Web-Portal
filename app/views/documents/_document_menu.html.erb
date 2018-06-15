@@ -1,0 +1,37 @@
+<ul class="sidebar-list">
+
+    <li class="sidebar-item">
+        <%= link_to "Listing", listing_document_path, class: "sidebar-link active" %>
+        <span class="pull-right text-babu"><i class="fa fa-check"> </i></span>
+    </li>
+
+    <li class="sidebar-item">
+        <%= link_to "Currency", pricing_document_path, class: "sidebar-link active" %>
+        <% if !@document.currency.blank? %>
+            <span class="pull-right text-babu"><i class="fa fa-check"> </i></span>
+        <% end %>
+    </li>
+
+    <li class="sidebar-item">
+        <%= link_to "Description", description_document_path, class: "sidebar-link active" %>
+        <% if !@document.belong_me.blank? %>
+            <span class="pull-right text-babu"><i class="fa fa-check"> </i></span>
+        <% end %>
+    </li>
+
+    <li class="sidebar-item">
+        <%= link_to "Photos", photo_upload_document_path, class: "sidebar-link active" %>
+        <% if !@document.defect_free.blank? %>
+            <span id="photo_check" class="pull-right text-babu"><i class="fa fa-check"> </i></span>
+        <% end %>
+    </li>
+
+</ul>
+
+<% is_ready = !@document.belong_me%>
+
+
+<%= form_for @document do |f| %>
+    <%= f.hidden_field :active, value: true %>
+    <%= f.submit "Publish", id: "publish_button", class: "btn btn-normal btn-block" %>
+<% end %>

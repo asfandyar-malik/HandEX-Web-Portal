@@ -5,7 +5,7 @@
     <h2 class="text-center"> Sign up</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
+      <%= render 'shared/devisemes' %>
 
       <div class="form-group">
         <%= f.text_field :fullname, autofocus: true, placeholder: "Full Name", class: "form-control" %>
@@ -24,11 +24,12 @@
 
 
       <div class="actions">
-        <%= f.submit "Sign up", class: "btn btn-primary" %>
+        <%= f.submit "Sign up", class: "btn btn-normal btn-block" %>
       </div>
     <% end %>
 
-    <%= render "devise/shared/links" %>
+    <hr/>
+    <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path , class: "btn btn-facebook btn-block" %>
   </div>
 </div>
 

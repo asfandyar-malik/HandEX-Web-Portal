@@ -66,3 +66,9 @@ gem 'devise', '~> 4.2'
 gem 'jquery-rails'
 
 gem 'toastr-rails', '~> 1.0'
+gem 'omniauth', '~> 1.6'
+gem 'omniauth-facebook', '~> 4.0'
+
+gem 'paperclip', '~> 5.1.0'
+
+gem 'geocoder', '~> 1.4'
