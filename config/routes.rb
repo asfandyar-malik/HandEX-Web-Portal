@@ -1,25 +1,36 @@
 Rails.application.routes.draw do
-  root 'pages#home'
+    root 'pages#home'
 
-  devise_for :users,
-             path: '',
-             path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'},
-             controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
+    devise_for :users,
+               path: '',
+               path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'},
+               controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
 
-  resources :users, only: [:show]
+    resources :users, only: [:show]
 
-  resources :documents, except: [:edit] do
-    member do
-      get 'listing'
-      get 'pricing'
-      get 'description'
-      get 'photo_upload'
-      get 'year'
-      get 'location'
-      get 'document_type'
+    resources :documents, except: [:edit] do
+        member do
+            get 'listing'
+            get 'pricing'
+            get 'description'
+            get 'photo_upload'
+            get 'location'
+            get 'year'
+            get 'document_type'
+        end
+
+        resources :photos, only: [:create, :destroy]
     end
 
-    resources :photos, only: [:create, :destroy]
+    resources :invoices, except: [:edit] do
+        member do
+            get 'listing'
+            get 'pricing'
+            get 'description'
+            get 'year'
+            get 'location'
+            get 'document_type'
+        end
+    end
 
-  end
 end

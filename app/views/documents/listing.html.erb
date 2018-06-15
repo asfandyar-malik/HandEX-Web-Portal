@@ -18,7 +18,7 @@
               <div class="col-md-4 select">
                 <div class="form-group">
                   <label>Home Type</label>
-                  <%= f.select :grand_total_invoice_value, [["Apartment", "Apartment"], ["House", "House"], ["Bed & Breakfast", "Bed & Breakfast"]],
+                  <%= f.select :document_type, [["Apartment", "Apartment"], ["House", "House"], ["Bed & Breakfast", "Bed & Breakfast"]],
                                id: "home_type", prompt: "Select...", class: "form-control" %>
                 </div>
               </div>
@@ -26,32 +26,8 @@
               <div class="col-md-4 select">
                 <div class="form-group">
                   <label>Room Type</label>
-                  <%= f.select :currency, [["Entire", "Entire"], ["Private", "Private"], ["Shared", "Shared"]],
+                  <%= f.select :document_type, [["Entire", "Entire"], ["Private", "Private"], ["Shared", "Shared"]],
                                id: "document_type", prompt: "Select...", class: "form-control" %>
-                </div>
-              </div>
-
-              <div class="col-md-4 select">
-                <div class="form-group">
-                  <label>Accommodate</label>
-                  <%= f.select :delivered_specific_date, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
-                               id: "accommodate", prompt: "Select...", class: "form-control" %>
-                </div>
-              </div>
-
-              <div class="col-md-4 select">
-                <div class="form-group">
-                  <label>Bed Documents</label>
-                  <%= f.select :defect_free, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
-                               id: "bed_document", prompt: "Select...", class: "form-control" %>
-                </div>
-              </div>
-
-              <div class="col-md-4 select">
-                <div class="form-group">
-                  <label>Bath Documents</label>
-                  <%= f.select :belong_me, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
-                               id: "bath_documents", prompt: "Select...", class: "form-control" %>
                 </div>
               </div>
 

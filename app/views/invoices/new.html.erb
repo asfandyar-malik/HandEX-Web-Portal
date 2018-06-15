@@ -1,0 +1,38 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Insert the Invoices
+    </div>
+    <div class="panel-body">
+        <div class="container">
+
+            <%= form_for @invoice do |f| %>
+
+                <div class="row">
+
+                    <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label>Delivered_specific_date</label>
+                            <%= f.select :delivered_specific_date, [["Invoice", "Invoice"], ["Bilanz", "Bilanz"], ["Bilanz", "Bilanz"],
+                                                          ["BWA", "BWA"], ["BWA", "BWA"], ["OP Liste Kreditoren + Debitoren", "OP Liste Kreditoren + Debitoren"],
+                                                          ["Bankenspiegel (optional)", "Bankenspiegel (optional)"], ["Finanzamt Unbedenklichkeit (optional)", "Finanzamt Unbedenklichkeit (optional)"]],
+                                         id: "delivered_specific_date", prompt: "Select...", class: "form-control" %>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label>Delivered_specific_date</label>
+                            <%= f.select :delivered_specific_date, [["2016", "2016"], ["2017", "2017"], ["2018", "2018"]],
+                                         id: "delivered_specific_date", prompt: "Select...", class: "form-control" %>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div><%= f.submit "Insert Invoice", class: "btn btn-normal" %></div>
+
+            <% end %>
+
+        </div>
+    </div>
+</div>

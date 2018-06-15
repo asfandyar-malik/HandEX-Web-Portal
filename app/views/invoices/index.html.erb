@@ -2,30 +2,32 @@
     <div class="col-md-3">
         <ul class="sidebar-list">
             <li class="sidebar-item"><%= link_to "Your Documents", documents_path, class: "sidebar-link active" %></li>
-            <li class="sidebar-item"><%= link_to "Your Invoices", documents_path, class: "sidebar-link" %></li>
+            <li class="sidebar-item"><%= link_to "Your Invoices", invoices_path, class: "sidebar-link" %></li>
         </ul>
     </div>
     <div class="col-md-9">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Documents
+                Invoices
             </div>
             <div class="panel-body">
 
-                <% @documents.each do |doc| %>
+                <% @invoices.each do |doc| %>
                     <div class="row">
                         <div class="col-md-2">
                             <%= image_tag doc.cover_photo(:thumb), height: 100, width: 100 %>
                         </div>
                         <div class="col-md-7">
-                            <h4><%= doc.document_type %></h4>
+
+                            <h4><%= doc.delivered_specific_date %></h4>
                         </div>
                         <div class="col-md-3 right">
-                            <%= link_to "Update", listing_document_path(doc), class: "btn btn-form" %>
+                            <%= link_to "Update", listing_invoice_path(doc), class: "btn btn-form" %>
                         </div>
                     </div>
                     <hr/>
                 <% end %>
+
             </div>
         </div>
     </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_15_110926) do
+ActiveRecord::Schema.define(version: 2018_06_15_173821) do
 
   create_table "documents", force: :cascade do |t|
     t.boolean "belong_me"
@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(version: 2018_06_15_110926) do
     t.string "document_type"
     t.string "year"
     t.index ["user_id"], name: "index_documents_on_user_id"
+  end
+
+  create_table "invoices", force: :cascade do |t|
+    t.boolean "belong_me"
+    t.boolean "defect_free"
+    t.boolean "delivered_specific_date"
+    t.integer "currency"
+    t.integer "grand_total_invoice_value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_invoices_on_user_id"
   end
 
   create_table "photos", force: :cascade do |t|
