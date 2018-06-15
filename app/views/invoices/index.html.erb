@@ -12,23 +12,31 @@
             </div>
             <div class="panel-body">
 
-                <% @invoices.each do |doc| %>
+                <% @invoices.each do |invoice| %>
                     <div class="row">
                         <div class="col-md-2">
-                            <%= image_tag doc.cover_photo(:thumb), height: 100, width: 100 %>
+                            <%= image_tag invoice.cover_photo(:thumb), height: 100, width: 100 %>
                         </div>
                         <div class="col-md-7">
-
-                            <h4><%= doc.defect_free %></h4>
+                            <h4><%= invoice.delivered_specific_date %></h4>
                         </div>
                         <div class="col-md-3 right">
-                            <%= link_to "Update", listing_invoice_path(doc), class: "btn btn-form" %>
+                            <%= link_to "Update", listing_invoice_path(invoice), class: "btn btn-form" %>
                         </div>
                     </div>
                     <hr/>
                 <% end %>
 
+
+                <div class="row">
+                    <div class="col-md-2 right">
+                        <%= button_to "Insert New Invoice", new_invoice_path, method: :get, class: "btn btn-normal" %>
+                    </div>
+                </div>
+
             </div>
+
+
         </div>
     </div>
 </div>

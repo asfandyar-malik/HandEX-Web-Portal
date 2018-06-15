@@ -101,6 +101,13 @@ a {
   background-color: #2d467b;
 }
 
+.btn.btn-right {
+  float:right;
+  border: 1px solid #ff5a5f;
+  background-color: #ff5a5f
+}
+
+
 // PANELS
 .panel-default .panel-heading {
   color: #ffffff;
@@ -285,3 +292,5 @@ a {
   color: rgba(0,0,0,0.45);
   font-size: 14px;
 }
+
+
