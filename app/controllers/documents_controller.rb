@@ -2,7 +2,7 @@ class DocumentsController < ApplicationController
 
     before_action :set_document, except: [:index, :new, :create]
     before_action :authenticate_user!, except: [:show]
-    before_action :is_authorised, only: [:listing, :pricing, :description, :photo_upload, :update]
+    before_action :is_authorised, only: [:description, :photo_upload, :update]
 
     def index
         @documents = current_user.documents
@@ -15,7 +15,7 @@ class DocumentsController < ApplicationController
     def create
         @document = current_user.documents.build(document_params)
         if @document.save
-            redirect_to listing_document_path(@document), notice: "Saved...."
+            redirect_to photo_upload_document_path(@document), notice: "Saved...."
         else
             flash[:alert] = "Something went wrong...."
             render :new
@@ -23,13 +23,7 @@ class DocumentsController < ApplicationController
     end
 
     def show
-        @photos = @document.photos
-    end
-
-    def listing
-    end
-
-    def pricing
+        @photos = @document.photosd
     end
 
     def description
@@ -37,12 +31,6 @@ class DocumentsController < ApplicationController
 
     def photo_upload
         @photos = @document.photos
-    end
-
-    def amenities
-    end
-
-    def location
     end
 
     def update
@@ -69,7 +57,7 @@ class DocumentsController < ApplicationController
     end
 
     def document_params
-        params.require(:document).permit(:document_type, :year)
+        params.require(:document).permit(:document_type, :year, :description)
     end
 
 end

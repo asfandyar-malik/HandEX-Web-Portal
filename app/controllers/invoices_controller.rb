@@ -2,7 +2,7 @@ class InvoicesController < ApplicationController
 
     before_action :set_invoice, except: [:index, :new, :create]
     before_action :authenticate_user!, except: [:show]
-    before_action :is_authorised, only: [:listing, :pricing, :description,:attachment_upload, :update]
+    before_action :is_authorised, only: [:auxillary, :attachment_upload, :update]
 
     def index
         @invoices = current_user.invoices
@@ -15,7 +15,7 @@ class InvoicesController < ApplicationController
     def create
         @invoice = current_user.invoices.build(invoice_params)
         if @invoice.save
-            redirect_to listing_invoice_path(@invoice), notice: "Saved...."
+            redirect_to attachment_upload_invoice_path(@invoice), notice: "Saved...."
         else
             flash[:alert] = "Something went wrong...."
             render :new
@@ -26,20 +26,11 @@ class InvoicesController < ApplicationController
         @attachments = @invoice.attachments
     end
 
-    def listing
-    end
-
-    def pricing
-    end
-
-    def description
+    def auxillary
     end
 
     def attachment_upload
         @attachments = @invoice.attachments
-    end
-
-    def location
     end
 
     def update

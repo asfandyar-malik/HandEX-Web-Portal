@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'invoice_menu' %>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+
+      <div class="panel-heading">
+        Pricing
+      </div>
+
+        <div class="panel-body">
+            <div class="container">
+                <%= form_for @invoice do |f| %>
+
+                    <div class="row form-group">
+                        <div class="col-md-9">
+                            <%= f.label :belong_me do %>
+                                <%= f.check_box :belong_me %> Goods belong to me at the moment
+                            <% end %>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-9">
+                            <%= f.check_box :defect_free %> Goods are checked and free from defects:
+                        </div>
+                    </div>
+
+
+                    <div class="row form-group">
+                        <div class="col-md-9">
+                            <%= f.check_box :delivered_specific_date %> Goods were delivered at the specified delivery date
+                        </div>
+                    </div>
+
+                    <br/><br/>
+
+                    <div class="text-center">
+                        <%= f.submit "Save", class: "btn btn-form" %>
+                    </div>
+
+                <% end %>
+            </div>
+        </div>
+
+
+    </div>
+  </div>
+</div>

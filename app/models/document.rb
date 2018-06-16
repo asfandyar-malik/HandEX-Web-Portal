@@ -6,7 +6,7 @@ class Document < ApplicationRecord
     validates :year, presence: true
 
     def cover_photo(size)
-        "default.jpg"
+        "icon2.jpg"
     end
 
 end

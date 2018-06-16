@@ -9,6 +9,6 @@ class Invoice < ApplicationRecord
     # validates :grand_total_invoice_value, presence: true
 
     def cover_photo(size)
-        "default.jpg"
+        "icon4.jpg"
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_15_215929) do
+ActiveRecord::Schema.define(version: 2018_06_16_005551) do
 
   create_table "attachments", force: :cascade do |t|
     t.integer "invoice_id"
@@ -34,7 +34,15 @@ ActiveRecord::Schema.define(version: 2018_06_15_215929) do
     t.datetime "updated_at", null: false
     t.string "document_type"
     t.string "year"
+    t.string "description"
     t.index ["user_id"], name: "index_documents_on_user_id"
+  end
+
+  create_table "invoice_attachments", force: :cascade do |t|
+    t.integer "invoice_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["invoice_id"], name: "index_invoice_attachments_on_invoice_id"
   end
 
   create_table "invoices", force: :cascade do |t|

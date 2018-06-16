@@ -1,20 +1,7 @@
 <ul class="sidebar-list">
-
     <li class="sidebar-item">
-        <%= link_to "Listing", listing_invoice_path, class: "sidebar-link active" %>
-        <span class="pull-right text-babu"><i class="fa fa-check"> </i></span>
-    </li>
-
-    <li class="sidebar-item">
-        <%= link_to "Currency", pricing_invoice_path, class: "sidebar-link active" %>
-        <% if !@invoice.currency.blank? %>
-            <span class="pull-right text-babu"><i class="fa fa-check"> </i></span>
-        <% end %>
-    </li>
-
-    <li class="sidebar-item">
-        <%= link_to "Description", description_invoice_path, class: "sidebar-link active" %>
-        <% if !@invoice.belong_me.blank? %>
+        <%= link_to "Auxillary Information", auxillary_invoice_path, class: "sidebar-link active" %>
+        <% if !@invoice.belong_me.blank? && !@invoice.defect_free.blank? && !@invoice.delivered_specific_date.blank? %>
             <span class="pull-right text-babu"><i class="fa fa-check"> </i></span>
         <% end %>
     </li>

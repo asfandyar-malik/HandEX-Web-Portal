@@ -10,8 +10,7 @@ Rails.application.routes.draw do
 
     resources :documents, except: [:edit] do
         member do
-            get 'listing'
-            get 'pricing'
+            get 'auxillary'
             get 'description'
             get 'photo_upload'
             get 'location'
@@ -24,9 +23,7 @@ Rails.application.routes.draw do
 
     resources :invoices, except: [:edit] do
         member do
-            get 'listing'
-            get 'pricing'
-            get 'description'
+            get 'auxillary'
             get 'attachment_upload'
             get 'year'
             get 'location'

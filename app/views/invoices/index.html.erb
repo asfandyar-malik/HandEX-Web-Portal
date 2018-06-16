@@ -18,10 +18,10 @@
                             <%= image_tag invoice.cover_photo(:thumb), height: 100, width: 100 %>
                         </div>
                         <div class="col-md-7">
-                            <h4><%= invoice.delivered_specific_date %></h4>
+                            <h4> Invoice </h4>
                         </div>
                         <div class="col-md-3 right">
-                            <%= link_to "Update", listing_invoice_path(invoice), class: "btn btn-form" %>
+                            <%= link_to "Update", attachment_upload_invoice_path(invoice), class: "btn btn-form" %>
                         </div>
                     </div>
                     <hr/>
