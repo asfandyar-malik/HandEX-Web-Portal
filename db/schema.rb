@@ -12,37 +12,24 @@
 
 ActiveRecord::Schema.define(version: 2018_06_16_005551) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "attachments", force: :cascade do |t|
-    t.integer "invoice_id"
+    t.bigint "invoice_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
     t.index ["invoice_id"], name: "index_attachments_on_invoice_id"
   end
 
   create_table "documents", force: :cascade do |t|
-    t.boolean "belong_me"
-    t.boolean "defect_free"
-    t.boolean "delivered_specific_date"
-    t.integer "currency"
-    t.integer "grand_total_invoice_value"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "document_type"
     t.string "year"
-    t.string "description"
-    t.index ["user_id"], name: "index_documents_on_user_id"
-  end
-
-  create_table "invoice_attachments", force: :cascade do |t|
-    t.integer "invoice_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["invoice_id"], name: "index_invoice_attachments_on_invoice_id"
+    t.string "description"
+    t.index ["user_id"], name: "index_documents_on_user_id"
   end
 
   create_table "invoices", force: :cascade do |t|
@@ -53,12 +40,12 @@ ActiveRecord::Schema.define(version: 2018_06_16_005551) do
     t.integer "grand_total_invoice_value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_invoices_on_user_id"
   end
 
   create_table "photos", force: :cascade do |t|
-    t.integer "document_id"
+    t.bigint "document_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_file_name"
@@ -95,4 +82,8 @@ ActiveRecord::Schema.define(version: 2018_06_16_005551) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "attachments", "invoices"
+  add_foreign_key "documents", "users"
+  add_foreign_key "invoices", "users"
+  add_foreign_key "photos", "documents"
 end
