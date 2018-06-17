@@ -16,7 +16,7 @@
 
 </ul>
 
-<% is_ready = !@invoice.belong_me%>
+<% is_ready = !@invoice.belong_me && !@invoice.defect_free && !@invoice.delivered_specific_date %>
 
 
 <%= form_for @invoice do |f| %>

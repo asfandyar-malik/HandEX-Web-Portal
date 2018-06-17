@@ -16,10 +16,10 @@
 
 </ul>
 
-<% is_ready = !@document.belong_me%>
-
+<% is_ready = !@document.photos && !@document.description %>
 
 <%= form_for @document do |f| %>
     <%= f.hidden_field :active, value: true %>
     <%= f.submit "Publish", id: "publish_button", class: "btn btn-normal btn-block" %>
+
 <% end %>
