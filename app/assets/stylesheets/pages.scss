@@ -1,3 +1,382 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pp-logo {
+  position: absolute;
+  left: 15px;
+  top: 10px;
+  width: 120px;
+  z-index: 100;
+}
+
+.pp-logo img {
+  width: 120px;
+  padding-left: 15px;
+  padding-top: 10px
+}
+
+.wistia_responsive_padding {
+  padding: 56.25% 0 0 0;
+  position: relative;
+}
+
+.wistia_responsive_wrapper {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.wistia_embed wistia_async_6c5z1s88ne {
+  height:100%;
+  width:100%
+}
+
+.no_watermark{
+  pointer-events: none;
+}
+
+
+////more button///
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.weiter {
+  position: absolute;
+  top: 500px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #EE3769;
+  border-radius: 8px;
+  height: 2.8em;
+  width: 10em;
+  padding: 0;
+  outline: none;
+  overflow: hidden;
+  color: #EE3769;
+  -webkit-transition: color 0.3s 0.1s ease-out;
+  transition: color 0.3s 0.1s ease-out;
+  text-align: center;
+  line-height: 250%;
+  z-index: 100;
+}
+.weiter::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  content: '';
+  border-radius: 50%;
+  display: block;
+  width: 20em;
+  height: 20em;
+  line-height: 20em;
+  left: -5em;
+  text-align: center;
+  -webkit-transition: box-shadow 0.5s ease-out;
+  transition: box-shadow 0.5s ease-out;
+  z-index: -1;
+}
+.weiter:hover {
+  color: #fff;
+}
+.weiter:hover::before {
+  box-shadow: inset 0 0 0 10em #ee3769;
+}
+
+//For the contact page maps
+#contact_map {
+  height: 400px;
+  width: 100%;
+}
+
+
+/////////About Us///////////////////////////////////
+
+.aboutus {
+  *:focus {outline: none;}
+
+
+  /*-------------Form-------------*/
+  .overlay{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color:#105268;
+    opacity:0;
+    visibility: hidden;
+    z-index:100;
+    width: 0;
+    max-width: 300px;
+    height:0;
+    max-height:350px;
+    background: #ecf0f1;
+    padding:20px;
+    border-radius:6px;
+    box-shadow:.3em .3em .4em #000;
+  }
+  .overlay.open{
+    width:100%;
+    height:100%;
+    visibility: visible;
+    transition:opacity .4s  .2s ease-out;
+    opacity:1;
+  }
+  .close-button {
+    display: inline-block;
+    float:right;
+    width: 2em;
+    height: 2em;
+    border: 0.1em solid pink;
+    font-size: .8em;
+    border-radius: 50%;
+    position: relative;
+    transition: 0.5s;
+    transform: translateZ(0);
+    transform: rotate(225deg);
+  }
+  .close-button:before {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: #ED2460;
+    width: 80%;
+    height: 6%;
+    left: 10%;
+    top: 47%;
+  }
+  .close-button:after {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: #ED2460;
+    width: 6%;
+    height: 80%;
+    left: 47%;
+    top: 10%;
+  }
+  .close-button:hover{
+    cursor:pointer;
+    background-color:#ED2460;
+  }
+  .close-button:hover:before, .close-button:hover:after{
+    background-color:#fff;
+  }
+
+  /*-------------Sign up page-------------*/
+  input,textarea{
+    border:2px solid #2c3e50;
+    font-size:0.8em;
+    background-color: #ecf0f1;
+    //color:#2c3e50;
+    margin-bottom:8px;
+    width:100%;
+    max-width:100%;
+  }
+  input{
+    width:65%;
+  }
+  input:focus,input:active,textarea:focus,textarea:active{
+    //background-color: #2c3e50;
+    //color:#ecf0f1;
+  }
+  input:invalid{
+    border-color:#b31800;
+  }
+  .btn-send{
+    color:#ED2460;
+    background:#ecf0f1;
+    border: 3px solid #ED2460;
+    transition:all 0.3s;
+    position:relative;
+    float:right;
+  }
+  .btn-send:hover, .btn-send:active {
+    color: #fff;
+    background: #ED2460;
+  }
+  /*-------------Trigger Button-------------*/
+
+  .circle {
+    //position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    width: 100px;
+    background: #ED2460;
+    border: 4px solid #ED2460;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+    transition:border-radius .3s cubic-bezier(.3,-0.26,.4,1.3), height .3s cubic-bezier(.3,-0.26,.4,1.3),width .3s cubic-bezier(.3,-0.26,.4,1.3);
+  }
+  .circle:hover {
+    background: #ED2460;
+    border-color:#ED2460;
+  }
+  .circle.open{
+    border-radius:0;
+    height:100%;
+    width:100%;
+  }
+  .circle.open:hover{
+    background-color:#ED2460;
+    border-color:#ED2460;
+  }
+  .envelope {
+    height: 0;
+    width: 0;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom: 20px solid white;
+    border-left: 30px solid white;
+    border-right: 30px solid white;
+    border-top: 20px solid transparent;
+    margin: auto;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin-top:-15px;
+
+
+    //position: absolute;
+  }
+  .envelope-top {
+    height: 0;
+    width: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-top: 20px solid white;
+    margin:auto;
+    top:0;
+    left:0;
+    right:0;
+    bottom:35px;
+    margin-top:15px
+    //position: absolute;
+
+  }
+  .circle:hover .envelope-top{
+    transform:rotateX(180deg);
+    top:-75px;
+    transition:top 0.4s ease-in-out, transform 0.4s ease-in-out;
+  }
+
+}
+
+
+// Countdown for coming soon page
+#coming_soon {
+  background: #485563;
+  background: linear-gradient(
+                  to left,
+                  #485563,
+                  #29323c);
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  background-position: center;
+  font-family: 'Space Mono', monospace;
+}
+
+h1 {
+  color: #fff;
+  font-size: 68px;
+  font-size: 5.5vw;
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  letter-spacing: 8px;
+}
+
+h1 span:nth-child(6) {
+  margin-right: 30px;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 27px;
+  font-size: 2vw;
+  margin: 0 auto;
+  width: 100%;
+  //text-align: center;
+}
+
+.subtitle span {
+  opacity: 0;
+}
+
+ul {
+  list-style: none;
+  display: block;
+}
+
+a {
+  color: #fd3267;
+}
+
+.wrapper {
+  min-height: 500px;
+}
+
+.logo {
+  text-align: center;
+  width: 100%;
+}
+
+ul.countdown {
+  opacity: 0;
+  margin-top: 40px;
+  text-align: center;
+  padding: 0;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+ul.countdown li {
+  display: inline-block;
+  margin-right: 3%;
+  text-align: center;
+}
+
+ul.countdown li span {
+  font-size: 72px;
+  font-size: 5.8vw;
+  width: 150px;
+  letter-spacing: 5px;
+  font-weight: 300;
+  color: #fff;
+}
+
+ul.countdown li p {
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
+ul.countdown li:last-child {
+  margin-right: 0;
+}
+
+.time_ref {
+  color: #e97b97
+}
+

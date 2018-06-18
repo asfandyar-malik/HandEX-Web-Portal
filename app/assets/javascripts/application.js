@@ -13,6 +13,9 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require rails-ujs
+//= require twitter/bootstrap
 //= require activestorage
 //= require toastr
+//= require owl.carousel
+//= require mixitup
 //= require_tree .

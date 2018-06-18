@@ -1,36 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="zxx" class="no-js">
 <head>
-  <title>PalsPlate</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="fav.png">
+    <!-- Author Meta -->
+    <meta name="author" content="CodePixar">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Agency</title>
 
-  <!--&lt;!&ndash;Custom CSS&ndash;&gt;-->
-  <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%#= javascript_include_tag('vendor/bootstrap.min.js') %>
+    <%= javascript_include_tag('vendor/jquery-2.2.4.min.js') %>
+    <%#= javascript_include_tag('jquery.sticky.js') %>
+    <%#= javascript_include_tag('jquery.ajaxchimp.min.js') %>
+    <%#= javascript_include_tag('owl.carousel.min.js') %>
+    <%#= javascript_include_tag('mixitup.min.js') %>
+    <%#= javascript_include_tag('main.js') %>
 
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+    <%= csrf_meta_tags %>
 
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
-  <script src="https://fast.wistia.com/embed/medias/6c5z1s88ne.jsonp" async></script>
-  <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
-
-  <%= stylesheet_link_tag params[:controller] %>
-
-  <%= csrf_meta_tags %>
-  <%= render :partial => 'layouts/google_analytics' %>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,500,600" rel="stylesheet">
+    <!--
+    CSS
+    ============================================= -->
+    <link rel="stylesheet" href="css/linearicons.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-
-<%= render 'shared/message' %>
-
 <%= yield %>
-
 </body>
 </html>
