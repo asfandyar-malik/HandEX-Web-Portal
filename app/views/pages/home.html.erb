@@ -3,9 +3,9 @@
 <header class="default-header">
     <div class="sticky-header">
         <div class="container">
-            <div class="header-content d-flex justify-content-between align-items-center">
+            <div class="header-content d-flex  ">
                 <div class="logo">
-                    <a href="#top" class="smooth"><%= image_tag "logo.png" %></a>
+                    <a href="#top" class="smooth"><%= image_tag "logo5_resize.png" %></a>
                 </div>
                 <div class="right-bar d-flex align-items-center">
                     <nav class="d-flex align-items-center">
@@ -53,15 +53,71 @@
     </div>
 </section>
 <!-- End Banner Area -->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!-- End Digital Studio -->
+<section class="hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-md-offset-0 col-sm-offset-1 col-sm-10">
+                <div class="hero-text">
+                    <h1> <span class="big-title"> GET LOAN HERE</span> </h1>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="arrow">
+                    <%#= image_tag("s1.jpg", :class => "img-fluid") %>
+
+                    <%= image_tag "arrow.png", :alt => "arrow" %>
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-12">
+                <div class="hero-form">
+                    <h2>GET A LOAN</h2>
+                    <h6>SCHNELL, EINFACH, ZUVERLÄSSIG</h6>
+                    <form method="post" id="contactform">
+                        <div class="form-group form-group-lg">
+                            <label class="sr-only" >Full Name</label>
+                            <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Full Name" required="required">
+                        </div>
+                        <div class="form-group form-group-lg">
+                            <label class="sr-only">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email ID" required="required">
+                        </div>
+                        <div class="form-group form-group-lg">
+                            <label class="sr-only" >Phone No</label>
+                            <input type="text" class="form-control" id="phoneNo" name="phoneNo" placeholder="Phone No" required="required">
+                        </div>
+                        <div class="form-group form-group-lg">
+                            <label class="sr-only" >ZIP Code</label>
+                            <input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="ZIP Code" required="required">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">SIGN UP</button>
+                    </form>
+                    <p>We promise your details are secure with us.</p>
+                    <p class="form-message"></p>
+                </div>
+            </div>
+        </div> <!-- Hero Row End -->
+    </div> <!-- Hero Container End -->
+</section> <!-- Hero Section End -->
 <!-- Start About Area -->
 <section class="section-full gray-bg">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="section-title text-center">
-                    <p class="text-uppercase">About Our Digital Agency</p>
-                    <h3>Plantronics with its GN Netcom <b>wireless headset</b> creates the next generation of wireless
-                        headset and other products such as wireless amplifiers, and <b>wireless headset</b> telephone.
+                    <h1 class="text-uppercase"> WIE WIR ARBEITEN </h1>
+                    <h3>Wir finanzieren den Warenbestand unserer Kunden und bezahlen den Lieferanten sofort aus. Unsere Kunden gewinnen somit Zeit um die Rechnung zu begleichen. Wir agieren als Zwischenhändler in dieser Transaktion und eröffnen neue Möglichkeiten für Händler und Lieferanten..
                     </h3>
                 </div>
             </div>
@@ -116,14 +172,14 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-lg-3 col-sm-6">
                 <div class="single-product">
                     <div class="icon">
-                        <span class="lnr lnr-star"></span>
+                `        <span class="lnr lnr-star"></span>
                     </div>
                     <div class="desc">
-                        <h4>Unique Design</h4>
+                        <h4>SCHNELL</h4>
                         <p>Most people who work in an office environment, buy computer products, or have </p>
                     </div>
                 </div>
@@ -134,7 +190,7 @@
                         <span class="lnr lnr-magic-wand"></span>
                     </div>
                     <div class="desc">
-                        <h4>Appropriate UX</h4>
+                        <h4>ZUVERLÄSSIG</h4>
                         <p>Today, many people rely on computers to do homework, work, and create or store useful</p>
                     </div>
                 </div>
@@ -145,19 +201,8 @@
                         <span class="lnr lnr-sun"></span>
                     </div>
                     <div class="desc">
-                        <h4>Perfect Visual</h4>
+                        <h4>EINFACH</h4>
                         <p>Having a baby can be a nerve wracking experience for new parents – not the nine months </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-product">
-                    <div class="icon">
-                        <span class="lnr lnr-layers"></span>
-                    </div>
-                    <div class="desc">
-                        <h4>Different Layout</h4>
-                        <p>It won’t be a bigger problem to find one video game lover in your neighbor. Since the </p>
                     </div>
                 </div>
             </div>
@@ -267,7 +312,7 @@
                 <div class="single-member">
 <!--                    <div class="thumb relative" style="background: url(t1.jpg);">-->
 <!--                        <div class="thumb relative" style="background: <%#= image_tag "t1.jpg" %>;">-->
-                    <div class="thumb relative" style="background: url(<%= asset_path 't1.jpg' %>);">
+                    <div class="thumb relative" style="background: url(<%= asset_path 'asfandyar.jpg' %>);">
                     <div class="overlay overlay-member d-flex flex-column justify-content-end align-items-center">
                             <p class="text-white">This article is floated online with an aim to help you find the best
                                 dvd printing solution. Dvd</p>
@@ -281,7 +326,7 @@
                     </div>
                     <div class="desc text-center">
                         <h5 class="text-uppercase"><a href="#"> Asfandyar Malik </a></h5>
-                        <p> Software Developer </p>
+                        <p> Engineer </p>
                     </div>
                 </div>
             </div>
@@ -289,7 +334,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="single-member">
 <!--                    <div class="thumb relative" style="background: url(t2.jpg);">-->
-                        <div class="thumb relative" style="background: url(<%= asset_path 't2.jpg' %>);">
+                        <div class="thumb relative" style="background: url(<%= asset_path 'vincent.jpg' %>);">
 
 
                         <div class="overlay overlay-member d-flex flex-column justify-content-end align-items-center">
@@ -313,7 +358,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="single-member">
 <!--                    <div class="thumb relative" style="background: url(t4.jpg);">-->
-                        <div class="thumb relative" style="background: url(<%= asset_path 't4.jpg' %>);">
+                        <div class="thumb relative" style="background: url(<%= asset_path 'patrick.png' %>);">
                         <div class="overlay overlay-member d-flex flex-column justify-content-end align-items-center">
                             <p class="text-white">This article is floated online with an aim to help you find the best
                                 dvd printing solution. Dvd</p>
@@ -356,107 +401,15 @@
         </div>
     </div>
 </section>
-<!-- End Digital Studio -->
-<!-- Start Pricing Area -->
-<section class="section-full">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="product-area-title text-center">
-                    <p class="text-uppercase">Creative People</p>
-                    <h2 class="h1">Team work builds trust and <br> trust builds growth</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="single-pricing-table">
-                    <div class="top">
-                        <div class="head text-center">
-                            <span class="lnr lnr-shirt"></span><br>
-                            <h5 class="text-white text-uppercase">Standard</h5>
-                        </div>
-                        <div class="package text-center">
-                            <div class="price">£199</div>
-                            <span class="text-white">Per month</span>
-                        </div>
-                    </div>
 
-                    <div class="bottom text-center">
-                        <ul class="feature text-center">
-                            <li>2.5 GB Photos</li>
-                            <li>Secure Online Transfer</li>
-                            <li>Unlimited Styles</li>
-                            <li>Customer Service</li>
-                            <li>Manual Backup</li>
-                        </ul>
-                        <a href="#" class="primary-btn text-uppercase d-inline-flex align-items-center">Purchase<span class="lnr lnr-arrow-right"></span></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="single-pricing-table">
-                    <div class="top">
-                        <div class="head text-center">
-                            <span class="lnr lnr-shirt"></span><br>
-                            <h5 class="text-white text-uppercase">Business</h5>
-                        </div>
-                        <div class="package text-center">
-                            <div class="price">£399</div>
-                            <span class="text-white">Per month</span>
-                        </div>
-                    </div>
 
-                    <div class="bottom text-center">
-                        <ul class="feature text-center">
-                            <li>2.5 GB Photos</li>
-                            <li>Secure Online Transfer</li>
-                            <li>Unlimited Styles</li>
-                            <li>Customer Service</li>
-                            <li>Manual Backup</li>
-                        </ul>
-                        <a href="#" class="primary-btn text-uppercase d-inline-flex align-items-center">Purchase<span class="lnr lnr-arrow-right"></span></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="single-pricing-table">
-                    <div class="top">
-                        <div class="head text-center">
-                            <span class="lnr lnr-apartment"></span>
-                            <h5 class="text-white text-uppercase">Ultimate</h5>
-                        </div>
-                        <div class="package text-center">
-                            <div class="price">£499</div>
-                            <span class="text-white">Per month</span>
-                        </div>
-                    </div>
-
-                    <div class="bottom text-center">
-                        <ul class="feature text-center">
-                            <li>2.5 GB Photos</li>
-                            <li>Secure Online Transfer</li>
-                            <li>Unlimited Styles</li>
-                            <li>Customer Service</li>
-                            <li>Manual Backup</li>
-                        </ul>
-                        <a href="#" class="primary-btn text-uppercase d-inline-flex align-items-center">Purchase<span class="lnr lnr-arrow-right"></span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Pricing Area -->
 <footer class="section-full">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-sm-6">
                 <div class="single-footer-widget">
                     <h6 class="text-white text-uppercase mb-20"> About HandEX </h6>
-                    <p>The world has become so fast paced that people don’t want to stand by reading a page of
-                        information, they would much rather look at a presentation and understand the message. It has
-                        come to a point </p>
+                    <p> We enable SME's (TODO) </p>
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6">
@@ -512,7 +465,7 @@
             </div>
         </div>
         <div class="footer-bottom d-flex justify-content-between align-items-center">
-            <p class="footer-text m-0">Copyright &copy; 2017 | All rights reserved to <a href="#">Handex GmbH.</a>
+            <p class="footer-text m-0">Copyright &copy; 2018 | All rights reserved to <a href="#">Handex GmbH.</a>
                 Designed by <a href="https://colorlib.com/wp">Colorlib</a>.</p>
             <div class="footer-social d-flex align-items-center">
                 <a href="#"><i class="fa fa-facebook"></i></a>
