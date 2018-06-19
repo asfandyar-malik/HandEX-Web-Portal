@@ -17,3 +17,9 @@ Rails.application.config.assets.precompile += %w( pages.css )
 
 Rails.application.config.assets.precompile += %w( vendor/bootstrap.min.js)
 Rails.application.config.assets.precompile += %w( vendor/jquery-2.2.4.min.js)
+
+Rails.application.config.assets.precompile += %w( jquery.sticky.js)
+Rails.application.config.assets.precompile += %w( owl.carousel.min.js )
+Rails.application.config.assets.precompile += %w( jquery.ajaxchimp.min.js )
+Rails.application.config.assets.precompile += %w( mixitup.min.js )
+Rails.application.config.assets.precompile += %w( main.js )

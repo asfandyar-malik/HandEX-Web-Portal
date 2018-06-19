@@ -1096,7 +1096,7 @@ td, th {
 }
 
 .banner-area {
-  background: url(../img/banner.jpg) no-repeat center center/cover;
+  background: asset-data-url("banner.jpg") no-repeat center center/cover;
 }
 
 .banner-area .overlay-bg {
@@ -1239,35 +1239,37 @@ td, th {
 }
 
 .single-filter-content.content-1 {
-  background: url(../img/c1.jpg) no-repeat center center/cover;
+  //background: url(../img/c1.jpg) no-repeat center center/cover;
+  background: asset-data-url("c1.jpg") no-repeat center center/cover;
+
 }
 
 .single-filter-content.content-2 {
-  background: url(../img/c2.jpg) no-repeat center center/cover;
+  background: asset-data-url("c2.jpg") no-repeat center center/cover;
 }
 
 .single-filter-content.content-3 {
-  background: url(../img/c3.jpg) no-repeat center center/cover;
+  background: asset-data-url("c3.jpg") no-repeat center center/cover;
 }
 
 .single-filter-content.content-4 {
-  background: url(../img/c4.jpg) no-repeat center center/cover;
+  background: asset-data-url("c4.jpg") no-repeat center center/cover;
 }
 
 .single-filter-content.content-5 {
-  background: url(../img/c5.jpg) no-repeat center center/cover;
+  background: asset-data-url("c5.jpg") no-repeat center center/cover;
 }
 
 .single-filter-content.content-6 {
-  background: url(../img/c6.jpg) no-repeat center center/cover;
+  background: asset-data-url("c6.jpg") no-repeat center center/cover;
 }
 
 .single-filter-content.content-7 {
-  background: url(../img/c7.jpg) no-repeat center center/cover;
+  background: asset-data-url("c7.jpg") no-repeat center center/cover;
 }
 
 .single-filter-content.content-8 {
-  background: url(../img/c8.jpg) no-repeat center center/cover;
+  background: asset-data-url("c8.jpg")no-repeat center center/cover;
 }
 
 .single-member {
@@ -1370,7 +1372,7 @@ td, th {
   top: 0;
   width: 50%;
   height: 100%;
-  background: url(../img/studio-bg.jpg) no-repeat center center/cover;
+  background: asset-data-url("studio-bg.jpg") no-repeat center center/cover;
   z-index: 1;
 }
 

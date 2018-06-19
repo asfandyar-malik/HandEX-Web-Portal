@@ -171,6 +171,7 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
     pg (1.0.0)
+    popper_js (1.12.9)
     public_suffix (3.0.2)
     puma (3.11.4)
     rack (2.0.5)
@@ -236,6 +237,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sticky-rails (1.0.3)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
       ref
@@ -287,12 +289,14 @@ DEPENDENCIES
   owlcarousel-rails
   paperclip (~> 5.1.0)
   pg
+  popper_js (~> 1.11, >= 1.11.1)
   puma (~> 3.11)
   rails (~> 5.2.0)
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
+  sticky-rails
   therubyracer
   toastr-rails (~> 1.0)
   turbolinks (~> 5)
