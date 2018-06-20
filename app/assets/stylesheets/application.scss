@@ -12,7 +12,11 @@
  *
  *= require font-awesome
  *= require_self
- *= require_tree
+ *= require css/animate
+ *= require css/bootstrap
+ *= require css/linearicons
+ *= require css/main
+ *= require css/owl.carousel
  */
 
 @import "bootstrap-sprockets";
