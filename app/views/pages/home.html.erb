@@ -84,19 +84,26 @@
                 <div class="hero-form">
                     <h2>GET A LOAN</h2>
                     <h6>SCHNELL, EINFACH, ZUVERLÄSSIG</h6>
+
+
                     <form method="post" id="contactform">
+
                         <div class="form-group form-group-lg">
                             <label class="sr-only" >Full Name</label>
                             <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Firmenname" required="required">
                         </div>
+
                         <div class="form-group form-group-lg">
                             <label class="sr-only">Email</label>
                             <input type="email" class="form-control" id="email" name="email" placeholder="Email Adresse" required="required">
                         </div>
 <!--                        <button type="submit" class="btn btn-primary btn-lg btn-block">SIGN UP</button>-->
-                        <%= button_to "SIGN UP", new_document_path, method: :get, class: "btn btn-primary btn-lg btn-block" %>
+                        <%#= button_to "SIGN UP", new_document_path, method: :get, class: "btn btn-primary btn-lg btn-block" %>
+
+                        <a class="btn btn-primary btn-lg btn-block" href="/registration" ><b><%= t('sign_up')%></b></a>
 
                     </form>
+
                     <p>We promise your details are secure with us.</p>
                     <p class="form-message"></p>
                 </div>
