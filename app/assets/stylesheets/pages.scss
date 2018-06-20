@@ -339,8 +339,14 @@ a {
 }
 
 .logo {
-  text-align: center;
+  position: relative;
   width: 100%;
+}
+
+.logo topLeft {
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 
 ul.countdown {
