@@ -1,6 +1,12 @@
 class RegistrationsController < Devise::RegistrationsController
-  protected
-  def update_resource(resource, params)
-    resource.update_without_password(params)
-  end
+
+    def after_inactive_sign_up_path_for(resource)
+        new_user_confirmation_path(session[:params])
+    end
+
+    protected
+
+    def update_resource(resource, params)
+        resource.update_without_password(params)
+    end
 end
