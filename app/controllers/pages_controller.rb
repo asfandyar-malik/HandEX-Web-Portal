@@ -1,4 +1,18 @@
 class PagesController < ApplicationController
-  def home
-  end
+
+    def home
+        render :layout => "home.html.erb"
+    end
+
+    def aboutus
+    end
+
+    def contact
+    end
+
+    def impressum
+    end
+
+    def coming_soon
+    end
 end

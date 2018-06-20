@@ -10,7 +10,7 @@ gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '>= 5.0.6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -64,6 +64,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'devise', '~> 4.3'
 gem 'jquery-rails'
+gem 'sticky-rails'
 
 gem 'toastr-rails', '~> 1.0'
 gem 'omniauth', '~> 1.6'
@@ -72,3 +73,13 @@ gem 'omniauth-facebook', '~> 4.0'
 gem 'paperclip', '~> 5.1.0'
 
 gem 'geocoder', '~> 1.4'
+
+gem 'therubyracer'
+gem 'less-rails-bootstrap'
+gem "font-awesome-rails"
+gem 'owlcarousel-rails'
+gem 'mixitup_rails'
+
+gem 'popper_js', '~> 1.11', '>= 1.11.1'
+
+gem "sprockets", '3.6.3'

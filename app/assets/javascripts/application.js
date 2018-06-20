@@ -11,8 +11,13 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.sticky.js
+//= require twitter/bootstrap
 //= require bootstrap-sprockets
+//= require popper
 //= require rails-ujs
 //= require activestorage
 //= require toastr
+//= require owl.carousel
+//= require mixitup
 //= require_tree .

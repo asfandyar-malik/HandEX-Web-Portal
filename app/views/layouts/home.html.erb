@@ -1,36 +1,43 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>PalsPlate</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+<html lang="zxx" class="no-js">
+    <head>
+        <!-- Mobile Specific Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Favicon-->
+    <!--    <link rel="shortcut icon" href="fav.png" /> (favicon_link_tag)-->
 
-  <!--&lt;!&ndash;Custom CSS&ndash;&gt;-->
-  <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <%= favicon_link_tag 'fav.png' %>
 
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
 
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <!-- Author Meta -->
+        <meta name="author" content="CodePixar">
+        <!-- Meta Description -->
+        <meta name="description" content="">
+        <!-- Meta Keyword -->
+        <meta name="keywords" content="">
+        <!-- meta character set -->
+        <meta charset="UTF-8">
+        <!-- Site Title -->
+        <title>HandEX</title>
 
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
-  <script src="https://fast.wistia.com/embed/medias/6c5z1s88ne.jsonp" async></script>
-  <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
+        <%= stylesheet_link_tag    'application', "https://fonts.googleapis.com/css?family=Poppins:300,500,600", media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag('vendor/bootstrap.min.js') %>
+        <%= javascript_include_tag('vendor/jquery-2.2.4.min.js') %>
+        <%= javascript_include_tag('jquery.sticky.js') %>
+        <%= javascript_include_tag('jquery.ajaxchimp.min.js') %>
+        <%= javascript_include_tag('owl.carousel.min.js') %>
+        <%= javascript_include_tag('mixitup.min.js') %>
+        <%= javascript_include_tag('main.js') %>
 
-  <%= stylesheet_link_tag params[:controller] %>
+        <%= csrf_meta_tags %>
 
-  <%= csrf_meta_tags %>
-  <%= render :partial => 'layouts/google_analytics' %>
-</head>
-<body>
+<!--        <link href="https://fonts.googleapis.com/css?family=Poppins:300,500,600" rel="stylesheet">-->
+    </head>
 
-<%= render 'shared/message' %>
 
-<%= yield %>
+    <body>
+        <%= yield %>
+    </body>
 
-</body>
 </html>
