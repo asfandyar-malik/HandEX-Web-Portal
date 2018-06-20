@@ -101,7 +101,7 @@
                             <a class="btn btn-primary btn-lg btn-block" href="/registration" ><b><%= t('sign_up')%></b></a>
 
                         <% else %>
-                            <%= flash[:notice] = "You are already signed in" %>
+                            <% flash[:notice] = "You are already signed in" %>
                             <a class="btn btn-primary btn-lg btn-block" href="/documents" >
                                 <b><%= t('sign_up')%></b>
                             </a>
