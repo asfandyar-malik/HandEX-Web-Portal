@@ -14,7 +14,6 @@
                             <li><a href="#services">Services</a></li>
                             <li><a href="#protfolio">Portfolio</a></li>
                             <li><a href="#team">Team</a></li>
-                            <li><a href="#blog">Blog</a></li>
                             <li><a href="#contact">Contact</a></li>
                         </ul>
                         <a href="#" class="mobile-btn"><span class="lnr lnr-menu"></span></a>
@@ -46,7 +45,7 @@
                 <div class="banner-content text-center">
                     <p class="text-uppercase text-white"> Schnell. Einfach. Zuverlässig. </p>
                     <h1 class="text-uppercase text-white"> WIR FINANZIEREN IHREN GLOBALEN HANDEL </h1>
-                    <a href="#" class="primary-btn banner-btn">Explore Us</a>
+                    <a href="/#services" class="primary-btn banner-btn"> Explore Us </a>
                 </div>
             </div>
         </div>
@@ -97,10 +96,17 @@
                             <label class="sr-only">Email</label>
                             <input type="email" class="form-control" id="email" name="email" placeholder="Email Adresse" required="required">
                         </div>
-<!--                        <button type="submit" class="btn btn-primary btn-lg btn-block">SIGN UP</button>-->
-                        <%#= button_to "SIGN UP", new_document_path, method: :get, class: "btn btn-primary btn-lg btn-block" %>
 
-                        <a class="btn btn-primary btn-lg btn-block" href="/registration" ><b><%= t('sign_up')%></b></a>
+                        <% if (!user_signed_in?) %>
+                            <a class="btn btn-primary btn-lg btn-block" href="/registration" ><b><%= t('sign_up')%></b></a>
+
+                        <% else %>
+                            <%= flash[:notice] = "You are already signed in" %>
+                            <a class="btn btn-primary btn-lg btn-block" href="/documents" >
+                                <b><%= t('sign_up')%></b>
+                            </a>
+                        <% end %>
+
 
                     </form>
 
