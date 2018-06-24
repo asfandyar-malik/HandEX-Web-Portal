@@ -150,6 +150,28 @@ h6, .h6 {
   color: #222222;
 }
 
+// Asfandyar Font
+h7, h8, .h7, .h8, h9, .h9 {
+  font-family: "Poppins", sans-serif;
+  color: #222222;
+  line-height: 1em;
+  margin-bottom: 0;
+  margin-top: 0;
+  font-weight: normal;
+}
+
+h7, .h7 {
+  font-size: 25px;
+}
+
+h8, .h8 {
+  font-size: 40px;
+}
+
+h9, .h9 {
+  font-size: 22px;
+}
+
 td, th {
   border-radius: 0px;
 }
@@ -552,7 +574,7 @@ td, th {
 }
 
 .section-full {
-  padding: 150px 0;
+  padding: 90px 0;
 }
 
 .section-half {
@@ -730,10 +752,9 @@ td, th {
 }
 
 .primary-btn {
-  line-height: 40px;
-  padding: 0 40px;
+  line-height: 60px;
+  padding: 0 60px;
   border-radius: 20px;
-  border: 1px solid #0076b4;
   color: #222222;
   display: inline-block;
   font-weight: 600;
@@ -749,8 +770,9 @@ td, th {
 }
 
 .primary-btn.banner-btn {
+  background: #0076b4;
   color: #fff;
-  margin-top: 60px;
+  margin-top: 30px;
 }
 
 .primary-btn span {
@@ -758,7 +780,7 @@ td, th {
 }
 
 .primary-btn:hover {
-  background: #0076b4;
+  background: #00ff8c;
   color: #fff;
   box-shadow: 0px 10px 20px 0px rgba(60, 64, 143, 0.2);
 }
@@ -1132,11 +1154,11 @@ td, th {
 }
 
 .title-bg {
-  background: #222222;
+  background: #FFFFFF;
 }
 
 .product-area-title {
-  padding-bottom: 70px;
+  padding-bottom: 50px;
 }
 
 @media (max-width: 991px) {
@@ -1148,7 +1170,7 @@ td, th {
 .single-product {
   margin-top: 30px;
   background: #fff;
-  border-bottom: 2px solid #0076b4;
+  border: 2px solid #00ff8c;
   padding: 70px 20px;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
@@ -1163,7 +1185,7 @@ td, th {
 
 .single-product .icon span {
   font-size: 48px;
-  color: #0076b4;
+  color: #00ff8c;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
@@ -1642,3 +1664,10 @@ footer .footer-nav li a:hover {
 .footer-bottom .footer-text a:hover {
   color: #00ff8c;
 }
+
+
+.text-background {
+  //background-color: rgba(1, 1, 0, 0.1);
+
+}
+
