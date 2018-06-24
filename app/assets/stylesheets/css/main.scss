@@ -770,7 +770,7 @@ td, th {
 }
 
 .primary-btn.banner-btn {
-  background: #0076b4;
+  background: #e00007;
   color: #fff;
   margin-top: 30px;
 }
@@ -1094,7 +1094,7 @@ td, th {
   margin: 0 5px;
   padding: 0 5px;
   display: inline-block;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 1);
 }
 
 .header-social a:hover {
@@ -1110,7 +1110,7 @@ td, th {
   margin: 0 5px;
   padding: 0 5px;
   display: inline-block;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 1);
 }
 
 .footer-social a:hover {
@@ -1267,40 +1267,6 @@ td, th {
 
 .single-filter-content:hover .overlay-bg-content {
   opacity: 1;
-}
-
-.single-filter-content.content-1 {
-  //background: url(../img/c1.jpg) no-repeat center center/cover;
-  background: asset-data-url("c1.jpg") no-repeat center center/cover;
-
-}
-
-.single-filter-content.content-2 {
-  background: asset-data-url("c2.jpg") no-repeat center center/cover;
-}
-
-.single-filter-content.content-3 {
-  background: asset-data-url("c3.jpg") no-repeat center center/cover;
-}
-
-.single-filter-content.content-4 {
-  background: asset-data-url("c4.jpg") no-repeat center center/cover;
-}
-
-.single-filter-content.content-5 {
-  background: asset-data-url("c5.jpg") no-repeat center center/cover;
-}
-
-.single-filter-content.content-6 {
-  background: asset-data-url("c6.jpg") no-repeat center center/cover;
-}
-
-.single-filter-content.content-7 {
-  background: asset-data-url("c7.jpg") no-repeat center center/cover;
-}
-
-.single-filter-content.content-8 {
-  background: asset-data-url("c8.jpg")no-repeat center center/cover;
 }
 
 .single-member {
