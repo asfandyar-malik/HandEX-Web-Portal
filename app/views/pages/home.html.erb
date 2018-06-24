@@ -51,122 +51,6 @@
     </div>
 </section>
 <!-- End Banner Area -->
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<!-- End Digital Studio -->
-<section class="hero">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5 col-md-offset-0 col-sm-offset-1 col-sm-10">
-                <div class="hero-text">
-                    <h1> <span class="big-title"> GET LOAN HERE</span> </h1>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="arrow">
-                    <%#= image_tag("s1.jpg", :class => "img-fluid") %>
-
-                    <%= image_tag "arrow.png", :alt => "arrow" %>
-                </div>
-            </div>
-            <div class="col-md-5 col-sm-12">
-                <div class="hero-form">
-                    <h2>GET A LOAN</h2>
-                    <h6>SCHNELL, EINFACH, ZUVERLÄSSIG</h6>
-
-
-                    <form method="post" id="contactform">
-
-                        <div class="form-group form-group-lg">
-                            <label class="sr-only" >Full Name</label>
-                            <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Firmenname" required="required">
-                        </div>
-
-                        <div class="form-group form-group-lg">
-                            <label class="sr-only">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Email Adresse" required="required">
-                        </div>
-
-                        <% if (!user_signed_in?) %>
-                            <a class="btn btn-primary btn-lg btn-block" href="/registration" ><b><%= t('sign_up')%></b></a>
-
-                        <% else %>
-                            <% flash[:notice] = "You are already signed in" %>
-                            <a class="btn btn-primary btn-lg btn-block" href="/documents" >
-                                <b><%= t('sign_up')%></b>
-                            </a>
-                        <% end %>
-
-
-                    </form>
-
-                    <p>We promise your details are secure with us.</p>
-                    <p class="form-message"></p>
-                </div>
-            </div>
-        </div> <!-- Hero Row End -->
-    </div> <!-- Hero Container End -->
-</section> <!-- Hero Section End -->
-<!-- Start About Area -->
-<section class="section-full gray-bg">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="section-title text-center">
-                    <h1 class="text-uppercase"> WIE WIR ARBEITEN </h1>
-                    <h3>Wir finanzieren den Warenbestand unserer Kunden und bezahlen den Lieferanten sofort aus. Unsere Kunden gewinnen somit Zeit um die Rechnung zu begleichen. Wir agieren als Zwischenhändler in dieser Transaktion und eröffnen neue Möglichkeiten für Händler und Lieferanten..
-                    </h3>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <figure class="signle-service">
-                    <%= image_tag("s1.jpg", :class => "img-fluid") %>
-<!--                    <img src="s1.jpg" class="img-fluid" alt="">-->
-                    <figcaption class="text-center">
-                        <h5 class="text-uppercase">Addiction Whit Gambling</h5>
-                        <p>It is a good idea to think of your PC as an office. It stores files, programs, pictures. This
-                            can be compared to an actual office’s files</p>
-                        <a href="#" class="primary-btn d-inline-flex align-items-center">Explore<span class="lnr lnr-arrow-right"></span></a>
-                    </figcaption>
-                </figure>
-            </div>
-            <div class="col-md-4">
-                <figure class="signle-service">
-                    <%= image_tag "s2.jpg", :class => "img-fluid" %>
-                    <figcaption class="text-center">
-                        <h5 class="text-uppercase">Headset No Longer Wired</h5>
-                        <p>If you are in the market for a computer, there are a number of factors to consider. Will it
-                            be used for your home, your office or perhaps </p>
-                        <a href="#" class="primary-btn d-inline-flex align-items-center">Explore<span class="lnr lnr-arrow-right"></span></a>
-                    </figcaption>
-                </figure>
-            </div>
-            <div class="col-md-4">
-                <figure class="signle-service">
-                    <%= image_tag "s3.jpg", :class => "img-fluid" %>
-                    <figcaption class="text-center">
-                        <h5 class="text-uppercase">Life Advice Looking At Window</h5>
-                        <p>Having a baby can be a nerve wrackingexp erience for new parents – not the nine months of
-                            pregnancy, I’m talking</p>
-                        <a href="#" class="primary-btn d-inline-flex align-items-center">Explore<span class="lnr lnr-arrow-right"></span></a>
-                    </figcaption>
-                </figure>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End About Area -->
 <!-- Start Product Area -->
 <section id="services" class="title-bg section-full">
     <div class="container">
@@ -216,11 +100,36 @@
     </div>
 </section>
 <!-- End Product Area -->
-<br>
-<br>
-<br>
-<br>
+<!-- Start Digital Studio -->
+<section class="section-full studio-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="studio-content">
+                    <p class="text-uppercase text-white">We provide best working capital option for SME's</p>
+                    <h2 class="h1 text-white text-uppercase mb-20">How you can benefit </h2>
+                    <p class="text-white mb-30">
+                        Maximise growth with steady access to working capital with our post-shipment finance.
+                    </p>
+                    <h4>
+                        <ol type="i", class="text-white mb-30">
+                            <br><li> Collateral free working capital</li>
+                            <br><li> Credit limit up to 1.5 Million Euros </li>
+                            <br><li> Advance of up to 80% invoice value</li>
+                            <br><li> Protection against buyer bankruptcy</li>
+                        </ol>
 
+                    </h4>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<br>
+<br>
+<br>
 <!-- Start Team member Area -->
 <section id="team" class="pb-150">
     <div class="container">
@@ -302,34 +211,6 @@
     </div>
 </section>
 <!-- End Team member Area -->
-
-<!-- Start Digital Studio -->
-<section class="section-full studio-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="studio-content">
-                    <p class="text-uppercase text-white">We provide best working capital option for SME's</p>
-                    <h2 class="h1 text-white text-uppercase mb-20">How you can benefit </h2>
-                    <p class="text-white mb-30">
-                        Maximise growth with steady access to working capital with our post-shipment finance.
-                    </p>
-                    <h4>
-                        <ol type="i", class="text-white mb-30">
-                            <br><li> Collateral free working capital</li>
-                            <br><li> Credit limit up to 1.5 Million Euros </li>
-                            <br><li> Advance of up to 80% invoice value</li>
-                            <br><li> Protection against buyer bankruptcy</li>
-                        </ol>
-
-                    </h4>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 
 <footer class="section-full">
     <div class="container">
