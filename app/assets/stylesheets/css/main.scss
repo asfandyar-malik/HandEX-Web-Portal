@@ -733,8 +733,7 @@ td, th {
   line-height: 40px;
   padding: 0 40px;
   border-radius: 20px;
-  background: transparent;
-  border: 1px solid #00ff8c;
+  border: 1px solid #0076b4;
   color: #222222;
   display: inline-block;
   font-weight: 600;
@@ -759,7 +758,7 @@ td, th {
 }
 
 .primary-btn:hover {
-  background: #00ff8c;
+  background: #0076b4;
   color: #fff;
   box-shadow: 0px 10px 20px 0px rgba(60, 64, 143, 0.2);
 }
@@ -976,9 +975,9 @@ td, th {
 }
 
 .is-sticky .sticky-header {
-  background: -moz-linear-gradient(left, rgba(60, 64, 143, 0.95) 0%, rgba(91, 97, 207, 0.95) 100%);
-  background: -webkit-linear-gradient(left, rgba(60, 64, 143, 0.95) 0%, rgba(91, 97, 207, 0.95) 100%);
-  background: linear-gradient(to right, rgba(60, 64, 143, 0.95) 0%, rgba(91, 97, 207, 0.95) 100%);
+  background: -moz-linear-gradient(left, rgb(34, 34, 34) 0%, rgb(34, 34, 34) 100%);
+  background: -webkit-linear-gradient(left, rgb(34, 34, 34) 0%, rgb(34, 34, 34) 100%);
+  background: linear-gradient(to right, rgb(34, 34, 34) 0%, rgb(34, 34, 34) 100%);
 }
 
 .search {
@@ -1149,7 +1148,7 @@ td, th {
 .single-product {
   margin-top: 30px;
   background: #fff;
-  border-bottom: 2px solid #00ff8c;
+  border-bottom: 2px solid #0076b4;
   padding: 70px 20px;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
@@ -1164,7 +1163,7 @@ td, th {
 
 .single-product .icon span {
   font-size: 48px;
-  color: #00ff8c;
+  color: #0076b4;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
@@ -1192,7 +1191,7 @@ td, th {
 }
 
 .single-product:hover {
-  background: #00ff8c;
+  background: #0076b4;
 }
 
 .single-product:hover .icon span, .single-product:hover .desc h4, .single-product:hover .desc p {
@@ -1208,11 +1207,11 @@ td, th {
 }
 
 .controls .filter:hover {
-  color: #00ff8c !important;
+  color: #0076b4 !important;
 }
 
 .controls .filter.active {
-  color: #00ff8c !important;
+  color: #0076b4 !important;
 }
 
 .single-filter-content {
@@ -1241,7 +1240,7 @@ td, th {
   margin: 10px 0 15px 0;
   width: 100%;
   height: 1px;
-  background: #00ff8c;
+  background: #0076b4;
 }
 
 .single-filter-content:hover .overlay-bg-content {
@@ -1364,7 +1363,7 @@ td, th {
   top: 0;
   width: 50%;
   height: 100%;
-  background: #404598;
+  background: #0076b4;
   z-index: 2;
 }
 
