@@ -780,8 +780,8 @@ td, th {
 }
 
 .primary-btn:hover {
-  background: #00ff8c;
-  color: #fff;
+  background: #ffff;
+  color: #e00007;
   box-shadow: 0px 10px 20px 0px rgba(60, 64, 143, 0.2);
 }
 
@@ -1634,6 +1634,10 @@ footer .footer-nav li a:hover {
 
 .text-background {
   //background-color: rgba(1, 1, 0, 0.1);
-
+  color: #fff;
 }
 
+.text-background:hover {
+  //background-color: rgba(1, 1, 0, 0.1);
+  //color: red;
+}
