@@ -23,7 +23,7 @@ class DocumentsController < ApplicationController
     end
 
     def show
-        @photos = @document.photosd
+        @photos = @document.photos
     end
 
     def description

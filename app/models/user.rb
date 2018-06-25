@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   has_many :documents
   has_many :invoices
+  has_many :tradeinfos
 
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first

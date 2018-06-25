@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_17_014051) do
+ActiveRecord::Schema.define(version: 2018_06_25_134432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,21 @@ ActiveRecord::Schema.define(version: 2018_06_17_014051) do
     t.index ["document_id"], name: "index_photos_on_document_id"
   end
 
+  create_table "tradeinfos", force: :cascade do |t|
+    t.string "exportinformation"
+    t.string "category"
+    t.string "companyName"
+    t.string "companyEmail"
+    t.string "companyPhone"
+    t.string "importerName"
+    t.string "importerEmail"
+    t.string "taxId"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_tradeinfos_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -90,4 +105,5 @@ ActiveRecord::Schema.define(version: 2018_06_17_014051) do
   add_foreign_key "documents", "users"
   add_foreign_key "invoices", "users"
   add_foreign_key "photos", "documents"
+  add_foreign_key "tradeinfos", "users"
 end
