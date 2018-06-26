@@ -126,7 +126,7 @@ h4, h5, h6 {
 }
 
 h1, .h1 {
-  font-size: 24px;
+  font-size: 34px;
 }
 
 h2, .h2 {
@@ -770,7 +770,7 @@ td, th {
 }
 
 .primary-btn.banner-btn {
-  background: #e00007;
+  background: #000cb4;
   color: #fff;
   margin-top: 30px;
 }
@@ -781,7 +781,7 @@ td, th {
 
 .primary-btn:hover {
   background: #ffff;
-  color: #e00007;
+  color: #000cb4;
   box-shadow: 0px 10px 20px 0px rgba(60, 64, 143, 0.2);
 }
 
@@ -1212,13 +1212,13 @@ td, th {
   transition: all 0.3s ease 0s;
 }
 
-.single-product:hover {
-  background: #0076b4;
-}
-
-.single-product:hover .icon span, .single-product:hover .desc h4, .single-product:hover .desc p {
-  color: #fff;
-}
+//.single-product:hover {
+//  background: #0076b4;
+//}
+//
+//.single-product:hover .icon span, .single-product:hover .desc h4, .single-product:hover .desc p {
+//  color: #fff;
+//}
 
 .controls .filter {
   margin: 0 20px 10px 20px;
@@ -1242,9 +1242,9 @@ td, th {
 }
 
 .single-filter-content .overlay-bg-content {
-  background: -moz-linear-gradient(left, rgba(60, 64, 143, 0.95) 0%, rgba(91, 97, 207, 0.95) 100%);
-  background: -webkit-linear-gradient(left, rgba(60, 64, 143, 0.95) 0%, rgba(91, 97, 207, 0.95) 100%);
-  background: linear-gradient(to right, rgba(60, 64, 143, 0.95) 0%, rgba(91, 97, 207, 0.95) 100%);
+  background: -moz-linear-gradient(left, rgba(0, 12, 180, 0.95) 0%, rgba(0, 12, 180, 0.95) 100%);
+  background: -webkit-linear-gradient(left, rgba(0, 12, 180, 0.95) 0%, rgba(0, 12, 180, 0.95) 100%);
+  background: linear-gradient(to right, rgba(0, 12, 180, 0.95) 0%, rgba(0, 12, 180, 0.95) 100%);
   text-align: center;
   padding: 50px 100px;
   opacity: 0;
@@ -1281,9 +1281,9 @@ td, th {
 }
 
 .single-member .thumb .overlay-member {
-  background: -moz-linear-gradient(left, rgba(60, 64, 143, 0.95) 0%, rgba(91, 97, 207, 0.95) 100%);
-  background: -webkit-linear-gradient(left, rgba(60, 64, 143, 0.95) 0%, rgba(91, 97, 207, 0.95) 100%);
-  background: linear-gradient(to right, rgba(60, 64, 143, 0.95) 0%, rgba(91, 97, 207, 0.95) 100%);
+  background: -moz-linear-gradient(left, rgba(0, 12, 180, 0.95) 0%, rgba(0, 12, 180, 0.95) 100%);
+  background: -webkit-linear-gradient(left, rgba(0, 12, 180, 0.95) 0%, rgba(0, 12, 180, 0.95) 100%);
+  background: linear-gradient(to right, rgba(0, 12, 180, 0.95) 0%, rgba(0, 12, 180, 0.95) 100%);
   text-align: center;
   padding: 30px;
   opacity: 0;
@@ -1351,13 +1351,13 @@ td, th {
   top: 0;
   width: 50%;
   height: 100%;
-  background: #0076b4;
+  background: #000cb4;
   z-index: 2;
 }
 
 @media (max-width: 991px) {
   .studio-area:before {
-    background: rgba(64, 69, 152, 0.95);
+    background: #000cb4;
     width: 100%;
   }
 }
