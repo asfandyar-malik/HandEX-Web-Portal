@@ -30,7 +30,7 @@
 
                     <div class="col-md-2 right">
                         <% if (user_signed_in?) %>
-                            <%= button_to "Customer Portal", documents_path, method: :get, class: "btn btn-big" %>
+                            <%= button_to "Customer Portal", new_tradeinfo_path, method: :get, class: "btn btn-big" %>
                         <% else %>
                             <%= button_to "Customer Portal", new_user_session_url, method: :get, class: "btn btn-big" %>
                         <% end %>
@@ -54,7 +54,7 @@
                     <% if (!user_signed_in?) %>
                         <a href="/registration" class="primary-btn banner-btn h9"> Check Eligibility </a>
                     <% else %>
-                        <a href="/documents" class="primary-btn banner-btn h9"> Check Eligibility </a>
+                        <a href="/tradeinfo/new" class="primary-btn banner-btn h9"> Check Eligibility </a>
                     <% end %>
                 </div>
             </div>

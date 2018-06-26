@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     resources :tradeinfos do
         member do
             get 'exportinformation'
+            get 'thank'
         end
     end
-
 end

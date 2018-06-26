@@ -32,16 +32,19 @@ class TradeinfosController < ApplicationController
     def edit
     end
 
+    def thank
+        # something here if needed
+    end
 
     # PATCH/PUT /tradeinfos/1
     # PATCH/PUT /tradeinfos/1.json
     def update
         if @tradeinfo.update(tradeinfo_params)
             flash[:notice] = "Saved ...."
+            redirect_to thank_tradeinfo_path
         else
             flash[:alert] = "Something went wrong"
         end
-        redirect_back(fallback_location: request.referer)
     end
 
     # DELETE /tradeinfos/1
@@ -65,9 +68,8 @@ class TradeinfosController < ApplicationController
         redirect_to root_path, alert: "You don't have permission" unless current_user.id = @tradeinfo.user_id
     end
 
-    # "exportinformation" "category""companyName""companyEmail""companyPhone""importerName""importerEmail" "taxId"
     def tradeinfo_params
-        params.require(:tradeinfo).permit()
+        params.require(:tradeinfo).permit(:goods, :category, :companyName, :companyEmail, :companyPhone, :importerName, :importerEmail, :taxId)
         # :exportinformation, :category, :companyName
         # params.fetch(:tradeinfo, {})
     end

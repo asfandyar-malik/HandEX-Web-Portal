@@ -6,7 +6,7 @@
         <div class="panel panel-default">
 
             <div class="panel-heading">
-                <%= @tradeinfo.exportinformation %> Export Details
+                Export Details
             </div>
 
             <div class="panel-body">
@@ -16,38 +16,38 @@
                         <div class="row">
                             <div class="form-group">
                                 <label>Company Name</label>
-                                <%= f.companyName :exportinformation, rows: 2, placeholder: "Company Name", class: "form-control", required: true %>
+                                <%= f.text_area :companyName, rows: 2, placeholder: "Company Name", class: "form-control", required: true %>
                             </div>
 
                             <div class="form-group">
                                 <label>Company Email</label>
-                                <%= f.companyEmail :exportinformation, rows: 2, placeholder: "Company Email", class: "form-control", required: true %>
+                                <%= f.text_area :companyEmail, rows: 2, placeholder: "Company Email", class: "form-control", required: true %>
                             </div>
 
                             <div class="form-group">
                                 <label>Company Phone</label>
-                                <%= f.companyPhone :exportinformation, rows: 2, placeholder: "Company Phone", class: "form-control", required: true %>
+                                <%= f.text_area :companyPhone, rows: 2, placeholder: "Company Phone", class: "form-control", required: true %>
                             </div>
 
                             <div class="form-group">
                                 <label>Importer Name</label>
-                                <%= f.importerName :exportinformation, rows: 2, placeholder: "Importer Name", class: "form-control", required: true %>
+                                <%= f.text_area :importerName, rows: 2, placeholder: "Importer Name", class: "form-control", required: true %>
                             </div>
 
                             <div class="form-group">
                                 <label>Importer Email</label>
-                                <%= f.importerEmail :exportinformation, rows: 2, placeholder: "Importer Email", class: "form-control", required: true %>
+                                <%= f.text_area :importerEmail, rows: 2, placeholder: "Importer Email", class: "form-control", required: true %>
                             </div>
 
                             <div class="form-group">
                                 <label>Tax Id</label>
-                                <%= f.taxId :exportinformation, rows: 2, placeholder: "Tax Id", class: "form-control", required: true %>
+                                <%= f.text_area :taxId, rows: 2, placeholder: "Tax Id", class: "form-control", required: true %>
                             </div>
 
                         </div>
 
                         <div class="text-left">
-                            <%= f.submit "Next", class: "btn btn-form" %>
+                            <%= f.submit "Submit", class: "btn btn-form" %>
                         </div>
 
                     <% end %>

@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2018_06_25_134432) do
   end
 
   create_table "tradeinfos", force: :cascade do |t|
-    t.string "exportinformation"
+    t.string "goods"
     t.string "category"
     t.string "companyName"
     t.string "companyEmail"

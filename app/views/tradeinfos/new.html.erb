@@ -6,7 +6,7 @@
         <div class="panel panel-default">
 
             <div class="panel-heading">
-                <%= @tradeinfo.exportinformation %> Export Details
+                 Export Details
             </div>
 
             <div class="panel-body">
@@ -16,7 +16,7 @@
                         <div class="row">
                             <div class="form-group">
                                 <label>What products do you export</label>
-                                <%= f.text_area :exportinformation, rows: 2, placeholder: "What products do you export", class: "form-control", required: true %>
+                                <%= f.text_area :goods, rows: 2, placeholder: "What goods do you export", class: "form-control", required: true %>
                             </div>
 
                             <div class="col-md-4 select">
