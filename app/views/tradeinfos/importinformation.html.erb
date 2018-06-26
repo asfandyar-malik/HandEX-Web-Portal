@@ -6,7 +6,7 @@
         <div class="panel panel-default">
 
             <div class="panel-heading">
-                Export Details
+                Import Details
             </div>
 
             <div class="panel-body">
@@ -15,24 +15,24 @@
 
                         <div class="row">
                             <div class="form-group">
-                                <label>Company Name</label>
-                                <%= f.text_area :companyName, rows: 2, placeholder: "Name of your company", class: "form-control", required: true %>
+                                <label>Importer's Name</label>
+                                <%= f.text_area :importerName, rows: 2, placeholder: "Name of Importer", class: "form-control", required: true %>
                             </div>
 
                             <div class="form-group">
-                                <label>Company Email</label>
-                                <%= f.text_area :companyEmail, rows: 2, placeholder: "Email of your company", class: "form-control", required: true %>
+                                <label>Email</label>
+                                <%= f.text_area :importerEmail, rows: 2, placeholder: "Email of Importer", class: "form-control", required: true %>
                             </div>
 
                             <div class="form-group">
-                                <label>Company Phone</label>
-                                <%= f.text_area :companyPhone, rows: 2, placeholder: "Phone number of your company", class: "form-control", required: true %>
+                                <label>Tax Id</label>
+                                    <%= f.text_area :taxId, rows: 2, placeholder: "Turnover tax id / EORI number", class: "form-control", required: true %>
                             </div>
 
                         </div>
 
                         <div class="text-left">
-                            <%= f.submit "Next", class: "btn btn-form" %>
+                            <%= f.submit "Publish", class: "btn btn-form" %>
                         </div>
 
                     <% end %>

@@ -15,23 +15,22 @@
 
                         <div class="row">
                             <div class="form-group">
-                                <label>What products do you export</label>
+                                <label>List of goods you export</label>
                                 <%= f.text_area :goods, rows: 2, placeholder: "What goods do you export", class: "form-control", required: true %>
                             </div>
 
-                            <div class="col-md-4 select">
+                            <div class="col-md-6 select">
                                 <div class="form-group">
                                     <label>What is the category of products exported?</label>
                                     <%= f.select :category, [["Aeronautical Engineering Products", "Aeronautical Engineering Products"], ["Agro Products", "Agro Products"], ["Bed Linen", "Bed Linen"],
-                                                             ["Cashews", "Cashews"], ["Chemicals", "Chemicals"], ["Coffee and Coffee Products", "Coffee and Coffee Products"],
-                                                             ["Cosmetics", "Cosmetics"], ["Cotton Yarn", "Cotton Yarn"],
-                                                             ["Cotton/Jute Bags", "Cotton/Jute Bags"], ["Engineering Products", "Engineering Products"],
-                                                             ["FMCGs", "FMCGs"], ["Frozen Meats", "Frozen Meats"],
-                                                             ["Grains", "Grains"], ["Pulses", "Pulses"], ["Granites", "Granites"], ["Herbs and Spices", "Herbs and Spices"]],
-                                                 id: "category", prompt: "Select...", class: "form-control" %>
+                                     ["Cashews", "Cashews"], ["Chemicals", "Chemicals"], ["Coffee and Coffee Products", "Coffee and Coffee Products"],
+                                     ["Cosmetics", "Cosmetics"], ["Cotton Yarn", "Cotton Yarn"],
+                                     ["Cotton/Jute Bags", "Cotton/Jute Bags"], ["Engineering Products", "Engineering Products"],
+                                     ["FMCGs", "FMCGs"], ["Frozen Meats", "Frozen Meats"],
+                                     ["Grains", "Grains"], ["Pulses", "Pulses"], ["Granites", "Granites"], ["Herbs and Spices", "Herbs and Spices"]],
+                                     id: "category", prompt: "Select..." %>
                                 </div>
                             </div>
-
                         </div>
 
                         <div class="text-left">

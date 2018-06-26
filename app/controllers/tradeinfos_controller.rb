@@ -18,14 +18,17 @@ class TradeinfosController < ApplicationController
     def create
         @tradeinfo = current_user.tradeinfos.build(tradeinfo_params)
         if @tradeinfo.save
-            redirect_to exportinformation_tradeinfo_path(@tradeinfo), notice: "Saved...."
+            redirect_to exportinformation_tradeinfo_path(@tradeinfo), notice: "Created...."
         else
-            flash[:alert] = "Something went wrong...."
+            flash[:alert] = "Something went wrong while creating...."
             render :new
         end
     end
 
     def exportinformation
+    end
+
+    def importinformation
     end
 
     # GET /tradeinfos/1/edit
@@ -40,10 +43,14 @@ class TradeinfosController < ApplicationController
     # PATCH/PUT /tradeinfos/1.json
     def update
         if @tradeinfo.update(tradeinfo_params)
-            flash[:notice] = "Saved ...."
-            redirect_to thank_tradeinfo_path
+            flash[:notice] = "Updated...."
+            if is_ready_third_step
+                redirect_to thank_tradeinfo_path
+            else
+                redirect_to importinformation_tradeinfo_path
+            end
         else
-            flash[:alert] = "Something went wrong"
+            flash[:alert] = "Something went wrong while updating"
         end
     end
 
@@ -72,6 +79,18 @@ class TradeinfosController < ApplicationController
         params.require(:tradeinfo).permit(:goods, :category, :companyName, :companyEmail, :companyPhone, :importerName, :importerEmail, :taxId)
         # :exportinformation, :category, :companyName
         # params.fetch(:tradeinfo, {})
+    end
+
+    def is_ready_first_step
+        @tradeinfo.goods && @tradeinfo.category
+    end
+
+    def is_ready_second_step
+        @tradeinfo.goods && @tradeinfo.category && @tradeinfo.companyName && @tradeinfo.companyEmail && @tradeinfo.companyPhone
+    end
+
+    def is_ready_third_step
+        @tradeinfo.goods && @tradeinfo.category && @tradeinfo.companyName && @tradeinfo.companyEmail && @tradeinfo.companyPhone && @tradeinfo.importerName && @tradeinfo.importerEmail && @tradeinfo.taxId
     end
 
 end
