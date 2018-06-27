@@ -42,6 +42,7 @@ Rails.application.routes.draw do
             get 'testTwo'
             get 'testThree'
             get 'testFour'
+            get 'testFive'
         end
     end
 end
