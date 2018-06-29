@@ -775,6 +775,52 @@ td, th {
   margin-top: 30px;
 }
 
+.primary-btn.banner-btn-test{
+  box-shadow: rgb(68, 68, 68) 0px 0px 0px 0px inset;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-decoration: none solid rgb(255, 255, 255);
+  text-size-adjust: 100%;
+  text-transform: uppercase;
+  column-rule-color: rgb(255, 255, 255);
+  caret-color: rgb(255, 255, 255);
+  background: rgb(39, 182, 124) none repeat scroll 0% 0% / auto padding-box border-box;
+  border: 0.996094px solid rgb(39, 182, 124);
+  border-radius: 3.34px 3.34px 3.34px 3.34px;
+  font: normal normal 400 normal 20px / 24px Lato, sans-serif;
+  margin: 0px 0px 0px 11px;
+  outline: rgb(255, 255, 255) none 0px;
+  overflow: hidden;
+  padding: 10px 15px;
+  padding-top: 10px;
+  transition: all 0.25s ease 0s;
+}
+
+.primary-btn.banner-btn-test:hover{
+  box-shadow: rgb(68, 68, 68) 0px 0px 0px 0px inset;
+  color: rgb(39, 182, 124);
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-decoration: none solid rgb(255, 255, 255);
+  text-size-adjust: 100%;
+  text-transform: uppercase;
+  column-rule-color: rgb(39, 182, 124);
+  caret-color: rgb(255, 255, 255);
+  background: rgb(255, 255, 255);
+  border: 0.996094px solid rgb(39, 182, 124);
+  border-radius: 3.34px 3.34px 3.34px 3.34px;
+  font: normal normal 400 normal 20px / 24px Lato, sans-serif;
+  margin: 0px 0px 0px 11px;
+  outline: rgb(255, 255, 255) none 0px;
+  overflow: hidden;
+  padding: 10px 15px;
+  padding-top: 10px;
+  transition: all 0.25s ease 0s;
+}
+
+
+
 .primary-btn span {
   margin-left: 15px;
 }
@@ -1351,7 +1397,7 @@ td, th {
   top: 0;
   width: 50%;
   height: 100%;
-  background: #000cb4;
+  background: rgb(39, 182, 124);
   z-index: 2;
 }
 
