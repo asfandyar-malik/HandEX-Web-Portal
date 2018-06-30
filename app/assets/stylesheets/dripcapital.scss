@@ -175,6 +175,7 @@
   text-decoration: none solid rgb(68, 68, 68);
   text-size-adjust: 100%;
   width: 100%;
+  height: 90%;
   column-rule-color: rgb(68, 68, 68);
   perspective-origin: 600px 353.145px;
   transform-origin: 600px 353.145px;
@@ -206,10 +207,10 @@
 #FORM_86 {
   box-sizing: border-box;
   color: rgb(85, 85, 85);
-  height: 706.289px;
+  height: 80%;
   text-decoration: none solid rgb(85, 85, 85);
   text-size-adjust: 100%;
-  width: 1170px;
+  width: 95%;
   column-rule-color: rgb(85, 85, 85);
   perspective-origin: 585px 353.145px;
   transform-origin: 585px 353.145px;
@@ -347,14 +348,15 @@
   height: 706.289px;
   text-decoration: none solid rgb(85, 85, 85);
   text-size-adjust: 100%;
-  width: 1200px;
+  width: 90%;
   column-rule-color: rgb(85, 85, 85);
   perspective-origin: 600px 353.145px;
   transform-origin: 600px 353.145px;
   caret-color: rgb(85, 85, 85);
   border: 0px none rgb(85, 85, 85);
   font: normal normal 500 normal 20px / 24px Lato, sans-serif;
-  margin: 0px -15px;
+  margin-left: 100px;
+  margin-right: 100px;
   outline: rgb(85, 85, 85) none 0px;
 }
 
@@ -722,6 +724,7 @@
   font: normal normal 500 normal 20px / 24px Lato, sans-serif;
   margin: 33.4px 33.4px 0px 0px;
   outline: rgb(85, 85, 85) none 0px;
+  width: 40%
 }
 
 
@@ -738,6 +741,7 @@
   margin: 11.12px 0px;
   outline: rgb(85, 85, 85) none 0px;
   padding: 0px 0px 7px;
+
 }
 
 #DIV_115 {
@@ -801,8 +805,9 @@
   caret-color: rgb(85, 85, 85);
   border: 0px none rgb(85, 85, 85);
   font: normal normal 500 normal 20px / 24px Lato, sans-serif;
-  margin: -11px 33.4px -11px 0px;
+  margin: -11px 33.4px 30px 0px;
   outline: rgb(85, 85, 85) none 0px;
+  width: 40%;
 }
 
 
@@ -818,6 +823,7 @@
   border: 0px none rgb(85, 85, 85);
   font: normal normal 500 normal 20px / 24px Lato, sans-serif;
   outline: rgb(85, 85, 85) none 0px;
+  width: 50%
 }
 
 
@@ -1073,6 +1079,7 @@
   font: normal normal 500 normal 20px / 24px Lato, sans-serif;
   margin: 0px 0px 10px;
   outline: rgb(85, 85, 85) none 0px;
+
 }
 
 
@@ -1123,8 +1130,9 @@
 #DIV_210 {
   box-sizing: border-box;
   color: rgb(85, 85, 85);
-  float: left;
+  float: right;
   min-height: 1px;
+  height: 20%;
   position: relative;
   text-align: center;
   text-decoration: none solid rgb(85, 85, 85);
@@ -1135,14 +1143,15 @@
   border: 0px none rgb(85, 85, 85);
   font: normal normal 500 normal 20px / 24px Lato, sans-serif;
   outline: rgb(85, 85, 85) none 0px;
-  padding: 0px 15px;
+  padding-top: 10px;
 }
 
 
 #IMG_211 {
   box-sizing: border-box;
   color: rgb(85, 85, 85);
-  height: 444.4px;
+  height: 500%;
+  width: 100%;
   text-align: center;
   text-decoration: none solid rgb(85, 85, 85);
   text-size-adjust: 100%;
@@ -1170,7 +1179,6 @@
   border: 0px none rgb(85, 85, 85);
   font: normal normal 500 normal 20px / 24px Lato, sans-serif;
   outline: rgb(85, 85, 85) none 0px;
-  padding: 0px 15px;
 }
 
 #H1_111, #H1_224, #H1_316 {
@@ -1181,9 +1189,11 @@
   column-rule-color: rgb(50, 45, 89);
   caret-color: rgb(50, 45, 89);
   border: 0px none rgb(50, 45, 89);
-  font: normal normal 300 normal 35px / 35px Montserrat, sans-serif;
+  font: normal normal 500 normal 45px / 45px MonLatotserrat, sans-serif;
+  font-weight: 900;
   margin: 9.45px 0px 29.05px;
   outline: rgb(50, 45, 89) none 0px;
+  padding-bottom: 50px;
 }
 
 #DIV_225 {
@@ -1202,6 +1212,7 @@
 #DIV_226, #DIV_230, #DIV_234, #DIV_238, #DIV_242, #DIV_318, #DIV_322, #DIV_326, #DIV_330, #DIV_334 {
   box-sizing: border-box;
   color: rgb(85, 85, 85);
+  //height: 15%;
   position: relative;
   text-decoration: none solid rgb(85, 85, 85);
   text-size-adjust: 100%;
@@ -1209,9 +1220,10 @@
   caret-color: rgb(85, 85, 85);
   border: 0px none rgb(85, 85, 85);
   font: normal normal 500 normal 20px / 24px Lato, sans-serif;
-  margin: 16.6px 30px 16.6px 0px;
+  margin: 0px 0px 0px 0px;
   outline: rgb(85, 85, 85) none 0px;
-  padding: 0px 0px 7px;
+  padding: 0px 0px 0px;
+
 }
 
 #LABEL_227, #LABEL_231, #LABEL_239, #LABEL_248, #LABEL_319, #LABEL_327, #LABEL_347 {
@@ -1266,6 +1278,7 @@
   border: 0px none rgb(85, 85, 85);
   font: normal normal 500 normal 20px / 24px Lato, sans-serif;
   outline: rgb(85, 85, 85) none 0px;
+  padding-top: 30px;
 }
 
 #LABEL_235, #LABEL_243, #LABEL_323 {
@@ -1488,7 +1501,8 @@
 #DIV_298, #DIV_397 {
   box-sizing: border-box;
   color: rgb(85, 85, 85);
-  float: left;
+  float: right;
+  height: 17%;
   min-height: 1px;
   position: relative;
   text-align: center;
@@ -1506,7 +1520,8 @@
 #IMG_299 {
   box-sizing: border-box;
   color: rgb(85, 85, 85);
-  height: 444.4px;
+  height: 500%;
+  width: 100%;
   text-align: center;
   text-decoration: none solid rgb(85, 85, 85);
   text-size-adjust: 100%;
@@ -1523,8 +1538,7 @@
   bottom: 0px;
   box-sizing: border-box;
   color: rgb(85, 85, 85);
-  float: left;
-  height: 69.4922px;
+  height: 15%;
   left: 0px;
   min-height: 1px;
   position: relative;
@@ -1532,7 +1546,7 @@
   text-decoration: none solid rgb(85, 85, 85);
   text-size-adjust: 100%;
   top: 0px;
-  width: 900px;
+  width: 80%;
   column-rule-color: rgb(85, 85, 85);
   perspective-origin: 450px 34.7461px;
   transform: matrix(1, 0, 0, 1, 0, 0);
@@ -1540,7 +1554,7 @@
   caret-color: rgb(85, 85, 85);
   border: 0px none rgb(85, 85, 85);
   font: normal normal 500 normal 20px / 24px Lato, sans-serif;
-  margin: 94.4px 0px 0px;
+  margin: 100px 50px 0px;
   outline: rgb(85, 85, 85) none 0px;
   padding: 0px 15px;
   transition: transform 1.5s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 1.5s cubic-bezier(0.6, 0.2, 0.1, 1) 0s;
@@ -1650,7 +1664,7 @@
   bottom: 0px;
   box-sizing: border-box;
   color: rgb(85, 85, 85);
-  float: left;
+  float: right;
   height: 509.004px;
   left: 0px;
   min-height: 1px;
@@ -1668,7 +1682,6 @@
   border: 0px none rgb(85, 85, 85);
   font: normal normal 500 normal 20px / 24px Lato, sans-serif;
   outline: rgb(85, 85, 85) none 0px;
-  padding: 0px 15px;
 }
 
 
