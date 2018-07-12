@@ -1,0 +1,169 @@
+<!-- NEW SIGN UP PAGE -->
+<head>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css'>
+</head>
+
+
+<div class="container-signup">
+
+    <div class="row" id="header">
+        <i class="icon ion-ios-people-outline" style="color: #ED2460"></i>
+        <h1><%= t('sign_up') %> </h1>
+        <p><b><%= t('sign_up_message') %></b></p>
+    </div>
+    <!-- end header -->
+
+    <div class="row">
+        <%= form_for @user do |f| %>
+            <input name="utf8" type="hidden" value="✓">
+            <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+            <input value="ROLE_USER" type="hidden" name="user[roles]" id="user_roles">
+            <input value="true" type="hidden" name="user[isPhotoPublic]" id="user_isPhotoPublic">
+
+            <div class="row">
+                <div class="col s6 text-input ">
+
+                    <div class="row">
+                        <div class="col s4">
+                            <input type="radio" id="male" name="user[gender]" checked="checked" value="MALE">
+                            <label for="male"> <%= t('mr') %></label>
+                        </div>
+                        <div class="col s4">
+                            <input type="radio" class="with-gap" id="female" name="user[gender]" value="FEMALE">
+                            <label for="female"> <%= t('ms') %></label>
+                        </div>
+                    </div>
+
+                    <input id="user_firstName" name="user[firstName]" type="text" required="" aria-required="true" class="validate" placeholder="<%= t('first_name') %>*">
+                    <input id="user_lastName" name="user[lastName]" type="text" required="" aria-required="true" class="validate" placeholder="<%= t('last_name') %>">
+                    <input id="user_phoneNumber" name="user[phoneNumber]" type="text" class="validate" placeholder="<%= t('telephone') %>">
+                    <input id="autocomplete" onkeypress="return event.keyCode != 13;" name="address" type="text" class="validate" placeholder="<%= t('address') %>">
+                    <input id="user_description" name="user[description]" type="text" class="validate" placeholder="<%= t('description') %>">
+
+                    <input class="validate" type="email" value="" name="user[email]" id="user_email" required="" aria-required="true" placeholder="E-Mail*">
+                    <label for="user_email" data-error="ungültige E-Mail" data-success=""></label>
+
+                    <input class="validate valid" type="password" class="validate" required="" aria-required="true" name="user[password]" id="user_password" placeholder="Passworts">
+                    <label for="user_password" data-error="Dein Passwort muss mindestes 6 Zeichen enthalten. Bitte verwende ein anderes." data-success=""></label>
+
+                    <%= f.fields_for :location do |location_form| %>
+                        <%= location_form.hidden_field :address, :value => '' %>
+                        <%= location_form.hidden_field :street, :value => '' %>
+                        <%= location_form.hidden_field :postal_code, :value => '' %>
+                        <%= location_form.hidden_field :sublocality, :value => '' %>
+                        <%= location_form.hidden_field :city, :value => '' %>
+                        <%= location_form.hidden_field :country, :value => '' %>
+                        <%= location_form.hidden_field :lat, :value => 0 %>
+                        <%= location_form.hidden_field :lon, :value => 0 %>
+                    <% end %>
+
+                    <div class='row' style="text-align: center">
+                        <button type="submit" , id="signup_button" name="action"><%= t('sign_up') %></button>
+
+                        <h5 class="grey-text"><b><%= t('or') %></b></h5>
+                        <%= link_to "https://palsplate-backend.herokuapp.com/signin/facebook?scope=public_profile,email", class: "loginBtn loginBtn--facebook", method: :post do %>
+                            <span class="fa fa-facebook"></span> Sign in with Facebook
+                        <% end %>
+                    </div>
+
+                </div>
+
+                <div class="col s6 imageXX">
+                    <img class="responsive-img" id="responsive-img-remove" width="380" src= "<%= asset_path('cook_signup1.jpg')%>">
+                </div>
+
+            </div>
+
+        <% end %>
+
+    </div>
+
+</div>
+
+<style>
+    @media (max-width: 800px) {
+        .imageXX {
+            display: none;
+        }
+        .col.s6.text-input{
+            width: 100%;
+            padding-left: 10%;
+            padding-right: 10%;
+        }
+    }
+</style>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_api'] %>&libraries=places&callback=initAutocomplete"  async defer></script>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {
+        Materialize.updateTextFields();
+
+        $("#new_user").submit(function (event) {
+            event.preventDefault();
+            var geocoder = new google.maps.Geocoder();
+            var address = document.getElementById("autocomplete").value;
+            geocoder.geocode({'address': address}, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+//                Update the user location object
+                    fullAdressData = results[0].formatted_address;
+                    var components = results[0].address_components;
+                    for (var i = 0, component; component = components[i]; i++) {
+                        if (component.types[0] == 'route') {
+                            street = component['long_name'];
+
+                        }
+                        if (component.types[0] == 'street_number') {
+                            street_number = component['long_name'];
+                        }
+                        if (component.types[0] == 'country') {
+                            $("#user_location_country").val(component['long_name']);
+                        }
+                        if (component.types[0] == 'postal_code') {
+                            $("#user_location_postal_code").val(component['long_name']);
+                        }
+                        if (component.types[1] == 'sublocality') {
+                            $("#user_location_sublocality").val(component['long_name']);
+                        }
+                        if (component.types[0] == 'locality') {
+                            $("#user_location_city").val(component['long_name']);
+                        }
+                    }
+                    if (typeof street !== 'undefined') {
+                        if (typeof street_number !== 'undefined') {
+                            $("#user_location_street").val(street + " " + street_number);
+                        }
+                        else {
+                            $("#user_location_street").val(street);
+                        }
+
+                    }
+                    if (typeof fullAdressData !== 'undefined') $("#user_location_address").val(fullAdressData);
+                    if (results[0].geometry.location.lat() && results[0].geometry.location.lng()) {
+                        var latitude = results[0].geometry.location.lat();
+                        $("#user_location_lat").val(latitude);
+                        var longitude = results[0].geometry.location.lng();
+                        $("#user_location_lon").val(longitude);
+                    }
+                    $("#new_user").off("submit");
+                    $("#new_user").submit();
+                }
+                else {
+                    $("#new_user").off("submit");
+                    $("#new_user").submit();
+                }
+            });
+        });
+    });
+
+    function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+
+    }
+
+</script>
