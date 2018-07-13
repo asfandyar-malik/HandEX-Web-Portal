@@ -3,49 +3,49 @@
         <%= form_for @tradeinfo do |f| %>
             <div id="DIV_91">
 
-                <div id="DIV_97">
-                    <img alt="Eligibility 1" src="https://assets.dripcapital.com/static/images/eligibility-1.svg?t=1529943428" id="IMG_98"/>
-                </div>
-
-
-                <div id="DIV_112">
+                <div id="DIV_110">
                     <h1 id="H1_224">
                         Product Information
                     </h1>
-                    <div id="DIV_113">
-                        <label for="application_products" id="LABEL_114">
-                            What products do you export?
-                        </label>
-                        <div id="DIV_115">
-                            <%= f.text_area :goods, rows: 2,    required: true, id: "INPUT_116" %>
+
+                    <div id="DIV_225">
+                        <div id="DIV_230">
+                            <label id="LABEL_114">
+                                What products do you export?
+                            </label>
+                            <div id="DIV_232">
+                                <%= f.text_area :goods, rows: 2, required: true, id: "INPUT_245" %>
+                            </div>
+                        </div>
+
+                        <div id="DIV_230">
+                            <label id="LABEL_114">
+                                What is the category of products exported?
+                            </label>
+
+                            <div id="DIV_121">
+                                <%= f.select :category, [["Aeronautical Engineering Products", "Aeronautical Engineering Products"], ["Agro Products", "Agro Products"], ["Bed Linen", "Bed Linen"],
+                                                         ["Cashews", "Cashews"], ["Chemicals", "Chemicals"], ["Coffee and Coffee Products", "Coffee and Coffee Products"],
+                                                         ["Cosmetics", "Cosmetics"], ["Cotton Yarn", "Cotton Yarn"],
+                                                         ["Cotton/Jute Bags", "Cotton/Jute Bags"], ["Engineering Products", "Engineering Products"],
+                                                         ["FMCGs", "FMCGs"], ["Frozen Meats", "Frozen Meats"],
+                                                         ["Grains", "Grains"], ["Pulses", "Pulses"], ["Granites", "Granites"], ["Herbs and Spices", "Herbs and Spices"]],
+                                             id: "B_168", prompt: "Select..." %>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div id="DIV_118">
-                    <label for="application_product_category" id="LABEL_120">
-                        What is the category of products exported?
-                    </label>
-
-                    <div id="DIV_121">
-
-                        <%= f.select :category, [["Aeronautical Engineering Products", "Aeronautical Engineering Products"], ["Agro Products", "Agro Products"], ["Bed Linen", "Bed Linen"],
-                                                 ["Cashews", "Cashews"], ["Chemicals", "Chemicals"], ["Coffee and Coffee Products", "Coffee and Coffee Products"],
-                                                 ["Cosmetics", "Cosmetics"], ["Cotton Yarn", "Cotton Yarn"],
-                                                 ["Cotton/Jute Bags", "Cotton/Jute Bags"], ["Engineering Products", "Engineering Products"],
-                                                 ["FMCGs", "FMCGs"], ["Frozen Meats", "Frozen Meats"],
-                                                 ["Grains", "Grains"], ["Pulses", "Pulses"], ["Granites", "Granites"], ["Herbs and Spices", "Herbs and Spices"]],
-                                     id: "B_168", prompt: "Select..." %>
+                    <div id="DIV_295">
+                        <a href="#details" id="A_296">Back</a>
+                        <button type="submit" value="-1" id="BUTTON_297">
+                            Next
+                        </button>
                     </div>
                 </div>
 
-                <div id="DIV_295">
-                    <a href="#details" id="A_296">Back</a>
-                    <button type="submit"  value="-1" id="BUTTON_297">
-                        Next
-                    </button>
+                <div id="DIV_210">
+                    <img alt="Eligibility 1" src="https://assets.dripcapital.com/static/images/eligibility-1.svg?t=1529943428" id="IMG_211"/>
                 </div>
-
 
                 <div id="DIV_105">
                     <div id="DIV_106">
@@ -63,6 +63,4 @@
     </div>
 </section>
 <footer id="FOOTER_408">
-    <div id="DIV_409">
-    </div>
 </footer>
