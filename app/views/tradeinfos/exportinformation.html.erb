@@ -9,51 +9,32 @@
                     </h1>
 
                     <div id="DIV_225">
-                        <div id="DIV_230">
-                            <label for="user_name" id="LABEL_231">
-                                Full Name
-                            </label>
-                            <div id="DIV_232">
-                                <input type="text" id="INPUT_245" />
-                            </div>
+
+                        <div class="form-group">
+                            <label class="control-label"> Full Name </label>
+                            <input type="text" class="form-control">
                         </div>
 
-                        <div id="DIV_230">
-                            <label for="user_email" id="LABEL_231">
-                                Email
-                            </label>
-                            <div id="DIV_232">
-                                <%= f.text_area :companyEmail, id: "INPUT_245", required: true %>
-                            </div>
+                        <div class="form-group">
+                            <label class="control-label"> Email </label>
+                            <div> <%= f.text_field :companyEmail, class: "form-control", required: true %> </div>
                         </div>
 
-                        <div id="DIV_230">
-                            <label for="user_phone" id="LABEL_231">
-                                Phone
-                            </label>
-                            <div id="DIV_232">
-                                <%= f.text_area :companyPhone, id: "INPUT_245",  required: true %>
-                            </div>
+                        <div class="form-group">
+                            <label class="control-label"> Phone </label>
+                            <div> <%= f.text_field :companyPhone, class: "form-control", required: true %> </div>
                         </div>
 
-                        <div id="DIV_230">
-                            <label for="user_company" id="LABEL_231">
-                                Company Name
-                            </label>
-                            <div id="DIV_232">
-                                <%= f.text_area :companyName, id: "INPUT_245", required: true %>
-                            </div>
+                        <div class="form-group">
+                            <label class="control-label"> Company Name </label>
+                            <div> <%= f.text_field :companyName, class: "form-control", required: true %> </div>
                         </div>
 
-                        <div id="DIV_230">
-
-                            <label for="user_iec_code" id="LABEL_231">
-                                IEC Number
-                            </label>
-                            <div id="DIV_232">
-                                <input type="text" id="INPUT_245"/>
-                            </div>
+                        <div class="form-group">
+                            <label class="control-label"> IEC Number </label>
+                            <input type="text" class="form-control">
                         </div>
+
                     </div>
 
                     <div id="DIV_295">
@@ -69,17 +50,17 @@
                     <img alt="Eligibility 2" src="https://assets.dripcapital.com/static/images/eligibility-2.svg?t=1529943428" id="IMG_211" />
                 </div>
 
-                <div id="DIV_105">
-                    <div id="DIV_106">
-                        Collateral-backed export finance loans
-                    </div>
-                    <div id="DIV_107">
-                        Quick approval for credit upto 1.5 million Euros
-                    </div>
-                    <div id="DIV_108">
-                        Increase sales by offering credit
-                    </div>
-                </div>
+                <!--<div id="DIV_105">-->
+                    <!--<div id="DIV_106">-->
+                        <!--Collateral-backed export finance loans-->
+                    <!--</div>-->
+                    <!--<div id="DIV_107">-->
+                        <!--Quick approval for credit upto 1.5 million Euros-->
+                    <!--</div>-->
+                    <!--<div id="DIV_108">-->
+                        <!--Increase sales by offering credit-->
+                    <!--</div>-->
+                <!--</div>-->
 
             </div>
         <% end %>

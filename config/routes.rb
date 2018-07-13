@@ -40,9 +40,6 @@ Rails.application.routes.draw do
             get 'importinformation'
             get 'thank'
             get 'testTwo'
-            get 'testThree'
-            get 'testFour'
-            get 'testFive'
         end
     end
 end

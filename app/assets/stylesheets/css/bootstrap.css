@@ -3841,10 +3841,10 @@ tbody.collapse.show {
   border-radius: 0;
 }
 
-/*.alert {*/
-  /*margin-bottom: 1rem;*/
-  /*border-radius: 0.25rem;*/
-/*}*/
+.alert {
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+}
 
 .alert-heading {
   color: inherit;

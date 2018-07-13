@@ -9,32 +9,20 @@
                     </h1>
 
                     <div id="DIV_225">
-                        <div id="DIV_230">
-                            <label for="user_company" id="LABEL_231">
-                                Company Name
-                            </label>
-                            <div id="DIV_232">
-                                <%= f.text_area :importerName, id: "INPUT_245", required: true %>
 
-                            </div>
+                        <div class="form-group">
+                            <label class="control-label"> Company Name </label>
+                            <div> <%= f.text_field :importerName, class: "form-control", required: true %> </div>
                         </div>
 
-                        <div id="DIV_230">
-                            <label for="user_email" id="LABEL_231">
-                                Email
-                            </label>
-                            <div id="DIV_232">
-                                <%= f.text_area :importerEmail,  id: "INPUT_245", required: true %>
-                            </div>
+                        <div class="form-group">
+                            <label class="control-label"> Email </label>
+                            <div> <%= f.text_field :importerEmail, class: "form-control", required: true %> </div>
                         </div>
 
-                        <div id="DIV_230">
-                            <label for="user_iec_code" id="LABEL_231">
-                                IEC Number
-                            </label>
-                            <div id="DIV_232">
-                                <%= f.text_area :taxId, id:"INPUT_245", required: true %>
-                            </div>
+                        <div class="form-group">
+                            <label class="control-label"> IEC Number </label>
+                            <div> <%= f.text_field :taxId, class: "form-control", required: true %> </div>
                         </div>
 
                     </div>

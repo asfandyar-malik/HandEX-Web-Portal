@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>HandEX</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'dashboard', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag  'pages', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag  'dripcapital', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'pages', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'dripcapital', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
@@ -15,22 +16,20 @@
 
     <%= favicon_link_tag 'fav_3.png' %>
 
-  </head>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
-  <body>
+</head>
 
-  <%= render 'shared/navbar' %>
-  <%= render 'shared/message' %>
+    <body>
 
+        <%= render 'shared/navbar' %>
+        <%= render 'shared/message' %>
 
-  <p class="notice"><%= notice %></p>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+        <div class="container">
+            <%= yield %>
+        </div>
 
-  <div class="container">
-    <%= yield %>
-  </div>
-
-  </body>
+    </body>
 
 </html>
