@@ -36,6 +36,9 @@ class TradeinfosController < ApplicationController
 
     def financials
     end
+
+    def eligibility
+    end
     # GET /tradeinfos/1/edit
     def edit
     end

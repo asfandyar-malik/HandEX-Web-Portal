@@ -105,7 +105,7 @@
                             <div class="form-group">
                                 <label class="control-label"> Are any receivables currently factored? </label>
                                 <br><br>
-                                <%= f.check_box :companyPhone, required: true,  id: "receivableFactored" %> Yes
+                                <%= f.check_box :companyPhone, required: true, id: "receivableFactored" %> Yes
                             </div>
 
 
@@ -120,11 +120,9 @@
 
                             <br>
 
-
-                            <%= form_for @tradeinfo do |f| %>
-                                <%= f.submit "Publish", id: "publish_button", class: "btn btn-normal btn-lg" %>
-                            <% end %>
-
+                            <div id="DIV_295">
+                                <a href="accepted" id="BUTTON_297">Publish</a>
+                            </div>
                         </div>
 
                     <% end %>

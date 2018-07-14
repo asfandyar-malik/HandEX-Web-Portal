@@ -46,6 +46,7 @@ Rails.application.routes.draw do
             get 'rejected'
             get 'bankinformationexporter'
             get 'eulerhermesredirect'
+            get 'sucessfullyprocessed'
             get 'testTwo'
         end
     end
