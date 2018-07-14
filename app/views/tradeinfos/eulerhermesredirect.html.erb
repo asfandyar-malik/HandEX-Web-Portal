@@ -10,25 +10,43 @@
 
                     <div id="DIV_225">
 
-                        <div class="form-group">
-                            <label class="control-label"> Name of Account Holder </label>
-                            <div> <%= f.text_field :importerName, class: "form-control", required: true %> </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="control-label"> Insurance Cover </label>
+                                <%= f.select :category, [["Manufacturing Risks", "Manufacturing Risks"], ["Short Term Credit Cover", "Short Term Credit Cover"],
+                                                         ["Medium Term Credit Cover", "Medium Term Credit Cover"], ["Contractual Warranty Coverage", "Contractual Warranty Coverage"],
+                                                         ["Refinancing Coverage", "Refinancing Coverage"]],
+                                             id: "B_168", prompt: "Select..." %>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label class="control-label"> IBAN Number</label>
-                            <div> <%= f.text_field :importerEmail, class: "form-control", required: true %> </div>
+                        <br>
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-5">
+                                <label class="control-label"> Country Category </label>
+                                <%= f.select :category, [["1", "1"], ["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"]],
+                                             id: "B_168", prompt: "Select..." %>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label class="control-label"> BIC </label>
-                            <div> <%= f.text_field :taxId, class: "form-control", required: true %> </div>
+                        <br>
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label class="control-label"> Buyer Category Category </label>
+                                <%= f.select :category, [["SOV+", "SOV+"], ["SOV/CC0", "SOV/CC0"],["SOV-", "SOV-"],["CC1", "CC1"],["CC2", "CC2"]],
+                                             id: "B_168", prompt: "Select..." %>
+                            </div>
                         </div>
 
                     </div>
 
                     <div id="DIV_295">
-                        <a href="#details" id="A_296">Back</a>
+                        <a href="accepted" id="A_296">Back</a>
                         <a href="bankinformationexporter" id="BUTTON_297">Submit</a>
                     </div>
                 </div>
