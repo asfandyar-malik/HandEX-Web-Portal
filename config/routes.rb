@@ -44,7 +44,7 @@ Rails.application.routes.draw do
             get 'financials'
             get 'accepted'
             get 'rejected'
-            get 'exporterbankinformation'
+            get 'bankinformationexporter'
             get 'eulerhermesredirect'
             get 'testTwo'
         end
