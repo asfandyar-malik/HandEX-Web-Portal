@@ -39,6 +39,10 @@ Rails.application.routes.draw do
             get 'exportinformation'
             get 'importinformation'
             get 'thank'
+            get 'eligibility'
+            get 'buyers'
+            get 'financials'
+            get 'documenttradeinfos'
             get 'testTwo'
         end
     end

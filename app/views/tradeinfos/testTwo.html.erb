@@ -1,0 +1,21 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<label for="checkbox">
+    <input type="checkbox" id="yourCheckBox" />
+    Your Checkbox!
+</label>
+<hr />
+<div id="showHideDiv" style="display: none">
+    I am here!
+</div>
+
+<script>
+    $(function () {
+        $("#yourCheckBox").click(function () {
+            if ($(this).is(":checked")) {
+                $("#showHideDiv").show();
+            } else {
+                $("#showHideDiv").hide();
+            }
+        });
+    });
+</script>

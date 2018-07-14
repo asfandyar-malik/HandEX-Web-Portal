@@ -13,10 +13,6 @@ class TradeinfosController < ApplicationController
         @tradeinfo = current_user.tradeinfos.build
     end
 
-    def test
-        # @tradeinfo = current_user.tradeinfos.build
-    end
-
     # POST /tradeinfos
     # POST /tradeinfos.json
     def create
@@ -35,6 +31,11 @@ class TradeinfosController < ApplicationController
     def importinformation
     end
 
+    def auxillary
+    end
+
+    def financials
+    end
     # GET /tradeinfos/1/edit
     def edit
     end
