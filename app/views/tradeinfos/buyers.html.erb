@@ -1,8 +1,8 @@
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
         <%= render 'tradeinfo_menu' %>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-10">
         <div class="panel panel-default">
 
             <div class="panel-heading">
@@ -46,7 +46,6 @@
                                     <!--</div>-->
                                 </div>
 
-
                             </div>
 
                             <br>
@@ -65,11 +64,11 @@
                             <br>
 
                             <div class="row">
-                                <div class="col-md-5">
+                                <div class="col-md-5 col-lg-5">
                                     <label class="control-label"> Sales in past 12 months (€) </label>
                                     <div> <%= f.text_field :companyEmail, class: "form-control", required: true %> </div>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-7 col-lg-7">
                                     <label class="control-label"> Projected sales in next 12 months (€) </label>
                                     <div> <%= f.text_field :companyEmail, class: "form-control", required: true %> </div>
                                 </div>
@@ -78,26 +77,29 @@
                             <br>
 
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <label class="control-label"> Credit Period (No. of days) </label>
                                     <div> <%= f.text_field :companyEmail, class: "form-control", required: true %> </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <label class="control-label"> Credit From </label>
                                     <%= f.select :category, [["Credit From", "Credit From"], ["Invoice Date", "Invoice Date"], ["BL Date", "BL Date"],
                                                              ["FDA Clearance Date", "FDA Clearance Date)"], ["Discharge Date", "Discharge Date"],
                                                              ["Goods Usage Date", "Goods Usage Date"]], id: "B_168", prompt: "Select..." %>
                                 </div>
+                            </div>
 
-                                <div class="col-md-3">
+                            <br><br>
+
+                            <div class="row">
+                                <div class="col-md-4">
                                     <label class="control-label"> Years selling to buyer </label>
                                     <%= f.select :category, [["New Customer", "New Customer"], ["1", "1"], ["2", "2"],
                                                              ["3", "3)"], ["4", "4"], ["5", "5"],
                                                              ["More than 5", "More than 5"]], id: "B_168", prompt: "Select..." %>
                                 </div>
 
-
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <label class="control-label"> Invoicing Currency </label>
                                     <%= f.select :category, [["Euro", "Euro"], ["USD", "USD"], ["Pound", "Pound"]],
                                                  id: "B_168", prompt: "Select..." %>
@@ -108,12 +110,12 @@
 
                             <div class="row">
 
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <label class="control-label"> Document Routing </label>
                                     <%= f.select :category, [["Document Routing", "Document Routing"], ["Direct", "Direct"], ["Bank to Bank", "Bank to Bank"]],
                                                  id: "B_168", prompt: "Select..." %> </div>
 
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <label class="control-label"> Document Release </label>
                                     <%= f.select :category, [["Document Release", "Document Release"], ["Shipment", "Shipment"], ["On Signing Bill of Exchange", "On Signing Bill of Exchange"],
                                                              ["On Receiving Payment", "On Receiving Payment"]], id: "B_168", prompt: "Select..." %>
@@ -124,12 +126,12 @@
 
                             <div class="row">
 
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <label class="control-label"> Is it a related party? </label>
                                     <%= f.select :category, [["Yes", "Yes"], ["No", "No"]], id: "B_168", prompt: "Select..." %>
                                 </div>
 
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <label class="control-label"> Ever had write offs? </label>
                                     <%= f.select :category, [["Yes", "Yes"], ["No", "No"]], id: "B_168", prompt: "Select..." %>
                                 </div>

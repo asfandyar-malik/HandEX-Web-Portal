@@ -1,21 +1,18 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<label for="checkbox">
-    <input type="checkbox" id="yourCheckBox" />
-    Your Checkbox!
-</label>
-<hr />
-<div id="showHideDiv" style="display: none">
-    I am here!
-</div>
+<ul class="sidebar-list">
 
-<script>
-    $(function () {
-        $("#yourCheckBox").click(function () {
-            if ($(this).is(":checked")) {
-                $("#showHideDiv").show();
-            } else {
-                $("#showHideDiv").hide();
-            }
-        });
-    });
-</script>
+    <li class="sidebar-item">
+        <%= link_to "Eligibility", eligibility_tradeinfo_path, id:"A_4",  class: "sidebar-link active"%>
+        <span id="eligibility" class="pull-right text-babu"><i class="fa fa-check"> </i></span>
+    </li>
+
+    <li class="sidebar-item">
+
+        <%= link_to "Buyers", buyers_tradeinfo_path, id:"A_4", class: "sidebar-link active" %>
+        <span id="exporter" class="pull-right text-babu"><i class="fa fa-check"> </i></span>
+    </li>
+
+    <li class="sidebar-item">
+        <%= link_to "Financials", financials_tradeinfo_path, id:"A_14", class: "sidebar-link active" %>
+        <span id="financials" class="pull-right text-babu"> <i class="fa fa-check"> </i></span>
+    </li>
+</ul>

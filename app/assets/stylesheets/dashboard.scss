@@ -120,7 +120,7 @@ a {
 // PANELS
 .panel-default .panel-heading {
    color: #ffffff;
-   background-color: #00A699;
+   background-color: rgb(50, 45, 89);
    font-size: 18px;
    font-weight: 400;
 }
@@ -235,6 +235,20 @@ a {
     padding: 10px 0;
     font-size: 16px;
     color: #82888a;
+    box-sizing: border-box;
+    left: 0px;
+    position: relative;
+    right: 0px;
+    text-align: left;
+    text-decoration: none solid rgb(136, 136, 136);
+    text-size-adjust: 100%;
+    top: 0px;
+    background: rgb(230, 230, 225) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 0px none rgb(136, 136, 136);
+    font: normal normal 500 normal 20px / 28.5714px Lato, sans-serif;
+    outline: rgb(136, 136, 136) none 0px;
+    padding: 11px 16.6px 11px 44.4px;
+
 }
 
 .sidebar-link {

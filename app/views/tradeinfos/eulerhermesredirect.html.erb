@@ -5,23 +5,23 @@
 
                 <div id="DIV_110">
                     <h1 id="H1_224">
-                        Importer Information
+                        <img class="responsive-img"  id="IMG_212" src="<%= asset_path('EH1.png') %>">
                     </h1>
 
                     <div id="DIV_225">
 
                         <div class="form-group">
-                            <label class="control-label"> Company Name </label>
+                            <label class="control-label"> Name of Account Holder </label>
                             <div> <%= f.text_field :importerName, class: "form-control", required: true %> </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label"> Email </label>
+                            <label class="control-label"> IBAN Number</label>
                             <div> <%= f.text_field :importerEmail, class: "form-control", required: true %> </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label"> IEC Number </label>
+                            <label class="control-label"> BIC </label>
                             <div> <%= f.text_field :taxId, class: "form-control", required: true %> </div>
                         </div>
 
@@ -36,24 +36,13 @@
                 </div>
 
                 <div id="DIV_210">
-                    <img class="responsive-img" id="IMG_211" src="<%= asset_path('eligibility-3') %>">
+                    <img class="responsive-img" id="IMG_211" src="<%= asset_path('EH4.jpg') %>">
                 </div>
 
-                <div id="DIV_105">
-                    <div id="DIV_106">
-                        Collateral-backed export finance loans
-                    </div>
-                    <div id="DIV_107">
-                        Quick approval for credit upto 1.5 million Euros
-                    </div>
-                    <div id="DIV_108">
-                        Increase sales by offering credit
-                    </div>
-                </div>
             </div>
         <% end %>
     </div>
 </section>
 
-<footer id="FOOTER_408">
+<footer id="FOOTER_409">
 </footer>

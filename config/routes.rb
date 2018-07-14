@@ -42,7 +42,10 @@ Rails.application.routes.draw do
             get 'eligibility'
             get 'buyers'
             get 'financials'
-            get 'documenttradeinfos'
+            get 'accepted'
+            get 'rejected'
+            get 'exporterbankinformation'
+            get 'eulerhermesredirect'
             get 'testTwo'
         end
     end

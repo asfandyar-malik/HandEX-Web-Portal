@@ -1,8 +1,8 @@
-<div class="row">
-    <div class="col-md-3">
+<div class="row ">
+    <div class="col-md-2">
         <%= render 'tradeinfo_menu' %>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-10">
         <div class="panel panel-default">
 
             <div class="panel-heading">
@@ -14,94 +14,90 @@
                     <%= form_for @tradeinfo do |f| %>
 
 
-                        <div id="DIV_225">
-                            <div class="form-group">
-                                <label id="LABEL_114"> What products do you export? </label>
-                                <div> <%= f.text_field :goods, class: "form-control", required: true %> </div>
-                            </div>
+                        <div id="DIV_226">
 
-                            <div id="DIV_230">
-                                <label id="LABEL_114">
-                                    What is the category of products exported?
-                                </label>
-
-                                <div id="DIV_121">
-                                    <%= f.select :category, [["Aeronautical Engineering Products", "Aeronautical Engineering Products"], ["Agro Products", "Agro Products"], ["Bed Linen", "Bed Linen"],
-                                                             ["Cashews", "Cashews"], ["Chemicals", "Chemicals"], ["Coffee and Coffee Products", "Coffee and Coffee Products"],
-                                                             ["Cosmetics", "Cosmetics"], ["Cotton Yarn", "Cotton Yarn"],
-                                                             ["Cotton/Jute Bags", "Cotton/Jute Bags"], ["Engineering Products", "Engineering Products"],
-                                                             ["FMCGs", "FMCGs"], ["Frozen Meats", "Frozen Meats"],
-                                                             ["Grains", "Grains"], ["Pulses", "Pulses"], ["Granites", "Granites"], ["Herbs and Spices", "Herbs and Spices"]],
-                                                 id: "B_168", prompt: "Select..." %>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label id="LABEL_114"> What products do you export? </label>
+                                    <div> <%= f.text_field :goods, class: "form-control", required: true %> </div>
                                 </div>
+
                             </div>
 
-                            <br>
-                            <br>
+                            <div class="row">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <label class="control-label"> What is the category of products
+                                            exported? </label>
 
-                            <div class="form-group">
-                                <label class="control-label"> Full Name </label>
-                                <input type="text" class="form-control">
+                                        <%= f.select :category, [["Aeronautical Engineering Products", "Aeronautical Engineering Products"], ["Agro Products", "Agro Products"], ["Bed Linen", "Bed Linen"],
+                                                                 ["Cashews", "Cashews"], ["Chemicals", "Chemicals"], ["Coffee and Coffee Products", "Coffee and Coffee Products"],
+                                                                 ["Cosmetics", "Cosmetics"], ["Cotton Yarn", "Cotton Yarn"],
+                                                                 ["Cotton/Jute Bags", "Cotton/Jute Bags"], ["Engineering Products", "Engineering Products"],
+                                                                 ["FMCGs", "FMCGs"], ["Frozen Meats", "Frozen Meats"],
+                                                                 ["Grains", "Grains"], ["Pulses", "Pulses"], ["Granites", "Granites"], ["Herbs and Spices", "Herbs and Spices"]],
+                                                     id: "B_168", prompt: "Select..." %>
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <div class="form-group">
+                                    <label class="control-label"> Expoter Full Name </label>
+                                    <input type="text" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label"> Email </label>
+                                    <div> <%= f.text_field :companyEmail, class: "form-control", required: true %> </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label"> Phone </label>
+                                    <div> <%= f.text_field :companyPhone, class: "form-control", required: true %> </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label"> Exporter Company Name </label>
+                                    <div> <%= f.text_field :companyName, class: "form-control", required: true %> </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label"> IEC Number </label>
+                                    <input type="text" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label"> Company Name </label>
+                                    <div> <%= f.text_field :companyName, class: "form-control", required: true %> </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label"> Importer Email </label>
+                                    <div> <%= f.text_field :companyEmail, class: "form-control", required: true %> </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label"> Importer Phone </label>
+                                    <div> <%= f.text_field :companyPhone, class: "form-control", required: true %> </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label"> IEC Number </label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <br>
+
+                                <div class="text-center">
+                                    <%= f.submit "Save", class: "btn btn-form" %>
+                                </div>
+
                             </div>
-
-                            <div class="form-group">
-                                <label class="control-label"> Email </label>
-                                <div> <%= f.text_field :companyEmail, class: "form-control", required: true %> </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label"> Phone </label>
-                                <div> <%= f.text_field :companyPhone, class: "form-control", required: true %> </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label"> Company Name </label>
-                                <div> <%= f.text_field :companyName, class: "form-control", required: true %> </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label"> IEC Number </label>
-                                <input type="text" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label"> Full Name </label>
-                                <input type="text" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label"> Email </label>
-                                <div> <%= f.text_field :companyEmail, class: "form-control", required: true %> </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label"> Phone </label>
-                                <div> <%= f.text_field :companyPhone, class: "form-control", required: true %> </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label"> Company Name </label>
-                                <div> <%= f.text_field :companyName, class: "form-control", required: true %> </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label"> IEC Number </label>
-                                <input type="text" class="form-control">
-                            </div>
-
-                            <br>
-
-                            <div class="text-center">
-                                <%= f.submit "Save", class: "btn btn-form" %>
-                            </div>
-
                         </div>
 
                     <% end %>
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>
