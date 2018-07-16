@@ -98,7 +98,7 @@ class TradeinfosController < ApplicationController
     end
 
     def is_ready_third_step
-        @tradeinfo.goods && @tradeinfo.category && @tradeinfo.companyName && @tradeinfo.companyEmail && @tradeinfo.companyPhone && @tradeinfo.importerName && @tradeinfo.importerEmail && @tradeinfo.taxId
+        @tradeinfo.goods && @tradeinfo.category && @tradeinfo.companyName && @tradeinfo.companyPhone && @tradeinfo.importerName && @tradeinfo.importerEmail && @tradeinfo.taxId
     end
 
 end

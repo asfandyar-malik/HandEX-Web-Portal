@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_25_134432) do
+ActiveRecord::Schema.define(version: 2018_07_15_001752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,38 @@ ActiveRecord::Schema.define(version: 2018_06_25_134432) do
     t.index ["invoice_id"], name: "index_attachments_on_invoice_id"
   end
 
+  create_table "bankaccounts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name_account_holder"
+    t.string "iban"
+    t.string "bic"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bankaccounts_on_user_id"
+  end
+
+  create_table "buyers", force: :cascade do |t|
+    t.string "name"
+    t.string "country"
+    t.string "street_address"
+    t.string "payment_terms"
+    t.string "shipment_terms"
+    t.integer "sales_past_12months"
+    t.integer "sales_projected_12months"
+    t.integer "credit_period"
+    t.string "credit_from"
+    t.string "years_selling_buyer"
+    t.string "invoicing_currency"
+    t.string "document_routing"
+    t.string "document_release"
+    t.boolean "related_party"
+    t.boolean "write_offs"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_buyers_on_user_id"
+  end
+
   create_table "documents", force: :cascade do |t|
     t.string "document_type"
     t.string "year"
@@ -34,6 +66,38 @@ ActiveRecord::Schema.define(version: 2018_06_25_134432) do
     t.datetime "updated_at", null: false
     t.string "description"
     t.index ["user_id"], name: "index_documents_on_user_id"
+  end
+
+  create_table "financials", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "total_financing_required"
+    t.string "time_duration"
+    t.integer "projected_sales_18_19"
+    t.integer "projected_sales_20_21"
+    t.string "net_profitability"
+    t.integer "net_worth"
+    t.string "ifsc"
+    t.boolean "outstanding_bank_nbfc_facility"
+    t.string "name_of_institution"
+    t.string "type_of_loan"
+    t.integer "size_of_loan"
+    t.string "defaulted_or_overdue"
+    t.string "explain_defaulted_or_overdue"
+    t.string "receivables_factored"
+    t.string "explain_receivables_factored"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_financials_on_user_id"
+  end
+
+  create_table "insurances", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "insurance_cover"
+    t.string "country_category"
+    t.string "buyer_category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 
   create_table "invoices", force: :cascade do |t|
@@ -102,7 +166,11 @@ ActiveRecord::Schema.define(version: 2018_06_25_134432) do
   end
 
   add_foreign_key "attachments", "invoices"
+  add_foreign_key "bankaccounts", "users"
+  add_foreign_key "buyers", "users"
   add_foreign_key "documents", "users"
+  add_foreign_key "financials", "users"
+  add_foreign_key "insurances", "users"
   add_foreign_key "invoices", "users"
   add_foreign_key "photos", "documents"
   add_foreign_key "tradeinfos", "users"

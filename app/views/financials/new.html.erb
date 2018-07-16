@@ -1,7 +1,4 @@
 <div class="row">
-    <div class="col-md-2">
-        <%= render 'tradeinfo_menu' %>
-    </div>
     <div class="col-md-10">
         <div class="panel panel-default">
 
@@ -11,7 +8,7 @@
 
             <div class="panel-body">
                 <div class="container">
-                    <%= form_for @tradeinfo do |f| %>
+                    <%= form_for @financial do |f| %>
 
                         <div id="DIV_226">
 
@@ -22,12 +19,12 @@
                                     <br>
                                     <div class="col-md-5">
                                         <p> Total Financing Required (€) </p>
-                                        <div> <%= f.text_field :companyEmail, class: "form-control", required: true %> </div>
+                                        <div> <%= f.text_field :total_financing_required, class: "form-control", required: true %> </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <p> Time Duration </p>
-                                        <%= f.select :category, [["6 Months", "6 Months"], ["1 Year", "1 Year)"],
+                                        <%= f.select :time_duration, [["6 Months", "6 Months"], ["1 Year", "1 Year)"],
                                                                  ["1.5 Years", "1.5 Years"], ["2 Years", "3 Years"]], id: "B_168", prompt: "Select..." %>
                                     </div>
                                 </div>
@@ -41,11 +38,11 @@
                                     <br>
                                     <div class="col-md-5">
                                         <p> 2018-2019 </p>
-                                        <div> <%= f.text_field :companyEmail, class: "form-control", required: true %> </div>
+                                        <div> <%= f.text_field :projected_sales_18_19, class: "form-control", required: true %> </div>
                                     </div>
                                     <div class="col-md-5">
                                         <p> 2019-2020 </p>
-                                        <div> <%= f.text_field :companyEmail, class: "form-control", required: true %> </div>
+                                        <div> <%= f.text_field :projected_sales_20_21, class: "form-control", required: true %> </div>
                                     </div>
                                 </div>
 
@@ -58,17 +55,17 @@
                                     <br>
                                     <div class="col-md-6">
                                         <p> Net Profitability </p>
-                                        <div> <%= f.text_field :companyEmail, class: "form-control", required: true %> </div>
+                                        <div> <%= f.text_field :net_profitability, class: "form-control", required: true %> </div>
                                     </div>
                                     <div class="col-md-6">
                                         <p> Net Worth </p>
-                                        <div> <%= f.text_field :companyEmail, class: "form-control", required: true %> </div>
+                                        <div> <%= f.text_field :net_worth, class: "form-control", required: true %> </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <br>
                                         <p> IFSC of AD Bank</p>
-                                        <div> <%= f.text_field :companyEmail, class: "form-control", required: true %> </div>
+                                        <div> <%= f.text_field :ifsc, class: "form-control", required: true %> </div>
                                     </div>
 
                                 </div>
@@ -80,7 +77,7 @@
                                 <label class="control-label"> Do you have any outstanding Bank or NBFC
                                     facilities? </label>
                                 <br>
-                                <%= f.check_box :companyPhone, required: true, id: "outstandingDebt" %> Yes
+                                <%= f.check_box :outstanding_bank_nbfc_facility, required: true, id: "outstandingDebt" %> Yes
                             </div>
 
                             <div id="showHideDiv" style="display: none">
@@ -88,16 +85,16 @@
                                     <br>
                                     <div class="col-md-6">
                                         <p> Name of institution </p>
-                                        <div> <%= f.text_field :companyEmail, class: "form-control", required: true %> </div>
+                                        <div> <%= f.text_field :name_of_institution, class: "form-control", required: true %> </div>
                                     </div>
                                     <div class="col-md-3">
                                         <p> Type of Loan </p>
-                                        <div> <%= f.text_field :companyEmail, class: "form-control", required: true %> </div>
+                                        <div> <%= f.text_field :type_of_loan, class: "form-control", required: true %> </div>
                                     </div>
 
                                     <div class="col-md-3">
                                         <p> Size(€) </p>
-                                        <div> <%= f.text_field :companyEmail, class: "form-control", required: true %> </div>
+                                        <div> <%= f.text_field :size_of_loan, class: "form-control", required: true %> </div>
                                     </div>
                                 </div>
                             </div>
@@ -108,14 +105,14 @@
                                 <label class="control-label"> Has the company ever defaulted or been overdue on any bank
                                     facilities </label>
                                 <br>
-                                <%= f.check_box :companyPhone, required: true, id: "everDefaulted" %> Yes
+                                <%= f.check_box :defaulted_or_overdue, required: true, id: "everDefaulted" %> Yes
                             </div>
 
                             <div id="showHideDivDefaulted" style="display: none">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <p> if yes, explain </p>
-                                        <div> <%= f.text_area :companyEmail, class: "form-control", required: true %> </div>
+                                        <div> <%= f.text_area :explain_defaulted_or_overdue, class: "form-control", required: true %> </div>
                                     </div>
                                 </div>
                             </div>
@@ -124,7 +121,7 @@
                             <div class="form-group">
                                 <label class="control-label"> Are any receivables currently factored? </label>
                                 <br><br>
-                                <%= f.check_box :companyPhone, required: true, id: "receivableFactored" %> Yes
+                                <%= f.check_box :receivables_factored, required: true, id: "receivableFactored" %> Yes
                             </div>
 
 
@@ -132,7 +129,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <p> if yes, with whom? </p>
-                                        <div> <%= f.text_area :companyEmail, class: "form-control", required: true %> </div>
+                                        <div> <%= f.text_area :explain_receivables_factored, class: "form-control", required: true %> </div>
                                     </div>
                                 </div>
                             </div>

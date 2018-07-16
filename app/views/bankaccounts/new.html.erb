@@ -1,42 +1,39 @@
 <section id="SECTION_84">
     <div id="DIV_85">
-        <%= form_for @tradeinfo do |f| %>
+        <%= form_for @bankaccount do |f| %>
             <div id="DIV_91">
 
                 <div id="DIV_110">
                     <h1 id="H1_224">
-                        Importer Information
+                        Bank Account Information
                     </h1>
 
                     <div id="DIV_225">
 
                         <div class="form-group">
-                            <label class="control-label"> Company Name </label>
-                            <div> <%= f.text_field :importerName, class: "form-control", required: true %> </div>
+                            <label class="control-label"> Name of Account Holder </label>
+                            <div> <%= f.text_field :name_account_holder, class: "form-control", required: true %> </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label"> Email </label>
-                            <div> <%= f.text_field :importerEmail, class: "form-control", required: true %> </div>
+                            <label class="control-label"> IBAN Number</label>
+                            <div> <%= f.text_field :iban, class: "form-control", required: true %> </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label"> Tax Number </label>
-                            <div> <%= f.text_field :taxId, class: "form-control", required: true %> </div>
+                            <label class="control-label"> BIC </label>
+                            <div> <%= f.text_field :bic, class: "form-control", required: true %> </div>
                         </div>
 
                     </div>
 
                     <div id="DIV_295">
-                        <a href="#details" id="A_296">Back</a>
-                        <button type="submit" name="application[stage]" value="-1" id="BUTTON_297">
-                            Submit
-                        </button>
+                        <a href="sucessfullyprocessed" id="BUTTON_297">Submit Application</a>
                     </div>
                 </div>
 
                 <div id="DIV_210">
-                    <img class="responsive-img" id="IMG_211" src="<%= asset_path('eligibility-3.png') %>">
+                    <img class="responsive-img" id="IMG_211" src="<%= asset_path('bank.png') %>">
                 </div>
 
                 <div id="DIV_105">
