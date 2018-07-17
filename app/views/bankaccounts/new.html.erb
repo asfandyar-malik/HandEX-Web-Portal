@@ -1,6 +1,6 @@
 <section id="SECTION_84">
     <div id="DIV_85">
-        <%= form_for @bankaccount do |f| %>
+        <%= form_for @bankaccount, url: tradeinfo_bankaccounts_path, method: :post do |f| %>
             <div id="DIV_91">
 
                 <div id="DIV_110">
@@ -24,12 +24,13 @@
                             <label class="control-label"> BIC </label>
                             <div> <%= f.text_field :bic, class: "form-control", required: true %> </div>
                         </div>
-
                     </div>
 
                     <div id="DIV_295">
-                        <a href="sucessfullyprocessed" id="BUTTON_297">Submit Application</a>
+                        <%= button_to "Submit Application", sucessfullyprocessed_tradeinfo_path(@tradeinfo), id:"BUTTON_297", method: :get %>
                     </div>
+
+
                 </div>
 
                 <div id="DIV_210">

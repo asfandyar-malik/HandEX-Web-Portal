@@ -19,7 +19,7 @@ class TradeinfosController < ApplicationController
         @tradeinfo = current_user.tradeinfos.build(tradeinfo_params)
         if @tradeinfo.save
             # redirect_to exportinformation_tradeinfo_path(@tradeinfo), notice: "Created...."
-            redirect_to tradeinfo_buyers_path(@tradeinfo), notice: "Created...."
+            redirect_to exportinformation_tradeinfo_path(@tradeinfo), notice: "Created...."
         else
             flash[:alert] = "Something went wrong while creating...."
             render :new
@@ -45,7 +45,7 @@ class TradeinfosController < ApplicationController
         if @tradeinfo.update(tradeinfo_params)
             flash[:notice] = "TradeInfo Updated...."
             if is_ready_third_step
-                redirect_to tradeinfo_buyers_path(@tradeinfo)
+                redirect_to eligibility_tradeinfo_path(@tradeinfo)
             else
                 redirect_to importinformation_tradeinfo_path
             end

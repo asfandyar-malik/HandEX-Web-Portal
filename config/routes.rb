@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root to: 'pages#home'
 
   devise_for :users,
@@ -31,7 +32,6 @@ Rails.application.routes.draw do
     end
 
     resources :attachments, only: [:create, :destroy]
-
   end
 
   resources :tradeinfos do
@@ -40,20 +40,15 @@ Rails.application.routes.draw do
       get 'importinformation'
       get 'thank'
       get 'eligibility'
-      get 'buyers'
-      get 'financials'
       get 'accepted'
       get 'rejected'
-      get 'bankinformationexporter'
-      get 'eulerhermesredirect'
       get 'sucessfullyprocessed'
-      get 'testTwo'
     end
 
-    resources :buyers ,only: [:create, :destroy]
-    resources :financials, only: [:create, :destroy]
-    resources :insurances, only: [:create, :destroy]
-    resources :bankaccounts, only: [:create, :destroy]
+    resources :buyers, only: [:create, :destroy, :new]
+    resources :financials, only: [:create, :destroy, :new]
+    resources :insurances, only: [:create, :destroy, :new]
+    resources :bankaccounts, only: [:create, :destroy, :new]
 
   end
 end

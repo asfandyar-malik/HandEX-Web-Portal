@@ -5,18 +5,19 @@ class BuyersController < ApplicationController
   before_action :is_authorised, only: [:exportinformation, :update]
 
   def new
+    flash[:alert] = "Entering Buyers new"
     @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
-    @tradeinfo.create_buyer(params[:buyer])
+    @buyer = @tradeinfo.create_buyer(buyer_params)
   end
 
   def create
     flash[:alert] = "Entering Buyers create"
     @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
-    @tradeinfo.create_buyer(params[:buyer])
+    @tradeinfo.create_buyer(buyer_params)
     @buyer = @tradeinfo.buyer
 
     if @buyer.save
-      redirect_to tradeinfo_financials_path(@tradeinfo), notice: "Buyer Created...."
+      redirect_to new_tradeinfo_financial_path(@tradeinfo), notice: "Buyer Created...."
     else
       flash[:alert] = "Something went wrong while creating...."
       render :new
@@ -28,7 +29,7 @@ class BuyersController < ApplicationController
     if @buyer.update(buyer_params)
       flash[:notice] = "Buyers Updated...."
       if is_ready_second_step
-        redirect_to tradeinfo_financials(@tradeinfo)
+        redirect_to new_tradeinfo_financial_path(@tradeinfo)
       else
         redirect_to thank_tradeinfo_path(@tradeinfo)
       end
@@ -57,7 +58,7 @@ class BuyersController < ApplicationController
   end
 
   def buyer_params
-    params.require(:buyer).permit(:name, :country, :street_address, :payment_terms, :shipment_terms,
+    params.permit(:name, :country, :street_address, :payment_terms, :shipment_terms,
                                   :sales_past_12months, :sales_projected_12months, :credit_period, :credit_from,
                                   :years_selling_buyer, :invoicing_currency, :document_routing, :document_release,
                                   :related_party, :write_offs)

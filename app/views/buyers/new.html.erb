@@ -11,7 +11,7 @@
 
             <div class="panel-body">
                 <div class="container">
-                    <%= form_for @buyer do |f| %>
+                    <%= form_for @buyer, url: tradeinfo_buyers_path, method: :post do |f| %>
 
                         <div id="DIV_226">
                             <div class="row">
@@ -140,7 +140,7 @@
                             <br><br><br><br>
 
                             <div id="DIV_88">
-                                <button onclick="window.location.href='eligibility'" type="submit" id="BUTTON_298">
+                                <button type="submit" id="BUTTON_298">
                                     PROCEED
                                 </button>
                             </div>

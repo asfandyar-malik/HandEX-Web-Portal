@@ -21,9 +21,8 @@
         <br>
 
         <div id="DIV_88">
-
-                <a href="eulerhermesredirect" id="BUTTON_298"> Yes </a>
-                <a href="bankinformationexporter" id="BUTTON_299"> No </a>
+            <%= button_to "Yes", new_tradeinfo_insurance_path(@tradeinfo), id:"BUTTON_298", method: :get %>
+            <%= button_to "No", new_tradeinfo_bankaccount_path(@tradeinfo), id:"BUTTON_299", method: :get %>
         </div>
 
     </div>
