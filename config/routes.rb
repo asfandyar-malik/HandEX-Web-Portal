@@ -49,28 +49,11 @@ Rails.application.routes.draw do
       get 'sucessfullyprocessed'
       get 'testTwo'
     end
+
+    resources :buyers ,only: [:create, :destroy]
+    resources :financials, only: [:create, :destroy]
+    resources :insurances, only: [:create, :destroy]
+    resources :bankaccounts, only: [:create, :destroy]
+
   end
-
-  resources :buyers
-  resources :financials
-  resources :insurances
-  resources :bankaccounts
-
-  # get 'bankaccount/index'
-  # get 'bankaccount/new'
-  # get 'bankaccount/create'
-  # get 'bankaccount/update'
-  # get 'insurances/index'
-  # get 'insurances/new'
-  # get 'insurances/create'
-  # get 'insurances/update'
-  # get 'financial/index'
-  # get 'financial/new'
-  # get 'financial/create'
-  # get 'financial/update'
-  # get 'buyer/index'
-  # get 'buyer/new'
-  # get 'buyer/create'
-  # get 'buyer/update'
-
 end

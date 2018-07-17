@@ -1,3 +1,3 @@
 class Bankaccount < ApplicationRecord
-  belongs_to :user
+  belongs_to :tradeinfo
 end

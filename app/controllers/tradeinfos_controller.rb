@@ -18,27 +18,19 @@ class TradeinfosController < ApplicationController
     def create
         @tradeinfo = current_user.tradeinfos.build(tradeinfo_params)
         if @tradeinfo.save
-            redirect_to exportinformation_tradeinfo_path(@tradeinfo), notice: "Created...."
+            # redirect_to exportinformation_tradeinfo_path(@tradeinfo), notice: "Created...."
+            redirect_to tradeinfo_buyers_path(@tradeinfo), notice: "Created...."
         else
             flash[:alert] = "Something went wrong while creating...."
             render :new
         end
     end
 
-    def exportinformation
+    def show
+        @buyer = @tradeinfo.buyer
     end
 
-    def importinformation
-    end
 
-    def auxillary
-    end
-
-    def financials
-    end
-
-    def eligibility
-    end
     # GET /tradeinfos/1/edit
     def edit
     end
@@ -51,9 +43,9 @@ class TradeinfosController < ApplicationController
     # PATCH/PUT /tradeinfos/1.json
     def update
         if @tradeinfo.update(tradeinfo_params)
-            flash[:notice] = "Updated...."
+            flash[:notice] = "TradeInfo Updated...."
             if is_ready_third_step
-                redirect_to thank_tradeinfo_path
+                redirect_to tradeinfo_buyers_path(@tradeinfo)
             else
                 redirect_to importinformation_tradeinfo_path
             end
@@ -72,12 +64,12 @@ class TradeinfosController < ApplicationController
         end
     end
 
-    private
-
     # Use callbacks to share common setup or constraints between actions.
     def set_tradeinfo
         @tradeinfo = Tradeinfo.find(params[:id])
     end
+
+    private
 
     def is_authorised
         redirect_to root_path, alert: "You don't have permission" unless current_user.id = @tradeinfo.user_id

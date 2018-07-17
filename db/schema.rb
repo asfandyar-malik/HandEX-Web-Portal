@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_15_001752) do
+ActiveRecord::Schema.define(version: 2018_07_16_205446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,13 +27,13 @@ ActiveRecord::Schema.define(version: 2018_07_15_001752) do
   end
 
   create_table "bankaccounts", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "tradeinfo_id"
     t.string "name_account_holder"
     t.string "iban"
     t.string "bic"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_bankaccounts_on_user_id"
+    t.index ["tradeinfo_id"], name: "index_bankaccounts_on_tradeinfo_id"
   end
 
   create_table "buyers", force: :cascade do |t|
@@ -52,10 +52,10 @@ ActiveRecord::Schema.define(version: 2018_07_15_001752) do
     t.string "document_release"
     t.boolean "related_party"
     t.boolean "write_offs"
-    t.bigint "user_id"
+    t.bigint "tradeinfo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_buyers_on_user_id"
+    t.index ["tradeinfo_id"], name: "index_buyers_on_tradeinfo_id"
   end
 
   create_table "documents", force: :cascade do |t|
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2018_07_15_001752) do
   end
 
   create_table "financials", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "tradeinfo_id"
     t.string "total_financing_required"
     t.string "time_duration"
     t.integer "projected_sales_18_19"
@@ -87,17 +87,17 @@ ActiveRecord::Schema.define(version: 2018_07_15_001752) do
     t.string "explain_receivables_factored"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_financials_on_user_id"
+    t.index ["tradeinfo_id"], name: "index_financials_on_tradeinfo_id"
   end
 
   create_table "insurances", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "tradeinfo_id"
     t.string "insurance_cover"
     t.string "country_category"
     t.string "buyer_category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_insurances_on_user_id"
+    t.index ["tradeinfo_id"], name: "index_insurances_on_tradeinfo_id"
   end
 
   create_table "invoices", force: :cascade do |t|
@@ -166,11 +166,11 @@ ActiveRecord::Schema.define(version: 2018_07_15_001752) do
   end
 
   add_foreign_key "attachments", "invoices"
-  add_foreign_key "bankaccounts", "users"
-  add_foreign_key "buyers", "users"
+  add_foreign_key "bankaccounts", "tradeinfos"
+  add_foreign_key "buyers", "tradeinfos"
   add_foreign_key "documents", "users"
-  add_foreign_key "financials", "users"
-  add_foreign_key "insurances", "users"
+  add_foreign_key "financials", "tradeinfos"
+  add_foreign_key "insurances", "tradeinfos"
   add_foreign_key "invoices", "users"
   add_foreign_key "photos", "documents"
   add_foreign_key "tradeinfos", "users"

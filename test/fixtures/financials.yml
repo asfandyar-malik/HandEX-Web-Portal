@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user: one
+  tradeinfo: one
   total_financing_required: MyString
   time_duration: MyString
   projected_sales_18_19: 1
@@ -19,7 +19,7 @@ one:
   explain_receivables_factored: MyString
 
 two:
-  user: two
+  tradeinfo: two
   total_financing_required: MyString
   time_duration: MyString
   projected_sales_18_19: 1

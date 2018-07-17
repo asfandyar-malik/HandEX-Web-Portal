@@ -1,7 +1,7 @@
 class CreateFinancials < ActiveRecord::Migration[5.2]
   def change
     create_table :financials do |t|
-      t.references :user, foreign_key: true
+      t.references :tradeinfo, foreign_key: true
       t.string :total_financing_required
       t.string :time_duration
       t.integer :projected_sales_18_19

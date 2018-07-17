@@ -5,18 +5,18 @@ class BankaccountsController < ApplicationController
     before_action :is_authorised, only: [:exportinformation, :update]
 
     def index
-      @bankaccount = current_user.bankaccount
+      @bankaccount = current_tradeinfo.bankaccount
     end
 
     # GET /bankaccounts/new
     def new
-      @bankaccount = current_user.build_bankaccount()
+      @bankaccount = current_tradeinfo.build_bankaccount()
     end
 
     # POST /bankaccounts
     # POST /bankaccounts.json
     def create
-      @bankaccount = current_user.bankaccount.build(bankaccount_params)
+      @bankaccount = current_tradeinfo.bankaccount.build(bankaccount_params)
       if @bankaccount.save
         redirect_to exportinformation_tradeinfo_path(@bankaccount), notice: "Created...."
       else
@@ -69,7 +69,7 @@ class BankaccountsController < ApplicationController
     end
 
     def is_authorised
-      redirect_to root_path, alert: "You don't have permission" unless current_user.id = @bankaccount.user_id
+      redirect_to root_path, alert: "You don't have permission" unless current_tradeinfo.id = @bankaccount.tradeinfo_id
     end
 
     def bankaccount_params

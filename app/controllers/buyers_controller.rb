@@ -4,38 +4,33 @@ class BuyersController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :is_authorised, only: [:exportinformation, :update]
 
-  def index
-    @buyer = current_user.buyer
-  end
-
   def new
-    @buyer = current_user.build_buyer()
-    # @user = User.find(params[:user_id])
+    @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
+    @tradeinfo.create_buyer(params[:buyer])
   end
 
   def create
-    current_user.create_buyer(params[:buyer])
+    flash[:alert] = "Entering Buyers create"
+    @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
+    @tradeinfo.create_buyer(params[:buyer])
+    @buyer = @tradeinfo.buyer
 
-    # @buyer = current_user.build_buyer(buyer_params)
     if @buyer.save
-      redirect_to buyer_index_path(@buyer), notice: "Created...."
+      redirect_to tradeinfo_financials_path(@tradeinfo), notice: "Buyer Created...."
     else
       flash[:alert] = "Something went wrong while creating...."
       render :new
     end
   end
 
-  def edit
-  end
-
 
   def update
     if @buyer.update(buyer_params)
-      flash[:notice] = "Updated...."
-      if is_ready_third_step
-        redirect_to buyer_index_path
+      flash[:notice] = "Buyers Updated...."
+      if is_ready_second_step
+        redirect_to tradeinfo_financials(@tradeinfo)
       else
-        redirect_to buyer_update_path
+        redirect_to thank_tradeinfo_path(@tradeinfo)
       end
     else
       flash[:alert] = "Something went wrong while updating"
@@ -58,7 +53,7 @@ class BuyersController < ApplicationController
   end
 
   def is_authorised
-    redirect_to root_path, alert: "You don't have permission" unless current_user.id = @buyer.user_id
+    redirect_to root_path, alert: "You don't have permission" unless current_tradeinfo.id = @buyer.tradeinfo_id
   end
 
   def buyer_params

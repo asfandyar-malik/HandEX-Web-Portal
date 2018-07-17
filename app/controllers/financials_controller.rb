@@ -5,18 +5,18 @@ class FinancialsController < ApplicationController
     before_action :is_authorised, only: [:exportinformation, :update]
 
     def index
-      @financial = current_user.financial
+      @financial = current_tradeinfo.financial
     end
 
     # GET /financials/new
     def new
-      @financial = current_user.build_financial()
+      @financial = current_tradeinfo.build_financial()
     end
 
     # POST /financials
     # POST /financials.json
     def create
-      @financial = current_user.financials.build(financial_params)
+      @financial = current_tradeinfo.financials.build(financial_params)
       if @financial.save
         redirect_to exportinformation_tradeinfo_path(@financial), notice: "Created...."
       else
@@ -25,28 +25,10 @@ class FinancialsController < ApplicationController
       end
     end
 
-    def exportinformation
-    end
-
-    def importinformation
-    end
-
-    def auxillary
-    end
-
-    def financials
-    end
-
-    def eligibility
-    end
-
     # GET /financials/1/edit
     def edit
     end
 
-    def thank
-      # something here if needed
-    end
 
     # PATCH/PUT /financials/1
     # PATCH/PUT /financials/1.json
@@ -81,7 +63,7 @@ class FinancialsController < ApplicationController
     end
 
     def is_authorised
-      redirect_to root_path, alert: "You don't have permission" unless current_user.id = @financial.user_id
+      redirect_to root_path, alert: "You don't have permission" unless current_tradeinfo.id = @financial.tradeinfo_id
     end
 
     def financial_params

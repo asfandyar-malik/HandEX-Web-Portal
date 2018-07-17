@@ -1,2 +1,155 @@
-<h1>Buyer#index</h1>
-<p>Find me in app/views/buyer/index.html.erb</p>
+<div class="row">
+    <div class="col-md-2">
+        <%= render 'tradeinfos/tradeinfo_menu' %>
+    </div>
+    <div class="col-md-10">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                BUYERS LIST (Fill information as they appear on invoices)
+            </div>
+
+            <div class="panel-body">
+                <div class="container">
+                    <%= form_for @buyer do |f| %>
+
+                        <div id="DIV_226">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p> Name </p>
+                                    <div> <%= f.text_field :name, class: "form-control", required: true %> </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <p> Country </p>
+                                    <div> <%= f.text_field :country, class: "form-control", required: true %> </div>
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p> Exact Street Address </p>
+                                    <div> <%= f.text_field :street_address, class: "form-control", required: true %> </div>
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p> Payment Terms </p>
+
+                                    <%= f.select :payment_terms, [["Letter of Credit(LC)", "Letter of Credit(LC)"], ["Open Account", "Open Accont"], ["D/A", "D/A"],
+                                                                  ["D/P", "D/P"], ["TT after FDA", "TT after FDA"], ["DA after FDA", "DA after FDA"],
+                                                                  ["Cash against Document (CAD)", "Cash against Document (CAD)"]], id: "B_168", prompt: "Select..." %>
+                                </div>
+
+                                <div class="col-md-3 col-md-offset-2">
+                                    <p> Shipment Terms </p>
+
+                                    <%= f.select :shipment_terms, [["Ex Works (EXW)", "Ex Works (EXW)"], ["Free Carrier (FCA)", "Free Carrier (FCA)"], ["Free Alongside Ship (FAS)", "Free Alongside Ship (FAS)"],
+                                                                   ["Freight On Board (FOB)", "Freight On Board (FOB)"], ["Cost and Freight (CFR)", "Cost and Freight (CFR)"], ["Cost Insurance and Freight (CIF)", "Cost Insurance and Freight (CIF)"],
+                                                                   ["Carriage Paid To (CPT)", "Carriage Paid To (CPT)"], ["Carriage Insurance Paid To (CIP)", "Carriage Insurance Paid To (CIP)"],
+                                                                   ["Delivered at Terminal (DAT)", "Delivered at Terminal (DAT)"], ["Delivered at Place (DAP)", "Delivered at Place (DAP)"],
+                                                                   ["Delivery Duty Paid (DDP)", "Delivery Duty Paid (DDP)"]], id: "B_168", prompt: "Select..." %>
+                                </div>
+                            </div>
+
+                            <br><br>
+                            <hr align="middle" background-color="#322d59" width="100%">
+                            <br><br>
+
+                            <div class="row">
+                                <div class="col-md-5 col-lg-5">
+                                    <p> Sales in past 12 months (€) </p>
+                                    <div> <%= f.text_field :sales_past_12months, class: "form-control", required: true %> </div>
+                                </div>
+                                <div class="col-md-7 col-lg-7">
+                                    <p> Projected sales in next 12 months (€) </p>
+                                    <div> <%= f.text_field :sales_past_12months, class: "form-control", required: true %> </div>
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p> Credit Period (No. of days) </p>
+                                    <div> <%= f.text_field :credit_period, class: "form-control", required: true %> </div>
+                                </div>
+                                <div class="col-md-4 col-md-offset-2">
+                                    <p> Credit From </p>
+                                    <%= f.select :credit_from, [["Credit From", "Credit From"], ["Invoice Date", "Invoice Date"], ["BL Date", "BL Date"],
+                                                                ["FDA Clearance Date", "FDA Clearance Date)"], ["Discharge Date", "Discharge Date"],
+                                                                ["Goods Usage Date", "Goods Usage Date"]], id: "B_168", prompt: "Select..." %>
+                                </div>
+                            </div>
+
+                            <br><br>
+                            <hr align="middle" width="100%">
+                            <br><br>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p> Years selling to buyer </p>
+                                    <%= f.select :years_selling_buyer, [["New Customer", "New Customer"], ["1", "1"], ["2", "2"],
+                                                                        ["3", "3)"], ["4", "4"], ["5", "5"],
+                                                                        ["More than 5", "More than 5"]], id: "B_168", prompt: "Select..." %>
+                                </div>
+
+                                <div class="col-md-4 col-md-offset-2">
+                                    <p> Invoicing Currency </p>
+                                    <%= f.select :invoicing_currency, [["Euro", "Euro"], ["USD", "USD"], ["Pound", "Pound"]],
+                                                 id: "B_168", prompt: "Select..." %>
+                                </div>
+                            </div>
+
+                            <br><br>
+
+                            <div class="row">
+
+                                <div class="col-md-4">
+                                    <p> Document Routing </p>
+                                    <%= f.select :document_routing, [["Document Routing", "Document Routing"], ["Direct", "Direct"], ["Bank to Bank", "Bank to Bank"]],
+                                                 id: "B_168", prompt: "Select..." %> </div>
+
+                                <div class="col-md-4 col-md-offset-2">
+                                    <p> Document Release </p>
+                                    <%= f.select :document_release, [["Document Release", "Document Release"], ["Shipment", "Shipment"], ["On Signing Bill of Exchange", "On Signing Bill of Exchange"],
+                                                                     ["On Receiving Payment", "On Receiving Payment"]], id: "B_168", prompt: "Select..." %>
+                                </div>
+                            </div>
+
+                            <br><br>
+
+                            <div class="row">
+
+                                <div class="col-md-4">
+                                    <p> Is it a related party? </p>
+                                    <%= f.select :related_party, [["Yes", "Yes"], ["No", "No"]], id: "B_168", prompt: "Select..." %>
+                                </div>
+
+                                <div class="col-md-4 col-md-offset-2">
+                                    <p> Ever had write offs? </p>
+                                    <%= f.select :write_offs, [["Yes", "Yes"], ["No", "No"]], id: "B_168", prompt: "Select..." %>
+                                </div>
+
+                            </div>
+
+                            <br><br><br><br>
+
+                            <div id="DIV_88">
+                                <button onclick="window.location.href='eligibility'" type="submit" id="BUTTON_298">
+                                    PROCEED
+                                </button>
+                            </div>
+
+                        </div>
+
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

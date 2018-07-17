@@ -16,7 +16,7 @@ class CreateBuyers < ActiveRecord::Migration[5.2]
       t.string :document_release
       t.boolean :related_party
       t.boolean :write_offs
-      t.references :user, foreign_key: true
+      t.references :tradeinfo, foreign_key: true
 
       t.timestamps
     end

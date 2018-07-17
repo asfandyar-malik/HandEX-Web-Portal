@@ -16,7 +16,7 @@ one:
   document_release: MyString
   related_party: false
   write_offs: false
-  user: one
+  tradeinfo: one
 
 two:
   name: MyString
@@ -34,4 +34,4 @@ two:
   document_release: MyString
   related_party: false
   write_offs: false
-  user: two
+  tradeinfo: two

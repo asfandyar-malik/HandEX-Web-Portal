@@ -5,18 +5,18 @@ class InsurancesController < ApplicationController
     before_action :is_authorised, only: [:exportinformation, :update]
 
     def index
-      @insurance = current_user.insurance
+      @insurance = current_tradeinfo.insurance
     end
 
     # GET /insurances/new
     def new
-      @insurance = current_user.build_insurance()
+      @insurance = current_tradeinfo.build_insurance()
     end
 
     # POST /insurances
     # POST /insurances.json
     def create
-      @insurance = current_user.insurance.build(insurance_params)
+      @insurance = current_tradeinfo.insurance.build(insurance_params)
       if @insurance.save
         redirect_to exportinformation_tradeinfo_path(@insurance), notice: "Created...."
       else
@@ -81,7 +81,7 @@ class InsurancesController < ApplicationController
     end
 
     def is_authorised
-      redirect_to root_path, alert: "You don't have permission" unless current_user.id = @insurance.user_id
+      redirect_to root_path, alert: "You don't have permission" unless current_tradeinfo.id = @insurance.tradeinfo  _id
     end
 
     def insurance_params
