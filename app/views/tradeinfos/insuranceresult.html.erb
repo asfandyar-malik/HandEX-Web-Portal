@@ -1,3 +1,7 @@
+<div id="loader" style="display:none; padding-top: 15%; text-align: center;">
+    <img id="myImage" , src="<%= asset_path('bx_loader.gif') %>"></div><br>
+
+
 <section id="SECTION_84">
     <div id="DIV_85">
         <div id="DIV_111">
@@ -31,7 +35,6 @@
         <% end %>
 
         <br>
-
     </div>
 
 </section>
@@ -47,5 +50,27 @@
             selectYears: 2 // Creates a dropdown of 15 years to control year
         });
     });
+
+    (function () {
+        var loader = document.getElementById("loader");
+        var section = document.getElementById("SECTION_84");
+        var footer = document.getElementById("FOOTER_409");
+
+
+        show = function () {
+            loader.style.display = "block";
+            section.style.display = "none";
+            footer.style.display = "none";
+            setTimeout(hide, 1000);
+        },
+
+            hide = function () {
+                loader.style.display = "none";
+                section.style.display = "block";
+                footer.style.display = "block";
+            };
+        show();
+    })();
+
 
 </script>
