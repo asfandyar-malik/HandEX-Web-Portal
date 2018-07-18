@@ -1,4 +1,6 @@
-<section id="SECTION_84">
+<div id = "loader" style="display:none; padding-top: 20%; text-align: center"> <img id = "myImage", src = "<%= asset_path('bx_loader.gif')%>"> </div><br>
+
+<section id="SECTION_84" style="display:none">
     <div id="DIV_85">
 
         <div id="DIV_86">
@@ -12,7 +14,7 @@
                     Your loan request for has been accepted for <b><%= @tradeinfo.financial.total_financing_required %></b>. <br>
                     You have to repay back in <b><%= @tradeinfo.financial.time_duration %></b> <br id="BR_93"/><br id="BR_94"/><br id="BR_95"/>
 
-                    Would you like to purchaes insurance from <b>Euler Hermes</b>
+                    Would you like to purchase insurance from <b>Euler Hermes</b>
 
                 </div>
             </div>
@@ -24,15 +26,17 @@
         <div id="DIV_88">
 
             <% if @tradeinfo.insurance %>
-                <%= button_to "Yes I would like my loan to be insured", tradeinfo_insurances_index_path(@tradeinfo), id:"BUTTON_298", method: :get %>
+                <%= button_to "Yes I would like my loan to be insured",  tradeinfo_insurances_index_path(@tradeinfo), method: :get, id:"BUTTON_298" %>
             <% else %>
-                <%= button_to "Yes I would like my loan to be insured", new_tradeinfo_insurance_path(@tradeinfo), id:"BUTTON_298", method: :get %>
+                <%= button_to "Yes I would like my loan to be insured", new_tradeinfo_insurance_path(@tradeinfo), method: :get, id:"BUTTON_298" %>
             <% end %>
+
             <br>
+
             <% if @tradeinfo.bankaccount %>
-                <%= button_to "No I dont want to insure my loan", tradeinfo_bankaccounts_index_path(@tradeinfo), id:"BUTTON_299", method: :get %>
+                <%= button_to "No I dont want to insure my loan", tradeinfo_bankaccounts_index_path(@tradeinfo), method: :get, id:"BUTTON_299" %>
             <% else %>
-                <%= button_to "No I dont want to insure my loan", new_tradeinfo_bankaccount_path(@tradeinfo), id:"BUTTON_299", method: :get %>
+                <%= button_to "No I dont want to insure my loan", new_tradeinfo_bankaccount_path(@tradeinfo), method: :get, id:"BUTTON_299" %>
             <% end %>
 
         </div>
@@ -40,5 +44,32 @@
     </div>
 </section>
 
-<footer id="FOOTER_408">
+<footer id="FOOTER_408"  style="display:none">
 </footer>
+
+<script type="text/javascript">
+
+    (function(){
+        var loader = document.getElementById("loader");
+        var section = document.getElementById("SECTION_84");
+        var footer = document.getElementById("FOOTER_408");
+
+
+        show = function(){
+                section.style.display = "none";
+                footer.style.display = "none";
+                loader.style.display = "block";
+                setTimeout(hide, 3000); // 5 seconds
+            },
+
+            hide = function(){
+                loader.style.display = "none";
+                section.style.display = "block";
+                footer.style.display = "block";
+
+            };
+
+        show();
+    })();
+
+</script>

@@ -8,7 +8,7 @@
                         <img class="responsive-img" id="IMG_212" src="<%= asset_path('EH1.png') %>">
                     </h1>
 
-                    <div id="DIV_225">
+                    <div id="DIV_226">
 
 
                         <div class="row">
@@ -25,11 +25,19 @@
                         <br>
 
                         <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-3">
                                 <label class="control-label"> Country Category </label>
                                 <%= f.select :country_category, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"]],
                                              id: "B_168", prompt: "Select..." %>
                             </div>
+
+                            <div class="col-md-4 col-md-offset-2">
+                                <label class="control-label"> Buyer Category Category </label>
+                                <%= f.select :buyer_category, [["SOV+", "SOV+"], ["SOV", "SOV"], ["CC0", "CC0"], ["SOV-", "SOV-"], ["CC1", "CC1"], ["CC2", "CC2"], ["CC3", "CC3"],
+                                                               ["CC4", "CC4"], ["CC5", "CC5"]],
+                                             id: "B_168", prompt: "Select..." %>
+                            </div>
+
                         </div>
 
                         <br>
@@ -37,18 +45,21 @@
 
                         <div class="row">
                             <div class="col-md-8">
-                                <label class="control-label"> Buyer Category Category </label>
-                                <%= f.select :buyer_category, [["SOV+", "SOV+"], ["SOV/CC0", "SOV/CC0"], ["SOV-", "SOV-"], ["CC1", "CC1"], ["CC2", "CC2"]],
-                                             id: "B_168", prompt: "Select..." %>
+                                <label for="start_date">Date when contract signed with Importer</label>
+                                <div> <%= f.date_field :date_contractsigned_with_importer, id: "start_date", type: "date", class:"datepicker" %> </div>
                             </div>
                         </div>
+                        <br>
+                        <br>
 
                         <div class="row">
-                            <div class="input-field col s3">
-                                <input id="start_date" type="text" value="<%= @formatted_offer_start_date %>" class="datepicker">
-                                <label for="start_date"><%= t('offer_start_date') %></label>
+                            <div class="col-md-8">
+                                <label for="start_date">Expected Date when Importer receives the product</label>
+                                <div> <%= f.date_field :expected_date_product_received_importer, id: "start_date", type: "date", class:"datepicker" %> </div>
                             </div>
                         </div>
+                        <br>
+                        <br>
 
                     </div>
 
@@ -72,3 +83,14 @@
 
 <footer id="FOOTER_409">
 </footer>
+
+<script>
+    $(document).ready(function () {
+
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 2 // Creates a dropdown of 15 years to control year
+        });
+    });
+
+</script>
