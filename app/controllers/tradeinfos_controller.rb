@@ -31,14 +31,6 @@ class TradeinfosController < ApplicationController
     end
 
 
-    # GET /tradeinfos/1/edit
-    def edit
-    end
-
-    def thank
-        # something here if needed
-    end
-
     # PATCH/PUT /tradeinfos/1
     # PATCH/PUT /tradeinfos/1.json
     def update

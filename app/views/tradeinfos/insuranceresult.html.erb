@@ -13,8 +13,8 @@
         <div id="DIV_88">
             <div id="DIV_89">
                 <div id="DIV_90">
-                    Money Applied for: <b>2400 Euros</b> <br>
-                    Duration: <b>12 Months</b>
+                    Money Applied for: <b> <%= @tradeinfo.financial.total_financing_required %> </b> <br>
+                    Duration: <b><%= @tradeinfo.financial.time_duration %>  </b>
                     <br id="BR_93"/><br id="BR_94"/><br id="BR_95"/>
 
 
@@ -55,7 +55,6 @@
         var loader = document.getElementById("loader");
         var section = document.getElementById("SECTION_84");
         var footer = document.getElementById("FOOTER_409");
-
 
         show = function () {
             loader.style.display = "block";

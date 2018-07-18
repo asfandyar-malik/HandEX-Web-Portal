@@ -24,7 +24,7 @@ class FinancialsController < ApplicationController
     @financial = @tradeinfo.build_financial(financial_params)
 
     if @financial.save
-      redirect_to accepted_tradeinfo_path(@tradeinfo, @financial), notice: "Financial Created...."
+      redirect_to accepted_tradeinfo_path(@tradeinfo, @financial, @buyer), notice: "Financial Created...."
     else
       flash[:alert] = "Something went wrong while creating...."
       render :new
