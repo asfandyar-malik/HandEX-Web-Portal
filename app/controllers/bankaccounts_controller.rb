@@ -4,9 +4,14 @@ class BankaccountsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :is_authorised, only: [:exportinformation, :update]
 
+  def index
+    @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
+    @bankaccount = @tradeinfo.bankaccount
+  end
+
   # GET /bankaccounts/new
   def new
-    flash[:alert] = "Entering BankAccount new"
+    flash[:notice] = "Entering BankAccount new"
     @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
     @bankaccount = @tradeinfo.build_bankaccount
   end
@@ -14,14 +19,14 @@ class BankaccountsController < ApplicationController
   # POST /bankaccounts
   # POST /bankaccounts.json
   def create
-    flash[:alert] = "Entering BankAccount create"
+    flash[:notice] = "Entering BankAccount create"
     @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
     @bankaccount = @tradeinfo.build_bankaccount(bankaccount_params)
 
     if @bankaccount.save
       redirect_to sucessfullyprocessed_tradeinfo_path(@tradeinfo), notice: "Created...."
     else
-      flash[:alert] = "Something went wrong while creating...."
+      flash[:notice] = "Something went wrong while creating...."
       render :new
     end
   end
@@ -52,11 +57,12 @@ class BankaccountsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_bankaccount
-    @bankaccount = bankaccount.find(params[:id])
+    @bankaccount = Bankaccount.find(params[:id])
   end
 
   def is_authorised
-    redirect_to root_path, alert: "You don't have permission" unless current_tradeinfo.id = @bankaccount.tradeinfo_id
+    @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
+    redirect_to root_path, alert: "You don't have permission" unless current_user.id = @tradeinfo.user_id
   end
 
   def bankaccount_params

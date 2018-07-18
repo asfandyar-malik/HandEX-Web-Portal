@@ -4,20 +4,19 @@ class BuyersController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :is_authorised, only: [:exportinformation, :update]
 
-
   def index
     @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
     @buyer = @tradeinfo.buyer
   end
 
   def new
-    flash[:alert] = "Entering Buyers new"
+    flash[:notice] = "Entering Buyers new"
     @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
     @buyer = @tradeinfo.build_buyer
   end
 
   def create
-    flash[:alert] = "Entering Buyers create"
+    flash[:notice] = "Entering Buyers create"
     @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
     @buyer = @tradeinfo.build_buyer(buyer_params)
 

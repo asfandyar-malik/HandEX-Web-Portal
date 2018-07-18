@@ -47,11 +47,13 @@ Rails.application.routes.draw do
 
     resources :buyers, only: [:create, :destroy, :new, :update]
     resources :financials, only: [:create, :destroy, :new, :update]
-    resources :insurances, only: [:create, :destroy, :new]
-    resources :bankaccounts, only: [:create, :destroy, :new]
+    resources :insurances, only: [:create, :destroy, :new, :update]
+    resources :bankaccounts, only: [:create, :destroy, :new, :update]
 
     get 'buyers/index' => 'buyers#index'
     get 'financials/index' => 'financials#index'
+    get 'insurances/index' => 'insurances#index'
+    get 'bankaccounts/index' => 'bankaccounts#index'
 
   end
 end

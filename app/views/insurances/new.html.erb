@@ -1,6 +1,6 @@
 <section id="SECTION_84">
     <div id="DIV_85">
-        <%= form_for @insurance, url: tradeinfo_insurances_path, method: :post do |f| %>
+        <%= form_for @insurance, url: tradeinfo_insurance_path(@tradeinfo, @insurance), method: :put do |f| %>
             <div id="DIV_91">
 
                 <div id="DIV_110">

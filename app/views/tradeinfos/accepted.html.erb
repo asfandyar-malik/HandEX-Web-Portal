@@ -21,8 +21,19 @@
         <br>
 
         <div id="DIV_88">
-            <%= button_to "Yes", new_tradeinfo_insurance_path(@tradeinfo), id:"BUTTON_298", method: :get %>
-            <%= button_to "No", new_tradeinfo_bankaccount_path(@tradeinfo), id:"BUTTON_299", method: :get %>
+
+            <% if @tradeinfo.insurance %>
+                <%= button_to "Yes I would like my loan to be insured", tradeinfo_insurances_index_path(@tradeinfo), id:"BUTTON_298", method: :get %>
+            <% else %>
+                <%= button_to "Yes I would like my loan to be insured", new_tradeinfo_insurance_path(@tradeinfo), id:"BUTTON_298", method: :get %>
+            <% end %>
+            <br>
+            <% if @tradeinfo.bankaccount %>
+                <%= button_to "No I dont want to insure my loan", tradeinfo_bankaccounts_index_path(@tradeinfo), id:"BUTTON_299", method: :get %>
+            <% else %>
+                <%= button_to "No I dont want to insure my loan", new_tradeinfo_bankaccount_path(@tradeinfo), id:"BUTTON_299", method: :get %>
+            <% end %>
+
         </div>
 
     </div>

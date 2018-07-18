@@ -11,7 +11,7 @@ class FinancialsController < ApplicationController
 
   # GET /financials/new
   def new
-    flash[:alert] = "Entering Financial new"
+    flash[:notice] = "Entering Financial new"
     @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
     @financial = @tradeinfo.build_financial
   end
@@ -19,7 +19,7 @@ class FinancialsController < ApplicationController
   # POST /financials
   # POST /financials.json
   def create
-    flash[:alert] = "Entering Financials create"
+    flash[:notice] = "Entering Financials create"
     @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
     @financial = @tradeinfo.build_financial(financial_params)
 

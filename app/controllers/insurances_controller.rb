@@ -4,10 +4,14 @@ class InsurancesController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :is_authorised, only: [:exportinformation, :update]
 
+  def index
+    @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
+    @insurance = @tradeinfo.insurance
+  end
 
   # GET /insurances/new
   def new
-    flash[:alert] = "Entering Insurance new"
+    flash[:notice] = "Entering Insurance new"
     @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
     @insurance = @tradeinfo.build_insurance
   end
@@ -15,14 +19,14 @@ class InsurancesController < ApplicationController
   # POST /insurances
   # POST /insurances.json
   def create
-    flash[:alert] = "Entering Insurance create"
+    flash[:notice] = "Entering Insurance create"
     @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
     @insurance = @tradeinfo.build_insurance(insurance_params)
 
     if @insurance.save
       redirect_to new_tradeinfo_bankaccount_path(@tradeinfo), notice: "Insurance Created...."
     else
-      flash[:alert] = "Something went wrong while creating...."
+      flash[:notice] = "Something went wrong while creating...."
       render :new
     end
   end
@@ -53,11 +57,12 @@ class InsurancesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_insurance
-    @insurance = insurance.find(params[:id])
+    @insurance = Insurance.find(params[:id])
   end
 
   def is_authorised
-    redirect_to root_path, alert: "You don't have permission" unless current_tradeinfo.id = @insurance.tradeinfo_id
+    @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
+    redirect_to root_path, alert: "You don't have permission" unless current_user.id = @tradeinfo.user_id
   end
 
   def insurance_params
