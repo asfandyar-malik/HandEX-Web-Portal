@@ -5,7 +5,7 @@
 
                 <div id="DIV_110">
                     <h1 id="H1_224">
-                        <img class="responsive-img"  id="IMG_212" src="<%= asset_path('EH1.png') %>">
+                        <img class="responsive-img" id="IMG_212" src="<%= asset_path('EH1.png') %>">
                     </h1>
 
                     <div id="DIV_225">
@@ -15,8 +15,8 @@
                             <div class="col-md-6">
                                 <label class="control-label"> Insurance Cover </label>
                                 <%= f.select :insurance_cover, [["Manufacturing Risks", "Manufacturing Risks"], ["Short Term Credit Cover", "Short Term Credit Cover"],
-                                                         ["Medium Term Credit Cover", "Medium Term Credit Cover"], ["Contractual Warranty Coverage", "Contractual Warranty Coverage"],
-                                                         ["Refinancing Coverage", "Refinancing Coverage"]],
+                                                                ["Medium Term Credit Cover", "Medium Term Credit Cover"], ["Contractual Warranty Coverage", "Contractual Warranty Coverage"],
+                                                                ["Refinancing Coverage", "Refinancing Coverage"]],
                                              id: "B_168", prompt: "Select..." %>
                             </div>
                         </div>
@@ -27,7 +27,7 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <label class="control-label"> Country Category </label>
-                                <%= f.select :country_category, [["1", "1"], ["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"]],
+                                <%= f.select :country_category, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"]],
                                              id: "B_168", prompt: "Select..." %>
                             </div>
                         </div>
@@ -38,15 +38,24 @@
                         <div class="row">
                             <div class="col-md-8">
                                 <label class="control-label"> Buyer Category Category </label>
-                                <%= f.select :buyer_category, [["SOV+", "SOV+"], ["SOV/CC0", "SOV/CC0"],["SOV-", "SOV-"],["CC1", "CC1"],["CC2", "CC2"]],
+                                <%= f.select :buyer_category, [["SOV+", "SOV+"], ["SOV/CC0", "SOV/CC0"], ["SOV-", "SOV-"], ["CC1", "CC1"], ["CC2", "CC2"]],
                                              id: "B_168", prompt: "Select..." %>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="input-field col s3">
+                                <input id="start_date" type="text" value="<%= @formatted_offer_start_date %>" class="datepicker">
+                                <label for="start_date"><%= t('offer_start_date') %></label>
+                            </div>
+                        </div>
+
                     </div>
 
+
                     <div id="DIV_295">
-                        <%= button_to "Back", accepted_tradeinfo_path(@tradeinfo, @financial), id:"A_296", method: :get %>
-                        <button type="Submit" id="BUTTON_297"> PROCEED </button>
+                        <%= button_to "Back", accepted_tradeinfo_path(@tradeinfo, @financial), id: "A_296", method: :get %>
+                        <button type="Submit" id="BUTTON_297"> PROCEED</button>
                     </div>
 
 

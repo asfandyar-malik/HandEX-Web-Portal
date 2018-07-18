@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_16_205446) do
+ActiveRecord::Schema.define(version: 2018_07_18_145807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,8 @@ ActiveRecord::Schema.define(version: 2018_07_16_205446) do
     t.string "buyer_category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "date_contractsigned_with_importer"
+    t.date "expected_date_product_received_importer"
     t.index ["tradeinfo_id"], name: "index_insurances_on_tradeinfo_id"
   end
 
