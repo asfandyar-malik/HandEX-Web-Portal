@@ -1,6 +1,6 @@
 <section id="SECTION_84">
     <div id="DIV_85">
-        <%= form_for @insurance, url: tradeinfo_insurances_path, method: :post do |f| %>
+        <%= form_for @insurance, url: tradeinfo_insurance_path(@tradeinfo, @insurance), method: :put do |f| %>
             <div id="DIV_91">
 
                 <div id="DIV_110">
@@ -45,7 +45,7 @@
                     </div>
 
                     <div id="DIV_295">
-                        <%= button_to "Back", accepted_tradeinfo_path(@tradeinfo), id:"A_296", method: :get %>
+                        <%= button_to "Back", accepted_tradeinfo_path(@tradeinfo, @insurance), id:"A_296", method: :get %>
                         <button type="Submit" id="BUTTON_297"> PROCEED </button>
                     </div>
 

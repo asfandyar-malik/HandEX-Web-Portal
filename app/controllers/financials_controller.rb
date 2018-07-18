@@ -24,7 +24,7 @@ class FinancialsController < ApplicationController
     @financial = @tradeinfo.build_financial(financial_params)
 
     if @financial.save
-      redirect_to accepted_tradeinfo_path(@tradeinfo), notice: "Financial Created...."
+      redirect_to accepted_tradeinfo_path(@tradeinfo, @financial), notice: "Financial Created...."
     else
       flash[:alert] = "Something went wrong while creating...."
       render :new
@@ -37,7 +37,7 @@ class FinancialsController < ApplicationController
   def update
     if @financial.update(financial_params)
       flash[:notice] = "Financials Updated...."
-      redirect_to accepted_tradeinfo_path(@tradeinfo)
+      redirect_to accepted_tradeinfo_path(@tradeinfo, @financial)
     else
       flash[:alert] = "Something went wrong while updating"
     end
