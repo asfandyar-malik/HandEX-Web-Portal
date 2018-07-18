@@ -4,6 +4,12 @@ class BuyersController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :is_authorised, only: [:exportinformation, :update]
 
+
+  def index
+    @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
+    @buyer = @tradeinfo.buyer
+  end
+
   def new
     flash[:alert] = "Entering Buyers new"
     @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
@@ -16,7 +22,12 @@ class BuyersController < ApplicationController
     @buyer = @tradeinfo.build_buyer(buyer_params)
 
     if @buyer.save
-      redirect_to new_tradeinfo_financial_path(@tradeinfo), notice: "Buyer Created...."
+      flash[:notice] = "Buyers created"
+      if @tradeinfo.financial
+        redirect_to tradeinfo_financials_index_path(@tradeinfo)
+      else
+        redirect_to new_tradeinfo_financial_path(@tradeinfo)
+      end
     else
       flash[:alert] = "Something went wrong while creating...."
       render :new
@@ -27,7 +38,11 @@ class BuyersController < ApplicationController
   def update
     if @buyer.update(buyer_params)
       flash[:notice] = "Buyers Updated...."
-      redirect_to new_tradeinfo_financial_path(@tradeinfo)
+      if @tradeinfo.financial
+        redirect_to tradeinfo_financials_index_path(@tradeinfo)
+      else
+        redirect_to new_tradeinfo_financial_path(@tradeinfo)
+      end
     else
       flash[:alert] = "Something went wrong while updating"
     end
@@ -45,11 +60,12 @@ class BuyersController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_buyer
-    @buyer = buyer.find(params[:id])
+    @buyer = Buyer.find(params[:id])
   end
 
   def is_authorised
-    redirect_to root_path, alert: "You don't have permission" unless current_tradeinfo.id = @buyer.tradeinfo_id
+    @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
+    redirect_to root_path, alert: "You don't have permission" unless current_user.id = @tradeinfo.user_id
   end
 
   def buyer_params

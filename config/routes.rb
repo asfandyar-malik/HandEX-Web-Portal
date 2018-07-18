@@ -45,10 +45,13 @@ Rails.application.routes.draw do
       get 'sucessfullyprocessed'
     end
 
-    resources :buyers, only: [:create, :destroy, :new]
-    resources :financials, only: [:create, :destroy, :new]
+    resources :buyers, only: [:create, :destroy, :new, :update]
+    resources :financials, only: [:create, :destroy, :new, :update]
     resources :insurances, only: [:create, :destroy, :new]
     resources :bankaccounts, only: [:create, :destroy, :new]
+
+    get 'buyers/index' => 'buyers#index'
+    get 'financials/index' => 'financials#index'
 
   end
 end

@@ -32,7 +32,7 @@ class BankaccountsController < ApplicationController
   def update
     if @bankaccount.update(bankaccount_params)
       flash[:notice] = "Updated...."
-      redirect_to sucessfullyprocessed_tradeinfo_path
+      redirect_to sucessfullyprocessed_tradeinfo_path(@tradeinfo)
     else
       flash[:alert] = "Something went wrong while updating"
     end

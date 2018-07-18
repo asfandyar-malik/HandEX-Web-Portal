@@ -4,6 +4,11 @@ class FinancialsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :is_authorised, only: [:exportinformation, :update]
 
+  def index
+    @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
+    @financial = @tradeinfo.financial
+  end
+
   # GET /financials/new
   def new
     flash[:alert] = "Entering Financial new"
@@ -40,7 +45,7 @@ class FinancialsController < ApplicationController
 
   # DELETE /financials/1
   # DELETE /financials/1.json
-  def destroyb
+  def destroy
     @financial.destroy
     respond_to do |format|
       format.html { redirect_to financials_url, notice: 'financial was successfully destroyed.' }
@@ -52,11 +57,12 @@ class FinancialsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_financial
-    @financial = financial.find(params[:id])
+    @financial = Financial.find(params[:id])
   end
 
   def is_authorised
-    redirect_to root_path, alert: "You don't have permission" unless current_tradeinfo.id = @financial.tradeinfo_id
+    @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
+    redirect_to root_path, alert: "You don't have permission" unless current_user.id = @tradeinfo.user_id
   end
 
   def financial_params
