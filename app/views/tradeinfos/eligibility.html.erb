@@ -109,21 +109,21 @@
                                 <br>
                                 <br>
 
-                                <div class="text-center">
-                                    <%= f.submit "Save", class: "btn btn-form" %>
-                                </div>
-
-
-                                <div id="DIV_295">
-                                    <%= button_to "Save", new_tradeinfo_buyer_path(@tradeinfo), id:"A_296", method: :get %>
-                                </div>
-
-
                             </div>
                         </div>
 
                     <% end %>
                 </div>
+
+
+                <div class="text-center">
+                    <% if @tradeinfo.buyer %>
+                        <%= button_to "Save", tradeinfo_buyers_index_path(@tradeinfo), class: "btn btn-form", method: :get %>
+                    <% else %>
+                        <%= button_to "Save", new_tradeinfo_buyer_path(@tradeinfo), class: "btn btn-form", method: :get %>
+                    <% end %>
+                </div>
+
             </div>
         </div>
     </div>
