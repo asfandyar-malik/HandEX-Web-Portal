@@ -24,7 +24,7 @@ class InsurancesController < ApplicationController
     @insurance = @tradeinfo.build_insurance(insurance_params)
 
     if @insurance.save
-      redirect_to new_tradeinfo_bankaccount_path(@tradeinfo), notice: "Insurance Created...."
+      redirect_to insuranceresult_tradeinfo_path(@tradeinfo), notice: "Insurance Created...."
     else
       flash[:notice] = "Something went wrong while creating...."
       render :new
@@ -37,7 +37,7 @@ class InsurancesController < ApplicationController
   def update
     if @insurance.update(insurance_params)
       flash[:notice] = "Updated Insurance...."
-      redirect_to new_tradeinfo_bankaccount_path
+      redirect_to insuranceresult_tradeinfo_path(@tradeinfo)
     else
       flash[:alert] = "Something went wrong while updating"
     end

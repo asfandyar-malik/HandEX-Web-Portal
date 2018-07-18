@@ -1,0 +1,51 @@
+<section id="SECTION_84">
+    <div id="DIV_85">
+        <div id="DIV_111">
+            <h1 id="H1_224">
+                <img class="responsive-img" id="IMG_214" src="<%= asset_path('EH1.png') %>">
+            </h1>
+        </div>
+
+        <div id="DIV_88">
+            <div id="DIV_89">
+                <div id="DIV_90">
+                    Money Applied for: <b>2400 Euros</b> <br>
+                    Duration: <b>12 Months</b>
+                    <br id="BR_93"/><br id="BR_94"/><br id="BR_95"/>
+
+
+                    For the short term loan, for 24 month time period, insurance costs will be<br>
+                    <b> 300 Euros </b>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="DIV_88">
+
+        <% if @tradeinfo.bankaccount %>
+            <%= button_to "Submit Bank Account Information",  tradeinfo_bankaccounts_index_path(@tradeinfo), method: :get, id:"BUTTON_298" %>
+        <% else %>
+            <%= button_to "Submit Bank Account Information", new_tradeinfo_bankaccount_path(@tradeinfo), method: :get, id:"BUTTON_298" %>
+        <% end %>
+
+        <br>
+
+    </div>
+
+</section>
+
+<footer id="FOOTER_409">
+</footer>
+
+<script>
+    $(document).ready(function () {
+
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 2 // Creates a dropdown of 15 years to control year
+        });
+    });
+
+</script>

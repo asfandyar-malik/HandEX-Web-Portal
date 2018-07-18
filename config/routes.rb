@@ -43,6 +43,7 @@ Rails.application.routes.draw do
       get 'accepted'
       get 'rejected'
       get 'sucessfullyprocessed'
+      get 'insuranceresult'
     end
 
     resources :buyers, only: [:create, :destroy, :new, :update]
