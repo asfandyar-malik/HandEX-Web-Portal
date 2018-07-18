@@ -4,16 +4,11 @@ class FinancialsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :is_authorised, only: [:exportinformation, :update]
 
-  def index
-    @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
-    @financial = @tradeinfo.financial
-  end
-
   # GET /financials/new
   def new
     flash[:alert] = "Entering Financial new"
     @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
-    @financial = @tradeinfo.create_financial(financial_params)
+    @financial = @tradeinfo.build_financial
   end
 
   # POST /financials
@@ -21,7 +16,7 @@ class FinancialsController < ApplicationController
   def create
     flash[:alert] = "Entering Financials create"
     @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
-    @financial = @tradeinfo.create_financial(financial_params)
+    @financial = @tradeinfo.build_financial(financial_params)
 
     if @financial.save
       redirect_to accepted_tradeinfo_path(@tradeinfo), notice: "Financial Created...."
@@ -29,10 +24,6 @@ class FinancialsController < ApplicationController
       flash[:alert] = "Something went wrong while creating...."
       render :new
     end
-  end
-
-  # GET /financials/1/edit
-  def edit
   end
 
 
@@ -49,7 +40,7 @@ class FinancialsController < ApplicationController
 
   # DELETE /financials/1
   # DELETE /financials/1.json
-  def destroy
+  def destroyb
     @financial.destroy
     respond_to do |format|
       format.html { redirect_to financials_url, notice: 'financial was successfully destroyed.' }
@@ -69,7 +60,7 @@ class FinancialsController < ApplicationController
   end
 
   def financial_params
-    params.permit(:total_financing_required, :time_duration, :projected_sales_18_19, :projected_sales_20_21, :net_profitability,
+    params.require(:financial).permit(:total_financing_required, :time_duration, :projected_sales_18_19, :projected_sales_20_21, :net_profitability,
                   :net_worth, :ifsc, :outstanding_bank_nbfc_facility, :name_of_institution, :type_of_loan, :size_of_loan,
                   :defaulted_or_overdue, :explain_defaulted_or_overdue, :receivables_factored, :explain_receivables_factored)
   end

@@ -7,14 +7,13 @@ class BuyersController < ApplicationController
   def new
     flash[:alert] = "Entering Buyers new"
     @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
-    @buyer = @tradeinfo.create_buyer(buyer_params)
+    @buyer = @tradeinfo.build_buyer
   end
 
   def create
     flash[:alert] = "Entering Buyers create"
     @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
-    @tradeinfo.create_buyer(buyer_params)
-    @buyer = @tradeinfo.buyer
+    @buyer = @tradeinfo.build_buyer(buyer_params)
 
     if @buyer.save
       redirect_to new_tradeinfo_financial_path(@tradeinfo), notice: "Buyer Created...."
@@ -28,11 +27,7 @@ class BuyersController < ApplicationController
   def update
     if @buyer.update(buyer_params)
       flash[:notice] = "Buyers Updated...."
-      if is_ready_second_step
-        redirect_to new_tradeinfo_financial_path(@tradeinfo)
-      else
-        redirect_to thank_tradeinfo_path(@tradeinfo)
-      end
+      redirect_to new_tradeinfo_financial_path(@tradeinfo)
     else
       flash[:alert] = "Something went wrong while updating"
     end
@@ -58,7 +53,7 @@ class BuyersController < ApplicationController
   end
 
   def buyer_params
-    params.permit(:name, :country, :street_address, :payment_terms, :shipment_terms,
+    params.require(:buyer).permit(:name, :country, :street_address, :payment_terms, :shipment_terms,
                                   :sales_past_12months, :sales_projected_12months, :credit_period, :credit_from,
                                   :years_selling_buyer, :invoicing_currency, :document_routing, :document_release,
                                   :related_party, :write_offs)

@@ -4,16 +4,11 @@ class BankaccountsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :is_authorised, only: [:exportinformation, :update]
 
-  def index
-    @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
-    @bankaccount = @tradeinfo.bankaccount
-  end
-
   # GET /bankaccounts/new
   def new
     flash[:alert] = "Entering BankAccount new"
     @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
-    @bankaccount = @tradeinfo.create_bankaccount(bankaccount_params)
+    @bankaccount = @tradeinfo.build_bankaccount
   end
 
   # POST /bankaccounts
@@ -21,7 +16,7 @@ class BankaccountsController < ApplicationController
   def create
     flash[:alert] = "Entering BankAccount create"
     @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
-    @bankaccount = @tradeinfo.create_bankaccount(bankaccount_params)
+    @bankaccount = @tradeinfo.build_bankaccount(bankaccount_params)
 
     if @bankaccount.save
       redirect_to sucessfullyprocessed_tradeinfo_path(@tradeinfo), notice: "Created...."
@@ -65,7 +60,7 @@ class BankaccountsController < ApplicationController
   end
 
   def bankaccount_params
-    params.permit(:name_account_holder, :iban, :bic)
+    params.require(:bankaccount).permit(:name_account_holder, :iban, :bic)
   end
 
   def is_ready_first_step

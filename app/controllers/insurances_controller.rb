@@ -4,27 +4,23 @@ class InsurancesController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :is_authorised, only: [:exportinformation, :update]
 
-  def index
-    @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
-    @insurance = @tradeinfo.insurance
-  end
 
   # GET /insurances/new
   def new
     flash[:alert] = "Entering Insurance new"
     @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
-    @insurance = @tradeinfo.create_insurance(insurance_params)
+    @insurance = @tradeinfo.build_insurance
   end
 
   # POST /insurances
   # POST /insurances.json
   def create
-    flash[:alert] = "Entering Financials create"
+    flash[:alert] = "Entering Insurance create"
     @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
-    @insurance = @tradeinfo.create_insurance(insurance_params)
+    @insurance = @tradeinfo.build_insurance(insurance_params)
 
     if @insurance.save
-      redirect_to new_tradeinfo_bankaccount_path(@tradeinfo), notice: "Created...."
+      redirect_to new_tradeinfo_bankaccount_path(@tradeinfo), notice: "Insurance Created...."
     else
       flash[:alert] = "Something went wrong while creating...."
       render :new
@@ -36,7 +32,7 @@ class InsurancesController < ApplicationController
   # PATCH/PUT /insurances/1.json
   def update
     if @insurance.update(insurance_params)
-      flash[:notice] = "Updated...."
+      flash[:notice] = "Updated Insurance...."
       redirect_to new_tradeinfo_bankaccount_path
     else
       flash[:alert] = "Something went wrong while updating"
@@ -65,7 +61,7 @@ class InsurancesController < ApplicationController
   end
 
   def insurance_params
-    params.permit(:insurance_cover, :country_category, :buyer_category)
+    params.require(:insurance).permit(:insurance_cover, :country_category, :buyer_category)
   end
 
   def is_ready_first_step
