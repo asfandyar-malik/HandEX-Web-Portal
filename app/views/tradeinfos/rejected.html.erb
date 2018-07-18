@@ -1,5 +1,5 @@
-<div id = "loader" style="display:none; padding-top: 20%; text-align: center"> <img id = "myImage", src = "<%= asset_path('bx_loader.gif')%>"> </div><br>
-
+<div id="loader" style="display:none; background-color: #FEEFD9; padding-top: 5%; text-align: center;">
+    <img id="myImage" , src="<%= asset_path('animated-transport-resize.gif') %>"></div><br>
 
 <section id="SECTION_84" style="display:none">
     <div id="DIV_85">
@@ -26,32 +26,36 @@
     </div>
 </section>
 
-<footer id="FOOTER_408" style="display:none">
-</footer>
-
 <script type="text/javascript">
 
-    (function(){
+    (function () {
         var loader = document.getElementById("loader");
         var section = document.getElementById("SECTION_84");
-        var footer = document.getElementById("FOOTER_408");
 
-
-        show = function(){
-            section.style.display = "none";
-            footer.style.display = "none";
+        show = function () {
             loader.style.display = "block";
-            setTimeout(hide, 3000); // 5 seconds
+            section.style.display = "none";
+            setTimeout(hide, 3000);
         },
 
-            hide = function(){
+            hide = function () {
                 loader.style.display = "none";
                 section.style.display = "block";
-                footer.style.display = "block";
 
             };
-
         show();
     })();
 
 </script>
+
+<style>
+
+    body {
+        background-color: #FEEFD9;
+    }
+
+    #SECTION_84 {
+        background:  #FEEFD9;
+        padding-top: 8%;
+    }
+</style>

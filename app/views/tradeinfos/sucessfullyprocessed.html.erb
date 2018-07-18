@@ -1,4 +1,7 @@
-<section id="SECTION_84">
+<div id="loader" style="display:none; background-color: #FEEFD9; padding-top: 5%; text-align: center;">
+    <img id="myImage" , src="<%= asset_path('animated-transport-resize.gif') %>"></div><br>
+
+<section id="SECTION_84" style="display:none">
     <div id="DIV_85">
 
         <div id="DIV_86">
@@ -16,5 +19,36 @@
     </div>
 </section>
 
-<footer id="FOOTER_408">
-</footer>
+<script type="text/javascript">
+
+    (function () {
+        var loader = document.getElementById("loader");
+        var section = document.getElementById("SECTION_84");
+
+        show = function () {
+            loader.style.display = "block";
+            section.style.display = "none";
+            setTimeout(hide, 2000);
+        },
+
+            hide = function () {
+                loader.style.display = "none";
+                section.style.display = "block";
+
+            };
+        show();
+    })();
+
+</script>
+
+<style>
+
+    body {
+        background-color: #FEEFD9;
+    }
+
+    #SECTION_84 {
+        background:  #FEEFD9;
+        padding-top: 15%;
+    }
+</style>
