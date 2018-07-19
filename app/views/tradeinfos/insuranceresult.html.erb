@@ -15,11 +15,11 @@
                 <div id="DIV_90">
                     Money Applied for: <b> <%= @tradeinfo.financial.total_financing_required %> </b> <br>
                     Duration: <b><%= @tradeinfo.financial.time_duration %>  </b> <br>
-                    Insurance Premium: <b><%= @mainInsurancePremium %>  </b> <br>
+                    Insurance Premium: <b><%= @mainInsurancePremium.round(20) %>  </b> <br>
                     Foreign Currency Coverage: <b><%= @foreignCurrencyCoverage %>  </b> <br>
                     Reducing Deductible: <b><%= @reducingDeductible %>  </b> <br>
-                    Execution Amount: <b><%= @executionAmountOne %>  </b> <br>
-                    Final Sum: <b><%= @finalSum %>  </b> <br>
+                    Execution Amount: <b><%= @executionAmountOne %>  </b> <br> <br>
+                    Final Sum: <b><%= @finalSum %>  € </b> <br>
 
                 </div>
             </div>
