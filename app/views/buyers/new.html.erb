@@ -19,7 +19,7 @@
                                     <p> Name </p>
                                     <div> <%= f.text_field :name, class: "form-control", required: true %> </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-md-offset-1">
                                     <p> Country </p>
                                     <div>
                                         <%= f.select :country,
@@ -114,7 +114,7 @@
                                 </div>
                                 <div class="col-md-4 col-md-offset-2">
                                     <p> Credit From </p>
-                                    <%= f.select :credit_from, [["Credit From", "Credit From"], ["Invoice Date", "Invoice Date"], ["BL Date", "BL Date"],
+                                    <%= f.select :credit_from, [["Invoice Date", "Invoice Date"], ["Bill of Landing Date", "Bill of Landing Date"],
                                                                 ["FDA Clearance Date", "FDA Clearance Date)"], ["Discharge Date", "Discharge Date"],
                                                                 ["Goods Usage Date", "Goods Usage Date"]], id: "B_168", prompt: "Select..." %>
                                 </div>
