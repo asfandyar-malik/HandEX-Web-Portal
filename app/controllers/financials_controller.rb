@@ -24,7 +24,22 @@ class FinancialsController < ApplicationController
     @financial = @tradeinfo.build_financial(financial_params)
 
     if @financial.save
-      redirect_to accepted_tradeinfo_path(@tradeinfo, @financial, @buyer), notice: "Financial Created...."
+
+      require 'csv'
+      tickers = {}
+      CSV.foreach("db/data/country_classification.csv", :headers => true, :header_converters => :symbol, :converters => :all) do |row|
+        tickers[row.fields[0]] = Hash[row.headers[1..-1].zip(row.fields[1..-1])]
+      end
+
+      @ticketbarbados = tickers[@tradeinfo.buyer.country][:classification]
+      # puts tickers[@tradeinfo.buyer.country][:classification]
+
+      if tickers[@tradeinfo.buyer.country][:classification] == "-"
+        redirect_to rejected_tradeinfo_path(@tradeinfo, @financial, @buyer), notice: "Rejected ...."
+      else
+        redirect_to accepted_tradeinfo_path(@tradeinfo, @financial, @buyer), notice: "Accepted ...."
+      end
+
     else
       flash[:alert] = "Something went wrong while creating...."
       render :new
@@ -35,9 +50,25 @@ class FinancialsController < ApplicationController
   # PATCH/PUT /financials/1
   # PATCH/PUT /financials/1.json
   def update
+
     if @financial.update(financial_params)
       flash[:notice] = "Financials Updated...."
-      redirect_to accepted_tradeinfo_path(@tradeinfo, @financial)
+      require 'csv'
+      tickers = {}
+      CSV.foreach("db/data/country_classification.csv", :headers => true, :header_converters => :symbol, :converters => :all) do |row|
+        tickers[row.fields[0]] = Hash[row.headers[1..-1].zip(row.fields[1..-1])]
+      end
+
+      @ticketbarbados = tickers[@tradeinfo.buyer.country][:classification]
+      # puts @tradeinfo.buyer.country
+      # puts tickers[@tradeinfo.buyer.country][:classification]
+
+      if tickers[@tradeinfo.buyer.country][:classification] == "-"
+        redirect_to rejected_tradeinfo_path(@tradeinfo, @financial, @buyer), notice: "Rejected ...."
+      else
+        redirect_to accepted_tradeinfo_path(@tradeinfo, @financial, @buyer), notice: "Accepted ...."
+      end
+
     else
       flash[:alert] = "Something went wrong while updating"
     end
@@ -67,8 +98,8 @@ class FinancialsController < ApplicationController
 
   def financial_params
     params.require(:financial).permit(:total_financing_required, :time_duration, :projected_sales_18_19, :projected_sales_20_21, :net_profitability,
-                  :net_worth, :ifsc, :outstanding_bank_nbfc_facility, :name_of_institution, :type_of_loan, :size_of_loan,
-                  :defaulted_or_overdue, :explain_defaulted_or_overdue, :receivables_factored, :explain_receivables_factored)
+                                      :net_worth, :ifsc, :outstanding_bank_nbfc_facility, :name_of_institution, :type_of_loan, :size_of_loan,
+                                      :defaulted_or_overdue, :explain_defaulted_or_overdue, :receivables_factored, :explain_receivables_factored)
   end
 
   def is_ready_first_step

@@ -14,12 +14,12 @@
             <div id="DIV_89">
                 <div id="DIV_90">
                     Money Applied for: <b> <%= @tradeinfo.financial.total_financing_required %> </b> <br>
-                    Duration: <b><%= @tradeinfo.financial.time_duration %>  </b>
-                    <br id="BR_93"/><br id="BR_94"/><br id="BR_95"/>
-
-
-                    For the short term loan, for 24 month time period, insurance costs will be<br>
-                    <b> 300 Euros </b>
+                    Duration: <b><%= @tradeinfo.financial.time_duration %>  </b> <br>
+                    Insurance Premium: <b><%= @mainInsurancePremium %>  </b> <br>
+                    Foreign Currency Coverage: <b><%= @foreignCurrencyCoverage %>  </b> <br>
+                    Reducing Deductible: <b><%= @reducingDeductible %>  </b> <br>
+                    Execution Amount: <b><%= @executionAmountOne %>  </b> <br>
+                    Final Sum: <b><%= @finalSum %>  </b> <br>
 
                 </div>
             </div>
@@ -60,7 +60,7 @@
             loader.style.display = "block";
             section.style.display = "none";
             footer.style.display = "none";
-            setTimeout(hide, 2000);
+            setTimeout(hide, 000);
         },
 
             hide = function () {

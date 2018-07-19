@@ -66,7 +66,7 @@ class InsurancesController < ApplicationController
   end
 
   def insurance_params
-    params.require(:insurance).permit(:insurance_cover, :country_category, :buyer_category)
+    params.require(:insurance).permit(:insurance_cover, :country_category, :buyer_category, :expected_date_product_received_importer, :date_contractsigned_with_importer)
   end
 
   def is_ready_first_step
