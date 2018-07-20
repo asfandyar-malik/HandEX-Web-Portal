@@ -37,7 +37,7 @@ class TradeinfosController < ApplicationController
     if @tradeinfo.update(tradeinfo_params)
       flash[:notice] = "TradeInfo Updated...."
       if is_ready_third_step
-        redirect_to eligibility_tradeinfo_path(@tradeinfo)
+        redirect_to thank_tradeinfo_path(@tradeinfo)
       else
         redirect_to importinformation_tradeinfo_path
       end
@@ -129,21 +129,7 @@ class TradeinfosController < ApplicationController
       redirect_to rejected_tradeinfo_path(@tradeinfo, @financial, @buyer), notice: "Rejected because country has - risk classification ...."
     end
 
-
     puts "application_fee #{@application_fee} "
-
-    # puts "---------XX---------"
-    # puts @tradeinfo.insurance.expected_date_product_received_importer
-    # puts @tradeinfo.insurance.date_contractsigned_with_importer
-    # @datedifference = @tradeinfo.insurance.expected_date_product_received_importer - @tradeinfo.insurance.date_contractsigned_with_importer
-    # puts @datedifference
-    #
-    # date = @datedifference.to_s.split("/")
-    # @days = date[0]
-    # puts @days
-    #
-    # @daysDivTwo = Integer(@days) / 2
-    # puts @daysDivTwo
 
     @timeduration = @tradeinfo.financial.time_duration
 

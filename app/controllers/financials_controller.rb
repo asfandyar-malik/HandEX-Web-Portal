@@ -35,9 +35,9 @@ class FinancialsController < ApplicationController
       # puts tickers[@tradeinfo.buyer.country][:classification]
 
       if tickers[@tradeinfo.buyer.country][:classification] == "-"
-        redirect_to rejected_tradeinfo_path(@tradeinfo, @financial, @buyer), notice: "Rejected ...."
+        redirect_to rejected_tradeinfo_path(@tradeinfo, @financial, @buyer)
       else
-        redirect_to accepted_tradeinfo_path(@tradeinfo, @financial, @buyer), notice: "Accepted ...."
+        redirect_to accepted_tradeinfo_path(@tradeinfo, @financial, @buyer)
       end
 
     else
@@ -64,9 +64,9 @@ class FinancialsController < ApplicationController
       # puts tickers[@tradeinfo.buyer.country][:classification]
 
       if tickers[@tradeinfo.buyer.country][:classification] == "-"
-        redirect_to rejected_tradeinfo_path(@tradeinfo, @financial, @buyer), notice: "Rejected ...."
+        redirect_to rejected_tradeinfo_path(@tradeinfo, @financial, @buyer)
       else
-        redirect_to accepted_tradeinfo_path(@tradeinfo, @financial, @buyer), notice: "Accepted ...."
+        redirect_to accepted_tradeinfo_path(@tradeinfo, @financial, @buyer)
       end
 
     else
