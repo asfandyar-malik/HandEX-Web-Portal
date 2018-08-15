@@ -26,13 +26,14 @@
                     <!--                        <a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a>-->
                     <!--                    </div>-->
 
-                    <div class="col-md-1 right">
-                        <% if (user_signed_in?) %>
-                            <%= button_to "Customer Portal", new_tradeinfo_path, method: :get, class: "btn primary-btn banner-btn-test" %>
-                        <% else %>
-                            <%= button_to "Customer Portal", new_user_session_url, method: :get, class: "btn primary-btn banner-btn-test" %>
-                        <% end %>
-                    </div>
+
+                    <!--<div class="col-md-1 right">-->
+                        <%#=      <% if (user_signed_in?) %> 
+                        <%#=         <%= button_to "Customer Portal", new_tradeinfo_path, method: :get, class: "btn primary-btn banner-btn-test" %>
+                        <%#=        <% else %>
+                        <%#=             <%= button_to "Customer Portal", new_user_session_url, method: :get, class: "btn primary-btn banner-btn-test" %>
+                        <%#=         <% end %>
+                    <!--</div>-->
 
                 </div>
 
