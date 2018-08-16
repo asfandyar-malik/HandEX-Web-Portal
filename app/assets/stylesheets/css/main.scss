@@ -785,8 +785,8 @@ td, th {
   text-transform: uppercase;
   column-rule-color: rgb(255, 255, 255);
   caret-color: rgb(255, 255, 255);
-  background: rgb(39, 182, 124) none repeat scroll 0% 0% / auto padding-box border-box;
-  border: 0.996094px solid rgb(39, 182, 124);
+  background: rgb(11,215,164) none repeat scroll 0% 0% / auto padding-box border-box;
+  border: 0.996094px solid rgb(11,215,164);
   border-radius: 3.34px 3.34px 3.34px 3.34px;
   font: normal normal 400 normal 20px / 24px Lato, sans-serif;
   margin: 0px 0px 0px 11px;
@@ -799,16 +799,16 @@ td, th {
 
 .primary-btn.banner-btn-test:hover{
   box-shadow: rgb(68, 68, 68) 0px 0px 0px 0px inset;
-  color: rgb(39, 182, 124);
+  color: rgb(11,215,164);
   cursor: pointer;
   letter-spacing: 1px;
   text-decoration: none solid rgb(255, 255, 255);
   text-size-adjust: 100%;
   text-transform: uppercase;
-  column-rule-color: rgb(39, 182, 124);
+  column-rule-color: rgb(11,215,164);
   caret-color: rgb(255, 255, 255);
   background: rgb(255, 255, 255);
-  border: 0.996094px solid rgb(39, 182, 124);
+  border: 0.996094px solid rgb(11,215,164);
   border-radius: 3.34px 3.34px 3.34px 3.34px;
   font: normal normal 400 normal 20px / 24px Lato, sans-serif;
   margin: 0px 0px 0px 11px;
@@ -899,11 +899,11 @@ td, th {
 }
 
 .list:hover .progressBar-circle {
-  stroke: #00ff8c;
+  stroke: rgb(11,215,164);
 }
 
 .list:hover .progressBar-percentage {
-  color: #00ff8c;
+  color: rgb(11,215,164);
 }
 
 .list-item {
@@ -913,7 +913,7 @@ td, th {
 }
 
 .details-btn {
-  border: 1px solid #00ff8c;
+  border: 1px solid rgb(11,215,164);
   width: 40px;
   height: 40px;
   border-radius: 20px;
@@ -940,7 +940,7 @@ td, th {
 
 .details-btn:hover {
   width: 140px;
-  background: #00ff8c;
+  background: rgb(11,215,164);
   box-shadow: 0px 10px 20px 0px rgba(60, 64, 143, 0.2);
 }
 
@@ -1003,7 +1003,7 @@ td, th {
 }
 
 .default-header nav .main-menu a:hover {
-  color: #00ff8c;
+  color: rgb(11,215,164);
 }
 
 .default-header nav .mobile-btn {
@@ -1144,7 +1144,7 @@ td, th {
 }
 
 .header-social a:hover {
-  color: #00ff8c;
+  color: rgb(11,215,164);
 }
 
 .footer-social {
@@ -1160,7 +1160,7 @@ td, th {
 }
 
 .footer-social a:hover {
-  color: #00ff8c;
+  color: rgb(11,215,164);
 }
 
 .banner-area {
@@ -1231,7 +1231,7 @@ td, th {
 
 .single-product .icon span {
   font-size: 48px;
-  color: #00ff8c;
+  color: rgb(11,215,164);
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
@@ -1348,7 +1348,7 @@ td, th {
   margin: 20px 0 20px 0;
   width: 100%;
   height: 1px;
-  background: #00ff8c;
+  background: rgb(11,215,164);
 }
 
 .single-member .thumb .overlay-member .social a {
@@ -1358,7 +1358,7 @@ td, th {
 }
 
 .single-member .thumb .overlay-member .social a:hover {
-  color: #00ff8c;
+  color: rgb(11,215,164);
 }
 
 .single-member .thumb:hover .overlay-member {
@@ -1374,7 +1374,7 @@ td, th {
 }
 
 .single-member .desc h5 a:hover {
-  color: #00ff8c;
+  color: rgb(11,215,164);
 }
 
 .single-member .desc p {
@@ -1397,13 +1397,13 @@ td, th {
   top: 0;
   width: 50%;
   height: 100%;
-  background: rgb(39, 182, 124);
+  background: rgb(11,215,164);
   z-index: 2;
 }
 
 @media (max-width: 991px) {
   .studio-area:before {
-    background: rgb(39, 182, 124);
+    background: rgb(11,215,164);
     width: 100%;
   }
 }
@@ -1441,7 +1441,7 @@ td, th {
 
 .single-pricing-table .top .head span {
   font-size: 48px;
-  color: #00ff8c;
+  color: rgb(11,215,164);
 }
 
 .single-pricing-table .top .head h5 {
@@ -1454,7 +1454,7 @@ td, th {
 }
 
 .single-pricing-table .top .package .price {
-  color: #00ff8c;
+  color: rgb(11,215,164);
   font-size: 36px;
   margin-bottom: 10px;
   line-height: 1em;
@@ -1490,7 +1490,7 @@ td, th {
 }
 
 .active-testimonial-carousel .single-testimonial .author h6 a:hover {
-  color: #00ff8c;
+  color: rgb(11,215,164);
 }
 
 .active-testimonial-carousel .owl-dots {
@@ -1596,7 +1596,7 @@ footer .footer-nav li {
 }
 
 footer .footer-nav li a:hover {
-  color: #00ff8c;
+  color: rgb(11,215,164);
 }
 
 .subscription input {
@@ -1619,7 +1619,7 @@ footer .footer-nav li a:hover {
   position: absolute;
   top: 1px;
   right: 0;
-  border: 1px solid #00ff8c;
+  border: 1px solid rgb(11,215,164);
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
@@ -1633,7 +1633,7 @@ footer .footer-nav li a:hover {
 }
 
 .subscription .newsletter-btn:hover {
-  background: #00ff8c;
+  background: rgb(11,215,164);
 }
 
 .subscription .info {
@@ -1645,7 +1645,7 @@ footer .footer-nav li a:hover {
 }
 
 .subscription .info.valid {
-  color: #00ff8c;
+  color: rgb(11,215,164);
 }
 
 .subscription .info.error {
@@ -1674,7 +1674,7 @@ footer .footer-nav li a:hover {
 }
 
 .footer-bottom .footer-text a:hover {
-  color: #00ff8c;
+  color: rgb(11,215,164);
 }
 
 
