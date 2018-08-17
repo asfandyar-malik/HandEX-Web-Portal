@@ -11,16 +11,16 @@
                     <div id="DIV_225">
 
                         <div class="form-group">
-                            <label id="LABEL_114"> What products do you export? </label>
-                            <div> <%= f.text_field :goods, class: "form-control", required: true %> </div>
-                        </div>
 
-                        <div id="DIV_230">
-                            <label id="LABEL_114">
-                                What is the category of products exported?
-                            </label>
+                            <div class="row">
+                                <label id="LABEL_114"> What products do you export? </label>
+                                <div> <%= f.text_field :goods, class: "form-control", required: true %> </div>
+                            </div>
 
-                            <div id="DIV_121">
+                            <br>
+
+                            <div class="row">
+                                <p> <b>What is the category of products exported?</b> </p>
                                 <%= f.select :category, [["Machines", "Machines"], ["Transportation", "Transportation"], ["Chemical Products", "Chemical Products"],
                                                          ["Metals", "Metals"], ["Plastics and Rubbers", "Plastics and Rubbers"], ["Instruments", "Instruments"],
                                                          ["Textiles", "Textiles"], ["Paper goods", "Paper goods"], ["Weapons", "Weapons"],
@@ -28,14 +28,10 @@
                                                          ["Foodstuffs", "Foodstuffs"], ["Stone and Glass", "Stone and Glass"],
                                                          ["Vegetable", "Vegetable"], ["Precious Metals", "Precious Metals"], ["Wood products", "Wood products"], ["Footwear and Headwear", "Footwear and Headwear"],
                                                          ["Animal and vegetable Bi-products", "Animal and vegetable Bi-products"], ["Arts and antiques", "Arts and antiques"]],
-                                             id: "B_168", prompt: "Select..." %>
-
+                                             prompt: "Select..." %>
                             </div>
                         </div>
                     </div>
-
-                    <br>
-                    <br>
                     <br>
 
                     <div id="DIV_295">
