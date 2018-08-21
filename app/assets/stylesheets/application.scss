@@ -94,6 +94,16 @@ a {
   background-color: #e00007;
 }
 
+.btn.btn-green {
+  border: 1px solid rgb(9,208,183);
+  background-color: rgb(9,208,183);
+}
+
+.btn.btn-green:active {
+  border: 1px solid rgb(9,208,183);
+  background-color: rgb(9,208,183);
+}
+
 .btn.btn-form {
   border: 1px solid rgb(9,208,183);
   background-color: rgb(9,208,183);
