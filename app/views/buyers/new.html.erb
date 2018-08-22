@@ -14,85 +14,88 @@
                     <%= form_for @buyer, url: tradeinfo_buyers_path, method: :post do |f| %>
 
                         <div id="DIV_226">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <p> Country </p>
-                                    <div>
-                                        <%= f.select :country,
-                                                     [["Andorra", "Andorra"],["Australia", "Australia"],["Austria","Austria"],["Barbados", "Barbados"],["Belgium","Belgium"],["Brunei Darussalam","Brunei Darussalam"],
-                                                      ["Canada", "Canada"],["Chile", "Chile"],["Comoros", "Comoros"],["Cyprus", "Cyprus"],["Czech Republic", "Czech Republic"],["Denmark", "Denmark"],["Dominica", "Dominica"],
-                                                      ["Estonia", "Estonia"],["Finland", "Finland"],["France", "France"],["Germany", "Germany"],["Greece","Greece"],["Grenada", "Grenada"],["Hungary", "Hungary"],["Iceland", "Iceland"],
-                                                      ["Ireland", "Ireland"],["Israel", "Israel"],["Italy", "Italy"],["Japan", "Japan"],["Kiribati", "Kiribati"],["Korea", "Korea"],["Latvia", "Latvia"],["Liechtenstein", "Liechtenstein"],
-                                                      ["Lithuania", "Lithuania"],["Luxembourg", "Luxembourg"],["Malta", "Malta"],["Marshall Islands","Marshall Islands"],["Micronesia", "Micronesia"],["Monaco", "Monaco"],["Nauru", "Nauru"],
-                                                      ["Netherlands", "Netherlands"],["New Zealand", "New Zealand"],["Norway", "Norway"],["Palau", "Palau"],["Poland", "Poland"],["Portugal", "Portugal"],
-                                                      ["Saint Kitts and Nevis","Saint Kitts and Nevis"],["Saint Lucia", "Saint Lucia"],["Saint Vincent and the Grenadines","Saint Vincent and the Grenadines"],["Samoa", "Samoa"],
-                                                      ["San Marino", "San Marino"],["Sao Tome and Principe", "Sao Tome and Principe"],["Sint Maarten", "Sint Maarten"],["Slovak Republic", "Slovak Republic"],["Slovenia", "Slovenia"],
-                                                      ["Solomon Islands", "Solomon Islands"],["Spain", "Spain"],["Sweden", "Sweden"],["Switzerland", "Switzerland"],["Tonga", "Tonga"],["Tuvalu","Tuvalu"],["United Kingdom", "United Kingdom"],
-                                                      ["United States", "United States"],["Vanuatu", "Vanuatu"],["West Bank and Gaza", "West Bank and Gaza"],["Kosovo", "Kosovo"],["South Korea", "South Korea"],["Ukraine", "Ukraine"],
-                                                      ["Belarus", "Belarus"],["Pakistan", "Pakistan"],["Bosnia and Herzegovina", "Bosnia and Herzegovina"],["Lebanon", "Lebanon"],["Iraq", "Iraq"],["Ethiopia", "Ethiopia"],["Libya", "Libya"],
-                                                      ["Moldova", "Moldova"],["Venezuela", "Venezuela"],["Cuba", "Cuba"],["Liberia", "Liberia"],["Sudan","Sudan"],["Montenegro", "Montenegro"],["Mali", "Mali"],["Yemen", "Yemen"],
-                                                      ["Congo", "Congo"],["Democratic Republic of the Congo", "Democratic Republic of the Congo"],["Guinea", "Guinea"],["Mauritania", "Mauritania"],["Mozambique", "Mozambique"],
-                                                      ["Burkina Faso", "Burkina Faso"],["Syrian Arab Republic","Syrian Arab Republic"],["Kyrgyzstan", "Kyrgyzstan"],["Afghanistan", "Afghanistan"],["Tajikistan", "Tajikistan"],
-                                                      ["Madagascar", "Madagascar"],["Lao People’s Democratic Republic", "Lao People’s Democratic Republic"],["Zimbabwe", "Zimbabwe"],["Haiti", "Haiti"],["Djibouti", "Djibouti"],
-                                                      ["Niger", "Niger"],["Sierra Leone", "Sierra Leone"],["Chad", "Chad"],["Malawi", "Malawi"],["Equatorial Guinea","Equatorial Guinea"],["Antigua and Barbuda", "Antigua and Barbuda"],
-                                                      ["Burundi", "Burundi"],["Eritrea", "Eritrea"],["Somalia", "Somalia"],["Gambia", "Gambia"],["Central African Republic","Central African Republic"],["Belize", "Belize"],
-                                                      ["South Sudan", "South Sudan"],["Guinea-Bissau", "Guinea-Bissau"],["Cabo Verde", "Cabo Verde"],["Myanmar", "Myanmar"],["Egypt", "Egypt"],["Iran", "Iran"],["Argentina", "Argentina"],
-                                                      ["Kazakhstan", "Kazakhstan"],["Nigeria", "Nigeria"],["Uzbekistan", "Uzbekistan"],["Ecuador", "Ecuador"],["Turkmenistan", "Turkmenistan"],["Georgia", "Georgia"],["Kenya", "Kenya"],
-                                                      ["Sri Lanka", "Sri Lanka"],["Albania", "Albania"],["Ghana", "Ghana"],["Angola", "Angola"],["Côte d’Ivoire", "Côte d’Ivoire"],["Armenia", "Armenia"],["Cambodia", "Cambodia"],
-                                                      ["Tanzania", "Tanzania"],["Cameroon", "Cameroon"],["Mongolia", "Mongolia"],["Uganda","Uganda"],["Jamaica", "Jamaica"],["Nicaragua", "Nicaragua"],["Zambia", "Zambia"],
-                                                      ["Benin", "Benin"],["Togo", "Togo"],["Rwanda", "Rwanda"],["Gabon", "Gabon"],["Maldives", "Maldives"],["Nepal", "Nepal"],["Papua New Guinea", "Papua New Guinea"],
-                                                      ["Suriname", "Suriname"],["Seychelles", "Seychelles"],["Fiji", "Fiji"],["Guyana", "Guyana"],["Swaziland", "Swaziland"],["Bhutan", "Bhutan"],["Lesotho","Lesotho"],
-                                                      ["Timor-Leste", "Timor-Leste"],["Brazil", "Brazil"],["Croatia", "Croatia"],["Vietnam", "Vietnam"],["Serbia", "Serbia"],["Tunisia", "Tunisia"],
-                                                      ["Former Yugoslav Republic of Macedonia", "Former Yugoslav Republic of Macedonia"],["Bangladesh", "Bangladesh"],["Jordan", "Jordan"],["Azerbaijan", "Azerbaijan"],
-                                                      ["Paraguay", "Paraguay"],["Bolivia", "Bolivia"],["El Salvador", "El Salvador"],["Honduras", "Honduras"],["Senegal", "Senegal"],["Curaçao", "Curaçao"],["Turkey", "Turkey"],
-                                                      ["Russia", "Russia"],["South Africa", "South Africa"],["Algeria", "Algeria"],["Colombia", "Colombia"],["Bahrain", "Bahrain"],["Guatemala", "Guatemala"],
-                                                      ["Dominican Republic", "Dominican Republic"],["Namibia", "Namibia"],["Aruba", "Aruba"],["Romania", "Romania"],["Mexico", "Mexico"],["India", "India"],
-                                                      ["Thailand", "Thailand"],["Bulgaria", "Bulgaria"],["Indonesia", "Indonesia"],["Qatar", "Qatar"],["Philippines", "Philippines"],["Morocco", "Morocco"],
-                                                      ["Peru", "Peru"],["Oman", "Oman"],["Panama", "Panama"],["Uruguay", "Uruguay"],["Costa Rica", "Costa Rica"],["Trinidad and Tobago", "Trinidad and Tobago"],
-                                                      ["Mauritius", "Mauritius"],["Bahamas", "Bahamas"],["China", "China"],["UAE", "UAE"],["Saudi Arabia", "Saudi Arabia"],["Hong Kong (China)", "Hong Kong (China)"],
-                                                      ["Malaysia", "Malaysia"],["Kuwait", "Kuwait"],["Macau (China)", "Macau (China)"],["Botswana", "Botswana"],["Chinese Taipei", "Chinese Taipei"],["Singapore", "Singapore"]], id: "B_168", prompt: "Select..." %>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <p> Country </p>
+                                        <div>
+                                            <%= f.select :country,
+                                                         [["Andorra", "Andorra"], ["Australia", "Australia"], ["Austria", "Austria"], ["Barbados", "Barbados"], ["Belgium", "Belgium"], ["Brunei Darussalam", "Brunei Darussalam"],
+                                                          ["Canada", "Canada"], ["Chile", "Chile"], ["Comoros", "Comoros"], ["Cyprus", "Cyprus"], ["Czech Republic", "Czech Republic"], ["Denmark", "Denmark"], ["Dominica", "Dominica"],
+                                                          ["Estonia", "Estonia"], ["Finland", "Finland"], ["France", "France"], ["Germany", "Germany"], ["Greece", "Greece"], ["Grenada", "Grenada"], ["Hungary", "Hungary"], ["Iceland", "Iceland"],
+                                                          ["Ireland", "Ireland"], ["Israel", "Israel"], ["Italy", "Italy"], ["Japan", "Japan"], ["Kiribati", "Kiribati"], ["Korea", "Korea"], ["Latvia", "Latvia"], ["Liechtenstein", "Liechtenstein"],
+                                                          ["Lithuania", "Lithuania"], ["Luxembourg", "Luxembourg"], ["Malta", "Malta"], ["Marshall Islands", "Marshall Islands"], ["Micronesia", "Micronesia"], ["Monaco", "Monaco"], ["Nauru", "Nauru"],
+                                                          ["Netherlands", "Netherlands"], ["New Zealand", "New Zealand"], ["Norway", "Norway"], ["Palau", "Palau"], ["Poland", "Poland"], ["Portugal", "Portugal"],
+                                                          ["Saint Kitts and Nevis", "Saint Kitts and Nevis"], ["Saint Lucia", "Saint Lucia"], ["Saint Vincent and the Grenadines", "Saint Vincent and the Grenadines"], ["Samoa", "Samoa"],
+                                                          ["San Marino", "San Marino"], ["Sao Tome and Principe", "Sao Tome and Principe"], ["Sint Maarten", "Sint Maarten"], ["Slovak Republic", "Slovak Republic"], ["Slovenia", "Slovenia"],
+                                                          ["Solomon Islands", "Solomon Islands"], ["Spain", "Spain"], ["Sweden", "Sweden"], ["Switzerland", "Switzerland"], ["Tonga", "Tonga"], ["Tuvalu", "Tuvalu"], ["United Kingdom", "United Kingdom"],
+                                                          ["United States", "United States"], ["Vanuatu", "Vanuatu"], ["West Bank and Gaza", "West Bank and Gaza"], ["Kosovo", "Kosovo"], ["South Korea", "South Korea"], ["Ukraine", "Ukraine"],
+                                                          ["Belarus", "Belarus"], ["Pakistan", "Pakistan"], ["Bosnia and Herzegovina", "Bosnia and Herzegovina"], ["Lebanon", "Lebanon"], ["Iraq", "Iraq"], ["Ethiopia", "Ethiopia"], ["Libya", "Libya"],
+                                                          ["Moldova", "Moldova"], ["Venezuela", "Venezuela"], ["Cuba", "Cuba"], ["Liberia", "Liberia"], ["Sudan", "Sudan"], ["Montenegro", "Montenegro"], ["Mali", "Mali"], ["Yemen", "Yemen"],
+                                                          ["Congo", "Congo"], ["Democratic Republic of the Congo", "Democratic Republic of the Congo"], ["Guinea", "Guinea"], ["Mauritania", "Mauritania"], ["Mozambique", "Mozambique"],
+                                                          ["Burkina Faso", "Burkina Faso"], ["Syrian Arab Republic", "Syrian Arab Republic"], ["Kyrgyzstan", "Kyrgyzstan"], ["Afghanistan", "Afghanistan"], ["Tajikistan", "Tajikistan"],
+                                                          ["Madagascar", "Madagascar"], ["Lao People’s Democratic Republic", "Lao People’s Democratic Republic"], ["Zimbabwe", "Zimbabwe"], ["Haiti", "Haiti"], ["Djibouti", "Djibouti"],
+                                                          ["Niger", "Niger"], ["Sierra Leone", "Sierra Leone"], ["Chad", "Chad"], ["Malawi", "Malawi"], ["Equatorial Guinea", "Equatorial Guinea"], ["Antigua and Barbuda", "Antigua and Barbuda"],
+                                                          ["Burundi", "Burundi"], ["Eritrea", "Eritrea"], ["Somalia", "Somalia"], ["Gambia", "Gambia"], ["Central African Republic", "Central African Republic"], ["Belize", "Belize"],
+                                                          ["South Sudan", "South Sudan"], ["Guinea-Bissau", "Guinea-Bissau"], ["Cabo Verde", "Cabo Verde"], ["Myanmar", "Myanmar"], ["Egypt", "Egypt"], ["Iran", "Iran"], ["Argentina", "Argentina"],
+                                                          ["Kazakhstan", "Kazakhstan"], ["Nigeria", "Nigeria"], ["Uzbekistan", "Uzbekistan"], ["Ecuador", "Ecuador"], ["Turkmenistan", "Turkmenistan"], ["Georgia", "Georgia"], ["Kenya", "Kenya"],
+                                                          ["Sri Lanka", "Sri Lanka"], ["Albania", "Albania"], ["Ghana", "Ghana"], ["Angola", "Angola"], ["Côte d’Ivoire", "Côte d’Ivoire"], ["Armenia", "Armenia"], ["Cambodia", "Cambodia"],
+                                                          ["Tanzania", "Tanzania"], ["Cameroon", "Cameroon"], ["Mongolia", "Mongolia"], ["Uganda", "Uganda"], ["Jamaica", "Jamaica"], ["Nicaragua", "Nicaragua"], ["Zambia", "Zambia"],
+                                                          ["Benin", "Benin"], ["Togo", "Togo"], ["Rwanda", "Rwanda"], ["Gabon", "Gabon"], ["Maldives", "Maldives"], ["Nepal", "Nepal"], ["Papua New Guinea", "Papua New Guinea"],
+                                                          ["Suriname", "Suriname"], ["Seychelles", "Seychelles"], ["Fiji", "Fiji"], ["Guyana", "Guyana"], ["Swaziland", "Swaziland"], ["Bhutan", "Bhutan"], ["Lesotho", "Lesotho"],
+                                                          ["Timor-Leste", "Timor-Leste"], ["Brazil", "Brazil"], ["Croatia", "Croatia"], ["Vietnam", "Vietnam"], ["Serbia", "Serbia"], ["Tunisia", "Tunisia"],
+                                                          ["Former Yugoslav Republic of Macedonia", "Former Yugoslav Republic of Macedonia"], ["Bangladesh", "Bangladesh"], ["Jordan", "Jordan"], ["Azerbaijan", "Azerbaijan"],
+                                                          ["Paraguay", "Paraguay"], ["Bolivia", "Bolivia"], ["El Salvador", "El Salvador"], ["Honduras", "Honduras"], ["Senegal", "Senegal"], ["Curaçao", "Curaçao"], ["Turkey", "Turkey"],
+                                                          ["Russia", "Russia"], ["South Africa", "South Africa"], ["Algeria", "Algeria"], ["Colombia", "Colombia"], ["Bahrain", "Bahrain"], ["Guatemala", "Guatemala"],
+                                                          ["Dominican Republic", "Dominican Republic"], ["Namibia", "Namibia"], ["Aruba", "Aruba"], ["Romania", "Romania"], ["Mexico", "Mexico"], ["India", "India"],
+                                                          ["Thailand", "Thailand"], ["Bulgaria", "Bulgaria"], ["Indonesia", "Indonesia"], ["Qatar", "Qatar"], ["Philippines", "Philippines"], ["Morocco", "Morocco"],
+                                                          ["Peru", "Peru"], ["Oman", "Oman"], ["Panama", "Panama"], ["Uruguay", "Uruguay"], ["Costa Rica", "Costa Rica"], ["Trinidad and Tobago", "Trinidad and Tobago"],
+                                                          ["Mauritius", "Mauritius"], ["Bahamas", "Bahamas"], ["China", "China"], ["UAE", "UAE"], ["Saudi Arabia", "Saudi Arabia"], ["Hong Kong (China)", "Hong Kong (China)"],
+                                                          ["Malaysia", "Malaysia"], ["Kuwait", "Kuwait"], ["Macau (China)", "Macau (China)"], ["Botswana", "Botswana"], ["Chinese Taipei", "Chinese Taipei"], ["Singapore", "Singapore"]], id: "B_168", prompt: "Select..." %>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-2">
+                                        <p> Exact Street Address </p>
+                                        <div> <%= f.text_field :street_address, class: "form-control", required: true %> </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4 col-md-offset-3">
-                                    <p> Exact Street Address </p>
-                                    <div> <%= f.text_field :street_address, class: "form-control", required: true %> </div>
+
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <p> Payment Terms </p>
+
+                                        <%= f.select :payment_terms, [["Letter of Credit(LC)", "Letter of Credit(LC)"], ["Open Account", "Open Accont"], ["Document against Acceptance", "Document against Acceptance"],
+                                                                      ["Document against Payment", "Document against Payment"],
+                                                                      ["Cash against Document (CAD)", "Cash against Document (CAD)"]], id: "B_168", prompt: "Select..." %>
+                                    </div>
+
+                                    <div class="col-md-5 col-md-offset-2">
+                                        <p> Shipment Terms </p>
+
+                                        <%= f.select :shipment_terms, [["Ex Works (EXW)", "Ex Works (EXW)"], ["Free Carrier (FCA)", "Free Carrier (FCA)"], ["Free Alongside Ship (FAS)", "Free Alongside Ship (FAS)"],
+                                                                       ["Freight On Board (FOB)", "Freight On Board (FOB)"], ["Cost and Freight (CFR)", "Cost and Freight (CFR)"], ["Cost Insurance and Freight (CIF)", "Cost Insurance and Freight (CIF)"],
+                                                                       ["Carriage Paid To (CPT)", "Carriage Paid To (CPT)"], ["Carriage Insurance Paid To (CIP)", "Carriage Insurance Paid To (CIP)"],
+                                                                       ["Delivered at Terminal (DAT)", "Delivered at Terminal (DAT)"], ["Delivered at Place (DAP)", "Delivered at Place (DAP)"],
+                                                                       ["Delivery Duty Paid (DDP)", "Delivery Duty Paid (DDP)"]], id: "B_168", prompt: "Select..." %>
+                                    </div>
                                 </div>
+
                             </div>
 
                             <br>
-
-                            <br>
-
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <p> Payment Terms </p>
-
-                                    <%= f.select :payment_terms, [["Letter of Credit(LC)", "Letter of Credit(LC)"], ["Open Account", "Open Accont"], ["Document against Acceptance", "Document against Acceptance"],
-                                                                  ["Document against Payment", "Document against Payment"],
-                                                                  ["Cash against Document (CAD)", "Cash against Document (CAD)"]], id: "B_168", prompt: "Select..." %>
-                                </div>
-
-                                <div class="col-md-3 col-md-offset-4">
-                                    <p> Shipment Terms </p>
-
-                                    <%= f.select :shipment_terms, [["Ex Works (EXW)", "Ex Works (EXW)"], ["Free Carrier (FCA)", "Free Carrier (FCA)"], ["Free Alongside Ship (FAS)", "Free Alongside Ship (FAS)"],
-                                                                   ["Freight On Board (FOB)", "Freight On Board (FOB)"], ["Cost and Freight (CFR)", "Cost and Freight (CFR)"], ["Cost Insurance and Freight (CIF)", "Cost Insurance and Freight (CIF)"],
-                                                                   ["Carriage Paid To (CPT)", "Carriage Paid To (CPT)"], ["Carriage Insurance Paid To (CIP)", "Carriage Insurance Paid To (CIP)"],
-                                                                   ["Delivered at Terminal (DAT)", "Delivered at Terminal (DAT)"], ["Delivered at Place (DAP)", "Delivered at Place (DAP)"],
-                                                                   ["Delivery Duty Paid (DDP)", "Delivery Duty Paid (DDP)"]], id: "B_168", prompt: "Select..." %>
-                                </div>
-                            </div>
-
-                            <br><br>
                             <hr align="middle" background-color="#322d59" width="100%">
-                            <br><br>
+                            <br>
 
                             <div class="row">
                                 <div class="col-md-5 col-lg-5">
                                     <p> Sales in past 12 months (€) </p>
                                     <div> <%= f.text_field :sales_past_12months, class: "form-control", required: true %> </div>
                                 </div>
-                                <div class="col-md-7 col-lg-7">
+                                <div class="col-md-6 col-lg-6 col-md-offset-1">
                                     <p> Projected sales in next 12 months (€) </p>
                                     <div> <%= f.text_field :sales_past_12months, class: "form-control", required: true %> </div>
                                 </div>
@@ -100,62 +103,68 @@
 
                             <br>
 
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <p> Credit From </p>
-                                    <%= f.select :credit_from, [["Invoice Date", "Invoice Date"], ["Bill of Landing Date", "Bill of Landing Date"],
-                                                                ["FDA Clearance Date", "FDA Clearance Date)"], ["Discharge Date", "Discharge Date"],
-                                                                ["Goods Usage Date", "Goods Usage Date"]], id: "B_168", prompt: "Select..." %>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <p> Credit From </p>
+                                        <%= f.select :credit_from, [["Invoice Date", "Invoice Date"], ["Bill of Landing Date", "Bill of Landing Date"],
+                                                                    ["FDA Clearance Date", "FDA Clearance Date)"], ["Discharge Date", "Discharge Date"],
+                                                                    ["Goods Usage Date", "Goods Usage Date"]], id: "B_168", prompt: "Select..." %>
+                                    </div>
                                 </div>
                             </div>
 
-                            <br><br>
+                            <br>
                             <hr align="middle" width="100%">
-                            <br><br>
+                            <br>
 
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <p> Years selling to buyer </p>
-                                    <%= f.select :years_selling_buyer, [["New Customer", "New Customer"], ["1", "1"], ["2", "2"],
-                                                                        ["3", "3)"], ["4", "4"], ["5", "5"],
-                                                                        ["More than 5", "More than 5"]], id: "B_168", prompt: "Select..." %>
-                                </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <p> Years selling to buyer </p>
+                                        <%= f.select :years_selling_buyer, [["New Customer", "New Customer"], ["1", "1"], ["2", "2"],
+                                                                            ["3", "3)"], ["4", "4"], ["5", "5"],
+                                                                            ["More than 5", "More than 5"]], id: "B_168", prompt: "Select..." %>
+                                    </div>
 
-                                <div class="col-md-4 col-md-offset-2">
-                                    <p> Invoicing Currency </p>
-                                    <%= f.select :invoicing_currency, [["Euro", "Euro"], ["USD", "USD"], ["Pound", "Pound"]],
-                                                 id: "B_168", prompt: "Select..." %>
-                                </div>
-                            </div>
-
-                            <br><br>
-
-                            <div class="row">
-
-                                <div class="col-md-4">
-                                    <p> Document Routing </p>
-                                    <%= f.select :document_routing, [["Document Routing", "Document Routing"], ["Direct", "Direct"], ["Bank to Bank", "Bank to Bank"]],
-                                                 id: "B_168", prompt: "Select..." %> </div>
-
-                                <div class="col-md-4 col-md-offset-2">
-                                    <p> Document Release </p>
-                                    <%= f.select :document_release, [["Document Release", "Document Release"], ["Shipment", "Shipment"], ["On Signing Bill of Exchange", "On Signing Bill of Exchange"],
-                                                                     ["On Receiving Payment", "On Receiving Payment"]], id: "B_168", prompt: "Select..." %>
+                                    <div class="col-md-5 col-md-offset-2">
+                                        <p> Invoicing Currency </p>
+                                        <%= f.select :invoicing_currency, [["Euro", "Euro"], ["USD", "USD"], ["Pound", "Pound"]],
+                                                     id: "B_168", prompt: "Select..." %>
+                                    </div>
                                 </div>
                             </div>
 
-                            <br><br>
+                            <br>
 
-                            <div class="row">
+                            <div class="form-group">
+                                <div class="row">
 
-                                <div class="col-md-4 ">
-                                    <p> Ever had write offs? </p>
-                                    <%= f.select :write_offs, [["Yes", "Yes"], ["No", "No"]], id: "B_168", prompt: "Select..." %>
+                                    <div class="col-md-5">
+                                        <p> Document Routing </p>
+                                        <%= f.select :document_routing, [["Document Routing", "Document Routing"], ["Direct", "Direct"], ["Bank to Bank", "Bank to Bank"]],
+                                                     id: "B_168", prompt: "Select..." %> </div>
+
+                                    <div class="col-md-5 col-md-offset-2">
+                                        <p> Document Release </p>
+                                        <%= f.select :document_release, [["Document Release", "Document Release"], ["Shipment", "Shipment"], ["On Signing Bill of Exchange", "On Signing Bill of Exchange"],
+                                                                         ["On Receiving Payment", "On Receiving Payment"]], id: "B_168", prompt: "Select..." %>
+                                    </div>
                                 </div>
-
                             </div>
 
-                            <br><br><br><br>
+                            <br>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <p> Ever had write offs? </p>
+                                        <%= f.select :write_offs, [["Yes", "Yes"], ["No", "No"]], id: "B_168", prompt: "Select..." %>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <br><br>
 
                             <div id="DIV_88">
                                 <button type="submit" id="BUTTON_298">

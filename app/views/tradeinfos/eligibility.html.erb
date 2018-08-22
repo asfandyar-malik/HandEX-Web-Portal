@@ -17,9 +17,9 @@
                         <div id="DIV_226">
 
                             <div class="row">
-                                    <label class="control-label"> Product Information</label>
+                                <label class="control-label"> Product Information</label>
 
-
+                                <div class="form-group">
                                     <div class="row">
                                         <br>
                                         <div class="col-md-6">
@@ -33,7 +33,6 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <p> What is the category of products exported? </p>
-
                                             <%= f.select :category, [["Machines", "Machines"], ["Transportation", "Transportation"], ["Chemical Products", "Chemical Products"],
                                                                      ["Metals", "Metals"], ["Plastics and Rubbers", "Plastics and Rubbers"], ["Instruments", "Instruments"],
                                                                      ["Textiles", "Textiles"], ["Paper goods", "Paper goods"], ["Weapons", "Weapons"],
@@ -41,10 +40,11 @@
                                                                      ["Foodstuffs", "Foodstuffs"], ["Stone and Glass", "Stone and Glass"],
                                                                      ["Vegetable", "Vegetable"], ["Precious Metals", "Precious Metals"], ["Wood products", "Wood products"], ["Footwear and Headwear", "Footwear and Headwear"],
                                                                      ["Animal and vegetable Bi-products", "Animal and vegetable Bi-products"], ["Arts and antiques", "Arts and antiques"]],
-                                                         id: "B_168", prompt: "Select..." %>
+                                                         prompt: "Select..." %>
 
                                         </div>
                                     </div>
+                                </div>
 
                                 <br>
                                 <hr align="middle" background-color="#322d59" width="100%">
@@ -61,7 +61,7 @@
 
                                         <div class="col-md-4 col-md-offset-2">
                                             <p> Company Phone </p>
-                                            <div> <%= f.text_field :companyPhone, class: "form-control"%> </div>
+                                            <div> <%= f.text_field :companyPhone, class: "form-control" %> </div>
                                         </div>
                                     </div>
 
