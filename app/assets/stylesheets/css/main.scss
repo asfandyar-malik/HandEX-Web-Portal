@@ -711,6 +711,34 @@ td, th {
   position: relative;
 }
 
+.vincent {
+  background: asset-data-url("vincent.jpg") no-repeat center center;
+}
+
+.patrick {
+  background: asset-data-url("patrick.png") no-repeat center center;
+}
+
+.asfandyar {
+  background: asset-data-url("Asfand.jpg") no-repeat center center/cover;
+}
+
+.asfandyar .overlay-bg {
+  //background: -moz-linear-gradient(left, rgba(60, 64, 143, 0.95) 0%, rgba(91, 97, 207, 0.95) 10%);
+  //background: -webkit-linear-gradient(left, rgba(60, 64, 143, 0.95) 0%, rgba(91, 97, 207, 0.95) 10%);
+  //background: linear-gradient(to right, rgba(60, 64, 143, 0.95) 0%, rgba(91, 97, 207, 0.95) 10%);
+
+  /* Fallback for web browsers that don't support RGBa */
+  background-color: rgb(0, 0, 0.2);
+  /* RGBa with 0.6 opacity */
+  background-color: rgba(0, 0, 0, 0.2);
+  /* For IE 5.5 - 7*/
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+  /* For IE 8*/
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -1203,6 +1231,10 @@ td, th {
   background: #FFFFFF;
 }
 
+.title-techstars {
+  background: #0BD7A4;
+}
+
 .product-area-title {
   padding-bottom: 50px;
 }
@@ -1418,6 +1450,7 @@ td, th {
   background: asset-data-url("banner4.jpg") no-repeat center center/cover;
   z-index: 1;
 }
+
 
 @media (max-width: 991px) {
   .studio-area:after {
