@@ -847,6 +847,49 @@ td, th {
   transition: all 0.25s ease 0s;
 }
 
+.primary-btn.banner-btn-kunden{
+  box-shadow: rgb(68, 68, 68) 0px 0px 0px 0px inset;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-decoration: none solid rgb(255, 255, 255);
+  text-size-adjust: 100%;
+  text-transform: uppercase;
+  column-rule-color: rgb(255, 255, 255);
+  caret-color: rgb(255, 255, 255);
+  background: rgb(4, 193, 222) none repeat scroll 0% 0% / auto padding-box border-box;
+  border: 0.996094px solid rgb(4, 193, 222);
+  border-radius: 3.34px 3.34px 3.34px 3.34px;
+  font: normal normal 400 normal 20px / 24px Lato, sans-serif;
+  margin: 0px 0px 0px 11px;
+  outline: rgb(255, 255, 255) none 0px;
+  overflow: hidden;
+  padding: 10px 15px;
+  padding-top: 10px;
+  transition: all 0.25s ease 0s;
+}
+
+.primary-btn.banner-btn-kunden:hover{
+  box-shadow: rgb(68, 68, 68) 0px 0px 0px 0px inset;
+  color: rgb(4, 193, 222);
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-decoration: none solid rgb(255, 255, 255);
+  text-size-adjust: 100%;
+  text-transform: uppercase;
+  column-rule-color: rgb(4, 193, 222);
+  caret-color: rgb(255, 255, 255);
+  background: rgb(255, 255, 255);
+  border: 0.996094px solid rgb(4, 193, 222);
+  border-radius: 3.34px 3.34px 3.34px 3.34px;
+  font: normal normal 400 normal 20px / 24px Lato, sans-serif;
+  margin: 0px 0px 0px 11px;
+  outline: rgb(255, 255, 255) none 0px;
+  overflow: hidden;
+  padding: 10px 15px;
+  padding-top: 10px;
+  transition: all 0.25s ease 0s;
+}
 
 
 .primary-btn span {
