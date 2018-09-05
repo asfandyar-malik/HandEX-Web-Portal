@@ -17,10 +17,10 @@
                                 <div> <%= f.text_field :goods, class: "form-control", required: true %> </div>
                             </div>
 
-                            <br>
+                            <br><br>
 
                             <div class="row">
-                                <p> <b>What is the category of products exported?</b> </p>
+                                <p><b>What is the category of products exported?</b></p>
                                 <%= f.select :category, [["Machines", "Machines"], ["Transportation", "Transportation"], ["Chemical Products", "Chemical Products"],
                                                          ["Metals", "Metals"], ["Plastics and Rubbers", "Plastics and Rubbers"], ["Instruments", "Instruments"],
                                                          ["Textiles", "Textiles"], ["Paper goods", "Paper goods"], ["Weapons", "Weapons"],
@@ -30,6 +30,14 @@
                                                          ["Animal and vegetable Bi-products", "Animal and vegetable Bi-products"], ["Arts and antiques", "Arts and antiques"]],
                                              prompt: "Select..." %>
                             </div>
+
+                            <br><br>
+                            <div class="form-group">
+                                <input type="checkbox" name="vehicle" value="Bike"> <a href="/pages/impressum">I agree to terms and conditions </a>
+                                 <br> 
+                            </div>
+
+
                         </div>
                     </div>
                     <br>
@@ -46,17 +54,6 @@
                     <img class="responsive-img" width="650" id="IMG_211" src="<%= asset_path('ship3.png') %>">
                 </div>
 
-                <!--<div id="DIV_105">-->
-                    <!--<div id="DIV_106">-->
-                        <!--Collateral-backed export finance loans-->
-                    <!--</div>-->
-                    <!--<div id="DIV_107">-->
-                        <!--Quick approval for credit upto 1.5 million Euros-->
-                    <!--</div>-->
-                    <!--<div id="DIV_108">-->
-                        <!--Increase sales by offering credit-->
-                    <!--</div>-->
-                <!--</div>-->
             </div>
         <% end %>
     </div>
