@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get 'pages/impressum' => 'pages#impressum'
+  get 'pages/termsAndConditions' => 'pages#termsAndConditions'
+
+
 
   devise_for :users,
              path: '',

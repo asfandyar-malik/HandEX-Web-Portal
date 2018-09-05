@@ -1,46 +1,62 @@
-<section id="SECTION_84">
+<section id="SECTION_85">
     <div id="DIV_85">
         <%= form_for @tradeinfo do |f| %>
             <div id="DIV_91">
 
-                <div id="DIV_110">
+                <div id="DIV_112">
                     <h1 id="H1_224">
                         Exporter Information
                     </h1>
 
-                    <div id="DIV_225">
-
+                    <div id="DIV_228">
                         <div class="form-group">
-                            <label class="control-label"> Phone </label>
-                            <div> <%= f.text_field :companyPhone, class: "form-control", required: true %> </div>
-                        </div>
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3">
+                                    <label class="control-label"> Phone </label>
+                                    <div> <%= f.text_field :companyPhone, class: "form-control", required: true %> </div>
+                                </div>
+                            </div>
 
-                        <div class="form-group">
-                            <label class="control-label"> Company Name </label>
-                            <div> <%= f.text_field :companyName, class: "form-control", required: true %> </div>
-                        </div>
+                            <br><br>
 
-                        <div class="form-group">
-                            <label class="control-label"> Tax Number </label>
-                            <input type="text" class="form-control">
-                        </div>
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3">
+                                    <label class="control-label"> Company Name </label>
+                                    <div> <%= f.text_field :companyName, class: "form-control", required: true %> </div>
+                                </div>
+                            </div>
+
+                            <br><br>
 
 
-                        <div id="DIV_295">
-                            <a href="#details" id="A_296">Back</a>
-                            <button type="submit" value="-1" id="BUTTON_297">
-                                Next
-                            </button>
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3">
+                                    <label class="control-label"> Tax Number </label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+
                         </div>
+                    </div>
+                    <br>
+
+                    <div id="DIV_296">
+                        <a href="#details" id="A_296">Back</a>
+                        <button type="submit" value="-1" id="BUTTON_297">
+                            Next
+                        </button>
                     </div>
                 </div>
 
-                <div id="DIV_210">
-                    <img class="responsive-img" width="400" height= "auto" id="IMG_211" src="<%= asset_path('ships1.png') %>">
-                </div>
             </div>
         <% end %>
     </div>
 </section>
-<footer id="FOOTER_408">
-</footer>
+<!--<footer id="FOOTER_408">-->
+<!--</footer>-->
+
+<style>
+    body {
+        background-image: url(<%= asset_path 'banner4.jpg' %>);
+    }
+</style>

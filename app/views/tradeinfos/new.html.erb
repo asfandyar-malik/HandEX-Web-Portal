@@ -1,48 +1,50 @@
-<section id="SECTION_84">
+<section id="SECTION_85">
     <div id="DIV_85">
         <%= form_for @tradeinfo do |f| %>
             <div id="DIV_91">
 
-                <div id="DIV_110">
+                <div id="DIV_112">
                     <h1 id="H1_224">
                         Product Information
                     </h1>
 
-                    <div id="DIV_225">
-
+                    <div id="DIV_228">
                         <div class="form-group">
-
                             <div class="row">
-                                <label id="LABEL_114"> What products do you export? </label>
-                                <div> <%= f.text_field :goods, class: "form-control", required: true %> </div>
+                                <div class="col-md-8 col-md-offset-2">
+                                    <label id="LABEL_114"> What products do you export? </label>
+                                    <div> <%= f.text_field :goods, class: "form-control", required: true %> </div>
+                                </div>
                             </div>
 
                             <br><br>
 
                             <div class="row">
-                                <p><b>What is the category of products exported?</b></p>
-                                <%= f.select :category, [["Machines", "Machines"], ["Transportation", "Transportation"], ["Chemical Products", "Chemical Products"],
-                                                         ["Metals", "Metals"], ["Plastics and Rubbers", "Plastics and Rubbers"], ["Instruments", "Instruments"],
-                                                         ["Textiles", "Textiles"], ["Paper goods", "Paper goods"], ["Weapons", "Weapons"],
-                                                         ["Mineral Products", "Mineral Products"], ["Miscellaneous", "Miscellaneous"],
-                                                         ["Foodstuffs", "Foodstuffs"], ["Stone and Glass", "Stone and Glass"],
-                                                         ["Vegetable", "Vegetable"], ["Precious Metals", "Precious Metals"], ["Wood products", "Wood products"], ["Footwear and Headwear", "Footwear and Headwear"],
-                                                         ["Animal and vegetable Bi-products", "Animal and vegetable Bi-products"], ["Arts and antiques", "Arts and antiques"]],
-                                             prompt: "Select..." %>
+                                <div class="col-md-8 col-md-offset-2">
+                                    <p><b>What is the category of products exported?</b></p>
+                                    <%= f.select :category, [["Machines", "Machines"], ["Transportation", "Transportation"], ["Chemical Products", "Chemical Products"],
+                                                             ["Metals", "Metals"], ["Plastics and Rubbers", "Plastics and Rubbers"], ["Instruments", "Instruments"],
+                                                             ["Textiles", "Textiles"], ["Paper goods", "Paper goods"], ["Weapons", "Weapons"],
+                                                             ["Mineral Products", "Mineral Products"], ["Miscellaneous", "Miscellaneous"],
+                                                             ["Foodstuffs", "Foodstuffs"], ["Stone and Glass", "Stone and Glass"],
+                                                             ["Vegetable", "Vegetable"], ["Precious Metals", "Precious Metals"], ["Wood products", "Wood products"], ["Footwear and Headwear", "Footwear and Headwear"],
+                                                             ["Animal and vegetable Bi-products", "Animal and vegetable Bi-products"], ["Arts and antiques", "Arts and antiques"]],
+                                                 prompt: "Select..." %>
+                                </div>
                             </div>
 
                             <br><br>
                             <div class="form-group">
-                                <input type="checkbox" name="vehicle" value="Bike"> <a href="/pages/impressum">I agree to terms and conditions </a>
-                                 <br> 
+                                <input type="checkbox">
+                                <a href="/pages/termsAndConditions">I agree to Terms and Conditions </a>
+                                <br>
                             </div>
-
 
                         </div>
                     </div>
                     <br>
 
-                    <div id="DIV_295">
+                    <div id="DIV_296">
                         <a href="#details" id="A_296">Back</a>
                         <button type="submit" value="-1" id="BUTTON_297">
                             Next
@@ -50,13 +52,28 @@
                     </div>
                 </div>
 
-                <div id="DIV_210">
-                    <img class="responsive-img" width="650" id="IMG_211" src="<%= asset_path('ship3.png') %>">
-                </div>
+                <% if false %>
+                    <div id="DIV_210">
+                        <img class="responsive-img" width="650" id="IMG_211" src="<%= asset_path('ship3.png') %>">
+                    </div>
+                <% end %>
 
             </div>
         <% end %>
     </div>
 </section>
-<footer id="FOOTER_408">
-</footer>
+<!--<footer id="FOOTER_408">-->
+<!--</footer>-->
+
+<style>
+
+    body {
+        background-image: url(<%= asset_path 'banner4.jpg' %>);
+
+    }
+
+    /*#SECTION_84 {*/
+    /*background:  #FEEFD9;*/
+    /*padding-top: 6%;*/
+    /*}*/
+</style>
