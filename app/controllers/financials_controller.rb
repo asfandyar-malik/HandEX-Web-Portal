@@ -25,19 +25,28 @@ class FinancialsController < ApplicationController
 
     if @financial.save
 
-      require 'csv'
-      tickers = {}
-      CSV.foreach("db/data/country_classification.csv", :headers => true, :header_converters => :symbol, :converters => :all) do |row|
-        tickers[row.fields[0]] = Hash[row.headers[1..-1].zip(row.fields[1..-1])]
-      end
+      if @financial.want_insurance
+        if @tradeinfo.insurance
+          redirect_to tradeinfo_insurances_index_path(@tradeinfo, @financial)
+        else
+          redirect_to new_tradeinfo_insurance_path(@tradeinfo, @financial)
+        end
 
-      @ticketbarbados = tickers[@tradeinfo.buyer.country][:classification]
-      # puts tickers[@tradeinfo.buyer.country][:classification]
-
-      if tickers[@tradeinfo.buyer.country][:classification] == "-"
-        redirect_to rejected_tradeinfo_path(@tradeinfo, @financial, @buyer)
       else
-        redirect_to accepted_tradeinfo_path(@tradeinfo, @financial, @buyer)
+        require 'csv'
+        tickers = {}
+        CSV.foreach("db/data/country_classification.csv", :headers => true, :header_converters => :symbol, :converters => :all) do |row|
+          tickers[row.fields[0]] = Hash[row.headers[1..-1].zip(row.fields[1..-1])]
+        end
+
+        @ticketbarbados = tickers[@tradeinfo.buyer.country][:classification]
+        # puts tickers[@tradeinfo.buyer.country][:classification]
+
+        if tickers[@tradeinfo.buyer.country][:classification] == "-"
+          redirect_to rejected_tradeinfo_path(@tradeinfo, @financial, @buyer)
+        else
+          redirect_to accepted_tradeinfo_path(@tradeinfo, @financial, @buyer)
+        end
       end
 
     else
@@ -50,25 +59,33 @@ class FinancialsController < ApplicationController
   # PATCH/PUT /financials/1
   # PATCH/PUT /financials/1.json
   def update
-
     if @financial.update(financial_params)
       flash[:notice] = "Financials Updated...."
-      require 'csv'
-      tickers = {}
-      CSV.foreach("db/data/country_classification.csv", :headers => true, :header_converters => :symbol, :converters => :all) do |row|
-        tickers[row.fields[0]] = Hash[row.headers[1..-1].zip(row.fields[1..-1])]
-      end
 
-      @ticketbarbados = tickers[@tradeinfo.buyer.country][:classification]
-      # puts @tradeinfo.buyer.country
-      # puts tickers[@tradeinfo.buyer.country][:classification]
+      if @financial.want_insurance
+        if @tradeinfo.insurance
+          redirect_to tradeinfo_insurances_index_path(@tradeinfo, @financial)
+        else
+          redirect_to new_tradeinfo_insurance_path(@tradeinfo, @financial)
+        end
 
-      if tickers[@tradeinfo.buyer.country][:classification] == "-"
-        redirect_to rejected_tradeinfo_path(@tradeinfo, @financial, @buyer)
       else
-        redirect_to accepted_tradeinfo_path(@tradeinfo, @financial, @buyer)
-      end
+        require 'csv'
+        tickers = {}
+        CSV.foreach("db/data/country_classification.csv", :headers => true, :header_converters => :symbol, :converters => :all) do |row|
+          tickers[row.fields[0]] = Hash[row.headers[1..-1].zip(row.fields[1..-1])]
+        end
 
+        @ticketbarbados = tickers[@tradeinfo.buyer.country][:classification]
+        # puts tickers[@tradeinfo.buyer.country][:classification]
+
+        if tickers[@tradeinfo.buyer.country][:classification] == "-"
+          redirect_to rejected_tradeinfo_path(@tradeinfo, @financial, @buyer)
+        else
+          redirect_to accepted_tradeinfo_path(@tradeinfo, @financial, @buyer)
+        end
+      end
+      
     else
       flash[:alert] = "Something went wrong while updating"
     end
@@ -99,7 +116,8 @@ class FinancialsController < ApplicationController
   def financial_params
     params.require(:financial).permit(:total_financing_required, :time_duration, :projected_sales_18_19, :projected_sales_20_21, :net_profitability,
                                       :net_worth, :ifsc, :outstanding_bank_nbfc_facility, :name_of_institution, :type_of_loan, :size_of_loan,
-                                      :defaulted_or_overdue, :explain_defaulted_or_overdue, :receivables_factored, :explain_receivables_factored)
+                                      :defaulted_or_overdue, :explain_defaulted_or_overdue, :receivables_factored, :explain_receivables_factored,
+                                      :want_insurance)
   end
 
   def is_ready_first_step

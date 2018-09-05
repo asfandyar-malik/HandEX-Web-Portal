@@ -17,7 +17,6 @@ class CreateFinancials < ActiveRecord::Migration[5.2]
       t.string :explain_defaulted_or_overdue
       t.string :receivables_factored
       t.string :explain_receivables_factored
-
       t.timestamps
     end
   end

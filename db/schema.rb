@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_18_145807) do
+ActiveRecord::Schema.define(version: 2018_09_05_104220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 2018_07_18_145807) do
     t.string "explain_receivables_factored"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "want_insurance"
     t.index ["tradeinfo_id"], name: "index_financials_on_tradeinfo_id"
   end
 

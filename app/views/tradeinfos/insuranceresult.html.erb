@@ -5,37 +5,68 @@
 <section id="SECTION_84">
     <div id="DIV_85">
         <div id="DIV_111">
-            <h1 id="H1_224">
-                <img class="responsive-img" id="IMG_214" src="<%= asset_path('EH1.png') %>">
+            <h1 id="H1_225">
+                Insurance Information
             </h1>
         </div>
 
-        <div id="DIV_88">
-            <div id="DIV_89">
-                <div id="DIV_90">
-                    Money Applied for: <b> <%= @tradeinfo.financial.total_financing_required %> </b> <br>
-                    Duration: <b><%= @tradeinfo.financial.time_duration %>  </b> <br>
-                    Insurance Premium: <b><%= @mainInsurancePremium.round(20) %>  </b> <br>
-                    Foreign Currency Coverage: <b><%= @foreignCurrencyCoverage %>  </b> <br>
-                    Reducing Deductible: <b><%= @reducingDeductible %>  </b> <br>
-                    Execution Amount: <b><%= @executionAmountOne %>  </b> <br> <br>
-                    Final Sum: <b><%= @finalSum %>  € </b> <br>
+        <table align="center">
+            <tr>
+                <td>Money Applied for</td>
+                <td><%= @tradeinfo.financial.total_financing_required %> &#8364</td>
+            </tr>
+            <tr>
+                <td>Duration</td>
+                <td><%= @tradeinfo.financial.time_duration %> </td>
+            </tr>
+            <tr>
+                <td>Insurance Premium</td>
+                <td><%= @mainInsurancePremium.round(2) %> &#8364</td>
+            </tr>
+            <tr>
+                <td>Application Fee</td>
+                <td><%= @application_fee.round(2) %>  &#8364</td>
+            </tr>
+            <tr>
+                <td>Foreign Currency Coverage</td>
+                <td><%= @foreignCurrencyCoverage.round(2) %> &#8364</td>
+            </tr>
+            <tr>
+                <td>Reducing Deductible</td>
+                <td><%= @reducingDeductible.round(2) %> &#8364</td>
+            </tr>
+            <tr>
+                <td>Execution Amount</td>
+                <td><%= @executionAmountOne.round(2) %> &#8364</td>
+            </tr>
+            <tr>
+                <td>Final Sum:</td>
+                <td><%= @finalSum.round(2) %> &#8364</td>
+            </tr>
+        </table>
 
-                </div>
-            </div>
+        <div id="DIV_88">
+
+            <br><br>
+
+            <%
+                require 'csv'
+                tickers = {}
+                CSV.foreach("db/data/country_classification.csv", :headers => true, :header_converters => :symbol, :converters => :all) do |row|
+                  tickers[row.fields[0]] = Hash[row.headers[1..-1].zip(row.fields[1..-1])]
+                end
+            %>
+
+            <% if tickers[@tradeinfo.buyer.country][:classification] == "-" %>
+                <%= button_to "Proceed", rejected_tradeinfo_path(@tradeinfo, @financial, @buyer), method: :get, id: "BUTTON_298" %>
+            <% else %>
+                <%= button_to "Proceed", accepted_tradeinfo_path(@tradeinfo, @financial, @buyer), method: :get, id: "BUTTON_298" %>
+            <% end %>
+
+            <br>
         </div>
     </div>
 
-    <div id="DIV_88">
-
-        <% if @tradeinfo.bankaccount %>
-            <%= button_to "Submit Bank Account Information",  tradeinfo_bankaccounts_index_path(@tradeinfo), method: :get, id:"BUTTON_298" %>
-        <% else %>
-            <%= button_to "Submit Bank Account Information", new_tradeinfo_bankaccount_path(@tradeinfo), method: :get, id:"BUTTON_298" %>
-        <% end %>
-
-        <br>
-    </div>
 
 </section>
 
@@ -60,7 +91,7 @@
             loader.style.display = "block";
             section.style.display = "none";
             footer.style.display = "none";
-            setTimeout(hide,3000);
+            setTimeout(hide, 2000);
         },
 
             hide = function () {
