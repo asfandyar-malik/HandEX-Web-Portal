@@ -11,23 +11,31 @@
                     <div id="DIV_225">
 
                         <div class="form-group">
-                            <label class="control-label"> Name of Account Holder </label>
-                            <div> <%= f.text_field :name_account_holder, class: "form-control", required: true %> </div>
+                            <div class="row">
+
+                                <label class="control-label"> Name of Account Holder </label>
+                                <div> <%= f.text_field :name_account_holder, class: "form-control", required: true %> </div>
+                            </div>
+
+                            <br><br>
+
+                            <div class="row">
+                                <label class="control-label"> IBAN Number</label>
+                                <div> <%= f.text_field :iban, class: "form-control", required: true %> </div>
+                            </div>
+
+                            <br><br>
+
+                            <div class="row">
+                                <label class="control-label"> BIC </label>
+                                <div> <%= f.text_field :bic, class: "form-control", required: true %> </div>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label class="control-label"> IBAN Number</label>
-                            <div> <%= f.text_field :iban, class: "form-control", required: true %> </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label"> BIC </label>
-                            <div> <%= f.text_field :bic, class: "form-control", required: true %> </div>
-                        </div>
                     </div>
 
                     <div id="DIV_295">
-                        <button type="Submit Application" id="BUTTON_297"> Submit Application </button>
+                        <button type="Submit Application" id="BUTTON_297"> Submit Application</button>
                     </div>
 
                 </div>
@@ -37,15 +45,15 @@
                 </div>
 
                 <!--<div id="DIV_105">-->
-                    <!--<div id="DIV_106">-->
-                        <!--Collateral-backed export finance loans-->
-                    <!--</div>-->
-                    <!--<div id="DIV_107">-->
-                        <!--Quick approval for credit upto 1.5 million Euros-->
-                    <!--</div>-->
-                    <!--<div id="DIV_108">-->
-                        <!--Increase sales by offering credit-->
-                    <!--</div>-->
+                <!--<div id="DIV_106">-->
+                <!--Collateral-backed export finance loans-->
+                <!--</div>-->
+                <!--<div id="DIV_107">-->
+                <!--Quick approval for credit upto 1.5 million Euros-->
+                <!--</div>-->
+                <!--<div id="DIV_108">-->
+                <!--Increase sales by offering credit-->
+                <!--</div>-->
                 <!--</div>-->
             </div>
         <% end %>
