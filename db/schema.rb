@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_15_150244) do
+ActiveRecord::Schema.define(version: 2018_09_16_081904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -140,6 +140,7 @@ ActiveRecord::Schema.define(version: 2018_09_15_150244) do
     t.bigint "user_id"
     t.string "importer_tax_id"
     t.string "country"
+    t.string "exporterRegisteredAddress"
     t.index ["user_id"], name: "index_tradeinfos_on_user_id"
   end
 

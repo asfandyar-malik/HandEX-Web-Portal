@@ -20,6 +20,17 @@
 
                             <br><br>
 
+
+
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3">
+                                    <label class="control-label"> Registered Address </label>
+                                    <div> <%= f.text_field :exporterRegisteredAddress, class: "form-control", required: true %> </div>
+                                </div>
+                            </div>
+
+                            <br><br>
+
                             <div class="row">
                                 <div class="col-md-6 col-md-offset-3">
                                     <label class="control-label"> Phone </label>
@@ -32,7 +43,7 @@
                             <div class="row">
                                 <div class="col-md-6 col-md-offset-3">
                                     <label class="control-label"> Tax Number </label>
-                                    <input type="text" class="form-control">
+                                    <div> <%= f.text_field :taxId, class: "form-control", required: true %> </div>
                                 </div>
                             </div>
 
