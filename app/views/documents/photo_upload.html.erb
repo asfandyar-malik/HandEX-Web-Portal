@@ -17,11 +17,11 @@
                             <%= form_for @document, url: document_photos_path(@document), method: 'post', html: {multipart: true} do |f| %>
                                 <div class="row">
                                     <div class="form-group">
-                            <span class="btn btn-default btn-file text-babu">
-                                <i class="fa fa-cloud-upload" aria-hidden="true"></i>
-                                Select Photos
-                                <%= file_field_tag "images[]", type: :file, multiple: true %>
-                            </span>
+                                        <span class="btn btn-default btn-file text-babu">
+                                            <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                                            Select Photos
+                                            <%= file_field_tag "images[]", type: :file, multiple: true %>
+                                        </span>
                                     </div>
                                 </div>
 

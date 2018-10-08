@@ -1,0 +1,83 @@
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+        Hokument
+    </div>
+
+    <div class="panel-body">
+
+        <div class="container">
+
+            <%= form_for @hokument, html: {multipart: true} do |form| %>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <p> Heskription </p>
+                        <div> <%= form.text_field :heskription, class: "form-control" %> </div>
+                    </div>
+                </div>
+
+                <br>
+                <hr align="middle" width="100%">
+                <br>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <p> Invoices 2017 </p>
+                            <span class="btn btn-default btn-file text-babu">
+                            <i class="fa fa-cloud-upload"></i>
+                            Invoices 2017
+                            <%= form.file_field :avatar %>
+                        </span>
+                    </div>
+                </div>
+
+                <br>
+                <hr align="middle" width="100%">
+                <br>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <p> Invoices 2018 </p>
+                        <%= form.file_field :invoicetwo %>
+                    </div>
+                </div>
+
+
+                <br>
+                <hr align="middle" width="100%">
+                <br>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <p> Balance Sheets </p>
+                            <span class="btn btn-default btn-file text-babu">
+                            <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                            Select Balance Sheet
+                                <%= form.file_field :balancesheet %>
+                        </span>
+                    </div>
+                </div>
+
+                <br>
+                <hr align="middle" width="100%">
+                <br>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <p> Other Document </p>
+                        <%= form.file_field :otherdoc %>
+                    </div>
+                </div>
+
+                <br><br><br>
+
+                <div><%= form.submit "Insert Hokument", class: "btn btn-normal" %></div>
+
+                <br><br>
+
+            <% end %>
+
+        </div>
+    </div>
+</div>
