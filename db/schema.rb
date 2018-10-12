@@ -10,21 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_07_164742) do
+ActiveRecord::Schema.define(version: 2018_10_12_162654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "attachments", force: :cascade do |t|
-    t.bigint "invoice_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
-    t.index ["invoice_id"], name: "index_attachments_on_invoice_id"
-  end
 
   create_table "bankaccounts", force: :cascade do |t|
     t.bigint "tradeinfo_id"
@@ -56,16 +45,6 @@ ActiveRecord::Schema.define(version: 2018_10_07_164742) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tradeinfo_id"], name: "index_buyers_on_tradeinfo_id"
-  end
-
-  create_table "documents", force: :cascade do |t|
-    t.string "document_type"
-    t.string "year"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "description"
-    t.index ["user_id"], name: "index_documents_on_user_id"
   end
 
   create_table "financials", force: :cascade do |t|
@@ -127,29 +106,6 @@ ActiveRecord::Schema.define(version: 2018_10_07_164742) do
     t.index ["tradeinfo_id"], name: "index_insurances_on_tradeinfo_id"
   end
 
-  create_table "invoices", force: :cascade do |t|
-    t.boolean "belong_me"
-    t.boolean "defect_free"
-    t.boolean "delivered_specific_date"
-    t.integer "currency"
-    t.integer "grand_total_invoice_value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_invoices_on_user_id"
-  end
-
-  create_table "photos", force: :cascade do |t|
-    t.bigint "document_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
-    t.index ["document_id"], name: "index_photos_on_document_id"
-  end
-
   create_table "tradeinfos", force: :cascade do |t|
     t.string "goods"
     t.string "category"
@@ -195,14 +151,10 @@ ActiveRecord::Schema.define(version: 2018_10_07_164742) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "attachments", "invoices"
   add_foreign_key "bankaccounts", "tradeinfos"
   add_foreign_key "buyers", "tradeinfos"
-  add_foreign_key "documents", "users"
   add_foreign_key "financials", "tradeinfos"
   add_foreign_key "hokuments", "users"
   add_foreign_key "insurances", "tradeinfos"
-  add_foreign_key "invoices", "users"
-  add_foreign_key "photos", "documents"
   add_foreign_key "tradeinfos", "users"
 end

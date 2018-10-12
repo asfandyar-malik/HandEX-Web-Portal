@@ -7,8 +7,6 @@ class User < ApplicationRecord
 
   validates :fullname, presence: true, length: {maximum: 50}
 
-  has_many :documents
-  has_many :invoices
   has_many :tradeinfos
   has_many :hokuments
 

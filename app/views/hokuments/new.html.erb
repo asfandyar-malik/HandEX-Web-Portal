@@ -54,7 +54,7 @@
                             <span class="btn btn-default btn-file text-babu">
                             <i class="fa fa-cloud-upload" aria-hidden="true"></i>
                             Select Balance Sheet
-                                <%= form.file_field :balancesheet %>
+                            <%= form.file_field :balancesheet %>
                         </span>
                     </div>
                 </div>
@@ -72,6 +72,10 @@
 
                 <br><br><br>
 
+                <input type="file" name="file" id="file" class="inputfilex" data-multiple-caption="{count} files selected" multiple />
+
+                <br><br><br>
+
                 <div><%= form.submit "Insert Hokument", class: "btn btn-normal" %></div>
 
                 <br><br>
@@ -81,3 +85,41 @@
         </div>
     </div>
 </div>
+
+<script>
+    var inputs = document.querySelectorAll( '.inputfilex' );
+    Array.prototype.forEach.call( inputs, function( input )
+    {
+        var label	 = input.nextElementSibling,
+            labelVal = label.innerHTML;
+
+        input.addEventListener( 'change', function( e )
+        {
+            var fileName = '';
+            if( this.files && this.files.length > 1 )
+                fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+            else
+                fileName = e.target.value.split( '\\' ).pop();
+
+            if( fileName )
+                label.querySelector( 'span' ).innerHTML = fileName;
+            else
+                label.innerHTML = labelVal;
+        });
+    });
+</script>
+
+<style>
+    .inputfilex + label {
+        font-size: 1.25em;
+        font-weight: 700;
+        color: white;
+        background-color: black;
+        display: inline-block;
+    }
+
+    .inputfilex:focus + label,
+    .inputfilex + label:hover {
+        background-color: red;
+    }
+</style>

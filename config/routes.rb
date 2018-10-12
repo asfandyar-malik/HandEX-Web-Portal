@@ -18,31 +18,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :documents, except: [:edit] do
-    member do
-      get 'auxillary'
-      get 'description'
-      get 'photo_upload'
-      get 'location'
-      get 'year'
-      get 'document_type'
-    end
-
-    resources :photos, only: [:create, :destroy]
-  end
-
-  resources :invoices, except: [:edit] do
-    member do
-      get 'auxillary'
-      get 'attachment_upload'
-      get 'year'
-      get 'location'
-      get 'document_type'
-    end
-
-    resources :attachments, only: [:create, :destroy]
-  end
-
   resources :tradeinfos do
     member do
       get 'exportinformation'
