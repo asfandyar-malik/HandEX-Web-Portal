@@ -1,23 +1,23 @@
 require 'test_helper'
 
-class HokumentControllerTest < ActionDispatch::IntegrationTest
+class OfficialdocumentControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get hokument_index_url
+    get officialdocument_index_url
     assert_response :success
   end
 
   test "should get new" do
-    get hokument_new_url
+    get officialdocument_new_url
     assert_response :success
   end
 
   test "should get create" do
-    get hokument_create_url
+    get officialdocument_create_url
     assert_response :success
   end
 
   test "should get update" do
-    get hokument_update_url
+    get officialdocument_update_url
     assert_response :success
   end
 

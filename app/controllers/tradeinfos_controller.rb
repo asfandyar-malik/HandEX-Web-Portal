@@ -19,9 +19,9 @@ class TradeinfosController < ApplicationController
     @tradeinfo = current_user.tradeinfos.build(tradeinfo_params)
     if @tradeinfo.save
       # redirect_to exportinformation_tradeinfo_path(@tradeinfo), notice: "Created...."
-      redirect_to exportinformation_tradeinfo_path(@tradeinfo), notice: "Created...."
+      redirect_to exportinformation_tradeinfo_path(@tradeinfo), notice: "Trade Information Created...."
     else
-      flash[:alert] = "Something went wrong while creating...."
+      flash[:alert] = "Something went wrong while creating trade information...."
       render :new
     end
   end
@@ -30,14 +30,14 @@ class TradeinfosController < ApplicationController
     @buyer = @tradeinfo.buyer
   end
 
-
   # PATCH/PUT /tradeinfos/1
   # PATCH/PUT /tradeinfos/1.json
   def update
     if @tradeinfo.update(tradeinfo_params)
       flash[:notice] = "TradeInfo Updated...."
       if is_ready_third_step
-        redirect_to thank_tradeinfo_path(@tradeinfo)
+        # redirect_to thank_tradeinfo_path(@tradeinfo)
+        redirect_to new_tradeinfo_officialdocument_path(@tradeinfo)
       else
         redirect_to importinformation_tradeinfo_path
       end
@@ -60,7 +60,6 @@ class TradeinfosController < ApplicationController
   def set_tradeinfo
     @tradeinfo = Tradeinfo.find(params[:id])
   end
-
 
   def insuranceresult
     require 'csv'
@@ -183,8 +182,6 @@ class TradeinfosController < ApplicationController
 
   def tradeinfo_params
     params.require(:tradeinfo).permit(:goods, :category, :companyName, :companyEmail, :companyPhone, :importerName, :importerEmail, :taxId)
-    # :exportinformation, :category, :companyName
-    # params.fetch(:tradeinfo, {})
   end
 
   def is_ready_first_step
@@ -198,4 +195,5 @@ class TradeinfosController < ApplicationController
   def is_ready_third_step
     @tradeinfo.goods && @tradeinfo.category && @tradeinfo.companyName && @tradeinfo.companyPhone && @tradeinfo.importerName && @tradeinfo.importerEmail && @tradeinfo.taxId
   end
+
 end

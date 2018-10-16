@@ -1,0 +1,52 @@
+<section id="SECTION_84">
+    <div id="DIV_85">
+        <%= form_for @officialdocument, url: tradeinfo_officialdocuments_path, method: :post do |f| %>
+            <div id="DIV_91">
+
+                <div id="DIV_110">
+                    <h1 id="H1_225">
+                        Insurance Information
+                    </h1>
+
+                    <div id="DIV_226">
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="start_date">Date when contract signed with Importer</label>
+                                    <div> <%= f.text_field :description, id: "description" %> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="DIV_295">
+                        <%= button_to "Back", accepted_tradeinfo_path(@tradeinfo, @financial), id: "A_296", method: :get %>
+                        <button type="Submit" id="BUTTON_297"> PROCEED</button>
+                    </div>
+
+                </div>
+
+                <div id="DIV_210">
+                    <img class="responsive-img" id="IMG_213" width="500" height= "auto" src="<%= asset_path('EH4.jpg') %>">
+                </div>
+
+            </div>
+        <% end %>
+    </div>
+</section>
+
+<footer id="FOOTER_409">
+</footer>
+
+<script>
+    $(document).ready(function () {
+
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 2 // Creates a dropdown of 15 years to control year
+        });
+    });
+
+</script>

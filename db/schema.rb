@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_12_162654) do
+ActiveRecord::Schema.define(version: 2018_10_16_202438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,30 +70,6 @@ ActiveRecord::Schema.define(version: 2018_10_12_162654) do
     t.index ["tradeinfo_id"], name: "index_financials_on_tradeinfo_id"
   end
 
-  create_table "hokuments", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "avatar_file_name"
-    t.string "avatar_content_type"
-    t.integer "avatar_file_size"
-    t.datetime "avatar_updated_at"
-    t.string "heskription"
-    t.bigint "user_id"
-    t.string "balancesheet_file_name"
-    t.string "balancesheet_content_type"
-    t.integer "balancesheet_file_size"
-    t.datetime "balancesheet_updated_at"
-    t.string "invoicetwo_file_name"
-    t.string "invoicetwo_content_type"
-    t.integer "invoicetwo_file_size"
-    t.datetime "invoicetwo_updated_at"
-    t.string "otherdoc_file_name"
-    t.string "otherdoc_content_type"
-    t.integer "otherdoc_file_size"
-    t.datetime "otherdoc_updated_at"
-    t.index ["user_id"], name: "index_hokuments_on_user_id"
-  end
-
   create_table "insurances", force: :cascade do |t|
     t.bigint "tradeinfo_id"
     t.string "insurance_cover"
@@ -104,6 +80,14 @@ ActiveRecord::Schema.define(version: 2018_10_12_162654) do
     t.date "date_contractsigned_with_importer"
     t.date "expected_date_product_received_importer"
     t.index ["tradeinfo_id"], name: "index_insurances_on_tradeinfo_id"
+  end
+
+  create_table "officialdocuments", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "description"
+    t.bigint "tradeinfo_id"
+    t.index ["tradeinfo_id"], name: "index_officialdocuments_on_tradeinfo_id"
   end
 
   create_table "tradeinfos", force: :cascade do |t|
@@ -154,7 +138,7 @@ ActiveRecord::Schema.define(version: 2018_10_12_162654) do
   add_foreign_key "bankaccounts", "tradeinfos"
   add_foreign_key "buyers", "tradeinfos"
   add_foreign_key "financials", "tradeinfos"
-  add_foreign_key "hokuments", "users"
   add_foreign_key "insurances", "tradeinfos"
+  add_foreign_key "officialdocuments", "tradeinfos"
   add_foreign_key "tradeinfos", "users"
 end

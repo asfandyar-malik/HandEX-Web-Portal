@@ -6,6 +6,6 @@ class AddAttachmentAvatarToHokuments < ActiveRecord::Migration[5.2]
   end
 
   def self.down
-    remove_attachment :hokuments, :avatar
+    remove_attachment :documents, :avatar
   end
 end

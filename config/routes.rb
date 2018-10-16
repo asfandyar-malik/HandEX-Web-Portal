@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'officialdocuments/index'
+  get 'officialdocuments/new'
+  get 'officialdocuments/create'
+  get 'officialdocuments/update'
   root to: 'pages#home'
 
   get 'pages/impressum' => 'pages#impressum'
@@ -11,12 +15,6 @@ Rails.application.routes.draw do
              controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
 
   resources :users, only: [:show]
-
-  resources :hokuments do
-    member do
-      get 'work'
-    end
-  end
 
   resources :tradeinfos do
     member do
@@ -34,11 +32,14 @@ Rails.application.routes.draw do
     resources :financials, only: [:create, :destroy, :new, :update]
     resources :insurances, only: [:create, :destroy, :new, :update]
     resources :bankaccounts, only: [:create, :destroy, :new, :update]
+    resources :officialdocuments, only: [:create, :destroy, :new, :update]
 
     get 'buyers/index' => 'buyers#index'
     get 'financials/index' => 'financials#index'
     get 'insurances/index' => 'insurances#index'
     get 'bankaccounts/index' => 'bankaccounts#index'
+    get 'officialdocuments/index' => 'officialdocuments#index'
+
 
   end
 end

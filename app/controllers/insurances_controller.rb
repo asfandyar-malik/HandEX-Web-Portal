@@ -2,7 +2,7 @@ class InsurancesController < ApplicationController
 
   before_action :set_insurance, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show]
-  before_action :is_authorised, only: [:exportinformation, :update]
+  before_action :is_authorised, only: [:update]
 
   def index
     @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])

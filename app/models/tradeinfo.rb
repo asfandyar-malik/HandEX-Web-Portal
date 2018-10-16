@@ -5,6 +5,7 @@ class Tradeinfo < ApplicationRecord
     has_one :buyer
     has_one :insurance
     has_one :bankaccount
+    has_one :officialdocument
 
     # validates :exportinformation, presence: true
     # validates :category, presence: true
