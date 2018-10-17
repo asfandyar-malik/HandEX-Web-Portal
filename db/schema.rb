@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_16_202438) do
+ActiveRecord::Schema.define(version: 2018_10_17_164648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,26 @@ ActiveRecord::Schema.define(version: 2018_10_16_202438) do
     t.datetime "updated_at", null: false
     t.string "description"
     t.bigint "tradeinfo_id"
+    t.string "invoiceone_file_name"
+    t.string "invoiceone_content_type"
+    t.integer "invoiceone_file_size"
+    t.datetime "invoiceone_updated_at"
+    t.string "companyregistrationcertificate_file_name"
+    t.string "companyregistrationcertificate_content_type"
+    t.integer "companyregistrationcertificate_file_size"
+    t.datetime "companyregistrationcertificate_updated_at"
+    t.string "shareholdersagreement_file_name"
+    t.string "shareholdersagreement_content_type"
+    t.integer "shareholdersagreement_file_size"
+    t.datetime "shareholdersagreement_updated_at"
+    t.string "identificationdocumentshareholder_file_name"
+    t.string "identificationdocumentshareholder_content_type"
+    t.integer "identificationdocumentshareholder_file_size"
+    t.datetime "identificationdocumentshareholder_updated_at"
+    t.string "extradoc_file_name"
+    t.string "extradoc_content_type"
+    t.integer "extradoc_file_size"
+    t.datetime "extradoc_updated_at"
     t.index ["tradeinfo_id"], name: "index_officialdocuments_on_tradeinfo_id"
   end
 

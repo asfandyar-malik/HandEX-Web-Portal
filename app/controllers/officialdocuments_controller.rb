@@ -24,7 +24,7 @@ class OfficialdocumentsController < ApplicationController
       @officialdocument = @tradeinfo.build_officialdocument(officialdocument_params)
 
       if @officialdocument.save
-        redirect_to officialdocumentresult_tradeinfo_path(@tradeinfo, @financial), notice: "Officialdocument Created...."
+        redirect_to thank_tradeinfo_path(@tradeinfo, @financial), notice: "Officialdocument Created...."
       else
         flash[:notice] = "Something went wrong while creating...."
         render :new
@@ -66,7 +66,7 @@ class OfficialdocumentsController < ApplicationController
     end
 
     def officialdocument_params
-      params.require(:officialdocuments).permit(:description)
+      params.require(:officialdocument).permit(:description)
     end
 
   end
