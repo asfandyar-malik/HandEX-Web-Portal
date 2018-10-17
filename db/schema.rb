@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_17_164648) do
+ActiveRecord::Schema.define(version: 2018_10_17_170037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,6 +107,14 @@ ActiveRecord::Schema.define(version: 2018_10_17_164648) do
     t.string "extradoc_content_type"
     t.integer "extradoc_file_size"
     t.datetime "extradoc_updated_at"
+    t.string "invoicetwo_file_name"
+    t.string "invoicetwo_content_type"
+    t.integer "invoicetwo_file_size"
+    t.datetime "invoicetwo_updated_at"
+    t.string "balancesheet_file_name"
+    t.string "balancesheet_content_type"
+    t.integer "balancesheet_file_size"
+    t.datetime "balancesheet_updated_at"
     t.index ["tradeinfo_id"], name: "index_officialdocuments_on_tradeinfo_id"
   end
 

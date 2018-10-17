@@ -66,7 +66,7 @@ class OfficialdocumentsController < ApplicationController
     end
 
     def officialdocument_params
-      params.require(:officialdocument).permit(:description)
+      params.require(:officialdocument).permit(:description, :invoiceone, :invoicetwo, :balancesheet, :companyregistrationcertificate, :shareholdersagreement, :identificationdocumentshareholder, :extradoc)
     end
 
   end

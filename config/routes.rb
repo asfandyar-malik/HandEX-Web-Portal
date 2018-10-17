@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'officialdocuments/index'
-  get 'officialdocuments/new'
-  get 'officialdocuments/create'
-  get 'officialdocuments/update'
   root to: 'pages#home'
 
   get 'pages/impressum' => 'pages#impressum'
