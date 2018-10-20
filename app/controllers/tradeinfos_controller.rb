@@ -181,7 +181,7 @@ class TradeinfosController < ApplicationController
   end
 
   def tradeinfo_params
-    params.require(:tradeinfo).permit(:goods, :category, :companyName, :companyEmail, :companyPhone, :importerName, :importerEmail, :taxId)
+    params.require(:tradeinfo).permit(:goods, :category, :companyName, :companyEmail, :companyPhone, :importerName, :importerEmail, :taxId, :importerTaxId, :country, :exporterRegisteredAddress)
   end
 
   def is_ready_first_step
