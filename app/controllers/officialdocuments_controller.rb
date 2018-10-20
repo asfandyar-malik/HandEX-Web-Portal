@@ -31,7 +31,6 @@ class OfficialdocumentsController < ApplicationController
       end
     end
 
-
     # PATCH/PUT /officialdocuments/1
     # PATCH/PUT /officialdocuments/1.json
     def update

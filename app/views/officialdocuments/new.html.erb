@@ -9,24 +9,25 @@
 
             <%= form_for @officialdocument, url: tradeinfo_officialdocuments_path, html: {multipart: true}, method: :post do |form| %>
 
+                <h3><b> Please add the following documents </b></h3>
+
                 <br><br><br>
 
                 <div class="row">
                     <div class="col-md-5">
-                        <h4><b> Invoices 2017 </b></h4>
+                        <h4> Invoices 2017 </h4>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-7">
                         <%= form.file_field :invoiceone %>
                     </div>
                 </div>
 
-                <br>
-                <hr align="middle" width="100%">
-                <br>
+                <br><br>
+                <br><br>
 
                 <div class="row">
                     <div class="col-md-5">
-                        <h4><b> Invoices 2018 </b></h4>
+                        <h4> Invoices 2018 </h4>
                     </div>
                     <div class="col-md-5">
                         <%= form.file_field :invoicetwo %>
@@ -34,38 +35,36 @@
                 </div>
 
                 <br>
-                <hr align="middle" width="100%">
+                <hr align="middle" width="50%">
                 <br>
 
                 <div class="row">
                     <div class="col-md-5">
-                        <h4><b> Balance Sheet </b></h4>
+                        <h4> Balance Sheet </h4>
                     </div>
                     <div class="col-md-5">
                         <%= form.file_field :balancesheet %>
                     </div>
                 </div>
 
-                <br>
-                <hr align="middle" width="100%">
-                <br>
+                <br><br>
+                <br><br>
 
                 <div class="row">
                     <div class="col-md-5">
-                        <h4><b> Company Registration Certificate </b></h4>
+                        <h4> Company Registration Certificate </h4>
                     </div>
                     <div class="col-md-5">
                         <%= form.file_field :companyregistrationcertificate %>
                     </div>
                 </div>
 
-                <br>
-                <hr align="middle" width="100%">
-                <br>
+                <br><br>
+                <br><br>
 
                 <div class="row">
                     <div class="col-md-5">
-                        <h4><b> ShareHolders Agreement</b></h4>
+                        <h4> ShareHolders Agreement </h4>
                     </div>
                     <div class="col-md-5">
                         <%= form.file_field :shareholdersagreement %>
@@ -73,28 +72,27 @@
                 </div>
 
                 <br>
-                <hr align="middle" width="100%">
+                <hr align="middle" width="50%">
                 <br>
 
                 <div class="row">
                     <div class="col-md-5">
-                        <h4><b> Identification Document (Majority Shareholder)</b></h4>
+                        <h4> Identification Document (Majority Shareholder)</h4>
                     </div>
                     <div class="col-md-5">
                         <%= form.file_field :identificationdocumentshareholder %>
                     </div>
                 </div>
 
-                <br>
-                <hr align="middle" width="100%">
-                <br>
+                <br><br>
+                <br><br>
 
                 <div class="row">
                     <div class="col-md-5">
-                        <h4><b> Extra Document</b></h4>
+                        <h4> Extra Document </h4>
                     </div>
                     <div class="col-md-5 ">
-                        <%= form.file_field :extradoc, name: 'picture'%>
+                        <%= form.file_field :extradoc, name: 'picture' %>
                     </div>
                 </div>
 
