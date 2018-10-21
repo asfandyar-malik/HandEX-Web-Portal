@@ -31,7 +31,7 @@ class InsurancesController < ApplicationController
         end
     end
 
-    def hermeskyc
+    def hermeskycone
     end
 
     def insuranceresult

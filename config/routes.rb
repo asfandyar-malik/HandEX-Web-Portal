@@ -30,7 +30,10 @@ Rails.application.routes.draw do
         
         resources :insurances do
             member do
-                get 'hermeskyc'
+                get 'hermeskycone'
+                get 'hermeskyctwo'
+                get 'hermeskycthree'
+                get 'hermeskycfour'
                 get 'insuranceresult'
             end
         end

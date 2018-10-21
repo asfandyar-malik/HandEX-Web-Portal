@@ -1,0 +1,92 @@
+<section id="SECTION_85">
+    <div id="DIV_85">
+
+        <div id="DIV_86">
+            <div id="DIV_87">
+                Ihre Risiken
+            </div>
+        </div>
+
+        <%= form_for @insurance, url: tradeinfo_insurances_path, method: :post do |f| %>
+            <div id="DIV_91">
+
+                <div id="DIV_228">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <label id="LABEL_114"> Bitte geben Sie an, gegen welche Risiken Sie sich absichern
+                                    möchten </label>
+                            </div>
+                        </div>
+                        <br><br>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <%= f.check_box :country_category, id: "privateSector" %> Nichtbezahlung der
+                                Forderung
+                            </div>
+                            <div class="col-md-7">
+                                <%= f.check_box :country_category, id: "publicSector" %> Vertragsstörung während der
+                                Fabrikationsphase
+                            </div>
+                        </div>
+
+                        <br><br>
+                        <hr align="middle" width="90%">
+                        <br><br>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <%= f.check_box :country_category, id: "garantee" %> Ziehung von Garantien
+                            </div>
+                            <div id="entlastung" class="col-md-6" style="display: none">
+                                <%= f.check_box :country_category, id: "publicSector" %> Entlastung Ihrer Avallinie
+                            </div>
+                        </div>
+
+                        <br><br>
+                        <hr align="middle" width="90%">
+                        <br><br>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <%= f.check_box :country_category, id: "garantee" %> Weitere Deckungen
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="DIV_296">
+                    <a href="#details" id="A_296">Kontakt</a>
+                    <button type="submit" id="BUTTON_297">
+                        Weiter
+                    </button>
+                </div>
+
+            </div>
+        <% end %>
+    </div>
+
+    <footer id="FOOTER_409">
+    </footer>
+
+</section>
+
+<script>
+    $(function () {
+        $("#garantee").click(function () {
+            if ($(this).is(":checked")) {
+                $("#entlastung").show();
+            } else {
+                $("#entlastung").hide();
+            }
+        });
+    });
+</script>
+
+
+
+
+
