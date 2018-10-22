@@ -217,8 +217,9 @@
                         </div>
                     </div>
                     <br>
-                    <br>
+
                     <div class="form-group">
+                        <hr align="middle" width="90%">
                         <div class="col-md-10 col-md-offset-2">
                             <p> Betreffen Ihre Lieferungen bzw. Leistungen ein sensibles Gebiet? </p>
                             <br>
@@ -272,6 +273,7 @@
                             <p></p>
                             <%= f.text_field :country_category, class: "form-control", required: true %>
                         </div>
+                        <hr align="middle" width="90%">
 
                         <br><br>
                     </div>
@@ -596,10 +598,11 @@
                                 <hr align="middle" width="90%">
                             </div>
                         </div>
-                        <br><br>
                     </div>
 
-                    <div id="workwithothercompanies">
+                    <hr align="middle" width="90%">
+
+                    <div id="interestCountedCustomer">
 
                         <div class="form-group">
 
@@ -614,10 +617,10 @@
 
                             <div class="row">
                                 <div class="col-md-3 col-md-offset-4">
-                                    <%= f.check_box :country_category, id: "ja" %> Ja
+                                    <%= f.check_box :country_category, id: "ja_customercountsinterest" %> Ja
                                 </div>
                                 <div class="col-md-3">
-                                    <%= f.check_box :country_category, id: "nein" %> Nein
+                                    <%= f.check_box :country_category, id: "nein_customercountsinterest" %> Nein
                                 </div>
                             </div>
                         </div>
@@ -625,84 +628,167 @@
                         <br><br>
                     </div>
 
+                    <div id="yesNoCustomerCountInterest" style="display: none">
 
-                    <div id="workwithothercompanies">
-                        <div class="row">
-                            <div class="col-md-10 col-md-offset-2">
-                                <p> Haben Sie mit Ihrem Kunden eine Preisgleitklausel vereinbart?
-                                <p>
+                        <div class="form-group">
+
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-2">
+                                    <p>Bitte geben Sie die Zinsen an:</p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2 col-md-offset-3">
+                                    <%= f.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168", prompt: "EUR" %>
+                                </div>
+                                <div class="col-md-7">
+                                    <div> <%= f.text_field :country_category, class: "form-control", placeholder: "Betrag", required: true %> </div>
+                                </div>
+                                <br><br><br>
                             </div>
                         </div>
-                        <br>
-
-                        <div class="row">
-                            <div class="col-md-4 col-md-offset-2">
-                                <%= f.check_box :country_category, id: "ja" %> Ja
-                            </div>
-                            <div class="col-md-4">
-                                <%= f.check_box :country_category, id: "nein" %> Nein
-                            </div>
-                        </div>
-
-                        <br><br>
                     </div>
 
-                    <div id="workwithothercompanies">
-                        <div class="row">
-                            <div class="col-md-10 col-md-offset-2">
-                                <p> Versenden Sie Ihre Waren/Güter/Anlagen in mehreren Lieferungen?
-                                <p>
-                            </div>
-                        </div>
-                        <br>
+                    <hr align="middle" width="90%">
 
-                        <div class="row">
-                            <div class="col-md-4 col-md-offset-2">
-                                <%= f.check_box :country_category, id: "ja" %> Ja
-                            </div>
-                            <div class="col-md-4">
-                                <%= f.check_box :country_category, id: "nein" %> Nein
-                            </div>
-                        </div>
-
-                        <br><br>
-                    </div>
-
-
-                    <div id="workwithothercompanies">
-                        <div class="row">
-                            <div class="col-md-10 col-md-offset-2">
-                                <p> Bitte teilen Sie uns die Liefer- und ggf. Leistungstermine Ihres Exportgeschäftes
-                                    mit.
-                                </p>
-                                <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
-                            </div>
-                        </div>
-
-                        <br><br>
-                    </div>
-
-
-                    <div id="workwithothercompanies">
+                    <div id="priceAdjustmentClause">
 
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-10 col-md-offset-2">
-                                    <p>Wie sind Ihre Zahlungsbedingungen gestaltet?
+                                    <p> Haben Sie mit Ihrem Kunden eine Preisgleitklausel vereinbart?
                                     <p>
                                 </div>
                             </div>
                             <br>
 
                             <div class="row">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <%= f.select :country_category, [["kurzfristig (bis zu 2 Jahre Kreditlaufzeit)", "kurzfristig (bis zu 2 Jahre Kreditlaufzeit)"],
-                                                                     ["mittel-/langfristig (über 2 Jahre Kreditlaufzeit)", "mittel-/langfristig (über 2 Jahre Kreditlaufzeit)"],
-                                                                     ["sowohl kurzfristig als auch mittel-/langfristig", "sowohl kurzfristig als auch mittel-/langfristig"]], id: "B_168", prompt: "kurzfristig (bis zu 2 Jahre Kreditlaufzeit)..." %>
+                                <div class="col-md-3 col-md-offset-4">
+                                    <%= f.check_box :country_category, id: "ja_priceadjustmentclause" %> Ja
+                                </div>
+                                <div class="col-md-3">
+                                    <%= f.check_box :country_category, id: "nein_priceadjustmentclause" %> Nein
                                 </div>
                             </div>
 
                             <br><br>
+
+                        </div>
+                    </div>
+
+
+                    <div id="yesNoPriceAdjustmentClause" style="display: none">
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-2">
+                                    <div> <%= f.text_field :country_category, class: "form-control", placeholder: "Bitte beschreiben Sie die Details zur Verrechnungsmethode (Prozent- oder Betragsverfahren).", required: true %> </div>
+                                </div>
+                                <br><br><br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr align="middle" width="90%">
+
+                    <div id="multipleDeliveries">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-2">
+                                    <p> Versenden Sie Ihre Waren/Güter/Anlagen in mehreren Lieferungen?
+                                    <p>
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-4">
+                                    <%= f.check_box :country_category, id: "ja_multipledeliveries" %> Ja
+                                </div>
+                                <div class="col-md-3">
+                                    <%= f.check_box :country_category, id: "nein_multipledeliveries" %> Nein
+                                </div>
+                            </div>
+
+                            <br><br>
+                        </div>
+                    </div>
+
+                    <div id="yesNoMultipleDeliveries" style="display: none">
+
+                        <div class="form-group">
+                            <div class="row">
+
+                                <div class="col-md-10 col-md-offset-2">
+                                    <p> Bitte teilen Sie uns die Liefer- und ggf. Leistungstermine Ihres
+                                        Exportgeschäftes
+                                        mit.
+                                    </p>
+                                </div>
+
+                                <br>
+                                <div class="col-md-3 col-md-offset-4">
+                                    <h4><i>Lieferbeginn</i></h4>
+                                    <div> <%= f.text_field :country_category, class: "form-control", placeholder: "e.g     2018-12-12", required: true %> </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4><i>Lieferende</i></h4>
+                                    <div> <%= f.text_field :country_category, class: "form-control", placeholder: "e.g     2019-12-12", required: true %> </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <br>
+                                <div class="col-md-3 col-md-offset-4">
+                                    <div> <%= f.text_field :country_category, class: "form-control", placeholder: "Weiterer zahlungsrelevanter Termin", required: true %> </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div> <%= f.text_field :country_category, class: "form-control", placeholder: "z.B. Milestone xy", required: true %> </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <hr align="middle" width="90%">
+
+                    <div id="workwithothercompanies">
+
+                        <div class="form-group">
+                            <div class="row">
+                                <br>
+                                <div class="col-md-10 col-md-offset-2">
+                                    <p>Wie sind Ihre Zahlungsbedingungen gestaltet?
+                                    <p>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3 col-md-offset-1">
+                                        <%= f.check_box :country_category, id: "privateSector" %>
+                                        <br><br>
+                                        <div><p><b> kurzfristig (bis zu 2 Jahre Kreditlaufzeit) </b></p></div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <%= f.check_box :country_category, id: "privateSector" %>
+                                        <br><br>
+                                        <div><p><b> mittel-/langfristig (über 2 Jahre Kreditlaufzeit) </b></p></div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <%= f.check_box :country_category, id: "privateSector" %>
+                                        <br><br>
+                                        <div><p><b> sowohl kurzfristig als auch mittel-/langfristig </b></p></div>
+                                    </div>
+                                </div>
+
+                                <hr align="middle" width="90%">
+
+                                <br><br>
+                            </div>
 
 
                             <div class="row">
@@ -746,6 +832,7 @@
 
                             <br><br>
 
+                            <hr align="middle" width="90%">
 
                             <div class="row">
                                 <div class="col-md-10 col-md-offset-2">
@@ -765,20 +852,33 @@
                                                                      ["sonstige", "sonstige"],
 
                                     ], id: "B_168", prompt: "mit Lieferung..." %>
+
+
                                 </div>
+                                <div class="col-md-8 col-md-offset-3">
+                                    <br>
+                                    <%= f.text_field :country_category, class: "form-control", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt.", required: true %>
+                                </div>
+
                             </div>
 
+                            <hr align="middle" width="90%">
+
+
                         </div>
-                        <br><br>
+                        <br>
                     </div>
 
 
                     <div id="workwithothercompanies">
                         <div class="row">
                             <div class="col-md-10 col-md-offset-2">
-                                <p> Bitte erläutern Sie das besondere Tilgungsprofil.
+                                <p> Bitte geben Sie hier die Anzahl der Raten ein
                                 </p>
-                                <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+
+                                <div class="col-md-6 col-md-offset-3">
+                                    <%= f.text_field :country_category, class: "form-control", placeholder: "Anzahl der Raten", required: true %>
+                                </div>
                             </div>
                         </div>
 
@@ -1020,6 +1120,37 @@
                 $("#yesNoSpecialContractStructure").show();
             } else {
                 $("#yesNoSpecialContractStructure").hide();
+            }
+        });
+    });
+
+
+    $(function () {
+        $("#ja_customercountsinterest").click(function () {
+            if ($(this).is(":checked")) {
+                $("#yesNoCustomerCountInterest").show();
+            } else {
+                $("#yesNoCustomerCountInterest").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $("#ja_priceadjustmentclause").click(function () {
+            if ($(this).is(":checked")) {
+                $("#yesNoPriceAdjustmentClause").show();
+            } else {
+                $("#yesNoPriceAdjustmentClause").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $("#ja_multipledeliveries").click(function () {
+            if ($(this).is(":checked")) {
+                $("#yesNoMultipleDeliveries").show();
+            } else {
+                $("#yesNoMultipleDeliveries").hide();
             }
         });
     });
