@@ -24,7 +24,7 @@ class InsurancesController < ApplicationController
         @insurance     = @tradeinfo.build_insurance(insurance_params)
         
         if @insurance.save
-            redirect_to insuranceresult_tradeinfo_insurance_path(@tradeinfo, @insurance, @financial), notice: "Insurance Created...."
+            redirect_to hermeskycone_tradeinfo_insurance_path(@tradeinfo, @insurance, @financial), notice: "Insurance Created...."
         else
             flash[:notice] = "Something went wrong while creating...."
             render :new
@@ -75,7 +75,10 @@ class InsurancesController < ApplicationController
     
         puts @left
         puts @right
-    
+
+        puts "left #{@left} "
+
+
         @total_financing_requested = Float(@tradeinfo.financial.total_financing_required)
     
         if @total_financing_requested > 100000000
@@ -96,6 +99,8 @@ class InsurancesController < ApplicationController
             @application_fee = 1500
         end
     
+        puts "application_fee #{@application_fee} "
+        
         if @application_fee > 3000000
             redirect_to rejected_tradeinfo_path(@tradeinfo, @financial, @buyer), notice: "Rejected because country has - risk classification ...."
         end
@@ -259,15 +264,23 @@ class InsurancesController < ApplicationController
     end
 
     def hermeskyctwo
+        @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
+        @insurance = @tradeinfo.insurance
     end
 
     def hermeskycthree
+        @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
+        @insurance = @tradeinfo.insurance
     end
 
     def hermeskycfour
+        @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
+        @insurance = @tradeinfo.insurance
     end
     
     def hermeskycfive
+        @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
+        @insurance = @tradeinfo.insurance
     end
 
     def hermeskycsummary
@@ -278,7 +291,7 @@ class InsurancesController < ApplicationController
     def update
         if @insurance.update(insurance_params)
             flash[:notice] = "Updated Insurance...."
-            redirect_to insuranceresult_tradeinfo_insurance_path(@tradeinfo, @insurance, @financial)
+            redirect_to hermeskycone_tradeinfo_insurance_path(@tradeinfo, @insurance, @financial)
         else
             flash[:alert] = "Something went wrong while updating"
         end
