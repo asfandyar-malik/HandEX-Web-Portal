@@ -269,8 +269,10 @@ class InsurancesController < ApplicationController
     
     def hermeskycfive
     end
-    
-    
+
+    def hermeskycsummary
+    end
+
     # PATCH/PUT /insurances/1
     # PATCH/PUT /insurances/1.json
     def update

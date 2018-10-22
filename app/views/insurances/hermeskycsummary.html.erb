@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-2">
+        <%= render 'insurances/hermeskyc_menu' %>
+    </div>
+
+    <div class="col-md-10">
+        <section id="SECTION_85">
+            <div id="DIV_85">
+                <div id="DIV_86">
+                    <div id="DIV_87">
+                        Zusammenfassung
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<script>
+    $(function () {
+        $("#garantee").click(function () {
+            if ($(this).is(":checked")) {
+                $("#entlastung").show();
+            } else {
+                $("#entlastung").hide();
+            }
+        });
+    });
+</script>
+
+
+
+
+

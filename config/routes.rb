@@ -35,6 +35,7 @@ Rails.application.routes.draw do
                 get 'hermeskycthree'
                 get 'hermeskycfour'
                 get 'hermeskycfive'
+                get 'hermeskycsummary'
                 get 'insuranceresult'
             end
         end
