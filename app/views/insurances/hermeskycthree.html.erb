@@ -329,7 +329,7 @@
 
                             <div class="row">
                                 <div class="col-md-10 col-md-offset-2">
-                                    <br><br>
+                                    <br>
                                     <p> Liefern Sie gebrauchte Ware?
                                     <p>
                                 </div>
@@ -753,7 +753,7 @@
 
                     <hr align="middle" width="90%">
 
-                    <div id="workwithothercompanies">
+                    <div id="termOfPayments">
 
                         <div class="form-group">
                             <div class="row">
@@ -767,19 +767,19 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-3 col-md-offset-1">
-                                        <%= f.check_box :country_category, id: "privateSector" %>
+                                        <%= f.check_box :country_category, id: "kurzfristig-termofpayments" %>
                                         <br><br>
                                         <div><p><b> kurzfristig (bis zu 2 Jahre Kreditlaufzeit) </b></p></div>
                                     </div>
 
                                     <div class="col-md-4">
-                                        <%= f.check_box :country_category, id: "privateSector" %>
+                                        <%= f.check_box :country_category, id: "mittel-termofpayments" %>
                                         <br><br>
                                         <div><p><b> mittel-/langfristig (über 2 Jahre Kreditlaufzeit) </b></p></div>
                                     </div>
 
                                     <div class="col-md-4">
-                                        <%= f.check_box :country_category, id: "privateSector" %>
+                                        <%= f.check_box :country_category, id: "sowohlkurzfristig-termofpayments" %>
                                         <br><br>
                                         <div><p><b> sowohl kurzfristig als auch mittel-/langfristig </b></p></div>
                                     </div>
@@ -789,6 +789,245 @@
 
                                 <br><br>
                             </div>
+
+                        </div>
+                    </div>
+
+                    <div id="KurzFristigTermOfPayment" style="display: none">
+
+                        <div class="form-group">
+
+                            <div class="row">
+                                <br>
+                                <p> Sofern Sie eine Anzahlung vereinbart haben, die vor Lieferbeginn geleistet wird,
+                                    geben Sie bitte den entsprechenden Betrag an.</p>
+                                <div class="col-md-3 col-md-offset-1">
+                                    <%= f.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168", prompt: "EUR" %>
+                                </div>
+                                <div class="col-md-4">
+                                    <div> <%= f.text_field :country_category, class: "form-control", placeholder: "Betrag", required: true %> </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div> <%= f.text_field :country_category, class: "form-control", placeholder: "Beschreibung", required: true %> </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <br><br><br>
+                                <p> Welche Zahlungen vereinbaren Sie?</p>
+
+                                <div class="col-md-2 ">
+                                    <p>1. Rate</p>
+                                </div>
+                                <div class="col-md-2">
+                                    <%= f.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168", prompt: "EUR" %>
+                                </div>
+                                <div class="col-md-1">
+                                    <div> <%= f.text_field :country_category, class: "form-control", placeholder: "0,00" %> </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div> <%= f.text_field :country_category, class: "form-control" %> </div>
+                                </div>
+                                <div class="col-md-1 ">
+                                    <p>%</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <%= f.select :country_category, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
+                                                                     ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
+                                                                     ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
+                                                                     ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
+                                                                     ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
+                                                                     ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
+                                                                     ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
+                                                                     ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
+                                                                     ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
+                                                                     ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
+                                                                     ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
+                                                                     ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
+                                    ], id: "B_168", prompt: "EUR" %>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div> <%= f.text_field :country_category, class: "form-control" %> </div>
+                                </div>
+
+
+                                <div id="workwithothercompanies">
+                                    <div class="row">
+                                        <div class="col-md-10 col-md-offset-2">
+                                            <br><br><br>
+                                            <p> Wenn Sie Zahlungsvehikel wie z.B. Wechsel, Sola-Wechsel oder Promissory
+                                                Notes
+                                                vereinbart haben, so geben Sie dies bitte hier an.
+                                            </p>
+                                            <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                        </div>
+                                    </div>
+
+                                    <br><br>
+                                </div>
+
+                                <div id="certificateOfOrigin">
+                                    <div class="form-group">
+                                        <div class="col-md-10 col-md-offset-2">
+                                            <p>Bekommen Sie für die zu liefernde Ware ein deutsches
+                                                Warenursprungszeugnis? </p>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-3 col-md-offset-1">
+                                                <%= f.check_box :country_category, id: "yes_certificateoforigin" %> ja
+                                            </div>
+                                            <div class="col-md-4">
+                                                <%= f.check_box :country_category, id: "no_certificateoforigin" %> nein
+                                            </div>
+                                            <div class="col-md-4">
+                                                <%= f.check_box :country_category, id: "teil-certificateoforigin" %> für
+                                                Teile
+                                                der
+                                                Ware
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="yesNoCertificateOfOrigin" style="display: none">
+
+                                    <br><br>
+
+                                    <div class="form-group">
+                                        <div class="col-md-11 col-md-offset-1">
+                                            <p> Bitte geben Sie die Zulieferungen aus dem Ausland an. </p>
+                                        </div>
+                                        <br><br>
+
+                                        <div class="row">
+                                            <div class="col-md-3 col-md-offset-2">
+                                                <%= f.select :country_category, [["Europe", "Europe"], ["Asia", "Asia"]], id: "B_168", prompt: "Area..." %>
+                                            </div>
+
+                                            <div class="col-md-3 ">
+                                                <%= f.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168", prompt: "Currency..." %>
+                                            </div>
+
+                                            <div class="col-md-4 ">
+                                                <%= f.text_field :country_category, class: "form-control", required: true %>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <br><br>
+
+                                    <div class="form-group">
+                                        <div class="col-md-11 col-md-offset-1">
+                                            <p> Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig
+                                                sind. </p>
+                                        </div>
+                                        <br><br>
+
+                                        <div class="row">
+                                            <div class="col-md-8 col-md-offset-2">
+                                                <%= f.text_field :country_category, class: "form-control", required: true %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br><br>
+                                <hr align="middle" width="90%">
+
+
+                                <div id="securityForBusiness">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p> Sind für Ihr Geschäft Sicherheiten vorgesehen?
+                                                <p>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-3 col-md-offset-4">
+                                                <%= f.check_box :country_category, id: "Yes-securityForBusiness" %> Ja
+                                            </div>
+                                            <div class="col-md-3">
+                                                <%= f.check_box :country_category, id: "No-securityForBusiness" %> Nein
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+
+                                    </div>
+                                </div>
+
+                                <div id="typeOfSecurity" style="display: none">
+                                    <div class="form-group">
+
+                                        <div class="col-md-11 col-md-offset-1">
+                                            <p> Welche Art von Sicherheiten? </p>
+                                        </div>
+                                        <br><br>
+
+                                        <div class="row">
+                                            <div class="col-md-5 col-md-offset-3">
+                                                <%= f.select :country_category, [["Unbestätigtes Akkreditiv einer Bank", "Unbestätigtes Akkreditiv einer Bank"],
+                                                                                 ["Bestätigtes Akkreditiv", "Bestätigtes Akkreditiv"],
+                                                                                 ["Zahlungsgarantie einer Bank", "Zahlungsgarantie einer Bank"],
+                                                                                 ["Zahlungsgarantie eines Unternehmens", "Zahlungsgarantie eines Unternehmens"],
+                                                                                 ["(eingetragener) Eigentumsvorbehalt (dingliche Sicherheit)", "(eingetragener) Eigentumsvorbehalt (dingliche Sicherheit)"],
+                                                                                 ["Pfandrecht (dingliche Sicherheit)", "Pfandrecht (dingliche Sicherheit)"],
+                                                                                 ["sonstige", "sonstige"]], id: "B_168", placeholder: "Bitte Art der Sicherheit auswählen..." %>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div> <%= f.text_field :country_category, class: "form-control", placeholder: "Bitte Name vergeben" %> </div>
+
+                                            </div>
+                                        </div>
+                                        <br><br>
+                                        <br><br>
+
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p> Welchen Anteil des Auftragswertes wird die Sicherheit umfassen?
+                                                    (Zahlungsgarantie
+                                                    einer Bank-1) </p>
+                                                <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+
+                                        <div class="row">
+                                            <div class="col-md-11 col-md-offset-1">
+                                                <p> Wann werden Sie die Sicherheiten erhalten? (unbestätigtes Akkreditiv
+                                                    einer
+                                                    Bank-1 </p>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-md-5 col-md-offset-4">
+                                                <%= f.select :country_category, [["Vor Fabrikationsbeginn", "Vor Fabrikationsbeginn"],
+                                                                                 ["Vor Liefer-/Leistungsbeginn", "Vor Liefer-/Leistungsbeginn"],
+                                                                                 ["Später", "Später"],
+                                                                                 ["Anderer Termin", "Anderer Termin"]], id: "B_168", prompt: "Vor Fabrikationsbeginn..." %>
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="MittelTermOfPayment" style="display: none">
+
+                        <div class="form-group">
 
 
                             <div class="row">
@@ -862,209 +1101,210 @@
 
                             </div>
 
-                            <hr align="middle" width="90%">
-
-
-                        </div>
-                        <br>
-                    </div>
-
-
-                    <div id="workwithothercompanies">
-                        <div class="row">
-                            <div class="col-md-10 col-md-offset-2">
-                                <p> Bitte geben Sie hier die Anzahl der Raten ein
-                                </p>
-
-                                <div class="col-md-6 col-md-offset-3">
-                                    <%= f.text_field :country_category, class: "form-control", placeholder: "Anzahl der Raten", required: true %>
-                                </div>
-                            </div>
                         </div>
 
-                        <br><br>
-                    </div>
+                        <hr align="middle" width="90%">
 
-
-                    <div id="workwithothercompanies">
-                        <div class="row">
-                            <div class="col-md-10 col-md-offset-2">
-                                <p> Wenn Sie Zahlungsvehikel wie z.B. Wechsel, Sola-Wechsel oder Promissory Notes
-                                    vereinbart haben, so geben Sie dies bitte hier an.
-                                </p>
-                                <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
-                            </div>
-                        </div>
-
-                        <br><br>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-10 col-md-offset-2">
-                            <p>Bekommen Sie für die zu liefernde Ware ein deutsches Warenursprungszeugnis? </p>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-3 col-md-offset-1">
-                                <%= f.check_box :country_category, id: "yes" %> ja
-                            </div>
-                            <div class="col-md-4">
-                                <%= f.check_box :country_category, id: "nope" %> nein
-                            </div>
-                            <div class="col-md-4">
-                                <%= f.check_box :country_category, id: "garantee" %> für Teile der Ware
-                            </div>
-                        </div>
-                    </div>
-
-                    <br><br>
-
-                    <div id="workwithothercompanies">
-                        <div class="row">
-                            <div class="col-md-10 col-md-offset-2">
-                                <p> Wenn Sie Zahlungsvehikel wie z.B. Wechsel, Sola-Wechsel oder Promissory Notes
-                                    vereinbart haben, so geben Sie dies bitte hier an.
-                                </p>
-                                <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
-                            </div>
-                        </div>
-
-                        <br><br>
-                    </div>
-
-
-                    <div class="form-group">
-                        <div class="col-md-11 col-md-offset-1">
-                            <p> Bitte geben Sie die Zulieferungen aus dem Ausland an. </p>
-                        </div>
-                        <br><br>
-
-                        <div class="row">
-                            <div class="col-md-3 col-md-offset-2">
-                                <%= f.select :country_category, [["Europe", "Europe"], ["Asia", "Asia"]], id: "B_168", prompt: "Area..." %>
-                            </div>
-
-                            <div class="col-md-3 ">
-                                <%= f.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168", prompt: "Currency..." %>
-                            </div>
-
-                            <div class="col-md-4 ">
-                                <%= f.text_field :country_category, class: "form-control", required: true %>
-                            </div>
-                        </div>
-                    </div>
-
-                    <br><br>
-
-                    <div class="form-group">
-                        <div class="col-md-11 col-md-offset-1">
-                            <p> Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig sind. </p>
-                        </div>
-                        <br><br>
-
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2">
-                                <%= f.text_field :country_category, class: "form-control", required: true %>
-                            </div>
-                        </div>
-                    </div>
-
-                    <br><br>
-
-                    <div id="securityForBusiness">
-                        <div class="row">
-                            <div class="col-md-10 col-md-offset-2">
-                                <p> Sind für Ihr Geschäft Sicherheiten vorgesehen?
-                                <p>
-                            </div>
-                        </div>
                         <br>
 
-                        <div class="row">
-                            <div class="col-md-4 col-md-offset-2">
-                                <%= f.check_box :country_category, id: "Yes-securityForBusiness" %> Ja
-                            </div>
-                            <div class="col-md-4">
-                                <%= f.check_box :country_category, id: "No-securityForBusiness" %> Nein
-                            </div>
-                        </div>
 
-                        <br><br>
-                    </div>
-
-                    <div id="typeOfSecurity" style="display: none">
-                        <div class="form-group">
-
-                            <div class="col-md-11 col-md-offset-1">
-                                <p> Welche Art von Sicherheiten? </p>
-                            </div>
-                            <br><br>
-
-                            <div class="col-md-5 col-md-offset-4">
-                                <%= f.select :country_category, [["Unbestätigtes Akkreditiv einer Bank", "Unbestätigtes Akkreditiv einer Bank"],
-                                                                 ["Bestätigtes Akkreditiv", "Bestätigtes Akkreditiv"],
-                                                                 ["Zahlungsgarantie einer Bank", "Zahlungsgarantie einer Bank"],
-                                                                 ["Zahlungsgarantie eines Unternehmens", "Zahlungsgarantie eines Unternehmens"],
-                                                                 ["(eingetragener) Eigentumsvorbehalt (dingliche Sicherheit)", "(eingetragener) Eigentumsvorbehalt (dingliche Sicherheit)"],
-                                                                 ["Pfandrecht (dingliche Sicherheit)", "Pfandrecht (dingliche Sicherheit)"],
-                                                                 ["sonstige", "sonstige"]], id: "B_168", prompt: "Unbestätigtes Akkreditiv einer Bank..." %>
-                            </div>
-
-
-                            <br><br>
-
-
-                            <br><br>
-
+                        <div id="workwithothercompanies">
                             <div class="row">
                                 <div class="col-md-10 col-md-offset-2">
-                                    <p> Welchen Anteil des Auftragswertes wird die Sicherheit umfassen?
-                                        (Zahlungsgarantie
-                                        einer Bank-1) </p>
+                                    <p> Bitte geben Sie hier die Anzahl der Raten ein
+                                    </p>
+
+                                    <div class="col-md-6 col-md-offset-3">
+                                        <%= f.text_field :country_category, class: "form-control", placeholder: "Anzahl der Raten", required: true %>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br><br>
+                        </div>
+
+
+                        <div id="workwithothercompanies">
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-2">
+
+                                    <p> Wenn Sie Zahlungsvehikel wie z.B. Wechsel, Sola-Wechsel oder Promissory Notes
+                                        vereinbart haben, so geben Sie dies bitte hier an.
+                                    </p>
                                     <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
                                 </div>
                             </div>
 
                             <br><br>
+                        </div>
 
-                            <div class="row">
-                                <div class="col-md-11 col-md-offset-1">
-                                    <p> Wann werden Sie die Sicherheiten erhalten? (unbestätigtes Akkreditiv einer
-                                        Bank-1 </p>
+                        <div id="certificateOfOrigin">
+                            <div class="form-group">
+                                <div class="col-md-10 col-md-offset-2">
+                                    <p>Bekommen Sie für die zu liefernde Ware ein deutsches Warenursprungszeugnis? </p>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-3 col-md-offset-1">
+                                        <%= f.check_box :country_category, id: "yes_certificateoforigin" %> ja
+                                    </div>
+                                    <div class="col-md-4">
+                                        <%= f.check_box :country_category, id: "no_certificateoforigin" %> nein
+                                    </div>
+                                    <div class="col-md-4">
+                                        <%= f.check_box :country_category, id: "teil-certificateoforigin" %> für Teile
+                                        der
+                                        Ware
+                                    </div>
                                 </div>
                             </div>
+                        </div>
 
+                        <div id="yesNoCertificateOfOrigin" style="display: none">
 
-                            <div class="row">
-                                <div class="col-md-5 col-md-offset-4">
-                                    <%= f.select :country_category, [["Vor Fabrikationsbeginn", "Vor Fabrikationsbeginn"],
-                                                                     ["Vor Liefer-/Leistungsbeginn", "Vor Liefer-/Leistungsbeginn"],
-                                                                     ["Später", "Später"],
-                                                                     ["Anderer Termin", "Anderer Termin"]], id: "B_168", prompt: "Vor Fabrikationsbeginn..." %>
+                            <br><br>
+
+                            <div class="form-group">
+                                <div class="col-md-11 col-md-offset-1">
+                                    <p> Bitte geben Sie die Zulieferungen aus dem Ausland an. </p>
+                                </div>
+                                <br><br>
+
+                                <div class="row">
+                                    <div class="col-md-3 col-md-offset-2">
+                                        <%= f.select :country_category, [["Europe", "Europe"], ["Asia", "Asia"]], id: "B_168", prompt: "Area..." %>
+                                    </div>
+
+                                    <div class="col-md-3 ">
+                                        <%= f.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168", prompt: "Currency..." %>
+                                    </div>
+
+                                    <div class="col-md-4 ">
+                                        <%= f.text_field :country_category, class: "form-control", required: true %>
+                                    </div>
                                 </div>
                             </div>
 
                             <br><br>
 
+                            <div class="form-group">
+                                <div class="col-md-11 col-md-offset-1">
+                                    <p> Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig
+                                        sind. </p>
+                                </div>
+                                <br><br>
+
+                                <div class="row">
+                                    <div class="col-md-8 col-md-offset-2">
+                                        <%= f.text_field :country_category, class: "form-control", required: true %>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
+                        <br><br>
+                        <hr align="middle" width="90%">
+
+
+                        <div id="securityForBusiness">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-2">
+                                        <p> Sind für Ihr Geschäft Sicherheiten vorgesehen?
+                                        <p>
+                                    </div>
+                                </div>
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-md-3 col-md-offset-4">
+                                        <%= f.check_box :country_category, id: "Yes-securityForBusiness" %> Ja
+                                    </div>
+                                    <div class="col-md-3">
+                                        <%= f.check_box :country_category, id: "No-securityForBusiness" %> Nein
+                                    </div>
+                                </div>
+
+                                <br><br>
+
+                            </div>
+                        </div>
+
+                        <div id="typeOfSecurity" style="display: none">
+                            <div class="form-group">
+
+                                <div class="col-md-11 col-md-offset-1">
+                                    <p> Welche Art von Sicherheiten? </p>
+                                </div>
+                                <br><br>
+
+                                <div class="row">
+                                    <div class="col-md-5 col-md-offset-3">
+                                        <%= f.select :country_category, [["Unbestätigtes Akkreditiv einer Bank", "Unbestätigtes Akkreditiv einer Bank"],
+                                                                         ["Bestätigtes Akkreditiv", "Bestätigtes Akkreditiv"],
+                                                                         ["Zahlungsgarantie einer Bank", "Zahlungsgarantie einer Bank"],
+                                                                         ["Zahlungsgarantie eines Unternehmens", "Zahlungsgarantie eines Unternehmens"],
+                                                                         ["(eingetragener) Eigentumsvorbehalt (dingliche Sicherheit)", "(eingetragener) Eigentumsvorbehalt (dingliche Sicherheit)"],
+                                                                         ["Pfandrecht (dingliche Sicherheit)", "Pfandrecht (dingliche Sicherheit)"],
+                                                                         ["sonstige", "sonstige"]], id: "B_168", placeholder: "Bitte Art der Sicherheit auswählen..." %>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div> <%= f.text_field :country_category, class: "form-control", placeholder: "Bitte Name vergeben" %> </div>
+
+                                    </div>
+                                </div>
+                                <br><br>
+                                <br><br>
+
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-2">
+                                        <p> Welchen Anteil des Auftragswertes wird die Sicherheit umfassen?
+                                            (Zahlungsgarantie
+                                            einer Bank-1) </p>
+                                        <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                    </div>
+                                </div>
+
+                                <br><br>
+
+                                <div class="row">
+                                    <div class="col-md-11 col-md-offset-1">
+                                        <p> Wann werden Sie die Sicherheiten erhalten? (unbestätigtes Akkreditiv einer
+                                            Bank-1 </p>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-5 col-md-offset-4">
+                                        <%= f.select :country_category, [["Vor Fabrikationsbeginn", "Vor Fabrikationsbeginn"],
+                                                                         ["Vor Liefer-/Leistungsbeginn", "Vor Liefer-/Leistungsbeginn"],
+                                                                         ["Später", "Später"],
+                                                                         ["Anderer Termin", "Anderer Termin"]], id: "B_168", prompt: "Vor Fabrikationsbeginn..." %>
+                                    </div>
+                                </div>
+
+                                <br><br>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="DIV_296">
+                        <a href="#details" id="A_296">Kontakt</a>
+                        <button type="submit" id="BUTTON_297">
+                            Weiter
+                        </button>
                     </div>
                 </div>
-
-
-                <div id="DIV_296">
-                    <a href="#details" id="A_296">Kontakt</a>
-                    <button type="submit" id="BUTTON_297">
-                        Weiter
-                    </button>
-                </div>
-            </div>
             </div>
         <% end %>
 
 
-        </div>
-        </section>
+    </div>
+</section>
 
 
 <style>
@@ -1155,6 +1395,59 @@
         });
     });
 
+
+    $(function () {
+        $("#no_certificateoforigin").click(function () {
+            if ($(this).is(":checked")) {
+                $("#yesNoCertificateOfOrigin").show();
+            } else {
+                $("#yesNoCertificateOfOrigin").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $("#teil-certificateoforigin").click(function () {
+            if ($(this).is(":checked")) {
+                $("#yesNoCertificateOfOrigin").show();
+            } else {
+                $("#yesNoCertificateOfOrigin").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $("#kurzfristig-termofpayments").click(function () {
+            if ($(this).is(":checked")) {
+                $("#KurzFristigTermOfPayment").show();
+            } else {
+                $("#KurzFristigTermOfPayment").hide();
+            }
+        });
+    });
+
+
+    $(function () {
+        $("#mittel-termofpayments").click(function () {
+            if ($(this).is(":checked")) {
+                $("#MittelTermOfPayment").show();
+            } else {
+                $("#MittelTermOfPayment").hide();
+            }
+        });
+    });
+
+
+    $(function () {
+        $("#sowohlkurzfristig-termofpayments").click(function () {
+            if ($(this).is(":checked")) {
+                $("#SonstigeKurzFristigTermOfPayment").show();
+            } else {
+                $("#SonstigeKurzFristigTermOfPayment").hide();
+            }
+        });
+    });
+
     $(function () {
         $("#sonstige").click(function () {
             if ($(this).is(":checked")) {
@@ -1176,8 +1469,3 @@
     });
 
 </script>
-
-
-
-
-
