@@ -19,14 +19,13 @@
 #SECTION_85 {
   box-sizing: border-box;
   color: rgb(68, 68, 68);
-  height: 100%;
   text-decoration: none solid rgb(68, 68, 68);
   text-size-adjust: 100%;
   column-rule-color: rgb(68, 68, 68);
   perspective-origin: 800px 427.031px;
   transform-origin: 800px 427.031px;
   caret-color: rgb(68, 68, 68);
-  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box;
+  background: rgb(255, 255, 255) none repeat scroll 100% 100% / auto padding-box border-box !important;
   opacity: 0.93;
   border: 0px none rgb(68, 68, 68);
   font: normal normal 500 normal 20px / 24px Lato, sans-serif;
@@ -35,6 +34,7 @@
   width: 65%;
   margin-right: auto;
   margin-left: auto;
+  overflow-x: scroll;
 }
 
 @media (max-width: 1700px) and (min-width: 700px){
@@ -64,7 +64,6 @@
   font: normal normal 500 normal 20px / 24px Lato, sans-serif;
   outline: rgb(68, 68, 68) none 0px;
 }
-
 
 #DIV_86 {
   box-sizing: border-box;
@@ -105,6 +104,7 @@
   padding: 0px 15px;
   padding-top: 30px;
 }
+
 
 #DIV_995 {
   margin:auto;
