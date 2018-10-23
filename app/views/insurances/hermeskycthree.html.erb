@@ -131,7 +131,7 @@
                                 <div class="row">
                                     <div class="col-md-10 col-md-offset-2">
                                         <p> Bitte beschreiben Sie das Gesamtprojekt detaillierter</p>
-                                        <div> <%= f.text_field :explain_complete_project, class: "form-control", required: true %> </div>
+                                        <div> <%= f.text_field :explain_complete_project, class: "form-control" %> </div>
                                     </div>
                                 </div>
 
@@ -163,7 +163,7 @@
                                         </div>
 
                                         <div class="col-md-5 ">
-                                            <%= f.text_field :overall_project_volume, class: "form-control", required: true %>
+                                            <%= f.text_field :overall_project_volume, class: "form-control"%>
                                         </div>
 
                                     </div>
@@ -184,7 +184,7 @@
 
                                     <div class="row">
                                         <div class="col-md-4 col-md-offset-1">
-                                            <%= f.text_field :use_of_fund, class: "form-control", required: true, placeholder: "fiktives Beispiel: Maschine \"x\"", prompt: "fiktives Beispiel: Maschine \"x\" " %>
+                                            <%= f.text_field :use_of_fund, class: "form-control",  placeholder: "fiktives Beispiel: Maschine \"x\"", prompt: "fiktives Beispiel: Maschine \"x\" " %>
                                         </div>
 
                                         <div class="col-md-3 ">
@@ -192,7 +192,7 @@
                                         </div>
 
                                         <div class="col-md-4 ">
-                                            <%= f.text_field :amount_of_fund, class: "form-control", required: true, placeholder: "Betrag" %>
+                                            <%= f.text_field :amount_of_fund, class: "form-control", placeholder: "Betrag" %>
                                         </div>
                                     </div>
 
@@ -202,7 +202,7 @@
 
                                     <div class="row">
                                         <div class="col-md-4 col-md-offset-1">
-                                            <%= f.text_field :source_of_fund, class: "form-control", required: true, placeholder: "z.B. \"ECA-Finanzierung\" " %>
+                                            <%= f.text_field :source_of_fund, class: "form-control", placeholder: "z.B. \"ECA-Finanzierung\" " %>
                                         </div>
 
                                         <div class="col-md-3 ">
@@ -210,7 +210,7 @@
                                         </div>
 
                                         <div class="col-md-4 ">
-                                            <%= f.text_field :source_of_fund_amount, class: "form-control", required: true, placeholder: "Betrag" %>
+                                            <%= f.text_field :source_of_fund_amount, class: "form-control", placeholder: "Betrag" %>
                                         </div>
                                     </div>
                                 </div>
@@ -271,7 +271,7 @@
                                 <div id="entlastung" class="col-md-10 col-md-offset-2" style="display: none">
                                     <p>Bitte konkretisieren Sie, um was für ein sensibles Gebiet es sich handelt
                                     <p></p>
-                                    <%= f.text_field :delivery_affects_other_explain, class: "form-control", required: true %>
+                                    <%= f.text_field :delivery_affects_other_explain, class: "form-control"%>
                                 </div>
                                 <hr align="middle" width="90%">
 
@@ -366,10 +366,10 @@
                                     <div class="row">
                                         <br><br>
                                         <div class="col-md-4 col-md-offset-3">
-                                            <div> <%= f.text_field :product_original_date_of_manifacture, class: "form-control", placeholder: "Jahr der Fertigung", required: true %> </div>
+                                            <div> <%= f.text_field :product_original_date_of_manifacture, class: "form-control", placeholder: "Jahr der Fertigung" %> </div>
                                         </div>
                                         <div class="col-md-4 ">
-                                            <div> <%= f.text_field :product_remaining_life, class: "form-control", placeholder: "Restlebensdauer in Jahren", required: true %> </div>
+                                            <div> <%= f.text_field :product_remaining_life, class: "form-control", placeholder: "Restlebensdauer in Jahren"%> </div>
                                         </div>
                                     </div>
                                     <br><br>
@@ -466,7 +466,7 @@
                                         </div>
 
                                         <div class="col-md-4 ">
-                                            <div> <%= f.text_field :companny_internal_id, class: "form-control", placeholder: "Ihre interne Vertragskennung", required: true %> </div>
+                                            <div> <%= f.text_field :companny_internal_id, class: "form-control", placeholder: "Ihre interne Vertragskennung"%> </div>
                                         </div>
                                     </div>
                                 </div>
@@ -510,7 +510,7 @@
 
                                     <div class="row">
                                         <div class="col-md-10 col-md-offset-2">
-                                            <div> <%= f.text_field :explain_special_contract_structure, class: "form-control", required: true %> </div>
+                                            <div> <%= f.text_field :explain_special_contract_structure, class: "form-control"  %> </div>
                                         </div>
                                         <br><br><br>
                                     </div>
@@ -563,7 +563,7 @@
                                                     <%= f.select :order_value_export_business_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
                                                 </div>
                                                 <div class="col-md-4 ">
-                                                    <div> <%= f.text_field :order_value_export_business_currency_amount, class: "form-control", placeholder: "0,00", required: true %> </div>
+                                                    <div> <%= f.text_field :order_value_export_business_currency_amount, class: "form-control", placeholder: "0,00" %> </div>
                                                 </div>
                                             </div>
                                             <br><br>
@@ -571,7 +571,7 @@
                                                 <br>
                                                 <h4><i>Wie hoch ist der Lieferwert?</i></h4>
                                                 <div class="col-md-10 col-md-offset-2">
-                                                    <div> <%= f.text_field :total_delivery_value, class: "form-control", placeholder: "0,00", required: true %> </div>
+                                                    <div> <%= f.text_field :total_delivery_value, class: "form-control", placeholder: "0,00" %> </div>
                                                 </div>
                                             </div>
 
@@ -580,7 +580,7 @@
                                                 <h4><i> Wie hoch ist der Anteil der Ersatzteile am Auftragswert?</i>
                                                 </h4>
                                                 <div class="col-md-10 col-md-offset-2">
-                                                    <div> <%= f.text_field :percentage_of_spare_parts_in_whole_order, class: "form-control", placeholder: "0,00", required: true %> </div>
+                                                    <div> <%= f.text_field :percentage_of_spare_parts_in_whole_order, class: "form-control", placeholder: "0,00" %> </div>
                                                 </div>
                                             </div>
 
@@ -592,10 +592,10 @@
                                                     <%= f.select :more_components_open_to_exporter_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <div> <%= f.text_field :more_components_open_to_exporter_amount, class: "form-control", placeholder: "Betrag", required: true %> </div>
+                                                    <div> <%= f.text_field :more_components_open_to_exporter_amount, class: "form-control", placeholder: "Betrag"  %> </div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <div> <%= f.text_field :more_components_open_to_exporter_explain, class: "form-control", placeholder: "Beschreibung", required: true %> </div>
+                                                    <div> <%= f.text_field :more_components_open_to_exporter_explain, class: "form-control", placeholder: "Beschreibung" %> </div>
                                                 </div>
                                             </div>
 
@@ -648,7 +648,7 @@
                                             <%= f.select :interest_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168", prompt: "EUR" %>
                                         </div>
                                         <div class="col-md-7">
-                                            <div> <%= f.text_field :interest_amount, class: "form-control", placeholder: "Betrag", required: true %> </div>
+                                            <div> <%= f.text_field :interest_amount, class: "form-control", placeholder: "Betrag" %> </div>
                                         </div>
                                         <br><br><br>
                                     </div>
@@ -688,7 +688,7 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-10 col-md-offset-2">
-                                            <div> <%= f.text_field :explain_billing_methods, class: "form-control", placeholder: "Bitte beschreiben Sie die Details zur Verrechnungsmethode (Prozent- oder Betragsverfahren).", required: true %> </div>
+                                            <div> <%= f.text_field :explain_billing_methods, class: "form-control", placeholder: "Bitte beschreiben Sie die Details zur Verrechnungsmethode (Prozent- oder Betragsverfahren)." %> </div>
                                         </div>
                                         <br><br><br>
                                     </div>
@@ -746,10 +746,10 @@
                                     <div class="row">
                                         <br>
                                         <div class="col-md-3 col-md-offset-4">
-                                            <div> <%= f.text_field :other_important_delivery_information, class: "form-control", placeholder: "Weiterer zahlungsrelevanter Termin", required: true %> </div>
+                                            <div> <%= f.text_field :other_important_delivery_information, class: "form-control", placeholder: "Weiterer zahlungsrelevanter Termin" %> </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <div> <%= f.text_field :other_important_delivery_milestones, class: "form-control", placeholder: "z.B. Milestone xy", required: true %> </div>
+                                            <div> <%= f.text_field :other_important_delivery_milestones, class: "form-control", placeholder: "z.B. Milestone xy" %> </div>
                                         </div>
                                     </div>
 
@@ -813,10 +813,10 @@
                                             <%= f.select :downpayment_delivery_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
                                         </div>
                                         <div class="col-md-4">
-                                            <div> <%= f.text_field :downpayment_delivery_amount, class: "form-control", placeholder: "Betrag", required: true %> </div>
+                                            <div> <%= f.text_field :downpayment_delivery_amount, class: "form-control", placeholder: "Betrag" %> </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <div> <%= f.text_field :downpayment_delivery_description, class: "form-control", placeholder: "Beschreibung", required: true %> </div>
+                                            <div> <%= f.text_field :downpayment_delivery_description, class: "form-control", placeholder: "Beschreibung"  %> </div>
                                         </div>
                                     </div>
 
@@ -828,19 +828,19 @@
                                             <p>1. Rate</p>
                                         </div>
                                         <div class="col-md-2">
-                                            <%= f.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
+                                            <%= f.select :agreed_payments_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
                                         </div>
                                         <div class="col-md-1">
-                                            <div> <%= f.text_field :country_category, class: "form-control", placeholder: "0,00" %> </div>
+                                            <div> <%= f.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00" %> </div>
                                         </div>
                                         <div class="col-md-1">
-                                            <div> <%= f.text_field :country_category, class: "form-control" %> </div>
+                                            <div> <%= f.text_field :agreed_payments_output, class: "form-control" %> </div>
                                         </div>
                                         <div class="col-md-1 ">
                                             <p>%</p>
                                         </div>
                                         <div class="col-md-3">
-                                            <%= f.select :country_category, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
+                                            <%= f.select :agreed_payments_time, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
                                                                              ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
                                                                              ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
                                                                              ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
@@ -856,7 +856,7 @@
                                         </div>
 
                                         <div class="col-md-2">
-                                            <div> <%= f.text_field :country_category, class: "form-control" %> </div>
+                                            <div> <%= f.text_field :agreed_payments_some_output, class: "form-control" %> </div>
                                         </div>
 
 
@@ -869,7 +869,7 @@
                                                         Notes
                                                         vereinbart haben, so geben Sie dies bitte hier an.
                                                     </p>
-                                                    <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                                    <div> <%= f.text_field :payment_vehichle, class: "form-control"  %> </div>
                                                 </div>
                                             </div>
 
@@ -894,7 +894,7 @@
 
                                     <div class="row">
                                         <div class="col-md-6 col-md-offset-4">
-                                            <%= f.select :country_category, [["vor Fabrikationsbeginn", "vor Fabrikationsbeginn"],
+                                            <%= f.select :receive_deposit_time, [["vor Fabrikationsbeginn", "vor Fabrikationsbeginn"],
                                                                              ["vor Liefer /- Leistungbeginn", "vor Liefer /- Leistungbeginn"],
                                                                              ["bei Betriebsbereitschaft", "bei Betriebsbereitschaft"],
                                                                              ["anderer Termin", "anderer Termin"]], id: "B_168", prompt: "vor Fabrikationsbeginn..." %>
@@ -914,7 +914,7 @@
 
                                     <div class="row">
                                         <div class="col-md-6 col-md-offset-4">
-                                            <%= f.select :country_category, [["Monatliche Tilgungsraten", "Monatliche Tilgungsraten"],
+                                            <%= f.select :repayment_profile_structure, [["Monatliche Tilgungsraten", "Monatliche Tilgungsraten"],
                                                                              ["Vierteljährliche Tilgungsprofil", "Vierteljährliche Tilgungsprofil"],
                                                                              ["Halbjährige Tilgungsprofil", "Halbjährige Tilgungsprofil"],
                                                                              ["Unregelmäßig", "Unregelmäßig"],
@@ -936,7 +936,7 @@
 
                                     <div class="row">
                                         <div class="col-md-6 col-md-offset-4">
-                                            <%= f.select :country_category, [["mit Lieferung", "mit Lieferung"],
+                                            <%= f.select :loan_term_start, [["mit Lieferung", "mit Lieferung"],
                                                                              ["mit erster Lieferung (bei mehreren Lieferungen)", "mit erster Lieferung (bei mehreren Lieferungen)"],
                                                                              ["mit jeweiliger Lieferung (bei mehreren Lieferungen)", "mit jeweiliger Lieferung (bei mehreren Lieferungen)"],
                                                                              ["mittlerer gewogener Liefertermin (bei mehreren Lieferungen)", "mittlerer gewogener Liefertermin (bei mehreren Lieferungen)"],
@@ -949,7 +949,7 @@
                                         </div>
                                         <div class="col-md-8 col-md-offset-3">
                                             <br>
-                                            <%= f.text_field :country_category, class: "form-control", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt.", required: true %>
+                                            <%= f.text_field :loan_term_other_description, class: "form-control", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
                                         </div>
 
                                     </div>
@@ -957,9 +957,7 @@
                                 </div>
 
                                 <hr align="middle" width="90%">
-
                                 <br>
-
 
                                 <div id="workwithothercompanies">
                                     <div class="row">
@@ -968,7 +966,7 @@
                                             </p>
 
                                             <div class="col-md-6 col-md-offset-3">
-                                                <%= f.text_field :country_category, class: "form-control", placeholder: "Anzahl der Raten", required: true %>
+                                                    <%= f.text_field :number_of_installments, class: "form-control", placeholder: "Anzahl der Raten" %>
                                             </div>
                                         </div>
                                     </div>
@@ -976,21 +974,6 @@
                                     <br><br>
                                 </div>
 
-
-                                <div id="workwithothercompanies">
-                                    <div class="row">
-                                        <div class="col-md-10 col-md-offset-2">
-
-                                            <p> Wenn Sie Zahlungsvehikel wie z.B. Wechsel, Sola-Wechsel oder Promissory
-                                                Notes
-                                                vereinbart haben, so geben Sie dies bitte hier an.
-                                            </p>
-                                            <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
-                                        </div>
-                                    </div>
-
-                                    <br><br>
-                                </div>
                             </div>
 
                             <div id="SonstigeKurzFristigTermOfPayment" style="display: none">
@@ -1003,16 +986,15 @@
                                             wird,
                                             geben Sie bitte den entsprechenden Betrag an.</p>
                                         <div class="col-md-3 col-md-offset-1">
-                                            <%= f.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
+                                            <%= f.select :down_payment_before_delivery_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
                                         </div>
                                         <div class="col-md-4">
-                                            <div> <%= f.text_field :country_category, class: "form-control", placeholder: "Betrag", required: true %> </div>
+                                            <div> <%= f.text_field :down_payment_before_delivery_amount, class: "form-control", placeholder: "Betrag" %> </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <div> <%= f.text_field :country_category, class: "form-control", placeholder: "Beschreibung", required: true %> </div>
+                                            <div> <%= f.text_field :down_payment_before_delivery_explain, class: "form-control", placeholder: "Beschreibung" %> </div>
                                         </div>
                                     </div>
-
 
                                     <div class="row">
                                         <br>
@@ -1022,19 +1004,19 @@
                                             <p>1. Rate</p>
                                         </div>
                                         <div class="col-md-2">
-                                            <%= f.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
+                                            <%= f.select :sonstige_kurzfrist_agreed_payment_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
                                         </div>
                                         <div class="col-md-1">
-                                            <div> <%= f.text_field :country_category, class: "form-control", placeholder: "0,00" %> </div>
+                                            <div> <%= f.text_field :sonstige_kurzfrist_agreed_payment_amount, class: "form-control", placeholder: "0,00" %> </div>
                                         </div>
                                         <div class="col-md-1">
-                                            <div> <%= f.text_field :country_category, class: "form-control" %> </div>
+                                            <div> <%= f.text_field :sonstige_kurzfrist_agreed_payment_percent, class: "form-control" %> </div>
                                         </div>
                                         <div class="col-md-1 ">
                                             <p>%</p>
                                         </div>
                                         <div class="col-md-3">
-                                            <%= f.select :country_category, [["bis zu 2 Monate", "bis zu 2 Monate"],
+                                            <%= f.select :sonstige_kurzfrist_agreed_payment_date, [["bis zu 2 Monate", "bis zu 2 Monate"],
                                                                              ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
                                                                              ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
                                                                              ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
@@ -1050,7 +1032,7 @@
                                         </div>
 
                                         <div class="col-md-2">
-                                            <div> <%= f.text_field :country_category, class: "form-control" %> </div>
+                                            <div> <%= f.text_field :sonstige_kurzfrist_agreed_payment_output, class: "form-control" %> </div>
                                         </div>
                                     </div>
 
@@ -1068,13 +1050,13 @@
                                         <br>
 
                                         <div class="col-md-3 col-md-offset-1">
-                                            <%= f.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
+                                            <%= f.select :sonstige_kurzfrist_advance_payment_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
                                         </div>
                                         <div class="col-md-4">
-                                            <div> <%= f.text_field :country_category, class: "form-control", placeholder: "0,00", required: true %> </div>
+                                            <div> <%= f.text_field :sonstige_kurzfrist_advance_payment_amount, class: "form-control", placeholder: "0,00" %> </div>
                                         </div>
                                         <div class="col-md-3">
-                                            <div> <%= f.text_field :country_category, class: "form-control", placeholder: "", required: true %> </div>
+                                            <div> <%= f.text_field :sonstige_kurzfrist_advance_payment_explain, class: "form-control", placeholder: "" %> </div>
                                         </div>
                                         <div class="col-md-1">
                                             <p>%</p>
@@ -1093,7 +1075,7 @@
 
                                     <div class="row">
                                         <div class="col-md-6 col-md-offset-4">
-                                            <%= f.select :country_category, [["vor Fabrikationsbeginn", "vor Fabrikationsbeginn"],
+                                            <%= f.select :sonstige_kurzfrist_deposit_received, [["vor Fabrikationsbeginn", "vor Fabrikationsbeginn"],
                                                                              ["vor Liefer /- Leistungbeginn", "vor Liefer /- Leistungbeginn"],
                                                                              ["bei Betriebsbereitschaft", "bei Betriebsbereitschaft"],
                                                                              ["anderer Termin", "anderer Termin"]], id: "B_168", prompt: "vor Fabrikationsbeginn..." %>
@@ -1113,7 +1095,7 @@
 
                                     <div class="row">
                                         <div class="col-md-6 col-md-offset-4">
-                                            <%= f.select :country_category, [["Monatliche Tilgungsraten", "Monatliche Tilgungsraten"],
+                                            <%= f.select :sonstige_kurzfrist_repayment_structure, [["Monatliche Tilgungsraten", "Monatliche Tilgungsraten"],
                                                                              ["Vierteljährliche Tilgungsprofil", "Vierteljährliche Tilgungsprofil"],
                                                                              ["Halbjährige Tilgungsprofil", "Halbjährige Tilgungsprofil"],
                                                                              ["Unregelmäßig", "Unregelmäßig"],
@@ -1135,7 +1117,7 @@
 
                                     <div class="row">
                                         <div class="col-md-6 col-md-offset-4">
-                                            <%= f.select :country_category, [["mit Lieferung", "mit Lieferung"],
+                                            <%= f.select :sonstige_kurzfrist_credit_start, [["mit Lieferung", "mit Lieferung"],
                                                                              ["mit erster Lieferung (bei mehreren Lieferungen)", "mit erster Lieferung (bei mehreren Lieferungen)"],
                                                                              ["mit jeweiliger Lieferung (bei mehreren Lieferungen)", "mit jeweiliger Lieferung (bei mehreren Lieferungen)"],
                                                                              ["mittlerer gewogener Liefertermin (bei mehreren Lieferungen)", "mittlerer gewogener Liefertermin (bei mehreren Lieferungen)"],
@@ -1148,7 +1130,7 @@
                                         </div>
                                         <div class="col-md-8 col-md-offset-3">
                                             <br>
-                                            <%= f.text_field :country_category, class: "form-control", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt.", required: true %>
+                                            <%= f.text_field :sonstige_kurzfrist_credit_start_sonstige_explain, class: "form-control", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
                                         </div>
 
                                     </div>
@@ -1161,7 +1143,7 @@
                                             </p>
 
                                             <div class="col-md-6 col-md-offset-3">
-                                                <%= f.text_field :country_category, class: "form-control", placeholder: "Anzahl der Raten", required: true %>
+                                                <%= f.text_field :sonstige_kurzfrist_number_of_installments, class: "form-control", placeholder: "Anzahl der Raten" %>
                                             </div>
                                         </div>
                                     </div>
@@ -1177,7 +1159,7 @@
                                             <p> Wenn Sie Zahlungsvehikel wie z.B. Wechsel, Sola-Wechsel oder Promissory
                                                 Notes vereinbart haben, so geben Sie dies bitte hier an.
                                             </p>
-                                            <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                            <div> <%= f.text_field :sonstige_kurzfrist_payment_vehichle_explain, class: "form-control" %> </div>
                                         </div>
                                     </div>
 
@@ -1195,13 +1177,13 @@
 
                                     <div class="row">
                                         <div class="col-md-3 col-md-offset-1">
-                                            <%= f.check_box :country_category, id: "yes_certificateoforigin" %> Ja
+                                            <%= f.check_box :yes_sonstige_kurzfrist_certificate_of_origin, id: "yes_certificateoforigin" %> Ja
                                         </div>
                                         <div class="col-md-4">
-                                            <%= f.check_box :country_category, id: "no_certificateoforigin" %> Nein
+                                            <%= f.check_box :no_sonstige_kurzfrist_certificate_of_origin, id: "no_certificateoforigin" %> Nein
                                         </div>
                                         <div class="col-md-4">
-                                            <%= f.check_box :country_category, id: "teil-certificateoforigin" %> für
+                                            <%= f.check_box :part_of_goods__sonstige_kurzfrist_certificate_of_origin, id: "teil-certificateoforigin" %> für
                                             Teile
                                             der
                                             Ware
@@ -1263,7 +1245,7 @@
                                         </div>
 
                                         <div class="col-md-4 ">
-                                            <%= f.text_field :country_category, class: "form-control", required: true %>
+                                            <%= f.text_field :country_category, class: "form-control" %>
                                         </div>
                                     </div>
                                 </div>
@@ -1279,7 +1261,7 @@
 
                                     <div class="row">
                                         <div class="col-md-8 col-md-offset-2">
-                                            <%= f.text_field :country_category, class: "form-control", required: true %>
+                                            <%= f.text_field :country_category, class: "form-control" %>
                                         </div>
                                     </div>
                                 </div>
@@ -1345,7 +1327,7 @@
                                             <p> Welchen Anteil des Auftragswertes wird die Sicherheit umfassen?
                                                 (Zahlungsgarantie
                                                 einer Bank-1) </p>
-                                            <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                            <div> <%= f.text_field :country_category, class: "form-control" %> </div>
                                         </div>
                                     </div>
 

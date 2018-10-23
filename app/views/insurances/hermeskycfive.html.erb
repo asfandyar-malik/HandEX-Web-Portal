@@ -13,7 +13,7 @@
                     </div>
                 </div>
 
-                <%= form_for @insurance, url: tradeinfo_insurances_path, method: :post do |f| %>
+                <%= form_for @insurance, url: tradeinfo_insurance_path(@tradeinfo, @insurance), method: :put do |f| %>
                     <div id="DIV_91">
                         <div id="DIV_112">
                             <div id="DIV_228">
@@ -57,7 +57,7 @@
                                                     Exporterfahrung
                                                     aus ungedeckten Geschäften, d.h. Exportgeschäfte ohne
                                                     Hermesdeckung?</i></p>
-                                                <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                                <div> <%= f.text_field :years_trading_without_hermes_cover, class: "form-control", required: true %> </div>
                                             </div>
 
 
@@ -66,7 +66,7 @@
                                                 <p><i>Besteht eine langjährige Exporterfahrung sowie Marktkenntnis mit
                                                     dem
                                                     Empfängerland?</i></p>
-                                                <%= f.text_field :country_category, class: "form-control", required: true %>
+                                                <%= f.text_field :experience_with_export_country, class: "form-control", required: true %>
                                             </div>
 
                                             <div class="col-md-10 col-md-offset-2 ">
@@ -78,7 +78,7 @@
                                                     Maßnahmen
                                                     greifen bei Ihnen im Unternehmen, wenn ein Kunde in Zahlungsverzug
                                                     gerät? </i></p>
-                                                <%= f.text_field :country_category, class: "form-control", required: true %>
+                                                <%= f.text_field :adequate_claims_management, class: "form-control", required: true %>
                                             </div>
 
 
@@ -96,17 +96,17 @@
                                             <br><br><br>
                                             <div class="col-md-4 col-md-offset-1">
                                                 <p> Firmenname </p>
-                                                <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                                <div> <%= f.text_field :country_category, class: "form-control"%> </div>
                                             </div>
 
                                             <div class="col-md-4 ">
                                                 <p> DN-NR </p>
-                                                <%= f.text_field :country_category, class: "form-control", required: true %>
+                                                <%= f.text_field :country_category, class: "form-control" %>
                                             </div>
 
                                             <div class="col-md-3 ">
                                                 <p> Handelsregisternummer </p>
-                                                <%= f.text_field :country_category, class: "form-control", required: true %>
+                                                <%= f.text_field :country_category, class: "form-control" %>
                                             </div>
                                         </div>
                                     </div>
@@ -118,17 +118,17 @@
                                             <br>
                                             <div class="col-md-4 col-md-offset-1">
                                                 <p> Amtsgericht </p>
-                                                <%= f.text_field :country_category, class: "form-control", required: true %>
+                                                <%= f.text_field :country_category, class: "form-control" %>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <p> Straße / Hausnummer </p>
-                                                <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                                <div> <%= f.text_field :country_category, class: "form-control" %> </div>
                                             </div>
 
                                             <div class="col-md-3">
                                                 <p> PLZ </p>
-                                                <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                                <div> <%= f.text_field :country_category, class: "form-control" %> </div>
                                             </div>
                                         </div>
                                     </div>
@@ -140,17 +140,17 @@
                                             <br>
                                             <div class="col-md-4 col-md-offset-1">
                                                 <p> Ort </p>
-                                                <%= f.text_field :country_category, class: "form-control", required: true %>
+                                                <%= f.text_field :country_category, class: "form-control" %>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <p> Bundesland </p>
-                                                <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                                <div> <%= f.text_field :country_category, class: "form-control"%> </div>
                                             </div>
 
                                             <div class="col-md-3">
                                                 <p> Land </p>
-                                                <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                                <div> <%= f.text_field :country_category, class: "form-control"  %> </div>
                                             </div>
                                         </div>
                                     </div>
@@ -160,12 +160,12 @@
                                             <br>
                                             <div class="col-md-5 col-md-offset-2">
                                                 <p> Anzahl der Mitarbeiterinnen und Mitarbeiter </p>
-                                                <%= f.text_field :country_category, class: "form-control", required: true %>
+                                                <%= f.text_field :country_category, class: "form-control" %>
                                             </div>
 
                                             <div class="col-md-5">
                                                 <p> Umsatz im letzten vollen Geschäftsjahr </p>
-                                                <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                                <div> <%= f.text_field :country_category, class: "form-control" %> </div>
                                             </div>
 
                                         </div>
@@ -190,7 +190,7 @@
 
                                             <div class="col-md-4 ">
                                                 <p> Titel </p>
-                                                <%= f.text_field :country_category, class: "form-control", required: true %>
+                                                <%= f.text_field :country_category, class: "form-control" %>
                                             </div>
                                         </div>
                                     </div>
@@ -202,17 +202,17 @@
                                             <br>
                                             <div class="col-md-4 col-md-offset-1">
                                                 <p> First Name </p>
-                                                <%= f.text_field :country_category, class: "form-control", required: true %>
+                                                <%= f.text_field :country_category, class: "form-control" %>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <p> Last Name </p>
-                                                <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                                <div> <%= f.text_field :country_category, class: "form-control"%> </div>
                                             </div>
 
                                             <div class="col-md-3">
                                                 <p> Email </p>
-                                                <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                                <div> <%= f.text_field :country_category, class: "form-control" %> </div>
                                             </div>
                                         </div>
                                     </div>
@@ -222,12 +222,12 @@
                                             <br>
                                             <div class="col-md-4 col-md-offset-2">
                                                 <p> Funktion </p>
-                                                <%= f.text_field :country_category, class: "form-control", required: true %>
+                                                <%= f.text_field :country_category, class: "form-control" %>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <p> Bereich </p>
-                                                <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                                <div> <%= f.text_field :country_category, class: "form-control" %> </div>
                                             </div>
 
                                         </div>
@@ -497,7 +497,7 @@
                                                     <br><br>
                                                     <p><i>Bitte geben Sie die Firmen an
                                                     </i></p>
-                                                    <%= f.text_field :country_category, class: "form-control", required: true %>
+                                                    <%= f.text_field :country_category, class: "form-control" %>
                                                 </div>
                                             </div>
                                         </div>
@@ -564,7 +564,7 @@
 
                             <div id="DIV_296">
                                 <a href="#details" id="A_296">Zurück</a>
-                                <button type="submit" value="-1" id="BUTTON_297"> Weiter </button>
+                                <button type="submit" value="-1" id="BUTTON_297"> Submit </button>
                             </div>
                         </div>
                     </div>

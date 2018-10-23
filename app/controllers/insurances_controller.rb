@@ -36,10 +36,22 @@ class InsurancesController < ApplicationController
     def update
         if @insurance.update(insurance_params)
             flash[:notice] = "Updated Insurance...."
-            if is_ready_hermes_kyc_three
+
+            if is_ready_hermes_kyc_sixth
+                thankinsurance_tradeinfo_insurance_path(@tradeinfo, @insurance)
+            
+            elsif is_ready_hermes_kyc_fifth
+                redirect_to hermeskycfifth_tradeinfo_insurance_path(@tradeinfo, @insurance)
+                
+            elsif is_ready_hermes_kyc_fourth
+                redirect_to hermeskycfour_tradeinfo_insurance_path(@tradeinfo, @insurance)
+            
+            elsif is_ready_hermes_kyc_three
                 redirect_to hermeskycthree_tradeinfo_insurance_path(@tradeinfo, @insurance)
+            
             elsif is_ready_hermes_kyc_two
                 redirect_to hermeskyctwo_tradeinfo_insurance_path(@tradeinfo, @insurance)
+            
             else
                 redirect_to importinformation_tradeinfo_path
             end
@@ -329,29 +341,57 @@ class InsurancesController < ApplicationController
         params.require(:insurance).permit(:insurance_cover, :country_category, :buyer_category, :expected_date_product_received_importer, :date_contractsigned_with_importer,
                                           :country, :is_investment_good, :contract_value, :payment_deadline, :private_sector, :public_sector,
                                           :risk_avaline_guarantee, :risk_contractual_warranty_coverage, :risk_shipment_risk_cover, :risk_supplier_credit_cover,
-                                          :risk_further_coverage, :describe_export_business, :reason_for_buying_good, :also_provide_service_training, :product_branch,
-                                          :explain_product_branch, :part_of_big_project_yes, :part_of_big_project_no, :explain_complete_project)
+                                          :risk_further_coverage,
+                                          :describe_export_business, :reason_for_buying_good, :also_provide_service_training, :product_branch,
+                                          :explain_product_branch, :part_of_big_project_yes, :part_of_big_project_no, :explain_complete_project,
+                                          :overall_responsibility_project_taken, :overall_project_volume_currency, :overall_project_volume, :use_of_fund,
+                                          :use_of_fund_currency,:amount_of_fund,:delivery_doesnt_affects_sensitive_areas,:delivery_affects_natural_reserves,:delivery_affects_indigenous_people,
+                                          :delivery_affects_cultural_heritage,:delivery_affects_other,:delivery_affects_other_explain,:yes_export_requires_exportlicense,:no_export_requires_exportlicense,
+                                          :which_regulation_requires_exportlicense,:exportlicense_status,:yes_deliver_secondhand_goods,:no_dont_deliver_secondhand_goods,:product_original_date_of_manifacture,
+                                          :product_remaining_life,:yes_good_overhauled_before_reselling,:no_good_arent_overhauled_before_reselling,:goods_overhauled_location,
+                                          :yes_contract_already_signed_all_parties,:no_contract_already_signed_all_parties,:goods_completion_date,:companny_internal_id,
+                                          :yes_special_contract_structure,:no_special_contract_structure,:explain_special_contract_structure,:graphic_representation_project_participants,
+                                          :contract_currency,:order_value_export_business_currency,:order_value_export_business_currency_amount,:total_delivery_value,
+                                          :percentage_of_spare_parts_in_whole_order,:more_components_open_to_exporter_currency,:more_components_open_to_exporter_amount,
+                                          :more_components_open_to_exporter_explain,:ja_customer_counts_interest,:no_customer_counts_interest,:interest_currency,:interest_amount,
+                                          :yes_price_adjustment_clause,:no_price_adjustment_clause,:explain_billing_methods,:yes_multiple_deliveries,:no_multiple_deliveries,
+                                          :delivery_start,:delivery_end,:other_important_delivery_information,:other_important_delivery_milestones,:payment_term_shortterm,
+                                          :payment_term_middleterm,:payment_term_both,:downpayment_delivery_currency,:downpayment_delivery_amount,:downpayment_delivery_description,
+                                          :source_of_fund, :source_of_fund_currency, :source_of_fund_amount, :agreed_payments_currency, :agreed_payments_amount,
+                                          :agreed_payments_output,:agreed_payments_time,:agreed_payments_some_output,:payment_vehichle,:receive_deposit_time,:repayment_profile_structure,
+                                          :loan_term_start,:loan_term_other_description,:number_of_installments,:down_payment_before_delivery_currency,:down_payment_before_delivery_amount,
+                                          :down_payment_before_delivery_explain,:sonstige_kurzfrist_agreed_payment_currency,:sonstige_kurzfrist_agreed_payment_amount,
+                                          :sonstige_kurzfrist_agreed_payment_percent,:sonstige_kurzfrist_agreed_payment_date,:sonstige_kurzfrist_agreed_payment_outpout,
+                                          :sonstige_kurzfrist_advance_payment_currency,:sonstige_kurzfrist_advance_payment_amount,:sonstige_kurzfrist_advance_payment_explain,
+                                          :sonstige_kurzfrist_deposit_received,:sonstige_kurzfrist_repayment_structure,:sonstige_kurzfrist_credit_start,
+                                          :sonstige_kurzfrist_credit_start_sonstige_explain,:sonstige_kurzfrist_number_of_installments,:sonstige_kurzfrist_payment_vehichle_explain,
+                                          :yes_sonstige_kurzfrist_certificate_of_origin,:no_sonstige_kurzfrist_certificate_of_origin,:part_of_goods__sonstige_kurzfrist_certificate_of_origin,
+
+                                          :ak_number, :company_name, :tax_number, :years_trading_without_hermes_cover, :experience_with_export_country, :adequate_claims_management)
     end
     
     def is_ready_first_step
         @insurance.insurance_cover && @insurance.insurance_cover
     end
     
-    def is_ready_second_step
-        @insurance.insurance_cover && @insurance.insurance_cover && @insurance.insurance_cover
-    end
     
     def is_ready_hermes_kyc_two
         @insurance.country && @insurance.is_investment_good
     end
     
     def is_ready_hermes_kyc_three
-        @insurance.risk_avaline_guarantee || @insurance.risk_contractual_warranty_coverage || @insurance.risk_shipment_risk_cover || @insurance.risk_supplier_credit_cover || @insurance.risk_further_coverage
-    end
-    
-    def is_ready_hermes_kyc_three_test
-        @insurance.risk_supplier_credit_cover
+        @insurance.risk_avaline_guarantee || @insurance.risk_supplier_credit_cover || @insurance.risk_shipment_risk_cover || @insurance.risk_supplier_credit_cover || @insurance.risk_further_coverage
     end
 
+    def is_ready_hermes_kyc_fourth
+        @insurance.describe_export_business || @insurance.reason_for_buying_good || @insurance.explain_product_branch
+    end
 
+    def is_ready_hermes_kyc_fifth
+        @insurance.ak_number || @insurance.company_name || @insurance.tax_number
+    end
+
+    def is_ready_hermes_kyc_sixth
+        @insurance.product_branch || @insurance.explain_product_branch || @insurance.adequate_claims_management
+    end
 end

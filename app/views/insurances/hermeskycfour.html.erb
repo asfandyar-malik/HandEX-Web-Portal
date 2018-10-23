@@ -13,7 +13,7 @@
                     </div>
                 </div>
 
-                <%= form_for @insurance, url: tradeinfo_insurances_path, method: :post do |f| %>
+                <%= form_for @insurance, url: tradeinfo_insurance_path(@tradeinfo, @insurance), method: :put do |f| %>
                     <div id="DIV_91">
                         <div id="DIV_112">
 
@@ -22,8 +22,7 @@
 
                                     <div class="row">
                                         <div class="col-md-8 col-md-offset-2">
-                                            <label class="control-label"> Bitte geben Sie die Adresse Ihres Kunden
-                                                an. </label>
+                                            <label class="control-label"> Bitte geben Sie die Adresse Ihres Kunden an. </label>
                                         </div>
                                     </div>
 
@@ -34,17 +33,17 @@
                                             <br>
                                             <div class="col-md-4">
                                                 <p> AK-Nummer </p>
-                                                <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                                <div> <%= f.text_field :ak_number, class: "form-control", required: true %> </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <p> Firmenname </p>
-                                                <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                                <div> <%= f.text_field :company_name, class: "form-control", required: true %> </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <p> Steuernummer </p>
-                                                <%= f.text_field :country_category, class: "form-control", required: true %>
+                                                <%= f.text_field :tax_number, class: "form-control", required: true %>
                                             </div>
 
                                         </div>
@@ -57,17 +56,17 @@
                                             <br>
                                             <div class="col-md-4 ">
                                                 <p> Straße / Hausnummer </p>
-                                                <%= f.text_field :country_category, class: "form-control", required: true %>
+                                                <%= f.text_field :country_category, class: "form-control" %>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <p> PLZ </p>
-                                                <%= f.text_field :country_category, class: "form-control", required: true %>
+                                                <%= f.text_field :country_category, class: "form-control" %>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <p> Ort </p>
-                                                <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                                <div> <%= f.text_field :country_category, class: "form-control" %> </div>
                                             </div>
 
                                         </div>
@@ -81,7 +80,7 @@
 
                                             <div class="col-md-4 ">
                                                 <p> Land </p>
-                                                <%= f.text_field :country_category, class: "form-control", required: true %>
+                                                <%= f.text_field :country_category, class: "form-control" %>
                                             </div>
                                         </div>
                                     </div>
@@ -116,17 +115,17 @@
                                                 <br>
                                                 <div class="col-md-4">
                                                     <p> Firmenname </p>
-                                                    <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                                    <div> <%= f.text_field :country_category, class: "form-control" %> </div>
                                                 </div>
 
                                                 <div class="col-md-4 ">
                                                     <p> Land </p>
-                                                    <%= f.text_field :country_category, class: "form-control", required: true %>
+                                                    <%= f.text_field :country_category, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-4 ">
                                                     <p> Straße / Hausnummer </p>
-                                                    <%= f.text_field :country_category, class: "form-control", required: true %>
+                                                    <%= f.text_field :country_category, class: "form-control"  %>
                                                 </div>
 
 
@@ -140,12 +139,12 @@
                                                 <br>
                                                 <div class="col-md-4">
                                                     <p> PLZ </p>
-                                                    <%= f.text_field :country_category, class: "form-control", required: true %>
+                                                    <%= f.text_field :country_category, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-4">
                                                     <p> Ort </p>
-                                                    <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                                    <div> <%= f.text_field :country_category, class: "form-control" %> </div>
                                                 </div>
 
                                             </div>
@@ -184,7 +183,7 @@
                                                 <br>
                                                 <div class="col-md-10 col-md-offset-2">
                                                     <p>Bitte helfen Sie uns, die Beteiligung besser zu verstehen</p>
-                                                    <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                                    <div> <%= f.text_field :country_category, class: "form-control" %> </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -219,7 +218,7 @@
                                                 <br>
                                                 <div class="col-md-10 col-md-offset-2">
                                                     <p>Bitte beschreiben Sie diese näher.</p>
-                                                    <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                                    <div> <%= f.text_field :country_category, class: "form-control" %> </div>
                                                 </div>
                                             </div>
                                         </div>
