@@ -14,7 +14,7 @@
                     </div>
                 </div>
 
-                <%= form_for @insurance, url: tradeinfo_insurances_path, method: :post do |f| %>
+                <%= form_for @insurance, url: tradeinfo_insurance_path(@tradeinfo, @insurance), method: :put do |f| %>
                     <div id="DIV_91">
 
                         <div id="DIV_228">
@@ -23,7 +23,7 @@
                                 <div class="row">
                                     <div class="col-md-10 col-md-offset-2">
                                         <p> Bitte beschreiben Sie Ihr Exportgeschäft.</p>
-                                        <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                        <div> <%= f.text_field :describe_export_business, class: "form-control", required: true %> </div>
                                     </div>
                                 </div>
                                 <br><br>
@@ -48,7 +48,7 @@
                                             hier
                                             ebenfalls beschreiben.
                                         </p>
-                                        <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                        <div> <%= f.text_field :reason_for_buying_good, class: "form-control", required: true %> </div>
                                     </div>
                                 </div>
 
@@ -60,7 +60,7 @@
                                 <div class="row">
 
                                     <div class="col-md-10  col-md-offset-2">
-                                        <%= f.check_box :country_category, id: "garantee" %> Wir erbringen auch
+                                        <%= f.check_box :also_provide_service_training, id: "garantee" %> Wir erbringen auch
                                         Leistungen
                                         (Montage,
                                         Schulungen vor Ort, etc.)
@@ -79,7 +79,7 @@
                                     </div>
                                     <div class="col-md-6 col-md-offset-4">
 
-                                        <%= f.select :country_category, [["Bergbau, inkl. Verarbeitung", "Bergbau, inkl. Verarbeitung"], ["Erdöl- und Erdgasförderung inkl. Verarbeitung"],
+                                        <%= f.select :product_branch, [["Bergbau, inkl. Verarbeitung", "Bergbau, inkl. Verarbeitung"], ["Erdöl- und Erdgasförderung inkl. Verarbeitung"],
                                                                          ["Chemie"], ["Energie"], ["Infrastruktur"], ["Papier- , Holz-, Leder- und Textilindustrie"],
                                                                          ["Agrarsektor und Nahrungsmittelindustrie"], ["Verarbeitende Industrie"], ["Umwelttechnik"],
                                                                          ["Dienstleistungen"]], id: "sample-status-select", prompt: "Select..." %>
@@ -94,7 +94,7 @@
                             <div class="row">
                                 <div class="col-md-10 col-md-offset-2">
                                     <p> Bitte konkretisieren Sie Ihre Branche weiter </p>
-                                    <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                    <div> <%= f.text_field :explain_product_branch, class: "form-control", required: true %> </div>
                                 </div>
                             </div>
 
@@ -114,10 +114,10 @@
 
                                     <div class="row">
                                         <div class="col-md-3 col-md-offset-4">
-                                            <%= f.check_box :country_category, id: "ja" %> Ja
+                                            <%= f.check_box :part_of_big_project_yes, id: "ja" %> Ja
                                         </div>
                                         <div class="col-md-3">
-                                            <%= f.check_box :country_category, id: "nein" %> Nein
+                                            <%= f.check_box :part_of_big_project_no, id: "nein" %> Nein
                                         </div>
                                     </div>
                                     <br>
@@ -127,40 +127,11 @@
 
 
                             <div id="showHideDivJaWorkOtherCompanies" style="display: none">
-                                <div class="row">
-                                    <div class="col-md-10 col-md-offset-2">
-                                        <br><br>
-                                        <hr align="middle" width="90%">
-                                        <p>
-                                            Aufgrund Ihrer aktuellen Auswahl kann Ihr Antrag nicht weiter im
-                                            click&cover-Modus
-                                            bearbeitet werden. Neben der Höhe des Auftragswertes und der Risikolaufzeit
-                                            gibt es
-                                            eine Reihe von Ausschlusskriterien. Doch keine Sorge, Sie können den Antrag
-                                            einfach
-                                            weiter ausfüllen und eine klassische Absicherung beantragen. <br> <br>
-
-                                            Die Ausschlusskriterien sind im Einzelnen: <br>
-                                            Vertragsschluss durch Dritt- oder Verbund¬unternehmen im Ausland (bzw.
-                                            Abtretungsmodell) <br>
-                                            Atypische Vertragskonstruktionen (z. B. Finetrading, Lieferketten) <br>
-                                            Drittlandsversand, Streckengeschäfte <br>
-                                            Drittlandssicherheiten <br>
-                                            Ausfuhrgenehmigungspflichtige Ware <br>
-                                            Geschäfte mit sensitiven (z. B. militärischen) Bestellern <br>
-                                            Geschäfte mit gravierenden Umweltauswirkungen (z. B. kritische Sektoren [z.
-                                            B.
-                                            Staudämme, Nuklear], sensitive Gebiete)<br>
-                                            International notifizierungspflichtige Geschäfte<br>
-                                        </p>
-                                    </div>
-                                </div>
-
                                 <br><br>
                                 <div class="row">
                                     <div class="col-md-10 col-md-offset-2">
                                         <p> Bitte beschreiben Sie das Gesamtprojekt detaillierter</p>
-                                        <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                        <div> <%= f.text_field :explain_complete_project, class: "form-control", required: true %> </div>
                                     </div>
                                 </div>
 
@@ -169,7 +140,7 @@
                                 <div class="row">
 
                                     <div class="col-md-2  col-md-offset-2">
-                                        <%= f.check_box :country_category, id: "investmentGood" %> Yes
+                                        <%= f.check_box :overall_responsibility_project_taken, id: "investmentGood" %> Yes
                                     </div>
 
                                     <div class="col-md-7">
@@ -188,11 +159,11 @@
                                     <div class="row">
 
                                         <div class="col-md-3 col-md-offset-2">
-                                            <%= f.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168", prompt: "Currency..." %>
+                                            <%= f.select :overall_project_volume_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168", prompt: "Currency..." %>
                                         </div>
 
                                         <div class="col-md-5 ">
-                                            <%= f.text_field :country_category, class: "form-control", required: true %>
+                                            <%= f.text_field :overall_project_volume, class: "form-control", required: true %>
                                         </div>
 
                                     </div>
@@ -213,15 +184,15 @@
 
                                     <div class="row">
                                         <div class="col-md-4 col-md-offset-1">
-                                            <%= f.text_field :country_category, class: "form-control", required: true, placeholder: "fiktives Beispiel: Maschine \"x\"", prompt: "fiktives Beispiel: Maschine \"x\" " %>
+                                            <%= f.text_field :use_of_fund, class: "form-control", required: true, placeholder: "fiktives Beispiel: Maschine \"x\"", prompt: "fiktives Beispiel: Maschine \"x\" " %>
                                         </div>
 
                                         <div class="col-md-3 ">
-                                            <%= f.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168", prompt: "Currency..." %>
+                                            <%= f.select :use_of_fund_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168", prompt: "Currency..." %>
                                         </div>
 
                                         <div class="col-md-4 ">
-                                            <%= f.text_field :country_category, class: "form-control", required: true, placeholder: "Betrag" %>
+                                            <%= f.text_field :amount_of_fund, class: "form-control", required: true, placeholder: "Betrag" %>
                                         </div>
                                     </div>
 
@@ -231,15 +202,15 @@
 
                                     <div class="row">
                                         <div class="col-md-4 col-md-offset-1">
-                                            <%= f.text_field :country_category, class: "form-control", required: true, placeholder: "z.B. \"ECA-Finanzierung\" " %>
+                                            <%= f.text_field :source_of_fund, class: "form-control", required: true, placeholder: "z.B. \"ECA-Finanzierung\" " %>
                                         </div>
 
                                         <div class="col-md-3 ">
-                                            <%= f.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168", prompt: "Currency..." %>
+                                            <%= f.select :source_of_fund_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168", prompt: "Currency..." %>
                                         </div>
 
                                         <div class="col-md-4 ">
-                                            <%= f.text_field :country_category, class: "form-control", required: true, placeholder: "Betrag" %>
+                                            <%= f.text_field :source_of_fund_amount, class: "form-control", required: true, placeholder: "Betrag" %>
                                         </div>
                                     </div>
                                 </div>
@@ -261,19 +232,19 @@
 
                                 <div class="row">
                                     <div class="col-md-3 col-md-offset-2">
-                                        <%= f.check_box :country_category, id: "privateSector" %>
+                                        <%= f.check_box :delivery_doesnt_affects_sensitive_areas, id: "privateSector" %>
                                         <br><br>
                                         <div><p> Nein </p></div>
                                     </div>
 
                                     <div class="col-md-4">
-                                        <%= f.check_box :country_category, id: "privateSector" %>
+                                        <%= f.check_box :delivery_affects_natural_reserves, id: "privateSector" %>
                                         <br><br>
                                         <div><p> Naturschutzgebiet </p></div>
                                     </div>
 
                                     <div class="col-md-3">
-                                        <%= f.check_box :country_category, id: "privateSector" %>
+                                        <%= f.check_box :delivery_affects_indigenous_people, id: "privateSector" %>
                                         <br><br>
                                         <div><p>Bedeutung für indigene Völker </p></div>
                                     </div>
@@ -285,13 +256,13 @@
                                 <div class="row">
 
                                     <div class="col-md-5  col-md-offset-2">
-                                        <%= f.check_box :country_category, id: "privateSector" %>
+                                        <%= f.check_box :delivery_affects_cultural_heritage, id: "privateSector" %>
                                         <br><br>
                                         <div><p> Archäologische oder kulturelle Bedeutung </p></div>
                                     </div>
 
                                     <div class="col-md-4">
-                                        <%= f.check_box :country_category, id: "privateSector" %>
+                                        <%= f.check_box :delivery_affects_other, id: "privateSector" %>
                                         <br><br>
                                         <div><p> Sonstige </p></div>
                                     </div>
@@ -300,7 +271,7 @@
                                 <div id="entlastung" class="col-md-10 col-md-offset-2" style="display: none">
                                     <p>Bitte konkretisieren Sie, um was für ein sensibles Gebiet es sich handelt
                                     <p></p>
-                                    <%= f.text_field :country_category, class: "form-control", required: true %>
+                                    <%= f.text_field :delivery_affects_other_explain, class: "form-control", required: true %>
                                 </div>
                                 <hr align="middle" width="90%">
 
@@ -320,10 +291,10 @@
 
                                     <div class="row">
                                         <div class="col-md-3 col-md-offset-4">
-                                            <%= f.check_box :country_category, id: "ja_exportlicense_requirement" %> Ja
+                                            <%= f.check_box :yes_export_requires_exportlicense, id: "ja_exportlicense_requirement" %> Ja
                                         </div>
                                         <div class="col-md-3">
-                                            <%= f.check_box :country_category, id: "nein_exportlicense_requirement" %>
+                                            <%= f.check_box :no_export_requires_exportlicense, id: "nein_exportlicense_requirement" %>
                                             Nein
                                         </div>
                                     </div>
@@ -338,7 +309,7 @@
                                         <p> Aus welchen Vorschriften bzw. welchem Teil/Abschnitt der Ausfuhrliste ergibt
                                             sich
                                             die Genehmigungspflicht? </p>
-                                        <div> <%= f.text_area :country_category, class: "form-control" %> </div>
+                                        <div> <%= f.text_area :which_regulation_requires_exportlicense, class: "form-control" %> </div>
                                     </div>
                                 </div>
 
@@ -349,7 +320,7 @@
                                     </div>
 
                                     <div class="col-md-6 col-md-offset-4">
-                                        <%= f.select :country_category, [["... wurde erteilt.", "... wurde erteilt."], ["... ist beantragt.", "... ist beantragt."], ["... ist noch zu beantragen.", "... ist noch zu beantragen."]], id: "B_168", prompt: "... wurde erteilt." %>
+                                        <%= f.select :exportlicense_status, [["... wurde erteilt.", "... wurde erteilt."], ["... ist beantragt.", "... ist beantragt."], ["... ist noch zu beantragen.", "... ist noch zu beantragen."]], id: "B_168", prompt: "... wurde erteilt." %>
                                     </div>
                                 </div>
 
@@ -369,10 +340,10 @@
 
                                     <div class="row">
                                         <div class="col-md-3 col-md-offset-4">
-                                            <%= f.check_box :country_category, id: "yes_secondhand_goods" %> Ja
+                                            <%= f.check_box :yes_deliver_secondhand_goods, id: "yes_secondhand_goods" %> Ja
                                         </div>
                                         <div class="col-md-3">
-                                            <%= f.check_box :country_category, id: "no_secondhand_goods" %> Nein
+                                            <%= f.check_box :no_dont_deliver_secondhand_goods, id: "no_secondhand_goods" %> Nein
                                         </div>
                                     </div>
 
@@ -395,10 +366,10 @@
                                     <div class="row">
                                         <br><br>
                                         <div class="col-md-4 col-md-offset-3">
-                                            <div> <%= f.text_field :country_category, class: "form-control", placeholder: "Jahr der Fertigung", required: true %> </div>
+                                            <div> <%= f.text_field :product_original_date_of_manifacture, class: "form-control", placeholder: "Jahr der Fertigung", required: true %> </div>
                                         </div>
                                         <div class="col-md-4 ">
-                                            <div> <%= f.text_field :country_category, class: "form-control", placeholder: "Restlebensdauer in Jahren", required: true %> </div>
+                                            <div> <%= f.text_field :product_remaining_life, class: "form-control", placeholder: "Restlebensdauer in Jahren", required: true %> </div>
                                         </div>
                                     </div>
                                     <br><br>
@@ -417,10 +388,10 @@
 
                                             <div class="row">
                                                 <div class="col-md-3 col-md-offset-4">
-                                                    <%= f.check_box :country_category, id: "yes_outdated_goods" %> Ja
+                                                    <%= f.check_box :yes_good_overhauled_before_reselling, id: "yes_outdated_goods" %> Ja
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <%= f.check_box :country_category, id: "no_outdated_goods" %> Nein
+                                                    <%= f.check_box :no_good_arent_overhauled_before_reselling, id: "no_outdated_goods" %> Nein
                                                 </div>
                                             </div>
 
@@ -435,7 +406,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-6 col-md-offset-4">
-                                                    <%= f.select :country_category, [["In Deuschland", "In Deuschland"], ["im Ausland", "im Ausland"],
+                                                    <%= f.select :goods_overhauled_location, [["In Deuschland", "In Deuschland"], ["im Ausland", "im Ausland"],
                                                                                      ["sowohl als auch", "sowohl als auch"]], id: "B_168", prompt: "Deutschland oder Ausland..." %>
 
                                                 </div>
@@ -465,10 +436,10 @@
 
                                     <div class="row">
                                         <div class="col-md-3 col-md-offset-4">
-                                            <%= f.check_box :country_category, id: "ja_contractsigned" %> Ja
+                                            <%= f.check_box :yes_contract_already_signed_all_parties, id: "ja_contractsigned" %> Ja
                                         </div>
                                         <div class="col-md-3">
-                                            <%= f.check_box :country_category, id: "nein_contractsigned" %> Nein
+                                            <%= f.check_box :no_contract_already_signed_all_parties, id: "nein_contractsigned" %> Nein
                                         </div>
                                     </div>
 
@@ -491,11 +462,11 @@
                                     <div class="row">
                                         <br><br>
                                         <div class="col-md-4 col-md-offset-3">
-                                            <div> <%= f.date_field :country_category, id: "start_date", type: "date", class: "datepicker" %> </div>
+                                            <div> <%= f.date_field :goods_completion_date, id: "start_date", type: "date", class: "datepicker" %> </div>
                                         </div>
 
                                         <div class="col-md-4 ">
-                                            <div> <%= f.text_field :country_category, class: "form-control", placeholder: "Ihre interne Vertragskennung", required: true %> </div>
+                                            <div> <%= f.text_field :companny_internal_id, class: "form-control", placeholder: "Ihre interne Vertragskennung", required: true %> </div>
                                         </div>
                                     </div>
                                 </div>
@@ -516,10 +487,10 @@
 
                                     <div class="row">
                                         <div class="col-md-3 col-md-offset-4">
-                                            <%= f.check_box :country_category, id: "yes_specialcontractstructure" %> Ja
+                                            <%= f.check_box :yes_special_contract_structure, id: "yes_specialcontractstructure" %> Ja
                                         </div>
                                         <div class="col-md-3">
-                                            <%= f.check_box :country_category, id: "no_specialcontractstructure" %> Nein
+                                            <%= f.check_box :no_special_contract_structure, id: "no_specialcontractstructure" %> Nein
                                         </div>
                                     </div>
                                 </div>
@@ -539,7 +510,7 @@
 
                                     <div class="row">
                                         <div class="col-md-10 col-md-offset-2">
-                                            <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                            <div> <%= f.text_field :explain_special_contract_structure, class: "form-control", required: true %> </div>
                                         </div>
                                         <br><br><br>
                                     </div>
@@ -548,12 +519,11 @@
                                 <div class="row">
                                     <div class="col-md-10 col-md-offset-2">
                                         <p> Wenn Sie möchten, laden Sie eine graphische Darstellung (z.B. Zusammenhang
-                                            der
-                                            Projektbeteiligten) hoch. </p>
+                                            der Projektbeteiligten) hoch. </p>
                                         <br><br>
                                     </div>
                                     <div class="col-md-7 col-md-offset-4">
-                                        <%= f.file_field :country_category %>
+                                        <%= f.file_field :graphic_representation_project_participants %>
                                         <br><br>
                                     </div>
                                 </div>
@@ -569,7 +539,7 @@
                                     </div>
 
                                     <div class="col-md-6 col-md-offset-4">
-                                        <%= f.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168", prompt: "Currency..." %>
+                                        <%= f.select :contract_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168", prompt: "Currency..." %>
                                     </div>
                                 </div>
                             </div>
@@ -590,10 +560,10 @@
                                             <div class="row">
                                                 <br>
                                                 <div class="col-md-4 col-md-offset-2">
-                                                    <%= f.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
+                                                    <%= f.select :order_value_export_business_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
                                                 </div>
                                                 <div class="col-md-4 ">
-                                                    <div> <%= f.text_field :country_category, class: "form-control", placeholder: "0,00", required: true %> </div>
+                                                    <div> <%= f.text_field :order_value_export_business_currency_amount, class: "form-control", placeholder: "0,00", required: true %> </div>
                                                 </div>
                                             </div>
                                             <br><br>
@@ -601,7 +571,7 @@
                                                 <br>
                                                 <h4><i>Wie hoch ist der Lieferwert?</i></h4>
                                                 <div class="col-md-10 col-md-offset-2">
-                                                    <div> <%= f.text_field :country_category, class: "form-control", placeholder: "0,00", required: true %> </div>
+                                                    <div> <%= f.text_field :total_delivery_value, class: "form-control", placeholder: "0,00", required: true %> </div>
                                                 </div>
                                             </div>
 
@@ -610,23 +580,22 @@
                                                 <h4><i> Wie hoch ist der Anteil der Ersatzteile am Auftragswert?</i>
                                                 </h4>
                                                 <div class="col-md-10 col-md-offset-2">
-                                                    <div> <%= f.text_field :country_category, class: "form-control", placeholder: "0,00", required: true %> </div>
+                                                    <div> <%= f.text_field :percentage_of_spare_parts_in_whole_order, class: "form-control", placeholder: "0,00", required: true %> </div>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <br>
                                                 <h4><i> Wenn weitere Bestandteile offen gegenüber Ihrem Kunden
-                                                    ausgewiesen
-                                                    werden, tragen Sie diese bitte hier ein.</i></h4>
+                                                    ausgewiesen werden, tragen Sie diese bitte hier ein.</i></h4>
                                                 <div class="col-md-3 col-md-offset-1">
-                                                    <%= f.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
+                                                    <%= f.select :more_components_open_to_exporter_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <div> <%= f.text_field :country_category, class: "form-control", placeholder: "Betrag", required: true %> </div>
+                                                    <div> <%= f.text_field :more_components_open_to_exporter_amount, class: "form-control", placeholder: "Betrag", required: true %> </div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <div> <%= f.text_field :country_category, class: "form-control", placeholder: "Beschreibung", required: true %> </div>
+                                                    <div> <%= f.text_field :more_components_open_to_exporter_explain, class: "form-control", placeholder: "Beschreibung", required: true %> </div>
                                                 </div>
                                             </div>
 
@@ -653,10 +622,10 @@
 
                                     <div class="row">
                                         <div class="col-md-3 col-md-offset-4">
-                                            <%= f.check_box :country_category, id: "ja_customercountsinterest" %> Ja
+                                            <%= f.check_box :ja_customer_counts_interest, id: "ja_customercountsinterest" %> Ja
                                         </div>
                                         <div class="col-md-3">
-                                            <%= f.check_box :country_category, id: "nein_customercountsinterest" %> Nein
+                                            <%= f.check_box :no_customer_counts_interest, id: "nein_customercountsinterest" %> Nein
                                         </div>
                                     </div>
                                 </div>
@@ -676,10 +645,10 @@
 
                                     <div class="row">
                                         <div class="col-md-2 col-md-offset-3">
-                                            <%= f.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168", prompt: "EUR" %>
+                                            <%= f.select :interest_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168", prompt: "EUR" %>
                                         </div>
                                         <div class="col-md-7">
-                                            <div> <%= f.text_field :country_category, class: "form-control", placeholder: "Betrag", required: true %> </div>
+                                            <div> <%= f.text_field :interest_amount, class: "form-control", placeholder: "Betrag", required: true %> </div>
                                         </div>
                                         <br><br><br>
                                     </div>
@@ -701,10 +670,10 @@
 
                                     <div class="row">
                                         <div class="col-md-3 col-md-offset-4">
-                                            <%= f.check_box :country_category, id: "ja_priceadjustmentclause" %> Ja
+                                            <%= f.check_box :yes_price_adjustment_clause, id: "ja_priceadjustmentclause" %> Ja
                                         </div>
                                         <div class="col-md-3">
-                                            <%= f.check_box :country_category, id: "nein_priceadjustmentclause" %> Nein
+                                            <%= f.check_box :no_price_adjustment_clause, id: "nein_priceadjustmentclause" %> Nein
                                         </div>
                                     </div>
 
@@ -719,7 +688,7 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-10 col-md-offset-2">
-                                            <div> <%= f.text_field :country_category, class: "form-control", placeholder: "Bitte beschreiben Sie die Details zur Verrechnungsmethode (Prozent- oder Betragsverfahren).", required: true %> </div>
+                                            <div> <%= f.text_field :explain_billing_methods, class: "form-control", placeholder: "Bitte beschreiben Sie die Details zur Verrechnungsmethode (Prozent- oder Betragsverfahren).", required: true %> </div>
                                         </div>
                                         <br><br><br>
                                     </div>
@@ -740,10 +709,10 @@
 
                                     <div class="row">
                                         <div class="col-md-3 col-md-offset-4">
-                                            <%= f.check_box :country_category, id: "ja_multipledeliveries" %> Ja
+                                            <%= f.check_box :yes_multiple_deliveries, id: "ja_multipledeliveries" %> Ja
                                         </div>
                                         <div class="col-md-3">
-                                            <%= f.check_box :country_category, id: "nein_multipledeliveries" %> Nein
+                                            <%= f.check_box :no_multiple_deliveries, id: "nein_multipledeliveries" %> Nein
                                         </div>
                                     </div>
 
@@ -766,21 +735,21 @@
                                         <br>
                                         <div class="col-md-3 col-md-offset-4">
                                             <h4><i>Lieferbeginn</i></h4>
-                                            <div> <%= f.date_field :country_category, id: "start_date", type: "date", class: "datepicker" %> </div>
+                                            <div> <%= f.date_field :delivery_start, id: "start_date", type: "date", class: "datepicker" %> </div>
                                         </div>
                                         <div class="col-md-4">
                                             <h4><i>Lieferende</i></h4>
-                                            <div> <%= f.date_field :country_category, id: "start_date", type: "date", class: "datepicker" %> </div>
+                                            <div> <%= f.date_field :delivery_end, id: "start_date", type: "date", class: "datepicker" %> </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <br>
                                         <div class="col-md-3 col-md-offset-4">
-                                            <div> <%= f.text_field :country_category, class: "form-control", placeholder: "Weiterer zahlungsrelevanter Termin", required: true %> </div>
+                                            <div> <%= f.text_field :other_important_delivery_information, class: "form-control", placeholder: "Weiterer zahlungsrelevanter Termin", required: true %> </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <div> <%= f.text_field :country_category, class: "form-control", placeholder: "z.B. Milestone xy", required: true %> </div>
+                                            <div> <%= f.text_field :other_important_delivery_milestones, class: "form-control", placeholder: "z.B. Milestone xy", required: true %> </div>
                                         </div>
                                     </div>
 
@@ -803,20 +772,20 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3 col-md-offset-1">
-                                                <%= f.check_box :country_category, id: "kurzfristig-termofpayments" %>
+                                                <%= f.check_box :payment_term_shortterm, id: "kurzfristig-termofpayments" %>
                                                 <br><br>
                                                 <div><p><b> kurzfristig (bis zu 2 Jahre Kreditlaufzeit) </b></p></div>
                                             </div>
 
                                             <div class="col-md-4">
-                                                <%= f.check_box :country_category, id: "mittel-termofpayments" %>
+                                                <%= f.check_box :payment_term_middleterm, id: "mittel-termofpayments" %>
                                                 <br><br>
                                                 <div><p><b> mittel-/langfristig (über 2 Jahre Kreditlaufzeit) </b></p>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
-                                                <%= f.check_box :country_category, id: "sowohlkurzfristig-termofpayments" %>
+                                                <%= f.check_box :payment_term_both, id: "sowohlkurzfristig-termofpayments" %>
                                                 <br><br>
                                                 <div><p><b> sowohl kurzfristig als auch mittel-/langfristig </b></p>
                                                 </div>
@@ -841,13 +810,13 @@
                                             wird,
                                             geben Sie bitte den entsprechenden Betrag an.</p>
                                         <div class="col-md-3 col-md-offset-1">
-                                            <%= f.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
+                                            <%= f.select :downpayment_delivery_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
                                         </div>
                                         <div class="col-md-4">
-                                            <div> <%= f.text_field :country_category, class: "form-control", placeholder: "Betrag", required: true %> </div>
+                                            <div> <%= f.text_field :downpayment_delivery_amount, class: "form-control", placeholder: "Betrag", required: true %> </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <div> <%= f.text_field :country_category, class: "form-control", placeholder: "Beschreibung", required: true %> </div>
+                                            <div> <%= f.text_field :downpayment_delivery_description, class: "form-control", placeholder: "Beschreibung", required: true %> </div>
                                         </div>
                                     </div>
 
@@ -1404,14 +1373,11 @@
 
                                 </div>
                             </div>
-
-
                         </div>
 
-
                         <div id="DIV_296">
-                            <a href="#details" id="A_296">Zurück</a>
-                            <button type="submit" value="-1" id="BUTTON_297"> Weiter </button>
+                            <a href="#details" id="A_296"> Zurück</a>
+                            <button type="submit" value="-1" id="BUTTON_297"> Weiter</button>
                         </div>
                     </div>
                 <% end %>

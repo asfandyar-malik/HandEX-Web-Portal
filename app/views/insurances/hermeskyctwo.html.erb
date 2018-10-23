@@ -13,7 +13,7 @@
                     </div>
                 </div>
 
-                <%= form_for @insurance, url: tradeinfo_insurances_path, method: :put do |f| %>
+                <%= form_for @insurance, url: tradeinfo_insurance_path(@tradeinfo, @insurance), method: :put do |f| %>
                     <div id="DIV_91">
 
                         <div id="DIV_228">
@@ -31,13 +31,13 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-5">
-                                        <%= f.check_box :country_category, id: "privateSector" %>
+                                        <%= f.check_box :risk_supplier_credit_cover, id: "privateSector" %>
                                         <br><br>
                                         <div><p><b>Nichtbezahlung der Forderung </b></p></div>
                                         <div><p><i> bekannt als Lieferantenkreditdeckung </i></p></div>
                                     </div>
                                     <div class="col-md-7">
-                                        <%= f.check_box :country_category, id: "publicSector" %>
+                                        <%= f.check_box :risk_shipment_risk_cover, id: "publicSector" %>
                                         <br><br>
                                         <div><p><b>Vertragsstörung während der Fabrikationsphase </b></p></div>
                                         <div><p><i> bekannt als Fabrikationsrisikodeckung </i></p></div>
@@ -51,13 +51,13 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-5">
-                                        <%= f.check_box :country_category, id: "garantee" %>
+                                        <%= f.check_box :risk_contractual_warranty_coverage, id: "garantee" %>
                                         <br><br>
                                         <div><p><b> Ziehung von Garantien </b></p></div>
                                         <div><p><i> bekannt als Vertragsgarantiedeckung </i></p></div>
                                     </div>
                                     <div id="entlastung" class="col-md-7" style="display: none">
-                                        <%= f.check_box :country_category, id: "entlastung" %>
+                                        <%= f.check_box :risk_avaline_guarantee, id: "entlastung" %>
                                         <br><br>
                                         <div><p><b> Entlastung Ihrer Avallinie </b></p></div>
                                         <div><p><i> bekannt als Avalgarantie </i></p></div>
@@ -73,7 +73,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-5">
-                                        <%= f.check_box :country_category, id: "garantee" %>
+                                        <%= f.check_box :risk_further_coverage, id: "garantee" %>
                                         <br><br>
                                         <div><p><b> Weitere Deckungen </b></p></div>
                                     </div>
@@ -85,6 +85,7 @@
                             <a href="#details" id="A_296">Zurück</a>
                             <button type="submit" value="-1" id="BUTTON_297"> Weiter </button>
                         </div>
+
                     </div>
                 <% end %>
             </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_17_204802) do
+ActiveRecord::Schema.define(version: 2018_10_22_232103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,26 @@ ActiveRecord::Schema.define(version: 2018_10_17_204802) do
     t.datetime "updated_at", null: false
     t.date "date_contractsigned_with_importer"
     t.date "expected_date_product_received_importer"
+    t.string "total_financing_required"
+    t.string "country"
+    t.string "is_investment_good"
+    t.string "contract_value"
+    t.string "payment_deadline"
+    t.boolean "private_sector"
+    t.boolean "public_sector"
+    t.boolean "risk_avaline_guarantee"
+    t.boolean "risk_contractual_warranty_coverage"
+    t.boolean "risk_shipment_risk_cover"
+    t.boolean "risk_supplier_credit_cover"
+    t.boolean "risk_further_coverage"
+    t.string "describe_export_business"
+    t.string "reason_for_buying_good"
+    t.boolean "also_provide_service_training"
+    t.string "product_branch"
+    t.string "explain_product_branch"
+    t.boolean "part_of_big_project_yes"
+    t.boolean "part_of_big_project_no"
+    t.string "explain_complete_project"
     t.index ["tradeinfo_id"], name: "index_insurances_on_tradeinfo_id"
   end
 
@@ -130,7 +150,7 @@ ActiveRecord::Schema.define(version: 2018_10_17_204802) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    country_categoryt.string "country"
+    t.string "country"
     t.string "exporterRegisteredAddress"
     t.string "importerTaxId"
     t.boolean "investmentGood"

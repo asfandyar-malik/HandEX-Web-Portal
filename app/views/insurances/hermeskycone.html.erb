@@ -9,13 +9,13 @@
             <div id="DIV_85">
 
                 <div id="DIV_86">
-                    <div id = "DIV_87">
+                    <div id="DIV_87">
                         Das Wichtigste Zuerst
                     </div>
                 </div>
 
                 <div id="DIV_91">
-                    <%= form_for @insurance, url: tradeinfo_insurances_path, method: :post do |f| %>
+                    <%= form_for @insurance, url: tradeinfo_insurance_path(@tradeinfo, @insurance), method: :put do |f| %>
                         <div id="DIV_112">
 
                             <div id="DIV_228">
@@ -23,7 +23,7 @@
                                     <div class="row">
                                         <div class="col-md-8 col-md-offset-2">
                                             <label id="LABEL_114"> Wohin soll es gehen </label>
-                                            <div> <%= f.text_field :country_category, class: "form-control", required: true %> </div>
+                                            <div> <%= f.text_field :country, class: "form-control", required: true %> </div>
                                         </div>
                                     </div>
 
@@ -33,7 +33,7 @@
                                         <label class="control-label"> Handelt es sich bei Ihrer Ware um
                                             Investitionsgüter? </label>
                                         <br><br>
-                                        <%= f.check_box :country_category, id: "investmentGood" %> Yes
+                                        <%= f.check_box :is_investment_good, id: "investmentGood" %> Yes
                                     </div>
 
                                     <br><br>
@@ -46,7 +46,7 @@
                                             <br><br>
 
                                             <div class="rangeslider">
-                                                <input type="range" min="0" max="5000000" value="1000000" step="1" list="tickmarks" id="rangeInput" oninput="output.value = rangeInput.value">
+                                                <%= f.range_field :contract_value, :in => 0..5000000, :min => 0, :max => 5000000, :value => 1000000, :step => 1, :list => "tickmarks", :id => "rangeInput", :oninput => "output.value = rangeInput.value" %>
 
                                                 <datalist id="tickmarks">
                                                     <option value="0 to 50000000">0</option>
@@ -64,9 +64,6 @@
                                             <button type="button" name="auftragwertbutton" value="Show Div" onclick="showPaymentGoalDiv(this)" id="BUTTON_300">
                                                 fertig
                                             </button>
-
-                                            <div id="welcomeDiv" style="display:none;" class="answer_list"> WELCOME
-                                            </div>
                                         </div>
                                     </div>
 
@@ -77,7 +74,7 @@
                                             <div class="col-md-8 col-md-offset-2">
                                                 <label id="LABEL_114"> Welches Zahlungsziel gewähren Sie Ihrem
                                                     Kunden? </label>
-                                                <%= f.select :country_category, [["6 Months", "6 Months"], ["12 Months", "12 Months"],
+                                                <%= f.select :payment_deadline, [["6 Months", "6 Months"], ["12 Months", "12 Months"],
                                                                                  ["18 Months", "18 Months"], ["24 Months", "24 Months"]], id: "B_168", prompt: "Select..." %>
 
                                             </div>
@@ -102,10 +99,10 @@
 
                                         <div class="row">
                                             <div class="col-md-4 col-md-offset-2">
-                                                <%= f.check_box :country_category, id: "privateSector" %> Private Sector
+                                                <%= f.check_box :private_sector, id: "privateSector" %> Private Sector
                                             </div>
                                             <div class="col-md-4">
-                                                <%= f.check_box :country_category, id: "publicSector" %> Public Sector
+                                                <%= f.check_box :public_sector, id: "publicSector" %> Public Sector
                                             </div>
                                         </div>
 
@@ -169,63 +166,6 @@
                                         <br>
                                     </div>
 
-                                    <div id="showHideDivPrivateSector" style="display: none">
-                                        <div class="row">
-                                            <div class="col-md-8 col-md-offset-2">
-
-                                                <p>
-                                                    Ihr Geschäft eignet sich grundsätzlich und vorbehaltlich einer
-                                                    tieferen
-                                                    Prüfung des Sachverhalts und der Bonität Ihres ausländischen
-                                                    Bestellers
-                                                    bzw.
-                                                    Garanten für eine Hermesdeckung. <br>
-
-                                                    Dieses Icon zeigt, dass Ihr Geschäft die Kriterien für den
-                                                    click&cover-Modus
-                                                    erfüllt. Hier ist – nach Vorliegen aller relevanten Informationen
-                                                    eine
-                                                    Entscheidung innerhalb von durchschnittlich 2 Wochen möglich. <br>
-
-                                                    Im Rahmen Ihrer weiteren Eingaben wird fortwährend geprüft, ob Ihr
-                                                    Geschäft
-                                                    weiterhin für den click&cover Modus geeignet ist – am Ende können
-                                                    Sie
-                                                    jedoch
-                                                    selbst entscheiden, welche Absicherungsvariante Sie wählen. <br>
-                                                    Solange Sie sich im click&cover-Modus befinden, können wir Ihnen
-                                                    bereits
-                                                    frühzeitig eine Preisindikation geben. Aufgrund der von Ihnen bisher
-                                                    gemachten Angaben würde sich der Preis für eine Absicherung belaufen
-                                                    auf
-                                                    <br>
-                                                    zwischen ... EUR und ... EUR (ohne Gewähr - das tatsächlich
-                                                    anfallende
-                                                    Entgelt teilen wir Ihnen im Rahmen der Entscheidung mit) <br>
-                                                    Im Laufe der Antragstellung konkretisieren sich die Berechnungen –
-                                                    die
-                                                    aktuelle Information finden Sie jeweils hinter dem
-                                                    Taschenrechner-Symbol
-                                                    am
-                                                    rechten Bildrand. <br>
-                                                    Sollte sich im Rahmen der Einzelfallprüfung des Antrags zeigen, dass
-                                                    der
-                                                    click&cover-Modus nicht zulässig ist, ist weiterhin der Zugang zur
-                                                    klassischen Lieferantenkreditdeckung möglich. <br>
-                                                    Sie möchten zum ersten Mal eine Hermesdeckung beantragen? Dann
-                                                    lassen
-                                                    Sie
-                                                    sich von uns beraten. Bitte planen Sie ein wenig mehr Zeit für Ihren
-                                                    ersten
-                                                    Antrag ein – wir möchten Sie zunächst bei einem Vor-Ort-Termin in
-                                                    Ihrem
-                                                    Unternehmen kennenlernen und Sie auf den ersten Schritten begleiten.
-                                                </p>
-
-                                            </div>
-                                        </div>
-                                        <br>
-                                    </div>
 
                                     <div id="showHideDivPublicSector" style="display: none">
                                         <div class="row">
@@ -289,7 +229,7 @@
 
                         <div id="DIV_296">
                             <a href="#details" id="A_296"> Zurück</a>
-                            <%= button_to "Weiter", hermeskyctwo_tradeinfo_insurance_path(), method: :get, id: "BUTTON_297" %>
+                            <button type="submit" value="-1" id="BUTTON_297"> Weiter</button>
                         </div>
 
                     <% end %>
