@@ -24,7 +24,7 @@ class InsurancesController < ApplicationController
         @insurance     = @tradeinfo.build_insurance(insurance_params)
         
         if @insurance.save
-            redirect_to hermeskyctwo_tradeinfo_insurance_path(@tradeinfo, @insurance, @financial), notice: "Insurance Created...."
+            redirect_to hermeskycone_tradeinfo_insurance_path(@tradeinfo, @insurance, @financial), notice: "Insurance Created...."
         else
             flash[:notice] = "Something went wrong while creating...."
             render :new
@@ -346,7 +346,7 @@ class InsurancesController < ApplicationController
     end
 
     def is_ready_hermes_kyc_three
-        @insurance.risk_avaline_guarantee || @insurance.risk_supplier_credit_cover || @insurance.risk_shipment_risk_cover || @insurance.risk_supplier_credit_cover || @insurance.risk_further_coverage
+        @insurance.risk_supplier_credit_cover || @insurance.risk_shipment_risk_cover  || @insurance.risk_contractual_warranty_coverage || @insurance.risk_avaline_guarantee  || @insurance.risk_further_coverage
     end
 
     def is_ready_hermes_kyc_fourth
@@ -358,7 +358,7 @@ class InsurancesController < ApplicationController
     end
 
     def is_ready_hermes_kyc_sixth
-        @insurance.product_branch || @insurance.explain_product_branch || @insurance.adequate_claims_management
+        @insurance.experience_with_export_country && @insurance.experience_with_export_country && @insurance.adequate_claims_management
     end
     
     def insurance_params
