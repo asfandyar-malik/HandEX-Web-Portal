@@ -172,7 +172,7 @@
                                                     gemachten Angaben würde sich der Preis für eine Absicherung belaufen
                                                     auf
                                                     <br>
-                                                    zwischen ... EUR und ... EUR (ohne Gewähr - das tatsächlich
+                                                    zwischen <%= (@finalSum.round(2) - 100).abs.round(2)  %> EUR und <%= (@finalSum.round(2) + 100).round(2) %> EUR (ohne Gewähr - das tatsächlich
                                                     anfallende
                                                     Entgelt teilen wir Ihnen im Rahmen der Entscheidung mit) <br>
                                                     Im Laufe der Antragstellung konkretisieren sich die Berechnungen –
