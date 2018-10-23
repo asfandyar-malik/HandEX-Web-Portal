@@ -289,7 +289,21 @@ class InsurancesController < ApplicationController
         @finalSum = @foreignCurrencyCoverage + @reducingDeductible + @application_fee + @executionAmountOne + @mainInsurancePremium
         
         puts "final Sum: #{ @finalSum }"
-    
+
+        require 'csv'
+        tickers = {}
+        CSV.foreach("db/data/country_classification.csv", :headers => true, :header_converters => :symbol, :converters => :all) do |row|
+            tickers[row.fields[0]] = Hash[row.headers[1..-1].zip(row.fields[1..-1])]
+        end
+
+        @ticketbarbados = tickers[@insurance.country][:classification]
+        # puts tickers[@tradeinfo.buyer.country][:classification]
+
+        if tickers[@insurance.country][:classification] == "-"
+            @acceptedHermesCover = false
+        else
+            @acceptedHermesCover = true
+        end
     end
     
     def hermeskyctwo
@@ -358,7 +372,7 @@ class InsurancesController < ApplicationController
     end
 
     def is_ready_hermes_kyc_sixth
-        @insurance.experience_with_export_country && @insurance.experience_with_export_country && @insurance.adequate_claims_management
+        @insurance.employees_count && @insurance.revenue_last_year
     end
     
     def insurance_params
@@ -389,7 +403,8 @@ class InsurancesController < ApplicationController
                                           :sonstige_kurzfrist_deposit_received,:sonstige_kurzfrist_repayment_structure,:sonstige_kurzfrist_credit_start,
                                           :sonstige_kurzfrist_credit_start_sonstige_explain,:sonstige_kurzfrist_number_of_installments,:sonstige_kurzfrist_payment_vehichle_explain,
                                           :yes_sonstige_kurzfrist_certificate_of_origin,:no_sonstige_kurzfrist_certificate_of_origin,:part_of_goods__sonstige_kurzfrist_certificate_of_origin,
-                                          :ak_number, :company_name, :tax_number, :years_trading_without_hermes_cover, :experience_with_export_country, :adequate_claims_management)
+                                          :ak_number, :company_name, :tax_number, :years_trading_without_hermes_cover, :experience_with_export_country, :adequate_claims_management,
+                                          :employees_count,:revenue_last_year)
     end
     
 

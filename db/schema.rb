@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_23_015813) do
+ActiveRecord::Schema.define(version: 2018_10_23_105500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -197,6 +197,8 @@ ActiveRecord::Schema.define(version: 2018_10_23_015813) do
     t.string "years_trading_without_hermes_cover"
     t.string "experience_with_export_country"
     t.string "adequate_claims_management"
+    t.string "employees_count"
+    t.string "revenue_last_year"
     t.index ["tradeinfo_id"], name: "index_insurances_on_tradeinfo_id"
   end
 

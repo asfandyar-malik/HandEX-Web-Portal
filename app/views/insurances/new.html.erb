@@ -1,4 +1,4 @@
-<section id="SECTION_84">
+<section id="SECTION_85">
     <div id="DIV_85">
         <%= form_for @insurance, url: tradeinfo_insurances_path, method: :post do |f| %>
             <div id="DIV_91">
@@ -10,6 +10,52 @@
 
                     <div id="DIV_226">
                         <div class="form-group">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label id="LABEL_114"> Wohin soll es gehen </label>
+                                    <div>
+                                        <%= f.select :country,
+                                                     [["Andorra", "Andorra"], ["Australia", "Australia"], ["Austria", "Austria"], ["Barbados", "Barbados"], ["Belgium", "Belgium"], ["Brunei Darussalam", "Brunei Darussalam"],
+                                                      ["Canada", "Canada"], ["Chile", "Chile"], ["Comoros", "Comoros"], ["Cyprus", "Cyprus"], ["Czech Republic", "Czech Republic"], ["Denmark", "Denmark"], ["Dominica", "Dominica"],
+                                                      ["Estonia", "Estonia"], ["Finland", "Finland"], ["France", "France"], ["Germany", "Germany"], ["Greece", "Greece"], ["Grenada", "Grenada"], ["Hungary", "Hungary"], ["Iceland", "Iceland"],
+                                                      ["Ireland", "Ireland"], ["Israel", "Israel"], ["Italy", "Italy"], ["Japan", "Japan"], ["Kiribati", "Kiribati"], ["Korea", "Korea"], ["Latvia", "Latvia"], ["Liechtenstein", "Liechtenstein"],
+                                                      ["Lithuania", "Lithuania"], ["Luxembourg", "Luxembourg"], ["Malta", "Malta"], ["Marshall Islands", "Marshall Islands"], ["Micronesia", "Micronesia"], ["Monaco", "Monaco"], ["Nauru", "Nauru"],
+                                                      ["Netherlands", "Netherlands"], ["New Zealand", "New Zealand"], ["Norway", "Norway"], ["Palau", "Palau"], ["Poland", "Poland"], ["Portugal", "Portugal"],
+                                                      ["Saint Kitts and Nevis", "Saint Kitts and Nevis"], ["Saint Lucia", "Saint Lucia"], ["Saint Vincent and the Grenadines", "Saint Vincent and the Grenadines"], ["Samoa", "Samoa"],
+                                                      ["San Marino", "San Marino"], ["Sao Tome and Principe", "Sao Tome and Principe"], ["Sint Maarten", "Sint Maarten"], ["Slovak Republic", "Slovak Republic"], ["Slovenia", "Slovenia"],
+                                                      ["Solomon Islands", "Solomon Islands"], ["Spain", "Spain"], ["Sweden", "Sweden"], ["Switzerland", "Switzerland"], ["Tonga", "Tonga"], ["Tuvalu", "Tuvalu"], ["United Kingdom", "United Kingdom"],
+                                                      ["United States", "United States"], ["Vanuatu", "Vanuatu"], ["West Bank and Gaza", "West Bank and Gaza"], ["Kosovo", "Kosovo"], ["South Korea", "South Korea"], ["Ukraine", "Ukraine"],
+                                                      ["Belarus", "Belarus"], ["Pakistan", "Pakistan"], ["Bosnia and Herzegovina", "Bosnia and Herzegovina"], ["Lebanon", "Lebanon"], ["Iraq", "Iraq"], ["Ethiopia", "Ethiopia"], ["Libya", "Libya"],
+                                                      ["Moldova", "Moldova"], ["Venezuela", "Venezuela"], ["Cuba", "Cuba"], ["Liberia", "Liberia"], ["Sudan", "Sudan"], ["Montenegro", "Montenegro"], ["Mali", "Mali"], ["Yemen", "Yemen"],
+                                                      ["Congo", "Congo"], ["Democratic Republic of the Congo", "Democratic Republic of the Congo"], ["Guinea", "Guinea"], ["Mauritania", "Mauritania"], ["Mozambique", "Mozambique"],
+                                                      ["Burkina Faso", "Burkina Faso"], ["Syrian Arab Republic", "Syrian Arab Republic"], ["Kyrgyzstan", "Kyrgyzstan"], ["Afghanistan", "Afghanistan"], ["Tajikistan", "Tajikistan"],
+                                                      ["Madagascar", "Madagascar"], ["Lao People’s Democratic Republic", "Lao People’s Democratic Republic"], ["Zimbabwe", "Zimbabwe"], ["Haiti", "Haiti"], ["Djibouti", "Djibouti"],
+                                                      ["Niger", "Niger"], ["Sierra Leone", "Sierra Leone"], ["Chad", "Chad"], ["Malawi", "Malawi"], ["Equatorial Guinea", "Equatorial Guinea"], ["Antigua and Barbuda", "Antigua and Barbuda"],
+                                                      ["Burundi", "Burundi"], ["Eritrea", "Eritrea"], ["Somalia", "Somalia"], ["Gambia", "Gambia"], ["Central African Republic", "Central African Republic"], ["Belize", "Belize"],
+                                                      ["South Sudan", "South Sudan"], ["Guinea-Bissau", "Guinea-Bissau"], ["Cabo Verde", "Cabo Verde"], ["Myanmar", "Myanmar"], ["Egypt", "Egypt"], ["Iran", "Iran"], ["Argentina", "Argentina"],
+                                                      ["Kazakhstan", "Kazakhstan"], ["Nigeria", "Nigeria"], ["Uzbekistan", "Uzbekistan"], ["Ecuador", "Ecuador"], ["Turkmenistan", "Turkmenistan"], ["Georgia", "Georgia"], ["Kenya", "Kenya"],
+                                                      ["Sri Lanka", "Sri Lanka"], ["Albania", "Albania"], ["Ghana", "Ghana"], ["Angola", "Angola"], ["Côte d’Ivoire", "Côte d’Ivoire"], ["Armenia", "Armenia"], ["Cambodia", "Cambodia"],
+                                                      ["Tanzania", "Tanzania"], ["Cameroon", "Cameroon"], ["Mongolia", "Mongolia"], ["Uganda", "Uganda"], ["Jamaica", "Jamaica"], ["Nicaragua", "Nicaragua"], ["Zambia", "Zambia"],
+                                                      ["Benin", "Benin"], ["Togo", "Togo"], ["Rwanda", "Rwanda"], ["Gabon", "Gabon"], ["Maldives", "Maldives"], ["Nepal", "Nepal"], ["Papua New Guinea", "Papua New Guinea"],
+                                                      ["Suriname", "Suriname"], ["Seychelles", "Seychelles"], ["Fiji", "Fiji"], ["Guyana", "Guyana"], ["Swaziland", "Swaziland"], ["Bhutan", "Bhutan"], ["Lesotho", "Lesotho"],
+                                                      ["Timor-Leste", "Timor-Leste"], ["Brazil", "Brazil"], ["Croatia", "Croatia"], ["Vietnam", "Vietnam"], ["Serbia", "Serbia"], ["Tunisia", "Tunisia"],
+                                                      ["Former Yugoslav Republic of Macedonia", "Former Yugoslav Republic of Macedonia"], ["Bangladesh", "Bangladesh"], ["Jordan", "Jordan"], ["Azerbaijan", "Azerbaijan"],
+                                                      ["Paraguay", "Paraguay"], ["Bolivia", "Bolivia"], ["El Salvador", "El Salvador"], ["Honduras", "Honduras"], ["Senegal", "Senegal"], ["Curaçao", "Curaçao"], ["Turkey", "Turkey"],
+                                                      ["Russia", "Russia"], ["South Africa", "South Africa"], ["Algeria", "Algeria"], ["Colombia", "Colombia"], ["Bahrain", "Bahrain"], ["Guatemala", "Guatemala"],
+                                                      ["Dominican Republic", "Dominican Republic"], ["Namibia", "Namibia"], ["Aruba", "Aruba"], ["Romania", "Romania"], ["Mexico", "Mexico"], ["India", "India"],
+                                                      ["Thailand", "Thailand"], ["Bulgaria", "Bulgaria"], ["Indonesia", "Indonesia"], ["Qatar", "Qatar"], ["Philippines", "Philippines"], ["Morocco", "Morocco"],
+                                                      ["Peru", "Peru"], ["Oman", "Oman"], ["Panama", "Panama"], ["Uruguay", "Uruguay"], ["Costa Rica", "Costa Rica"], ["Trinidad and Tobago", "Trinidad and Tobago"],
+                                                      ["Mauritius", "Mauritius"], ["Bahamas", "Bahamas"], ["China", "China"], ["UAE", "UAE"], ["Saudi Arabia", "Saudi Arabia"], ["Hong Kong (China)", "Hong Kong (China)"],
+                                                      ["Malaysia", "Malaysia"], ["Kuwait", "Kuwait"], ["Macau (China)", "Macau (China)"], ["Botswana", "Botswana"], ["Chinese Taipei", "Chinese Taipei"], ["Singapore", "Singapore"]],
+                                                     id: "B_168", prompt: "Land...", required: true %>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <label class="control-label"> Insurance Cover </label>
@@ -24,7 +70,7 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label class="control-label"> Buyer Risk Classification  </label>
+                                    <label class="control-label"> Buyer Risk Classification </label>
                                     <%= f.select :buyer_category, [["SOV+", "SOV+"], ["SOV", "SOV"], ["CC0", "CC0"], ["SOV-", "SOV-"], ["CC1", "CC1"], ["CC2", "CC2"], ["CC3", "CC3"],
                                                                    ["CC4", "CC4"], ["CC5", "CC5"]],
                                                  id: "B_168", prompt: "Select..." %>
@@ -64,16 +110,13 @@
                 </div>
 
                 <div id="DIV_210">
-                    <img class="responsive-img" id="IMG_213" width="500" height= "auto" src="<%= asset_path('EH4.jpg') %>">
+                    <img class="responsive-img" id="IMG_213" width="400" right="auto" padding-right = "20px";,  height="auto" src="<%= asset_path('EH4.jpg') %>">
                 </div>
 
             </div>
         <% end %>
     </div>
 </section>
-
-<footer id="FOOTER_409">
-</footer>
 
 <script>
     $(document).ready(function () {
