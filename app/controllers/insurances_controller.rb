@@ -70,7 +70,7 @@ class InsurancesController < ApplicationController
             fickers[row.fields[0]] = Hash[row.headers[1..-1].zip(row.fields[1..-1])]
         end
         
-        $country_classification = fickers[@tradeinfo.buyer.country][:classification]
+        $country_classification = fickers[@insurance.country][:classification]
         
         if $country_classification == "-"
             redirect_to rejected_tradeinfo_path(@tradeinfo, @financial, @buyer), notice: "Rejected because country has - risk classification ...."
@@ -188,10 +188,10 @@ class InsurancesController < ApplicationController
             fickers[row.fields[0]] = Hash[row.headers[1..-1].zip(row.fields[1..-1])]
         end
         
-        $country_classification = fickers[@tradeinfo.buyer.country][:classification]
+        $country_classification = fickers[@insurance.country][:classification]
         
         if $country_classification == "-"
-            redirect_to rejected_tradeinfo_path(@tradeinfo, @financial, @buyer), notice: "Rejected because country has - risk classification ...."
+            @acceptedHermesCover = false
         elsif $country_classification == 1
             $country_risk_code = "one"
         elsif $country_classification == 2
