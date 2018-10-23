@@ -38,20 +38,20 @@ class InsurancesController < ApplicationController
             flash[:notice] = "Updated Insurance...."
 
             if is_ready_hermes_kyc_sixth
-                thankinsurance_tradeinfo_insurance_path(@tradeinfo, @insurance)
-            
+                flash[:notice] = "sixth...."
+                redirect_to thankinsurance_tradeinfo_insurance_path(@tradeinfo, @insurance)
             elsif is_ready_hermes_kyc_fifth
-                redirect_to hermeskycfifth_tradeinfo_insurance_path(@tradeinfo, @insurance)
-                
+                flash[:notice] = "fifth...."
+                redirect_to hermeskycfive_tradeinfo_insurance_path(@tradeinfo, @insurance)
             elsif is_ready_hermes_kyc_fourth
+                flash[:notice] = "fourth...."
                 redirect_to hermeskycfour_tradeinfo_insurance_path(@tradeinfo, @insurance)
-            
             elsif is_ready_hermes_kyc_three
+                flash[:notice] = "three...."
                 redirect_to hermeskycthree_tradeinfo_insurance_path(@tradeinfo, @insurance)
-            
             elsif is_ready_hermes_kyc_two
+                flash[:notice] = "two...."
                 redirect_to hermeskyctwo_tradeinfo_insurance_path(@tradeinfo, @insurance)
-            
             else
                 redirect_to importinformation_tradeinfo_path
             end
@@ -336,13 +336,36 @@ class InsurancesController < ApplicationController
         @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
         redirect_to root_path, alert: "You don't have permission" unless current_user.id = @tradeinfo.user_id
     end
+
+    def is_ready_first_step
+        @insurance.insurance_cover && @insurance.insurance_cover
+    end
+
+    def is_ready_hermes_kyc_two
+        @insurance.country && @insurance.is_investment_good
+    end
+
+    def is_ready_hermes_kyc_three
+        @insurance.risk_avaline_guarantee || @insurance.risk_supplier_credit_cover || @insurance.risk_shipment_risk_cover || @insurance.risk_supplier_credit_cover || @insurance.risk_further_coverage
+    end
+
+    def is_ready_hermes_kyc_fourth
+        @insurance.describe_export_business && @insurance.reason_for_buying_good && @insurance.explain_product_branch
+    end
+
+    def is_ready_hermes_kyc_fifth
+        @insurance.ak_number && @insurance.company_name && @insurance.tax_number
+    end
+
+    def is_ready_hermes_kyc_sixth
+        @insurance.product_branch || @insurance.explain_product_branch || @insurance.adequate_claims_management
+    end
     
     def insurance_params
         params.require(:insurance).permit(:insurance_cover, :country_category, :buyer_category, :expected_date_product_received_importer, :date_contractsigned_with_importer,
                                           :country, :is_investment_good, :contract_value, :payment_deadline, :private_sector, :public_sector,
                                           :risk_avaline_guarantee, :risk_contractual_warranty_coverage, :risk_shipment_risk_cover, :risk_supplier_credit_cover,
-                                          :risk_further_coverage,
-                                          :describe_export_business, :reason_for_buying_good, :also_provide_service_training, :product_branch,
+                                          :risk_further_coverage, :describe_export_business, :reason_for_buying_good, :also_provide_service_training, :product_branch,
                                           :explain_product_branch, :part_of_big_project_yes, :part_of_big_project_no, :explain_complete_project,
                                           :overall_responsibility_project_taken, :overall_project_volume_currency, :overall_project_volume, :use_of_fund,
                                           :use_of_fund_currency,:amount_of_fund,:delivery_doesnt_affects_sensitive_areas,:delivery_affects_natural_reserves,:delivery_affects_indigenous_people,
@@ -366,32 +389,8 @@ class InsurancesController < ApplicationController
                                           :sonstige_kurzfrist_deposit_received,:sonstige_kurzfrist_repayment_structure,:sonstige_kurzfrist_credit_start,
                                           :sonstige_kurzfrist_credit_start_sonstige_explain,:sonstige_kurzfrist_number_of_installments,:sonstige_kurzfrist_payment_vehichle_explain,
                                           :yes_sonstige_kurzfrist_certificate_of_origin,:no_sonstige_kurzfrist_certificate_of_origin,:part_of_goods__sonstige_kurzfrist_certificate_of_origin,
-
                                           :ak_number, :company_name, :tax_number, :years_trading_without_hermes_cover, :experience_with_export_country, :adequate_claims_management)
     end
     
-    def is_ready_first_step
-        @insurance.insurance_cover && @insurance.insurance_cover
-    end
-    
-    
-    def is_ready_hermes_kyc_two
-        @insurance.country && @insurance.is_investment_good
-    end
-    
-    def is_ready_hermes_kyc_three
-        @insurance.risk_avaline_guarantee || @insurance.risk_supplier_credit_cover || @insurance.risk_shipment_risk_cover || @insurance.risk_supplier_credit_cover || @insurance.risk_further_coverage
-    end
 
-    def is_ready_hermes_kyc_fourth
-        @insurance.describe_export_business || @insurance.reason_for_buying_good || @insurance.explain_product_branch
-    end
-
-    def is_ready_hermes_kyc_fifth
-        @insurance.ak_number || @insurance.company_name || @insurance.tax_number
-    end
-
-    def is_ready_hermes_kyc_sixth
-        @insurance.product_branch || @insurance.explain_product_branch || @insurance.adequate_claims_management
-    end
 end
