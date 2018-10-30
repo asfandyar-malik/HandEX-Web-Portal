@@ -1,6 +1,6 @@
 <section id="SECTION_85">
     <div id="DIV_85">
-        <%= form_for @insurance, url: tradeinfo_insurances_path, method: :post do |f| %>
+        <%= form_for @insurance, url: tradeinfo_insurance_path(@tradeinfo, @insurance), method: :put do |f| %>
             <div id="DIV_91">
 
                 <div id="DIV_110">
@@ -9,8 +9,8 @@
                     </h1>
 
                     <div id="DIV_226">
-                        <div class="form-group">
 
+                        <div class="form-group">
                             <div class="row">
                                 <div class="col-md-12">
                                     <label id="LABEL_114"> Wohin soll es gehen </label>
@@ -51,7 +51,6 @@
                                                      id: "B_168", prompt: "Land...", required: true %>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="form-group">
@@ -97,9 +96,7 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
 
                     <div id="DIV_295">
                         <%= button_to "Back", accepted_tradeinfo_path(@tradeinfo, @financial), id: "A_296", method: :get %>
@@ -116,8 +113,8 @@
     $(document).ready(function () {
 
         $('.datepicker').pickadate({
-            selectMonths: true, // Creates a dropdown to control month
-            selectYears: 2 // Creates a dropdown of 15 years to control year
+            selectMonths: true,
+            selectYears: 2
         });
     });
 </script>

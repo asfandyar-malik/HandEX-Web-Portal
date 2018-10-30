@@ -18,7 +18,7 @@
                     <%= form_for @insurance, url: tradeinfo_insurance_path(@tradeinfo, @insurance), method: :put do |f| %>
                         <div id="DIV_112">
 
-                            <div id="DIV_228">
+                        <div id="DIV_228">
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-8 col-md-offset-2">
@@ -46,7 +46,7 @@
                                             </div>
                                             <br><br>
                                             <div class="col-md-8 col-md-offset-2">
-                                                <p><%= @tradeinfo.financial.total_financing_required %></p>
+                                                <p><%= @total_financing_requested %></p>
                                             </div>
                                             <br><br><br>
 
@@ -203,9 +203,7 @@
                                                     <p>
                                                         Ihr Geschäft birgt Besonderheiten, die eine Absicherung erschweren könnten: <br>
 
-
                                                         Es bestehen keine Deckungsmöglichkeiten für kurzfristige Geschäfte, da sie von der Europäischen Kommission als marktfähig definiert wurden. <br>
-
 
                                                         Gern möchten wir Ihnen die besonderen Gegebenheiten in einem persönlichen Gespräch erläutern und die Struktur Ihres Geschäfts besprechen. Bitte kontaktieren Sie uns über den untenstehenden Kontaktbutton oder rufen Sie uns unter +49 (0) 40/88 34-90 00 an.<br>
 

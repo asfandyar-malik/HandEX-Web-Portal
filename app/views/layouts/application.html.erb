@@ -20,6 +20,12 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+    <script type = "text/javascript" >
+        function disableBrowserBack(){window.history.forward();}
+        setTimeout("disableBrowserBack()", 0);
+        window.onunload=function(){null};
+    </script>
+
 </head>
 
     <body>

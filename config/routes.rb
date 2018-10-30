@@ -14,9 +14,6 @@ Rails.application.routes.draw do
     
     resources :tradeinfos do
         member do
-            get 'exportinformation'
-            get 'importinformation'
-            get 'thank'
             get 'eligibility'
             get 'accepted'
             get 'rejected'
@@ -27,7 +24,6 @@ Rails.application.routes.draw do
         resources :financials, only: [:create, :destroy, :new, :update]
         resources :bankaccounts, only: [:create, :destroy, :new, :update]
         resources :officialdocuments, only: [:create, :destroy, :new, :update]
-        
         resources :insurances do
             member do
                 get 'hermeskycone'
@@ -40,12 +36,11 @@ Rails.application.routes.draw do
                 get 'thankinsurance'
             end
         end
-
+        
         get 'buyers/index' => 'buyers#index'
         get 'financials/index' => 'financials#index'
         get 'bankaccounts/index' => 'bankaccounts#index'
         get 'officialdocuments/index' => 'officialdocuments#index'
         get 'insurances/index' => 'insurances#index'
-        
     end
 end

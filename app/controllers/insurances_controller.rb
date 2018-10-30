@@ -1,6 +1,6 @@
 class InsurancesController < ApplicationController
     
-    before_action :set_insurance, except: [:index, :new, :create]
+    before_action :set_insurance, except: [:index, :new, :create, :show]
     before_action :authenticate_user!, except: [:show]
     before_action :is_authorised, only: [:update]
     
@@ -13,7 +13,7 @@ class InsurancesController < ApplicationController
     def new
         flash[:notice] = "Entering Insurance new"
         @tradeinfo     = Tradeinfo.find(params[:tradeinfo_id])
-        @insurance     = @tradeinfo.build_insurance
+        @insurance = @tradeinfo.build_insurance
     end
     
     # POST /insurances
@@ -22,9 +22,8 @@ class InsurancesController < ApplicationController
         flash[:notice] = "Entering Insurance create"
         @tradeinfo     = Tradeinfo.find(params[:tradeinfo_id])
         @insurance     = @tradeinfo.build_insurance(insurance_params)
-        
         if @insurance.save
-            redirect_to hermeskycone_tradeinfo_insurance_path(@tradeinfo, @insurance, @financial), notice: "Insurance Created...."
+            redirect_to hermeskycone_tradeinfo_insurance_path(@tradeinfo, @insurance), notice: "Insurance Created...."
         else
             flash[:notice] = "Something went wrong while creating...."
             render :new
@@ -36,7 +35,7 @@ class InsurancesController < ApplicationController
     def update
         if @insurance.update(insurance_params)
             flash[:notice] = "Updated Insurance...."
-
+            
             if is_ready_hermes_kyc_sixth
                 flash[:notice] = "sixth...."
                 redirect_to thankinsurance_tradeinfo_insurance_path(@tradeinfo, @insurance)
@@ -53,11 +52,16 @@ class InsurancesController < ApplicationController
                 flash[:notice] = "two...."
                 redirect_to hermeskyctwo_tradeinfo_insurance_path(@tradeinfo, @insurance)
             else
-                redirect_to importinformation_tradeinfo_path
+                redirect_to hermeskycone_tradeinfo_insurance_path(@tradeinfo, @insurance)
             end
         else
             flash[:alert] = "Something went wrong while updating"
         end
+    end
+    
+    def show
+        @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
+        @insurance = @tradeinfo.insurance
     end
     
     def insuranceresult
@@ -223,7 +227,8 @@ class InsurancesController < ApplicationController
         puts @left
         puts @right
         
-        @total_financing_requested = Float(@tradeinfo.financial.total_financing_required)
+        # @total_financing_requested = Float(@tradeinfo.financial.total_financing_required)
+        @total_financing_requested = 500000
         
         if @total_financing_requested > 100000000
             @application_fee = 6000
@@ -249,7 +254,8 @@ class InsurancesController < ApplicationController
         
         puts "application_fee #{@application_fee} "
         
-        @timeduration = @tradeinfo.financial.time_duration
+        # @timeduration = @tradeinfo.financial.time_duration
+        @timeduration = "12 Months"
         
         puts "timeduration #{@timeduration}"
         
@@ -289,16 +295,15 @@ class InsurancesController < ApplicationController
         @finalSum = @foreignCurrencyCoverage + @reducingDeductible + @application_fee + @executionAmountOne + @mainInsurancePremium
         
         puts "final Sum: #{ @finalSum }"
-
+        
         require 'csv'
         tickers = {}
         CSV.foreach("db/data/country_classification.csv", :headers => true, :header_converters => :symbol, :converters => :all) do |row|
             tickers[row.fields[0]] = Hash[row.headers[1..-1].zip(row.fields[1..-1])]
         end
-
+        
         @ticketbarbados = tickers[@insurance.country][:classification]
-        # puts tickers[@tradeinfo.buyer.country][:classification]
-
+        
         if tickers[@insurance.country][:classification] == "-"
             @acceptedHermesCover = false
         else
@@ -350,27 +355,27 @@ class InsurancesController < ApplicationController
         @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
         redirect_to root_path, alert: "You don't have permission" unless current_user.id = @tradeinfo.user_id
     end
-
+    
     def is_ready_first_step
         @insurance.insurance_cover && @insurance.insurance_cover
     end
-
+    
     def is_ready_hermes_kyc_two
         @insurance.country && @insurance.is_investment_good
     end
-
+    
     def is_ready_hermes_kyc_three
-        @insurance.risk_supplier_credit_cover || @insurance.risk_shipment_risk_cover  || @insurance.risk_contractual_warranty_coverage || @insurance.risk_avaline_guarantee  || @insurance.risk_further_coverage
+        @insurance.risk_supplier_credit_cover || @insurance.risk_shipment_risk_cover || @insurance.risk_contractual_warranty_coverage || @insurance.risk_avaline_guarantee || @insurance.risk_further_coverage
     end
-
+    
     def is_ready_hermes_kyc_fourth
         @insurance.describe_export_business && @insurance.reason_for_buying_good && @insurance.explain_product_branch
     end
-
+    
     def is_ready_hermes_kyc_fifth
         @insurance.ak_number && @insurance.company_name && @insurance.tax_number
     end
-
+    
     def is_ready_hermes_kyc_sixth
         @insurance.employees_count && @insurance.revenue_last_year
     end
@@ -382,30 +387,28 @@ class InsurancesController < ApplicationController
                                           :risk_further_coverage, :describe_export_business, :reason_for_buying_good, :also_provide_service_training, :product_branch,
                                           :explain_product_branch, :part_of_big_project_yes, :part_of_big_project_no, :explain_complete_project,
                                           :overall_responsibility_project_taken, :overall_project_volume_currency, :overall_project_volume, :use_of_fund,
-                                          :use_of_fund_currency,:amount_of_fund,:delivery_doesnt_affects_sensitive_areas,:delivery_affects_natural_reserves,:delivery_affects_indigenous_people,
-                                          :delivery_affects_cultural_heritage,:delivery_affects_other,:delivery_affects_other_explain,:yes_export_requires_exportlicense,:no_export_requires_exportlicense,
-                                          :which_regulation_requires_exportlicense,:exportlicense_status,:yes_deliver_secondhand_goods,:no_dont_deliver_secondhand_goods,:product_original_date_of_manifacture,
-                                          :product_remaining_life,:yes_good_overhauled_before_reselling,:no_good_arent_overhauled_before_reselling,:goods_overhauled_location,
-                                          :yes_contract_already_signed_all_parties,:no_contract_already_signed_all_parties,:goods_completion_date,:companny_internal_id,
-                                          :yes_special_contract_structure,:no_special_contract_structure,:explain_special_contract_structure,:graphic_representation_project_participants,
-                                          :contract_currency,:order_value_export_business_currency,:order_value_export_business_currency_amount,:total_delivery_value,
-                                          :percentage_of_spare_parts_in_whole_order,:more_components_open_to_exporter_currency,:more_components_open_to_exporter_amount,
-                                          :more_components_open_to_exporter_explain,:ja_customer_counts_interest,:no_customer_counts_interest,:interest_currency,:interest_amount,
-                                          :yes_price_adjustment_clause,:no_price_adjustment_clause,:explain_billing_methods,:yes_multiple_deliveries,:no_multiple_deliveries,
-                                          :delivery_start,:delivery_end,:other_important_delivery_information,:other_important_delivery_milestones,:payment_term_shortterm,
-                                          :payment_term_middleterm,:payment_term_both,:downpayment_delivery_currency,:downpayment_delivery_amount,:downpayment_delivery_description,
+                                          :use_of_fund_currency, :amount_of_fund, :delivery_doesnt_affects_sensitive_areas, :delivery_affects_natural_reserves, :delivery_affects_indigenous_people,
+                                          :delivery_affects_cultural_heritage, :delivery_affects_other, :delivery_affects_other_explain, :yes_export_requires_exportlicense, :no_export_requires_exportlicense,
+                                          :which_regulation_requires_exportlicense, :exportlicense_status, :yes_deliver_secondhand_goods, :no_dont_deliver_secondhand_goods, :product_original_date_of_manifacture,
+                                          :product_remaining_life, :yes_good_overhauled_before_reselling, :no_good_arent_overhauled_before_reselling, :goods_overhauled_location,
+                                          :yes_contract_already_signed_all_parties, :no_contract_already_signed_all_parties, :goods_completion_date, :companny_internal_id,
+                                          :yes_special_contract_structure, :no_special_contract_structure, :explain_special_contract_structure, :graphic_representation_project_participants,
+                                          :contract_currency, :order_value_export_business_currency, :order_value_export_business_currency_amount, :total_delivery_value,
+                                          :percentage_of_spare_parts_in_whole_order, :more_components_open_to_exporter_currency, :more_components_open_to_exporter_amount,
+                                          :more_components_open_to_exporter_explain, :ja_customer_counts_interest, :no_customer_counts_interest, :interest_currency, :interest_amount,
+                                          :yes_price_adjustment_clause, :no_price_adjustment_clause, :explain_billing_methods, :yes_multiple_deliveries, :no_multiple_deliveries,
+                                          :delivery_start, :delivery_end, :other_important_delivery_information, :other_important_delivery_milestones, :payment_term_shortterm,
+                                          :payment_term_middleterm, :payment_term_both, :downpayment_delivery_currency, :downpayment_delivery_amount, :downpayment_delivery_description,
                                           :source_of_fund, :source_of_fund_currency, :source_of_fund_amount, :agreed_payments_currency, :agreed_payments_amount,
-                                          :agreed_payments_output,:agreed_payments_time,:agreed_payments_some_output,:payment_vehichle,:receive_deposit_time,:repayment_profile_structure,
-                                          :loan_term_start,:loan_term_other_description,:number_of_installments,:down_payment_before_delivery_currency,:down_payment_before_delivery_amount,
-                                          :down_payment_before_delivery_explain,:sonstige_kurzfrist_agreed_payment_currency,:sonstige_kurzfrist_agreed_payment_amount,
-                                          :sonstige_kurzfrist_agreed_payment_percent,:sonstige_kurzfrist_agreed_payment_date,:sonstige_kurzfrist_agreed_payment_outpout,
-                                          :sonstige_kurzfrist_advance_payment_currency,:sonstige_kurzfrist_advance_payment_amount,:sonstige_kurzfrist_advance_payment_explain,
-                                          :sonstige_kurzfrist_deposit_received,:sonstige_kurzfrist_repayment_structure,:sonstige_kurzfrist_credit_start,
-                                          :sonstige_kurzfrist_credit_start_sonstige_explain,:sonstige_kurzfrist_number_of_installments,:sonstige_kurzfrist_payment_vehichle_explain,
-                                          :yes_sonstige_kurzfrist_certificate_of_origin,:no_sonstige_kurzfrist_certificate_of_origin,:part_of_goods__sonstige_kurzfrist_certificate_of_origin,
+                                          :agreed_payments_output, :agreed_payments_time, :agreed_payments_some_output, :payment_vehichle, :receive_deposit_time, :repayment_profile_structure,
+                                          :loan_term_start, :loan_term_other_description, :number_of_installments, :down_payment_before_delivery_currency, :down_payment_before_delivery_amount,
+                                          :down_payment_before_delivery_explain, :sonstige_kurzfrist_agreed_payment_currency, :sonstige_kurzfrist_agreed_payment_amount,
+                                          :sonstige_kurzfrist_agreed_payment_percent, :sonstige_kurzfrist_agreed_payment_date, :sonstige_kurzfrist_agreed_payment_outpout,
+                                          :sonstige_kurzfrist_advance_payment_currency, :sonstige_kurzfrist_advance_payment_amount, :sonstige_kurzfrist_advance_payment_explain,
+                                          :sonstige_kurzfrist_deposit_received, :sonstige_kurzfrist_repayment_structure, :sonstige_kurzfrist_credit_start,
+                                          :sonstige_kurzfrist_credit_start_sonstige_explain, :sonstige_kurzfrist_number_of_installments, :sonstige_kurzfrist_payment_vehichle_explain,
+                                          :yes_sonstige_kurzfrist_certificate_of_origin, :no_sonstige_kurzfrist_certificate_of_origin, :part_of_goods__sonstige_kurzfrist_certificate_of_origin,
                                           :ak_number, :company_name, :tax_number, :years_trading_without_hermes_cover, :experience_with_export_country, :adequate_claims_management,
-                                          :employees_count,:revenue_last_year)
+                                          :employees_count, :revenue_last_year)
     end
-    
-
 end
