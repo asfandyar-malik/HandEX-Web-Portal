@@ -4,8 +4,8 @@
     </div>
 
     <div class="col-md-10">
-        <section id="SECTION_85">
 
+        <section id="SECTION_85">
             <div id="DIV_85">
 
                 <div id="DIV_86">
@@ -18,7 +18,7 @@
                     <%= form_for @insurance, url: tradeinfo_insurance_path(@tradeinfo, @insurance), method: :put do |f| %>
                         <div id="DIV_112">
 
-                        <div id="DIV_228">
+                            <div id="DIV_228">
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-8 col-md-offset-2">
@@ -45,40 +45,38 @@
                                                 <label id="LABEL_114"> Wie hoch ist der Auftragswert in Euro? </label>
                                             </div>
                                             <br><br>
-                                            <div class="col-md-8 col-md-offset-2">
-                                                <p><%= @total_financing_requested %></p>
-                                            </div>
-                                            <br><br><br>
 
-                                            <div class="col-md-8 col-md-offset-2">
-                                                <button type="button" name="auftragwertbutton" value="Show Div" onclick="showPaymentGoalDiv(this)" id="BUTTON_300">
-                                                    fertig
-                                                </button>
-                                            </div>
 
                                             <% if false %>
-                                                <div class="rangeslider">
-                                                    <%= f.range_field :contract_value, :in => 0..5000000, :min => 0, :max => 5000000, :value => 1000000, :step => 1, :list => "tickmarks", :id => "rangeInput", :oninput => "output.value = rangeInput.value" %>
 
-                                                    <datalist id="tickmarks">
-                                                        <option value="0 to 50000000">0</option>
-                                                        <option></option>
-                                                        <option>100Tsd</option>
-                                                        <option>500Tsd</option>
-                                                        <option>1 Mio</option>
-                                                        <option>3 Mio</option>
-                                                        <option>5 Mio</option>
-                                                    </datalist>
-                                                    <br>
-                                                    <output id="output" for="rangeInput">500000</output>
+                                                <div class="col-md-8 col-md-offset-2">
+                                                    <p><%= @total_financing_requested %></p>
                                                 </div>
-                                                <br>
-                                                <button type="button" name="auftragwertbutton" value="Show Div" onclick="showPaymentGoalDiv(this)" id="BUTTON_300">
-                                                    fertig
-                                                </button>
-                                                </div>
+
                                             <% end %>
+
+                                            <div class="rangeslider">
+                                                <%= f.range_field :contract_value, :in => 0..5000000, :min => 0, :max => 5000000, :value => 1000000, :step => 1, :list => "tickmarks", :id => "rangeInput", :oninput => "output.value = rangeInput.value" %>
+
+                                                <datalist id="tickmarks">
+                                                    <option value="0 to 50000000">0</option>
+                                                    <option></option>
+                                                    <option>100Tsd</option>
+                                                    <option>500Tsd</option>
+                                                    <option>1 Mio</option>
+                                                    <option>3 Mio</option>
+                                                    <option>5 Mio</option>
+                                                </datalist>
+                                                <br>
+                                                <output id="output" for="rangeInput">500000</output>
                                             </div>
+                                            <br>
+                                            <button type="button" name="auftragwertbutton" value="Show Div" onclick="showPaymentGoalDiv(this)" id="BUTTON_300">
+                                                fertig
+                                            </button>
+                                        </div>
+
+                                    </div>
 
                                     <br><br>
 
@@ -136,7 +134,8 @@
                                                 <div class="row">
                                                     <div class="col-md-8 col-md-offset-2">
                                                         <p>
-                                                            Ihr Geschäft eignet sich grundsätzlich und vorbehaltlich einer
+                                                            Ihr Geschäft eignet sich grundsätzlich und vorbehaltlich
+                                                            einer
                                                             tieferen
                                                             Prüfung des Sachverhalts und der Bonität Ihres ausländischen
                                                             Bestellers
@@ -145,43 +144,61 @@
 
                                                             Dieses Icon zeigt, dass Ihr Geschäft die Kriterien für den
                                                             click&cover-Modus
-                                                            erfüllt. Hier ist – nach Vorliegen aller relevanten Informationen
+                                                            erfüllt. Hier ist – nach Vorliegen aller relevanten
+                                                            Informationen
                                                             eine
-                                                            Entscheidung innerhalb von durchschnittlich 2 Wochen möglich. <br>
+                                                            Entscheidung innerhalb von durchschnittlich 2 Wochen
+                                                            möglich. <br>
 
-                                                            Im Rahmen Ihrer weiteren Eingaben wird fortwährend geprüft, ob Ihr
+                                                            Im Rahmen Ihrer weiteren Eingaben wird fortwährend geprüft,
+                                                            ob Ihr
                                                             Geschäft
-                                                            weiterhin für den click&cover Modus geeignet ist – am Ende können
+                                                            weiterhin für den click&cover Modus geeignet ist – am Ende
+                                                            können
                                                             Sie
                                                             jedoch
-                                                            selbst entscheiden, welche Absicherungsvariante Sie wählen. <br>
-                                                            Solange Sie sich im click&cover-Modus befinden, können wir Ihnen
+                                                            selbst entscheiden, welche Absicherungsvariante Sie wählen.
+                                                            <br>
+                                                            Solange Sie sich im click&cover-Modus befinden, können wir
+                                                            Ihnen
                                                             bereits
-                                                            frühzeitig eine Preisindikation geben. Aufgrund der von Ihnen bisher
-                                                            gemachten Angaben würde sich der Preis für eine Absicherung belaufen
+                                                            frühzeitig eine Preisindikation geben. Aufgrund der von
+                                                            Ihnen bisher
+                                                            gemachten Angaben würde sich der Preis für eine Absicherung
+                                                            belaufen
                                                             auf
                                                             <br>
-                                                            zwischen <%= (@finalSum.round(2) - 100).abs.round(2)  %> EUR und <%= (@finalSum.round(2) + 100).round(2) %> EUR (ohne Gewähr - das tatsächlich
+                                                            zwischen <%= (@finalSum.round(2) - 100).abs.round(2) %> EUR
+                                                            und <%= (@finalSum.round(2) + 100).round(2) %> EUR (ohne
+                                                            Gewähr - das tatsächlich
                                                             anfallende
-                                                            Entgelt teilen wir Ihnen im Rahmen der Entscheidung mit) <br>
-                                                            Im Laufe der Antragstellung konkretisieren sich die Berechnungen –
+                                                            Entgelt teilen wir Ihnen im Rahmen der Entscheidung mit)
+                                                            <br>
+                                                            Im Laufe der Antragstellung konkretisieren sich die
+                                                            Berechnungen –
                                                             die
                                                             aktuelle Information finden Sie jeweils hinter dem
                                                             Taschenrechner-Symbol
                                                             am
                                                             rechten Bildrand. <br>
-                                                            Sollte sich im Rahmen der Einzelfallprüfung des Antrags zeigen, dass
+                                                            Sollte sich im Rahmen der Einzelfallprüfung des Antrags
+                                                            zeigen, dass
                                                             der
-                                                            click&cover-Modus nicht zulässig ist, ist weiterhin der Zugang zur
+                                                            click&cover-Modus nicht zulässig ist, ist weiterhin der
+                                                            Zugang zur
                                                             klassischen Lieferantenkreditdeckung möglich. <br>
-                                                            Sie möchten zum ersten Mal eine Hermesdeckung beantragen? Dann
+                                                            Sie möchten zum ersten Mal eine Hermesdeckung beantragen?
+                                                            Dann
                                                             lassen
                                                             Sie
-                                                            sich von uns beraten. Bitte planen Sie ein wenig mehr Zeit für Ihren
+                                                            sich von uns beraten. Bitte planen Sie ein wenig mehr Zeit
+                                                            für Ihren
                                                             ersten
-                                                            Antrag ein – wir möchten Sie zunächst bei einem Vor-Ort-Termin in
+                                                            Antrag ein – wir möchten Sie zunächst bei einem
+                                                            Vor-Ort-Termin in
                                                             Ihrem
-                                                            Unternehmen kennenlernen und Sie auf den ersten Schritten begleiten.
+                                                            Unternehmen kennenlernen und Sie auf den ersten Schritten
+                                                            begleiten.
                                                         </p>
                                                     </div>
                                                 </div>
@@ -201,18 +218,25 @@
                                             <div class="row">
                                                 <div class="col-md-8 col-md-offset-2">
                                                     <p>
-                                                        Ihr Geschäft birgt Besonderheiten, die eine Absicherung erschweren könnten: <br>
+                                                        Ihr Geschäft birgt Besonderheiten, die eine Absicherung
+                                                        erschweren könnten: <br>
 
-                                                        Es bestehen keine Deckungsmöglichkeiten für kurzfristige Geschäfte, da sie von der Europäischen Kommission als marktfähig definiert wurden. <br>
+                                                        Es bestehen keine Deckungsmöglichkeiten für kurzfristige
+                                                        Geschäfte, da sie von der Europäischen Kommission als marktfähig
+                                                        definiert wurden. <br>
 
-                                                        Gern möchten wir Ihnen die besonderen Gegebenheiten in einem persönlichen Gespräch erläutern und die Struktur Ihres Geschäfts besprechen. Bitte kontaktieren Sie uns über den untenstehenden Kontaktbutton oder rufen Sie uns unter +49 (0) 40/88 34-90 00 an.<br>
+                                                        Gern möchten wir Ihnen die besonderen Gegebenheiten in einem
+                                                        persönlichen Gespräch erläutern und die Struktur Ihres Geschäfts
+                                                        besprechen. Bitte kontaktieren Sie uns über den untenstehenden
+                                                        Kontaktbutton oder rufen Sie uns unter +49 (0) 40/88 34-90 00
+                                                        an.<br>
 
                                                     </p>
                                                 </div>
                                             </div>
 
 
-                                    <% end %>
+                                        <% end %>
 
 
 

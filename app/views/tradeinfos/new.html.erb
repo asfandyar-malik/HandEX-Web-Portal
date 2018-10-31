@@ -5,15 +5,15 @@
 
                 <div id="DIV_112">
                     <h1 id="H1_224">
-                        Product Information
+                        Exporter Information
                     </h1>
 
                     <div id="DIV_228">
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
-                                    <label id="LABEL_114"> What products do you export? </label>
-                                    <div> <%= f.text_field :goods, class: "form-control", required: true %> </div>
+                                    <label id="LABEL_114"> Company Name </label>
+                                    <div> <%= f.text_field :companyName, class: "form-control", required: true %> </div>
                                 </div>
                             </div>
 
@@ -21,15 +21,35 @@
 
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
-                                    <p><b>What is the category of products exported?</b></p>
-                                    <%= f.select :category, [["Machines", "Machines"], ["Transportation", "Transportation"], ["Chemical Products", "Chemical Products"],
-                                                             ["Metals", "Metals"], ["Plastics and Rubbers", "Plastics and Rubbers"], ["Instruments", "Instruments"],
-                                                             ["Textiles", "Textiles"], ["Paper goods", "Paper goods"], ["Weapons", "Weapons"],
-                                                             ["Mineral Products", "Mineral Products"], ["Miscellaneous", "Miscellaneous"],
-                                                             ["Foodstuffs", "Foodstuffs"], ["Stone and Glass", "Stone and Glass"],
-                                                             ["Vegetable", "Vegetable"], ["Precious Metals", "Precious Metals"], ["Wood products", "Wood products"], ["Footwear and Headwear", "Footwear and Headwear"],
-                                                             ["Animal and vegetable Bi-products", "Animal and vegetable Bi-products"], ["Arts and antiques", "Arts and antiques"]],
-                                                 prompt: "Select..." %>
+                                    <label id="LABEL_114"> Contact Name </label>
+                                    <div> <%= f.text_field :exporterRegisteredAddress, class: "form-control" %> </div>
+                                </div>
+                            </div>
+
+                            <br><br>
+
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <label id="LABEL_114"> Company Email</label>
+                                    <div> <%= f.text_field :companyEmail, class: "form-control"%> </div>
+                                </div>
+                            </div>
+
+                            <br><br>
+
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <label id="LABEL_114"> Company Phone </label>
+                                    <div> <%= f.text_field :companyPhone, class: "form-control"%> </div>
+                                </div>
+                            </div>
+
+                            <br><br>
+
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <label id="LABEL_114"> Tax Number </label>
+                                    <div> <%= f.text_field :taxId, class: "form-control" %> </div>
                                 </div>
                             </div>
 

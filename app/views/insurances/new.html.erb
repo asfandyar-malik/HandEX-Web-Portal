@@ -3,16 +3,17 @@
         <%= form_for @insurance, url: tradeinfo_insurances_path, method: :post do |f| %>
             <div id="DIV_91">
 
-                <div id="DIV_110">
-                    <h1 id="H1_225">
+               <div id="DIV_112">
+                    <h1 id="H1_224">
                         Insurance Information
                     </h1>
 
-                    <div id="DIV_226">
-                        <div class="form-group">
+                   <br><br><br><br>
 
+                   <div id="DIV_228">
+                        <div class="form-group">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6 col-md-offset-4">
                                     <label id="LABEL_114"> Wohin soll es gehen </label>
                                     <div>
                                         <%= f.select :country,
@@ -51,60 +52,19 @@
                                                      id: "B_168", prompt: "Land...", required: true %>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-                        <div class="form-group">
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label class="control-label"> Insurance Cover </label>
-                                    <%= f.select :insurance_cover, [["Manufacturing Risks", "Manufacturing Risks"], ["Short Term Credit Cover", "Short Term Credit Cover"],
-                                                                    ["Medium Term Credit Cover", "Medium Term Credit Cover"], ["Contractual Warranty Coverage", "Contractual Warranty Coverage"],
-                                                                    ["Refinancing Coverage", "Refinancing Coverage"]],
-                                                 id: "B_168", prompt: "Select..." %>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label class="control-label"> Buyer Risk Classification </label>
-                                    <%= f.select :buyer_category, [["SOV+", "SOV+"], ["SOV", "SOV"], ["CC0", "CC0"], ["SOV-", "SOV-"], ["CC1", "CC1"], ["CC2", "CC2"], ["CC3", "CC3"],
-                                                                   ["CC4", "CC4"], ["CC5", "CC5"]],
-                                                 id: "B_168", prompt: "Select..." %>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label for="start_date">Date when contract signed with Importer</label>
-                                    <div> <%= f.date_field :date_contractsigned_with_importer, id: "start_date", type: "date", class: "datepicker" %> </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label for="start_date">Expected Date when Importer receives the product</label>
-                                    <div> <%= f.date_field :expected_date_product_received_importer, id: "start_date", type: "date", class: "datepicker" %> </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
 
+                   <br><br><br><br>
 
-                    <div id="DIV_295">
-                        <%= button_to "Back", accepted_tradeinfo_path(@tradeinfo, @financial), id: "A_296", method: :get %>
-                        <button type="Submit" id="BUTTON_297"> PROCEED</button>
-                    </div>
+                   <div id="DIV_296">
+                       <%= button_to "Back", accepted_tradeinfo_path(@tradeinfo, @financial), id: "A_296", method: :get %>
+                       <button type="submit" value="-1" id="BUTTON_297">
+                           PROCEED
+                       </button>
+                   </div>
+
                 </div>
 
             </div>
