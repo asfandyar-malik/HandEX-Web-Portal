@@ -4,37 +4,45 @@
 
     <div class="sticky-header">
         <div class="container">
-            <div class="header-content d-flex">
+            <div class="header-content">
 
-                <div class="right-bar d-flex align-items-center">
-                    <div class="logo">
-                        <a href="#top" class="smooth"><%= image_tag "HandEX_logo4.png", style: 'height:4.5em;width:auto;' %></a>
+                <div class="right-bar align-items-center">
+
+                    <div class="row">
+                        <div class="col-lg-1 col-sm-1">
+                            <div class="logo">
+                                <a href="#top" class="smooth"><%= image_tag "HandEX_logo4.png", style: 'height:4.5em;width:auto;' %></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-sm-2">
+                            <div class="logo">
+                                <a href="#top" class="smooth"><%= image_tag "HandEX_logo5.png", style: 'height:3.9em;width:auto;padding-top:12%;' %></a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-9 col-sm-9">
+                            <nav class="align-items-center">
+                                <ul class="main-menu">
+                                    <a href="#top">Home</a>
+                                    <a href="#services">Warum HandEX</a>
+                                    <a href="#team">Team</a>
+                                    <a href="https://handex.typeform.com/to/lCveh5"> Kontakt </a>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
-
-                    <div class="logo">
-                        <a href="#top" class="smooth"><%= image_tag "HandEX_logo5.png", style: 'height:2.7em;width:auto;padding-top:2%;' %></a>
-                    </div>
-
-                    <nav class="d-flex align-items-center">
-                        <ul class="main-menu">
-                            <a href="#top">Home</a>
-                            <a href="#services">Warum HandEX</a>
-                            <a href="#team">Team</a>
-                            <a href="https://handex.typeform.com/to/lCveh5"> Kontakt </a>
-                        </ul>
-                    </nav>
                 </div>
             </div>
         </div>
     </div>
 </header>
+
 <!-- End Header Area -->
 <!-- Start Banner Area -->
-<section class="banner-area relative">
-    <div class="overlay overlay-bg"></div>
+<section class="banner-area">
     <div class="container">
-        <div class="row fullscreen justify-content-center align-items-center">
-            <div class="col-lg-8">
+        <div class="row fullscreen justify-content-center align-items-center vertical-align">
+            <div class="col-lg-12">
                 <div class="banner-content text-center text-background">
                     <h7 class="text-uppercase"> Schnell.Einfach.Zuverlässig.</h7>
                     <h2 class="text-uppercase"> Erhalten Sie Ihre Exportfinanzierung </h2>
@@ -45,11 +53,13 @@
                         <% if (!user_signed_in?) %>
                             <a href="/registration" class="primary-btn banner-btn-jetztanfragen h9"> Jetzt Anfragen </a>
                         <% else %>
-                            <a href="/tradeinfos/new?" class="primary-btn banner-btn-jetztanfragen h9"> Jetzt Anfragen </a>
+                            <a href="/tradeinfos/new?" class="primary-btn banner-btn-jetztanfragen h9"> Jetzt
+                                Anfragen </a>
                         <% end %>
                     <% end %>
 
-                    <a href="https://handex.typeform.com/to/lCveh5" class="primary-btn banner-btn-jetztanfragen h3"> Jetzt
+                    <a href="https://handex.typeform.com/to/lCveh5" class="primary-btn banner-btn-jetztanfragen h3">
+                        Jetzt
                         Anfragen </a>
 
                     <br>
@@ -58,7 +68,8 @@
                     <% if (!user_signed_in?) %>
                         <a href="/registration" class="primary-btn banner-btn-kunden h9"> Direkt zum Kunden Portal </a>
                     <% else %>
-                        <a href="/tradeinfos/new?" class="primary-btn banner-btn-kunden h9"> Direkt zum Kunden Portal </a>
+                        <a href="/tradeinfos/new?" class="primary-btn banner-btn-kunden h9"> Direkt zum Kunden
+                            Portal </a>
                     <% end %>
 
                 </div>
@@ -72,7 +83,7 @@
 <section id="services" class="title-bg section-full">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                 <div class="product-area-title text-center">
                     <h1 class="text-uppercase">Warum HandEX</h1>
                     <h3>Wir bieten maßgeschneiderte und flexible Exportfinanzierungen <br> für Ihre Firma </h3>
@@ -81,43 +92,59 @@
         </div>
 
         <div class="row justify-content-center">
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-product">
-                    <div class="icon">
-                        ` <span class="lnr lnr-star"></span>
-                    </div>
-                    <div class="desc">
-                        <h2>Schnell</h2>
-                        <p> In weniger als 48 Stunden erhalten Sie eine Rückmeldung zu Ihrem Finanzierungsvorhaben für
-                            Ihr Exportgeschäft. </p>
-                        <br><br><br>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-product">
-                    <div class="icon">
-                        <span class="lnr lnr-magic-wand"></span>
-                    </div>
-                    <div class="desc">
-                        <h2>Zuverlässig</h2>
-                        <p> Unser Finanzierungs- und Versicherungsangebot ist in enger Abstimmung mit etablierten
-                            Banken und Versichern entstanden. Unser Kundenservice ist 24/7 für Sie verfügbar.</p>
-                        <br>
+
+            <div class="col-xs-1"></div>
+
+            <div class="col-xs-10">
+
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-product">
+                        <div class="icon">
+                            ` <span class="lnr lnr-star"></span>
+                        </div>
+                        <div class="desc">
+                            <h2>Schnell</h2>
+                            <p> In weniger als 48 Stunden erhalten Sie eine Rückmeldung zu Ihrem Finanzierungsvorhaben
+                                für
+                                Ihr Exportgeschäft. <br><br></p>
+                            <br><br><br>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-product">
-                    <div class="icon">
-                        <span class="lnr lnr-sun"></span>
-                    </div>
-                    <div class="desc">
-                        <h2>Einfach</h2>
-                        <p>Wir digitalisieren den Exportfinanzierungs- und versicherungsprozess. <br> Mit wenig Aufwand können Sie Ihre Forderungen gegenüber Ihren Käufern im Ausland absichern oder verkaufen. Das entlastet Ihre Bilanz und gibt Ihnen mehr finanziellen Spielraum. <br></p>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-product">
+                        <div class="icon">
+                            <span class="lnr lnr-magic-wand"></span>
+                        </div>
+                        <div class="desc">
+                            <h2>Zuverlässig</h2>
+                            <p> Unser Finanzierungs- und Versicherungsangebot ist in enger Abstimmung mit etablierten
+                                Banken und Versichern entstanden. Unser Kundenservice ist 24/7 für Sie
+                                verfügbar.<br><br></p>
+                            <br>
+                        </div>
                     </div>
                 </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-product">
+                        <div class="icon">
+                            <span class="lnr lnr-sun"></span>
+                        </div>
+                        <div class="desc">
+                            <h2>Einfach</h2>
+                            <p>Wir digitalisieren den Exportfinanzierungs- und versicherungsprozess. <br> Mit wenig
+                                Aufwand
+                                können Sie Ihre Forderungen gegenüber Ihren Käufern im Ausland absichern oder verkaufen.
+                                Das
+                                entlastet Ihre Bilanz und gibt Ihnen mehr finanziellen Spielraum.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+
+            <div class="col-xs-1"></div>
+
         </div>
     </div>
 </section>
@@ -155,10 +182,10 @@
 <!-- End Reward Area -->
 
 <!-- Start Team member Area -->
-<section id="team" class="pb-150">
+<section id="team"  class="title-bg section-full">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                 <div class="product-area-title text-center">
                     <h2 class="h1"> Hinter HandEX steht ein erfahrenes Team </h2>
                 </div>
@@ -166,74 +193,85 @@
         </div>
         <div class="row justify-content-center">
 
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-member">
-                    <div class="thumb relative vincent">
-                        <div class="overlay overlay-member d-flex flex-column justify-content-end align-items-center">
-                            <p class="text-white"> Vincent hat bereits eigene Unternehmen im Bereich WearableTech
-                                gegründet und Erfahrungen im Bereich Technology M&A und Venture Capital gesammelt. Zuvor
-                                hat er seinen Master an der renommierten ESADE Business School abgeschlossen.
-                            </p>
-                            <div class="line"></div>
-                            <!--<div class="social d-flex align-items-center justify-content-center">-->
-                            <!--<a href="#"><i class="fa fa-facebook"></i></a>-->
-                            <!--<a href="#"><i class="fa fa-twitter"></i></a>-->
-                            <!--<a href="#"><i class="fa fa-linkedin"></i></a>-->
-                            <!--</div>-->
+            <div class="col-xs-1"></div>
+
+            <div class="col-xs-10">
+
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-member">
+                        <div class="thumb relative vincent">
+                            <div class="overlay overlay-member d-flex flex-column justify-content-end align-items-center">
+                                <p class="text-white"> Vincent hat bereits eigene Unternehmen im Bereich WearableTech
+                                    gegründet und Erfahrungen im Bereich Technology M&A und Venture Capital gesammelt.
+                                    Zuvor
+                                    hat er seinen Master an der renommierten ESADE Business School abgeschlossen.
+                                </p>
+                                <div class="line"></div>
+                                <!--<div class="social d-flex align-items-center justify-content-center">-->
+                                <!--<a href="#"><i class="fa fa-facebook"></i></a>-->
+                                <!--<a href="#"><i class="fa fa-twitter"></i></a>-->
+                                <!--<a href="#"><i class="fa fa-linkedin"></i></a>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+                        <div class="desc text-center">
+                            <h5 class="text-uppercase"><a href="#"> Vincent Lauer </a></h5>
+                            <p>Strategie, Produkt</p>
                         </div>
                     </div>
-                    <div class="desc text-center">
-                        <h5 class="text-uppercase"><a href="#"> Vincent Lauer </a></h5>
-                        <p>Strategie, Produkt</p>
+                </div>
+
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-member">
+                        <div class="thumb relative patrick">
+                            <div class="overlay overlay-member d-flex flex-column justify-content-end align-items-center">
+                                <p class="text-white"> Patrick Kupitz hat sein BWL-Studium an renommierten Schulen wie
+                                    die
+                                    Universität Mannheim und Copenhagen Business School absolviert und war 5 Jahre im
+                                    Bereich M&A/Corporate Development tätigt, zuletzt bei Deutsche Telekom Capital
+                                    Partners
+                                    im Bereich Private Equity. </p>
+                                <div class="line"></div>
+                                <!--<div class="social d-flex align-items-center justify-content-center">-->
+                                <!--<a href="#"><i class="fa fa-facebook"></i></a>-->
+                                <!--<a href="#"><i class="fa fa-twitter"></i></a>-->
+                                <!--<a href="#"><i class="fa fa-linkedin"></i></a>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+                        <div class="desc text-center">
+                            <h5 class="text-uppercase"><a href="#"> Patrick Kupitz </a></h5>
+                            <p> Biz Dev, Finance </p>
+                        </div>
                     </div>
                 </div>
+
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-member">
+                        <div class="thumb relative asfandyar">
+                            <div class="overlay overlay-member d-flex flex-column justify-content-end align-items-center">
+                                <p class="text-white"> Asfandyar hat als Software-Entwickler umfangreicher Erfahrung im
+                                    Bereich Künstliche Intelligenz, BigData, agile Methoden sowie Web und Mobile
+                                    Applikationen. Zuletzt hat er für die Cubic GmbH Multi-Millionen-Projekte im Bereich
+                                    Logistik geleitet. </p>
+                                <div class="line"></div>
+                                <!--<div class="social d-flex align-items-center justify-content-center">-->
+                                <!--<a href="#"><i class="fa fa-facebook"></i></a>-->
+                                <!--<a href="#"><i class="fa fa-twitter"></i></a>-->
+                                <!--<a href="#"><i class="fa fa-linkedin"></i></a>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+                        <div class="desc text-center">
+                            <h5 class="text-uppercase"><a href="#"> Asfandyar Malik </a></h5>
+                            <p> Software-Entwicklung, Datenwissenschaftler </p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-member">
-                    <div class="thumb relative patrick">
-                        <div class="overlay overlay-member d-flex flex-column justify-content-end align-items-center">
-                            <p class="text-white"> Patrick Kupitz hat sein BWL-Studium an renommierten Schulen wie die
-                                Universität Mannheim und Copenhagen Business School absolviert und war 5 Jahre im
-                                Bereich M&A/Corporate Development tätigt, zuletzt bei Deutsche Telekom Capital Partners
-                                im Bereich Private Equity. </p>
-                            <div class="line"></div>
-                            <!--<div class="social d-flex align-items-center justify-content-center">-->
-                            <!--<a href="#"><i class="fa fa-facebook"></i></a>-->
-                            <!--<a href="#"><i class="fa fa-twitter"></i></a>-->
-                            <!--<a href="#"><i class="fa fa-linkedin"></i></a>-->
-                            <!--</div>-->
-                        </div>
-                    </div>
-                    <div class="desc text-center">
-                        <h5 class="text-uppercase"><a href="#"> Patrick Kupitz </a></h5>
-                        <p> Biz Dev, Finance </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-member">
-                    <div class="thumb relative asfandyar">
-                        <div class="overlay overlay-member d-flex flex-column justify-content-end align-items-center">
-                            <p class="text-white"> Asfandyar hat als Software-Entwickler umfangreicher Erfahrung im
-                                Bereich Künstliche Intelligenz, BigData, agile Methoden sowie Web und Mobile
-                                Applikationen. Zuletzt hat er für die Cubic GmbH Multi-Millionen-Projekte im Bereich
-                                Logistik geleitet.  </p>
-                            <div class="line"></div>
-                            <!--<div class="social d-flex align-items-center justify-content-center">-->
-                            <!--<a href="#"><i class="fa fa-facebook"></i></a>-->
-                            <!--<a href="#"><i class="fa fa-twitter"></i></a>-->
-                            <!--<a href="#"><i class="fa fa-linkedin"></i></a>-->
-                            <!--</div>-->
-                        </div>
-                    </div>
-                    <div class="desc text-center">
-                        <h5 class="text-uppercase"><a href="#"> Asfandyar Malik </a></h5>
-                        <p> Software-Entwicklung, Datenwissenschaftler </p>
-                    </div>
-                </div>
-            </div>
+            <div class="col-xs-1"></div>
 
         </div>
     </div>

@@ -13,7 +13,6 @@
  *= require font-awesome
  *= require_self
  *= require css/animate
- *= require css/bootstrap
  *= require css/linearicons
  *= require css/main
  *= require css/owl.carousel
@@ -292,4 +291,9 @@ a {
 
 .panel-heading.preview img {
   width: 100%;
+}
+
+.vertical-align {
+  display: flex;
+  align-items: center;
 }
