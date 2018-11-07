@@ -1382,6 +1382,15 @@ input[type="button"]:focus {
   z-index: 50;
   height: 4px;
 }
+
+.navbar-fixed-top {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    top: 0;
+}
+
 .wizard-card .wizard-navigation .progress-with-circle .progress-bar {
   box-shadow: none;
   -webkit-transition: width .3s ease;

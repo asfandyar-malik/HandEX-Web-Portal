@@ -1,195 +1,229 @@
 <div class="container">
-        <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
+    <div class="row">
+        <div class="col-sm-12">
 
-                <div class="wizard-container">
-                    <div class="card wizard-card" data-color="red" id="wizard">
+            <div class="wizard-container">
+                <div class="card wizard-card" data-color="red" id="wizard">
 
-                        <%= form_with(model: listing, local: true) do |form| %>
-                            <% if listing.errors.any? %>
-                                <div id="error_explanation">
-                                    <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from
-                                        being saved:</h2>
+                    <%= form_with(model: listing, local: true) do |form| %>
+                        <% if listing.errors.any? %>
+                            <div id="error_explanation">
+                                <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from
+                                    being saved:</h2>
 
-                                    <ul>
-                                        <% listing.errors.full_messages.each do |message| %>
-                                            <li><%= message %></li>
-                                        <% end %>
-                                    </ul>
-                                </div>
-                            <% end %>
-
-                            <div class="field">
-                            </div>
-
-                            <div class="wizard-header">
-                                <h3 class="wizard-title">List your place</h3>
-                                <p class="category">This information will let us know more about your place.</p>
-                            </div>
-                            <div class="wizard-navigation">
-                                <div class="progress-with-circle">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" style="width: 15%;"></div>
-                                </div>
                                 <ul>
-                                    <li>
-                                        <a href="#location" data-toggle="tab">
-                                            <div class="icon-circle">
-                                                <i class="ti-map"></i>
-                                            </div>
-                                            Location
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#type" data-toggle="tab">
-                                            <div class="icon-circle">
-                                                <i class="ti-direction-alt"></i>
-                                            </div>
-                                            Type
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#facilities" data-toggle="tab">
-                                            <div class="icon-circle">
-                                                <i class="ti-panel"></i>
-                                            </div>
-                                            Facilities
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#description" data-toggle="tab">
-                                            <div class="icon-circle">
-                                                <i class="ti-comments"></i>
-                                            </div>
-                                            Comments
-                                        </a>
-                                    </li>
+                                    <% listing.errors.full_messages.each do |message| %>
+                                        <li><%= message %></li>
+                                    <% end %>
                                 </ul>
                             </div>
+                        <% end %>
 
-                            <div class="tab-content">
-                                <div class="tab-pane" id="location">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <h5 class="info-text"> Let's start with the basic details</h5>
+                        <div class="field">
+                        </div>
+
+                        <div class="wizard-header">
+                            <h3 class="wizard-title">Hermes Deckung</h3>
+                            <br><br>
+                        </div>
+                        <div class="wizard-navigation">
+
+                            <div class="progress-with-circle">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" style="width: 15%;"></div>
+                            </div>
+
+                            <ul>
+                                <li>
+                                    <a href="#location" data-toggle="tab">
+                                        <div class="icon-circle">
+                                            <i class="ti-map"></i>
                                         </div>
-                                        <div class="col-sm-5 col-sm-offset-1">
-                                            <div class="form-group">
-                                                <label>City</label>
-                                                <%= form.text_field :city, class: 'form-control', placeholder: 'Where is your place located?' %>
-                                            </div>
+                                        Das Wichtigste Zuerst
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#type" data-toggle="tab">
+                                        <div class="icon-circle">
+                                            <i class="ti-direction-alt"></i>
                                         </div>
-                                        <div class="col-sm-5">
-                                            <div class="form-group">
-                                                <label>Country</label><br>
-                                                <%= form.select :country, options_for_select(['Afghanistan', 'Albania', 'Algeria', 'American Samoa', 'Andorra', 'Angola', 'Anguilla', 'Antarctica'], listing.country ? listing.country : nil), {}, class: 'form-control' %>
-                                            </div>
+                                        Ihre Risiken
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#facilities" data-toggle="tab">
+                                        <div class="icon-circle">
+                                            <i class="ti-panel"></i>
                                         </div>
-                                        <div class="col-sm-5 col-sm-offset-1">
-                                            <div class="form-group">
-                                                <label>Accommodates</label>
-                                                <%= form.select :accommodates, options_for_select(['1 Person', '2 Person', '3 Person', '4 Person', '5 Person', '6+ Person'], listing.accommodates ? listing.accommodates : nil), {}, class: 'form-control' %>
-                                            </div>
+                                        Ihr Geschäft
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#description" data-toggle="tab">
+                                        <div class="icon-circle">
+                                            <i class="ti-comments"></i>
                                         </div>
-                                        <div class="col-sm-5">
-                                            <div class="form-group">
-                                                <label>Rent price</label>
-                                                <div class="input-group">
-                                                    <%= form.text_field :price, class: 'form-control', placeholder: 'Rent price per day' %>
-                                                    <span class="input-group-addon">$</span>
-                                                </div>
+                                        Ihr Kunde
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#important-at-end" data-toggle="tab">
+                                        <div class="icon-circle">
+                                            <i class="ti-comments"></i>
+                                        </div>
+                                        Notwendiges zum Schluss
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <br><br>
+
+
+                        <div class="tab-content">
+                            <div class="tab-pane" id="location">
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h5 class="info-text"> Let's start with the basic details</h5>
+                                    </div>
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>City</label>
+                                            <%= form.text_field :city, class: 'form-control', placeholder: 'Where is your place located?' %>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <label>Country</label><br>
+                                            <%= form.select :country, options_for_select(['Afghanistan', 'Albania', 'Algeria', 'American Samoa', 'Andorra', 'Angola', 'Anguilla', 'Antarctica'], listing.country ? listing.country : nil), {}, class: 'form-control' %>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>Accommodates</label>
+                                            <%= form.select :accommodates, options_for_select(['1 Person', '2 Person', '3 Person', '4 Person', '5 Person', '6+ Person'], listing.accommodates ? listing.accommodates : nil), {}, class: 'form-control' %>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <label>Rent price</label>
+                                            <div class="input-group">
+                                                <%= form.text_field :price, class: 'form-control', placeholder: 'Rent price per day' %>
+                                                <span class="input-group-addon">$</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane" id="type">
-                                    <h5 class="info-text">What type of location do you have? </h5>
-                                    <div class="row">
-                                        <div class="col-sm-8 col-sm-offset-2">
-                                            <div class="col-sm-4 col-sm-offset-2">
-                                                <div class="choice <%= 'active' if listing.home == 'on' %>" data-toggle="wizard-checkbox">
-                                                    <%= check_box_tag "listing[home]", listing.home ? listing.home : nil %>
-                                                    <div class="card card-checkboxes card-hover-effect">
-                                                        <i class="ti-home"></i>
-                                                        <p>Home</p>
-                                                    </div>
+
+                            </div>
+                            <div class="tab-pane" id="type">
+                                <h5 class="info-text">What type of location do you have? </h5>
+                                <div class="row">
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <div class="col-sm-4 col-sm-offset-2">
+                                            <div class="choice <%= 'active' if listing.home == 'on' %>" data-toggle="wizard-checkbox">
+                                                <%= check_box_tag "listing[home]", listing.home ? listing.home : nil %>
+                                                <div class="card card-checkboxes card-hover-effect">
+                                                    <i class="ti-home"></i>
+                                                    <p>Home</p>
                                                 </div>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div class="choice <%= 'active' if listing.appartment == 'on' %>" data-toggle="wizard-checkbox">
-                                                    <%= check_box_tag "listing[appartment]", listing.appartment ? listing.appartment : nil %>
-                                                    <div class="card card-checkboxes card-hover-effect">
-                                                        <i class="ti-package"></i>
-                                                        <p>Apartment</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane" id="facilities">
-                                    <h5 class="info-text">Tell us more about facilities. </h5>
-                                    <div class="row">
-                                        <div class="col-sm-5 col-sm-offset-1">
-                                            <div class="form-group">
-                                                <label>Your place is good for</label>
-                                                <%= form.select :place_good_for, options_for_select(['Business', 'Vacation', 'Work'], listing.place_good_for ? listing.place_good_for : nil), {}, class: 'form-control' %>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-5">
-                                            <div class="form-group">
-                                                <label>Is air conditioning included ?</label>
-                                                <%= form.select :air_conditioning, options_for_select(['Yes', 'No'], listing.air_conditioning ? listing.air_conditioning : nil), {}, class: 'form-control' %>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-5 col-sm-offset-1">
-                                            <div class="form-group">
-                                                <label>Does your place have wi-fi?</label>
-                                                <%= form.select :wifi, options_for_select(['Yes', 'No'], listing.wifi ? listing.wifi : nil), {}, class: 'form-control' %>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-5">
-                                            <div class="form-group">
-                                                <label>Is breakfast included?</label>
-                                                <%= form.select :breakfast, options_for_select(['Yes', 'No'], listing.breakfast ? listing.breakfast : nil), {}, class: 'form-control' %>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane" id="description">
-                                    <div class="row">
-                                        <h5 class="info-text"> Drop us a small description. </h5>
-                                        <div class="col-sm-6 col-sm-offset-1">
-                                            <div class="form-group">
-                                                <label>Place description</label>
-                                                <%= form.text_area :description, class: 'form-control', rows: 9 %>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Example</label>
-                                                <p class="description">"The place is really nice. We use it every sunday
-                                                    when we go fishing. It is so awesome."</p>
+                                            <div class="choice <%= 'active' if listing.appartment == 'on' %>" data-toggle="wizard-checkbox">
+                                                <%= check_box_tag "listing[appartment]", listing.appartment ? listing.appartment : nil %>
+                                                <div class="card card-checkboxes card-hover-effect">
+                                                    <i class="ti-package"></i>
+                                                    <p>Apartment</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="wizard-footer">
-                                <div class="pull-right">
-                                    <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next'/>
-                                    <%= form.submit class: 'btn btn-finish btn-fill btn-danger btn-wd' %>
+                            <div class="tab-pane" id="facilities">
+                                <h5 class="info-text">Tell us more about facilities. </h5>
+                                <div class="row">
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>Your place is good for</label>
+                                            <%= form.select :place_good_for, options_for_select(['Business', 'Vacation', 'Work'], listing.place_good_for ? listing.place_good_for : nil), {}, class: 'form-control' %>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <label>Is air conditioning included ?</label>
+                                            <%= form.select :air_conditioning, options_for_select(['Yes', 'No'], listing.air_conditioning ? listing.air_conditioning : nil), {}, class: 'form-control' %>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>Does your place have wi-fi?</label>
+                                            <%= form.select :wifi, options_for_select(['Yes', 'No'], listing.wifi ? listing.wifi : nil), {}, class: 'form-control' %>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <label>Is breakfast included?</label>
+                                            <%= form.select :breakfast, options_for_select(['Yes', 'No'], listing.breakfast ? listing.breakfast : nil), {}, class: 'form-control' %>
+                                        </div>
+                                    </div>
                                 </div>
-
-                                <div class="pull-left">
-                                    <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous'/>
+                            </div>
+                            <div class="tab-pane" id="description">
+                                <div class="row">
+                                    <h5 class="info-text"> Drop us a small description. </h5>
+                                    <div class="col-sm-6 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>Place description</label>
+                                            <%= form.text_area :description, class: 'form-control', rows: 9 %>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Example</label>
+                                            <p class="description">"The place is really nice. We use it every sunday
+                                                when we go fishing. It is so awesome."</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="clearfix"></div>
+                            </div>
+                            <div class="tab-pane" id="important-at-end">
+                                <div class="row">
+                                    <h5 class="info-text"> Drop us a small description. </h5>
+                                    <div class="col-sm-6 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>Place description</label>
+                                            <%= form.text_area :description, class: 'form-control', rows: 9 %>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Example</label>
+                                            <p class="description">"The place is really nice. We use it every sunday
+                                                when we go fishing. It is so awesome."</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
-                        <% end %>
+                        </div>
+                        <div class="wizard-footer">
+                            <div class="pull-right">
+                                <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next'/>
+                                <%= form.submit class: 'btn btn-finish btn-fill btn-danger btn-wd' %>
+                            </div>
 
-                    </div>
+                            <div class="pull-left">
+                                <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous'/>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                    <% end %>
+
                 </div>
             </div>
         </div>
     </div>
+</div>
