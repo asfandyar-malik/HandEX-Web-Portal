@@ -8,7 +8,7 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
     <meta name="viewport" content="width=device-width"/>
 
-    <%= csrf_meta_tags %>i
+    <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
 
@@ -49,37 +49,16 @@
 </head>
 
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-<div class="image-container set-full-height" style="background-image: url('<%= asset_path ['edit','create','new','upadate'].include?(params[:action]) ? 'paper-2.jpeg' : '' %>')">
+    <div class="image-container set-full-height" style="background-image: url('<%= asset_path ['edit','create','new','upadate'].include?(params[:action]) ? 'paper-2.jpeg' : '' %>')">
+        <%= yield %>
+    </div>
 
-    <a href="/">
-        <div class="logo-container">
-            <div class="logo">
-                <%= image_tag 'new_logo.png' %>
-            </div>
-            <div class="brand">
-                Listing APP
-            </div>
-        </div>
-    </a>
-
-    <%= yield %>
-
-    <% if ['edit', 'create', 'new', 'upadate'].include?(params[:action]) %>
-        <div class="footer">
-            <div class="container text-center">
-                Made with <i class="fa fa-heart heart"></i> by <a href="/">Creative Tim</a>. Free download
-                <a href="">here.</a>
-            </div>
-        </div>
-        </div>
-    <% end %>
-
-    </body>
+</body>
 </html>
