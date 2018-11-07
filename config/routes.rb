@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
     
     root to: 'pages#home'
+
+    resources :listings
+    get 'listings/index' => 'listings#index'
     
     get 'pages/impressum' => 'pages#impressum'
     get 'pages/termsAndConditions' => 'pages#termsAndConditions'

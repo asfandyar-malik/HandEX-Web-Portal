@@ -1,0 +1,47 @@
+    <div class="container">
+
+        <p id="notice"><%= notice %></p>
+
+        <h1>Listing</h1>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">City</th>
+                <th scope="col">Country</th>
+                <th scope="col">Accommodates</th>
+                <th scope="col">Price</th>
+                <th scope="col">Home</th>
+                <th scope="col">Appartment</th>
+                <th scope="col">Place Type</th>
+                <th scope="col">Air Conditioning</th>
+                <th scope="col">Wifi</th>
+                <th scope="col">Breakfast</th>
+                <th scope="col">Description</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <th scope="row"><%= @listing.id %></th>
+                <td>Listing <%= @listing.id %></td>
+                <td><%= @listing.city %></td>
+                <td><%= @listing.country %></td>
+                <td><%= @listing.accommodates %></td>
+                <td><%= @listing.price %></td>
+                <td><%= @listing.home == 'on' ? 'Yes' : 'No' %></td>
+                <td><%= @listing.appartment == 'on' ? 'Yes' : 'No' %></td>
+                <td><%= @listing.place_good_for %></td>
+                <td><%= @listing.wifi %></td>
+                <td><%= @listing.breakfast %></td>
+                <td><%= @listing.description %></td>
+                <td>
+                    <%= link_to 'Edit', edit_listing_path(@listing), class: 'btn btn-warning btn-xs' %>
+                    <%= link_to 'Destroy', @listing, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' %>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>

@@ -6,39 +6,49 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+
     <%= stylesheet_link_tag 'dashboard', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'pages', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'dripcapital', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Fonts and Icons -->
+
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta name="google-site-verification" content="W5f_acjB7RRBkTjQsgza4zJpdUCne6ll6Ztk5v4LwOg" />
+
+    <meta name="google-site-verification" content="W5f_acjB7RRBkTjQsgza4zJpdUCne6ll6Ztk5v4LwOg"/>
 
     <%= favicon_link_tag 'fav_5.png' %>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <script type = "text/javascript" >
-        function disableBrowserBack(){window.history.forward();}
+    <script type="text/javascript">
+        function disableBrowserBack() {
+            window.history.forward();
+        }
+
         setTimeout("disableBrowserBack()", 0);
-        window.onunload=function(){null};
+        window.onunload = function () {
+            null
+        };
     </script>
 
 </head>
 
-    <body>
+<body>
 
-        <%= render 'shared/navbar' %>
-            <br>
-            <br>
-        <%= render 'shared/message' %>
+    <%= render 'shared/navbar' %>
+    <br>
+    <br>
+    <%= render 'shared/message' %>
 
-        <div class="container">
-            <%= yield %>
-        </div>
+    <div class="container">
+        <%= yield %>
+    </div>
 
-    </body>
+</body>
 
 </html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>WizardListing</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+    <meta name="viewport" content="width=device-width"/>
+
+    <%= csrf_meta_tags %>i
+    <%= csp_meta_tag %>
+
+
+    <%= stylesheet_link_tag 'listing', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'css/themify-icons-demo', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'css/themify-icons', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'css/paper-bootstrap-wizard', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'css/demo', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Fonts and Icons -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+
+    <%= javascript_include_tag 'activestorage.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'turbolinks.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'js/jquery-2.2.4.min', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'js/bootstrap.min', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'js/jquery.bootstrap.wizard', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'js/demo', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'js/paper-bootstrap-wizard', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'js/jquery.validate.min', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="image-container set-full-height" style="background-image: url('<%= asset_path ['edit','create','new','upadate'].include?(params[:action]) ? 'paper-2.jpeg' : '' %>')">
+
+    <a href="/">
+        <div class="logo-container">
+            <div class="logo">
+                <%= image_tag 'new_logo.png' %>
+            </div>
+            <div class="brand">
+                Listing APP
+            </div>
+        </div>
+    </a>
+
+    <%= yield %>
+
+    <% if ['edit', 'create', 'new', 'upadate'].include?(params[:action]) %>
+        <div class="footer">
+            <div class="container text-center">
+                Made with <i class="fa fa-heart heart"></i> by <a href="/">Creative Tim</a>. Free download
+                <a href="">here.</a>
+            </div>
+        </div>
+        </div>
+    <% end %>
+
+    </body>
+</html>

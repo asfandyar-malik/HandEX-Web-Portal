@@ -21,3 +21,9 @@
 //= require owl.carousel
 //= require mixitup
 //= require_tree .
+//= stub 'js/demo'
+//= stub 'js/jquery.bootstrap.wizard'
+//= stub 'js/jquery.validate.min'
+//= stub 'js/paper-bootstrap-wizard'
+//= stub 'js/bootstrap.min'
+//= stub 'js/jquery-2.2.4.min'

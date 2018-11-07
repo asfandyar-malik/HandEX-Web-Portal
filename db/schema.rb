@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_23_105500) do
+ActiveRecord::Schema.define(version: 2018_11_06_213734) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "citext"
   enable_extension "plpgsql"
 
   create_table "bankaccounts", force: :cascade do |t|
@@ -200,6 +201,22 @@ ActiveRecord::Schema.define(version: 2018_10_23_105500) do
     t.string "employees_count"
     t.string "revenue_last_year"
     t.index ["tradeinfo_id"], name: "index_insurances_on_tradeinfo_id"
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "city"
+    t.string "country"
+    t.string "accommodates"
+    t.string "price"
+    t.string "home"
+    t.string "appartment"
+    t.string "place_good_for"
+    t.string "air_conditioning"
+    t.string "wifi"
+    t.string "breakfast"
+    t.text "description"
   end
 
   create_table "officialdocuments", force: :cascade do |t|
