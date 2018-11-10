@@ -78,52 +78,52 @@
 
                         <br><br>
 
-
                         <div class="tab-content">
                             <div class="tab-pane" id="location">
-
+                                <br><br><br>
                                 <div class="row">
-                                    <div class="col-sm-12">
-                                        <h5 class="info-text"> Let's start with the basic details</h5>
-                                    </div>
-                                    <div class="col-sm-5 col-sm-offset-1">
-                                        <div class="form-group">
-                                            <label>City</label>
-                                            <%= form.text_field :city, class: 'form-control', placeholder: 'Where is your place located?' %>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <div class="form-group">
-                                            <label>Country</label><br>
-                                            <%= form.select :country, options_for_select(['Afghanistan', 'Albania', 'Algeria', 'American Samoa', 'Andorra', 'Angola', 'Anguilla', 'Antarctica'], listing.country ? listing.country : nil), {}, class: 'form-control' %>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-5 col-sm-offset-1">
-                                        <div class="form-group">
-                                            <label>Accommodates</label>
-                                            <%= form.select :accommodates, options_for_select(['1 Person', '2 Person', '3 Person', '4 Person', '5 Person', '6+ Person'], listing.accommodates ? listing.accommodates : nil), {}, class: 'form-control' %>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <div class="form-group">
-                                            <label>Rent price</label>
-                                            <div class="input-group">
-                                                <%= form.text_field :price, class: 'form-control', placeholder: 'Rent price per day' %>
-                                                <span class="input-group-addon">$</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <%# Okay lets go forward from here ! %>
-
                                     <div class="col-sm-5 col-sm-offset-1">
                                         <div class="form-group">
                                             <label>Wohin soll es gehen</label>
-                                            <%= form.select :accommodates, options_for_select(['1 Person', '2 Person', '3 Person', '4 Person', '5 Person', '6+ Person'], listing.accommodates ? listing.accommodates : nil), {}, class: 'form-control' %>
+                                            <%= form.select :accommodates,
+                                                            options_for_select([["Andorra", "Andorra"], ["Australia", "Australia"], ["Austria", "Austria"], ["Barbados", "Barbados"], ["Belgium", "Belgium"], ["Brunei Darussalam", "Brunei Darussalam"],
+                                                                                ["Canada", "Canada"], ["Chile", "Chile"], ["Comoros", "Comoros"], ["Cyprus", "Cyprus"], ["Czech Republic", "Czech Republic"], ["Denmark", "Denmark"], ["Dominica", "Dominica"],
+                                                                                ["Estonia", "Estonia"], ["Finland", "Finland"], ["France", "France"], ["Germany", "Germany"], ["Greece", "Greece"], ["Grenada", "Grenada"], ["Hungary", "Hungary"], ["Iceland", "Iceland"],
+                                                                                ["Ireland", "Ireland"], ["Israel", "Israel"], ["Italy", "Italy"], ["Japan", "Japan"], ["Kiribati", "Kiribati"], ["Korea", "Korea"], ["Latvia", "Latvia"], ["Liechtenstein", "Liechtenstein"],
+                                                                                ["Lithuania", "Lithuania"], ["Luxembourg", "Luxembourg"], ["Malta", "Malta"], ["Marshall Islands", "Marshall Islands"], ["Micronesia", "Micronesia"], ["Monaco", "Monaco"], ["Nauru", "Nauru"],
+                                                                                ["Netherlands", "Netherlands"], ["New Zealand", "New Zealand"], ["Norway", "Norway"], ["Palau", "Palau"], ["Poland", "Poland"], ["Portugal", "Portugal"],
+                                                                                ["Saint Kitts and Nevis", "Saint Kitts and Nevis"], ["Saint Lucia", "Saint Lucia"], ["Saint Vincent and the Grenadines", "Saint Vincent and the Grenadines"], ["Samoa", "Samoa"],
+                                                                                ["San Marino", "San Marino"], ["Sao Tome and Principe", "Sao Tome and Principe"], ["Sint Maarten", "Sint Maarten"], ["Slovak Republic", "Slovak Republic"], ["Slovenia", "Slovenia"],
+                                                                                ["Solomon Islands", "Solomon Islands"], ["Spain", "Spain"], ["Sweden", "Sweden"], ["Switzerland", "Switzerland"], ["Tonga", "Tonga"], ["Tuvalu", "Tuvalu"], ["United Kingdom", "United Kingdom"],
+                                                                                ["United States", "United States"], ["Vanuatu", "Vanuatu"], ["West Bank and Gaza", "West Bank and Gaza"], ["Kosovo", "Kosovo"], ["South Korea", "South Korea"], ["Ukraine", "Ukraine"],
+                                                                                ["Belarus", "Belarus"], ["Pakistan", "Pakistan"], ["Bosnia and Herzegovina", "Bosnia and Herzegovina"], ["Lebanon", "Lebanon"], ["Iraq", "Iraq"], ["Ethiopia", "Ethiopia"], ["Libya", "Libya"],
+                                                                                ["Moldova", "Moldova"], ["Venezuela", "Venezuela"], ["Cuba", "Cuba"], ["Liberia", "Liberia"], ["Sudan", "Sudan"], ["Montenegro", "Montenegro"], ["Mali", "Mali"], ["Yemen", "Yemen"],
+                                                                                ["Congo", "Congo"], ["Democratic Republic of the Congo", "Democratic Republic of the Congo"], ["Guinea", "Guinea"], ["Mauritania", "Mauritania"], ["Mozambique", "Mozambique"],
+                                                                                ["Burkina Faso", "Burkina Faso"], ["Syrian Arab Republic", "Syrian Arab Republic"], ["Kyrgyzstan", "Kyrgyzstan"], ["Afghanistan", "Afghanistan"], ["Tajikistan", "Tajikistan"],
+                                                                                ["Madagascar", "Madagascar"], ["Lao People’s Democratic Republic", "Lao People’s Democratic Republic"], ["Zimbabwe", "Zimbabwe"], ["Haiti", "Haiti"], ["Djibouti", "Djibouti"],
+                                                                                ["Niger", "Niger"], ["Sierra Leone", "Sierra Leone"], ["Chad", "Chad"], ["Malawi", "Malawi"], ["Equatorial Guinea", "Equatorial Guinea"], ["Antigua and Barbuda", "Antigua and Barbuda"],
+                                                                                ["Burundi", "Burundi"], ["Eritrea", "Eritrea"], ["Somalia", "Somalia"], ["Gambia", "Gambia"], ["Central African Republic", "Central African Republic"], ["Belize", "Belize"],
+                                                                                ["South Sudan", "South Sudan"], ["Guinea-Bissau", "Guinea-Bissau"], ["Cabo Verde", "Cabo Verde"], ["Myanmar", "Myanmar"], ["Egypt", "Egypt"], ["Iran", "Iran"], ["Argentina", "Argentina"],
+                                                                                ["Kazakhstan", "Kazakhstan"], ["Nigeria", "Nigeria"], ["Uzbekistan", "Uzbekistan"], ["Ecuador", "Ecuador"], ["Turkmenistan", "Turkmenistan"], ["Georgia", "Georgia"], ["Kenya", "Kenya"],
+                                                                                ["Sri Lanka", "Sri Lanka"], ["Albania", "Albania"], ["Ghana", "Ghana"], ["Angola", "Angola"], ["Côte d’Ivoire", "Côte d’Ivoire"], ["Armenia", "Armenia"], ["Cambodia", "Cambodia"],
+                                                                                ["Tanzania", "Tanzania"], ["Cameroon", "Cameroon"], ["Mongolia", "Mongolia"], ["Uganda", "Uganda"], ["Jamaica", "Jamaica"], ["Nicaragua", "Nicaragua"], ["Zambia", "Zambia"],
+                                                                                ["Benin", "Benin"], ["Togo", "Togo"], ["Rwanda", "Rwanda"], ["Gabon", "Gabon"], ["Maldives", "Maldives"], ["Nepal", "Nepal"], ["Papua New Guinea", "Papua New Guinea"],
+                                                                                ["Suriname", "Suriname"], ["Seychelles", "Seychelles"], ["Fiji", "Fiji"], ["Guyana", "Guyana"], ["Swaziland", "Swaziland"], ["Bhutan", "Bhutan"], ["Lesotho", "Lesotho"],
+                                                                                ["Timor-Leste", "Timor-Leste"], ["Brazil", "Brazil"], ["Croatia", "Croatia"], ["Vietnam", "Vietnam"], ["Serbia", "Serbia"], ["Tunisia", "Tunisia"],
+                                                                                ["Former Yugoslav Republic of Macedonia", "Former Yugoslav Republic of Macedonia"], ["Bangladesh", "Bangladesh"], ["Jordan", "Jordan"], ["Azerbaijan", "Azerbaijan"],
+                                                                                ["Paraguay", "Paraguay"], ["Bolivia", "Bolivia"], ["El Salvador", "El Salvador"], ["Honduras", "Honduras"], ["Senegal", "Senegal"], ["Curaçao", "Curaçao"], ["Turkey", "Turkey"],
+                                                                                ["Russia", "Russia"], ["South Africa", "South Africa"], ["Algeria", "Algeria"], ["Colombia", "Colombia"], ["Bahrain", "Bahrain"], ["Guatemala", "Guatemala"],
+                                                                                ["Dominican Republic", "Dominican Republic"], ["Namibia", "Namibia"], ["Aruba", "Aruba"], ["Romania", "Romania"], ["Mexico", "Mexico"], ["India", "India"],
+                                                                                ["Thailand", "Thailand"], ["Bulgaria", "Bulgaria"], ["Indonesia", "Indonesia"], ["Qatar", "Qatar"], ["Philippines", "Philippines"], ["Morocco", "Morocco"],
+                                                                                ["Peru", "Peru"], ["Oman", "Oman"], ["Panama", "Panama"], ["Uruguay", "Uruguay"], ["Costa Rica", "Costa Rica"], ["Trinidad and Tobago", "Trinidad and Tobago"],
+                                                                                ["Mauritius", "Mauritius"], ["Bahamas", "Bahamas"], ["China", "China"], ["UAE", "UAE"], ["Saudi Arabia", "Saudi Arabia"], ["Hong Kong (China)", "Hong Kong (China)"],
+                                                                                ["Malaysia", "Malaysia"], ["Kuwait", "Kuwait"], ["Macau (China)", "Macau (China)"], ["Botswana", "Botswana"], ["Chinese Taipei", "Chinese Taipei"], ["Singapore", "Singapore"]],
+                                                                               listing.accommodates ? listing.accommodates : nil), {}, class: 'form-control' %>
                                         </div>
                                     </div>
-
-                                    <div class="col-sm-5">
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-5 col-sm-offset-1">
                                         <div class="form-group">
                                             <label>Handelt es sich bei Ihrer Ware um
                                                 Investitionsgüter?</label>
@@ -133,8 +133,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
-
+                                <div class="row">
                                     <div id="showHideDivTotalFinancingRequired" style="display: none">
                                         <div class="row">
                                             <div class="col-sm-5 col-sm-offset-1">
@@ -190,14 +191,14 @@
                                     <div id="showHideDivResultMessage" style="display: none">
 
                                         <div class="row">
-                                            <div class="col-md-8 col-md-offset-2">
+                                            <div class="col-md-8 col-md-offset-1">
                                                 <p>
                                                     Congratulations
                                                 </p>
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-md-8 col-md-offset-2">
+                                                <div class="col-md-8 col-md-offset-1">
                                                     <p>
                                                         Ihr Geschäft eignet sich grundsätzlich und vorbehaltlich
                                                         einer
@@ -1729,15 +1730,16 @@
                                         </div>
                                         <br>
 
-                                        <div class="row">
-                                            <div class="col-md-4 col-md-offset-2">
-                                                <%= form.check_box :country_category, id: "Yes-deliveryAddress" %> Ja
-                                            </div>
-                                            <div class="col-md-4">
-                                                <%= form.check_box :country_category, id: "No-deliveryAddress" %> Nein
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-4 col-md-offset-2">
+                                                    <%= form.check_box :country_category, id: "Yes-deliveryAddress"%> Ja
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <%= form.check_box :country_category, id: "No-deliveryAddress" %> Nein
+                                                </div>
                                             </div>
                                         </div>
-
                                         <br><br>
                                     </div>
 
