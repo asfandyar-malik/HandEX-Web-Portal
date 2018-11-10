@@ -440,7 +440,8 @@
                                                 <label>Wir tragen die Gesamtverantwortung für das Projekt</label>
                                                 <div class="row">
                                                     <div class="col-md-4 col-md-offset-2">
-                                                        <%= form.check_box :is_investment_good, id: "investmentGood", class: 'form-control' %>Ja
+                                                        <%= form.check_box :is_investment_good, id: "investmentGood", class: 'form-control' %>
+                                                        Ja
                                                     </div>
                                                 </div>
                                             </div>
@@ -462,44 +463,1928 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-5 col-sm-offset-1">
+                                            <div class="form-group">
+                                                <label> Bitte tragen Sie hier so detailliert wie möglich ein, wie das
+                                                    Gesamtprojekt
+                                                    finanziert ist. </label>
+                                                <br><br>
+
+                                                <p><i>Mittelverwendung</i></p>
+
+                                                <div class="row">
+                                                    <div class="col-md-4 col-md-offset-1">
+                                                        <%= form.text_field :use_of_fund, class: "form-control", placeholder: "fiktives Beispiel: Maschine \"x\"", prompt: "fiktives Beispiel: Maschine \"x\" " %>
+                                                    </div>
+
+                                                    <div class="col-md-3 ">
+                                                        <%= form.select :use_of_fund_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], {}, class: "form-control", prompt: "Currency..." %>
+                                                    </div>
+
+                                                    <div class="col-md-4 ">
+                                                        <%= form.text_field :amount_of_fund, class: "form-control", placeholder: "Betrag" %>
+                                                    </div>
+                                                </div>
+
+                                                <br>
+
+                                                <p><i>Mittelherkunft</i></p>
+
+                                                <div class="row">
+                                                    <div class="col-md-4 col-md-offset-1">
+                                                        <%= form.text_field :source_of_fund, class: "form-control", placeholder: "z.B. \"ECA-Finanzierung\" " %>
+                                                    </div>
+
+                                                    <div class="col-md-3 ">
+                                                        <%= form.select :source_of_fund_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], {}, class: "form-control", prompt: "Currency..." %>
+                                                    </div>
+
+                                                    <div class="col-md-4 ">
+                                                        <%= form.text_field :source_of_fund_amount, class: "form-control", placeholder: "Betrag" %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <hr align="middle" width="90%">
+                                            <div class="col-md-12">
+                                                <p> Betreffen Ihre Lieferungen bzw. Leistungen ein sensibles
+                                                    Gebiet? </p>
+                                                <br>
+
+                                                <p><i>Als sensible Gebiete gelten Nationalparks und andere durch
+                                                    nationales oder
+                                                    internationales Recht geschützte Gebiete sowie sensible Regionen von
+                                                    internationaler,
+                                                    nationaler oder regionaler Bedeutung.</i></p>
+                                                <br><br><br>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <%= form.check_box :delivery_doesnt_affects_sensitive_areas, class: "form-control", id: "privateSector" %>
+                                                    <br><br>
+                                                    <div><p> Nein </p></div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <%= form.check_box :delivery_affects_natural_reserves, class: "form-control", id: "privateSector" %>
+                                                    <br><br>
+                                                    <div><p> Naturschutzgebiet </p></div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <%= form.check_box :delivery_affects_indigenous_people, class: "form-control", id: "privateSector" %>
+                                                    <br><br>
+                                                    <div><p>Bedeutung für indigene Völker </p></div>
+                                                </div>
+                                            </div>
+
+                                            <br><br>
+
+                                            <div class="row">
+
+                                                <div class="col-md-5    ">
+                                                    <%= form.check_box :delivery_affects_cultural_heritage, class: "form-control", id: "privateSector" %>
+                                                    <br><br>
+                                                    <div><p> Archäologische oder kulturelle Bedeutung </p></div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <%= form.check_box :delivery_affects_other, class: "form-control", id: "privateSector" %>
+                                                    <br><br>
+                                                    <div><p> Sonstige </p></div>
+                                                </div>
+                                            </div>
+
+                                            <div id="entlastung" class="col-md-10 col-md-offset-2" style="display: none">
+                                                <p>Bitte konkretisieren Sie, um was für ein sensibles Gebiet es sich
+                                                    handelt
+                                                <p></p>
+                                                <%= form.text_field :delivery_affects_other_explain, class: "form-control" %>
+                                            </div>
+                                            <hr align="middle" width="90%">
+
+                                            <br><br>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="workwithothercompanies">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p> Ist Ihr Export ausfuhrgenehmigungspflichtig?
+                                                <p>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-3 col-md-offset-4">
+                                                <%= form.check_box :yes_export_requires_exportlicense, class: "form-control", id: "ja_exportlicense_requirement" %>
+                                                Ja
+                                            </div>
+                                            <div class="col-md-3">
+                                                <%= form.check_box :no_export_requires_exportlicense, class: "form-control", id: "nein_exportlicense_requirement" %>
+                                                Nein
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                </div>
+
+                                <div id="exportLicenseRequirement" style="display: none">
+
+                                    <div class="form-group">
+                                        <div class="col-md-10 col-md-offset-2">
+                                            <p> Aus welchen Vorschriften bzw. welchem Teil/Abschnitt der Ausfuhrliste
+                                                ergibt
+                                                sich
+                                                die Genehmigungspflicht? </p>
+                                            <div> <%= form.text_area :which_regulation_requires_exportlicense, class: "form-control" %> </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-10 col-md-offset-2">
+                                            <br><br>
+                                            <p> Die Ausfuhrgenehmigung .. </p>
+                                        </div>
+
+                                        <div class="col-md-6 col-md-offset-4">
+                                            <%= form.select :exportlicense_status, [["... wurde erteilt.", "... wurde erteilt."], ["... ist beantragt.", "... ist beantragt."], ["... ist noch zu beantragen.", "... ist noch zu beantragen."]], class: "form-control", id: "B_168", prompt: "... wurde erteilt." %>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div id="workwithothercompanies">
+                                    <div class="form-group">
+
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <br>
+                                                <p> Liefern Sie gebrauchte Ware?
+                                                <p>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-3 col-md-offset-4">
+                                                <%= form.check_box :yes_deliver_secondhand_goods, class: "form-control", id: "yes_secondhand_goods" %>
+                                                Ja
+                                            </div>
+                                            <div class="col-md-3">
+                                                <%= form.check_box :no_dont_deliver_secondhand_goods, class: "form-control", id: "no_secondhand_goods" %>
+                                                Nein
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <br>
+                                </div>
+
+                                <div id="deliverSecondHandGoods" style="display: none">
+
+                                    <div class="form-group">
+
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p>Wann wurde die Ware ursprünglich gefertigt und wie lang ist die
+                                                    Restlebensdauer?</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <br><br>
+                                            <div class="col-md-4 col-md-offset-3">
+                                                <div> <%= form.text_field :product_original_date_of_manifacture, class: "form-control", placeholder: "Jahr der Fertigung" %> </div>
+                                            </div>
+                                            <div class="col-md-4 ">
+                                                <div> <%= form.text_field :product_remaining_life, class: "form-control", placeholder: "Restlebensdauer in Jahren" %> </div>
+                                            </div>
+                                        </div>
+                                        <br><br>
+
+
+                                        <div id="outdatedGoods">
+                                            <div class="form-group">
+
+                                                <div class="row">
+                                                    <div class="col-md-10 col-md-offset-2">
+                                                        <br><br>
+                                                        <p> Wird die Ware vor dem Weiterverkauf überholt? </p>
+                                                    </div>
+                                                </div>
+                                                <br>
+
+                                                <div class="row">
+                                                    <div class="col-md-3 col-md-offset-4">
+                                                        <%= form.check_box :yes_good_overhauled_before_reselling, class: "form-control", id: "yes_outdated_goods" %>
+                                                        Ja
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <%= form.check_box :no_good_arent_overhauled_before_reselling, class: "form-control", id: "no_outdated_goods" %>
+                                                        Nein
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <div class="col-md-10 col-md-offset-2">
+                                                        <br><br>
+                                                        <p> Wo wird die Ware überholt? </p>
+                                                    </div>
+                                                </div>
+                                                <br>
+
+                                                <div class="row">
+                                                    <div class="col-md-6 col-md-offset-4">
+                                                        <%= form.select :goods_overhauled_location, [["In Deuschland", "In Deuschland"], ["im Ausland", "im Ausland"],
+                                                                                                     ["sowohl als auch", "sowohl als auch"]], id: "B_168", class: "form-control", prompt: "Deutschland oder Ausland..." %>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div id="workwithothercompanies">
+
+                                    <div class="form-group">
+
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <br>
+                                                <p> Haben bereits alle Parteien den Vertrag für das Exportgeschäft
+                                                    unterzeichnet?
+                                                <p>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-3 col-md-offset-4">
+                                                <%= form.check_box :yes_contract_already_signed_all_parties, class: "form-control", id: "ja_contractsigned" %>
+                                                Ja
+                                            </div>
+                                            <div class="col-md-3">
+                                                <%= form.check_box :no_contract_already_signed_all_parties, class: "form-control", id: "nein_contractsigned" %>
+                                                Nein
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <br><br>
+                                </div>
+
+                                <div id="contractSigned" style="display: none">
+
+                                    <div class="form-group">
+
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p>Bitte geben Sie das Abschlussdatum des Vertrags und optional eine
+                                                    interne
+                                                    Referenz an</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <br><br>
+                                            <div class="col-md-4 col-md-offset-3">
+                                                <div> <%= form.date_field :goods_completion_date, class: "form-control", id: "start_date", type: "date", class: "datepicker" %> </div>
+                                            </div>
+
+                                            <div class="col-md-4 ">
+                                                <div> <%= form.text_field :companny_internal_id, class: "form-control", placeholder: "Ihre interne Vertragskennung" %> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="specialContractStructure">
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p> Vereinbaren Sie mit Ihrem Vertragspartner eine besondere
+                                                    Vertragsstruktur?
+                                                <p>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-3 col-md-offset-4">
+                                                <%= form.check_box :yes_special_contract_structure, class: "form-control", id: "yes_specialcontractstructure" %>
+                                                Ja
+                                            </div>
+                                            <div class="col-md-3">
+                                                <%= form.check_box :no_special_contract_structure, class: "form-control", id: "no_specialcontractstructure" %>
+                                                Nein
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                </div>
+
+                                <div id="yesNoSpecialContractStructure" style="display: none">
+
+                                    <div class="form-group">
+
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p>Bitte erläutern Sie diese näher.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <div> <%= form.text_field :explain_special_contract_structure, class: "form-control" %> </div>
+                                            </div>
+                                            <br><br><br>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-10 col-md-offset-2">
+                                            <p> Wenn Sie möchten, laden Sie eine graphische Darstellung (z.B.
+                                                Zusammenhang
+                                                der Projektbeteiligten) hoch. </p>
+                                            <br><br>
+                                        </div>
+                                        <div class="col-md-7 col-md-offset-4">
+                                            <%= form.file_field :graphic_representation_project_participants, class: "form-control" %>
+                                            <br><br>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div id="workwithothercompanies">
+                                    <div class="form-group">
+                                        <div class="col-md-10 col-md-offset-2">
+                                            <p> Welche Vertragswährung vereinbaren Sie?
+                                            </p>
+                                        </div>
+
+                                        <div class="col-md-6 col-md-offset-4">
+                                            <%= form.select :contract_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168", class: "form-control", prompt: "Currency..." %>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="contractAmount">
+                                    <br><br><br><br><br><br>
+
+                                    <div class="form-group">
+                                        <div class="row">
+
+                                            <hr align="middle" width="90%">
+                                            <br><br>
+                                            <div class="col-md-10 col-md-offset-2">
+
+                                                <h3> Bitte geben Sie den Auftragswert an. </h3>
+
+                                                <div class="row">
+                                                    <br>
+                                                    <div class="col-md-4 col-md-offset-2">
+                                                        <%= form.select :order_value_export_business_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
+                                                    </div>
+                                                    <div class="col-md-4 ">
+                                                        <div> <%= form.text_field :order_value_export_business_currency_amount, class: "form-control", placeholder: "0,00" %> </div>
+                                                    </div>
+                                                </div>
+                                                <br><br>
+                                                <div class="row">
+                                                    <br>
+                                                    <h4><i>Wie hoch ist der Lieferwert?</i></h4>
+                                                    <div class="col-md-10 col-md-offset-2">
+                                                        <div> <%= form.text_field :total_delivery_value, class: "form-control", placeholder: "0,00" %> </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <br>
+                                                    <h4><i> Wie hoch ist der Anteil der Ersatzteile am Auftragswert?</i>
+                                                    </h4>
+                                                    <div class="col-md-10 col-md-offset-2">
+                                                        <div> <%= form.text_field :percentage_of_spare_parts_in_whole_order, class: "form-control", placeholder: "0,00" %> </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <br>
+                                                    <h4><i> Wenn weitere Bestandteile offen gegenüber Ihrem Kunden
+                                                        ausgewiesen werden, tragen Sie diese bitte hier ein.</i></h4>
+                                                    <div class="col-md-3 col-md-offset-1">
+                                                        <%= form.select :more_components_open_to_exporter_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div> <%= form.text_field :more_components_open_to_exporter_amount, class: "form-control", placeholder: "Betrag" %> </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div> <%= form.text_field :more_components_open_to_exporter_explain, class: "form-control", placeholder: "Beschreibung" %> </div>
+                                                    </div>
+                                                </div>
+
+                                                <br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="interestCountedCustomer">
+
+                                    <div class="form-group">
+
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p> Berechnen Sie Ihrem Kunden Zinsen?
+                                                <p>
+                                            </div>
+                                        </div>
+                                        <br>
+
+
+                                        <div class="row">
+                                            <div class="col-md-3 col-md-offset-4">
+                                                <%= form.check_box :ja_customer_counts_interest, class: "form-control", id: "ja_customercountsinterest" %>
+                                                Ja
+                                            </div>
+                                            <div class="col-md-3">
+                                                <%= form.check_box :no_customer_counts_interest, class: "form-control", id: "nein_customercountsinterest" %>
+                                                Nein
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <br><br>
+                                </div>
+
+                                <div id="yesNoCustomerCountInterest" style="display: none">
+
+                                    <div class="form-group">
+
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p>Bitte geben Sie die Zinsen an:</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-2 col-md-offset-3">
+                                                <%= form.select :interest_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168", prompt: "EUR" %>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div> <%= form.text_field :interest_amount, class: "form-control", placeholder: "Betrag" %> </div>
+                                            </div>
+                                            <br><br><br>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="priceAdjustmentClause">
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p> Haben Sie mit Ihrem Kunden eine Preisgleitklausel vereinbart?
+                                                <p>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-3 col-md-offset-4">
+                                                <%= form.check_box :yes_price_adjustment_clause, class: "form-control", id: "ja_priceadjustmentclause" %>
+                                                Ja
+                                            </div>
+                                            <div class="col-md-3">
+                                                <%= form.check_box :no_price_adjustment_clause, class: "form-control", id: "nein_priceadjustmentclause" %>
+                                                Nein
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+
+                                    </div>
+                                </div>
+
+                                <div id="yesNoPriceAdjustmentClause" style="display: none">
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <div> <%= form.text_field :explain_billing_methods, class: "form-control", placeholder: "Bitte beschreiben Sie die Details zur Verrechnungsmethode (Prozent- oder Betragsverfahren)." %> </div>
+                                            </div>
+                                            <br><br><br>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="multipleDeliveries">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p> Versenden Sie Ihre Waren/Güter/Anlagen in mehreren Lieferungen?
+                                                <p>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-3 col-md-offset-4">
+                                                <%= form.check_box :yes_multiple_deliveries, class: "form-control", id: "ja_multipledeliveries" %>
+                                                Ja
+                                            </div>
+                                            <div class="col-md-3">
+                                                <%= form.check_box :no_multiple_deliveries, class: "form-control", id: "nein_multipledeliveries" %>
+                                                Nein
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+                                    </div>
+                                </div>
+
+                                <div id="yesNoMultipleDeliveries" style="display: none">
+
+                                    <div class="form-group">
+                                        <div class="row">
+
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p> Bitte teilen Sie uns die Liefer- und ggf. Leistungstermine Ihres
+                                                    Exportgeschäftes
+                                                    mit.
+                                                </p>
+                                            </div>
+
+                                            <br>
+                                            <div class="col-md-3 col-md-offset-4">
+                                                <h4><i>Lieferbeginn</i></h4>
+                                                <div> <%= form.date_field :delivery_start, id: "start_date", type: "date", class: "datepicker" %> </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <h4><i>Lieferende</i></h4>
+                                                <div> <%= form.date_field :delivery_end, id: "start_date", type: "date", class: "datepicker" %> </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <br>
+                                            <div class="col-md-3 col-md-offset-4">
+                                                <div> <%= form.text_field :other_important_delivery_information, class: "form-control", placeholder: "Weiterer zahlungsrelevanter Termin" %> </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div> <%= form.text_field :other_important_delivery_milestones, class: "form-control", placeholder: "z.B. Milestone xy" %> </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div id="termOfPayments">
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <br>
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p>Wie sind Ihre Zahlungsbedingungen gestaltet?
+                                                <p>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-3 col-md-offset-1">
+                                                    <%= form.check_box :payment_term_shortterm, class: "form-control", id: "kurzfristig-termofpayments" %>
+                                                    <br><br>
+                                                    <div><p><b> kurzfristig (bis zu 2 Jahre Kreditlaufzeit) </b></p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <%= form.check_box :payment_term_middleterm, class: "form-control", id: "mittel-termofpayments" %>
+                                                    <br><br>
+                                                    <div><p><b> mittel-/langfristig (über 2 Jahre Kreditlaufzeit) </b>
+                                                    </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <%= form.check_box :payment_term_both, class: "form-control", id: "sowohlkurzfristig-termofpayments" %>
+                                                    <br><br>
+                                                    <div><p><b> sowohl kurzfristig als auch mittel-/langfristig </b></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr align="middle" width="90%">
+
+                                            <br><br>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div id="KurzFristigTermOfPayment" style="display: none">
+
+                                    <div class="form-group">
+
+                                        <div class="row">
+                                            <br>
+                                            <p> Sofern Sie eine Anzahlung vereinbart haben, die vor Lieferbeginn
+                                                geleistet
+                                                wird,
+                                                geben Sie bitte den entsprechenden Betrag an.</p>
+                                            <div class="col-md-3 col-md-offset-1">
+                                                <%= form.select :downpayment_delivery_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div> <%= form.text_field :downpayment_delivery_amount, class: "form-control", placeholder: "Betrag" %> </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div> <%= form.text_field :downpayment_delivery_description, class: "form-control", placeholder: "Beschreibung" %> </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <br><br><br><br>
+                                            <p> Welche Zahlungen vereinbaren Sie?</p>
+
+                                            <div class="col-md-2 ">
+                                                <p>1. Rate</p>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <%= form.select :agreed_payments_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00" %> </div>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
+                                            </div>
+                                            <div class="col-md-1 ">
+                                                <p>%</p>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <%= form.select :agreed_payments_time, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
+                                                                                        ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
+                                                                                        ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
+                                                                                        ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
+                                                                                        ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
+                                                                                        ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
+                                                                                        ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
+                                                                                        ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
+                                                                                        ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
+                                                                                        ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
+                                                                                        ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
+                                                                                        ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
+                                                ], class: "form-control", id: "B_168" %>
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                <div> <%= form.text_field :agreed_payments_some_output, class: "form-control" %> </div>
+                                            </div>
+
+
+                                            <div id="workwithothercompanies">
+                                                <div class="row">
+                                                    <div class="col-md-10 col-md-offset-2">
+                                                        <br><br><br>
+                                                        <p> Wenn Sie Zahlungsvehikel wie z.B. Wechsel, Sola-Wechsel oder
+                                                            Promissory
+                                                            Notes
+                                                            vereinbart haben, so geben Sie dies bitte hier an.
+                                                        </p>
+                                                        <div> <%= form.text_field :payment_vehichle, class: "form-control" %> </div>
+                                                    </div>
+                                                </div>
+
+                                                <br><br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="MittelTermOfPayment" style="display: none">
+
+                                    <div class="form-group">
+
+
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p>Wann werden Sie die Anzahlung erhalten?
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-6 col-md-offset-4">
+                                                <%= form.select :receive_deposit_time, [["vor Fabrikationsbeginn", "vor Fabrikationsbeginn"],
+                                                                                        ["vor Liefer /- Leistungbeginn", "vor Liefer /- Leistungbeginn"],
+                                                                                        ["bei Betriebsbereitschaft", "bei Betriebsbereitschaft"],
+                                                                                        ["anderer Termin", "anderer Termin"]], id: "B_168", class: "form-control", prompt: "vor Fabrikationsbeginn..." %>
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+
+
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p>Wie gestaltet sich das Tilgungsprofil?
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-6 col-md-offset-4">
+                                                <%= form.select :repayment_profile_structure, [["Monatliche Tilgungsraten", "Monatliche Tilgungsraten"],
+                                                                                               ["Vierteljährliche Tilgungsprofil", "Vierteljährliche Tilgungsprofil"],
+                                                                                               ["Halbjährige Tilgungsprofil", "Halbjährige Tilgungsprofil"],
+                                                                                               ["Unregelmäßig", "Unregelmäßig"],
+                                                ], class: "form-control", id: "B_168" %>
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+
+                                        <hr align="middle" width="90%">
+
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p>Wann beginnt die Kreditlaufzeit (Starting Point)?
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-6 col-md-offset-4">
+                                                <%= form.select :loan_term_start, [["mit Lieferung", "mit Lieferung"],
+                                                                                   ["mit erster Lieferung (bei mehreren Lieferungen)", "mit erster Lieferung (bei mehreren Lieferungen)"],
+                                                                                   ["mit jeweiliger Lieferung (bei mehreren Lieferungen)", "mit jeweiliger Lieferung (bei mehreren Lieferungen)"],
+                                                                                   ["mittlerer gewogener Liefertermin (bei mehreren Lieferungen)", "mittlerer gewogener Liefertermin (bei mehreren Lieferungen)"],
+                                                                                   ["mit Betriebsbereitschaft", "mit Betriebsbereitschaft"],
+                                                                                   ["sonstige", "sonstige"],
+
+                                                ], class: "form-control", id: "B_168" %>
+
+
+                                            </div>
+                                            <div class="col-md-8 col-md-offset-3">
+                                                <br>
+                                                <%= form.text_field :loan_term_other_description, class: "form-control", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <hr align="middle" width="90%">
+                                    <br>
+
+                                    <div id="workwithothercompanies">
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p> Bitte geben Sie hier die Anzahl der Raten ein
+                                                </p>
+
+                                                <div class="col-md-6 col-md-offset-3">
+                                                    <%= form.text_field :number_of_installments, class: "form-control", placeholder: "Anzahl der Raten" %>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+                                    </div>
+
+                                </div>
+
+                                <div id="SonstigeKurzFristigTermOfPayment" style="display: none">
+
+                                    <div class="form-group">
+
+                                        <div class="row">
+                                            <br>
+                                            <p> Sofern Sie eine Anzahlung vereinbart haben, die vor Lieferbeginn
+                                                geleistet
+                                                wird,
+                                                geben Sie bitte den entsprechenden Betrag an.</p>
+                                            <div class="col-md-3 col-md-offset-1">
+                                                <%= form.select :down_payment_before_delivery_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div> <%= form.text_field :down_payment_before_delivery_amount, class: "form-control", placeholder: "Betrag" %> </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div> <%= form.text_field :down_payment_before_delivery_explain, class: "form-control", placeholder: "Beschreibung" %> </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <br>
+                                            <p> Welche Zahlungen vereinbaren Sie?</p>
+
+                                            <div class="col-md-2 ">
+                                                <p>1. Rate</p>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <%= form.select :sonstige_kurzfrist_agreed_payment_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_amount, class: "form-control", placeholder: "0,00" %> </div>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_percent, class: "form-control" %> </div>
+                                            </div>
+                                            <div class="col-md-1 ">
+                                                <p>%</p>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <%= form.select :sonstige_kurzfrist_agreed_payment_date, [["bis zu 2 Monate", "bis zu 2 Monate"],
+                                                                                                          ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
+                                                                                                          ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
+                                                                                                          ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
+                                                                                                          ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
+                                                                                                          ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
+                                                                                                          ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
+                                                                                                          ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
+                                                                                                          ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
+                                                                                                          ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
+                                                                                                          ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
+                                                                                                          ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
+                                                ], class: "form-control", id: "B_168", prompt: "bis zu 1 Monate" %>
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_output, class: "form-control" %> </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <br><br><br>
+                                            <p>Bitte geben Sie die Höhe der An- und Zwischenzahlungen an.</p> <br>
+
+                                            <h4><i>Bitte beachten Sie, dass die Anzahlung stets vor Lieferung gezahlt
+                                                werden
+                                                und bei
+                                                mittel- /langfristigen Zahlungsbediungungen mindestens 15 % des
+                                                Auftragswerts
+                                                betragen
+                                                muss (auf Grund internationaler Bestimmungen).. </i></h4>
+                                            <br>
+
+                                            <div class="col-md-3 col-md-offset-1">
+                                                <%= form.select :sonstige_kurzfrist_advance_payment_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div> <%= form.text_field :sonstige_kurzfrist_advance_payment_amount, class: "form-control", placeholder: "0,00" %> </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div> <%= form.text_field :sonstige_kurzfrist_advance_payment_explain, class: "form-control", placeholder: "" %> </div>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <p>%</p>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p>Wann werden Sie die Anzahlung erhalten?
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-6 col-md-offset-4">
+                                                <%= form.select :sonstige_kurzfrist_deposit_received, [["vor Fabrikationsbeginn", "vor Fabrikationsbeginn"],
+                                                                                                       ["vor Liefer /- Leistungbeginn", "vor Liefer /- Leistungbeginn"],
+                                                                                                       ["bei Betriebsbereitschaft", "bei Betriebsbereitschaft"],
+                                                                                                       ["anderer Termin", "anderer Termin"]], class: "form-control", id: "B_168", prompt: "vor Fabrikationsbeginn..." %>
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+
+
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p>Wie gestaltet sich das Tilgungsprofil?
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-6 col-md-offset-4">
+                                                <%= form.select :sonstige_kurzfrist_repayment_structure, [["Monatliche Tilgungsraten", "Monatliche Tilgungsraten"],
+                                                                                                          ["Vierteljährliche Tilgungsprofil", "Vierteljährliche Tilgungsprofil"],
+                                                                                                          ["Halbjährige Tilgungsprofil", "Halbjährige Tilgungsprofil"],
+                                                                                                          ["Unregelmäßig", "Unregelmäßig"],
+                                                ], id: "B_168", class: "form-control", prompt: "Monatliche Tilgungsraten..." %>
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+
+                                        <hr align="middle" width="90%">
+
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p>Wann beginnt die Kreditlaufzeit (Starting Point)?
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-6 col-md-offset-4">
+                                                <%= form.select :sonstige_kurzfrist_credit_start, [["mit Lieferung", "mit Lieferung"],
+                                                                                                   ["mit erster Lieferung (bei mehreren Lieferungen)", "mit erster Lieferung (bei mehreren Lieferungen)"],
+                                                                                                   ["mit jeweiliger Lieferung (bei mehreren Lieferungen)", "mit jeweiliger Lieferung (bei mehreren Lieferungen)"],
+                                                                                                   ["mittlerer gewogener Liefertermin (bei mehreren Lieferungen)", "mittlerer gewogener Liefertermin (bei mehreren Lieferungen)"],
+                                                                                                   ["mit Betriebsbereitschaft", "mit Betriebsbereitschaft"],
+                                                                                                   ["sonstige", "sonstige"],
+
+                                                ], id: "B_168", class: "form-control", prompt: "mit Lieferung..." %>
+
+
+                                            </div>
+                                            <div class="col-md-8 col-md-offset-3">
+                                                <br>
+                                                <%= form.text_field :sonstige_kurzfrist_credit_start_sonstige_explain, class: "form-control", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div id="workwithothercompanies">
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p> Bitte geben Sie hier die Anzahl der Raten ein
+                                                </p>
+
+                                                <div class="col-md-6 col-md-offset-3">
+                                                    <%= form.text_field :sonstige_kurzfrist_number_of_installments, class: "form-control", placeholder: "Anzahl der Raten" %>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+                                    </div>
+
+
+                                    <div id="workwithothercompanies">
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+
+                                                <p> Wenn Sie Zahlungsvehikel wie z.B. Wechsel, Sola-Wechsel oder
+                                                    Promissory
+                                                    Notes vereinbart haben, so geben Sie dies bitte hier an.
+                                                </p>
+                                                <div> <%= form.text_field :sonstige_kurzfrist_payment_vehichle_explain, class: "form-control" %> </div>
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+                                    </div>
+
+                                </div>
+
+                                <div id="certificateOfOrigin">
+                                    <div class="form-group">
+                                        <div class="col-md-10 col-md-offset-2">
+                                            <p>Bekommen Sie für die zu liefernde Ware ein deutsches
+                                                Warenursprungszeugnis? </p>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-3 col-md-offset-1">
+                                                <%= form.check_box :yes_sonstige_kurzfrist_certificate_of_origin, class: "form-control", id: "yes_certificateoforigin" %>
+                                                Ja
+                                            </div>
+                                            <div class="col-md-4">
+                                                <%= form.check_box :no_sonstige_kurzfrist_certificate_of_origin, class: "form-control", id: "no_certificateoforigin" %>
+                                                Nein
+                                            </div>
+                                            <div class="col-md-4">
+                                                <%= form.check_box :part_of_goods__sonstige_kurzfrist_certificate_of_origin, class: "form-control", id: "teil-certificateoforigin" %>
+                                                für
+                                                Teile
+                                                der
+                                                Ware
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="yesNoCertificateOfOrigin" style="display: none">
+
+                                    <br><br>
+
+                                    <div class="form-group">
+                                        <div class="col-md-11 col-md-offset-1">
+                                            <p> Bitte geben Sie die Zulieferungen aus dem Ausland an. </p>
+                                        </div>
+                                        <br><br>
+
+                                        <div class="row">
+                                            <div class="col-md-3 col-md-offset-2">
+                                                <%= form.select :country_category,
+                                                                [["Andorra", "Andorra"], ["Australia", "Australia"], ["Austria", "Austria"], ["Barbados", "Barbados"], ["Belgium", "Belgium"], ["Brunei Darussalam", "Brunei Darussalam"],
+                                                                 ["Canada", "Canada"], ["Chile", "Chile"], ["Comoros", "Comoros"], ["Cyprus", "Cyprus"], ["Czech Republic", "Czech Republic"], ["Denmark", "Denmark"], ["Dominica", "Dominica"],
+                                                                 ["Estonia", "Estonia"], ["Finland", "Finland"], ["France", "France"], ["Germany", "Germany"], ["Greece", "Greece"], ["Grenada", "Grenada"], ["Hungary", "Hungary"], ["Iceland", "Iceland"],
+                                                                 ["Ireland", "Ireland"], ["Israel", "Israel"], ["Italy", "Italy"], ["Japan", "Japan"], ["Kiribati", "Kiribati"], ["Korea", "Korea"], ["Latvia", "Latvia"], ["Liechtenstein", "Liechtenstein"],
+                                                                 ["Lithuania", "Lithuania"], ["Luxembourg", "Luxembourg"], ["Malta", "Malta"], ["Marshall Islands", "Marshall Islands"], ["Micronesia", "Micronesia"], ["Monaco", "Monaco"], ["Nauru", "Nauru"],
+                                                                 ["Netherlands", "Netherlands"], ["New Zealand", "New Zealand"], ["Norway", "Norway"], ["Palau", "Palau"], ["Poland", "Poland"], ["Portugal", "Portugal"],
+                                                                 ["Saint Kitts and Nevis", "Saint Kitts and Nevis"], ["Saint Lucia", "Saint Lucia"], ["Saint Vincent and the Grenadines", "Saint Vincent and the Grenadines"], ["Samoa", "Samoa"],
+                                                                 ["San Marino", "San Marino"], ["Sao Tome and Principe", "Sao Tome and Principe"], ["Sint Maarten", "Sint Maarten"], ["Slovak Republic", "Slovak Republic"], ["Slovenia", "Slovenia"],
+                                                                 ["Solomon Islands", "Solomon Islands"], ["Spain", "Spain"], ["Sweden", "Sweden"], ["Switzerland", "Switzerland"], ["Tonga", "Tonga"], ["Tuvalu", "Tuvalu"], ["United Kingdom", "United Kingdom"],
+                                                                 ["United States", "United States"], ["Vanuatu", "Vanuatu"], ["West Bank and Gaza", "West Bank and Gaza"], ["Kosovo", "Kosovo"], ["South Korea", "South Korea"], ["Ukraine", "Ukraine"],
+                                                                 ["Belarus", "Belarus"], ["Pakistan", "Pakistan"], ["Bosnia and Herzegovina", "Bosnia and Herzegovina"], ["Lebanon", "Lebanon"], ["Iraq", "Iraq"], ["Ethiopia", "Ethiopia"], ["Libya", "Libya"],
+                                                                 ["Moldova", "Moldova"], ["Venezuela", "Venezuela"], ["Cuba", "Cuba"], ["Liberia", "Liberia"], ["Sudan", "Sudan"], ["Montenegro", "Montenegro"], ["Mali", "Mali"], ["Yemen", "Yemen"],
+                                                                 ["Congo", "Congo"], ["Democratic Republic of the Congo", "Democratic Republic of the Congo"], ["Guinea", "Guinea"], ["Mauritania", "Mauritania"], ["Mozambique", "Mozambique"],
+                                                                 ["Burkina Faso", "Burkina Faso"], ["Syrian Arab Republic", "Syrian Arab Republic"], ["Kyrgyzstan", "Kyrgyzstan"], ["Afghanistan", "Afghanistan"], ["Tajikistan", "Tajikistan"],
+                                                                 ["Madagascar", "Madagascar"], ["Lao People’s Democratic Republic", "Lao People’s Democratic Republic"], ["Zimbabwe", "Zimbabwe"], ["Haiti", "Haiti"], ["Djibouti", "Djibouti"],
+                                                                 ["Niger", "Niger"], ["Sierra Leone", "Sierra Leone"], ["Chad", "Chad"], ["Malawi", "Malawi"], ["Equatorial Guinea", "Equatorial Guinea"], ["Antigua and Barbuda", "Antigua and Barbuda"],
+                                                                 ["Burundi", "Burundi"], ["Eritrea", "Eritrea"], ["Somalia", "Somalia"], ["Gambia", "Gambia"], ["Central African Republic", "Central African Republic"], ["Belize", "Belize"],
+                                                                 ["South Sudan", "South Sudan"], ["Guinea-Bissau", "Guinea-Bissau"], ["Cabo Verde", "Cabo Verde"], ["Myanmar", "Myanmar"], ["Egypt", "Egypt"], ["Iran", "Iran"], ["Argentina", "Argentina"],
+                                                                 ["Kazakhstan", "Kazakhstan"], ["Nigeria", "Nigeria"], ["Uzbekistan", "Uzbekistan"], ["Ecuador", "Ecuador"], ["Turkmenistan", "Turkmenistan"], ["Georgia", "Georgia"], ["Kenya", "Kenya"],
+                                                                 ["Sri Lanka", "Sri Lanka"], ["Albania", "Albania"], ["Ghana", "Ghana"], ["Angola", "Angola"], ["Côte d’Ivoire", "Côte d’Ivoire"], ["Armenia", "Armenia"], ["Cambodia", "Cambodia"],
+                                                                 ["Tanzania", "Tanzania"], ["Cameroon", "Cameroon"], ["Mongolia", "Mongolia"], ["Uganda", "Uganda"], ["Jamaica", "Jamaica"], ["Nicaragua", "Nicaragua"], ["Zambia", "Zambia"],
+                                                                 ["Benin", "Benin"], ["Togo", "Togo"], ["Rwanda", "Rwanda"], ["Gabon", "Gabon"], ["Maldives", "Maldives"], ["Nepal", "Nepal"], ["Papua New Guinea", "Papua New Guinea"],
+                                                                 ["Suriname", "Suriname"], ["Seychelles", "Seychelles"], ["Fiji", "Fiji"], ["Guyana", "Guyana"], ["Swaziland", "Swaziland"], ["Bhutan", "Bhutan"], ["Lesotho", "Lesotho"],
+                                                                 ["Timor-Leste", "Timor-Leste"], ["Brazil", "Brazil"], ["Croatia", "Croatia"], ["Vietnam", "Vietnam"], ["Serbia", "Serbia"], ["Tunisia", "Tunisia"],
+                                                                 ["Former Yugoslav Republic of Macedonia", "Former Yugoslav Republic of Macedonia"], ["Bangladesh", "Bangladesh"], ["Jordan", "Jordan"], ["Azerbaijan", "Azerbaijan"],
+                                                                 ["Paraguay", "Paraguay"], ["Bolivia", "Bolivia"], ["El Salvador", "El Salvador"], ["Honduras", "Honduras"], ["Senegal", "Senegal"], ["Curaçao", "Curaçao"], ["Turkey", "Turkey"],
+                                                                 ["Russia", "Russia"], ["South Africa", "South Africa"], ["Algeria", "Algeria"], ["Colombia", "Colombia"], ["Bahrain", "Bahrain"], ["Guatemala", "Guatemala"],
+                                                                 ["Dominican Republic", "Dominican Republic"], ["Namibia", "Namibia"], ["Aruba", "Aruba"], ["Romania", "Romania"], ["Mexico", "Mexico"], ["India", "India"],
+                                                                 ["Thailand", "Thailand"], ["Bulgaria", "Bulgaria"], ["Indonesia", "Indonesia"], ["Qatar", "Qatar"], ["Philippines", "Philippines"], ["Morocco", "Morocco"],
+                                                                 ["Peru", "Peru"], ["Oman", "Oman"], ["Panama", "Panama"], ["Uruguay", "Uruguay"], ["Costa Rica", "Costa Rica"], ["Trinidad and Tobago", "Trinidad and Tobago"],
+                                                                 ["Mauritius", "Mauritius"], ["Bahamas", "Bahamas"], ["China", "China"], ["UAE", "UAE"], ["Saudi Arabia", "Saudi Arabia"], ["Hong Kong (China)", "Hong Kong (China)"],
+                                                                 ["Malaysia", "Malaysia"], ["Kuwait", "Kuwait"], ["Macau (China)", "Macau (China)"], ["Botswana", "Botswana"], ["Chinese Taipei", "Chinese Taipei"], ["Singapore", "Singapore"]],
+                                                                id: "B_168", class: "form-control", prompt: "EU-Länder" %>
+                                            </div>
+
+                                            <div class="col-md-3 ">
+                                                <%= form.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168", prompt: "Currency..." %>
+                                            </div>
+
+                                            <div class="col-md-4 ">
+                                                <%= form.text_field :country_category, class: "form-control" %>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <br><br>
+
+                                    <div class="form-group">
+                                        <div class="col-md-11 col-md-offset-1">
+                                            <p> Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig
+                                                sind. </p>
+                                        </div>
+                                        <br><br>
+
+                                        <div class="row">
+                                            <div class="col-md-8 col-md-offset-2">
+                                                <%= form.text_field :country_category, class: "form-control" %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="securityForBusiness">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p> Sind für Ihr Geschäft Sicherheiten vorgesehen?
+                                                <p>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-3 col-md-offset-4">
+                                                <%= form.check_box :country_category, class: "form-control", id: "Yes-securityForBusiness" %>
+                                                Ja
+                                            </div>
+                                            <div class="col-md-3">
+                                                <%= form.check_box :country_category, class: "form-control", id: "No-securityForBusiness" %>
+                                                Nein
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+
+                                    </div>
+                                </div>
+
+                                <div id="typeOfSecurity" style="display: none">
+                                    <div class="form-group">
+
+                                        <div class="col-md-11 col-md-offset-1">
+                                            <p> Welche Art von Sicherheiten? </p>
+                                        </div>
+                                        <br><br>
+
+                                        <div class="row">
+                                            <div class="col-md-5 col-md-offset-3">
+                                                <%= form.select :country_category, [["Unbestätigtes Akkreditiv einer Bank", "Unbestätigtes Akkreditiv einer Bank"],
+                                                                                    ["Bestätigtes Akkreditiv", "Bestätigtes Akkreditiv"],
+                                                                                    ["Zahlungsgarantie einer Bank", "Zahlungsgarantie einer Bank"],
+                                                                                    ["Zahlungsgarantie eines Unternehmens", "Zahlungsgarantie eines Unternehmens"],
+                                                                                    ["(eingetragener) Eigentumsvorbehalt (dingliche Sicherheit)", "(eingetragener) Eigentumsvorbehalt (dingliche Sicherheit)"],
+                                                                                    ["Pfandrecht (dingliche Sicherheit)", "Pfandrecht (dingliche Sicherheit)"],
+                                                                                    ["sonstige", "sonstige"]], class: "form-control", id: "B_168", placeholder: "Bitte Art der Sicherheit auswählen..." %>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div> <%= form.text_field :country_category, class: "form-control", placeholder: "Bitte Name vergeben" %> </div>
+
+                                            </div>
+                                        </div>
+                                        <br><br>
+                                        <br><br>
+
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p> Welchen Anteil des Auftragswertes wird die Sicherheit umfassen?
+                                                    (Zahlungsgarantie
+                                                    einer Bank-1) </p>
+                                                <div> <%= form.text_field :country_category, class: "form-control" %> </div>
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+
+                                        <div class="row">
+                                            <div class="col-md-11 col-md-offset-1">
+                                                <p> Wann werden Sie die Sicherheiten erhalten? (unbestätigtes Akkreditiv
+                                                    einer
+                                                    Bank-1 </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-5 col-md-offset-4">
+                                                <%= form.select :country_category, [["Vor Fabrikationsbeginn", "Vor Fabrikationsbeginn"],
+                                                                                    ["Vor Liefer-/Leistungsbeginn", "Vor Liefer-/Leistungsbeginn"],
+                                                                                    ["Später", "Später"],
+                                                                                    ["Anderer Termin", "Anderer Termin"]], class: "form-control", id: "B_168", prompt: "Vor Fabrikationsbeginn..." %>
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+
+                                    </div>
                                 </div>
 
                             </div>
 
                             <div class="tab-pane" id="description">
                                 <div class="row">
-                                    <h5 class="info-text"> Drop us a small description. </h5>
-                                    <div class="col-sm-6 col-sm-offset-1">
-                                        <div class="form-group">
-                                            <label>Place description</label>
-                                            <%= form.text_area :description, class: 'form-control', rows: 9 %>
+                                    <h5 class="info-text"> Bitte geben Sie die Adresse Ihres Kunden an </h5>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <br>
+                                            <div class="col-md-3 col-md-offset-1">
+                                                <p> AK-Nummer </p>
+                                                <div> <%= form.text_field :ak_number, class: "form-control" %> </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <p> Firmenname </p>
+                                                <div> <%= form.text_field :company_name, class: "form-control"%> </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <p> Steuernummer </p>
+                                                <%= form.text_field :tax_number, class: "form-control" %>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label>Example</label>
-                                            <p class="description">"The place is really nice. We use it every sunday
-                                                when we go fishing. It is so awesome."</p>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <br>
+                                            <div class="col-md-3 col-md-offset-1">
+                                                <p> Straße / Hausnummer </p>
+                                                <%= form.text_field :country_category, class: "form-control" %>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <p> PLZ </p>
+                                                <%= form.text_field :country_category, class: "form-control" %>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <p> Ort </p>
+                                                <div> <%= form.text_field :country_category, class: "form-control" %> </div>
+                                            </div>
+
                                         </div>
                                     </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <br>
+
+                                            <div class="col-md-3 col-md-offset-1">
+                                                <p> Land </p>
+                                                <%= form.text_field :country_category, class: "form-control" %>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="deliveryAddressCheck">
+                                        <div class="row">
+                                            <div class="col-md-6 col-md-offset-3">
+                                                <p> Liefern Sie an diese Adresse?
+                                                <p>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-4 col-md-offset-2">
+                                                <%= form.check_box :country_category, id: "Yes-deliveryAddress" %> Ja
+                                            </div>
+                                            <div class="col-md-4">
+                                                <%= form.check_box :country_category, id: "No-deliveryAddress" %> Nein
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+                                    </div>
+
+                                    <div id="deliveryAddress" style="display: none">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <br>
+                                                <div class="col-md-3 col-md-offset-1">
+                                                    <p> Firmenname </p>
+                                                    <div> <%= form.text_field :country_category, class: "form-control" %> </div>
+                                                </div>
+
+                                                <div class="col-md-3 ">
+                                                    <p> Land </p>
+                                                    <%= form.text_field :country_category, class: "form-control" %>
+                                                </div>
+
+                                                <div class="col-md-3 ">
+                                                    <p> Straße / Hausnummer </p>
+                                                    <%= form.text_field :country_category, class: "form-control"  %>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <br>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <br>
+                                                <div class="col-md-3 col-md-offset-1">
+                                                    <p> PLZ </p>
+                                                    <%= form.text_field :country_category, class: "form-control" %>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <p> Ort </p>
+                                                    <div> <%= form.text_field :country_category, class: "form-control" %> </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <br>
+                                    </div>
+
+                                    <div id="deliveryAddressCheck">
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p> Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder üben
+                                                    Sie maßgeblichen Einfluss auf die Geschäftsführung aus?
+                                                <p>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-4 col-md-offset-2">
+                                                <%= form.check_box :country_category, class:"form-group", id: "Yes-relationToCustomer" %> Ja
+                                            </div>
+                                            <div class="col-md-4">
+                                                <%= form.check_box :country_category, class:"form-group", id: "No-relationToCustomer" %> Nein
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+                                    </div>
+
+                                    <div id="relationToCustomerExplain" style="display: none">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <br>
+                                                <div class="col-md-10 col-md-offset-2">
+                                                    <p>Bitte helfen Sie uns, die Beteiligung besser zu verstehen</p>
+                                                    <div> <%= form.text_field :country_category, class: "form-control" %> </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="deliveryAddressCheck">
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-2">
+                                                <p> Haben Sie bereits Zahlungserfahrungen mit Ihrem Kunden?
+                                                <p>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-4 col-md-offset-2">
+                                                <%= form.check_box :country_category,class:"form-group", id: "Yes-paymentExperience" %> Ja
+                                            </div>
+                                            <div class="col-md-4">
+                                                <%= form.check_box :country_category, class:"form-group",id: "No-paymentExperience" %> Nein
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+                                    </div>
+
+                                    <div id="alreadyPaymentExperience" style="display: none">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <br>
+                                                <div class="col-md-10 col-md-offset-2">
+                                                    <p>Bitte beschreiben Sie diese näher.</p>
+                                                    <div> <%= form.text_field :country_category, class: "form-control" %> </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
+
+
                             <div class="tab-pane" id="important-at-end">
                                 <div class="row">
-                                    <h5 class="info-text"> Drop us a small description. </h5>
-                                    <div class="col-sm-6 col-sm-offset-1">
+
+                                    <div id="deliveryAddressCheck">
                                         <div class="form-group">
-                                            <label>Place description</label>
-                                            <%= form.text_area :description, class: 'form-control', rows: 9 %>
+                                            <div class="row">
+                                                <div class="col-md-10 col-md-offset-1">
+                                                    <p> Haben Sie schon einmal Hermesdeckungen genutzt?
+                                                    <p>
+                                                </div>
+                                            </div>
+                                            <br>
+
+                                            <div class="row">
+                                                <div class="col-md-4 col-md-offset-2">
+                                                    <%= form.check_box :country_category, id: "Yes-hermesdeckungNutz" %> Ja
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <%= form.check_box :country_category, id: "No-hermesdeckungNutz" %> Nein
+                                                </div>
+                                            </div>
+
+                                            <br><br>
                                         </div>
                                     </div>
-                                    <div class="col-sm-4">
+
+                                    <div id="newAtHermesDeckung" style="display: none">
                                         <div class="form-group">
-                                            <label>Example</label>
-                                            <p class="description">"The place is really nice. We use it every sunday
-                                                when we go fishing. It is so awesome."</p>
+                                            <div class="row">
+                                                <br>
+                                                <p>Sie sind neu bei den Hermesdeckungen – wir möchten Sie daher gern
+                                                    kennenlernen.
+                                                    Bitte helfen Sie uns zu verstehen, inwieweit Sie bereits über
+                                                    Exporterfahrung
+                                                    und Erfahrungen mit säumigen Auslandskunden verfügen.</p> <br><br>
+
+                                                <div class="col-md-10 col-md-offset-2">
+                                                    <p><i>Inwieweit bzw. seit wie vielen Jahren verfügen Sie über
+                                                        Exporterfahrung
+                                                        aus ungedeckten Geschäften, d.h. Exportgeschäfte ohne
+                                                        Hermesdeckung?</i></p>
+                                                    <div> <%= form.text_field :experience_with_export_country, class: "form-control" %> </div>
+                                                </div>
+
+
+                                                <div class="col-md-10 col-md-offset-2">
+                                                    <br><br>
+                                                    <p><i>Besteht eine langjährige Exporterfahrung sowie Marktkenntnis mit
+                                                        dem
+                                                        Empfängerland?</i></p>
+                                                    <%= form.text_field :experience_with_export_country, class: "form-control" %>
+                                                </div>
+
+                                                <div class="col-md-10 col-md-offset-2 ">
+                                                    <br><br>
+                                                    <p><i> Bitte legen Sie dar, inwiefern Sie über ein adäquates
+                                                        Schadenmanagement
+                                                        verfügen. Wurden Sie in der Vergangenheit bereits (häufiger) mit
+                                                        Zahlungsverzügen/ Forderungsausfällen konfrontiert und welche
+                                                        Maßnahmen
+                                                        greifen bei Ihnen im Unternehmen, wenn ein Kunde in Zahlungsverzug
+                                                        gerät? </i></p>
+                                                    <%= form.text_field :adequate_claims_management, class: "form-control" %>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+
+                                    <div id="firmenDaten">
+
+                                        <br><br>
+                                        <label class="control-label"> Bitte geben Sie Ihre Firmendaten an. </label>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <br><br><br>
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <p> Firmenname </p>
+                                                    <div> <%= form.text_field :country_category, class: "form-control" %> </div>
+                                                </div>
+
+                                                <div class="col-md-4 ">
+                                                    <p> DN-NR </p>
+                                                    <%= form.text_field :country_category, class: "form-control" %>
+                                                </div>
+
+                                                <div class="col-md-3 ">
+                                                    <p> Handelsregisternummer </p>
+                                                    <%= form.text_field :country_category, class: "form-control" %>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <br>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <br>
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <p> Amtsgericht </p>
+                                                    <%= form.text_field :country_category, class: "form-control" %>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <p> Straße / Hausnummer </p>
+                                                    <div> <%= form.text_field :country_category, class: "form-control" %> </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <p> PLZ </p>
+                                                    <div> <%= form.text_field :country_category, class: "form-control" %> </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <br>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <br>
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <p> Ort </p>
+                                                    <%= form.text_field :country_category, class: "form-control" %>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <p> Bundesland </p>
+                                                    <div> <%= form.text_field :country_category, class: "form-control" %> </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <p> Land </p>
+                                                    <div> <%= form.text_field :country_category, class: "form-control" %> </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <br>
+                                                <div class="col-md-5 col-md-offset-2">
+                                                    <p> Anzahl der Mitarbeiterinnen und Mitarbeiter </p>
+                                                    <%= form.text_field :employees_count, class: "form-control", required: true %>
+                                                </div>
+
+                                                <div class="col-md-5">
+                                                    <p> Umsatz im letzten vollen Geschäftsjahr </p>
+                                                    <div> <%= form.text_field :revenue_last_year, class: "form-control", required: true %> </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="firmenDaten">
+
+                                        <br><br>
+                                        <label class="control-label"> Wen können wir ansprechen? </label>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <br><br><br>
+                                                <div class="col-md-4 col-md-offset-2">
+                                                    <%= form.select :country_category, [["Frau", "Frau"]], id: "B_168", prompt: "Herr" %>
+                                                </div>
+
+                                                <div class="col-md-4 ">
+                                                    <p> Titel </p>
+                                                    <%= form.text_field :country_category, class: "form-control" %>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <br>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <br>
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <p> First Name </p>
+                                                    <%= form.text_field :country_category, class: "form-control" %>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <p> Last Name </p>
+                                                    <div> <%= form.text_field :country_category, class: "form-control" %> </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <p> Email </p>
+                                                    <div> <%= form.text_field :country_category, class: "form-control" %> </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <br>
+                                                <div class="col-md-4 col-md-offset-2">
+                                                    <p> Funktion </p>
+                                                    <%= form.text_field :country_category, class: "form-control" %>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <p> Bereich </p>
+                                                    <div> <%= form.text_field :country_category, class: "form-control" %> </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="uploadDocuments">
+
+                                        <br><br>
+                                        <label class="control-label"> Diese Anlagen benötigen wir für die Prüfung Ihres
+                                            Geschäftes </label>
+
+
+                                        <br><br><br>
+
+                                        <div class="row">
+                                            <div class="col-md-5 col-md-offset-1">
+                                                <h4> Selbstauskunft (bei Neukunden) </h4>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <%= form.file_field :country_category %>
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-5 col-md-offset-1">
+                                                <h4> Jahresabschlüsse Ihres Kunden </h4>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <%= form.file_field :country_category %>
+                                            </div>
+                                        </div>
+
+                                        <br><br><br>
+                                        <div class="row">
+                                            <div class="col-md-5 col-md-offset-1">
+                                                <h4> Auskünfte über Ihren Kunden </h4>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <%= form.file_field :country_category %>
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-5 col-md-offset-1">
+                                                <h4> Umwelt- und Sozialinformationen </h4>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <%= form.file_field :country_category %>
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-5 col-md-offset-1">
+                                                <h4> ggf. Projektmemorandum </h4>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <%= form.file_field :country_category %>
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-5 col-md-offset-1">
+                                                <h4> Sonstiges </h4>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <%= form.file_field :country_category %>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div id="deliveryAddressCheck">
+                                        <div class="row">
+                                            <br><br><br>
+                                            <div class="col-md-10 col-md-offset-1">
+                                                <label class="control-label">Sie beantragen die Absicherung folgender
+                                                    Risiken. </label><br><br>
+
+                                                <p><i>Nichtzahlung der Forderung (Lieferantenkreditdeckung (G))</i></p> <br><br>
+
+
+                                                <p>Möchten Sie die Selbstbeteiligung für wirtschaftliche Risiken gegen
+                                                    Zusatzentgelt
+                                                    auf 5 % absenken?</p>
+
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-4 col-md-offset-2">
+                                                <%= form.check_box :country_category, id: "Yes-some-id-1" %> Ja
+                                            </div>
+                                            <div class="col-md-4">
+                                                <%= form.check_box :country_category, id: "No-some-id-1" %> Nein
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+                                    </div>
+
+                                    <div id="deliveryAddressCheck">
+
+                                        <div class="form-group">
+
+                                            <div class="row">
+                                                <br><br>
+                                                <hr align="middle" width="50%">
+                                                <div class="col-md-10 col-md-offset-1">
+
+                                                    <label class="control-label"> Bitte geben Sie die Erklärung zur
+                                                        Korruptionsprävention ab. </label><br><br>
+
+                                                    <br><br>
+
+
+                                                    <p><b>Beachtung gesetzlicher Vorschriften </b> <br>
+                                                        Wir erklären, dass der Abschluss des Liefer- bzw. Leistungsgeschäfts
+                                                        nicht durch
+                                                        eine strafbare Handlung eines Mitarbeiters, der Geschäftsleitung
+                                                        oder
+                                                        eines
+                                                        Inhabers unseres Unternehmens oder einer anderen in unserem Auftrag
+                                                        handelnden
+                                                        Person herbeigeführt worden ist bzw. nicht durch eine derartige
+                                                        Handlung
+                                                        herbeigeführt werden wird. </p> <br><br>
+
+
+                                                    <p><b>Auskunftspflicht</b> <br>
+                                                        Uns ist bekannt, dass wir im Antragsverfahren und nach Übernahme der
+                                                        jeweils
+                                                        beantragten Exportkreditgarantie sowie gemäß der bei Beantragung
+                                                        einer
+                                                        Exportkreditgarantie für einen gebundenen Finanzkredit abzugebenden
+                                                        Verpflichtungserklärung über alle Umstände des zur Deckung
+                                                        beantragten
+                                                        Geschäfts, die für die Übernahme der Exportkreditgarantie erheblich
+                                                        sind, dem
+                                                        Bund vollständig und richtig Auskunft zu erteilen haben. Dies
+                                                        umfasst
+                                                        auch die
+                                                        Beantwortung von Fragen des Bundes hinsichtlich der Identität von
+                                                        Personen, die
+                                                        in unserem Auftrag am Abschluss des Liefer- bzw. Leistungsgeschäfts
+                                                        beteiligt
+                                                        sind oder waren, sowie von Fragen über Grund und Höhe etwaiger
+                                                        Zahlungen
+                                                        an
+                                                        diese Personen. </p> <br><br>
+
+
+                                                    <p><b>Angaben zu Anklagen, strafrechtlichen und nicht-strafrechtlichen
+                                                        Sanktionen
+                                                        sowie Ermittlungsverfahren und Sperrlisten</b> <br>
+                                                        Mitarbeiter, die Geschäftsleitung oder Inhaber unseres Unternehmens
+                                                        oder
+                                                        andere
+                                                        an diesem Vertragsabschluss beteiligte und in unserem Auftrag
+                                                        handelnde
+                                                        Personen
+                                                        oder unser Unternehmen selbst sind/ist wegen eines
+                                                        Korruptionsdelikts
+                                                    </p>
+                                                    <br><br>
+
+                                                    <ul class="text-white">
+                                                        <br>
+                                                        <li> gegenwärtig vor einem staatlichen Gericht angeklagt oder</li>
+                                                        <br>
+                                                        <li> innerhalb der letzten 5 Jahre von einem staatlichen Gericht
+                                                            verurteilt
+                                                            oder
+                                                        </li>
+                                                        <br>
+                                                        <li> mit einer mit einem Gerichtsurteil vergleichbaren
+                                                            nicht-strafrechtlichen
+                                                            Sanktion belegt worden oder
+                                                        </li>
+                                                        <br>
+                                                        <li> einem staatsanwaltschaftlichen Ermittlungsverfahren unterworfen
+                                                            worden oder
+
+                                                        </li>
+                                                        <br>
+                                                        <li> auf einer Sperrliste einer internationalen Finanzorganisation
+                                                            aufgeführt.
+
+                                                        </li>
+
+
+                                                    </ul>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+
+
+                                        <div class="row">
+                                            <div class="col-md-4 col-md-offset-2">
+                                                <%= form.check_box :country_category, id: "triff_zu" %> Trifft zu
+                                                (Nähere
+                                                Angaben erforderlich. Lesen Sie hierzu auch die Hinweise)
+                                            </div>
+                                            <div class="col-md-4">
+                                                <%= form.check_box :country_category, id: "trifft_nichtzu" %> Trifft
+                                                nicht zu
+                                            </div>
+                                            <br><br>
+                                        </div>
+
+                                        <hr align="middle" width="50%">
+
+                                        <div class="row">
+                                            <br><br>
+
+                                            <p>Im Fall eines Konsortiums oder einer Arbeitsgemeinschaft ist die Erklärung
+                                                vom
+                                                Konsortialführer für alle Konsortialpartner bzw. von einem Mitglied der
+                                                Arbeitsgemeinschaft stellvertretend für alle anderen Mitglieder
+                                                abzugeben</p>
+                                            <br><br>
+
+                                            <div class="col-md-4 col-md-offset-2">
+                                                <%= form.check_box :country_category, id: "Yes-WorkAssociation" %> Konsortium
+                                                oder
+                                                Arbeitsgemeinschaft
+                                            </div>
+                                            <div class="col-md-4">
+                                                <%= form.check_box :country_category, id: "No-WorkAssociation" %> Wir arbeiten
+                                                für
+                                                dieses Geschäft nicht in einem Konsortium oder einer Arbeitsgemeinschaft
+                                            </div>
+
+                                        </div>
+
+                                        <br><br>
+
+
+                                        <div id="workAssociationExist" style="display: none">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-10 col-md-offset-2">
+                                                        <br><br>
+                                                        <p><i>Bitte geben Sie die Firmen an
+                                                        </i></p>
+                                                        <%= form.text_field :country_category, class: "form-control" %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-10 col-md-offset-1">
+                                            <%= form.check_box :country_category, id: "Yes-WorkAssociation" %>
+                                            Die vorstehenden Angaben wurden von uns nach bestem Wissen und Gewissen und in
+                                            Kenntnisnahme der Erläuterungen gemacht
+                                        </div>
+
+                                        <br><br><br><br>
+                                        <hr align="middle" width="50%">
+                                        <br><br>
+
+                                        <p>Liefern Sie gemeinsam mit Verbundunternehmen oder sind Zwischenhändler
+                                            eingesetzt? Dann
+                                            müssen diese die Erklärung zur Korruptionsprävention separat unterzeichnen.
+                                            Bitte leiten
+                                            Sie das Formular entsprechend weiter und reichen es uns nach.</p>
+
+
+                                        <div id="finalDeclaration">
+
+                                            <br><br>
+                                            <label class="control-label"> Bitte geben Sie zuletzt noch die
+                                                Abschlusserklärungen
+                                                ab.</label>
+
+                                            <div class="row">
+                                                <br><br><br>
+
+                                                <div class="col-md-11    col-md-offset-1">
+                                                    <%= form.check_box :country_category, id: "Yes-WorkAssociation" %>
+                                                    Wir akzeptieren die Allgemeinen Bedingungen für Lieferantenkreditdeckung
+                                                    (G)
+                                                    in Zusammenhang mit den Ergänzenden Bestimmungen für
+                                                    Forderungsabtretungen
+                                                </div>
+
+
+                                                <div class="col-md-11 col-md-offset-1">
+                                                    <br><br>
+                                                    <%= form.check_box :country_category, id: "Yes-WorkAssociation" %>
+                                                    Wir haben die Datenschutzhinweise zur Kenntnis genommen und sind mit
+                                                    deren
+                                                    Geltung einverstanden.
+                                                </div>
+
+                                                <div class="col-md-11 col-md-offset-1">
+                                                    <br><br>
+                                                    <%= form.check_box :country_category, id: "Yes-WorkAssociation" %>
+                                                    Wir haben die Hinweise zu Gebühren und Entgelten, Richtlinien,
+                                                    Verantwortlichkeiten für den Antrag, Veröffentlichung von Projektdaten,
+                                                    OECD-Leitsätze für multinationale Unternehmen und UN-Leitprinzipien für
+                                                    Wirtschafts- und Menschenrechte zur Kenntnis genommen.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
                                 </div>
                             </div>
 
@@ -733,6 +2618,56 @@
                 $("#typeOfSecurity").show();
             } else {
                 $("#typeOfSecurity").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $("#No-deliveryAddress").click(function () {
+            if ($(this).is(":checked")) {
+                $("#deliveryAddress").show();
+            } else {
+                $("#deliveryAddress").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $("#Yes-relationToCustomer").click(function () {
+            if ($(this).is(":checked")) {
+                $("#relationToCustomerExplain").show();
+            } else {
+                $("#relationToCustomerExplain").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $("#Yes-paymentExperience").click(function () {
+            if ($(this).is(":checked")) {
+                $("#alreadyPaymentExperience").show();
+            } else {
+                $("#alreadyPaymentExperience").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $("#No-hermesdeckungNutz").click(function () {
+            if ($(this).is(":checked")) {
+                $("#newAtHermesDeckung").show();
+            } else {
+                $("#newAtHermesDeckung").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $("#Yes-WorkAssociation").click(function () {
+            if ($(this).is(":checked")) {
+                $("#workAssociationExist").show();
+            } else {
+                $("#workAssociationExist").hide();
             }
         });
     });
