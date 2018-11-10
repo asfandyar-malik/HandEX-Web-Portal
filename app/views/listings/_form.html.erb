@@ -113,19 +113,176 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
+                                    <%# Okay lets go forward from here ! %>
+
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>Wohin soll es gehen</label>
+                                            <%= form.select :accommodates, options_for_select(['1 Person', '2 Person', '3 Person', '4 Person', '5 Person', '6+ Person'], listing.accommodates ? listing.accommodates : nil), {}, class: 'form-control' %>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <label>Handelt es sich bei Ihrer Ware um
+                                                Investitionsgüter?</label>
+                                            <div class="input-group">
+                                                <%= form.check_box :is_investment_good, id: "investmentGood", class: 'form-control' %>
+                                                Yes
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div id="showHideDivTotalFinancingRequired" style="display: none">
+                                        <div class="row">
+                                            <div class="col-sm-5 col-sm-offset-1">
+                                                <div class="form-group">
+                                                    <label>Wie hoch ist der Auftragswert in Euro?</label>
+                                                    <div class="input-group">
+                                                        <%= form.text_field :price, class: 'form-control', placeholder: 'AuftragWert' %>
+                                                        <span class="input-group-addon">$</span>
+                                                    </div>
+                                                </div>
+
+                                                <button type="button" name="auftragwertbutton" value="Show Div" onclick="showPaymentGoalDiv(this)" id="BUTTON_300">
+                                                    fertig
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="showHideDivPaymentGoal" style="display: none">
+
+                                        <div class="row">
+                                            <div class="col-sm-5 col-sm-offset-1">
+                                                <div class="form-group">
+                                                    <label> Welches Zahlungsziel gewähren Sie Ihrem Kunden? </label>
+                                                    <%= form.select :accommodates, options_for_select(['6 Months', '12 Months', '18 Months', '24 Months'], listing.accommodates ? listing.accommodates : nil), {}, class: 'form-control' %>
+                                                </div>
+                                                <button type="button" name="auftragwertbutton" value="Show Div" onclick="showWhichSectorDeliveryDiv(this)" id="BUTTON_300">
+                                                    fertig
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="showHideDivDeliveryGoal" style="display: none">
+                                        <div class="col-sm-5 col-sm-offset-1">
+                                            <div class="form-group">
+                                                <label>An wen liefern Sie?</label>
+                                                <div class="row">
+                                                    <div class="col-md-4 col-md-offset-2">
+                                                        <%= form.check_box :is_investment_good, id: "privateSector", class: 'form-control' %>
+                                                        Private Sector
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <%= form.check_box :is_investment_good, id: "publicSector", class: 'form-control' %>
+                                                        Private Sector
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div id="showHideDivResultMessage" style="display: none">
+
+                                        <div class="row">
+                                            <div class="col-md-8 col-md-offset-2">
+                                                <p>
+                                                    Congratulations
+                                                </p>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-8 col-md-offset-2">
+                                                    <p>
+                                                        Ihr Geschäft eignet sich grundsätzlich und vorbehaltlich
+                                                        einer
+                                                        tieferen
+                                                        Prüfung des Sachverhalts und der Bonität Ihres ausländischen
+                                                        Bestellers
+                                                        bzw.
+                                                        Garanten für eine Hermesdeckung. <br>
+
+                                                        Dieses Icon zeigt, dass Ihr Geschäft die Kriterien für den
+                                                        click&cover-Modus
+                                                        erfüllt. Hier ist – nach Vorliegen aller relevanten
+                                                        Informationen
+                                                        eine
+                                                        Entscheidung innerhalb von durchschnittlich 2 Wochen
+                                                        möglich. <br>
+
+                                                        Im Rahmen Ihrer weiteren Eingaben wird fortwährend geprüft,
+                                                        ob Ihr
+                                                        Geschäft
+                                                        weiterhin für den click&cover Modus geeignet ist – am Ende
+                                                        können
+                                                        Sie
+                                                        jedoch
+                                                        selbst entscheiden, welche Absicherungsvariante Sie wählen.
+                                                        <br>
+                                                        Solange Sie sich im click&cover-Modus befinden, können wir
+                                                        Ihnen
+                                                        bereits
+                                                        frühzeitig eine Preisindikation geben. Aufgrund der von
+                                                        Ihnen bisher
+                                                        gemachten Angaben würde sich der Preis für eine Absicherung
+                                                        belaufen
+                                                        auf
+                                                        <br>
+                                                        zwischen 100 EUR (ohne
+                                                        Gewähr - das tatsächlich
+                                                        anfallende
+                                                        Entgelt teilen wir Ihnen im Rahmen der Entscheidung mit)
+                                                        <br>
+                                                        Im Laufe der Antragstellung konkretisieren sich die
+                                                        Berechnungen –
+                                                        die
+                                                        aktuelle Information finden Sie jeweils hinter dem
+                                                        Taschenrechner-Symbol
+                                                        am
+                                                        rechten Bildrand. <br>
+                                                        Sollte sich im Rahmen der Einzelfallprüfung des Antrags
+                                                        zeigen, dass
+                                                        der
+                                                        click&cover-Modus nicht zulässig ist, ist weiterhin der
+                                                        Zugang zur
+                                                        klassischen Lieferantenkreditdeckung möglich. <br>
+                                                        Sie möchten zum ersten Mal eine Hermesdeckung beantragen?
+                                                        Dann
+                                                        lassen
+                                                        Sie
+                                                        sich von uns beraten. Bitte planen Sie ein wenig mehr Zeit
+                                                        für Ihren
+                                                        ersten
+                                                        Antrag ein – wir möchten Sie zunächst bei einem
+                                                        Vor-Ort-Termin in
+                                                        Ihrem
+                                                        Unternehmen kennenlernen und Sie auf den ersten Schritten
+                                                        begleiten.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="tab-pane" id="type">
-                                <h5 class="info-text">What type of location do you have? </h5>
+                                <h5 class="info-text">Bitte geben Sie an, gegen welche Risiken Sie sich absichern
+                                    möchten </h5>
+
                                 <div class="row">
-                                    <div class="col-sm-8 col-sm-offset-2">
+                                    <div class="col-sm-10 col-sm-offset-1">
                                         <div class="col-sm-4 col-sm-offset-2">
                                             <div class="choice <%= 'active' if listing.home == 'on' %>" data-toggle="wizard-checkbox">
                                                 <%= check_box_tag "listing[home]", listing.home ? listing.home : nil %>
+
                                                 <div class="card card-checkboxes card-hover-effect">
                                                     <i class="ti-home"></i>
-                                                    <p>Home</p>
+                                                    <p>Nichtbezahlung der Forderung</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -134,7 +291,43 @@
                                                 <%= check_box_tag "listing[appartment]", listing.appartment ? listing.appartment : nil %>
                                                 <div class="card card-checkboxes card-hover-effect">
                                                     <i class="ti-package"></i>
-                                                    <p>Apartment</p>
+                                                    <p>Vertragsstörung während der Fabrikationsphas</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-sm-4 col-sm-offset-2">
+                                                <div id="guarantee" class="choice <%= 'active' if listing.home == 'on' %>" data-toggle="wizard-checkbox">
+                                                    <%= check_box_tag "listing[home]", listing.home ? listing.home : nil, id: "guarantee" %>
+
+                                                    <div class="card card-checkboxes card-hover-effect">
+                                                        <i class="ti-layout-accordion-merged"></i>
+                                                        <p>Ziehung von Garantien</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div id="entlastung" class="col-sm-4" style="display: none">
+                                                <div class="choice <%= 'active' if listing.appartment == 'on' %>" data-toggle="wizard-checkbox">
+                                                    <%= check_box_tag "listing[appartment]", listing.appartment ? listing.appartment : nil %>
+                                                    <div class="card card-checkboxes card-hover-effect">
+                                                        <i class="ti-envelope"></i>
+                                                        <p>Entlastung Ihrer Avallinie</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-4 col-sm-offset-2">
+                                            <div class="choice <%= 'active' if listing.home == 'on' %>" data-toggle="wizard-checkbox">
+                                                <%= check_box_tag "listing[home]", listing.home ? listing.home : nil %>
+
+                                                <div class="card card-checkboxes card-hover-effect">
+                                                    <i class="ti-layout-grid4"></i>
+                                                    <p>Weitere Deckungen</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -142,34 +335,137 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="facilities">
-                                <h5 class="info-text">Tell us more about facilities. </h5>
                                 <div class="row">
                                     <div class="col-sm-5 col-sm-offset-1">
                                         <div class="form-group">
-                                            <label>Your place is good for</label>
-                                            <%= form.select :place_good_for, options_for_select(['Business', 'Vacation', 'Work'], listing.place_good_for ? listing.place_good_for : nil), {}, class: 'form-control' %>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <div class="form-group">
-                                            <label>Is air conditioning included ?</label>
-                                            <%= form.select :air_conditioning, options_for_select(['Yes', 'No'], listing.air_conditioning ? listing.air_conditioning : nil), {}, class: 'form-control' %>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-5 col-sm-offset-1">
-                                        <div class="form-group">
-                                            <label>Does your place have wi-fi?</label>
-                                            <%= form.select :wifi, options_for_select(['Yes', 'No'], listing.wifi ? listing.wifi : nil), {}, class: 'form-control' %>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <div class="form-group">
-                                            <label>Is breakfast included?</label>
-                                            <%= form.select :breakfast, options_for_select(['Yes', 'No'], listing.breakfast ? listing.breakfast : nil), {}, class: 'form-control' %>
+                                            <label>Bitte beschreiben Sie Ihr Exportgeschäft</label>
+                                            <div class="input-group">
+                                                <%= form.text_field :price, class: 'form-control', placeholder: 'AuftragWert' %>
+                                                <span class="input-group-addon">$</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                        <h4>Bitte helfen Sie uns nun, das Vorhaben gut zu verstehen</h4>
+                                        <div class="form-group">
+                                            <label>Wofür benötigt Ihr Kunde die Maschinen/Güter/Anlagen bzw. die
+                                                Dienstleistung? Handelt es sich bspw. um eine Ersatz- oder um eine
+                                                Neuinvestition? Wenn Sie Leistungen (Montage, Schulungen vor Ort, etc.)
+                                                erbringen, können Sie diese hier ebenfalls beschreiben.</label>
+                                            <div class="input-group">
+                                                <%= form.text_field :price, class: 'form-control', placeholder: 'AuftragWert' %>
+                                                <span class="input-group-addon">$</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>Wir erbringen auch Leistungen (Montage, Schulungen vor Ort,
+                                                etc.)?</label>
+                                            <%= form.check_box :is_investment_good, class: 'form-control' %>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>Bitte ordnen Sie die von Ihnen zu liefernden Waren/Güter/Anlagen bzw.
+                                                Dienstleistungen Ihrer Branche und der passenden Warenart zu.</label>
+                                            <%= form.select :breakfast, options_for_select(['Bergbau, inkl. Verarbeitung', 'Erdöl- und Erdgasförderung inkl. Verarbeitung',
+                                                                                            'Chemie', 'Energie', 'Infrastruktur', 'Papier- , Holz-, Leder- und Textilindustrie',
+                                                                                            'Agrarsektor und Nahrungsmittelindustrie', 'Verarbeitende Industrie', 'Umwelttechnik',
+                                                                                            'Dienstleistungen'], listing.breakfast ? listing.breakfast : nil), {}, class: 'form-control' %>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>Bitte konkretisieren Sie Ihre Branche weiter</label>
+                                            <div class="input-group">
+                                                <%= form.text_field :price, class: 'form-control', placeholder: 'AuftragWert' %>
+                                                <span class="input-group-addon">$</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="workwithothercompanies">
+
+                                    <div class="row">
+                                        <div class="col-sm-5 col-sm-offset-1">
+                                            <div class="form-group">
+                                                <label>Liefern/Leisten Sie im Rahmen eines Gesamtprojekts zusammen mit
+                                                    anderen Unternehmen?</label>
+                                                <div class="row">
+                                                    <div class="col-md-4 col-md-offset-2">
+                                                        <%= form.check_box :part_of_big_project_yes, id: "ja", class: 'form-control' %>
+                                                        Ja
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <%= form.check_box :part_of_big_project_no, id: "nein", class: 'form-control' %>
+                                                        Nein
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="showHideDivJaWorkOtherCompanies" style="display: none">
+
+                                    <div class="row">
+                                        <div class="col-sm-5 col-sm-offset-1">
+                                            <div class="form-group">
+                                                <label>Bitte beschreiben Sie das Gesamtprojekt detaillierter</label>
+                                                <div class="input-group">
+                                                    <%= form.text_field :price, class: 'form-control', placeholder: 'AuftragWert' %>
+                                                    <span class="input-group-addon">$</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-5 col-sm-offset-1">
+                                            <div class="form-group">
+                                                <label>Wir tragen die Gesamtverantwortung für das Projekt</label>
+                                                <div class="row">
+                                                    <div class="col-md-4 col-md-offset-2">
+                                                        <%= form.check_box :is_investment_good, id: "investmentGood", class: 'form-control' %>Ja
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-5 col-sm-offset-1">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <label>Wie hoch ist das Gesamtprojektvolumen?</label>
+                                                    <div class="col-sm-5 col-sm-offset-1">
+                                                        <%= form.select :overall_project_volume_currency, options_for_select(["Euro", "Dollar"]), {}, class: 'form-control', prompt: "Currency..." %>
+                                                    </div>
+                                                    <div class="col-sm-5">
+                                                        <%= form.text_field :overall_project_volume, class: "form-control" %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
+
                             <div class="tab-pane" id="description">
                                 <div class="row">
                                     <h5 class="info-text"> Drop us a small description. </h5>
@@ -227,3 +523,218 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(function () {
+        $("#investmentGood").click(function () {
+            if ($(this).is(":checked")) {
+                $("#showHideDivTotalFinancingRequired").show();
+            } else {
+                $("#showHideDivTotalFinancingRequired").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $(".auftragwertbutton").click(function () {
+            if ($(this).is(":checked")) {
+                $("#showHideDivTotalFinancingRequired").show();
+            } else {
+                $("#showHideDivTotalFinancingRequired").hide();
+            }
+        });
+    });
+
+    function showPaymentGoalDiv(btn) {
+        document.getElementById('showHideDivPaymentGoal').style.display = "block";
+        btn.style.display = "none";
+    }
+
+    function showWhichSectorDeliveryDiv(btn) {
+        document.getElementById('showHideDivDeliveryGoal').style.display = "block";
+        btn.style.display = "none";
+    }
+
+    $(function () {
+        $("#privateSector").click(function () {
+            if ($(this).is(":checked")) {
+                $("#showHideDivResultMessage").show();
+            } else {
+                $("#showHideDivResultMessage").hide();
+            }
+        });
+
+        $("#publicSector").click(function () {
+            if ($(this).is(":checked")) {
+                $("#showHideDivResultMessage").show();
+            } else {
+                $("#showHideDivResultMessage").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $("#guarantee").click(function () {
+            if ($(this).is(":checked")) {
+                $("#entlastung").show();
+            } else {
+                $("#entlastung").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $("#ja").click(function () {
+            if ($(this).is(":checked")) {
+                $("#showHideDivJaWorkOtherCompanies").show();
+            } else {
+                $("#showHideDivJaWorkOtherCompanies").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $("#ja_exportlicense_requirement").click(function () {
+            if ($(this).is(":checked")) {
+                $("#exportLicenseRequirement").show();
+            } else {
+                $("#exportLicenseRequirement").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $("#yes_secondhand_goods").click(function () {
+            if ($(this).is(":checked")) {
+                $("#deliverSecondHandGoods").show();
+            } else {
+                $("#deliverSecondHandGoods").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $("#ja_contractsigned").click(function () {
+            if ($(this).is(":checked")) {
+                $("#contractSigned").show();
+            } else {
+                $("#contractSigned").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $("#yes_specialcontractstructure").click(function () {
+            if ($(this).is(":checked")) {
+                $("#yesNoSpecialContractStructure").show();
+            } else {
+                $("#yesNoSpecialContractStructure").hide();
+            }
+        });
+    });
+
+
+    $(function () {
+        $("#ja_customercountsinterest").click(function () {
+            if ($(this).is(":checked")) {
+                $("#yesNoCustomerCountInterest").show();
+            } else {
+                $("#yesNoCustomerCountInterest").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $("#ja_priceadjustmentclause").click(function () {
+            if ($(this).is(":checked")) {
+                $("#yesNoPriceAdjustmentClause").show();
+            } else {
+                $("#yesNoPriceAdjustmentClause").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $("#ja_multipledeliveries").click(function () {
+            if ($(this).is(":checked")) {
+                $("#yesNoMultipleDeliveries").show();
+            } else {
+                $("#yesNoMultipleDeliveries").hide();
+            }
+        });
+    });
+
+
+    $(function () {
+        $("#no_certificateoforigin").click(function () {
+            if ($(this).is(":checked")) {
+                $("#yesNoCertificateOfOrigin").show();
+            } else {
+                $("#yesNoCertificateOfOrigin").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $("#teil-certificateoforigin").click(function () {
+            if ($(this).is(":checked")) {
+                $("#yesNoCertificateOfOrigin").show();
+            } else {
+                $("#yesNoCertificateOfOrigin").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $("#kurzfristig-termofpayments").click(function () {
+            if ($(this).is(":checked")) {
+                $("#KurzFristigTermOfPayment").show();
+            } else {
+                $("#KurzFristigTermOfPayment").hide();
+            }
+        });
+    });
+
+
+    $(function () {
+        $("#mittel-termofpayments").click(function () {
+            if ($(this).is(":checked")) {
+                $("#MittelTermOfPayment").show();
+            } else {
+                $("#MittelTermOfPayment").hide();
+            }
+        });
+    });
+
+
+    $(function () {
+        $("#sowohlkurzfristig-termofpayments").click(function () {
+            if ($(this).is(":checked")) {
+                $("#SonstigeKurzFristigTermOfPayment").show();
+            } else {
+                $("#SonstigeKurzFristigTermOfPayment").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $("#sonstige").click(function () {
+            if ($(this).is(":checked")) {
+                $("#entlastung").show();
+            } else {
+                $("#entlastung").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $("#Yes-securityForBusiness").click(function () {
+            if ($(this).is(":checked")) {
+                $("#typeOfSecurity").show();
+            } else {
+                $("#typeOfSecurity").hide();
+            }
+        });
+    });
+
+</script>
