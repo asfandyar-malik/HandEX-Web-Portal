@@ -80,6 +80,7 @@
 
                         <div class="tab-content">
                             <div class="tab-pane" id="location">
+                                <h4 class="info-text">Das Wichtigste Zuerst</h4>
                                 <br><br><br>
                                 <div class="row">
                                     <div class="col-sm-5 col-sm-offset-1">
@@ -198,7 +199,7 @@
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-md-8 col-md-offset-1">
+                                                <div class="col-md-10 col-md-offset-1">
                                                     <p>
                                                         Ihr Geschäft eignet sich grundsätzlich und vorbehaltlich
                                                         einer
@@ -272,12 +273,14 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="type">
+                                <h4 class="info-text">Ihre Risken</h4>
                                 <h5 class="info-text">Bitte geben Sie an, gegen welche Risiken Sie sich absichern
                                     möchten </h5>
 
                                 <div class="row">
                                     <div class="col-sm-10 col-sm-offset-1">
                                         <div class="col-sm-4 col-sm-offset-2">
+
                                             <div class="choice <%= 'active' if listing.home == 'on' %>" data-toggle="wizard-checkbox">
                                                 <%= check_box_tag "listing[home]", listing.home ? listing.home : nil %>
 
@@ -336,6 +339,10 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="facilities">
+
+                                <h4 class="info-text">Ihr Geschäft</h4>
+
+                                <br><br>
                                 <div class="row">
                                     <div class="col-sm-5 col-sm-offset-1">
                                         <div class="form-group">
@@ -1667,11 +1674,18 @@
                             </div>
 
                             <div class="tab-pane" id="description">
+                                <h4 class="info-text">Ihr Kunde</h4>
+
                                 <div class="row">
-                                    <h5 class="info-text"> Bitte geben Sie die Adresse Ihres Kunden an </h5>
                                     <div class="form-group">
                                         <div class="row">
                                             <br>
+                                            <div class="col-md-5 col-md-offset-1">
+                                                <label>Bitte geben Sie die Adresse Ihres Kunden an</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <br><br>
                                             <div class="col-md-3 col-md-offset-1">
                                                 <p> AK-Nummer </p>
                                                 <div> <%= form.text_field :ak_number, class: "form-control" %> </div>
@@ -1679,7 +1693,7 @@
 
                                             <div class="col-md-3">
                                                 <p> Firmenname </p>
-                                                <div> <%= form.text_field :company_name, class: "form-control"%> </div>
+                                                <div> <%= form.text_field :company_name, class: "form-control" %> </div>
                                             </div>
 
                                             <div class="col-md-3">
@@ -1721,22 +1735,25 @@
                                         </div>
                                     </div>
 
+                                    <br><br>
+
                                     <div id="deliveryAddressCheck">
                                         <div class="row">
-                                            <div class="col-md-6 col-md-offset-3">
-                                                <p> Liefern Sie an diese Adresse?
-                                                <p>
+                                            <div class="col-md-5 col-md-offset-1">
+                                                <p>Liefern Sie an diese Adresse? </p>
                                             </div>
                                         </div>
+
                                         <br>
 
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-4 col-md-offset-2">
-                                                    <%= form.check_box :country_category, id: "Yes-deliveryAddress"%> Ja
+                                                    <%= form.check_box :country_category, id: "Yes-deliveryAddress" %>Ja
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <%= form.check_box :country_category, id: "No-deliveryAddress" %> Nein
+                                                    <%= form.check_box :country_category, id: "No-deliveryAddress" %>
+                                                    Nein
                                                 </div>
                                             </div>
                                         </div>
@@ -1759,7 +1776,7 @@
 
                                                 <div class="col-md-3 ">
                                                     <p> Straße / Hausnummer </p>
-                                                    <%= form.text_field :country_category, class: "form-control"  %>
+                                                    <%= form.text_field :country_category, class: "form-control" %>
                                                 </div>
                                             </div>
                                         </div>
@@ -1787,7 +1804,7 @@
 
                                     <div id="deliveryAddressCheck">
                                         <div class="row">
-                                            <div class="col-md-10 col-md-offset-2">
+                                            <div class="col-md-10 col-md-offset-1">
                                                 <p> Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder üben
                                                     Sie maßgeblichen Einfluss auf die Geschäftsführung aus?
                                                 <p>
@@ -1797,10 +1814,12 @@
 
                                         <div class="row">
                                             <div class="col-md-4 col-md-offset-2">
-                                                <%= form.check_box :country_category, class:"form-group", id: "Yes-relationToCustomer" %> Ja
+                                                <%= form.check_box :country_category, class: "form-group", id: "Yes-relationToCustomer" %>
+                                                Ja
                                             </div>
                                             <div class="col-md-4">
-                                                <%= form.check_box :country_category, class:"form-group", id: "No-relationToCustomer" %> Nein
+                                                <%= form.check_box :country_category, class: "form-group", id: "No-relationToCustomer" %>
+                                                Nein
                                             </div>
                                         </div>
 
@@ -1811,17 +1830,17 @@
                                         <div class="form-group">
                                             <div class="row">
                                                 <br>
-                                                <div class="col-md-10 col-md-offset-2">
+                                                <div class="col-md-10 col-md-offset-1">
                                                     <p>Bitte helfen Sie uns, die Beteiligung besser zu verstehen</p>
-                                                    <div> <%= form.text_field :country_category, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :country_category, class: "form-control", row: "9" %> </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
+                                    <br>
                                     <div id="deliveryAddressCheck">
                                         <div class="row">
-                                            <div class="col-md-10 col-md-offset-2">
+                                            <div class="col-md-10 col-md-offset-1">
                                                 <p> Haben Sie bereits Zahlungserfahrungen mit Ihrem Kunden?
                                                 <p>
                                             </div>
@@ -1830,10 +1849,12 @@
 
                                         <div class="row">
                                             <div class="col-md-4 col-md-offset-2">
-                                                <%= form.check_box :country_category,class:"form-group", id: "Yes-paymentExperience" %> Ja
+                                                <%= form.check_box :country_category, class: "form-group", id: "Yes-paymentExperience" %>
+                                                Ja
                                             </div>
                                             <div class="col-md-4">
-                                                <%= form.check_box :country_category, class:"form-group",id: "No-paymentExperience" %> Nein
+                                                <%= form.check_box :country_category, class: "form-group", id: "No-paymentExperience" %>
+                                                Nein
                                             </div>
                                         </div>
 
@@ -1844,7 +1865,7 @@
                                         <div class="form-group">
                                             <div class="row">
                                                 <br>
-                                                <div class="col-md-10 col-md-offset-2">
+                                                <div class="col-md-10 col-md-offset-1">
                                                     <p>Bitte beschreiben Sie diese näher.</p>
                                                     <div> <%= form.text_field :country_category, class: "form-control" %> </div>
                                                 </div>
@@ -1857,6 +1878,8 @@
 
 
                             <div class="tab-pane" id="important-at-end">
+                                <h4 class="info-text">Notwendiges zum Schluss </h4>
+                                <br><br>
                                 <div class="row">
 
                                     <div id="deliveryAddressCheck">
@@ -1871,10 +1894,12 @@
 
                                             <div class="row">
                                                 <div class="col-md-4 col-md-offset-2">
-                                                    <%= form.check_box :country_category, id: "Yes-hermesdeckungNutz" %> Ja
+                                                    <%= form.check_box :country_category, id: "Yes-hermesdeckungNutz" %>
+                                                    Ja
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <%= form.check_box :country_category, id: "No-hermesdeckungNutz" %> Nein
+                                                    <%= form.check_box :country_category, id: "No-hermesdeckungNutz" %>
+                                                    Nein
                                                 </div>
                                             </div>
 
@@ -1886,13 +1911,15 @@
                                         <div class="form-group">
                                             <div class="row">
                                                 <br>
-                                                <p>Sie sind neu bei den Hermesdeckungen – wir möchten Sie daher gern
-                                                    kennenlernen.
-                                                    Bitte helfen Sie uns zu verstehen, inwieweit Sie bereits über
-                                                    Exporterfahrung
-                                                    und Erfahrungen mit säumigen Auslandskunden verfügen.</p> <br><br>
+                                                <div class="col-md-10 col-md-offset-1">
+                                                    <p>Sie sind neu bei den Hermesdeckungen – wir möchten Sie daher gern
+                                                        kennenlernen.
+                                                        Bitte helfen Sie uns zu verstehen, inwieweit Sie bereits über
+                                                        Exporterfahrung
+                                                        und Erfahrungen mit säumigen Auslandskunden verfügen.</p> <br><br>
+                                                </div>
 
-                                                <div class="col-md-10 col-md-offset-2">
+                                                <div class="col-md-10 col-md-offset-1">
                                                     <p><i>Inwieweit bzw. seit wie vielen Jahren verfügen Sie über
                                                         Exporterfahrung
                                                         aus ungedeckten Geschäften, d.h. Exportgeschäfte ohne
@@ -1901,22 +1928,24 @@
                                                 </div>
 
 
-                                                <div class="col-md-10 col-md-offset-2">
+                                                <div class="col-md-10 col-md-offset-1">
                                                     <br><br>
-                                                    <p><i>Besteht eine langjährige Exporterfahrung sowie Marktkenntnis mit
+                                                    <p><i>Besteht eine langjährige Exporterfahrung sowie Marktkenntnis
+                                                        mit
                                                         dem
                                                         Empfängerland?</i></p>
                                                     <%= form.text_field :experience_with_export_country, class: "form-control" %>
                                                 </div>
 
-                                                <div class="col-md-10 col-md-offset-2 ">
+                                                <div class="col-md-10 col-md-offset-1 ">
                                                     <br><br>
                                                     <p><i> Bitte legen Sie dar, inwiefern Sie über ein adäquates
                                                         Schadenmanagement
                                                         verfügen. Wurden Sie in der Vergangenheit bereits (häufiger) mit
                                                         Zahlungsverzügen/ Forderungsausfällen konfrontiert und welche
-                                                        Maßnahmen
-                                                        greifen bei Ihnen im Unternehmen, wenn ein Kunde in Zahlungsverzug
+                                                        ind neu bei den Hermesdeckunge   Maßnahmen
+                                                        greifen bei Ihnen im Unternehmen, wenn ein Kunde in
+                                                        Zahlungsverzug
                                                         gerät? </i></p>
                                                     <%= form.text_field :adequate_claims_management, class: "form-control" %>
                                                 </div>
@@ -1926,18 +1955,26 @@
 
                                     <div id="firmenDaten">
 
-                                        <br><br>
-                                        <label class="control-label"> Bitte geben Sie Ihre Firmendaten an. </label>
-
+                                        <br>
                                         <div class="form-group">
                                             <div class="row">
+
+
+                                                <div class="col-md-10 col-md-offset-1">
+                                                    <p><b>Bitte geben Sie Ihre Firmendaten an.</b>  </p>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row">
+
                                                 <br><br><br>
-                                                <div class="col-md-4 col-md-offset-1">
+                                                <div class="col-md-3 col-md-offset-1">
                                                     <p> Firmenname </p>
                                                     <div> <%= form.text_field :country_category, class: "form-control" %> </div>
                                                 </div>
 
-                                                <div class="col-md-4 ">
+                                                <div class="col-md-3 ">
                                                     <p> DN-NR </p>
                                                     <%= form.text_field :country_category, class: "form-control" %>
                                                 </div>
@@ -1954,12 +1991,12 @@
                                         <div class="form-group">
                                             <div class="row">
                                                 <br>
-                                                <div class="col-md-4 col-md-offset-1">
+                                                <div class="col-md-3 col-md-offset-1">
                                                     <p> Amtsgericht </p>
                                                     <%= form.text_field :country_category, class: "form-control" %>
                                                 </div>
 
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <p> Straße / Hausnummer </p>
                                                     <div> <%= form.text_field :country_category, class: "form-control" %> </div>
                                                 </div>
@@ -1976,12 +2013,12 @@
                                         <div class="form-group">
                                             <div class="row">
                                                 <br>
-                                                <div class="col-md-4 col-md-offset-1">
+                                                <div class="col-md-3 col-md-offset-1">
                                                     <p> Ort </p>
                                                     <%= form.text_field :country_category, class: "form-control" %>
                                                 </div>
 
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <p> Bundesland </p>
                                                     <div> <%= form.text_field :country_category, class: "form-control" %> </div>
                                                 </div>
@@ -1993,17 +2030,18 @@
                                             </div>
                                         </div>
 
+                                        <br><br>
                                         <div class="form-group">
                                             <div class="row">
                                                 <br>
-                                                <div class="col-md-5 col-md-offset-2">
+                                                <div class="col-md-3 col-md-offset-1">
                                                     <p> Anzahl der Mitarbeiterinnen und Mitarbeiter </p>
-                                                    <%= form.text_field :employees_count, class: "form-control", required: true %>
+                                                    <%= form.text_field :employees_count, class: "form-control" %>
                                                 </div>
 
-                                                <div class="col-md-5">
+                                                <div class="col-md-3">
                                                     <p> Umsatz im letzten vollen Geschäftsjahr </p>
-                                                    <div> <%= form.text_field :revenue_last_year, class: "form-control", required: true %> </div>
+                                                    <div> <%= form.text_field :revenue_last_year, class: "form-control" %> </div>
                                                 </div>
 
                                             </div>
@@ -2011,19 +2049,16 @@
                                     </div>
 
                                     <div id="firmenDaten">
+                                        <br>
+                                        <div class="col-md-10 col-md-offset-1">
+                                            <p><b>Wen können wir ansprechen?</b>  </p>
+                                        </div>
 
-                                        <br><br>
-                                        <label class="control-label"> Wen können wir ansprechen? </label>
-
+                                        <br>
                                         <div class="form-group">
                                             <div class="row">
                                                 <br><br><br>
-                                                <div class="col-md-4 col-md-offset-2">
-                                                    <%= form.select :country_category, [["Frau", "Frau"]], id: "B_168", prompt: "Herr" %>
-                                                </div>
-
-                                                <div class="col-md-4 ">
-                                                    <p> Titel </p>
+                                                <div class="col-md-3 col-md-offset-1">
                                                     <%= form.text_field :country_category, class: "form-control" %>
                                                 </div>
                                             </div>
@@ -2034,12 +2069,12 @@
                                         <div class="form-group">
                                             <div class="row">
                                                 <br>
-                                                <div class="col-md-4 col-md-offset-1">
+                                                <div class="col-md-3 col-md-offset-1">
                                                     <p> First Name </p>
                                                     <%= form.text_field :country_category, class: "form-control" %>
                                                 </div>
 
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <p> Last Name </p>
                                                     <div> <%= form.text_field :country_category, class: "form-control" %> </div>
                                                 </div>
@@ -2054,12 +2089,12 @@
                                         <div class="form-group">
                                             <div class="row">
                                                 <br>
-                                                <div class="col-md-4 col-md-offset-2">
+                                                <div class="col-md-3 col-md-offset-2">
                                                     <p> Funktion </p>
                                                     <%= form.text_field :country_category, class: "form-control" %>
                                                 </div>
 
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <p> Bereich </p>
                                                     <div> <%= form.text_field :country_category, class: "form-control" %> </div>
                                                 </div>
@@ -2068,18 +2103,18 @@
                                         </div>
                                     </div>
 
+                                    <br><br><br>
+
+                                    <div class="col-md-6 col-md-offset-1">
+                                        <p> Diese Anlagen benötigen wir für die Prüfung Ihres
+                                            Geschäftes </p>
+                                    </div>
+
                                     <div id="uploadDocuments">
-
-                                        <br><br>
-                                        <label class="control-label"> Diese Anlagen benötigen wir für die Prüfung Ihres
-                                            Geschäftes </label>
-
-
                                         <br><br><br>
-
                                         <div class="row">
                                             <div class="col-md-5 col-md-offset-1">
-                                                <h4> Selbstauskunft (bei Neukunden) </h4>
+                                                <p> Selbstauskunft (bei Neukunden) </p>
                                             </div>
                                             <div class="col-md-6">
                                                 <%= form.file_field :country_category %>
@@ -2091,7 +2126,7 @@
 
                                         <div class="row">
                                             <div class="col-md-5 col-md-offset-1">
-                                                <h4> Jahresabschlüsse Ihres Kunden </h4>
+                                                <p> Jahresabschlüsse Ihres Kunden </p>
                                             </div>
                                             <div class="col-md-6">
                                                 <%= form.file_field :country_category %>
@@ -2101,7 +2136,7 @@
                                         <br><br><br>
                                         <div class="row">
                                             <div class="col-md-5 col-md-offset-1">
-                                                <h4> Auskünfte über Ihren Kunden </h4>
+                                                <p> Auskünfte über Ihren Kunden </p>
                                             </div>
                                             <div class="col-md-6">
                                                 <%= form.file_field :country_category %>
@@ -2113,7 +2148,7 @@
 
                                         <div class="row">
                                             <div class="col-md-5 col-md-offset-1">
-                                                <h4> Umwelt- und Sozialinformationen </h4>
+                                                <p> Umwelt- und Sozialinformationen </p>
                                             </div>
                                             <div class="col-md-6">
                                                 <%= form.file_field :country_category %>
@@ -2125,7 +2160,7 @@
 
                                         <div class="row">
                                             <div class="col-md-5 col-md-offset-1">
-                                                <h4> ggf. Projektmemorandum </h4>
+                                                <p> ggf. Projektmemorandum </p>
                                             </div>
                                             <div class="col-md-6">
                                                 <%= form.file_field :country_category %>
@@ -2137,7 +2172,7 @@
 
                                         <div class="row">
                                             <div class="col-md-5 col-md-offset-1">
-                                                <h4> Sonstiges </h4>
+                                                <p> Sonstiges </p>
                                             </div>
                                             <div class="col-md-6">
                                                 <%= form.file_field :country_category %>
@@ -2150,12 +2185,10 @@
                                         <div class="row">
                                             <br><br><br>
                                             <div class="col-md-10 col-md-offset-1">
-                                                <label class="control-label">Sie beantragen die Absicherung folgender
-                                                    Risiken. </label><br><br>
-
-                                                <p><i>Nichtzahlung der Forderung (Lieferantenkreditdeckung (G))</i></p> <br><br>
-
-
+                                                <p><b>Sie beantragen die Absicherung folgender
+                                                    Risiken.</b></p>
+                                                <p><i>Nichtzahlung der Forderung (Lieferantenkreditdeckung (G))</i></p>
+                                                <br>
                                                 <p>Möchten Sie die Selbstbeteiligung für wirtschaftliche Risiken gegen
                                                     Zusatzentgelt
                                                     auf 5 % absenken?</p>
@@ -2185,19 +2218,18 @@
                                                 <hr align="middle" width="50%">
                                                 <div class="col-md-10 col-md-offset-1">
 
-                                                    <label class="control-label"> Bitte geben Sie die Erklärung zur
-                                                        Korruptionsprävention ab. </label><br><br>
-
-                                                    <br><br>
-
+                                                    <p><b>Bitte geben Sie die Erklärung zur
+                                                        Korruptionsprävention ab. </b></p><br><br>
 
                                                     <p><b>Beachtung gesetzlicher Vorschriften </b> <br>
-                                                        Wir erklären, dass der Abschluss des Liefer- bzw. Leistungsgeschäfts
+                                                        Wir erklären, dass der Abschluss des Liefer- bzw.
+                                                        Leistungsgeschäfts
                                                         nicht durch
                                                         eine strafbare Handlung eines Mitarbeiters, der Geschäftsleitung
                                                         oder
                                                         eines
-                                                        Inhabers unseres Unternehmens oder einer anderen in unserem Auftrag
+                                                        Inhabers unseres Unternehmens oder einer anderen in unserem
+                                                        Auftrag
                                                         handelnden
                                                         Person herbeigeführt worden ist bzw. nicht durch eine derartige
                                                         Handlung
@@ -2205,21 +2237,26 @@
 
 
                                                     <p><b>Auskunftspflicht</b> <br>
-                                                        Uns ist bekannt, dass wir im Antragsverfahren und nach Übernahme der
+                                                        Uns ist bekannt, dass wir im Antragsverfahren und nach Übernahme
+                                                        der
                                                         jeweils
                                                         beantragten Exportkreditgarantie sowie gemäß der bei Beantragung
                                                         einer
-                                                        Exportkreditgarantie für einen gebundenen Finanzkredit abzugebenden
+                                                        Exportkreditgarantie für einen gebundenen Finanzkredit
+                                                        abzugebenden
                                                         Verpflichtungserklärung über alle Umstände des zur Deckung
                                                         beantragten
-                                                        Geschäfts, die für die Übernahme der Exportkreditgarantie erheblich
+                                                        Geschäfts, die für die Übernahme der Exportkreditgarantie
+                                                        erheblich
                                                         sind, dem
                                                         Bund vollständig und richtig Auskunft zu erteilen haben. Dies
                                                         umfasst
                                                         auch die
-                                                        Beantwortung von Fragen des Bundes hinsichtlich der Identität von
+                                                        Beantwortung von Fragen des Bundes hinsichtlich der Identität
+                                                        von
                                                         Personen, die
-                                                        in unserem Auftrag am Abschluss des Liefer- bzw. Leistungsgeschäfts
+                                                        in unserem Auftrag am Abschluss des Liefer- bzw.
+                                                        Leistungsgeschäfts
                                                         beteiligt
                                                         sind oder waren, sowie von Fragen über Grund und Höhe etwaiger
                                                         Zahlungen
@@ -2227,10 +2264,12 @@
                                                         diese Personen. </p> <br><br>
 
 
-                                                    <p><b>Angaben zu Anklagen, strafrechtlichen und nicht-strafrechtlichen
+                                                    <p><b>Angaben zu Anklagen, strafrechtlichen und
+                                                        nicht-strafrechtlichen
                                                         Sanktionen
                                                         sowie Ermittlungsverfahren und Sperrlisten</b> <br>
-                                                        Mitarbeiter, die Geschäftsleitung oder Inhaber unseres Unternehmens
+                                                        Mitarbeiter, die Geschäftsleitung oder Inhaber unseres
+                                                        Unternehmens
                                                         oder
                                                         andere
                                                         an diesem Vertragsabschluss beteiligte und in unserem Auftrag
@@ -2239,11 +2278,12 @@
                                                         oder unser Unternehmen selbst sind/ist wegen eines
                                                         Korruptionsdelikts
                                                     </p>
-                                                    <br><br>
+                                                    <br>
 
                                                     <ul class="text-white">
                                                         <br>
-                                                        <li> gegenwärtig vor einem staatlichen Gericht angeklagt oder</li>
+                                                        <li> gegenwärtig vor einem staatlichen Gericht angeklagt oder
+                                                        </li>
                                                         <br>
                                                         <li> innerhalb der letzten 5 Jahre von einem staatlichen Gericht
                                                             verurteilt
@@ -2255,20 +2295,18 @@
                                                             Sanktion belegt worden oder
                                                         </li>
                                                         <br>
-                                                        <li> einem staatsanwaltschaftlichen Ermittlungsverfahren unterworfen
+                                                        <li> einem staatsanwaltschaftlichen Ermittlungsverfahren
+                                                            unterworfen
                                                             worden oder
 
                                                         </li>
                                                         <br>
-                                                        <li> auf einer Sperrliste einer internationalen Finanzorganisation
+                                                        <li> auf einer Sperrliste einer internationalen
+                                                            Finanzorganisation
                                                             aufgeführt.
 
                                                         </li>
-
-
                                                     </ul>
-
-
                                                 </div>
                                             </div>
                                         </div>
@@ -2293,36 +2331,37 @@
                                         <div class="row">
                                             <br><br>
 
-                                            <p>Im Fall eines Konsortiums oder einer Arbeitsgemeinschaft ist die Erklärung
-                                                vom
-                                                Konsortialführer für alle Konsortialpartner bzw. von einem Mitglied der
-                                                Arbeitsgemeinschaft stellvertretend für alle anderen Mitglieder
-                                                abzugeben</p>
-                                            <br><br>
+                                            <div class="col-md-10 col-md-offset-1">
+                                                <p>Im Fall eines Konsortiums oder einer Arbeitsgemeinschaft ist die
+                                                    Erklärung
+                                                    vom
+                                                    Konsortialführer für alle Konsortialpartner bzw. von einem Mitglied der
+                                                    Arbeitsgemeinschaft stellvertretend für alle anderen Mitglieder
+                                                    abzugeben</p>
+                                                <br><br>
+                                            </div>
 
                                             <div class="col-md-4 col-md-offset-2">
-                                                <%= form.check_box :country_category, id: "Yes-WorkAssociation" %> Konsortium
+                                                <%= form.check_box :country_category, id: "Yes-WorkAssociation" %>
+                                                Konsortium
                                                 oder
                                                 Arbeitsgemeinschaft
                                             </div>
                                             <div class="col-md-4">
-                                                <%= form.check_box :country_category, id: "No-WorkAssociation" %> Wir arbeiten
+                                                <%= form.check_box :country_category, id: "No-WorkAssociation" %> Wir
+                                                arbeiten
                                                 für
                                                 dieses Geschäft nicht in einem Konsortium oder einer Arbeitsgemeinschaft
                                             </div>
-
                                         </div>
-
                                         <br><br>
-
 
                                         <div id="workAssociationExist" style="display: none">
                                             <div class="form-group">
                                                 <div class="row">
-                                                    <div class="col-md-10 col-md-offset-2">
-                                                        <br><br>
-                                                        <p><i>Bitte geben Sie die Firmen an
-                                                        </i></p>
+                                                    <div class="col-md-10 col-md-offset-1">
+                                                        <p>Bitte geben Sie die Firmen an
+                                                        </p>
                                                         <%= form.text_field :country_category, class: "form-control" %>
                                                     </div>
                                                 </div>
@@ -2330,59 +2369,67 @@
                                         </div>
 
 
-                                        <div class="col-md-10 col-md-offset-1">
+                                        <div class="col-md-6 col-md-offset-3">
                                             <%= form.check_box :country_category, id: "Yes-WorkAssociation" %>
-                                            Die vorstehenden Angaben wurden von uns nach bestem Wissen und Gewissen und in
+                                            Die vorstehenden Angaben wurden von uns nach bestem Wissen und Gewissen und
+                                            in
                                             Kenntnisnahme der Erläuterungen gemacht
                                         </div>
 
-                                        <br><br><br><br>
-                                        <hr align="middle" width="50%">
                                         <br><br>
+                                        <hr align="middle" width="50%">
+                                        <br>
 
-                                        <p>Liefern Sie gemeinsam mit Verbundunternehmen oder sind Zwischenhändler
-                                            eingesetzt? Dann
-                                            müssen diese die Erklärung zur Korruptionsprävention separat unterzeichnen.
-                                            Bitte leiten
-                                            Sie das Formular entsprechend weiter und reichen es uns nach.</p>
-
+                                        <div class="col-md-10 col-md-offset-1">
+                                            <p>Liefern Sie gemeinsam mit Verbundunternehmen oder sind Zwischenhändler
+                                                eingesetzt? Dann
+                                                müssen diese die Erklärung zur Korruptionsprävention separat unterzeichnen.
+                                                Bitte leiten
+                                                Sie das Formular entsprechend weiter und reichen es uns nach.</p>
+                                        </div>
 
                                         <div id="finalDeclaration">
 
                                             <br><br>
-                                            <label class="control-label"> Bitte geben Sie zuletzt noch die
-                                                Abschlusserklärungen
-                                                ab.</label>
-
+                                            <div class="col-md-10 col-md-offset-1">
+                                                <p> Bitte geben Sie zuletzt noch die
+                                                    Abschlusserklärungen
+                                                    ab.</p>
+                                                <br><br>
+                                            </div>
                                             <div class="row">
-                                                <br><br><br>
+                                                <br>
 
-                                                <div class="col-md-11    col-md-offset-1">
+                                                <div class="col-md-8 col-md-offset-2">
                                                     <%= form.check_box :country_category, id: "Yes-WorkAssociation" %>
-                                                    Wir akzeptieren die Allgemeinen Bedingungen für Lieferantenkreditdeckung
+                                                    Wir akzeptieren die Allgemeinen Bedingungen für
+                                                    Lieferantenkreditdeckung
                                                     (G)
                                                     in Zusammenhang mit den Ergänzenden Bestimmungen für
                                                     Forderungsabtretungen
                                                 </div>
 
-
-                                                <div class="col-md-11 col-md-offset-1">
+                                                <div class="col-md-8 col-md-offset-2">
                                                     <br><br>
-                                                    <%= form.check_box :country_category, id: "Yes-WorkAssociation" %>
+                                                    <%= form.check_box :country_category,  id: "Yes-WorkAssociation" %>
                                                     Wir haben die Datenschutzhinweise zur Kenntnis genommen und sind mit
                                                     deren
                                                     Geltung einverstanden.
                                                 </div>
 
-                                                <div class="col-md-11 col-md-offset-1">
+                                                <div class="col-md-8 col-md-offset-2">
                                                     <br><br>
                                                     <%= form.check_box :country_category, id: "Yes-WorkAssociation" %>
                                                     Wir haben die Hinweise zu Gebühren und Entgelten, Richtlinien,
-                                                    Verantwortlichkeiten für den Antrag, Veröffentlichung von Projektdaten,
-                                                    OECD-Leitsätze für multinationale Unternehmen und UN-Leitprinzipien für
+                                                    Verantwortlichkeiten für den Antrag, Veröffentlichung von
+                                                    Projektdaten,
+                                                    OECD-Leitsätze für multinationale Unternehmen und UN-Leitprinzipien
+                                                    für
                                                     Wirtschafts- und Menschenrechte zur Kenntnis genommen.
                                                 </div>
                                             </div>
+
+                                            <br><br><br>
                                         </div>
 
                                     </div>
