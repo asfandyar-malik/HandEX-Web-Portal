@@ -18,10 +18,10 @@ class TradeinfosController < ApplicationController
     def create
         @tradeinfo = current_user.tradeinfos.build(tradeinfo_params)
         if @tradeinfo.save
-            if @tradeinfo.insurance
-                redirect_to tradeinfo_insurances_index_path(@tradeinfo, @financial)
+            if @tradeinfo.listing
+                redirect_to tradeinfo_listings_index_path(@tradeinfo, @financial)
             else
-                redirect_to new_tradeinfo_insurance_path(@tradeinfo, @financial)
+                    redirect_to new_tradeinfo_listing_path(@tradeinfo, @financial)
             end
         else
             flash[:alert] = "Something went wrong while creating trade information...."
@@ -38,10 +38,10 @@ class TradeinfosController < ApplicationController
     def update
         if @tradeinfo.update(tradeinfo_params)
             flash[:notice] = "TradeInfo Updated...."
-            if @tradeinfo.insurance
-                redirect_to tradeinfo_insurances_index_path(@tradeinfo, @financial)
+            if @tradeinfo.listing
+                redirect_to tradeinfo_listings_index_path(@tradeinfo, @financial)
             else
-                redirect_to new_tradeinfo_insurance_path(@tradeinfo, @financial)
+                redirect_to new_tradeinfo_listing_path(@tradeinfo, @financial)
             end
         else
             flash[:alert] = "Something went wrong while updating"

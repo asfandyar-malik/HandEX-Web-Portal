@@ -5,7 +5,9 @@
             <div class="wizard-container">
                 <div class="card wizard-card" data-color="red" id="wizard">
 
-                    <%= form_with(model: listing, local: true) do |form| %>
+                    <%= form_with(model: listing, url: tradeinfo_listings_path, local: true) do |form| %>
+
+
                         <% if listing.errors.any? %>
                             <div id="error_explanation">
                                 <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from
@@ -524,7 +526,7 @@
                                             <hr align="middle" width="90%">
                                             <div class="col-md-12">
                                                 <p><b>Betreffen Ihre Lieferungen bzw. Leistungen ein sensibles
-                                                    Gebiet?</b> </p>
+                                                    Gebiet?</b></p>
                                                 <br>
                                             </div>
 
@@ -778,7 +780,7 @@
                                         <div class="row">
                                             <br><br>
                                             <div class="col-md-4 col-md-offset-2">
-                                                <div> <%= form.date_field :goods_completion_date, class: "form-control", id: "start_date", type: "date", class: "datepicker" %> </div>
+                                                <div> <%= form.date_field :goods_completion_date,id: "start_date", type: "date", class: "datepicker" %> </div>
                                             </div>
 
                                             <div class="col-md-4 ">
@@ -1868,7 +1870,8 @@
                                             <div class="row">
                                                 <br>
                                                 <div class="col-md-10 col-md-offset-1">
-                                                    <p><b>Bitte helfen Sie uns, die Beteiligung besser zu verstehen</b></p>
+                                                    <p><b>Bitte helfen Sie uns, die Beteiligung besser zu verstehen</b>
+                                                    </p>
                                                     <div> <%= form.text_field :country_category, class: "form-control", row: "9" %> </div>
                                                 </div>
                                             </div>
