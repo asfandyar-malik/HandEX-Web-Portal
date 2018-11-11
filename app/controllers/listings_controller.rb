@@ -30,13 +30,12 @@ class ListingsController < ApplicationController
     # POST /listings.json
     def create
         @tradeinfo     = Tradeinfo.find(params[:tradeinfo_id])
-        # @listing            = Listing.new(listing_params)
         @listing     = @tradeinfo.build_listing(listing_params)
         @listing.home       = params[:listing][:home]
         @listing.appartment = params[:listing][:appartment]
 
         if @listing.save
-            redirect_to new_tradeinfo_bankaccount_path(@tradeinfo, @listing), notice: "Listing Created...."
+            redirect_to pages_applicationProcessing_path(@tradeinfo, @listing), notice: "Antrag absenden"
         else
             flash[:notice] = "Something went wrong while creating...."
         end
