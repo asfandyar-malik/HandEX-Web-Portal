@@ -150,7 +150,7 @@
                                 <h4 class="info-text">Das Wichtigste Zuerst</h4>
                                 <br>
                                 <div class="row">
-                                    <div class="col-sm-5 col-sm-offset-1">
+                                    <div class="col-sm-6 col-sm-offset-3">
                                         <div class="form-group">
                                             <label>Wohin soll es gehen?</label>
                                             <%= form.select :accommodates,
@@ -191,7 +191,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-5 col-sm-offset-1">
+                                    <div class="col-sm-6 col-sm-offset-3">
                                         <div class="form-group">
                                             <label>Handelt es sich bei Ihrer Ware um
                                                 Investitionsgüter?</label>
@@ -205,7 +205,7 @@
 
                                 <div id="showHideDivTotalFinancingRequired" style="display: none">
                                     <div class="row">
-                                        <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="col-sm-6 col-sm-offset-3">
                                             <div class="form-group">
                                                 <label>Wie hoch ist der Auftragswert in Euro?</label>
                                                 <div class="input-group">
@@ -224,10 +224,10 @@
                                 <div id="showHideDivPaymentGoal" style="display: none">
 
                                     <div class="row">
-                                        <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="col-sm-6 col-sm-offset-3">
                                             <div class="form-group">
                                                 <label> Welches Zahlungsziel gewähren Sie Ihrem Kunden? </label>
-                                                <%= form.select :accommodates, options_for_select(['3 Months', '6 Months', '9 Months', '12 Months', '15 Months', '18 Months', '21 Months', '24 Months', '27 Months', '30 Months', '33 Months','36 Months'], listing.accommodates ? listing.accommodates : nil), {}, class: 'form-control' %>
+                                                <%= form.select :accommodates, options_for_select(['3 Months', '6 Months', '9 Months', '12 Months', '15 Months', '18 Months', '21 Months', '24 Months', '27 Months', '30 Months', '33 Months', '36 Months'], listing.accommodates ? listing.accommodates : nil), {}, class: 'form-control' %>
                                             </div>
                                             <button type="button" name="auftragwertbutton" value="Show Div" onclick="showWhichSectorDeliveryDiv(this)" id="BUTTON_300">
                                                 Fertig
@@ -238,7 +238,7 @@
 
                                 <div id="showHideDivDeliveryGoal" style="display: none">
                                     <div class="row">
-                                        <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="col-sm-6 col-sm-offset-3">
                                             <div class="form-group">
                                                 <label>An wen liefern Sie?</label>
                                                 <div class="row">
@@ -260,79 +260,21 @@
                                 <div id="showHideDivResultMessage" style="display: none">
 
                                     <div class="row">
-                                        <div class="col-md-8 col-md-offset-1">
-                                            <p>
-                                                Congratulations
-                                            </p>
-                                        </div>
-
                                         <div class="row">
-                                            <div class="col-md-10 col-md-offset-1">
+                                            <div class="col-md-9 col-md-offset-2">
                                                 <p>
-                                                    Ihr Geschäft eignet sich grundsätzlich und vorbehaltlich
-                                                    einer
-                                                    tieferen
-                                                    Prüfung des Sachverhalts und der Bonität Ihres ausländischen
-                                                    Bestellers
-                                                    bzw.
-                                                    Garanten für eine Hermesdeckung. <br>
-
-                                                    Dieses Icon zeigt, dass Ihr Geschäft die Kriterien für den
-                                                    click&cover-Modus
-                                                    erfüllt. Hier ist – nach Vorliegen aller relevanten
-                                                    Informationen
-                                                    eine
-                                                    Entscheidung innerhalb von durchschnittlich 2 Wochen
-                                                    möglich. <br>
-
-                                                    Im Rahmen Ihrer weiteren Eingaben wird fortwährend geprüft,
-                                                    ob Ihr
-                                                    Geschäft
-                                                    weiterhin für den click&cover Modus geeignet ist – am Ende
-                                                    können
-                                                    Sie
-                                                    jedoch
-                                                    selbst entscheiden, welche Absicherungsvariante Sie wählen.
-                                                    <br>
-                                                    Solange Sie sich im click&cover-Modus befinden, können wir
-                                                    Ihnen
-                                                    bereits
-                                                    frühzeitig eine Preisindikation geben. Aufgrund der von
-                                                    Ihnen bisher
-                                                    gemachten Angaben würde sich der Preis für eine Absicherung
-                                                    belaufen
-                                                    auf
-                                                    <br>
-                                                    zwischen 100 EUR (ohne
-                                                    Gewähr - das tatsächlich
-                                                    anfallende
-                                                    Entgelt teilen wir Ihnen im Rahmen der Entscheidung mit)
-                                                    <br>
-                                                    Im Laufe der Antragstellung konkretisieren sich die
-                                                    Berechnungen –
-                                                    die
-                                                    aktuelle Information finden Sie jeweils hinter dem
-                                                    Taschenrechner-Symbol
-                                                    am
-                                                    rechten Bildrand. <br>
-                                                    Sollte sich im Rahmen der Einzelfallprüfung des Antrags
-                                                    zeigen, dass
-                                                    der
-                                                    click&cover-Modus nicht zulässig ist, ist weiterhin der
-                                                    Zugang zur
-                                                    klassischen Lieferantenkreditdeckung möglich. <br>
-                                                    Sie möchten zum ersten Mal eine Hermesdeckung beantragen?
-                                                    Dann
-                                                    lassen
-                                                    Sie
-                                                    sich von uns beraten. Bitte planen Sie ein wenig mehr Zeit
-                                                    für Ihren
-                                                    ersten
-                                                    Antrag ein – wir möchten Sie zunächst bei einem
-                                                    Vor-Ort-Termin in
-                                                    Ihrem
-                                                    Unternehmen kennenlernen und Sie auf den ersten Schritten
-                                                    begleiten.
+                                                    Ihr Geschäft eignet sich grundsätzlich und vorbehaltlich einer
+                                                    tieferen Prüfung des Sachverhalts und der Bonität Ihres
+                                                    ausländischen Bestellers bzw. Garantien für eine Hermesdeckung. Nach
+                                                    Vorliegen aller relevanten Informationen eine Entscheidung innerhalb
+                                                    von durchschnittlich 2 Wochen möglich. Im Rahmen Ihrer weiteren
+                                                    Eingaben wird fortwährend geprüft, ob Ihr Geschäft weiterhin für
+                                                    eine Hermesdeckung geeignet ist – am Ende können Sie jedoch selbst
+                                                    entscheiden, welche Absicherungsvariante Sie wählen. Sollte sich im
+                                                    Rahmen der Einzelfallprüfung des Antrags zeigen, dass der digitalen
+                                                    Antrag für eine Hermesdeckung nicht zulässig ist, ist weiterhin der
+                                                    Zugang zur klassischen Lieferantenkreditdeckung durch Euler Hermes
+                                                    möglich.
                                                 </p>
                                             </div>
                                         </div>
@@ -386,7 +328,7 @@
                                             </div>
 
 
-                                            <div id="entlastung" class="col-sm-4" style="display: none">
+                                            <div id="entlastung" class="col-sm-4">
                                                 <div class="choice <%= 'active' if listing.appartment == 'on' %>" data-toggle="wizard-checkbox">
                                                     <%= check_box_tag "listing[appartment]", listing.appartment ? listing.appartment : nil %>
                                                     <div class="card card-checkboxes card-hover-effect">
@@ -407,6 +349,7 @@
                                                 <div class="card card-checkboxes card-hover-effect">
                                                     <i class="ti-layout-grid4"></i>
                                                     <p>Weitere Deckungen</p>
+                                                    <h7 style="color:red;">In Kürze verfügbar</h7>
                                                 </div>
                                             </div>
                                         </div>
@@ -417,14 +360,14 @@
 
                                 <h4 class="info-text">Ihr Geschäft</h4>
 
-                                <br><br>
+                                <br>
                                 <div class="row">
                                     <div class="col-sm-5 col-sm-offset-1">
                                         <div class="form-group">
                                             <p><b>Bitte beschreiben Sie Ihr Exportgeschäft</b></p>
                                             <div class="input-group">
-                                                <%= form.text_field :price, class: 'form-control' %>
-                                                <span class="input-group-addon">TA</span>
+                                                <%= form.text_area :price, class: 'form-control' %>
+                                                <span class="input-group-addon"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -438,8 +381,8 @@
                                                 Neuinvestition? Wenn Sie Leistungen (Montage, Schulungen vor Ort, etc.)
                                                 erbringen, können Sie diese hier ebenfalls beschreiben.</p>
                                             <div class="input-group">
-                                                <%= form.text_field :price, class: 'form-control', placeholder: 'Auftragswert' %>
-                                                <span class="input-group-addon">TA</span>
+                                                <%= form.text_area :price, class: 'form-control' %>
+                                                <span class="input-group-addon"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -473,8 +416,8 @@
                                         <div class="form-group">
                                             <p><b>Bitte konkretisieren Sie Ihre Branche weiter</b></p>
                                             <div class="input-group">
-                                                <%= form.text_field :price, class: 'form-control', placeholder: 'Auftragswert' %>
-                                                <span class="input-group-addon">TA</span>
+                                                <%= form.text_area :price, class: 'form-control', :input_html => {:rows => 20} %>
+                                                <span class="input-group-addon"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -509,8 +452,8 @@
                                             <div class="form-group">
                                                 <p>Bitte beschreiben Sie das Gesamtprojekt detaillierter</p>
                                                 <div class="input-group">
-                                                    <%= form.text_field :price, class: 'form-control' %>
-                                                    <span class="input-group-addon">TA</span>
+                                                    <%= form.text_area :price, class: 'form-control' %>
+                                                    <span class="input-group-addon"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -687,28 +630,35 @@
                                 <div id="exportLicenseRequirement" style="display: none; background-color: #f7f7f7;">
 
                                     <div class="form-group">
-                                        <div class="col-md-10 col-md-offset-1">
-                                            <p><b>Aus welchen Vorschriften bzw. welchem Teil/Abschnitt der Ausfuhrliste
-                                                ergibt sich die Genehmigungspflicht? </b></p>
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-1">
+                                                <p><b>Aus welchen Vorschriften bzw. welchem Teil/Abschnitt der
+                                                    Ausfuhrliste
+                                                    ergibt sich die Genehmigungspflicht? </b></p>
+                                            </div>
                                         </div>
-                                        <div class="col-md-10 col-md-offset-2">
-                                            <div> <%= form.text_field :which_regulation_requires_exportlicense %> </div>
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-1">
+                                                <div> <%= form.text_area :which_regulation_requires_exportlicense, class: "form-control" %> </div>
+                                            </div>
                                         </div>
                                     </div>
 
-
                                     <div class="form-group">
-
                                         <div class="row">
-                                            <div class="col-md-4 col-md-offset-2">
+
+                                            <div class="col-md-10 col-md-offset-1">
                                                 <br><br>
                                                 <p> Die Ausfuhrgenehmigung .. </p>
                                             </div>
-                                            <div class="col-md-4">
-                                                <br><br>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-1">
                                                 <%= form.select :exportlicense_status, [["... wurde erteilt.", "... wurde erteilt."], ["... ist beantragt.", "... ist beantragt."], ["... ist noch zu beantragen.", "... ist noch zu beantragen."]] %>
                                             </div>
+
                                         </div>
+                                        <br>
                                     </div>
 
                                 </div>
@@ -754,7 +704,7 @@
 
                                         <div class="row">
                                             <br><br>
-                                            <div class="col-md-4 col-md-offset-3">
+                                            <div class="col-md-4 col-md-offset-2">
                                                 <div> <%= form.text_field :product_original_date_of_manifacture, class: "form-control", placeholder: "Jahr der Fertigung" %> </div>
                                             </div>
                                             <div class="col-md-4 ">
@@ -776,7 +726,7 @@
                                                 <br>
 
                                                 <div class="row">
-                                                    <div class="col-md-3 col-md-offset-4">
+                                                    <div class="col-md-3 col-md-offset-2">
                                                         <%= form.check_box :yes_good_overhauled_before_reselling, class: "form-control", id: "yes_outdated_goods" %>
                                                         Ja
                                                     </div>
@@ -796,7 +746,7 @@
                                                 <br>
 
                                                 <div class="row">
-                                                    <div class="col-md-6 col-md-offset-4">
+                                                    <div class="col-md-8 col-md-offset-2">
                                                         <%= form.select :goods_overhauled_location, [["In Deuschland", "In Deuschland"], ["im Ausland", "im Ausland"],
                                                                                                      ["sowohl als auch", "sowohl als auch"]], id: "B_168", class: "form-control" %>
 
@@ -851,14 +801,15 @@
                                         </div>
 
                                         <div class="row">
-                                            <br><br>
-                                            <div class="col-md-4 col-md-offset-2">
+                                            <br>
+                                            <div class="col-md-2 col-md-offset-2">
                                                 <div> <%= form.date_field :goods_completion_date, id: "start_date", type: "date", class: "datepicker" %> </div>
                                             </div>
 
                                             <div class="col-md-4 ">
                                                 <div> <%= form.text_field :companny_internal_id, class: "form-control", placeholder: "Ihre interne Vertragskennung" %> </div>
                                             </div>
+                                            <br>
                                         </div>
                                     </div>
                                 </div>
@@ -900,8 +851,8 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-md-10 col-md-offset-2">
-                                                <div> <%= form.text_field :explain_special_contract_structure, class: "form-control" %> </div>
+                                            <div class="col-md-10 col-md-offset-1">
+                                                <div> <%= form.text_area :explain_special_contract_structure, class: "form-control" %> </div>
                                             </div>
                                             <br><br><br>
                                         </div>
@@ -948,7 +899,7 @@
 
                                                 <div class="row">
                                                     <br>
-                                                    <div class="col-md-4 col-md-offset-2">
+                                                    <div class="col-md-2 col-md-offset-2">
                                                         <%= form.select :order_value_export_business_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
                                                     </div>
                                                     <div class="col-md-4 ">
@@ -1081,7 +1032,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-10 col-md-offset-1">
-                                                <div> <%= form.text_field :explain_billing_methods, class: "form-control", placeholder: "Bitte beschreiben Sie die Details zur Verrechnungsmethode (Prozent- oder Betragsverfahren)." %> </div>
+                                                <div> <%= form.text_area :explain_billing_methods, class: "form-control", placeholder: "Bitte beschreiben Sie die Details zur Verrechnungsmethode (Prozent- oder Betragsverfahren)." %> </div>
                                             </div>
                                             <br><br><br>
                                         </div>
@@ -1276,7 +1227,7 @@
                                                             Notes
                                                             vereinbart haben, so geben Sie dies bitte hier an.
                                                         </p>
-                                                        <div> <%= form.text_field :payment_vehichle, class: "form-control" %> </div>
+                                                        <div> <%= form.text_area :payment_vehichle, class: "form-control" %> </div>
                                                     </div>
                                                 </div>
 
@@ -1354,9 +1305,9 @@
 
 
                                             </div>
-                                            <div class="col-md-8 col-md-offset-2">
+                                            <div class="col-md-8 col-md-offset-1">
                                                 <br>
-                                                <%= form.text_field :loan_term_other_description, class: "form-control", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
+                                                <%= form.text_area :loan_term_other_description, class: "form-control", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
                                             </div>
 
                                         </div>
@@ -1504,7 +1455,7 @@
                                                 <%= form.select :sonstige_kurzfrist_deposit_received, [["vor Fabrikationsbeginn", "vor Fabrikationsbeginn"],
                                                                                                        ["vor Liefer /- Leistungbeginn", "vor Liefer /- Leistungbeginn"],
                                                                                                        ["bei Betriebsbereitschaft", "bei Betriebsbereitschaft"],
-                                                                                                       ["anderer Termin", "anderer Termin"]], class: "form-control", id: "B_168", prompt: "vor Fabrikationsbeginn..." %>
+                                                                                                       ["anderer Termin", "anderer Termin"]], class: "form-control", id: "B_168" %>
                                             </div>
                                         </div>
 
@@ -1542,7 +1493,7 @@
                                         <br>
 
                                         <div class="row">
-                                            <div class="col-md-6 col-md-offset-2">
+                                            <div class="col-md-6 col-md-offset-1">
                                                 <%= form.select :sonstige_kurzfrist_credit_start, [["mit Lieferung", "mit Lieferung"],
                                                                                                    ["mit erster Lieferung (bei mehreren Lieferungen)", "mit erster Lieferung (bei mehreren Lieferungen)"],
                                                                                                    ["mit jeweiliger Lieferung (bei mehreren Lieferungen)", "mit jeweiliger Lieferung (bei mehreren Lieferungen)"],
@@ -1633,7 +1584,7 @@
                                         <br><br>
 
                                         <div class="row">
-                                            <div class="col-md-3 col-md-offset-2">
+                                            <div class="col-md-2 col-md-offset-2">
                                                 <%= form.select :country_category,
                                                                 [["Andorra", "Andorra"], ["Australia", "Australia"], ["Austria", "Austria"], ["Barbados", "Barbados"], ["Belgium", "Belgium"], ["Brunei Darussalam", "Brunei Darussalam"],
                                                                  ["Canada", "Canada"], ["Chile", "Chile"], ["Comoros", "Comoros"], ["Cyprus", "Cyprus"], ["Czech Republic", "Czech Republic"], ["Denmark", "Denmark"], ["Dominica", "Dominica"],
@@ -1674,7 +1625,7 @@
                                                 <%= form.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", prompt: "Euro..." %>
                                             </div>
 
-                                            <div class="col-md-3 ">
+                                            <div class="col-md-4 ">
                                                 <%= form.text_field :country_category, class: "form-control" %>
                                             </div>
                                         </div>
@@ -1683,7 +1634,7 @@
                                     <br><br>
 
                                     <div class="form-group">
-                                        <div class="col-md-11 col-md-offset-1">
+                                        <div class="col-md-11 col-md-offset-2">
                                             <p> Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig
                                                 sind. </p>
                                         </div>
@@ -1691,7 +1642,8 @@
 
                                         <div class="row">
                                             <div class="col-md-8 col-md-offset-2">
-                                                <%= form.text_field :country_category, class: "form-control" %>
+                                                <%= form.text_area :country_category, class: "form-control" %>
+                                            <br><br>
                                             </div>
                                         </div>
                                     </div>
@@ -1733,7 +1685,7 @@
                                         <br><br>
 
                                         <div class="row">
-                                            <div class="col-md-4 col-md-offset-2">
+                                            <div class="col-md-5 col-md-offset-1">
                                                 <%= form.select :country_category, [["Unbestätigtes Akkreditiv einer Bank", "Unbestätigtes Akkreditiv einer Bank"],
                                                                                     ["Bestätigtes Akkreditiv", "Bestätigtes Akkreditiv"],
                                                                                     ["Zahlungsgarantie einer Bank", "Zahlungsgarantie einer Bank"],
@@ -1774,7 +1726,7 @@
                                                 <%= form.select :country_category, [["Vor Fabrikationsbeginn", "Vor Fabrikationsbeginn"],
                                                                                     ["Vor Liefer-/Leistungsbeginn", "Vor Liefer-/Leistungsbeginn"],
                                                                                     ["Später", "Später"],
-                                                                                    ["Anderer Termin", "Anderer Termin"]], class: "form-control", id: "B_168", prompt: "Vor Fabrikationsbeginn..." %>
+                                                                                    ["Anderer Termin", "Anderer Termin"]], class: "form-control", id: "B_168" %>
                                             </div>
                                         </div>
 
@@ -1864,7 +1816,8 @@
                                                     <%= form.check_box :country_category, id: "Yes-deliveryAddress" %>Ja
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <%= form.check_box :country_category, id: "No-deliveryAddress" %>Nein
+                                                    <%= form.check_box :country_category, id: "No-deliveryAddress" %>
+                                                    Nein
                                                 </div>
                                             </div>
                                         </div>
@@ -1944,7 +1897,7 @@
                                                 <div class="col-md-10 col-md-offset-1">
                                                     <p><b>Bitte helfen Sie uns, die Beteiligung besser zu verstehen</b>
                                                     </p>
-                                                    <div> <%= form.text_field :country_category, class: "form-control", row: "9" %> </div>
+                                                    <div> <%= form.text_area :country_category, class: "form-control", row: "9" %> </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1979,7 +1932,7 @@
                                                 <br>
                                                 <div class="col-md-10 col-md-offset-1">
                                                     <p>Bitte beschreiben Sie diese näher.</p>
-                                                    <div> <%= form.text_field :country_category, class: "form-control" %> </div>
+                                                    <div> <%= form.text_area s:country_category, class: "form-control" %> </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2202,7 +2155,7 @@
                                         <div class="form-group">
                                             <div class="row">
                                                 <br>
-                                                <div class="col-md-3">
+                                                <div class="col-md-3 col-md-offset-1">
                                                     <p>Funktion</p>
                                                     <%= form.text_field :country_category, class: "form-control" %>
                                                 </div>
