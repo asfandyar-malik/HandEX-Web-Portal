@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     get 'pages/termsAndConditions' => 'pages#termsAndConditions'
     get 'pages/applicationProcessing' => 'pages#applicationProcessing'
 
+    resources :listings
+    get 'listings/index' => 'listings#index'
+
     devise_for :users,
                path:        '',
                path_names:  {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'},
@@ -25,7 +28,6 @@ Rails.application.routes.draw do
         resources :financials, only: [:create, :destroy, :new, :update]
         resources :bankaccounts, only: [:create, :destroy, :new, :update]
         resources :officialdocuments, only: [:create, :destroy, :new, :update]
-        resources :listings
         resources :insurances do
             member do
                 get 'hermeskycone'
@@ -44,6 +46,5 @@ Rails.application.routes.draw do
         get 'bankaccounts/index' => 'bankaccounts#index'
         get 'officialdocuments/index' => 'officialdocuments#index'
         get 'insurances/index' => 'insurances#index'
-        get 'listings/index' => 'listings#index'
     end
 end

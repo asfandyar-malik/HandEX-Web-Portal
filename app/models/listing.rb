@@ -1,3 +1,3 @@
 class Listing < ApplicationRecord
-    belongs_to :tradeinfo
+    belongs_to :user
 end

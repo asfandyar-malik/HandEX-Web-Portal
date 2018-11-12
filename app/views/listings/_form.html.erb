@@ -5,8 +5,7 @@
             <div class="wizard-container">
                 <div class="card wizard-card" data-color="red" id="wizard">
 
-                    <%= form_with(model: listing, url: tradeinfo_listings_path, local: true) do |form| %>
-
+                    <%= form_with(model: listing, local: true) do |form| %>
 
                         <% if listing.errors.any? %>
                             <div id="error_explanation">

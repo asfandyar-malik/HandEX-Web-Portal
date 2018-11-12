@@ -6,7 +6,7 @@ class ListingsController < ApplicationController
     # GET /listings
     # GET /listings.json
     def index
-        @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
+        # @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
         @listings = Listing.all
     end
     
@@ -17,9 +17,9 @@ class ListingsController < ApplicationController
     
     # GET /listings/new
     def new
-        @tradeinfo     = Tradeinfo.find(params[:tradeinfo_id])
-        # @listing = Listing.new
-        @listing = @tradeinfo.build_listing
+        # @tradeinfo     = Tradeinfo.find(params[:tradeinfo_id])
+        @listing = Listing.new
+        # @listing = @tradeinfo.build_listing
     end
     
     # GET /listings/1/edit
@@ -29,16 +29,23 @@ class ListingsController < ApplicationController
     # POST /listings
     # POST /listings.json
     def create
-        @tradeinfo     = Tradeinfo.find(params[:tradeinfo_id])
-        @listing     = @tradeinfo.build_listing(listing_params)
+        # @tradeinfo     = Tradeinfo.find(params[:tradeinfo_id])
+        # @listing     = @tradeinfo.build_listing(listing_params)
+        @listing            = Listing.new(listing_params)
         @listing.home       = params[:listing][:home]
         @listing.appartment = params[:listing][:appartment]
-
+        
         if @listing.save
-            redirect_to pages_applicationProcessing_path(@tradeinfo, @listing), notice: "Antrag absenden"
+            redirect_to pages_applicationProcessing_path(@listing), notice: 'Listing was successfully created.'
         else
             flash[:notice] = "Something went wrong while creating...."
+            render :new
         end
+        # if @listing.save
+        #     redirect_to pages_applicationProcessing_path(@listing), notice: "Antrag absenden"
+        # else
+        #     flash[:notice] = "Something went wrong while creating...."
+        # end
     end
     
     # PATCH/PUT /listings/1
@@ -49,11 +56,9 @@ class ListingsController < ApplicationController
         
         respond_to do |format|
             if @listing.update(listing_params)
-                format.html {redirect_to @listing, notice: 'Listing was successfully updated.'}
-                format.json {render :show, status: :ok, location: @listing}
+                redirect_to pages_applicationProcessing_path(@listing), notice: 'Listing was successfully created.'
             else
-                format.html {render :edit}
-                format.json {render json: @listing.errors, status: :unprocessable_entity}
+                flash[:notice] = "Something went wrong while creating...."
             end
         end
     end
