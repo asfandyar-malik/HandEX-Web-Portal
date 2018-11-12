@@ -1622,7 +1622,7 @@
                                             </div>
 
                                             <div class="col-md-2">
-                                                <%= form.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", prompt: "Euro..." %>
+                                                <%= form.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control" %>
                                             </div>
 
                                             <div class="col-md-4 ">
@@ -1707,7 +1707,7 @@
                                                 <p> Welchen Anteil des Auftragswertes wird die Sicherheit umfassen?
                                                     (Zahlungsgarantie
                                                     einer Bank-1) </p>
-                                                <div> <%= form.text_field :country_category, class: "form-control" %> </div>
+                                                <div> <%= form.text_area :country_category, class: "form-control" %> </div>
                                             </div>
                                         </div>
 
@@ -1932,7 +1932,8 @@
                                                 <br>
                                                 <div class="col-md-10 col-md-offset-1">
                                                     <p>Bitte beschreiben Sie diese näher.</p>
-                                                    <div> <%= form.text_area s:country_category, class: "form-control" %> </div>
+                                                    <div> <%= form.text_area :country_category, class: "form-control" %> </div>
+                                                    <br><br>
                                                 </div>
                                             </div>
                                         </div>
