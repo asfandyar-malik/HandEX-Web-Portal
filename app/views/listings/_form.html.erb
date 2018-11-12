@@ -186,10 +186,11 @@
                                                                                 ["Peru", "Peru"], ["Oman", "Oman"], ["Panama", "Panama"], ["Uruguay", "Uruguay"], ["Costa Rica", "Costa Rica"], ["Trinidad and Tobago", "Trinidad and Tobago"],
                                                                                 ["Mauritius", "Mauritius"], ["Bahamas", "Bahamas"], ["China", "China"], ["UAE", "UAE"], ["Saudi Arabia", "Saudi Arabia"], ["Hong Kong (China)", "Hong Kong (China)"],
                                                                                 ["Malaysia", "Malaysia"], ["Kuwait", "Kuwait"], ["Macau (China)", "Macau (China)"], ["Botswana", "Botswana"], ["Chinese Taipei", "Chinese Taipei"], ["Singapore", "Singapore"]],
-                                                                               listing.accommodates ? listing.accommodates : nil), {}, class: 'form-control' %>
+                                                                               listing.accommodates ? listing.accommodates : nil), {}, id: 'exportercountry', class: 'form-control' %>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="row">
                                     <div class="col-sm-6 col-sm-offset-3">
                                         <div class="form-group">
@@ -227,7 +228,7 @@
                                         <div class="col-sm-6 col-sm-offset-3">
                                             <div class="form-group">
                                                 <label> Welches Zahlungsziel gewähren Sie Ihrem Kunden? </label>
-                                                <%= form.select :accommodates, options_for_select(['3 Months', '6 Months', '9 Months', '12 Months', '15 Months', '18 Months', '21 Months', '24 Months', '27 Months', '30 Months', '33 Months', '36 Months'], listing.accommodates ? listing.accommodates : nil), {}, class: 'form-control' %>
+                                                <%= form.select :is_investment_good, options_for_select(['3 Months', '6 Months', '9 Months', '12 Months', '15 Months', '18 Months', '21 Months', '24 Months', '27 Months', '30 Months', '33 Months', '36 Months'], listing.is_investment_good ? listing.is_investment_good : nil), {}, class: 'form-control' %>
                                             </div>
                                             <button type="button" name="auftragwertbutton" value="Show Div" onclick="showWhichSectorDeliveryDiv(this)" id="BUTTON_300">
                                                 Fertig
@@ -243,11 +244,11 @@
                                                 <label>An wen liefern Sie?</label>
                                                 <div class="row">
                                                     <div class="col-md-4 col-md-offset-2">
-                                                        <%= form.check_box :is_investment_good, id: "privateSector", class: 'form-control' %>
+                                                        <%= form.check_box :is_investment_good, id: "privateSector", name: "group15[]", class: 'form-control' %>
                                                         Privater Sektor
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <%= form.check_box :is_investment_good, id: "publicSector", class: 'form-control' %>
+                                                        <%= form.check_box :is_investment_good, id: "publicSector", name: "group15[]", class: 'form-control' %>
                                                         Öffentlicher Sektor
                                                     </div>
                                                 </div>
@@ -280,6 +281,31 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div id="showHideDivResultMessageFail" style="display: none">
+
+                                    <div class="row">
+                                        <div class="row">
+                                            <div class="col-md-9 col-md-offset-2">
+                                                <p>
+                                                    hr Geschäft birgt Besonderheiten, die eine Absicherung erschweren
+                                                    könnten: <br>
+
+                                                    Deckungsmöglichkeiten bei Bestellern des öffentlichen Sektors,
+                                                    soweit diese privatwirtschaftlich organisiert sind und ohne
+                                                    Rückgriff auf öffentliche Mittel wirtschaften. <br>
+
+                                                    Gern möchten wir Ihnen die besonderen Gegebenheiten in einem
+                                                    persönlichen Gespräch erläutern und die Struktur Ihres Geschäfts
+                                                    besprechen. Bitte kontaktieren Sie uns über den untenstehenden
+                                                    Kontaktbutton oder rufen Sie uns unter +49 (0) 15751174449 an.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                             </div>
                             <div class="tab-pane" id="type">
                                 <h4 class="info-text">Ihre Risken</h4>
@@ -3274,9 +3300,8 @@
                                                     Forderungsabtretungen
                                                 </div>
                                             </div>
+
                                             <div class="row">
-
-
                                                 <div class="col-md-8 col-md-offset-2">
                                                     <br><br>
                                                     <%= form.check_box :listings, id: "Yes-WorkAssociation1" %>
@@ -3287,8 +3312,6 @@
                                             </div>
 
                                             <div class="row">
-
-
                                                 <div class="col-md-8 col-md-offset-2">
                                                     <br><br>
                                                     <%= form.check_box :country_category, id: "Yes-WorkAssociation2" %>
@@ -3302,16 +3325,12 @@
                                             </div>
                                         </div>
 
-
-                                        <br><br><br>
                                     </div>
-
+                                    <br><br><br>
                                 </div>
-
                             </div>
                         </div>
 
-                        </div>
                         <div class="wizard-footer">
                             <div class="pull-right">
                                 <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Vor'/>
@@ -3326,10 +3345,10 @@
 
                     <% end %>
 
-                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 </div>
 
 <script>
@@ -3364,6 +3383,16 @@
     }
 
     $(function () {
+        $('#exportercountry').change(function () {
+            if ($(this).val() == 'Mexico') {
+                $('showHideDivResultMessageFail').show();
+            } else {
+                $('showHideDivResultMessageFail').hide();
+            }
+        }).change();
+    });
+
+    $(function () {
         $("#privateSector").click(function () {
             if ($(this).is(":checked")) {
                 $("#showHideDivResultMessage").show();
@@ -3374,9 +3403,9 @@
 
         $("#publicSector").click(function () {
             if ($(this).is(":checked")) {
-                $("#showHideDivResultMessage").show();
+                $("#showHideDivResultMessageFail").show();
             } else {
-                $("#showHideDivResultMessage").hide();
+                $("#showHideDivResultMessageFail").hide();
             }
         });
     });
@@ -3728,6 +3757,17 @@
             $("#showHideDivTrifftZu").hide();
         }
 
+        if ($("#privateSector").is(":checked")) {
+            $("#showHideDivResultMessage").show();
+        } else {
+            $("#showHideDivResultMessage").hide();
+        }
+
+        if ($("#publicSector").is(":checked")) {
+            $("#showHideDivResultMessageFail").show();
+        } else {
+            $("#showHideDivResultMessageFail").hide();
+        }
     });
 
 </script>
