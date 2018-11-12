@@ -432,11 +432,11 @@
                                                     anderen Unternehmen? </b></p>
                                                 <div class="row">
                                                     <div class="col-md-4 col-md-offset-2">
-                                                        <%= form.check_box :part_of_big_project_yes, id: "ja", class: 'form-control' %>
+                                                        <%= form.check_box :part_of_big_project_yes, name: "group11[]", id: "ja", class: 'form-control' %>
                                                         Ja
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <%= form.check_box :part_of_big_project_no, id: "nein", class: 'form-control' %>
+                                                        <%= form.check_box :part_of_big_project_no, name: "group11[]", id: "nein", class: 'form-control' %>
                                                         Nein
                                                     </div>
                                                 </div>
@@ -540,11 +540,14 @@
                                     <div class="col-sm-11 col-sm-offset-1">
                                         <div class="form-group">
                                             <hr align="middle" width="90%">
-                                            <div class="col-md-12">
-                                                <p><b>Betreffen Ihre Lieferungen bzw. Leistungen ein sensibles
-                                                    Gebiet?</b></p>
-                                                <br>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p><b>Betreffen Ihre Lieferungen bzw. Leistungen ein sensibles
+                                                        Gebiet?</b></p>
+                                                    <br>
+                                                </div>
                                             </div>
+
 
                                             <div class="col-md-12" , style="display: none;background-color: #f7f7f7;">
 
@@ -808,6 +811,7 @@
 
                                             <div class="col-md-4 ">
                                                 <div> <%= form.text_field :companny_internal_id, class: "form-control", placeholder: "Ihre interne Vertragskennung" %> </div>
+                                                <br>
                                             </div>
                                             <br>
                                         </div>
@@ -875,12 +879,16 @@
 
                                 <div id="workwithothercompanies">
                                     <div class="form-group">
-                                        <div class="col-md-10 col-md-offset-1">
-                                            <p><b>Welche Vertragswährung vereinbaren Sie? </b></p>
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-1">
+                                                <p><b>Welche Vertragswährung vereinbaren Sie? </b></p>
+                                            </div>
                                         </div>
 
-                                        <div class="col-md-6 col-md-offset-2">
-                                            <%= form.select :contract_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", prompt: "Währung..." %>
+                                        <div class="row">
+                                            <div class="col-md-6 col-md-offset-2">
+                                                <%= form.select :contract_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", prompt: "Währung..." %>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -932,14 +940,14 @@
                                                             ausgewiesen werden, tragen Sie diese bitte hier ein.</i></p>
                                                     </div>
 
-                                                    <div class="col-md-2 col-md-offset-2">
+                                                    <div class="col-md-1 col-md-offset-2">
 
                                                         <%= form.select :more_components_open_to_exporter_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
                                                     </div>
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-2">
                                                         <div> <%= form.text_field :more_components_open_to_exporter_amount, class: "form-control", placeholder: "Betrag" %> </div>
                                                     </div>
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-5">
                                                         <div> <%= form.text_field :more_components_open_to_exporter_explain, class: "form-control", placeholder: "Beschreibung" %> </div>
                                                     </div>
                                                 </div>
@@ -1095,6 +1103,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div> <%= form.text_field :other_important_delivery_milestones, class: "form-control", placeholder: "z.B. Milestone xy" %> </div>
+                                                <br>
                                             </div>
                                         </div>
 
@@ -1162,13 +1171,13 @@
                                         <div class="row">
                                             <br>
 
-                                            <div class="col-md-3 col-md-offset-1">
+                                            <div class="col-md-2 col-md-offset-1">
                                                 <%= form.select :downpayment_delivery_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
                                             </div>
                                             <div class="col-md-4">
                                                 <div> <%= form.text_field :downpayment_delivery_amount, class: "form-control", placeholder: "Betrag" %> </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-5">
                                                 <div> <%= form.text_field :downpayment_delivery_description, class: "form-control", placeholder: "Beschreibung" %> </div>
                                             </div>
                                         </div>
@@ -1319,13 +1328,13 @@
 
                                     <div id="workwithothercompanies">
                                         <div class="row">
-                                            <div class="col-md-10 col-md-offset-2">
+                                            <div class="col-md-10 col-md-offset-1">
                                                 <p> Bitte geben Sie hier die Anzahl der Raten ein
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6 col-md-offset-2">
+                                            <div class="col-md-6 col-md-offset-1">
                                                 <%= form.text_field :number_of_installments, class: "form-control", placeholder: "Anzahl der Raten" %>
                                             </div>
                                         </div>
@@ -1424,15 +1433,16 @@
                                                 <br>
 
                                             </div>
+                                        </div>
+                                        <div class="row">
 
-
-                                            <div class="col-md-3 col-md-offset-1">
+                                            <div class="col-md-1 col-md-offset-1">
                                                 <%= form.select :sonstige_kurzfrist_advance_payment_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
                                             </div>
                                             <div class="col-md-4">
                                                 <div> <%= form.text_field :sonstige_kurzfrist_advance_payment_amount, class: "form-control", placeholder: "0,00" %> </div>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-5">
                                                 <div> <%= form.text_field :sonstige_kurzfrist_advance_payment_explain, class: "form-control", placeholder: "" %> </div>
                                             </div>
                                             <div class="col-md-1">
@@ -1505,22 +1515,25 @@
 
 
                                             </div>
-                                            <div class="col-md-8 col-md-offset-3">
+                                            <div class="col-md-8 col-md-offset-1">
                                                 <br>
-                                                <%= form.text_field :sonstige_kurzfrist_credit_start_sonstige_explain, class: "form-control", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
+                                                <%= form.text_area :sonstige_kurzfrist_credit_start_sonstige_explain, class: "form-control", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
                                             </div>
 
                                         </div>
                                     </div>
 
                                     <div id="workwithothercompanies">
-                                        <div class="row">
-                                            <div class="col-md-10 col-md-offset-1">
-                                                <p> Bitte geben Sie hier die Anzahl der Raten ein
-                                                </p>
-
-                                                <div class="col-md-6 col-md-offset-2">
-                                                    <%= form.text_field :sonstige_kurzfrist_number_of_installments, class: "form-control", placeholder: "Anzahl der Raten" %>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-10 col-md-offset-1">
+                                                    <p> Bitte geben Sie hier die Anzahl der Raten ein
+                                                    </p>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6 col-md-offset-1">
+                                                        <%= form.text_field :sonstige_kurzfrist_number_of_installments, class: "form-control", placeholder: "Anzahl der Raten" %>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1548,22 +1561,24 @@
 
                                 <div id="certificateOfOrigin">
                                     <div class="form-group">
-                                        <div class="col-md-10 col-md-offset-1">
-                                            <p><b>Bekommen Sie für die zu liefernde Ware ein deutsches
-                                                Warenursprungszeugnis?</b></p>
+                                        <div class="row">
+                                            <div class="col-md-10 col-md-offset-1">
+                                                <p><b>Bekommen Sie für die zu liefernde Ware ein deutsches
+                                                    Warenursprungszeugnis?</b></p>
+                                            </div>
                                         </div>
 
                                         <div class="row">
                                             <div class="col-md-3 col-md-offset-1">
-                                                <%= form.check_box :yes_sonstige_kurzfrist_certificate_of_origin, class: "form-control", id: "yes_certificateoforigin" %>
+                                                <%= form.check_box :yes_sonstige_kurzfrist_certificate_of_origin, class: "form-control", name: "group12[]", id: "yes_certificateoforigin" %>
                                                 Ja
                                             </div>
                                             <div class="col-md-4">
-                                                <%= form.check_box :no_sonstige_kurzfrist_certificate_of_origin, class: "form-control", id: "no_certificateoforigin" %>
+                                                <%= form.check_box :no_sonstige_kurzfrist_certificate_of_origin, class: "form-control", name: "group12[]", id: "no_certificateoforigin" %>
                                                 Nein
                                             </div>
                                             <div class="col-md-4">
-                                                <%= form.check_box :part_of_goods__sonstige_kurzfrist_certificate_of_origin, class: "form-control", id: "teil-certificateoforigin" %>
+                                                <%= form.check_box :part_of_goods__sonstige_kurzfrist_certificate_of_origin, class: "form-control", name: "group12[]", id: "teil-certificateoforigin" %>
                                                 für
                                                 Teile
                                                 der
@@ -1643,11 +1658,89 @@
                                         <div class="row">
                                             <div class="col-md-8 col-md-offset-2">
                                                 <%= form.text_area :country_category, class: "form-control" %>
-                                            <br><br>
+                                                <br><br>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
+
+                                <div id="yesNoCertificateOfOriginTeil" style="display: none; background-color: #f7f7f7;">
+
+                                    <br><br>
+
+                                    <div class="form-group">
+                                        <div class="col-md-8 col-md-offset-2">
+                                            <p> Bitte geben Sie die Zulieferungen aus dem Ausland an. </p>
+                                        </div>
+                                        <br><br>
+
+                                        <div class="row">
+                                            <div class="col-md-2 col-md-offset-2">
+                                                <%= form.select :country_category,
+                                                                [["Andorra", "Andorra"], ["Australia", "Australia"], ["Austria", "Austria"], ["Barbados", "Barbados"], ["Belgium", "Belgium"], ["Brunei Darussalam", "Brunei Darussalam"],
+                                                                 ["Canada", "Canada"], ["Chile", "Chile"], ["Comoros", "Comoros"], ["Cyprus", "Cyprus"], ["Czech Republic", "Czech Republic"], ["Denmark", "Denmark"], ["Dominica", "Dominica"],
+                                                                 ["Estonia", "Estonia"], ["Finland", "Finland"], ["France", "France"], ["Germany", "Germany"], ["Greece", "Greece"], ["Grenada", "Grenada"], ["Hungary", "Hungary"], ["Iceland", "Iceland"],
+                                                                 ["Ireland", "Ireland"], ["Israel", "Israel"], ["Italy", "Italy"], ["Japan", "Japan"], ["Kiribati", "Kiribati"], ["Korea", "Korea"], ["Latvia", "Latvia"], ["Liechtenstein", "Liechtenstein"],
+                                                                 ["Lithuania", "Lithuania"], ["Luxembourg", "Luxembourg"], ["Malta", "Malta"], ["Marshall Islands", "Marshall Islands"], ["Micronesia", "Micronesia"], ["Monaco", "Monaco"], ["Nauru", "Nauru"],
+                                                                 ["Netherlands", "Netherlands"], ["New Zealand", "New Zealand"], ["Norway", "Norway"], ["Palau", "Palau"], ["Poland", "Poland"], ["Portugal", "Portugal"],
+                                                                 ["Saint Kitts and Nevis", "Saint Kitts and Nevis"], ["Saint Lucia", "Saint Lucia"], ["Saint Vincent and the Grenadines", "Saint Vincent and the Grenadines"], ["Samoa", "Samoa"],
+                                                                 ["San Marino", "San Marino"], ["Sao Tome and Principe", "Sao Tome and Principe"], ["Sint Maarten", "Sint Maarten"], ["Slovak Republic", "Slovak Republic"], ["Slovenia", "Slovenia"],
+                                                                 ["Solomon Islands", "Solomon Islands"], ["Spain", "Spain"], ["Sweden", "Sweden"], ["Switzerland", "Switzerland"], ["Tonga", "Tonga"], ["Tuvalu", "Tuvalu"], ["United Kingdom", "United Kingdom"],
+                                                                 ["United States", "United States"], ["Vanuatu", "Vanuatu"], ["West Bank and Gaza", "West Bank and Gaza"], ["Kosovo", "Kosovo"], ["South Korea", "South Korea"], ["Ukraine", "Ukraine"],
+                                                                 ["Belarus", "Belarus"], ["Pakistan", "Pakistan"], ["Bosnia and Herzegovina", "Bosnia and Herzegovina"], ["Lebanon", "Lebanon"], ["Iraq", "Iraq"], ["Ethiopia", "Ethiopia"], ["Libya", "Libya"],
+                                                                 ["Moldova", "Moldova"], ["Venezuela", "Venezuela"], ["Cuba", "Cuba"], ["Liberia", "Liberia"], ["Sudan", "Sudan"], ["Montenegro", "Montenegro"], ["Mali", "Mali"], ["Yemen", "Yemen"],
+                                                                 ["Congo", "Congo"], ["Democratic Republic of the Congo", "Democratic Republic of the Congo"], ["Guinea", "Guinea"], ["Mauritania", "Mauritania"], ["Mozambique", "Mozambique"],
+                                                                 ["Burkina Faso", "Burkina Faso"], ["Syrian Arab Republic", "Syrian Arab Republic"], ["Kyrgyzstan", "Kyrgyzstan"], ["Afghanistan", "Afghanistan"], ["Tajikistan", "Tajikistan"],
+                                                                 ["Madagascar", "Madagascar"], ["Lao People’s Democratic Republic", "Lao People’s Democratic Republic"], ["Zimbabwe", "Zimbabwe"], ["Haiti", "Haiti"], ["Djibouti", "Djibouti"],
+                                                                 ["Niger", "Niger"], ["Sierra Leone", "Sierra Leone"], ["Chad", "Chad"], ["Malawi", "Malawi"], ["Equatorial Guinea", "Equatorial Guinea"], ["Antigua and Barbuda", "Antigua and Barbuda"],
+                                                                 ["Burundi", "Burundi"], ["Eritrea", "Eritrea"], ["Somalia", "Somalia"], ["Gambia", "Gambia"], ["Central African Republic", "Central African Republic"], ["Belize", "Belize"],
+                                                                 ["South Sudan", "South Sudan"], ["Guinea-Bissau", "Guinea-Bissau"], ["Cabo Verde", "Cabo Verde"], ["Myanmar", "Myanmar"], ["Egypt", "Egypt"], ["Iran", "Iran"], ["Argentina", "Argentina"],
+                                                                 ["Kazakhstan", "Kazakhstan"], ["Nigeria", "Nigeria"], ["Uzbekistan", "Uzbekistan"], ["Ecuador", "Ecuador"], ["Turkmenistan", "Turkmenistan"], ["Georgia", "Georgia"], ["Kenya", "Kenya"],
+                                                                 ["Sri Lanka", "Sri Lanka"], ["Albania", "Albania"], ["Ghana", "Ghana"], ["Angola", "Angola"], ["Côte d’Ivoire", "Côte d’Ivoire"], ["Armenia", "Armenia"], ["Cambodia", "Cambodia"],
+                                                                 ["Tanzania", "Tanzania"], ["Cameroon", "Cameroon"], ["Mongolia", "Mongolia"], ["Uganda", "Uganda"], ["Jamaica", "Jamaica"], ["Nicaragua", "Nicaragua"], ["Zambia", "Zambia"],
+                                                                 ["Benin", "Benin"], ["Togo", "Togo"], ["Rwanda", "Rwanda"], ["Gabon", "Gabon"], ["Maldives", "Maldives"], ["Nepal", "Nepal"], ["Papua New Guinea", "Papua New Guinea"],
+                                                                 ["Suriname", "Suriname"], ["Seychelles", "Seychelles"], ["Fiji", "Fiji"], ["Guyana", "Guyana"], ["Swaziland", "Swaziland"], ["Bhutan", "Bhutan"], ["Lesotho", "Lesotho"],
+                                                                 ["Timor-Leste", "Timor-Leste"], ["Brazil", "Brazil"], ["Croatia", "Croatia"], ["Vietnam", "Vietnam"], ["Serbia", "Serbia"], ["Tunisia", "Tunisia"],
+                                                                 ["Former Yugoslav Republic of Macedonia", "Former Yugoslav Republic of Macedonia"], ["Bangladesh", "Bangladesh"], ["Jordan", "Jordan"], ["Azerbaijan", "Azerbaijan"],
+                                                                 ["Paraguay", "Paraguay"], ["Bolivia", "Bolivia"], ["El Salvador", "El Salvador"], ["Honduras", "Honduras"], ["Senegal", "Senegal"], ["Curaçao", "Curaçao"], ["Turkey", "Turkey"],
+                                                                 ["Russia", "Russia"], ["South Africa", "South Africa"], ["Algeria", "Algeria"], ["Colombia", "Colombia"], ["Bahrain", "Bahrain"], ["Guatemala", "Guatemala"],
+                                                                 ["Dominican Republic", "Dominican Republic"], ["Namibia", "Namibia"], ["Aruba", "Aruba"], ["Romania", "Romania"], ["Mexico", "Mexico"], ["India", "India"],
+                                                                 ["Thailand", "Thailand"], ["Bulgaria", "Bulgaria"], ["Indonesia", "Indonesia"], ["Qatar", "Qatar"], ["Philippines", "Philippines"], ["Morocco", "Morocco"],
+                                                                 ["Peru", "Peru"], ["Oman", "Oman"], ["Panama", "Panama"], ["Uruguay", "Uruguay"], ["Costa Rica", "Costa Rica"], ["Trinidad and Tobago", "Trinidad and Tobago"],
+                                                                 ["Mauritius", "Mauritius"], ["Bahamas", "Bahamas"], ["China", "China"], ["UAE", "UAE"], ["Saudi Arabia", "Saudi Arabia"], ["Hong Kong (China)", "Hong Kong (China)"],
+                                                                 ["Malaysia", "Malaysia"], ["Kuwait", "Kuwait"], ["Macau (China)", "Macau (China)"], ["Botswana", "Botswana"], ["Chinese Taipei", "Chinese Taipei"], ["Singapore", "Singapore"]],
+                                                                class: "form-control", prompt: "EU-Länder" %>
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                <%= form.select :country_category, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control" %>
+                                            </div>
+
+                                            <div class="col-md-4 ">
+                                                <%= form.text_field :country_category, class: "form-control" %>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <br><br>
+
+                                    <div class="form-group">
+                                        <div class="col-md-11 col-md-offset-2">
+                                            <p> Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig
+                                                sind. </p>
+                                        </div>
+                                        <br><br>
+
+                                        <div class="row">
+                                            <div class="col-md-8 col-md-offset-2">
+                                                <%= form.text_area :country_category, class: "form-control" %>
+                                                <br><br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
 
                                 <div id="securityForBusiness">
                                     <div class="form-group">
@@ -1662,11 +1755,11 @@
 
                                         <div class="row">
                                             <div class="col-md-3 col-md-offset-4">
-                                                <%= form.check_box :country_category, class: "form-control", id: "Yes-securityForBusiness" %>
+                                                <%= form.check_box :country_category, class: "form-control", name: "group13[]", id: "Yes-securityForBusiness" %>
                                                 Ja
                                             </div>
                                             <div class="col-md-3">
-                                                <%= form.check_box :country_category, class: "form-control", id: "No-securityForBusiness" %>
+                                                <%= form.check_box :country_category, class: "form-control", name: "group13[]", id: "No-securityForBusiness" %>
                                                 Nein
                                             </div>
                                         </div>
@@ -1679,13 +1772,16 @@
                                 <div id="typeOfSecurity" style="display: none; background-color: #f7f7f7;">
                                     <div class="form-group">
 
-                                        <div class="col-md-8 col-md-offset-2">
-                                            <p> Welche Art von Sicherheiten? </p>
+                                        <div class="row">
+
+                                            <div class="col-md-8 col-md-offset-2">
+                                                <p> Welche Art von Sicherheiten? </p>
+                                            </div>
                                         </div>
                                         <br><br>
 
                                         <div class="row">
-                                            <div class="col-md-5 col-md-offset-1">
+                                            <div class="col-md-5 col-md-offset-2">
                                                 <%= form.select :country_category, [["Unbestätigtes Akkreditiv einer Bank", "Unbestätigtes Akkreditiv einer Bank"],
                                                                                     ["Bestätigtes Akkreditiv", "Bestätigtes Akkreditiv"],
                                                                                     ["Zahlungsgarantie einer Bank", "Zahlungsgarantie einer Bank"],
@@ -1813,10 +1909,11 @@
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-4 col-md-offset-2">
-                                                    <%= form.check_box :country_category, id: "Yes-deliveryAddress" %>Ja
+                                                    <%= form.check_box :country_category, name: "group14[]", id: "Yes-deliveryAddress" %>
+                                                    Ja
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <%= form.check_box :country_category, id: "No-deliveryAddress" %>
+                                                    <%= form.check_box :country_category, name: "group14[]", id: "No-deliveryAddress" %>
                                                     Nein
                                                 </div>
                                             </div>
@@ -1878,11 +1975,11 @@
 
                                         <div class="row">
                                             <div class="col-md-4 col-md-offset-2">
-                                                <%= form.check_box :country_category, class: "form-group", id: "Yes-relationToCustomer" %>
+                                                <%= form.check_box :country_category, class: "form-group", name: "group15[]", id: "Yes-relationToCustomer" %>
                                                 Ja
                                             </div>
                                             <div class="col-md-4">
-                                                <%= form.check_box :country_category, class: "form-group", id: "No-relationToCustomer" %>
+                                                <%= form.check_box :country_category, class: "form-group", name: "group15[]", id: "No-relationToCustomer" %>
                                                 Nein
                                             </div>
                                         </div>
@@ -1914,11 +2011,11 @@
 
                                         <div class="row">
                                             <div class="col-md-4 col-md-offset-2">
-                                                <%= form.check_box :country_category, class: "form-group", id: "Yes-paymentExperience" %>
+                                                <%= form.check_box :country_category, class: "form-group", name: "group16[]", id: "Yes-paymentExperience" %>
                                                 Ja
                                             </div>
                                             <div class="col-md-4">
-                                                <%= form.check_box :country_category, class: "form-group", id: "No-paymentExperience" %>
+                                                <%= form.check_box :country_category, class: "form-group", name: "group16[]", id: "No-paymentExperience" %>
                                                 Nein
                                             </div>
                                         </div>
@@ -2680,9 +2777,9 @@
     $(function () {
         $("#teil-certificateoforigin").click(function () {
             if ($(this).is(":checked")) {
-                $("#yesNoCertificateOfOrigin").show();
+                $("#yesNoCertificateOfOriginTeil").show();
             } else {
-                $("#yesNoCertificateOfOrigin").hide();
+                $("#yesNoCertificateOfOriginTeil").hide();
             }
         });
     });
@@ -2846,13 +2943,65 @@
             $("#yesNoMultipleDeliveries").hide();
         }
 
-        $("#kurzfristig-termofpayments").click(function () {
-            if ($(this).is(":checked")) {
-                $("#KurzFristigTermOfPayment").show();
-            } else {
-                $("#KurzFristigTermOfPayment").hide();
-            }
-        });
+        if ($("#kurzfristig-termofpayments").is(":checked")) {
+            $("#KurzFristigTermOfPayment").show();
+        } else {
+            $("#KurzFristigTermOfPayment").hide();
+        }
+
+        if ($("#mittel-termofpayments").is(":checked")) {
+            $("#MittelTermOfPayment").show();
+        } else {
+            $("#MittelTermOfPayment").hide();
+        }
+
+        if ($("#sowohlkurzfristig-termofpayments").is(":checked")) {
+            $("#SonstigeKurzFristigTermOfPayment").show();
+        } else {
+            $("#SonstigeKurzFristigTermOfPayment").hide();
+        }
+
+        if ($("#ja").is(":checked")) {
+            $("#showHideDivJaWorkOtherCompanies").show();
+        } else {
+            $("#showHideDivJaWorkOtherCompanies").hide();
+        }
+
+        if ($("#no_certificateoforigin").is(":checked")) {
+            $("#yesNoCertificateOfOrigin").show();
+        } else {
+            $("#yesNoCertificateOfOrigin").hide();
+        }
+
+        if ($("#teil-certificateoforigin").is(":checked")) {
+            $("#yesNoCertificateOfOriginTeil").show();
+        } else {
+            $("#yesNoCertificateOfOriginTeil").hide();
+        }
+
+        if ($("#Yes-securityForBusiness").is(":checked")) {
+            $("#typeOfSecurity").show();
+        } else {
+            $("#typeOfSecurity").hide();
+        }
+
+        if ($("#No-deliveryAddress").is(":checked")) {
+            $("#deliveryAddress").show();
+        } else {
+            $("#deliveryAddress").hide();
+        }
+
+        if ($("#Yes-relationToCustomer").is(":checked")) {
+            $("#relationToCustomerExplain").show();
+        } else {
+            $("#relationToCustomerExplain").hide();
+        }
+
+        if ($("#Yes-paymentExperience").is(":checked")) {
+            $("#alreadyPaymentExperience").show();
+        } else {
+            $("#alreadyPaymentExperience").hide();
+        }
 
     });
 
