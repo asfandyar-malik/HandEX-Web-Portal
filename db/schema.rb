@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_11_091212) do
+ActiveRecord::Schema.define(version: 2018_11_12_082327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -338,7 +338,9 @@ ActiveRecord::Schema.define(version: 2018_11_11_091212) do
     t.boolean "private_sector"
     t.boolean "public_sector"
     t.string "country_category"
+    t.bigint "user_id"
     t.index ["tradeinfo_id"], name: "index_listings_on_tradeinfo_id"
+    t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
   create_table "officialdocuments", force: :cascade do |t|
@@ -429,6 +431,7 @@ ActiveRecord::Schema.define(version: 2018_11_11_091212) do
   add_foreign_key "financials", "tradeinfos"
   add_foreign_key "insurances", "tradeinfos"
   add_foreign_key "listings", "tradeinfos"
+  add_foreign_key "listings", "users"
   add_foreign_key "officialdocuments", "tradeinfos"
   add_foreign_key "tradeinfos", "users"
 end

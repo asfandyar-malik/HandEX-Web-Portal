@@ -2,12 +2,16 @@ class ListingsController < ApplicationController
     layout 'listing'
     
     before_action :set_listing, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!, except: [:show]
+    before_action :is_authorised, only: [:update]
     
     # GET /listings
     # GET /listings.json
     def index
         # @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
-        @listings = Listing.all
+        # @listings = Listing.all
+        @listings = current_user.listings
+    
     end
     
     # GET /listings/1
@@ -18,7 +22,8 @@ class ListingsController < ApplicationController
     # GET /listings/new
     def new
         # @tradeinfo     = Tradeinfo.find(params[:tradeinfo_id])
-        @listing = Listing.new
+        # @listing = Listing.new
+        @listing = current_user.listings.build
         # @listing = @tradeinfo.build_listing
     end
     
@@ -31,14 +36,16 @@ class ListingsController < ApplicationController
     def create
         # @tradeinfo     = Tradeinfo.find(params[:tradeinfo_id])
         # @listing     = @tradeinfo.build_listing(listing_params)
-        @listing            = Listing.new(listing_params)
+        # @listing            = Listing.new(listing_params)
+        @listing = current_user.listings.build(listing_params)
+        
         @listing.home       = params[:listing][:home]
         @listing.appartment = params[:listing][:appartment]
         
         if @listing.save
             redirect_to pages_applicationProcessing_path(@listing), notice: 'Listing was successfully created.'
         else
-            flash[:notice] = "Something went wrong while creating...."
+            flash[:notice] = "Something went wrong while creating Listing...."
             render :new
         end
         # if @listing.save
@@ -54,12 +61,10 @@ class ListingsController < ApplicationController
         @listing.home       = params[:listing][:home]
         @listing.appartment = params[:listing][:appartment]
         
-        respond_to do |format|
-            if @listing.update(listing_params)
-                redirect_to pages_applicationProcessing_path(@listing), notice: 'Listing was successfully created.'
-            else
-                flash[:notice] = "Something went wrong while creating...."
-            end
+        if @listing.update(listing_params)
+            redirect_to pages_applicationProcessing_path(@listing), notice: 'Listing was successfully created.'
+        else
+            flash[:notice] = "Something went wrong while updating listing...."
         end
     end
     
@@ -78,6 +83,10 @@ class ListingsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_listing
         @listing = Listing.find(params[:id])
+    end
+    
+    def is_authorised
+        redirect_to root_path, alert: "You don't have permission" unless current_user.id = @tradeinfo.user_id
     end
     
     # Never trust parameters from the scary internet, only allow the white list through.
