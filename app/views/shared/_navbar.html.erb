@@ -7,7 +7,6 @@
             <a href="/" class="smooth"><%= image_tag "HandEX_logo4.png", style: 'height:4em;width:auto; margin-top: 1em; margin-bottom: 1em' %></a>
         </div>
 
-        <!--<div id="navbar" class="navbar-collapse collapse">-->
         <ul class="nav navbar-nav navbar-right navbar-text">
 
             <% if (!user_signed_in?) %>
@@ -24,15 +23,11 @@
                     </a>
 
                     <ul class="dropdown-menu">
-                        <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+<!--                        <li><%#= link_to "Edit Profile", edit_user_registration_path %></li>-->
                         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
                     </ul>
                 </li>
-
             <% end %>
-
-
         </ul>
-        <!--</div>&lt;!&ndash;/.nav-collapse &ndash;&gt;-->
     </div>
 </nav>

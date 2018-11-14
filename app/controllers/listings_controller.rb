@@ -42,10 +42,11 @@ class ListingsController < ApplicationController
         @listing.home       = params[:listing][:home]
         @listing.appartment = params[:listing][:appartment]
         
+        
         if @listing.save
-            redirect_to pages_applicationProcessing_path(@listing), notice: 'Listing was successfully created.'
+            redirect_to pages_applicationProcessing_path(@listing), notice: 'Antrag wurde erfolgreich erstellt.'
         else
-            flash[:notice] = "Something went wrong while creating Listing...."
+            flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
             render :new
         end
         # if @listing.save
@@ -62,7 +63,7 @@ class ListingsController < ApplicationController
         @listing.appartment = params[:listing][:appartment]
         
         if @listing.update(listing_params)
-            redirect_to pages_applicationProcessing_path(@listing), notice: 'Listing was successfully created.'
+            redirect_to pages_applicationProcessing_path(@listing), notice: 'Antrag wurde erfolgreich aktualisiert.'
         else
             flash[:notice] = "Something went wrong while updating listing...."
         end
@@ -73,7 +74,7 @@ class ListingsController < ApplicationController
     def destroy
         @listing.destroy
         respond_to do |format|
-            format.html {redirect_to listings_url, notice: 'Listing was successfully destroyed.'}
+            format.html {redirect_to listings_url, notice: 'Antrag wurde erfolgreich zerstört'}
             format.json {head :no_content}
         end
     end
@@ -124,3 +125,15 @@ class ListingsController < ApplicationController
                                         :employees_count, :revenue_last_year, :sonstige_kurzfrist_agreed_payment_output)
     end
 end
+
+
+
+# risk_supplier_credit_cover
+# risk_shipment_risk_cover
+# risk_contractual_warranty_coverage
+# risk_avaline_guarantee
+# risk_further_coverage
+# describe_export_business
+# reason_for_buying_good
+# also_provide_service_training
+# explain_product_branch
