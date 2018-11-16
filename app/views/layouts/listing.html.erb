@@ -56,7 +56,9 @@
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <div class="image-container set-full-height" style="background-image: url('<%= asset_path ['edit','create','new','upadate'].include?(params[:action]) ? 'banner4.jpg' : '' %>')">
+<!--    <div class="image-container set-full-height" style="background-image: url('<%#= asset_path ['edit','create','new','upadate'].include?(params[:action]) ? 'banner4.jpg' : '' %>')">-->
+    <div class="image-container set-full-height" style="background: linear-gradient(to right, rgb(11,215,164), rgb(6,200,203), rgb(9,208,183), rgb(4,193,222));">
+
         <%= yield %>
     </div>
 
