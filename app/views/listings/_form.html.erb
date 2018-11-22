@@ -200,7 +200,7 @@
                                     </div>
                                 </div>
 
-                                <div id="showHideDivTotalFinancingRequired" style="display: none">
+                                <div id="showHideDivTotalFinancingRequired">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
                                             <div class="form-group">
@@ -210,15 +210,11 @@
                                                     <span class="input-group-addon">€</span>
                                                 </div>
                                             </div>
-
-                                            <button type="button" name="auftragwertbutton" value="Show Div" onclick="showPaymentGoalDiv(this)" id="BUTTON_300">
-                                                Fertig
-                                            </button>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div id="showHideDivPaymentGoal" style="display: none">
+                                <div id="showHideDivPaymentGoal">
 
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
@@ -226,14 +222,11 @@
                                                 <label> Welches Zahlungsziel gewähren Sie Ihrem Kunden? </label>
                                                 <%= form.select :payment_deadline, options_for_select(['3 Months', '6 Months', '9 Months', '12 Months', '15 Months', '18 Months', '21 Months', '24 Months', '27 Months', '30 Months', '33 Months', '36 Months'], listing.is_investment_good ? listing.is_investment_good : nil), {}, class: 'form-control' %>
                                             </div>
-                                            <button type="button" name="auftragwertbutton" value="Show Div" onclick="showWhichSectorDeliveryDiv(this)" id="BUTTON_300">
-                                                Fertig
-                                            </button>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div id="showHideDivDeliveryGoal" style="display: none">
+                                <div id="showHideDivDeliveryGoal">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
                                             <div class="form-group">
@@ -3319,7 +3312,7 @@
 
                         <div class="wizard-footer">
                             <div class="pull-right">
-                                <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Vor'/>
+                                <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Weiter'/>
                                 <%= form.submit class: 'btn btn-finish btn-fill btn-danger btn-wd' %>
                             </div>
 
@@ -3338,15 +3331,6 @@
 </div>
 
 <script>
-    $(function () {
-        $("#investmentGood").click(function () {
-            if ($(this).is(":checked")) {
-                $("#showHideDivTotalFinancingRequired").show();
-            } else {
-                $("#showHideDivTotalFinancingRequired").hide();
-            }
-        });
-    });
 
     $(function () {
         $(".auftragwertbutton").click(function () {
@@ -3357,16 +3341,6 @@
             }
         });
     });
-
-    function showPaymentGoalDiv(btn) {
-        document.getElementById('showHideDivPaymentGoal').style.display = "block";
-        btn.style.display = "none";
-    }
-
-    function showWhichSectorDeliveryDiv(btn) {
-        document.getElementById('showHideDivDeliveryGoal').style.display = "block";
-        btn.style.display = "none";
-    }
 
     $(function () {
         $('#exportercountry').change(function () {
