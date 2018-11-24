@@ -136,7 +136,7 @@
                                     <br>
                                     <div class="col-sm-5 col-sm-offset-3">
                                         <div class="form-group">
-                                            <input type="checkbox">
+                                            <input type="checkbox" style="width: 20px; height: 20px;">
                                             <a target="_blank" rel="noopener noreferrer" href="/pages/termsAndConditions"> Datenrechtschutzlinie </a>
                                             <br>
                                         </div>
@@ -193,7 +193,7 @@
                                             <label>Handelt es sich bei Ihrer Ware um
                                                 Investitionsgüter?</label>
                                             <div class="input-group">
-                                                <%= form.check_box :is_investment_good, id: "investmentGood" %>
+                                                <%= form.check_box :is_investment_good, id: "investmentGood", :style => "width: 20px; height: 20px;"%>
                                                 Ja
                                             </div>
                                         </div>
@@ -233,11 +233,11 @@
                                                 <label>An wen liefern Sie?</label>
                                                 <div class="row">
                                                     <div class="col-md-4 col-md-offset-2">
-                                                        <%= form.check_box :private_sector, id: "privateSector", name: "group15[]" %>
+                                                        <%= form.check_box :private_sector, id: "privateSector", name: "group15[]", :style => "width: 20px; height: 20px;" %>
                                                         Privater Sektor
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <%= form.check_box :public_sector, id: "publicSector", name: "group15[]" %>
+                                                        <%= form.check_box :public_sector, id: "publicSector", name: "group15[]", :style => "width: 20px; height: 20px;" %>
                                                         Öffentlicher Sektor
                                                     </div>
                                                 </div>
@@ -408,7 +408,7 @@
                                         <div class="form-group">
                                             <p><b>Wir erbringen auch Leistungen (Montage, Schulungen vor Ort,
                                                 etc.)?</b></p>
-                                            <%= form.check_box :also_provide_service_training %>
+                                            <%= form.check_box :also_provide_service_training, :style => "width: 20px; height: 20px;" %>
                                         </div>
                                     </div>
 
@@ -447,11 +447,11 @@
                                                     anderen Unternehmen? </b></p>
                                                 <div class="row">
                                                     <div class="col-md-4 col-md-offset-2">
-                                                        <%= form.check_box :part_of_big_project_yes, name: "group11[]", id: "ja" %>
+                                                        <%= form.check_box :part_of_big_project_yes, name: "group11[]", id: "ja", :style => "width: 20px; height: 20px;" %>
                                                         Ja
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <%= form.check_box :part_of_big_project_no, name: "group11[]", id: "nein" %>
+                                                        <%= form.check_box :part_of_big_project_no, name: "group11[]", id: "nein", :style => "width: 20px; height: 20px;" %>
                                                         Nein
                                                     </div>
                                                 </div>
@@ -480,7 +480,7 @@
                                                 <p>Wir tragen die Gesamtverantwortung für das Projekt</p>
                                                 <div class="row">
                                                     <div class="col-md-4 col-md-offset-2">
-                                                        <%= form.check_box :overall_responsibility_project_taken, id: "investmentGood" %>
+                                                        <%= form.check_box :overall_responsibility_project_taken, id: "investmentGood", :style => "width: 20px; height: 20px;"%>
                                                         Ja
                                                     </div>
                                                 </div>
@@ -576,19 +576,19 @@
 
                                             <div class="row">
                                                 <div class="col-md-3 col-md-offset-1">
-                                                    <%= form.check_box :delivery_doesnt_affects_sensitive_areas, id: "privateSector" %>
+                                                    <%= form.check_box :delivery_doesnt_affects_sensitive_areas, id: "privateSector", :style => "width: 20px; height: 20px;" %>
                                                     <br><br>
                                                     <div><p> Nein </p></div>
                                                 </div>
 
                                                 <div class="col-md-4">
-                                                    <%= form.check_box :delivery_affects_natural_reserves, id: "privateSector" %>
+                                                    <%= form.check_box :delivery_affects_natural_reserves, id: "privateSector", :style => "width: 20px; height: 20px;" %>
                                                     <br><br>
                                                     <div><p> Naturschutzgebiet </p></div>
                                                 </div>
 
                                                 <div class="col-md-3">
-                                                    <%= form.check_box :delivery_affects_indigenous_people, id: "privateSector" %>
+                                                    <%= form.check_box :delivery_affects_indigenous_people, id: "privateSector", :style => "width: 20px; height: 20px;"%>
                                                     <br><br>
                                                     <div><p>Bedeutung für indigene Völker </p></div>
                                                 </div>
@@ -598,12 +598,12 @@
                                             <div class="row">
 
                                                 <div class="col-md-3 col-md-offset-2">
-                                                    <%= form.check_box :delivery_affects_cultural_heritage, id: "privateSector" %>
+                                                    <%= form.check_box :delivery_affects_cultural_heritage, id: "privateSector", :style => "width: 20px; height: 20px;" %>
                                                     <div><p> Archäologische oder kulturelle Bedeutung </p></div>
                                                 </div>
 
                                                 <div class="col-md-4">
-                                                    <%= form.check_box :delivery_affects_other, id: "privateSector" %>
+                                                    <%= form.check_box :delivery_affects_other, id: "privateSector", :style => "width: 20px; height: 20px;" %>
                                                     <div><p> Sonstige </p></div>
                                                 </div>
                                             </div>
@@ -633,11 +633,11 @@
 
                                         <div class="row">
                                             <div class="col-md-3 col-md-offset-2">
-                                                <%= form.check_box :yes_export_requires_exportlicense, name: "group3[]", id: "ja_exportlicense_requirement" %>
+                                                <%= form.check_box :yes_export_requires_exportlicense, name: "group3[]", id: "ja_exportlicense_requirement", :style => "width: 20px; height: 20px;" %>
                                                 Ja
                                             </div>
                                             <div class="col-md-3">
-                                                <%= form.check_box :no_export_requires_exportlicense, name: "group3[]", id: "nein_exportlicense_requirement" %>
+                                                <%= form.check_box :no_export_requires_exportlicense, name: "group3[]", id: "nein_exportlicense_requirement", :style => "width: 20px; height: 20px;" %>
                                                 Nein
                                             </div>
                                         </div>
@@ -695,11 +695,11 @@
 
                                         <div class="row">
                                             <div class="col-md-3 col-md-offset-2">
-                                                <%= form.check_box :yes_deliver_secondhand_goods, name: "group4[]", id: "yes_secondhand_goods" %>
+                                                <%= form.check_box :yes_deliver_secondhand_goods, name: "group4[]", id: "yes_secondhand_goods", :style => "width: 20px; height: 20px;"%>
                                                 Ja
                                             </div>
                                             <div class="col-md-3">
-                                                <%= form.check_box :no_dont_deliver_secondhand_goods, name: "group4[]", id: "no_secondhand_goods" %>
+                                                <%= form.check_box :no_dont_deliver_secondhand_goods, name: "group4[]", id: "no_secondhand_goods", :style => "width: 20px; height: 20px;" %>
                                                 Nein
                                             </div>
                                         </div>
@@ -745,11 +745,11 @@
 
                                                 <div class="row">
                                                     <div class="col-md-3 col-md-offset-2">
-                                                        <%= form.check_box :yes_good_overhauled_before_reselling, id: "yes_outdated_goods" %>
+                                                        <%= form.check_box :yes_good_overhauled_before_reselling, id: "yes_outdated_goods", :style => "width: 20px; height: 20px;"%>
                                                         Ja
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <%= form.check_box :no_good_arent_overhauled_before_reselling, id: "no_outdated_goods" %>
+                                                        <%= form.check_box :no_good_arent_overhauled_before_reselling, id: "no_outdated_goods", :style => "width: 20px; height: 20px;" %>
                                                         Nein
                                                     </div>
                                                 </div>
@@ -793,11 +793,11 @@
 
                                         <div class="row">
                                             <div class="col-md-3 col-md-offset-2">
-                                                <%= form.check_box :yes_contract_already_signed_all_parties, name: "group5[]", id: "ja_contractsigned" %>
+                                                <%= form.check_box :yes_contract_already_signed_all_parties, name: "group5[]", id: "ja_contractsigned", :style => "width: 20px; height: 20px;"%>
                                                 Ja
                                             </div>
                                             <div class="col-md-3">
-                                                <%= form.check_box :no_contract_already_signed_all_parties, name: "group5[]", id: "nein_contractsigned" %>
+                                                <%= form.check_box :no_contract_already_signed_all_parties, name: "group5[]", id: "nein_contractsigned", :style => "width: 20px; height: 20px;" %>
                                                 Nein
                                             </div>
                                         </div>
@@ -847,11 +847,11 @@
 
                                         <div class="row">
                                             <div class="col-md-3 col-md-offset-2">
-                                                <%= form.check_box :yes_special_contract_structure, name: "group6[]", id: "yes_specialcontractstructure" %>
+                                                <%= form.check_box :yes_special_contract_structure, name: "group6[]", id: "yes_specialcontractstructure", :style => "width: 20px; height: 20px;" %>
                                                 Ja
                                             </div>
                                             <div class="col-md-3">
-                                                <%= form.check_box :no_special_contract_structure, name: "group6[]", id: "no_specialcontractstructure" %>
+                                                <%= form.check_box :no_special_contract_structure, name: "group6[]", id: "no_specialcontractstructure", :style => "width: 20px; height: 20px;" %>
                                                 Nein
                                             </div>
                                         </div>
@@ -988,11 +988,11 @@
 
                                         <div class="row">
                                             <div class="col-md-3 col-md-offset-2">
-                                                <%= form.check_box :ja_customer_counts_interest, name: "group7[]", id: "ja_customercountsinterest" %>
+                                                <%= form.check_box :ja_customer_counts_interest, name: "group7[]", id: "ja_customercountsinterest", :style => "width: 20px; height: 20px;" %>
                                                 Ja
                                             </div>
                                             <div class="col-md-3">
-                                                <%= form.check_box :no_customer_counts_interest, name: "group7[]", id: "nein_customercountsinterest" %>
+                                                <%= form.check_box :no_customer_counts_interest, name: "group7[]", id: "nein_customercountsinterest", :style => "width: 20px; height: 20px;" %>
                                                 Nein
                                             </div>
                                         </div>
@@ -1036,11 +1036,11 @@
 
                                         <div class="row">
                                             <div class="col-md-3 col-md-offset-2">
-                                                <%= form.check_box :yes_price_adjustment_clause, name: "group8[]", id: "ja_priceadjustmentclause" %>
+                                                <%= form.check_box :yes_price_adjustment_clause, name: "group8[]", id: "ja_priceadjustmentclause", :style => "width: 20px; height: 20px;" %>
                                                 Ja
                                             </div>
                                             <div class="col-md-3">
-                                                <%= form.check_box :no_price_adjustment_clause, name: "group8[]", id: "nein_priceadjustmentclause" %>
+                                                <%= form.check_box :no_price_adjustment_clause, name: "group8[]", id: "nein_priceadjustmentclause", :style => "width: 20px; height: 20px;" %>
                                                 Nein
                                             </div>
                                         </div>
@@ -1075,11 +1075,11 @@
 
                                         <div class="row">
                                             <div class="col-md-3 col-md-offset-2">
-                                                <%= form.check_box :yes_multiple_deliveries, name: "group9[]", id: "ja_multipledeliveries" %>
+                                                <%= form.check_box :yes_multiple_deliveries, name: "group9[]", id: "ja_multipledeliveries", :style => "width: 20px; height: 20px;"%>
                                                 Ja
                                             </div>
                                             <div class="col-md-3">
-                                                <%= form.check_box :no_multiple_deliveries, name: "group9[]", id: "nein_multipledeliveries" %>
+                                                <%= form.check_box :no_multiple_deliveries, name: "group9[]", id: "nein_multipledeliveries", :style => "width: 20px; height: 20px;" %>
                                                 Nein
                                             </div>
                                         </div>
@@ -1139,21 +1139,21 @@
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-3 col-md-offset-1">
-                                                    <%= form.check_box :payment_term_shortterm, name: "group10[]", id: "kurzfristig-termofpayments" %>
+                                                    <%= form.check_box :payment_term_shortterm, name: "group10[]", id: "kurzfristig-termofpayments", :style => "width: 20px; height: 20px;"%>
                                                     <br><br>
                                                     <div><p> kurzfristig (bis zu 2 Jahre Kreditlaufzeit)</p>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-4">
-                                                    <%= form.check_box :payment_term_middleterm, name: "group10[]", id: "mittel-termofpayments" %>
+                                                    <%= form.check_box :payment_term_middleterm, name: "group10[]", id: "mittel-termofpayments", :style => "width: 20px; height: 20px;" %>
                                                     <br><br>
                                                     <div><p> mittel-/langfristig (über 2 Jahre Kreditlaufzeit)</p>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-4">
-                                                    <%= form.check_box :payment_term_both, name: "group10[]",  id: "sowohlkurzfristig-termofpayments" %>
+                                                    <%= form.check_box :payment_term_both, name: "group10[]",  id: "sowohlkurzfristig-termofpayments", :style => "width: 20px; height: 20px;" %>
                                                     <br><br>
                                                     <div><p> sowohl kurzfristig als auch mittel-/langfristig </p>
                                                     </div>
@@ -2257,15 +2257,15 @@
 
                                         <div class="row">
                                             <div class="col-md-3 col-md-offset-1">
-                                                <%= form.check_box :yes_sonstige_kurzfrist_certificate_of_origin, name: "group12[]", id: "yes_certificateoforigin" %>
+                                                <%= form.check_box :yes_sonstige_kurzfrist_certificate_of_origin, name: "group12[]", id: "yes_certificateoforigin", :style => "width: 20px; height: 20px;"%>
                                                 Ja
                                             </div>
                                             <div class="col-md-4">
-                                                <%= form.check_box :no_sonstige_kurzfrist_certificate_of_origin, name: "group12[]", id: "no_certificateoforigin" %>
+                                                <%= form.check_box :no_sonstige_kurzfrist_certificate_of_origin, name: "group12[]", id: "no_certificateoforigin", :style => "width: 20px; height: 20px;" %>
                                                 Nein
                                             </div>
                                             <div class="col-md-4">
-                                                <%= form.check_box :part_of_goods__sonstige_kurzfrist_certificate_of_origin, name: "group12[]", id: "teil-certificateoforigin" %>
+                                                <%= form.check_box :part_of_goods__sonstige_kurzfrist_certificate_of_origin, name: "group12[]", id: "teil-certificateoforigin", :style => "width: 20px; height: 20px;" %>
                                                 für
                                                 Teile
                                                 der
@@ -2432,11 +2432,11 @@
 
                                         <div class="row">
                                             <div class="col-md-3 col-md-offset-4">
-                                                <%= form.check_box :yes_security_businnes_provided, name: "group13[]", id: "Yes-securityForBusiness" %>
+                                                <%= form.check_box :yes_security_businnes_provided, name: "group13[]", id: "Yes-securityForBusiness", :style => "width: 20px; height: 20px;" %>
                                                 Ja
                                             </div>
                                             <div class="col-md-3">
-                                                <%= form.check_box :no_security_businnes_provided, name: "group13[]", id: "No-securityForBusiness" %>
+                                                <%= form.check_box :no_security_businnes_provided, name: "group13[]", id: "No-securityForBusiness", :style => "width: 20px; height: 20px;" %>
                                                 Nein
                                             </div>
                                         </div>
@@ -2586,11 +2586,11 @@
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-4 col-md-offset-2">
-                                                    <%= form.check_box :yes_delivered_at_this_address, name: "group14[]", id: "Yes-deliveryAddress" %>
+                                                    <%= form.check_box :yes_delivered_at_this_address, name: "group14[]", id: "Yes-deliveryAddress", :style => "width: 20px; height: 20px;" %>
                                                     Ja
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <%= form.check_box :no_delivered_at_this_address, name: "group14[]", id: "No-deliveryAddress" %>
+                                                    <%= form.check_box :no_delivered_at_this_address, name: "group14[]", id: "No-deliveryAddress", :style => "width: 20px; height: 20px;" %>
                                                     Nein
                                                 </div>
                                             </div>
@@ -2652,11 +2652,11 @@
 
                                         <div class="row">
                                             <div class="col-md-4 col-md-offset-2">
-                                                <%= form.check_box :yes_relation_to_customer, name: "group15[]", id: "Yes-relationToCustomer" %>
+                                                <%= form.check_box :yes_relation_to_customer, name: "group15[]", id: "Yes-relationToCustomer", :style => "width: 20px; height: 20px;" %>
                                                 Ja
                                             </div>
                                             <div class="col-md-4">
-                                                <%= form.check_box :no_relation_to_customer, class: "form-group", id: "No-relationToCustomer" %>
+                                                <%= form.check_box :no_relation_to_customer, class: "form-group", id: "No-relationToCustomer", :style => "width: 20px; height: 20px;" %>
                                                 Nein
                                             </div>
                                         </div>
@@ -2688,11 +2688,11 @@
 
                                         <div class="row">
                                             <div class="col-md-4 col-md-offset-2">
-                                                <%= form.check_box :yes_previous_payment_experience_with_customer, name: "group16[]", id: "Yes-paymentExperience" %>
+                                                <%= form.check_box :yes_previous_payment_experience_with_customer, name: "group16[]", id: "Yes-paymentExperience", :style => "width: 20px; height: 20px;" %>
                                                 Ja
                                             </div>
                                             <div class="col-md-4">
-                                                <%= form.check_box :no_previous_payment_experience_with_customer, name: "group16[]", id: "No-paymentExperience" %>
+                                                <%= form.check_box :no_previous_payment_experience_with_customer, name: "group16[]", id: "No-paymentExperience", :style => "width: 20px; height: 20px;" %>
                                                 Nein
                                             </div>
                                         </div>
@@ -2735,11 +2735,11 @@
 
                                             <div class="row">
                                                 <div class="col-md-4 col-md-offset-2">
-                                                    <%= form.check_box :yes_previously_hermes_insurance_used, id: "Yes-hermesdeckungNutz", name: "group1[]" %>
+                                                    <%= form.check_box :yes_previously_hermes_insurance_used, id: "Yes-hermesdeckungNutz", name: "group1[]", :style => "width: 20px; height: 20px;" %>
                                                     Ja
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <%= form.check_box :no_previously_hermes_insurance_used, id: "No-hermesdeckungNutz", name: "group1[]" %>
+                                                    <%= form.check_box :no_previously_hermes_insurance_used, id: "No-hermesdeckungNutz", name: "group1[]", :style => "width: 20px; height: 20px;" %>
                                                     Nein
                                                 </div>
                                             </div>
@@ -3040,10 +3040,10 @@
 
                                         <div class="row">
                                             <div class="col-md-4 col-md-offset-2">
-                                                <%= form.check_box :country_category, id: "Yes-some-id-1" %> Ja
+                                                <%= form.check_box :country_category, id: "Yes-some-id-1", :style => "width: 20px; height: 20px;"%> Ja
                                             </div>
                                             <div class="col-md-4">
-                                                <%= form.check_box :country_category, id: "No-some-id-1" %> Nein
+                                                <%= form.check_box :country_category, id: "No-some-id-1", :style => "width: 20px; height: 20px;" %> Nein
                                             </div>
                                         </div>
 
@@ -3155,11 +3155,11 @@
 
                                         <div class="row">
                                             <div class="col-md-4 col-md-offset-2">
-                                                <%= form.check_box :country_category, id: "triff_zu" %> Trifft zu
+                                                <%= form.check_box :country_category, id: "triff_zu", :style => "width: 20px; height: 20px;" %> Trifft zu
                                                 (Nähere Angaben erforderlich. Lesen Sie hierzu auch die Hinweise)
                                             </div>
                                             <div class="col-md-4">
-                                                <%= form.check_box :country_category, id: "trifft_nichtzu" %> Trifft
+                                                <%= form.check_box :country_category, id: "trifft_nichtzu", :style => "width: 20px; height: 20px;" %> Trifft
                                                 nicht zu
                                             </div>
                                             <br><br>
@@ -3209,13 +3209,13 @@
                                             </div>
 
                                             <div class="col-md-4 col-md-offset-2">
-                                                <%= form.check_box :country_category, name: "group2[]", id: "Yes-WorkAssociation" %>
+                                                <%= form.check_box :country_category, name: "group2[]", id: "Yes-WorkAssociation", :style => "width: 20px; height: 20px;" %>
                                                 Konsortium
                                                 oder
                                                 Arbeitsgemeinschaft
                                             </div>
                                             <div class="col-md-4">
-                                                <%= form.check_box :country_category, name: "group2[]", id: "No-WorkAssociation" %>
+                                                <%= form.check_box :country_category, name: "group2[]", id: "No-WorkAssociation", :style => "width: 20px; height: 20px;"%>
                                                 Wir
                                                 arbeiten
                                                 für
@@ -3240,7 +3240,7 @@
 
 
                                         <div class="col-md-10 col-md-offset-1">
-                                            <%= form.check_box :country_category, id: "Yes-WorkAssociation1" %>
+                                            <%= form.check_box :country_category, id: "Yes-WorkAssociation1", :style => "width: 20px; height: 20px;" %>
                                             Die vorstehenden Angaben wurden von uns nach bestem Wissen und Gewissen und
                                             in Kenntnisnahme der Erläuterungen gemacht
                                         </div>
@@ -3271,7 +3271,7 @@
                                                 <br>
 
                                                 <div class="col-md-8 col-md-offset-2">
-                                                    <%= form.check_box :no_multiple_deliveries, id: "Yes-WorkAssociation" %>
+                                                    <%= form.check_box :no_multiple_deliveries, id: "Yes-WorkAssociation", :style => "width: 20px; height: 20px;" %>
                                                     Wir akzeptieren die Allgemeinen Bedingungen für
                                                     Lieferantenkreditdeckung
                                                     (G)
@@ -3283,7 +3283,7 @@
                                             <div class="row">
                                                 <div class="col-md-8 col-md-offset-2">
                                                     <br><br>
-                                                    <%= form.check_box :listings, id: "Yes-WorkAssociation1" %>
+                                                    <%= form.check_box :listings, id: "Yes-WorkAssociation1", :style => "width: 20px; height: 20px;" %>
                                                     Wir haben die Datenschutzhinweise zur Kenntnis genommen und sind mit
                                                     deren
                                                     Geltung einverstanden.
@@ -3293,7 +3293,7 @@
                                             <div class="row">
                                                 <div class="col-md-8 col-md-offset-2">
                                                     <br><br>
-                                                    <%= form.check_box :country_category, id: "Yes-WorkAssociation2" %>
+                                                    <%= form.check_box :country_category, id: "Yes-WorkAssociation2", :style => "width: 20px; height: 20px;"%>
                                                     Wir haben die Hinweise zu Gebühren und Entgelten, Richtlinien,
                                                     Verantwortlichkeiten für den Antrag, Veröffentlichung von
                                                     Projektdaten,
