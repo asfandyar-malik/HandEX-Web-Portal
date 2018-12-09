@@ -1,8 +1,8 @@
-# Handex
+# HandEX
 
-This is the Ruby code for web app for Handex.
+This is backend and frontend code for Handex application which is written in Ruby on Rails
 
-Handex is a program which provides funding for imports/export for SME(small-to-medium enterprise)
+HandEX provides export financing to SMEs in Germany. 
 
 This code implements a landing page and a user portal where user can input their invoices and balance sheets. A user in this case is a SME
 
@@ -12,5 +12,5 @@ This code implements a landing page and a user portal where user can input their
 
 * Ruby on Rails: primary language
 * Gravatar: Picture Manager
-* SQLLite: Main Production Database
+* Postgres: Main Production Database
 * Heroku: Production Server
