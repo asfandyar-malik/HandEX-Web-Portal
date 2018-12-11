@@ -331,7 +331,7 @@
 
                                         <div class="row">
                                             <div class="col-sm-4 col-sm-offset-2">
-                                                <div class="choice <%= 'active' if listing.risk_contractual_warranty_coverage == 'on' %>" data-toggle="wizard-checkbox">
+                                                <div class="choice <%= 'active' if listing.risk_contractual_warranty_coverage == 'on' %>" data-toggle="wizard-checkbox" onclick="ziehungVonGarantien()">
 
                                                     <%= check_box_tag "listing[risk_contractual_warranty_coverage]", listing.risk_contractual_warranty_coverage ? listing.risk_contractual_warranty_coverage : nil %>
 
@@ -345,7 +345,7 @@
                                             </div>
 
 
-                                            <div id="entlastung" class="col-sm-4", style="display: none";>
+                                            <div id="entlastung" class="col-sm-4" , style="display: none" ;>
                                                 <div class="choice <%= 'active' if listing.risk_avaline_guarantee == 'on' %>" data-toggle="wizard-checkbox">
                                                     <%= check_box_tag "listing[risk_avaline_guarantee]", listing.risk_avaline_guarantee ? listing.risk_avaline_guarantee : nil %>
                                                     <div class="card card-checkboxes card-hover-effect">
@@ -1181,23 +1181,22 @@
 
                                             <div class="row">
                                                 <div class="col-md-2 col-md-offset-1">
+                                                    <div class="choice <%= 'active' if listing.payment_term_shortterm == 'on' %>" data-toggle="wizard-checkbox" name="paymentterm" onclick="kurzFristigTermOfPayment()">
 
-                                                    <div class="choice <%= 'active' if listing.payment_term_shortterm == 'on' %>" data-toggle="wizard-checkbox">
-
-                                                        <%= check_box_tag "listing[payment_term_shortterm]", listing.payment_term_shortterm ? listing.payment_term_shortterm : nil, id: "kurzfristig-termofpayments" %>
+                                                        <%= check_box_tag "listing[payment_term_shortterm]", listing.payment_term_shortterm ? listing.payment_term_shortterm : nil %>
 
                                                         <div class="card card-checkboxes card-hover-effect">
                                                             <i class="ti-home"></i>
-                                                            <p>kurzfristig (bis zu 2 Jahre Kreditlaufzeit)</p>
+                                                            <p> kurzfristig (bis zu 2 Jahre Kreditlaufzeit) </p>
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-2 col-md-offset-1">
 
-                                                    <div class="choice <%= 'active' if listing.payment_term_middleterm == 'on' %>" data-toggle="wizard-checkbox">
+                                                    <div class="choice <%= 'active' if listing.payment_term_middleterm == 'on' %>" data-toggle="wizard-checkbox" name="paymentterm" onclick="mittelTermOfPayment()">
 
-                                                        <%= check_box_tag "listing[payment_term_middleterm]", listing.payment_term_middleterm ? listing.payment_term_middleterm : nil, id: "mittel-termofpayments"%>
+                                                        <%= check_box_tag "listing[payment_term_middleterm]", listing.payment_term_middleterm ? listing.payment_term_middleterm : nil %>
 
                                                         <div class="card card-checkboxes card-hover-effect">
                                                             <i class="ti-home"></i>
@@ -1208,9 +1207,9 @@
 
                                                 <div class="col-md-2 col-md-offset-1">
 
-                                                    <div class="choice <%= 'active' if listing.payment_term_both == 'on' %>" data-toggle="wizard-checkbox">
+                                                    <div class="choice <%= 'active' if listing.payment_term_both == 'on' %>" data-toggle="wizard-checkbox" name="paymentterm" onclick="sonstigeKurzFristigTermOfPayment()">
 
-                                                        <%= check_box_tag "listing[payment_term_both]", listing.payment_term_both ? listing.payment_term_both : nil, id: "sowohlkurzfristig-termofpayments" %>
+                                                        <%= check_box_tag "listing[payment_term_both]", listing.payment_term_both ? listing.payment_term_both : nil %>
 
                                                         <div class="card card-checkboxes card-hover-effect">
                                                             <i class="ti-home"></i>
@@ -3434,16 +3433,14 @@
         });
     });
 
-    $(function () {
-        $("#risk_contractual_warranty_coverage").click(function () {
-
-            if ($(this).is(":checked")) {
-                $("#entlastung").show();
-            } else {
-                $("#entlastung").hide();
-            }
-        });
-    });
+    function ziehungVonGarantien() {
+        var x = document.getElementById("entlastung");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
 
     $(function () {
         $("#ja").click(function () {
@@ -3547,37 +3544,40 @@
         });
     });
 
-    $(function () {
-        $("#kurzfristig-termofpayments").click(function () {
-            if ($(this).is(":checked")) {
-                $("#KurzFristigTermOfPayment").show();
-            } else {
-                $("#KurzFristigTermOfPayment").hide();
-            }
-        });
-    });
+    function kurzFristigTermOfPayment() {
+        var x = document.getElementById("KurzFristigTermOfPayment");
+        var y = document.getElementById("MittelTermOfPayment");
+        var z = document.getElementById("SonstigeKurzFristigTermOfPayment");
 
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.display = "none";
+            z.style.display = "none";
+        }
+    }
 
-    $(function () {
-        $("#mittel-termofpayments").click(function () {
-            if ($(this).is(":checked")) {
-                $("#MittelTermOfPayment").show();
-            } else {
-                $("#MittelTermOfPayment").hide();
-            }
-        });
-    });
+    function mittelTermOfPayment() {
+        var x = document.getElementById("KurzFristigTermOfPayment");
+        var y = document.getElementById("MittelTermOfPayment");
+        var z = document.getElementById("SonstigeKurzFristigTermOfPayment");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+            z.style.display = "none";
+            x.style.display = "none";
+        }
+    }
 
+    function sonstigeKurzFristigTermOfPayment() {
+        var x = document.getElementById("KurzFristigTermOfPayment");
+        var y = document.getElementById("MittelTermOfPayment");
+        var z = document.getElementById("SonstigeKurzFristigTermOfPayment");
 
-    $(function () {
-        $("#sowohlkurzfristig-termofpayments").click(function () {
-            if ($(this).is(":checked")) {
-                $("#SonstigeKurzFristigTermOfPayment").show();
-            } else {
-                $("#SonstigeKurzFristigTermOfPayment").hide();
-            }
-        });
-    });
+        if (z.style.display === "none") {
+            z.style.display = "block";
+            x.style.display = "none";
+            y.style.display = "none";
+        }
+    }
 
     $(function () {
         $("#sonstige").click(function () {
@@ -3659,7 +3659,14 @@
         });
     });
 
+    jQuery('.choice').filter('[name="paymentterm"]').click(function(){
+        jQuery(this).filter('[name="paymentterm"]').addClass('active');
+        jQuery('.choice').filter('[name="paymentterm"]').removeClass('active');
+
+    });
+
     $('input[type="checkbox"]').on('change', function () {
+
         $('input[name="' + this.name + '"]').not(this).prop('checked', false);
 
         if ($("#No-hermesdeckungNutz").is(":checked")) {
@@ -3716,23 +3723,23 @@
             $("#yesNoMultipleDeliveries").hide();
         }
 
-        if ($("#kurzfristig-termofpayments").is(":checked")) {
-            $("#KurzFristigTermOfPayment").show();
-        } else {
-            $("#KurzFristigTermOfPayment").hide();
-        }
-
-        if ($("#mittel-termofpayments").is(":checked")) {
-            $("#MittelTermOfPayment").show();
-        } else {
-            $("#MittelTermOfPayment").hide();
-        }
-
-        if ($("#sowohlkurzfristig-termofpayments").is(":checked")) {
-            $("#SonstigeKurzFristigTermOfPayment").show();
-        } else {
-            $("#SonstigeKurzFristigTermOfPayment").hide();
-        }
+        // if ($("#kurzfristig-termofpayments").is(":checked")) {
+        //     $("#KurzFristigTermOfPayment").show();
+        // } else {
+        //     $("#KurzFristigTermOfPayment").hide();
+        // }
+        //
+        // if ($("#mittel-termofpayments").is(":checked")) {
+        //     $("#MittelTermOfPayment").show();
+        // } else {
+        //     $("#MittelTermOfPayment").hide();
+        // }
+        //
+        // if ($("#sowohlkurzfristig-termofpayments").is(":checked")) {
+        //     $("#SonstigeKurzFristigTermOfPayment").show();
+        // } else {
+        //     $("#SonstigeKurzFristigTermOfPayment").hide();
+        // }
 
         if ($("#ja").is(":checked")) {
             $("#showHideDivJaWorkOtherCompanies").show();
