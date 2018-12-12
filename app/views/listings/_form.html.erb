@@ -615,7 +615,7 @@
                                                         <%= check_box_tag "listing[delivery_doesnt_affects_sensitive_areas]", listing.delivery_doesnt_affects_sensitive_areas ? listing.delivery_doesnt_affects_sensitive_areas : nil %>
 
                                                         <div class="card card-checkboxes card-hover-effect">
-                                                            <i class="ti-home"></i>
+                                                            <i class="ti-layout-sidebar-none"></i>
                                                             <p>Nein</p>
                                                         </div>
                                                     </div>
@@ -628,7 +628,7 @@
                                                         <%= check_box_tag "listing[delivery_affects_natural_reserves]", listing.delivery_affects_natural_reserves ? listing.delivery_affects_natural_reserves : nil %>
 
                                                         <div class="card card-checkboxes card-hover-effect">
-                                                            <i class="ti-home"></i>
+                                                            <i class="ti-shine"></i>
                                                             <p>Naturschutzgebiet</p>
                                                         </div>
                                                     </div>
@@ -640,7 +640,7 @@
                                                         <%= check_box_tag "listing[delivery_affects_indigenous_people]", listing.delivery_affects_indigenous_people ? listing.delivery_affects_indigenous_people : nil %>
 
                                                         <div class="card card-checkboxes card-hover-effect">
-                                                            <i class="ti-home"></i>
+                                                            <i class="ti-user"></i>
                                                             <p>Bedeutung für indigene Völker</p>
                                                         </div>
                                                     </div>
@@ -659,7 +659,7 @@
                                                         <%= check_box_tag "listing[delivery_affects_cultural_heritage]", listing.delivery_affects_cultural_heritage ? listing.delivery_affects_cultural_heritage : nil %>
 
                                                         <div class="card card-checkboxes card-hover-effect">
-                                                            <i class="ti-home"></i>
+                                                            <i class="ti-star"></i>
                                                             <p> Archäologische oder kulturelle Bedeutung </p>
                                                         </div>
                                                     </div>
@@ -672,7 +672,7 @@
                                                         <%= check_box_tag "listing[delivery_affects_other]", listing.delivery_affects_other ? listing.delivery_affects_other : nil %>
 
                                                         <div class="card card-checkboxes card-hover-effect">
-                                                            <i class="ti-home"></i>
+                                                            <i class="ti-marker"></i>
                                                             <p>Sonstige</p>
                                                         </div>
                                                     </div>
@@ -1289,23 +1289,23 @@
 
                                     <div class="form-group">
                                         <div class="row">
-                                            <br>
+                                            <br><br>
                                             <div class="col-md-10 col-md-offset-1">
                                                 <p><b>Wie sind Ihre Zahlungsbedingungen gestaltet? </b>
                                                 <p>
                                             </div>
                                         </div>
-                                        <br>
+
                                         <div class="form-group">
 
                                             <div class="row">
                                                 <div class="col-md-2 col-md-offset-1">
-                                                    <div class="choice <%= 'active' if listing.payment_term_shortterm == 'on' %>" data-toggle="wizard-checkbox" name="paymentterm" onclick="kurzFristigTermOfPayment()">
+                                                    <div class="choice <%= 'active' if listing.payment_term_shortterm == 'on' %>" data-toggle="wizard-checkbox" name="kurzfristigtermofpayment" onclick="kurzFristigTermOfPayment()">
 
                                                         <%= check_box_tag "listing[payment_term_shortterm]", listing.payment_term_shortterm ? listing.payment_term_shortterm : nil %>
 
                                                         <div class="card card-checkboxes card-hover-effect">
-                                                            <i class="ti-home"></i>
+                                                            <i class="ti-timer"></i>
                                                             <p> kurzfristig (bis zu 2 Jahre Kreditlaufzeit) </p>
                                                         </div>
                                                     </div>
@@ -1313,12 +1313,12 @@
 
                                                 <div class="col-md-2 col-md-offset-1">
 
-                                                    <div class="choice <%= 'active' if listing.payment_term_middleterm == 'on' %>" data-toggle="wizard-checkbox" name="paymentterm" onclick="mittelTermOfPayment()">
+                                                    <div class="choice <%= 'active' if listing.payment_term_middleterm == 'on' %>" data-toggle="wizard-checkbox" name="mitteltermofpayment" onclick="mittelTermOfPayment()">
 
                                                         <%= check_box_tag "listing[payment_term_middleterm]", listing.payment_term_middleterm ? listing.payment_term_middleterm : nil %>
 
                                                         <div class="card card-checkboxes card-hover-effect">
-                                                            <i class="ti-home"></i>
+                                                            <i class="ti-layout-width-full"></i>
                                                             <p>mittel-/langfristig (über 2 Jahre Kreditlaufzeit)</p>
                                                         </div>
                                                     </div>
@@ -1326,12 +1326,12 @@
 
                                                 <div class="col-md-2 col-md-offset-1">
 
-                                                    <div class="choice <%= 'active' if listing.payment_term_both == 'on' %>" data-toggle="wizard-checkbox" name="paymentterm" onclick="sonstigeKurzFristigTermOfPayment()">
+                                                    <div class="choice <%= 'active' if listing.payment_term_both == 'on' %>" data-toggle="wizard-checkbox" name="sonstigekurzfristigtermofpayment" onclick="sonstigeKurzFristigTermOfPayment()">
 
                                                         <%= check_box_tag "listing[payment_term_both]", listing.payment_term_both ? listing.payment_term_both : nil %>
 
                                                         <div class="card card-checkboxes card-hover-effect">
-                                                            <i class="ti-home"></i>
+                                                            <i class="ti-time"></i>
                                                             <p>sowohl kurzfristig als auch mittel-/langfristig</p>
                                                         </div>
                                                     </div>
@@ -3824,6 +3824,8 @@
             x.style.display = "block";
             y.style.display = "none";
             z.style.display = "none";
+        } else {
+            x.style.display = "none"
         }
     }
 
@@ -3835,6 +3837,8 @@
             y.style.display = "block";
             z.style.display = "none";
             x.style.display = "none";
+        } else {
+            y.style.display = "none"
         }
     }
 
@@ -3847,6 +3851,8 @@
             z.style.display = "block";
             x.style.display = "none";
             y.style.display = "none";
+        } else {
+            z.style.display = "none"
         }
     }
 
@@ -3982,10 +3988,21 @@
 
     var $choice = jQuery('.choice');
 
-    $choice.filter('[name="paymentterm"]').click(function () {
-        jQuery(this).filter('[name="paymentterm"]').addClass('active');
-        $choice.filter('[name="paymentterm"]').removeClass('active');
+    $choice.filter('[name="kurzfristigtermofpayment"]').click(function () {
+        $choice.filter('[name="mitteltermofpayment"]').removeClass('active');
+        $choice.filter('[name="sonstigekurzfristigtermofpayment"]').removeClass('active');
     });
+
+    $choice.filter('[name="mitteltermofpayment"]').click(function () {
+        $choice.filter('[name="kurzfristigtermofpayment"]').removeClass('active');
+        $choice.filter('[name="sonstigekurzfristigtermofpayment"]').removeClass('active');
+    });
+
+    $choice.filter('[name="sonstigekurzfristigtermofpayment"]').click(function () {
+        $choice.filter('[name="mitteltermofpayment"]').removeClass('active');
+        $choice.filter('[name="kurzfristigtermofpayment"]').removeClass('active');
+    });
+
 
     $choice.filter('[name="sensitivearea_nein"]').click(function () {
         $choice.filter('[name="sensitivearea"]').removeClass('active');
