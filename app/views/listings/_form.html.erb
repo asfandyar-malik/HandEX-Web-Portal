@@ -38,7 +38,7 @@
                                 <li>
                                     <a href="#contactinformation" data-toggle="tab">
                                         <div class="icon-circle">
-                                            <i class="ti-map"></i>
+                                            <i class="ti-clipboard"></i>
                                         </div>
                                         Kontaktinformation
                                     </a>
@@ -78,7 +78,7 @@
                                 <li>
                                     <a href="#important-at-end" data-toggle="tab">
                                         <div class="icon-circle">
-                                            <i class="ti-comments"></i>
+                                            <i class="ti-share"></i>
                                         </div>
                                         Notwendiges zum Schluss
                                     </a>
@@ -232,15 +232,31 @@
                                         <div class="col-sm-6 col-sm-offset-3">
                                             <div class="form-group">
                                                 <label>An wen liefern Sie?</label>
+
                                                 <div class="row">
-                                                    <div class="col-md-4 col-md-offset-2">
-                                                        <%= form.check_box :private_sector, id: "privateSector", name: "group15[]", :style => "width: 20px; height: 20px;" %>
-                                                        Privater Sektor
+
+                                                    <div class="col-sm-6">
+                                                        <div class="choice <%= 'active' if listing.private_sector == 'on' %>" name = "privatesector" data-toggle="wizard-checkbox" onclick="privateSector()">
+                                                            <%= check_box_tag "listing[private_sector]", listing.private_sector ? listing.private_sector : nil %>
+
+                                                            <div class="card card-checkboxes card-hover-effect">
+                                                                <i class="ti-home"></i>
+                                                                <p>Privater Sektor</p>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-4">
-                                                        <%= form.check_box :public_sector, id: "publicSector", name: "group15[]", :style => "width: 20px; height: 20px;" %>
-                                                        Öffentlicher Sektor
+
+                                                    <div class="col-sm-6">
+                                                        <div class="choice <%= 'active' if listing.public_sector == 'on' %>" name = "publicsector" data-toggle="wizard-checkbox" onclick="publicSector()">
+                                                            <%= check_box_tag "listing[public_sector]", listing.public_sector ? listing.public_sector : nil %>
+
+                                                            <div class="card card-checkboxes card-hover-effect">
+                                                                <i class="ti-home"></i>
+                                                                <p>Öffentlicher Sektor</p>
+                                                            </div>
+                                                        </div>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -1019,13 +1035,13 @@
                                 </div>
 
                                 <div id="contractAmount">
-                                    <br><br>
+                                    <br>
 
                                     <div class="form-group">
                                         <div class="row">
 
                                             <hr align="middle" width="90%">
-                                            <br><br>
+                                            <br>
                                             <div class="col-md-10 col-md-offset-1">
 
                                                 <p><b>Bitte geben Sie den Auftragswert an. </b></p>
@@ -2938,9 +2954,8 @@
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-8 col-md-offset-1">
-                                                    <p> Haben Sie in der Vergangenheit schon einmal einen Antrag auf
-                                                        Hermesdeckung eingereicht?
-                                                    <p>
+                                                    <p><b>Haben Sie in der Vergangenheit schon einmal einen Antrag auf
+                                                        Hermesdeckung eingereicht?</b><p>
 
                                                     <div class="col-md-4 col-md-offset-1">
                                                         <div class="choice <%= 'active' if listing.yes_previously_hermes_insurance_used == 'on' %>" name="yes_previouslyhermesinsuranceused" data-toggle="wizard-checkbox" onclick="previouslyHermesInsuranceUsed()">
@@ -3022,8 +3037,6 @@
                                         <br>
                                         <div class="form-group">
                                             <div class="row">
-
-
                                                 <div class="col-md-10 col-md-offset-1">
                                                     <p><b>Bitte geben Sie Ihre Firmendaten an.</b></p>
                                                 </div>
@@ -3114,14 +3127,15 @@
 
                                     <div id="firmenDaten">
                                         <br>
-                                        <div class="col-md-10 col-md-offset-1">
-                                            <p><b>Wen können wir ansprechen?</b></p>
-                                        </div>
 
-                                        <br>
                                         <div class="form-group">
                                             <div class="row">
-                                                <br><br><br>
+                                                <div class="col-md-10 col-md-offset-1">
+                                                    <p><b>Wen können wir ansprechen?</b></p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <br>
                                                 <div class="col-md-3 col-md-offset-1">
                                                     <%= form.text_field :representative, class: "form-control" %>
                                                 </div>
@@ -3169,10 +3183,16 @@
 
                                     <br><br><br>
 
-                                    <div class="col-md-6 col-md-offset-1">
-                                        <p>Diese Anlagen benötigen wir für die Prüfung Ihres
-                                            Geschäftes </p>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-8 col-md-offset-1">
+                                                <p><b>Diese Anlagen benötigen wir für die Prüfung Ihres
+                                                    Geschäftes </b></p>
+                                            </div>
+                                        </div>
                                     </div>
+
+
 
                                     <div id="uploadDocuments">
                                         <br><br><br>
@@ -3247,34 +3267,36 @@
                                     <div id="deliveryAddressCheck">
                                         <div class="row">
                                             <br><br><br>
-                                            <div class="col-md-10 col-md-offset-1">
-                                                <p><b>Sie beantragen die Absicherung folgender
-                                                    Risiken.</b></p>
-                                                <p><i>Nichtzahlung der Forderung (Lieferantenkreditdeckung (G))</i></p>
-                                                <br>
-                                                <p>Möchten Sie die Selbstbeteiligung für wirtschaftliche Risiken gegen
-                                                    Zusatzentgelt
-                                                    auf 5 % absenken?</p>
+                                            <div class="col-md-8 col-md-offset-1">
+                                                <div class="form-group">
+                                                    <p><b>Sie beantragen die Absicherung folgender
+                                                        Risiken.</b></p>
+                                                    <p><i>Nichtzahlung der Forderung (Lieferantenkreditdeckung (G))</i></p>
+                                                    <br>
+                                                    <p>Möchten Sie die Selbstbeteiligung für wirtschaftliche Risiken gegen
+                                                        Zusatzentgelt
+                                                        auf 5 % absenken?</p>
 
-                                                <div class="col-md-4 col-md-offset-1">
-                                                    <div class="choice <%= 'active' if listing.country_category == 'on' %>" name="Yes-some-id-1" data-toggle="wizard-checkbox">
+                                                    <div class="col-md-4 col-md-offset-1">
+                                                        <div class="choice <%= 'active' if listing.country_category == 'on' %>" name="yes_reduceeconomicrisk" data-toggle="wizard-checkbox">
 
-                                                        <%= check_box_tag "listing[country_category]", listing.country_category ? listing.country_category : nil %>
+                                                            <%= check_box_tag "listing[country_category]", listing.country_category ? listing.country_category : nil %>
 
-                                                        <div class="card circle card-hover-effect">
-                                                            <i class="ti-check"></i>
+                                                            <div class="card circle card-hover-effect">
+                                                                <i class="ti-check"></i>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="col-md-4 col-md-offset-1">
+                                                    <div class="col-md-4 col-md-offset-1">
 
-                                                    <div class="choice <%= 'active' if listing.country_category == 'on' %>" name="No-some-id-1" data-toggle="wizard-checkbox">
+                                                        <div class="choice <%= 'active' if listing.country_category == 'on' %>" name="dont_reduceeconomicrisk" data-toggle="wizard-checkbox">
 
-                                                        <%= check_box_tag "listing[country_category]", listing.country_category ? listing.country_category : nil %>
+                                                            <%= check_box_tag "listing[country_category]", listing.country_category ? listing.country_category : nil %>
 
-                                                        <div class="card circle card-hover-effect">
-                                                            <i class="ti-close"></i>
+                                                            <div class="card circle card-hover-effect">
+                                                                <i class="ti-close"></i>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3285,12 +3307,8 @@
                                     </div>
 
                                     <div id="deliveryAddressCheck">
-
                                         <div class="form-group">
-
                                             <div class="row">
-                                                <br><br>
-                                                <hr align="middle" width="50%">
                                                 <div class="col-md-10 col-md-offset-1">
 
                                                     <p><b>Bitte geben Sie die Erklärung zur
@@ -3605,6 +3623,29 @@
             }
         });
     });
+
+    function privateSector() {
+        var x = document.getElementById("showHideDivResultMessage");
+        var y = document.getElementById("showHideDivResultMessageFail");
+
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.display = "none";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function publicSector() {
+        var x = document.getElementById("showHideDivResultMessage");
+        var y = document.getElementById("showHideDivResultMessageFail");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+            x.style.display = "none";
+        } else {
+            y.style.display = "none";
+        }
+    }
 
     function ziehungVonGarantien() {
         var x = document.getElementById("entlastung");
@@ -4082,6 +4123,23 @@
     $choice.filter('[name="no_previouslyhermesinsuranceused"]').click(function () {
         $choice.filter('[name="yes_previouslyhermesinsuranceused"]').removeClass('active');
     });
+
+    $choice.filter('[name="yes_reduceeconomicrisk"]').click(function () {
+        $choice.filter('[name="dont_reduceeconomicrisk"]').removeClass('active');
+    });
+
+    $choice.filter('[name="dont_reduceeconomicrisk"]').click(function () {
+        $choice.filter('[name="yes_reduceeconomicrisk"]').removeClass('active');
+    });
+
+    $choice.filter('[name="publicsector"]').click(function () {
+        $choice.filter('[name="privatesector"]').removeClass('active');
+    });
+
+    $choice.filter('[name="privatesector"]').click(function () {
+        $choice.filter('[name="publicsector"]').removeClass('active');
+    });
+
 
     $('input[type="checkbox"]').on('change', function () {
 
