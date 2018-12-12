@@ -2591,7 +2591,7 @@
                                                 <div class="col-md-4 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.yes_security_businnes_provided == 'on' %>" name="yes_securitybusinnesprovided" data-toggle="wizard-checkbox" onclick="securityBusinnesProvided()">
 
-                                                        <%= check_box_tag "listing[yes_security_businnes_provided]", listing.yes_security_businnes_provided ? yes_security_businnes_provided.yes_multiple_deliveries : nil %>
+                                                        <%= check_box_tag "listing[yes_security_businnes_provided]", listing.yes_security_businnes_provided ? listing.yes_security_businnes_provided : nil %>
 
                                                         <div class="card circle card-hover-effect">
                                                             <i class="ti-check"></i>
@@ -2611,10 +2611,12 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <br><br>
+
                                             </div>
-                                        <br><br>
                                         </div>
 
+                                        <br><br>
 
                                     </div>
                                 </div>
@@ -2749,27 +2751,38 @@
 
                                     <div id="deliveryAddressCheck">
                                         <div class="row">
-                                            <div class="col-md-5 col-md-offset-1">
+                                            <div class="col-md-8 col-md-offset-1">
                                                 <p>Liefern Sie an diese Adresse? </p>
+
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <div class="choice <%= 'active' if listing.yes_delivered_at_this_address == 'on' %>" name="yes_deliveredatthisaddress" data-toggle="wizard-checkbox" onclick="deliveredAtThisAddress()">
+
+                                                        <%= check_box_tag "listing[yes_delivered_at_this_address]", listing.yes_delivered_at_this_address ? listing.yes_delivered_at_this_address : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-check"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-4 col-md-offset-1">
+
+                                                    <div class="choice <%= 'active' if listing.no_delivered_at_this_address == 'on' %>" name="no_deliveredatthisaddress" data-toggle="wizard-checkbox" onclick="notDeliveredAtThisAddress()">
+
+                                                        <%= check_box_tag "listing[no_delivered_at_this_address]", listing.no_delivered_at_this_address ? listing.no_delivered_at_this_address : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-close"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <br><br>
                                             </div>
                                         </div>
-
-                                        <br>
-
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-md-4 col-md-offset-2">
-                                                    <%= form.check_box :yes_delivered_at_this_address, name: "group14[]", id: "Yes-deliveryAddress", :style => "width: 20px; height: 20px;" %>
-                                                    Ja
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <%= form.check_box :no_delivered_at_this_address, name: "group14[]", id: "No-deliveryAddress", :style => "width: 20px; height: 20px;" %>
-                                                    Nein
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <br><br>
                                     </div>
+
 
                                     <div id="deliveryAddress" style="display: none; background-color: #f7f7f7;">
                                         <div class="form-group">
@@ -2815,22 +2828,36 @@
 
                                     <div id="deliveryAddressCheck">
                                         <div class="row">
-                                            <div class="col-md-10 col-md-offset-1">
+                                            <div class="col-md-8 col-md-offset-1">
+                                                <br><br>
                                                 <p> Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder üben
                                                     Sie maßgeblichen Einfluss auf die Geschäftsführung aus?
                                                 <p>
-                                            </div>
-                                        </div>
-                                        <br>
+                                                    <br>
 
-                                        <div class="row">
-                                            <div class="col-md-4 col-md-offset-2">
-                                                <%= form.check_box :yes_relation_to_customer, name: "group15[]", id: "Yes-relationToCustomer", :style => "width: 20px; height: 20px;" %>
-                                                Ja
-                                            </div>
-                                            <div class="col-md-4">
-                                                <%= form.check_box :no_relation_to_customer, class: "form-group", id: "No-relationToCustomer", :style => "width: 20px; height: 20px;" %>
-                                                Nein
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <div class="choice <%= 'active' if listing.yes_relation_to_customer == 'on' %>" name="yes_relationtocustomer" data-toggle="wizard-checkbox" onclick="relationToCustomer()">
+
+                                                        <%= check_box_tag "listing[yes_relation_to_customer]", listing.yes_relation_to_customer ? listing.yes_relation_to_customer : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-check"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4 col-md-offset-1">
+
+                                                    <div class="choice <%= 'active' if listing.no_relation_to_customer == 'on' %>" name="no_relationtocustomer" data-toggle="wizard-checkbox" onclick="noRelationToCustomer()">
+
+                                                        <%= check_box_tag "listing[no_relation_to_customer]", listing.no_relation_to_customer ? listing.no_relation_to_customer : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-close"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
 
@@ -2852,21 +2879,33 @@
                                     <br>
                                     <div id="deliveryAddressCheck">
                                         <div class="row">
-                                            <div class="col-md-10 col-md-offset-1">
+                                            <div class="col-md-8 col-md-offset-1">
                                                 <p> Haben Sie bereits Zahlungserfahrungen mit Ihrem Kunden?
                                                 <p>
-                                            </div>
-                                        </div>
-                                        <br>
 
-                                        <div class="row">
-                                            <div class="col-md-4 col-md-offset-2">
-                                                <%= form.check_box :yes_previous_payment_experience_with_customer, name: "group16[]", id: "Yes-paymentExperience", :style => "width: 20px; height: 20px;" %>
-                                                Ja
-                                            </div>
-                                            <div class="col-md-4">
-                                                <%= form.check_box :no_previous_payment_experience_with_customer, name: "group16[]", id: "No-paymentExperience", :style => "width: 20px; height: 20px;" %>
-                                                Nein
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <div class="choice <%= 'active' if listing.yes_previous_payment_experience_with_customer == 'on' %>" name="yes_previouspaymentexperiencewithcustomer" data-toggle="wizard-checkbox" onclick="previousPaymentExperienceWithCustomer()">
+
+                                                        <%= check_box_tag "listing[yes_previous_payment_experience_with_customer]", listing.yes_previous_payment_experience_with_customer ? listing.yes_previous_payment_experience_with_customer : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-check"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4 col-md-offset-1">
+
+                                                    <div class="choice <%= 'active' if listing.no_previous_payment_experience_with_customer == 'on' %>" name="no_previouspaymentexperiencewithcustomer" data-toggle="wizard-checkbox" onclick="noPreviousPaymentExperienceWithCustomer()">
+
+                                                        <%= check_box_tag "listing[no_previous_payment_experience_with_customer]", listing.no_previous_payment_experience_with_customer ? listing.no_previous_payment_experience_with_customer : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-close"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
 
@@ -2898,25 +2937,36 @@
                                     <div id="deliveryAddressCheck">
                                         <div class="form-group">
                                             <div class="row">
-                                                <div class="col-md-10 col-md-offset-1">
+                                                <div class="col-md-8 col-md-offset-1">
                                                     <p> Haben Sie in der Vergangenheit schon einmal einen Antrag auf
                                                         Hermesdeckung eingereicht?
                                                     <p>
-                                                </div>
-                                            </div>
-                                            <br>
 
-                                            <div class="row">
-                                                <div class="col-md-4 col-md-offset-2">
-                                                    <%= form.check_box :yes_previously_hermes_insurance_used, id: "Yes-hermesdeckungNutz", name: "group1[]", :style => "width: 20px; height: 20px;" %>
-                                                    Ja
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <%= form.check_box :no_previously_hermes_insurance_used, id: "No-hermesdeckungNutz", name: "group1[]", :style => "width: 20px; height: 20px;" %>
-                                                    Nein
-                                                </div>
-                                            </div>
+                                                    <div class="col-md-4 col-md-offset-1">
+                                                        <div class="choice <%= 'active' if listing.yes_previously_hermes_insurance_used == 'on' %>" name="yes_previouslyhermesinsuranceused" data-toggle="wizard-checkbox" onclick="previouslyHermesInsuranceUsed()">
 
+                                                            <%= check_box_tag "listing[yes_previously_hermes_insurance_used]", listing.yes_previously_hermes_insurance_used ? listing.yes_previously_hermes_insurance_used : nil %>
+
+                                                            <div class="card circle card-hover-effect">
+                                                                <i class="ti-check"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-4 col-md-offset-1">
+
+                                                        <div class="choice <%= 'active' if listing.no_previously_hermes_insurance_used == 'on' %>" name="no_previouslyhermesinsuranceused" data-toggle="wizard-checkbox" onclick="noPreviouslyHermesInsuranceUsed()">
+
+                                                            <%= check_box_tag "listing[no_previously_hermes_insurance_used]", listing.no_previously_hermes_insurance_used ? listing.no_previously_hermes_insurance_used : nil %>
+
+                                                            <div class="card circle card-hover-effect">
+                                                                <i class="ti-close"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
                                             <br><br>
                                         </div>
                                     </div>
@@ -3192,7 +3242,6 @@
                                                 <%= form.file_field :other_document %>
                                             </div>
                                         </div>
-
                                     </div>
 
                                     <div id="deliveryAddressCheck">
@@ -3207,18 +3256,28 @@
                                                     Zusatzentgelt
                                                     auf 5 % absenken?</p>
 
-                                            </div>
-                                        </div>
-                                        <br>
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <div class="choice <%= 'active' if listing.country_category == 'on' %>" name="Yes-some-id-1" data-toggle="wizard-checkbox">
 
-                                        <div class="row">
-                                            <div class="col-md-4 col-md-offset-2">
-                                                <%= form.check_box :country_category, id: "Yes-some-id-1", :style => "width: 20px; height: 20px;" %>
-                                                Ja
-                                            </div>
-                                            <div class="col-md-4">
-                                                <%= form.check_box :country_category, id: "No-some-id-1", :style => "width: 20px; height: 20px;" %>
-                                                Nein
+                                                        <%= check_box_tag "listing[country_category]", listing.country_category ? listing.country_category : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-check"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4 col-md-offset-1">
+
+                                                    <div class="choice <%= 'active' if listing.country_category == 'on' %>" name="No-some-id-1" data-toggle="wizard-checkbox">
+
+                                                        <%= check_box_tag "listing[country_category]", listing.country_category ? listing.country_category : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-close"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -3776,25 +3835,37 @@
         }
     }
 
-    $(function () {
-        $("#No-deliveryAddress").click(function () {
-            if ($(this).is(":checked")) {
-                $("#deliveryAddress").show();
-            } else {
-                $("#deliveryAddress").hide();
-            }
-        });
-    });
+    function deliveredAtThisAddress() {
+        var x = document.getElementById("deliveryAddress");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+    }
 
-    $(function () {
-        $("#Yes-relationToCustomer").click(function () {
-            if ($(this).is(":checked")) {
-                $("#relationToCustomerExplain").show();
-            } else {
-                $("#relationToCustomerExplain").hide();
-            }
-        });
-    });
+    function notDeliveredAtThisAddress() {
+        var x = document.getElementById("deliveryAddress");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function relationToCustomer() {
+        var x = document.getElementById("relationToCustomerExplain");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function noRelationToCustomer() {
+        var x = document.getElementById("relationToCustomerExplain");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+    }
 
     $(function () {
         $("#Yes-paymentExperience").click(function () {
@@ -3806,6 +3877,22 @@
         });
     });
 
+    function previousPaymentExperienceWithCustomer() {
+        var x = document.getElementById("alreadyPaymentExperience");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function noPreviousPaymentExperienceWithCustomer() {
+        var x = document.getElementById("alreadyPaymentExperience");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+    }
+
     $(function () {
         $("#No-hermesdeckungNutz").click(function () {
             if ($(this).is(":checked")) {
@@ -3815,6 +3902,22 @@
             }
         });
     });
+
+    function previouslyHermesInsuranceUsed() {
+        var x = document.getElementById("newAtHermesDeckung");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+    }
+
+    function noPreviouslyHermesInsuranceUsed() {
+        var x = document.getElementById("newAtHermesDeckung");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
 
     $(function () {
         $("#Yes-WorkAssociation").click(function () {
@@ -3946,6 +4049,38 @@
 
     $choice.filter('[name="no_securitybusinnesprovided"]').click(function () {
         $choice.filter('[name="yes_securitybusinnesprovided"]').removeClass('active');
+    });
+
+    $choice.filter('[name="yes_deliveredatthisaddress"]').click(function () {
+        $choice.filter('[name="no_deliveredatthisaddress"]').removeClass('active');
+    });
+
+    $choice.filter('[name="no_deliveredatthisaddress"]').click(function () {
+        $choice.filter('[name="yes_deliveredatthisaddress"]').removeClass('active');
+    });
+
+    $choice.filter('[name="yes_relationtocustomer"]').click(function () {
+        $choice.filter('[name="no_relationtocustomer"]').removeClass('active');
+    });
+
+    $choice.filter('[name="no_relationtocustomer"]').click(function () {
+        $choice.filter('[name="yes_relationtocustomer"]').removeClass('active');
+    });
+
+    $choice.filter('[name="yes_previouspaymentexperiencewithcustomer"]').click(function () {
+        $choice.filter('[name="no_previouspaymentexperiencewithcustomer"]').removeClass('active');
+    });
+
+    $choice.filter('[name="no_previouspaymentexperiencewithcustomer"]').click(function () {
+        $choice.filter('[name="yes_previouspaymentexperiencewithcustomer"]').removeClass('active');
+    });
+
+    $choice.filter('[name="yes_previouslyhermesinsuranceused"]').click(function () {
+        $choice.filter('[name="no_previouslyhermesinsuranceused"]').removeClass('active');
+    });
+
+    $choice.filter('[name="no_previouslyhermesinsuranceused"]').click(function () {
+        $choice.filter('[name="yes_previouslyhermesinsuranceused"]').removeClass('active');
     });
 
     $('input[type="checkbox"]').on('change', function () {
