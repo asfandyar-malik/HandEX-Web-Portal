@@ -932,7 +932,7 @@
                                 <div id="specialContractStructure">
 
                                     <div class="row">
-                                        <div class="col-md-10 col-md-offset-1">
+                                        <div class="col-md-8 col-md-offset-1">
                                             <div class="form-group">
 
                                                 <p><b>Vereinbaren Sie mit Ihrem Vertragspartner eine besondere
@@ -1086,13 +1086,11 @@
                                 <div id="interestCountedCustomer">
 
                                     <div class="row">
-                                        <div class="col-md-10 col-md-offset-1">
+                                        <div class="col-md-8 col-md-offset-1">
                                             <div class="form-group">
 
                                                 <p><b>Berechnen Sie Ihrem Kunden Zinsen? </b>
                                                 <p>
-                                                    <br>
-
                                                 <div class="col-md-4 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.ja_customer_counts_interest == 'on' %>" name="yes_customercountsinterest" data-toggle="wizard-checkbox" onclick="customerCountsInterest()">
 
@@ -1107,25 +1105,13 @@
 
                                                 <div class="col-md-4 col-md-offset-1">
 
-                                                    <div class="choice <%= 'active' if listing.no_customer_counts_interest == 'on' %>" name="no_specialcontractstructure" data-toggle="wizard-checkbox" onclick="noCustomerCountsInterest()">
+                                                    <div class="choice <%= 'active' if listing.no_customer_counts_interest == 'on' %>" name="no_customercountsinterest" data-toggle="wizard-checkbox" onclick="noCustomerCountsInterest()">
 
                                                         <%= check_box_tag "listing[no_customer_counts_interest]", listing.no_customer_counts_interest ? listing.no_customer_counts_interest : nil %>
 
                                                         <div class="card circle card-hover-effect">
                                                             <i class="ti-close"></i>
                                                         </div>
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="row">
-                                                    <div class="col-md-3 col-md-offset-2">
-                                                        <%= form.check_box :ja_customer_counts_interest, name: "group7[]", id: "ja_customercountsinterest", :style => "width: 20px; height: 20px;" %>
-                                                        Ja
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <%= form.check_box :no_customer_counts_interest, name: "group7[]", id: "nein_customercountsinterest", :style => "width: 20px; height: 20px;" %>
-                                                        Nein
                                                     </div>
                                                 </div>
 
@@ -1160,28 +1146,38 @@
 
                                 <div id="priceAdjustmentClause">
 
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-10 col-md-offset-1">
+                                    <div class="row">
+                                        <div class="col-md-8 col-md-offset-1">
+                                            <div class="form-group">
+
                                                 <p><b>Haben Sie mit Ihrem Kunden eine Preisgleitklausel vereinbart? </b>
                                                 <p>
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <div class="choice <%= 'active' if listing.yes_price_adjustment_clause == 'on' %>" name="yes_priceadjustmentclause" data-toggle="wizard-checkbox" onclick="priceAdjustmentClause()">
+
+                                                        <%= check_box_tag "listing[yes_price_adjustment_clause]", listing.yes_price_adjustment_clause ? listing.yes_price_adjustment_clause : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-check"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-4 col-md-offset-1">
+
+                                                    <div class="choice <%= 'active' if listing.no_price_adjustment_clause == 'on' %>" name="no_priceadjustmentclause" data-toggle="wizard-checkbox" onclick="noPriceAdjustmentClause()">
+
+                                                        <%= check_box_tag "listing[no_price_adjustment_clause]", listing.no_price_adjustment_clause ? listing.no_price_adjustment_clause : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-close"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
+                                            <br><br>
                                         </div>
-                                        <br>
-
-                                        <div class="row">
-                                            <div class="col-md-3 col-md-offset-2">
-                                                <%= form.check_box :yes_price_adjustment_clause, name: "group8[]", id: "ja_priceadjustmentclause", :style => "width: 20px; height: 20px;" %>
-                                                Ja
-                                            </div>
-                                            <div class="col-md-3">
-                                                <%= form.check_box :no_price_adjustment_clause, name: "group8[]", id: "nein_priceadjustmentclause", :style => "width: 20px; height: 20px;" %>
-                                                Nein
-                                            </div>
-                                        </div>
-
-                                        <br><br>
-
                                     </div>
                                 </div>
 
@@ -1198,28 +1194,41 @@
                                 </div>
 
                                 <div id="multipleDeliveries">
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-10 col-md-offset-1">
+                                    <div class="row">
+                                        <div class="col-md-8 col-md-offset-1">
+                                            <div class="form-group">
+                                                <br><br>
+
                                                 <p><b>Versenden Sie Ihre Waren/Güter/Anlagen in mehreren
                                                     Lieferungen? </b>
                                                 <p>
-                                            </div>
-                                        </div>
-                                        <br>
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <div class="choice <%= 'active' if listing.yes_multiple_deliveries == 'on' %>" name="yes_multipledeliveries" data-toggle="wizard-checkbox" onclick="multipleDeliveries()">
 
-                                        <div class="row">
-                                            <div class="col-md-3 col-md-offset-2">
-                                                <%= form.check_box :yes_multiple_deliveries, name: "group9[]", id: "ja_multipledeliveries", :style => "width: 20px; height: 20px;" %>
-                                                Ja
-                                            </div>
-                                            <div class="col-md-3">
-                                                <%= form.check_box :no_multiple_deliveries, name: "group9[]", id: "nein_multipledeliveries", :style => "width: 20px; height: 20px;" %>
-                                                Nein
-                                            </div>
-                                        </div>
+                                                        <%= check_box_tag "listing[yes_multiple_deliveries]", listing.yes_multiple_deliveries ? listing.yes_multiple_deliveries : nil %>
 
-                                        <br><br>
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-check"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-4 col-md-offset-1">
+
+                                                    <div class="choice <%= 'active' if listing.no_multiple_deliveries == 'on' %>" name="no_multipledeliveries" data-toggle="wizard-checkbox" onclick="noMultipleDeliveries()">
+
+                                                        <%= check_box_tag "listing[no_multiple_deliveries]", listing.no_multiple_deliveries ? listing.no_multiple_deliveries : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-close"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <br><br>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -2576,25 +2585,36 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <br><br>
-                                            <div class="col-md-10 col-md-offset-1">
+                                            <div class="col-md-8 col-md-offset-1">
                                                 <p><b>Sind für Ihr Geschäft Sicherheiten vorgesehen? </b>
                                                 <p>
-                                            </div>
-                                        </div>
-                                        <br>
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <div class="choice <%= 'active' if listing.yes_security_businnes_provided == 'on' %>" name="yes_securitybusinnesprovided" data-toggle="wizard-checkbox" onclick="securityBusinnesProvided()">
 
-                                        <div class="row">
-                                            <div class="col-md-3 col-md-offset-4">
-                                                <%= form.check_box :yes_security_businnes_provided, name: "group13[]", id: "Yes-securityForBusiness", :style => "width: 20px; height: 20px;" %>
-                                                Ja
-                                            </div>
-                                            <div class="col-md-3">
-                                                <%= form.check_box :no_security_businnes_provided, name: "group13[]", id: "No-securityForBusiness", :style => "width: 20px; height: 20px;" %>
-                                                Nein
-                                            </div>
-                                        </div>
+                                                        <%= check_box_tag "listing[yes_security_businnes_provided]", listing.yes_security_businnes_provided ? yes_security_businnes_provided.yes_multiple_deliveries : nil %>
 
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-check"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-4 col-md-offset-1">
+
+                                                    <div class="choice <%= 'active' if listing.no_security_businnes_provided == 'on' %>" name="no_securitybusinnesprovided" data-toggle="wizard-checkbox" onclick="noSecurityBusinnesProvided()">
+
+                                                        <%= check_box_tag "listing[no_security_businnes_provided]", listing.no_security_businnes_provided ? listing.no_security_businnes_provided : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-close"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         <br><br>
+                                        </div>
+
 
                                     </div>
                                 </div>
@@ -3610,16 +3630,6 @@
         }
     }
 
-    $(function () {
-        $("#yes_specialcontractstructure").click(function () {
-            if ($(this).is(":checked")) {
-                $("#yesNoSpecialContractStructure").show();
-            } else {
-                $("#yesNoSpecialContractStructure").hide();
-            }
-        });
-    });
-
     function specialContractStructure() {
         var x = document.getElementById("yesNoSpecialContractStructure");
         if (x.style.display === "none") {
@@ -3635,16 +3645,6 @@
             x.style.display = "none";
         }
     }
-
-    $(function () {
-        $("#ja_customercountsinterest").click(function () {
-            if ($(this).is(":checked")) {
-                $("#yesNoCustomerCountInterest").show();
-            } else {
-                $("#yesNoCustomerCountInterest").hide();
-            }
-        });
-    });
 
     function customerCountsInterest() {
         var x = document.getElementById("yesNoCustomerCountInterest");
@@ -3662,25 +3662,37 @@
         }
     }
 
-    $(function () {
-        $("#ja_priceadjustmentclause").click(function () {
-            if ($(this).is(":checked")) {
-                $("#yesNoPriceAdjustmentClause").show();
-            } else {
-                $("#yesNoPriceAdjustmentClause").hide();
-            }
-        });
-    });
+    function priceAdjustmentClause() {
+        var x = document.getElementById("yesNoPriceAdjustmentClause");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
 
-    $(function () {
-        $("#ja_multipledeliveries").click(function () {
-            if ($(this).is(":checked")) {
-                $("#yesNoMultipleDeliveries").show();
-            } else {
-                $("#yesNoMultipleDeliveries").hide();
-            }
-        });
-    });
+    function noPriceAdjustmentClause() {
+        var x = document.getElementById("yesNoPriceAdjustmentClause");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+    }
+
+    function multipleDeliveries() {
+        var x = document.getElementById("yesNoMultipleDeliveries");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function noMultipleDeliveries() {
+        var x = document.getElementById("yesNoMultipleDeliveries");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+    }
 
 
     $(function () {
@@ -3748,15 +3760,21 @@
         });
     });
 
-    $(function () {
-        $("#Yes-securityForBusiness").click(function () {
-            if ($(this).is(":checked")) {
-                $("#typeOfSecurity").show();
-            } else {
-                $("#typeOfSecurity").hide();
-            }
-        });
-    });
+    function securityBusinnesProvided() {
+        var x = document.getElementById("typeOfSecurity");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function noSecurityBusinnesProvided() {
+        var x = document.getElementById("typeOfSecurity");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+    }
 
     $(function () {
         $("#No-deliveryAddress").click(function () {
@@ -3898,15 +3916,37 @@
         $choice.filter('[name="yes_specialcontractstructure"]').removeClass('active');
     });
 
-
     $choice.filter('[name="yes_customercountsinterest"]').click(function () {
-        $choice.filter('[name="no_specialcontractstructure"]').removeClass('active');
+        $choice.filter('[name="no_customercountsinterest"]').removeClass('active');
     });
 
-    $choice.filter('[name="no_specialcontractstructure"]').click(function () {
+    $choice.filter('[name="no_customercountsinterest"]').click(function () {
         $choice.filter('[name="yes_customercountsinterest"]').removeClass('active');
     });
 
+    $choice.filter('[name="yes_priceadjustmentclause"]').click(function () {
+        $choice.filter('[name="no_priceadjustmentclause"]').removeClass('active');
+    });
+
+    $choice.filter('[name="no_priceadjustmentclause"]').click(function () {
+        $choice.filter('[name="yes_priceadjustmentclause"]').removeClass('active');
+    });
+
+    $choice.filter('[name="yes_multipledeliveries"]').click(function () {
+        $choice.filter('[name="no_multipledeliveries"]').removeClass('active');
+    });
+
+    $choice.filter('[name="no_multipledeliveries"]').click(function () {
+        $choice.filter('[name="yes_multipledeliveries"]').removeClass('active');
+    });
+
+    $choice.filter('[name="yes_securitybusinnesprovided"]').click(function () {
+        $choice.filter('[name="no_securitybusinnesprovided"]').removeClass('active');
+    });
+
+    $choice.filter('[name="no_securitybusinnesprovided"]').click(function () {
+        $choice.filter('[name="yes_securitybusinnesprovided"]').removeClass('active');
+    });
 
     $('input[type="checkbox"]').on('change', function () {
 
