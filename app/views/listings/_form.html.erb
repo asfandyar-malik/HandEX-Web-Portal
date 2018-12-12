@@ -447,14 +447,28 @@
                                             <div class="form-group">
                                                 <p><b>Liefern/Leisten Sie im Rahmen eines Gesamtprojekts zusammen mit
                                                     anderen Unternehmen? </b></p>
-                                                <div class="row">
-                                                    <div class="col-md-4 col-md-offset-2">
-                                                        <%= form.check_box :part_of_big_project_yes, name: "group11[]", id: "ja", :style => "width: 20px; height: 20px;" %>
-                                                        Ja
+
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <div class="choice <%= 'active' if listing.part_of_big_project_yes == 'on' %>" name="deliverwithothercompanies_yes" data-toggle="wizard-checkbox" onclick="deliverWithOtherCompanies()">
+
+                                                        <%= check_box_tag "listing[part_of_big_project_yes]", listing.part_of_big_project_yes ? listing.part_of_big_project_yes : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-check"></i>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-4">
-                                                        <%= form.check_box :part_of_big_project_no, name: "group11[]", id: "nein", :style => "width: 20px; height: 20px;" %>
-                                                        Nein
+                                                </div>
+
+
+                                                <div class="col-md-4 col-md-offset-1">
+
+                                                    <div class="choice <%= 'active' if listing.part_of_big_project_no == 'on' %>" name="deliverwithothercompanies_no" data-toggle="wizard-checkbox" onclick="notDeliverWithOtherCompanies()">
+
+                                                        <%= check_box_tag "listing[part_of_big_project_no]", listing.part_of_big_project_no ? listing.part_of_big_project_no : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-close"></i>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -466,6 +480,7 @@
 
                                     <div class="row">
                                         <div class="col-sm-8 col-sm-offset-1">
+                                            <br><br>
                                             <div class="form-group">
                                                 <p>Bitte beschreiben Sie das Gesamtprojekt detaillierter</p>
                                                 <div class="input-group">
@@ -556,8 +571,8 @@
                                 <div class="row">
                                     <div class="col-sm-11 col-sm-offset-1">
                                         <div class="form-group">
-                                            <hr align="middle" width="90%">
                                             <div class="row">
+                                                <br><br>
                                                 <div class="col-md-12">
                                                     <p><b>Betreffen Ihre Lieferungen bzw. Leistungen ein sensibles
                                                         Gebiet?</b></p>
@@ -579,7 +594,7 @@
                                             <div class="row">
                                                 <div class="col-md-2 col-md-offset-1">
 
-                                                    <div class="choice <%= 'active' if listing.delivery_doesnt_affects_sensitive_areas == 'on' %>" name = "sensitivearea_nein" data-toggle="wizard-checkbox">
+                                                    <div class="choice <%= 'active' if listing.delivery_doesnt_affects_sensitive_areas == 'on' %>" name="sensitivearea_nein" data-toggle="wizard-checkbox">
 
                                                         <%= check_box_tag "listing[delivery_doesnt_affects_sensitive_areas]", listing.delivery_doesnt_affects_sensitive_areas ? listing.delivery_doesnt_affects_sensitive_areas : nil %>
 
@@ -592,7 +607,7 @@
 
                                                 <div class="col-md-2 col-md-offset-1">
 
-                                                    <div class="choice <%= 'active' if listing.delivery_affects_natural_reserves == 'on' %>"  name = "sensitivearea" data-toggle="wizard-checkbox">
+                                                    <div class="choice <%= 'active' if listing.delivery_affects_natural_reserves == 'on' %>" name="sensitivearea" data-toggle="wizard-checkbox">
 
                                                         <%= check_box_tag "listing[delivery_affects_natural_reserves]", listing.delivery_affects_natural_reserves ? listing.delivery_affects_natural_reserves : nil %>
 
@@ -604,7 +619,7 @@
                                                 </div>
 
                                                 <div class="col-md-2 col-md-offset-1">
-                                                    <div class="choice <%= 'active' if listing.delivery_affects_indigenous_people == 'on' %>" name = "sensitivearea" data-toggle="wizard-checkbox">
+                                                    <div class="choice <%= 'active' if listing.delivery_affects_indigenous_people == 'on' %>" name="sensitivearea" data-toggle="wizard-checkbox">
 
                                                         <%= check_box_tag "listing[delivery_affects_indigenous_people]", listing.delivery_affects_indigenous_people ? listing.delivery_affects_indigenous_people : nil %>
 
@@ -623,7 +638,7 @@
 
                                                 <div class="col-md-2 col-md-offset-2">
 
-                                                    <div class="choice <%= 'active' if listing.delivery_affects_cultural_heritage == 'on' %>" name = "sensitivearea" data-toggle="wizard-checkbox">
+                                                    <div class="choice <%= 'active' if listing.delivery_affects_cultural_heritage == 'on' %>" name="sensitivearea" data-toggle="wizard-checkbox">
 
                                                         <%= check_box_tag "listing[delivery_affects_cultural_heritage]", listing.delivery_affects_cultural_heritage ? listing.delivery_affects_cultural_heritage : nil %>
 
@@ -636,7 +651,7 @@
 
                                                 <div class="col-md-2 col-md-offset-1">
 
-                                                    <div class="choice <%= 'active' if listing.delivery_affects_other == 'on' %>" name = "sensitivearea_sonstige"  data-toggle="wizard-checkbox", onclick="affectsOtherSpecial()">
+                                                    <div class="choice <%= 'active' if listing.delivery_affects_other == 'on' %>" name="sensitivearea_sonstige" data-toggle="wizard-checkbox" , onclick="affectsOtherSpecial()">
 
                                                         <%= check_box_tag "listing[delivery_affects_other]", listing.delivery_affects_other ? listing.delivery_affects_other : nil %>
 
@@ -667,23 +682,35 @@
                                 </div>
 
                                 <div id="workwithothercompanies">
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-10 col-md-offset-1">
+                                    <div class="row">
+                                        <div class="col-sm-8 col-sm-offset-1">
+                                            <div class="form-group">
+                                                <br>
                                                 <p><b>Ist Ihr Export ausfuhrgenehmigungspflichtig?</b>
                                                 <p>
-                                            </div>
-                                        </div>
-                                        <br>
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <div class="choice <%= 'active' if listing.yes_export_requires_exportlicense == 'on' %>" name="exportlicenserequired_yes" data-toggle="wizard-checkbox" onclick="exportLicenseRequired()">
 
-                                        <div class="row">
-                                            <div class="col-md-3 col-md-offset-2">
-                                                <%= form.check_box :yes_export_requires_exportlicense, name: "group3[]", id: "ja_exportlicense_requirement", :style => "width: 20px; height: 20px;" %>
-                                                Ja
-                                            </div>
-                                            <div class="col-md-3">
-                                                <%= form.check_box :no_export_requires_exportlicense, name: "group3[]", id: "nein_exportlicense_requirement", :style => "width: 20px; height: 20px;" %>
-                                                Nein
+                                                        <%= check_box_tag "listing[yes_export_requires_exportlicense]", listing.yes_export_requires_exportlicense ? listing.yes_export_requires_exportlicense : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-check"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-4 col-md-offset-1">
+
+                                                    <div class="choice <%= 'active' if listing.no_export_requires_exportlicense == 'on' %>" name="exportlicenserequired_no" data-toggle="wizard-checkbox" onclick="noExportLicenseRequired()">
+
+                                                        <%= check_box_tag "listing[no_export_requires_exportlicense]", listing.no_export_requires_exportlicense ? listing.no_export_requires_exportlicense : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-close"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -727,28 +754,38 @@
                                 </div>
 
                                 <div id="workwithothercompanies">
-                                    <div class="form-group">
-
-                                        <div class="row">
-                                            <div class="col-md-10 col-md-offset-1">
+                                    <div class="row">
+                                        <div class="col-sm-8 col-sm-offset-1">
+                                            <div class="form-group">
                                                 <br>
                                                 <p><b>Liefern Sie gebrauchte Ware? </b>
                                                 <p>
+
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <div class="choice <%= 'active' if listing.yes_deliver_secondhand_goods == 'on' %>" name="yes_secondhandgoods" data-toggle="wizard-checkbox" onclick="secondHandGoods()">
+
+                                                        <%= check_box_tag "listing[yes_deliver_secondhand_goods]", listing.yes_deliver_secondhand_goods ? listing.yes_deliver_secondhand_goods : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-check"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-4 col-md-offset-1">
+
+                                                    <div class="choice <%= 'active' if listing.no_dont_deliver_secondhand_goods == 'on' %>" name="no_secondhandgoods" data-toggle="wizard-checkbox" onclick="noSecondHandGoods()">
+
+                                                        <%= check_box_tag "listing[no_export_requires_exportlicense]", listing.no_dont_deliver_secondhand_goods ? listing.no_dont_deliver_secondhand_goods : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-close"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <br>
-
-                                        <div class="row">
-                                            <div class="col-md-3 col-md-offset-2">
-                                                <%= form.check_box :yes_deliver_secondhand_goods, name: "group4[]", id: "yes_secondhand_goods", :style => "width: 20px; height: 20px;" %>
-                                                Ja
-                                            </div>
-                                            <div class="col-md-3">
-                                                <%= form.check_box :no_dont_deliver_secondhand_goods, name: "group4[]", id: "no_secondhand_goods", :style => "width: 20px; height: 20px;" %>
-                                                Nein
-                                            </div>
-                                        </div>
-
                                     </div>
 
                                     <br>
@@ -824,26 +861,40 @@
 
                                 <div id="workwithothercompanies">
 
-                                    <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-8 col-md-offset-1">
+                                            <div class="form-group">
 
-                                        <div class="row">
-                                            <div class="col-md-10 col-md-offset-1">
                                                 <br>
                                                 <p><b>Haben bereits alle Parteien den Vertrag für das Exportgeschäft
                                                     unterzeichnet?</b>
                                                 <p>
-                                            </div>
-                                        </div>
-                                        <br>
 
-                                        <div class="row">
-                                            <div class="col-md-3 col-md-offset-2">
-                                                <%= form.check_box :yes_contract_already_signed_all_parties, name: "group5[]", id: "ja_contractsigned", :style => "width: 20px; height: 20px;" %>
-                                                Ja
-                                            </div>
-                                            <div class="col-md-3">
-                                                <%= form.check_box :no_contract_already_signed_all_parties, name: "group5[]", id: "nein_contractsigned", :style => "width: 20px; height: 20px;" %>
-                                                Nein
+
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <div class="choice <%= 'active' if listing.yes_contract_already_signed_all_parties == 'on' %>" name="yes_congractsignedallparties" data-toggle="wizard-checkbox" onclick="contractSignedAllParties()">
+
+                                                        <%= check_box_tag "listing[yes_contract_already_signed_all_parties]", listing.yes_contract_already_signed_all_parties ? listing.yes_contract_already_signed_all_parties : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-check"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-4 col-md-offset-1">
+
+                                                    <div class="choice <%= 'active' if listing.no_contract_already_signed_all_parties == 'on' %>" name="no_congractsignedallparties" data-toggle="wizard-checkbox" onclick="noContractSignedAllParties()">
+
+                                                        <%= check_box_tag "listing[no_contract_already_signed_all_parties]", listing.no_contract_already_signed_all_parties ? listing.no_contract_already_signed_all_parties : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-close"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
 
@@ -880,24 +931,38 @@
 
                                 <div id="specialContractStructure">
 
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-10 col-md-offset-1">
+                                    <div class="row">
+                                        <div class="col-md-10 col-md-offset-1">
+                                            <div class="form-group">
+
                                                 <p><b>Vereinbaren Sie mit Ihrem Vertragspartner eine besondere
                                                     Vertragsstruktur? </b>
                                                 <p>
-                                            </div>
-                                        </div>
-                                        <br>
 
-                                        <div class="row">
-                                            <div class="col-md-3 col-md-offset-2">
-                                                <%= form.check_box :yes_special_contract_structure, name: "group6[]", id: "yes_specialcontractstructure", :style => "width: 20px; height: 20px;" %>
-                                                Ja
-                                            </div>
-                                            <div class="col-md-3">
-                                                <%= form.check_box :no_special_contract_structure, name: "group6[]", id: "no_specialcontractstructure", :style => "width: 20px; height: 20px;" %>
-                                                Nein
+
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <div class="choice <%= 'active' if listing.yes_special_contract_structure == 'on' %>" name="yes_specialcontractstructure" data-toggle="wizard-checkbox" onclick="specialContractStructure()">
+
+                                                        <%= check_box_tag "listing[yes_special_contract_structure]", listing.yes_special_contract_structure ? listing.yes_special_contract_structure : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-check"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-4 col-md-offset-1">
+
+                                                    <div class="choice <%= 'active' if listing.no_special_contract_structure == 'on' %>" name="no_specialcontractstructure" data-toggle="wizard-checkbox" onclick="noSpecialContractStructure()">
+
+                                                        <%= check_box_tag "listing[no_special_contract_structure]", listing.no_special_contract_structure ? listing.no_special_contract_structure : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-close"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1020,25 +1085,50 @@
 
                                 <div id="interestCountedCustomer">
 
-                                    <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-10 col-md-offset-1">
+                                            <div class="form-group">
 
-                                        <div class="row">
-                                            <div class="col-md-10 col-md-offset-1">
                                                 <p><b>Berechnen Sie Ihrem Kunden Zinsen? </b>
                                                 <p>
-                                            </div>
-                                        </div>
-                                        <br>
+                                                    <br>
+
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <div class="choice <%= 'active' if listing.ja_customer_counts_interest == 'on' %>" name="yes_customercountsinterest" data-toggle="wizard-checkbox" onclick="customerCountsInterest()">
+
+                                                        <%= check_box_tag "listing[ja_customer_counts_interest]", listing.ja_customer_counts_interest ? listing.ja_customer_counts_interest : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-check"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
 
-                                        <div class="row">
-                                            <div class="col-md-3 col-md-offset-2">
-                                                <%= form.check_box :ja_customer_counts_interest, name: "group7[]", id: "ja_customercountsinterest", :style => "width: 20px; height: 20px;" %>
-                                                Ja
-                                            </div>
-                                            <div class="col-md-3">
-                                                <%= form.check_box :no_customer_counts_interest, name: "group7[]", id: "nein_customercountsinterest", :style => "width: 20px; height: 20px;" %>
-                                                Nein
+                                                <div class="col-md-4 col-md-offset-1">
+
+                                                    <div class="choice <%= 'active' if listing.no_customer_counts_interest == 'on' %>" name="no_specialcontractstructure" data-toggle="wizard-checkbox" onclick="noCustomerCountsInterest()">
+
+                                                        <%= check_box_tag "listing[no_customer_counts_interest]", listing.no_customer_counts_interest ? listing.no_customer_counts_interest : nil %>
+
+                                                        <div class="card circle card-hover-effect">
+                                                            <i class="ti-close"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <div class="col-md-3 col-md-offset-2">
+                                                        <%= form.check_box :ja_customer_counts_interest, name: "group7[]", id: "ja_customercountsinterest", :style => "width: 20px; height: 20px;" %>
+                                                        Ja
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <%= form.check_box :no_customer_counts_interest, name: "group7[]", id: "nein_customercountsinterest", :style => "width: 20px; height: 20px;" %>
+                                                        Nein
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -3446,25 +3536,37 @@
         }
     }
 
-    $(function () {
-        $("#ja").click(function () {
-            if ($(this).is(":checked")) {
-                $("#showHideDivJaWorkOtherCompanies").show();
-            } else {
-                $("#showHideDivJaWorkOtherCompanies").hide();
-            }
-        });
-    });
+    function deliverWithOtherCompanies() {
+        var x = document.getElementById("showHideDivJaWorkOtherCompanies");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
 
-    $(function () {
-        $("#ja_exportlicense_requirement").click(function () {
-            if ($(this).is(":checked")) {
-                $("#exportLicenseRequirement").show();
-            } else {
-                $("#exportLicenseRequirement").hide();
-            }
-        });
-    });
+    function notDeliverWithOtherCompanies() {
+        var x = document.getElementById("showHideDivJaWorkOtherCompanies");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+    }
+
+    function exportLicenseRequired() {
+        var x = document.getElementById("exportLicenseRequirement");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function noExportLicenseRequired() {
+        var x = document.getElementById("exportLicenseRequirement");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+    }
 
     $(function () {
         $("#yes_secondhand_goods").click(function () {
@@ -3476,15 +3578,37 @@
         });
     });
 
-    $(function () {
-        $("#ja_contractsigned").click(function () {
-            if ($(this).is(":checked")) {
-                $("#contractSigned").show();
-            } else {
-                $("#contractSigned").hide();
-            }
-        });
-    });
+    function secondHandGoods() {
+        var x = document.getElementById("deliverSecondHandGoods");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function noSecondHandGoods() {
+        var x = document.getElementById("deliverSecondHandGoods");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+    }
+
+    function contractSignedAllParties() {
+        var x = document.getElementById("contractSigned");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function noContractSignedAllParties() {
+        var x = document.getElementById("contractSigned");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+    }
 
     $(function () {
         $("#yes_specialcontractstructure").click(function () {
@@ -3496,6 +3620,21 @@
         });
     });
 
+    function specialContractStructure() {
+        var x = document.getElementById("yesNoSpecialContractStructure");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function noSpecialContractStructure() {
+        var x = document.getElementById("yesNoSpecialContractStructure");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+    }
 
     $(function () {
         $("#ja_customercountsinterest").click(function () {
@@ -3506,6 +3645,22 @@
             }
         });
     });
+
+    function customerCountsInterest() {
+        var x = document.getElementById("yesNoCustomerCountInterest");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function noCustomerCountsInterest() {
+        var x = document.getElementById("yesNoCustomerCountInterest");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+    }
 
     $(function () {
         $("#ja_priceadjustmentclause").click(function () {
@@ -3582,15 +3737,6 @@
             y.style.display = "none";
         }
     }
-    //
-    // function affectsOtherSpecial() {
-    //     var x = document.getElementById("affectsOtherSpecialDiv");
-    //     if (x.style.display === "none") {
-    //         x.style.display = "block";
-    //     } else {
-    //         x.style.display = "none";
-    //     }
-    // }
 
     $(function () {
         $("#sonstige").click(function () {
@@ -3674,12 +3820,12 @@
 
     var $choice = jQuery('.choice');
 
-    $choice .filter('[name="paymentterm"]').click(function(){
+    $choice.filter('[name="paymentterm"]').click(function () {
         jQuery(this).filter('[name="paymentterm"]').addClass('active');
         $choice.filter('[name="paymentterm"]').removeClass('active');
     });
 
-    $choice.filter('[name="sensitivearea_nein"]').click(function(){
+    $choice.filter('[name="sensitivearea_nein"]').click(function () {
         $choice.filter('[name="sensitivearea"]').removeClass('active');
         $choice.filter('[name="sensitivearea_sonstige"]').removeClass('active');
 
@@ -3689,7 +3835,7 @@
         }
     });
 
-    $choice.filter('[name="sensitivearea_sonstige"]').click(function(){
+    $choice.filter('[name="sensitivearea_sonstige"]').click(function () {
         $choice.filter('[name="sensitivearea"]').removeClass('active');
         $choice.filter('[name="sensitivearea_nein"]').removeClass('active');
 
@@ -3701,7 +3847,7 @@
         }
     });
 
-    $choice.filter('[name="sensitivearea"]').click(function(){
+    $choice.filter('[name="sensitivearea"]').click(function () {
         $choice.filter('[name="sensitivearea_nein"]').removeClass('active');
         $choice.filter('[name="sensitivearea_sonstige"]').removeClass('active');
 
@@ -3709,6 +3855,56 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
+    });
+
+    $choice.filter('[name="deliverwithothercompanies_yes"]').click(function () {
+        $choice.filter('[name="deliverwithothercompanies_no"]').removeClass('active');
+    });
+
+    $choice.filter('[name="deliverwithothercompanies_no"]').click(function () {
+        $choice.filter('[name="deliverwithothercompanies_yes"]').removeClass('active');
+    });
+
+
+    $choice.filter('[name="exportlicenserequired_yes"]').click(function () {
+        $choice.filter('[name="exportlicenserequired_no"]').removeClass('active');
+    });
+
+    $choice.filter('[name="exportlicenserequired_no"]').click(function () {
+        $choice.filter('[name="exportlicenserequired_yes"]').removeClass('active');
+    });
+
+    $choice.filter('[name="yes_secondhandgoods"]').click(function () {
+        $choice.filter('[name="no_secondhandgoods"]').removeClass('active');
+    });
+
+    $choice.filter('[name="no_secondhandgoods"]').click(function () {
+        $choice.filter('[name="yes_secondhandgoods"]').removeClass('active');
+    });
+
+    $choice.filter('[name="yes_congractsignedallparties"]').click(function () {
+        $choice.filter('[name="no_congractsignedallparties"]').removeClass('active');
+    });
+
+    $choice.filter('[name="no_congractsignedallparties"]').click(function () {
+        $choice.filter('[name="yes_congractsignedallparties"]').removeClass('active');
+    });
+
+    $choice.filter('[name="yes_specialcontractstructure"]').click(function () {
+        $choice.filter('[name="no_specialcontractstructure"]').removeClass('active');
+    });
+
+    $choice.filter('[name="no_specialcontractstructure"]').click(function () {
+        $choice.filter('[name="yes_specialcontractstructure"]').removeClass('active');
+    });
+
+
+    $choice.filter('[name="yes_customercountsinterest"]').click(function () {
+        $choice.filter('[name="no_specialcontractstructure"]').removeClass('active');
+    });
+
+    $choice.filter('[name="no_specialcontractstructure"]').click(function () {
+        $choice.filter('[name="yes_customercountsinterest"]').removeClass('active');
     });
 
 

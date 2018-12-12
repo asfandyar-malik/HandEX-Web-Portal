@@ -1173,6 +1173,19 @@ input[type="button"]:focus {
   position: relative;
   z-index: 1;
 }
+
+.card .circle {
+    background-color: #F3F2EE;
+    box-shadow: none;
+    color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%/50%;
+    width: 70px;
+    height: 70px;
+    padding: 0px 0;
+    margin-bottom: 0px;
+    line-height: 90px;
+}
+
 .card .card-checkboxes {
   background-color: #F3F2EE;
   box-shadow: none;
@@ -1293,6 +1306,11 @@ input[type="button"]:focus {
 .wizard-card[data-color="blue"] .choice.active .card-checkboxes {
   color: #68B3C8;
 }
+
+.wizard-card[data-color="blue"] .choice.active .circle {
+    color: #68B3C8;
+}
+
 .wizard-card[data-color="blue"] .wizard-navigation .progress-bar {
   background-color: #68B3C8;
 }
