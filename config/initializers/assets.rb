@@ -42,3 +42,5 @@ Rails.application.config.assets.precompile += %w( js/jquery.bootstrap.wizard)
 Rails.application.config.assets.precompile += %w( js/demo   )
 Rails.application.config.assets.precompile += %w( js/paper-bootstrap-wizard)
 Rails.application.config.assets.precompile += %w( js/jquery.validate.min)
+
+Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
