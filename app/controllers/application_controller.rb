@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def default_url_options(options={})
-    { :protocol => "https" }
+  def default_url_options
+    { protocol: :https }
   end
   
   def after_sign_in_path_for(resource)

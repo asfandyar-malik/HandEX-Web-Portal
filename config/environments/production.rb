@@ -1,3 +1,5 @@
+Rails.application.routes.default_url_options[:protocol] = 'https'
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -93,6 +95,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = { host: 'https://www.handex.co'}
+  config.action_controller.default_url_options({:protocol => 'https'})
+  config.action_controller.default_url_options(:protocol => 'https')
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -105,5 +109,3 @@ Rails.application.configure do
   }
 
 end
-
-Rails.application.routes.default_url_options[:protocol] = 'https'
