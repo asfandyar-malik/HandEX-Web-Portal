@@ -20,5 +20,10 @@ module Handex
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    config.action_dispatch.default_headers = {
+        'Access-Control-Allow-Origin' => '*',
+        'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",") # or whatever else you would like to allow
+    }
+    
   end
 end
