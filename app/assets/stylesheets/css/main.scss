@@ -1367,7 +1367,7 @@ td, th {
 }
 
 .banner-area-two {
-  background: asset-data-url("person1.png") no-repeat center center/cover;
+  background: asset-data-url("person1.jpg") no-repeat center center/cover;
 }
 
 .banner-area-three {
@@ -1919,4 +1919,22 @@ ul {
   margin-left: 0;
   margin-right: 0;
   padding-left: 40px;
+}
+
+.vl {
+  border-left: 6px solid #0065ae;
+  height: 60px;
+}
+
+
+li-landing {
+  margin: 0;
+  padding: 36px 0 36px 84px;
+  list-style: none;
+  background-image: asset-data-url('tick_green.png');
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 40px;
+  font-size:20px;
+  color: black;
 }
