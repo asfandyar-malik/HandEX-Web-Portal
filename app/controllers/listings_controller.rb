@@ -125,15 +125,3 @@ class ListingsController < ApplicationController
                                         :employees_count, :revenue_last_year, :sonstige_kurzfrist_agreed_payment_output)
     end
 end
-
-
-
-# risk_supplier_credit_cover
-# risk_shipment_risk_cover
-# risk_contractual_warranty_coverage
-# risk_avaline_guarantee
-# risk_further_coverage
-# describe_export_business
-# reason_for_buying_good
-# also_provide_service_training
-# explain_product_branch

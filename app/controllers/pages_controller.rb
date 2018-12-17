@@ -13,6 +13,7 @@ class PagesController < ApplicationController
     def impressum
     end
 
-    def coming_soon
+    def landing
+        render :layout => "landing.html.erb"
     end
 end

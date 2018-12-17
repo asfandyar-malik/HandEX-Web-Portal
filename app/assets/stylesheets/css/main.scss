@@ -1097,7 +1097,7 @@ td, th {
 
 .default-header nav .main-menu a {
   display: inline-block;
-  color: rgba(255, 255, 255, 1);
+  color: rgb(0, 0, 0);
   margin: 3% 30px;
   text-transform: uppercase;
   font-size: 20px;
@@ -1146,15 +1146,102 @@ td, th {
   }
 }
 
+.landing-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9;
+}
+
+.landing-header .right-bar {
+  position: relative;
+}
+
+.landing-header nav .main-menu {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .landing-header nav .main-menu {
+    display: none;
+  }
+}
+
+.landing-header nav .main-menu a {
+  display: inline-block;
+  color: rgb(0, 0, 0);
+  margin: 3% 30px;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+@media (max-width: 991px) {
+  .landing-header nav .main-menu a {
+    margin: 0 5px;
+  }
+}
+
+.landing-header nav .main-menu a:hover {
+  color: rgb(11, 215, 164);
+}
+
+.landing-header nav .mobile-btn {
+  display: none;
+  font-size: 36px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 767px) {
+  .landing-header .main-menu {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: #4a4fad;
+    padding: 30px 20px;
+  }
+  .landing-header .main-menu a {
+    margin: 5px 20px !important;
+  }
+  .landing-header .mobile-btn {
+    display: block !important;
+    font-size: 36px !important;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
 .sticky-header {
   padding: 15px 0;
 }
 
 .is-sticky .sticky-header {
-  background: -moz-linear-gradient(left, rgb(34, 34, 34) 0%, rgb(34, 34, 34) 100%);
-  background: -webkit-linear-gradient(left, rgb(34, 34, 34) 0%, rgb(34, 34, 34) 100%);
-  background: linear-gradient(to right, rgb(34, 34, 34) 0%, rgb(34, 34, 34) 100%);
+  background: -moz-linear-gradient(left, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);
+  background: -webkit-linear-gradient(left, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);
+  background: linear-gradient(to right, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);
 }
+
+//background: -moz-linear-gradient(left, rgb(211, 211, 211) 0%, rgb(211, 211, 211) 100%);
+//background: -webkit-linear-gradient(left, rgb(211, 211, 211) 0%, rgb(211, 211, 211) 100%);
+//background: linear-gradient(to right, rgb(211, 211, 211) 0%, rgb(211, 211, 211) 100%);
+
 
 .search {
   padding: 6px 20px;
@@ -1275,15 +1362,28 @@ td, th {
   background: asset-data-url("banner6.jpg") no-repeat center center/cover;
 }
 
+.banner-area-one {
+  background: asset-data-url("ship2.png") no-repeat center center/cover;
+}
+
+.banner-area-two {
+  background: asset-data-url("person1.png") no-repeat center center/cover;
+}
+
+.banner-area-three {
+  background: asset-data-url("containers.png") no-repeat center center/cover;
+}
+
+
 .banner-area .overlay-bg {
   //background: -moz-linear-gradient(left, rgba(60, 64, 143, 0.95) 0%, rgba(91, 97, 207, 0.95) 10%);
   //background: -webkit-linear-gradient(left, rgba(60, 64, 143, 0.95) 0%, rgba(91, 97, 207, 0.95) 10%);
   //background: linear-gradient(to right, rgba(60, 64, 143, 0.95) 0%, rgba(91, 97, 207, 0.95) 10%);
 
   /* Fallback for web browsers that don't support RGBa */
-  background-color: rgb(0, 0, 0.2);
+  background-color: rgba(22, 174, 130, 0.2);
   /* RGBa with 0.6 opacity */
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(22, 174, 130, 0.2);
   /* For IE 5.5 - 7*/
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
   /* For IE 8*/
@@ -1696,7 +1796,7 @@ td, th {
 }
 
 footer {
-  background: #222222;
+  background: #000000;
 }
 
 footer .footer-nav {
@@ -1708,6 +1808,23 @@ footer .footer-nav li {
 }
 
 footer .footer-nav li a:hover {
+  color: rgb(11, 215, 164);
+}
+
+footer-landing {
+  background: #d3d3d3;
+  background-color: #d3d3d3;
+}
+
+footer-landing .footer-nav {
+  margin-top: -7px;
+}
+
+footer-landing .footer-nav li {
+  margin-top: 8px;
+}
+
+footer-landing .footer-nav li a:hover {
   color: rgb(11, 215, 164);
 }
 
@@ -1790,13 +1907,10 @@ footer .footer-nav li a:hover {
 }
 
 .text-background {
-  //background-color: rgba(1, 1, 0, 0.1);
   color: #fff;
 }
 
 .text-background:hover {
-  //background-color: rgba(1, 1, 0, 0.1);
-  //color: red;
 }
 
 ul {
