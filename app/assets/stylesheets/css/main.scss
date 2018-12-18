@@ -151,7 +151,7 @@ h6, .h6 {
 }
 
 // Asfandyar Font
-h7, h8, h9, .h7, .h8, .h9 {
+h7, h8, h9, h10, .h7, .h8, .h9, .h10{
   font-family: "Poppins", sans-serif;
   color: #222222;
   line-height: 1em;
@@ -172,6 +172,10 @@ h9, .h9 {
   font-size: 22px;
 }
 
+h10, .h10 {
+  font-size: 18px;
+}
+
 @media (max-width: 767px) {
   .h1, h1 {
     font-size: 22px;
@@ -187,6 +191,10 @@ h9, .h9 {
   }
   h9, .h9 {
     font-size: 11px;
+  }
+
+  h10, .h10 {
+    font-size: 9px;
   }
 }
 
@@ -1947,5 +1955,5 @@ li-landing {
 .step > div:first-child { position: static; height: 0; }
 .step > div:last-child { margin-left: 32px ; padding-left: 16px; }
 .circle { background: #0bd7a4; width: 32px; height: 32px; line-height: 32px; border-radius: 16px; position: relative; color: white; text-align: center; }
-.line { position: absolute; border-left: 1px solid #0bd7a4; left: 16px; bottom: 10px; top: 42px; }
+.line { position: absolute; border-left: 1px solid #000000; left: 16px; bottom: 10px; top: 42px; }
 .step:last-child .line { display: none; }
