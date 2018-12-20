@@ -1957,3 +1957,20 @@ li-landing {
 .circle { background: #0bd7a4; width: 32px; height: 32px; line-height: 32px; border-radius: 16px; position: relative; color: white; text-align: center; }
 .line { position: absolute; border-left: 1px solid #000000; left: 16px; bottom: 10px; top: 42px; }
 .step:last-child .line { display: none; }
+
+
+.hide {
+  opacity:0;
+}
+.show {
+  opacity:1;
+}
+
+.test {
+  margin: 0px;
+  padding: 0px;
+  background-attachment: fixed;
+  background-image: asset-data-url('person1.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
+}
