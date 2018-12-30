@@ -21,15 +21,40 @@
 @import "bootstrap";
 @import "toastr";
 
+@font-face {
+  font-family: "Handel Becker Light";
+  src: asset-url('fonts/Handel_Becker_Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Handel Becker Med";
+  src: asset-url('fonts/Handel_Becker_Med.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HandelGotDBol";
+  src: asset-url('fonts/HandelGotDBol.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   color: #565a5c;
   background-color: white;
-  font-family: "Varela Round", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "Handel Becker Light", "Handel Becker Med", "HandelGotDBol", sans-serif;
   font-size: 9px;
 }
 
 a {
   color: #00A699;
+}
+
+p {
+  font-size: 15px;
 }
 
 .container {
