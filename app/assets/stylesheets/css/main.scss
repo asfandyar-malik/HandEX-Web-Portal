@@ -592,6 +592,10 @@ td, th {
   color: #fff;
 }
 
+.text-black{
+  color: #000000;
+}
+
 .transition {
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
@@ -1477,14 +1481,6 @@ td, th {
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
-
-//.single-product:hover {
-//  background: #0076b4;
-//}
-//
-//.single-product:hover .icon span, .single-product:hover .desc h4, .single-product:hover .desc p {
-//  color: #fff;
-//}
 
 .controls .filter {
   margin: 0 20px 10px 20px;
