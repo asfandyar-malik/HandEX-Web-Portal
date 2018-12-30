@@ -316,3 +316,16 @@ a {
     display: none;
   }
 }
+
+
+@media screen and (max-width: 980px) {
+  .supportfancy {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 980px) {
+  .support {
+    display: none;
+  }
+}
