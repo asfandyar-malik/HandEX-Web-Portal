@@ -39,7 +39,7 @@
 }
 
 body {
-  color: #777777;
+  color: #000000;
   font-family: "Handel Becker Light", "Handel Becker Med", "HandelGotDBol", sans-serif;
   font-weight: 300;
   line-height: 1.5em;
@@ -74,7 +74,6 @@ iframe {
 a, a:focus, a:hover {
   text-decoration: none;
   outline: 0;
-  color: #777777;
 }
 
 .btn.active.focus,
@@ -1940,6 +1939,7 @@ footer-landing .footer-nav li a:hover {
 .footer-bottom {
   padding-top: 40px;
   border-top: 1px solid #eee;
+  font-size:18px;
 }
 
 .footer-bottom .footer-text a:hover {
@@ -1979,7 +1979,7 @@ li-landing {
   background-repeat: no-repeat;
   background-position: left center;
   background-size: 40px;
-  font-size:14px;
+  font-size:17px;
   color: black;
 }
 
