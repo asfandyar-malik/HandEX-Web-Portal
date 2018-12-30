@@ -1946,6 +1946,12 @@ footer-landing .footer-nav li a:hover {
   color: rgb(11, 215, 164);
 }
 
+@media screen and (max-width: 980px) {
+  .footer-bottom {
+    font-size: 12px;
+  }
+}
+
 .text-background {
   color: #fff;
 }
