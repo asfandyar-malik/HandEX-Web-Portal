@@ -304,3 +304,15 @@ a {
     display: none;
   }
 }
+
+@media screen and (max-width: 980px) {
+  .benefitsfancy {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 980px) {
+  .benefits {
+    display: none;
+  }
+}
