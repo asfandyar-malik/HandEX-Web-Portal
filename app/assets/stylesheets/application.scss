@@ -60,15 +60,14 @@ p {
 }
 
 @media screen and (max-width: 980px) {
-  a {
-    color: #00A699;
-    font-size: 12px;
+
+  .landing-header nav .main-menu a {
+    font-size: 18px;
   }
   p {
     font-size: 12px;
   }
 }
-
 
 .container {
   width: 80%;
@@ -365,6 +364,12 @@ p {
 
 @media screen and (min-width: 980px) {
   .support {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .supportfancy {
     display: none;
   }
 }
