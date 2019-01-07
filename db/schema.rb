@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_07_170616) do
+ActiveRecord::Schema.define(version: 2019_01_07_172326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -320,26 +320,6 @@ ActiveRecord::Schema.define(version: 2019_01_07_170616) do
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
-  create_table "tradeinfos", force: :cascade do |t|
-    t.string "goods"
-    t.string "category"
-    t.string "companyName"
-    t.string "companyEmail"
-    t.string "companyPhone"
-    t.string "importerName"
-    t.string "importerEmail"
-    t.string "taxId"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.string "country"
-    t.string "exporterRegisteredAddress"
-    t.string "importerTaxId"
-    t.boolean "investmentGood"
-    t.integer "total_financing_required"
-    t.index ["user_id"], name: "index_tradeinfos_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -368,5 +348,4 @@ ActiveRecord::Schema.define(version: 2019_01_07_170616) do
   end
 
   add_foreign_key "listings", "users"
-  add_foreign_key "tradeinfos", "users"
 end
