@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_07_161625) do
+ActiveRecord::Schema.define(version: 2019_01_07_170616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2019_01_07_161625) do
     t.string "wifi"
     t.string "breakfast"
     t.text "description"
-    t.bigint "tradeinfo_id"
     t.string "employees_count"
     t.string "revenue_last_year"
     t.string "ak_number"
@@ -318,7 +317,6 @@ ActiveRecord::Schema.define(version: 2019_01_07_161625) do
     t.string "other_document_content_type"
     t.integer "other_document_file_size"
     t.datetime "other_document_updated_at"
-    t.index ["tradeinfo_id"], name: "index_listings_on_tradeinfo_id"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
@@ -369,7 +367,6 @@ ActiveRecord::Schema.define(version: 2019_01_07_161625) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "listings", "tradeinfos"
   add_foreign_key "listings", "users"
   add_foreign_key "tradeinfos", "users"
 end

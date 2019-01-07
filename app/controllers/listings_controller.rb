@@ -8,10 +8,8 @@ class ListingsController < ApplicationController
     # GET /listings
     # GET /listings.json
     def index
-        # @tradeinfo = Tradeinfo.find(params[:tradeinfo_id])
         # @listings = Listing.all
         @listings = current_user.listings
-    
     end
     
     # GET /listings/1
@@ -21,10 +19,8 @@ class ListingsController < ApplicationController
     
     # GET /listings/new
     def new
-        # @tradeinfo     = Tradeinfo.find(params[:tradeinfo_id])
         # @listing = Listing.new
         @listing = current_user.listings.build
-        # @listing = @tradeinfo.build_listing
     end
     
     # GET /listings/1/edit
@@ -34,8 +30,6 @@ class ListingsController < ApplicationController
     # POST /listings
     # POST /listings.json
     def create
-        # @tradeinfo     = Tradeinfo.find(params[:tradeinfo_id])
-        # @listing     = @tradeinfo.build_listing(listing_params)
         # @listing            = Listing.new(listing_params)
         @listing = current_user.listings.build(listing_params)
         
@@ -87,7 +81,7 @@ class ListingsController < ApplicationController
     end
     
     def is_authorised
-        redirect_to root_path, alert: "You don't have permission" unless current_user.id = @tradeinfo.user_id
+        redirect_to root_path, alert: "You don't have permission" unless current_user.id = @listing.user_id
     end
     
     # Never trust parameters from the scary internet, only allow the white list through.
