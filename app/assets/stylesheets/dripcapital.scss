@@ -37,7 +37,7 @@
   overflow-x: scroll;
 }
 
-@media (max-width: 1700px) and (min-width: 700px){
+@media (max-width: 1700px) and (min-width: 768px){
   #SECTION_85 {
     width: 95%;
   }
@@ -283,7 +283,7 @@
   transition: transform 1.5s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 1.5s cubic-bezier(0.6, 0.2, 0.1, 1) 0s;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1200px) {
   #DIV_105 {
     display: none;
   }
@@ -362,7 +362,7 @@
   padding: 0px 15px;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1200px) {
   #DIV_110 {
     width: 100%;
   }
@@ -471,7 +471,7 @@
   padding-top: 10px;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1200px) {
   #DIV_210 {
     display: none;
   }
@@ -491,7 +491,7 @@
   outline: rgb(50, 45, 89) none 0px;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1200px) {
   #IMG_211 {
     display: none;
   }
@@ -595,7 +595,7 @@
   padding-bottom: 50px;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1200px) {
   #H1_224 {
     //font-size: ;
   }
@@ -616,7 +616,7 @@
   width: 50%;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1200px) {
   #DIV_225 {
     width: 80%;
   }
@@ -649,7 +649,7 @@
   width: 80%;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1200px) {
   #DIV_227 {
     width: 80%;
   }
