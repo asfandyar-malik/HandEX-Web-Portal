@@ -1841,20 +1841,20 @@ footer .footer-nav li a:hover {
   color: rgb(11, 215, 164);
 }
 
-footer-landing {
-  background: #d3d3d3;
+.footer-landing {
   background-color: #d3d3d3;
+
 }
 
-footer-landing .footer-nav {
+.footer-landing .footer-nav {
   margin-top: -7px;
 }
 
-footer-landing .footer-nav li {
+.footer-landing .footer-nav li {
   margin-top: 8px;
 }
 
-footer-landing .footer-nav li a:hover {
+.footer-landing .footer-nav li a:hover {
   color: rgb(11, 215, 164);
 }
 
@@ -1968,7 +1968,7 @@ ul {
   height: 60px;
 }
 
-li-landing {
+.li-landing {
   margin: 0;
   padding: 36px 0 36px 84px;
   list-style: none;
@@ -1980,12 +1980,44 @@ li-landing {
   color: black;
 }
 
-.step { position: relative; min-height: 32px /* circle-size */ ; }
-.step > div:first-child { position: static; height: 0; }
-.step > div:last-child { margin-left: 32px ; padding-left: 16px; }
-.circle { background: #0bd7a4; width: 32px; height: 32px; line-height: 32px; border-radius: 16px; position: relative; color: white; text-align: center; }
-.line { position: absolute; border-left: 1px solid #000000; left: 16px; bottom: 10px; top: 42px; }
-.step:last-child .line { display: none; }
+.step {
+  position: relative;
+  min-height: 32px /* circle-size */ ;
+}
+
+.step > div:first-child {
+  position: static;
+  height: 0;
+}
+
+.step > div:last-child {
+  margin-left: 32px;
+  padding-left: 16px;
+}
+
+.circle {
+  background: #0bd7a4;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 16px;
+  font-size: 18px;
+  position: relative;
+  color: white;
+  text-align: center;
+}
+
+.line {
+  position: absolute;
+  border-left: 1px solid #000000;
+  left: 16px;
+  bottom: 4px;
+  top: 42px;
+}
+
+.step:last-child .line {
+  display: none;
+}
 
 
 .hide {
@@ -1994,4 +2026,3 @@ li-landing {
 .show {
   opacity:1;
 }
-
