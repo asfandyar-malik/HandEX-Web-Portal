@@ -12,8 +12,4 @@ class PagesController < ApplicationController
 
     def impressum
     end
-
-    def landing
-        render :layout => "landing.html.erb"
-    end
 end

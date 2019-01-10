@@ -43,10 +43,30 @@
 }
 
 body {
-  color: #565a5c;
-  background-color: white;
+  color: #000000;
+  background-color: #FFFFFF;
   font-family: "Handel Becker Light", "Handel Becker Med", "HandelGotDBol", sans-serif;
   font-size: 16px;
+}
+
+.down {
+  //border-top: 2px solid rgba(243, 243, 243, 0.5);
+  padding-top: 40px;
+  z-index: 1;
+  position: absolute;
+  width: 96%;
+  left: 2%;
+  bottom: 50px;
+}
+
+.down a {
+  color: rgb(9, 208, 183);
+  font-size: 25px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  display: block;
+  text-shadow: 2px 2px 2px #000;
 }
 
 a {
