@@ -102,8 +102,28 @@ p {
 }
 
 // NAVBARS
+.navbar-header {
+  float: left;
+}
+
+.nav > li {
+  position: relative;
+  display: inline;
+}
+
 .navbar-default {
   background-color: #FFFFFF;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: black;
+  text-align: center;
+  display: inline-block;
+}
+
+.navbar-text {
+  float: left;
+  margin-top: 20px;
 }
 
 // BUTTONS
@@ -374,7 +394,6 @@ p {
     display: none;
   }
 }
-
 
 @media screen and (max-width: 992px) {
   .supportfancy {
