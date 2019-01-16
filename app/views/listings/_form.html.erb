@@ -465,7 +465,7 @@
                                                 <p><b>Liefern/Leisten Sie im Rahmen eines Gesamtprojekts zusammen mit
                                                     anderen Unternehmen? </b></p>
 
-                                                <div class="col-md-4 col-md-offset-1">
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.part_of_big_project_yes == 'on' %>" name="deliverwithothercompanies_yes" data-toggle="wizard-checkbox" onclick="deliverWithOtherCompanies()">
 
                                                         <%= check_box_tag "listing[part_of_big_project_yes]", listing.part_of_big_project_yes ? listing.part_of_big_project_yes : nil %>
@@ -477,7 +477,7 @@
                                                 </div>
 
 
-                                                <div class="col-md-4 col-md-offset-1">
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
 
                                                     <div class="choice <%= 'active' if listing.part_of_big_project_no == 'on' %>" name="deliverwithothercompanies_no" data-toggle="wizard-checkbox" onclick="notDeliverWithOtherCompanies()">
 
@@ -705,7 +705,7 @@
                                                 <br>
                                                 <p><b>Ist Ihr Export ausfuhrgenehmigungspflichtig?</b>
                                                 <p>
-                                                <div class="col-md-4 col-md-offset-1">
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.yes_export_requires_exportlicense == 'on' %>" name="exportlicenserequired_yes" data-toggle="wizard-checkbox" onclick="exportLicenseRequired()">
 
                                                         <%= check_box_tag "listing[yes_export_requires_exportlicense]", listing.yes_export_requires_exportlicense ? listing.yes_export_requires_exportlicense : nil %>
@@ -717,7 +717,7 @@
                                                 </div>
 
 
-                                                <div class="col-md-4 col-md-offset-1">
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
 
                                                     <div class="choice <%= 'active' if listing.no_export_requires_exportlicense == 'on' %>" name="exportlicenserequired_no" data-toggle="wizard-checkbox" onclick="noExportLicenseRequired()">
 
@@ -778,7 +778,7 @@
                                                 <p><b>Liefern Sie gebrauchte Ware? </b>
                                                 <p>
 
-                                                <div class="col-md-4 col-md-offset-1">
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.yes_deliver_secondhand_goods == 'on' %>" name="yes_secondhandgoods" data-toggle="wizard-checkbox" onclick="secondHandGoods()">
 
                                                         <%= check_box_tag "listing[yes_deliver_secondhand_goods]", listing.yes_deliver_secondhand_goods ? listing.yes_deliver_secondhand_goods : nil %>
@@ -790,7 +790,7 @@
                                                 </div>
 
 
-                                                <div class="col-md-4 col-md-offset-1">
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
 
                                                     <div class="choice <%= 'active' if listing.no_dont_deliver_secondhand_goods == 'on' %>" name="no_secondhandgoods" data-toggle="wizard-checkbox" onclick="noSecondHandGoods()">
 
@@ -888,7 +888,7 @@
                                                 <p>
 
 
-                                                <div class="col-md-4 col-md-offset-1">
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.yes_contract_already_signed_all_parties == 'on' %>" name="yes_congractsignedallparties" data-toggle="wizard-checkbox" onclick="contractSignedAllParties()">
 
                                                         <%= check_box_tag "listing[yes_contract_already_signed_all_parties]", listing.yes_contract_already_signed_all_parties ? listing.yes_contract_already_signed_all_parties : nil %>
@@ -900,7 +900,7 @@
                                                 </div>
 
 
-                                                <div class="col-md-4 col-md-offset-1">
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
 
                                                     <div class="choice <%= 'active' if listing.no_contract_already_signed_all_parties == 'on' %>" name="no_congractsignedallparties" data-toggle="wizard-checkbox" onclick="noContractSignedAllParties()">
 
@@ -957,7 +957,7 @@
                                                 <p>
 
 
-                                                <div class="col-md-4 col-md-offset-1">
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.yes_special_contract_structure == 'on' %>" name="yes_specialcontractstructure" data-toggle="wizard-checkbox" onclick="specialContractStructure()">
 
                                                         <%= check_box_tag "listing[yes_special_contract_structure]", listing.yes_special_contract_structure ? listing.yes_special_contract_structure : nil %>
@@ -969,8 +969,7 @@
                                                 </div>
 
 
-                                                <div class="col-md-4 col-md-offset-1">
-
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.no_special_contract_structure == 'on' %>" name="no_specialcontractstructure" data-toggle="wizard-checkbox" onclick="noSpecialContractStructure()">
 
                                                         <%= check_box_tag "listing[no_special_contract_structure]", listing.no_special_contract_structure ? listing.no_special_contract_structure : nil %>
@@ -1108,7 +1107,7 @@
 
                                                 <p><b>Berechnen Sie Ihrem Kunden Zinsen? </b>
                                                 <p>
-                                                <div class="col-md-4 col-md-offset-1">
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.ja_customer_counts_interest == 'on' %>" name="yes_customercountsinterest" data-toggle="wizard-checkbox" onclick="customerCountsInterest()">
 
                                                         <%= check_box_tag "listing[ja_customer_counts_interest]", listing.ja_customer_counts_interest ? listing.ja_customer_counts_interest : nil %>
@@ -1120,8 +1119,7 @@
                                                 </div>
 
 
-                                                <div class="col-md-4 col-md-offset-1">
-
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.no_customer_counts_interest == 'on' %>" name="no_customercountsinterest" data-toggle="wizard-checkbox" onclick="noCustomerCountsInterest()">
 
                                                         <%= check_box_tag "listing[no_customer_counts_interest]", listing.no_customer_counts_interest ? listing.no_customer_counts_interest : nil %>
@@ -1169,7 +1167,7 @@
 
                                                 <p><b>Haben Sie mit Ihrem Kunden eine Preisgleitklausel vereinbart? </b>
                                                 <p>
-                                                <div class="col-md-4 col-md-offset-1">
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.yes_price_adjustment_clause == 'on' %>" name="yes_priceadjustmentclause" data-toggle="wizard-checkbox" onclick="priceAdjustmentClause()">
 
                                                         <%= check_box_tag "listing[yes_price_adjustment_clause]", listing.yes_price_adjustment_clause ? listing.yes_price_adjustment_clause : nil %>
@@ -1181,8 +1179,7 @@
                                                 </div>
 
 
-                                                <div class="col-md-4 col-md-offset-1">
-
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.no_price_adjustment_clause == 'on' %>" name="no_priceadjustmentclause" data-toggle="wizard-checkbox" onclick="noPriceAdjustmentClause()">
 
                                                         <%= check_box_tag "listing[no_price_adjustment_clause]", listing.no_price_adjustment_clause ? listing.no_price_adjustment_clause : nil %>
@@ -1219,7 +1216,7 @@
                                                 <p><b>Versenden Sie Ihre Waren/Güter/Anlagen in mehreren
                                                     Lieferungen? </b>
                                                 <p>
-                                                <div class="col-md-4 col-md-offset-1">
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.yes_multiple_deliveries == 'on' %>" name="yes_multipledeliveries" data-toggle="wizard-checkbox" onclick="multipleDeliveries()">
 
                                                         <%= check_box_tag "listing[yes_multiple_deliveries]", listing.yes_multiple_deliveries ? listing.yes_multiple_deliveries : nil %>
@@ -1231,8 +1228,7 @@
                                                 </div>
 
 
-                                                <div class="col-md-4 col-md-offset-1">
-
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.no_multiple_deliveries == 'on' %>" name="no_multipledeliveries" data-toggle="wizard-checkbox" onclick="noMultipleDeliveries()">
 
                                                         <%= check_box_tag "listing[no_multiple_deliveries]", listing.no_multiple_deliveries ? listing.no_multiple_deliveries : nil %>
@@ -2605,7 +2601,7 @@
                                             <div class="col-md-8 col-md-offset-1">
                                                 <p><b>Sind für Ihr Geschäft Sicherheiten vorgesehen? </b>
                                                 <p>
-                                                <div class="col-md-4 col-md-offset-1">
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.yes_security_businnes_provided == 'on' %>" name="yes_securitybusinnesprovided" data-toggle="wizard-checkbox" onclick="securityBusinnesProvided()">
 
                                                         <%= check_box_tag "listing[yes_security_businnes_provided]", listing.yes_security_businnes_provided ? listing.yes_security_businnes_provided : nil %>
@@ -2617,8 +2613,7 @@
                                                 </div>
 
 
-                                                <div class="col-md-4 col-md-offset-1">
-
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.no_security_businnes_provided == 'on' %>" name="no_securitybusinnesprovided" data-toggle="wizard-checkbox" onclick="noSecurityBusinnesProvided()">
 
                                                         <%= check_box_tag "listing[no_security_businnes_provided]", listing.no_security_businnes_provided ? listing.no_security_businnes_provided : nil %>
@@ -2771,7 +2766,7 @@
                                             <div class="col-md-8 col-md-offset-1">
                                                 <p>Liefern Sie an diese Adresse? </p>
 
-                                                <div class="col-md-4 col-md-offset-1">
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.yes_delivered_at_this_address == 'on' %>" name="yes_deliveredatthisaddress" data-toggle="wizard-checkbox" onclick="deliveredAtThisAddress()">
 
                                                         <%= check_box_tag "listing[yes_delivered_at_this_address]", listing.yes_delivered_at_this_address ? listing.yes_delivered_at_this_address : nil %>
@@ -2783,8 +2778,7 @@
                                                 </div>
 
 
-                                                <div class="col-md-4 col-md-offset-1">
-
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.no_delivered_at_this_address == 'on' %>" name="no_deliveredatthisaddress" data-toggle="wizard-checkbox" onclick="notDeliveredAtThisAddress()">
 
                                                         <%= check_box_tag "listing[no_delivered_at_this_address]", listing.no_delivered_at_this_address ? listing.no_delivered_at_this_address : nil %>
@@ -2852,7 +2846,7 @@
                                                 <p>
                                                     <br>
 
-                                                <div class="col-md-4 col-md-offset-1">
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.yes_relation_to_customer == 'on' %>" name="yes_relationtocustomer" data-toggle="wizard-checkbox" onclick="relationToCustomer()">
 
                                                         <%= check_box_tag "listing[yes_relation_to_customer]", listing.yes_relation_to_customer ? listing.yes_relation_to_customer : nil %>
@@ -2863,7 +2857,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-4 col-md-offset-1">
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
 
                                                     <div class="choice <%= 'active' if listing.no_relation_to_customer == 'on' %>" name="no_relationtocustomer" data-toggle="wizard-checkbox" onclick="noRelationToCustomer()">
 
@@ -2900,7 +2894,7 @@
                                                 <p> Haben Sie bereits Zahlungserfahrungen mit Ihrem Kunden?
                                                 <p>
 
-                                                <div class="col-md-4 col-md-offset-1">
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.yes_previous_payment_experience_with_customer == 'on' %>" name="yes_previouspaymentexperiencewithcustomer" data-toggle="wizard-checkbox" onclick="previousPaymentExperienceWithCustomer()">
 
                                                         <%= check_box_tag "listing[yes_previous_payment_experience_with_customer]", listing.yes_previous_payment_experience_with_customer ? listing.yes_previous_payment_experience_with_customer : nil %>
@@ -2911,7 +2905,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-4 col-md-offset-1">
+                                                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
 
                                                     <div class="choice <%= 'active' if listing.no_previous_payment_experience_with_customer == 'on' %>" name="no_previouspaymentexperiencewithcustomer" data-toggle="wizard-checkbox" onclick="noPreviousPaymentExperienceWithCustomer()">
 
@@ -2958,7 +2952,7 @@
                                                     <p><b>Haben Sie in der Vergangenheit schon einmal einen Antrag auf
                                                         Hermesdeckung eingereicht?</b><p>
 
-                                                    <div class="col-md-4 col-md-offset-1">
+                                                    <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                         <div class="choice <%= 'active' if listing.yes_previously_hermes_insurance_used == 'on' %>" name="yes_previouslyhermesinsuranceused" data-toggle="wizard-checkbox" onclick="previouslyHermesInsuranceUsed()">
 
                                                             <%= check_box_tag "listing[yes_previously_hermes_insurance_used]", listing.yes_previously_hermes_insurance_used ? listing.yes_previously_hermes_insurance_used : nil %>
@@ -2969,7 +2963,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-4 col-md-offset-1">
+                                                    <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
 
                                                         <div class="choice <%= 'active' if listing.no_previously_hermes_insurance_used == 'on' %>" name="no_previouslyhermesinsuranceused" data-toggle="wizard-checkbox" onclick="noPreviouslyHermesInsuranceUsed()">
 
@@ -3278,7 +3272,7 @@
                                                         Zusatzentgelt
                                                         auf 5 % absenken?</p>
 
-                                                    <div class="col-md-4 col-md-offset-1">
+                                                    <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                         <div class="choice <%= 'active' if listing.country_category == 'on' %>" name="yes_reduceeconomicrisk" data-toggle="wizard-checkbox">
 
                                                             <%= check_box_tag "listing[country_category]", listing.country_category ? listing.country_category : nil %>
@@ -3289,8 +3283,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-4 col-md-offset-1">
-
+                                                    <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                         <div class="choice <%= 'active' if listing.country_category == 'on' %>" name="dont_reduceeconomicrisk" data-toggle="wizard-checkbox">
 
                                                             <%= check_box_tag "listing[country_category]", listing.country_category ? listing.country_category : nil %>
