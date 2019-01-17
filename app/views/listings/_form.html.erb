@@ -100,10 +100,7 @@
                                     <div class="col-sm-5 col-sm-offset-3">
                                         <div class="form-group">
                                             <label>Ihr Firmenname</label>
-                                        </div>
-                                        <div class="input-group">
                                             <%= form.text_field :price, class: 'form-control' %>
-                                            <span class="input-group-addon"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -112,10 +109,7 @@
                                     <div class="col-sm-5 col-sm-offset-3">
                                         <div class="form-group">
                                             <label>Email adresse</label>
-                                        </div>
-                                        <div class="input-group">
-                                            <%= form.text_field :price, class: 'form-control' %>
-                                            <span class="input-group-addon"></span>
+                                            <%= form.email_field :price, class: 'form-control' %>
                                         </div>
                                     </div>
                                 </div>
@@ -124,10 +118,7 @@
                                     <div class="col-sm-5 col-sm-offset-3">
                                         <div class="form-group">
                                             <label>Telefon</label>
-                                        </div>
-                                        <div class="input-group">
                                             <%= form.text_field :price, class: 'form-control' %>
-                                            <span class="input-group-addon"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -192,11 +183,10 @@
                                     <div class="col-sm-6 col-sm-offset-3">
                                         <div class="form-group">
                                             <label>Handelt es sich bei Ihrer Ware um
-                                                Investitionsgüter?</label>
-                                            <div class="input-group">
-                                                <%= form.check_box :is_investment_good, id: "investmentGood", :style => "width: 20px; height: 20px;" %>
-                                                Ja
-                                            </div>
+                                                Investitionsgüter?
+                                            </label> <br>
+                                            <%= form.check_box :is_investment_good, id: "investmentGood", :style => "width: 20px; height: 20px;" %>
+                                            Ja
                                         </div>
                                     </div>
                                 </div>
@@ -206,10 +196,7 @@
                                         <div class="col-sm-6 col-sm-offset-3">
                                             <div class="form-group">
                                                 <label>Wie hoch ist der Auftragswert in Euro?</label>
-                                                <div class="input-group">
-                                                    <%= form.text_field :contract_value, class: 'form-control', placeholder: 'Auftragswert' %>
-                                                    <span class="input-group-addon">€</span>
-                                                </div>
+                                                <%= form.text_field :contract_value, class: 'form-control', placeholder: 'Auftragswert (€)' %>
                                             </div>
                                         </div>
                                     </div>
@@ -236,7 +223,7 @@
                                                 <div class="row">
 
                                                     <div class="col-sm-6">
-                                                        <div class="choice <%= 'active' if listing.private_sector == 'on' %>" name = "privatesector" data-toggle="wizard-checkbox" onclick="privateSector()">
+                                                        <div class="choice <%= 'active' if listing.private_sector == 'on' %>" name="privatesector" data-toggle="wizard-checkbox" onclick="privateSector()">
                                                             <%= check_box_tag "listing[private_sector]", listing.private_sector ? listing.private_sector : nil %>
 
                                                             <div class="card card-checkboxes card-hover-effect">
@@ -247,7 +234,7 @@
                                                     </div>
 
                                                     <div class="col-sm-6">
-                                                        <div class="choice <%= 'active' if listing.public_sector == 'on' %>" name = "publicsector" data-toggle="wizard-checkbox" onclick="publicSector()">
+                                                        <div class="choice <%= 'active' if listing.public_sector == 'on' %>" name="publicsector" data-toggle="wizard-checkbox" onclick="publicSector()">
                                                             <%= check_box_tag "listing[public_sector]", listing.public_sector ? listing.public_sector : nil %>
 
                                                             <div class="card card-checkboxes card-hover-effect">
@@ -399,10 +386,7 @@
                                     <div class="col-sm-5 col-sm-offset-1">
                                         <div class="form-group">
                                             <p><b>Bitte beschreiben Sie Ihre Produkte und Leistungen</b></p>
-                                            <div class="input-group">
-                                                <%= form.text_area :describe_export_business, class: 'form-control' %>
-                                                <span class="input-group-addon"></span>
-                                            </div>
+                                            <%= form.text_area :describe_export_business, class: 'form-control' %>
                                         </div>
                                     </div>
                                 </div>
@@ -414,10 +398,7 @@
                                                 Dienstleistung? Handelt es sich bspw. um eine Ersatz- oder um eine
                                                 Neuinvestition? Wenn Sie Leistungen (Montage, Schulungen vor Ort, etc.)
                                                 erbringen, können Sie diese hier ebenfalls beschreiben.</p>
-                                            <div class="input-group">
-                                                <%= form.text_area :reason_for_buying_good, class: 'form-control' %>
-                                                <span class="input-group-addon"></span>
-                                            </div>
+                                            <%= form.text_area :reason_for_buying_good, class: 'form-control' %>
                                         </div>
                                     </div>
                                 </div>
@@ -449,10 +430,7 @@
                                     <div class="col-sm-8 col-sm-offset-1">
                                         <div class="form-group">
                                             <p><b>Bitte beschreiben Sie Ihre Industrie genauer</b></p>
-                                            <div class="input-group">
-                                                <%= form.text_area :explain_product_branch, class: 'form-control', :input_html => {:rows => 20} %>
-                                                <span class="input-group-addon"></span>
-                                            </div>
+                                            <%= form.text_area :explain_product_branch, class: 'form-control', :input_html => {:rows => 20} %>
                                         </div>
                                     </div>
                                 </div>
@@ -500,10 +478,7 @@
                                             <br><br>
                                             <div class="form-group">
                                                 <p>Bitte beschreiben Sie das Gesamtprojekt detaillierter</p>
-                                                <div class="input-group">
-                                                    <%= form.text_area :explain_complete_project, class: 'form-control' %>
-                                                    <span class="input-group-addon"></span>
-                                                </div>
+                                                <%= form.text_area :explain_complete_project, class: 'form-control' %>
                                             </div>
                                         </div>
                                     </div>
@@ -2950,7 +2925,8 @@
                                             <div class="row">
                                                 <div class="col-md-8 col-md-offset-1">
                                                     <p><b>Haben Sie in der Vergangenheit schon einmal einen Antrag auf
-                                                        Hermesdeckung eingereicht?</b><p>
+                                                        Hermesdeckung eingereicht?</b>
+                                                    <p>
 
                                                     <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                         <div class="choice <%= 'active' if listing.yes_previously_hermes_insurance_used == 'on' %>" name="yes_previouslyhermesinsuranceused" data-toggle="wizard-checkbox" onclick="previouslyHermesInsuranceUsed()">
@@ -3154,7 +3130,7 @@
 
                                                 <div class="col-md-3">
                                                     <p> Email </p>
-                                                    <div> <%= form.text_field :representative_email, class: "form-control" %> </div>
+                                                    <div> <%= form.email_field :representative_email, class: "form-control" %> </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -3186,7 +3162,6 @@
                                             </div>
                                         </div>
                                     </div>
-
 
 
                                     <div id="uploadDocuments">
@@ -3266,9 +3241,11 @@
                                                 <div class="form-group">
                                                     <p><b>Sie beantragen die Absicherung folgender
                                                         Risiken.</b></p>
-                                                    <p><i>Nichtzahlung der Forderung (Lieferantenkreditdeckung (G))</i></p>
+                                                    <p><i>Nichtzahlung der Forderung (Lieferantenkreditdeckung (G))</i>
+                                                    </p>
                                                     <br>
-                                                    <p>Möchten Sie die Selbstbeteiligung für wirtschaftliche Risiken gegen
+                                                    <p>Möchten Sie die Selbstbeteiligung für wirtschaftliche Risiken
+                                                        gegen
                                                         Zusatzentgelt
                                                         auf 5 % absenken?</p>
 
@@ -3428,11 +3405,7 @@
 
                                                     <div class="row">
                                                         <div class="col-sm-8 col-sm-offset-2">
-                                                            <div class="input-group">
-                                                                <%= form.text_area :price, class: 'form-control' %>
-                                                                <span class="input-group-addon"></span>
-                                                            </div>
-
+                                                            <%= form.text_area :price, class: 'form-control' %>
                                                         </div>
                                                     </div>
                                                 </div>

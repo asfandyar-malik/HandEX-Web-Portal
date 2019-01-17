@@ -169,7 +169,7 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
     border: 0 none;
 }
 
-.input-group .form-control:not(:first-child):not(:last-child) {
+.form-control:not(:first-child):not(:last-child) {
     border-left: 0;
     border-right: 0;
 }
@@ -193,21 +193,15 @@ label.error:not(.form-control) {
     color: #7AC29A;
 }
 
-.input-group-addon {
-    background-color: #F3F2EE;
-    border: 1px solid #dddddd;
-    border-radius: 4px;
-}
-
-.has-success .input-group-addon, .has-error .input-group-addon {
+.has-success, .has-error {
     background-color: #FFFFFF;
 }
 
-.has-error .form-control:focus + .input-group-addon {
+.has-error .form-control:focus {
     color: #EB5E28;
 }
 
-.has-success .form-control:focus + .input-group-addon {
+.has-success .form-control:focus {
     color: #7AC29A;
 }
 
@@ -215,40 +209,14 @@ label.error:not(.form-control) {
     background-color: #FFFFFF;
 }
 
-.has-error .input-group-addon {
+.has-error {
     color: #EB5E28;
     border-color: #EB5E28;
 }
 
-.has-error .input-group-addon {
+.has-error {
     color: #7AC29A;
     border-color: #7AC29A;
-}
-
-.input-group-addon + .form-control {
-    padding-left: 0;
-}
-
-.input-group {
-    margin-bottom: 15px;
-}
-
-.input-group[disabled] .input-group-addon {
-    background-color: #E3E3E3;
-}
-
-.input-group .form-control:first-child,
-.input-group-addon:first-child,
-.input-group-btn:first-child > .dropdown-toggle,
-.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle) {
-    border-right: 0 none;
-}
-
-.input-group .form-control:last-child,
-.input-group-addon:last-child,
-.input-group-btn:last-child > .dropdown-toggle,
-.input-group-btn:first-child > .btn:not(:first-child) {
-    border-left: 0 none;
 }
 
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
@@ -283,27 +251,10 @@ label.error:not(.form-control) {
     filter: alpha(opacity=100);
 }
 
-.input-group-btn .btn {
-    border-width: 1px;
-    padding: 9px 18px;
-}
-
-.input-group-btn .btn-default:not(.btn-fill) {
-    border-color: #cfcfca;
-}
-
-.input-group-btn:last-child > .btn {
-    margin-left: 0;
-}
-
 textarea.form-control {
     max-width: 100%;
     padding: 10px 18px;
     resize: none;
-}
-
-.input-group-focus .input-group-addon {
-    background-color: #FFFFFF;
 }
 
 /*     General overwrite     */
