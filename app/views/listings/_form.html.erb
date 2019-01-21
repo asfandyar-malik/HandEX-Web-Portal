@@ -1016,8 +1016,6 @@
                                 <div id="contractAmount">
                                     <div class="form-group">
                                         <div class="row">
-                                            <hr align="middle" width="90%">
-                                            <br>
                                             <div class="col-md-10 col-md-offset-1">
 
                                                 <p><b>Bitte geben Sie den Auftragswert an. </b></p>
@@ -1142,6 +1140,7 @@
 
                                                 <p><b>Haben Sie mit Ihrem Kunden eine Preisgleitklausel vereinbart? </b>
                                                 <p>
+
                                                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.yes_price_adjustment_clause == 'on' %>" name="yes_priceadjustmentclause" data-toggle="wizard-checkbox" onclick="priceAdjustmentClause()">
 
@@ -1171,14 +1170,18 @@
                                 </div>
 
                                 <div id="yesNoPriceAdjustmentClause" style="display: none">
-
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-10 col-md-offset-1">
-                                                <div> <%= form.text_area :explain_billing_methods, class: "form-control", placeholder: "Bitte beschreiben Sie die Details zur Verrechnungsmethode (Prozent- oder Betragsverfahren)." %> </div>
+                                    <br>
+                                    <div class="appear">
+                                        <br>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-10 col-md-offset-1">
+                                                    <div> <%= form.text_area :explain_billing_methods, class: "form-control", placeholder: "Bitte beschreiben Sie die Details zur Verrechnungsmethode (Prozent- oder Betragsverfahren)." %> </div>
+                                                </div>
+                                                <br><br><br>
                                             </div>
-                                            <br><br><br>
                                         </div>
+                                        <br>
                                     </div>
                                 </div>
 
@@ -1220,20 +1223,22 @@
                                     </div>
                                 </div>
 
-                                <div id="yesNoMultipleDeliveries" style="display: none; background-color: #f7f7f7;">
-
-                                    <div class="form-group">
+                                <div id="yesNoMultipleDeliveries" style="display: none;">
+                                    <br>
+                                    <div class="appear">
+                                        <br>
                                         <div class="row">
-
                                             <div class="col-md-10 col-md-offset-1">
+
                                                 <p> Bitte teilen Sie uns die Liefer- und ggf. Leistungstermine Ihres
                                                     Exportgeschäftes
                                                     mit.
                                                 </p>
                                             </div>
-
-                                            <br>
-                                            <div class="col-md-3 col-md-offset-2">
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-4 col-md-offset-1">
                                                 <p><i>Lieferbeginn</i></p>
                                                 <div> <%= form.date_field :delivery_start, id: "start_date", type: "date", class: "datepicker" %> </div>
                                             </div>
@@ -1245,7 +1250,7 @@
 
                                         <div class="row">
                                             <br>
-                                            <div class="col-md-3 col-md-offset-2">
+                                            <div class="col-md-4 col-md-offset-1">
                                                 <div> <%= form.text_field :other_important_delivery_information, class: "form-control", placeholder: "Weiterer zahlungsrelevanter Termin" %> </div>
                                             </div>
                                             <div class="col-md-4">
@@ -1253,8 +1258,8 @@
                                                 <br>
                                             </div>
                                         </div>
-
                                     </div>
+
                                 </div>
 
                                 <div id="termOfPayments">
@@ -1309,46 +1314,41 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <hr align="middle" width="90%">
-
-                                            <br>
                                         </div>
 
                                     </div>
                                 </div>
 
-                                <div id="KurzFristigTermOfPayment" style="display: none; background-color: #f7f7f7;">
+                                <div id="KurzFristigTermOfPayment" style="display: none;">
 
-                                    <div class="form-group">
+                                    <div class="appear">
+                                        <br>
+                                        <div class="form-group">
 
-                                        <div class="row">
-                                            <div class="col-md-8 col-md-offset-1">
-                                                <p> Sofern Sie eine Anzahlung vereinbart haben, die vor Lieferbeginn
-                                                    geleistet
-                                                    wird,
-                                                    geben Sie bitte den entsprechenden Betrag an.</p>
+                                            <div class="row">
+                                                <div class="col-md-10 col-md-offset-1">
+                                                    <p> Sofern Sie eine Anzahlung vereinbart haben, die vor Lieferbeginn
+                                                        geleistet
+                                                        wird,
+                                                        geben Sie bitte den entsprechenden Betrag an.</p>
+                                                </div>
                                             </div>
 
-                                        </div>
+                                            <div class="row">
+                                                <br>
 
-
-                                        <div class="row">
-                                            <br>
-
-                                            <div class="col-md-2 col-md-offset-1">
-                                                <%= form.select :downpayment_delivery_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                                <div class="col-md-2 col-md-offset-1">
+                                                    <%= form.select :downpayment_delivery_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div> <%= form.text_field :downpayment_delivery_amount, class: "form-control", placeholder: "Betrag", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div> <%= form.text_field :downpayment_delivery_description, class: "form-control", placeholder: "Beschreibung" %> </div>
+                                                </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div> <%= form.text_field :downpayment_delivery_amount, class: "form-control", placeholder: "Betrag", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div> <%= form.text_field :downpayment_delivery_description, class: "form-control", placeholder: "Beschreibung" %> </div>
-                                            </div>
-                                        </div>
 
-                                        <div class="row">
-                                            <br><br><br><br>
+                                            <br><br>
 
                                             <div class="row">
                                                 <div class="col-md-8 col-md-offset-1">
@@ -1361,7 +1361,7 @@
                                                     <p>1. Rate</p>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <%= form.select :agreed_payments_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                                 </div>
                                                 <div class="col-md-1">
                                                     <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
@@ -1374,19 +1374,12 @@
                                                     <p>%</p>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <%= form.select :agreed_payments_time, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
-                                                                                            ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
-                                                                                            ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
-                                                                                            ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
-                                                                                            ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
-                                                                                            ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
-                                                                                            ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
-                                                                                            ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
-                                                                                            ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
-                                                                                            ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
-                                                                                            ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
-                                                                                            ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
-                                                    ], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_time, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                               "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                               "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                               "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                               "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                               "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-2">
@@ -1399,86 +1392,11 @@
                                                     <p>2. Rate</p>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <%= form.select :agreed_payments_currency2, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :agreed_payments_amount2, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                    <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
                                                     %> </div>
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <div> <%= form.text_field :agreed_payments_output2, class: "form-control" %> </div>
-                                                </div>
-                                                <div class="col-md-1 ">
-                                                    <p>%</p>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <%= form.select :agreed_payments_time2, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
-                                                    ], class: "form-control", id: "B_168" %>
-                                                </div>
-
-                                                <div class="col-md-2">
-                                                    <div> <%= form.text_field :agreed_payments_some_output2, class: "form-control" %> </div>
-                                                </div>
-
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-2 col-md-offset-1">
-                                                    <p>3. Rate</p>
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <%= form.select :agreed_payments_currency3, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <div> <%= form.text_field :agreed_payments_amount3, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
-                                                    %> </div>
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <div> <%= form.text_field :agreed_payments_output3, class: "form-control" %> </div>
-                                                </div>
-                                                <div class="col-md-1 ">
-                                                    <p>%</p>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <%= form.select :agreed_payments_time3, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
-                                                    ], class: "form-control", id: "B_168" %>
-                                                </div>
-
-                                                <div class="col-md-2">
-                                                    <div> <%= form.text_field :agreed_payments_some_output3, class: "form-control" %> </div>
-                                                </div>
-
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-2 col-md-offset-1">
-                                                    <p>4. Rate</p>
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <%= form.select :agreed_payments_currency4, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <div> <%= form.text_field :agreed_payments_amount4, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                 </div>
                                                 <div class="col-md-1">
                                                     <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
@@ -1487,23 +1405,78 @@
                                                     <p>%</p>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <%= form.select :agreed_payments_time4, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
-                                                    ], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_time, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                               "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                               "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                               "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                               "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                               "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-2">
-                                                    <div> <%= form.text_field :agreed_payments_some_output4, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_some_output, class: "form-control" %> </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-2 col-md-offset-1">
+                                                    <p>3. Rate</p>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <%= form.select :agreed_payments_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                    %> </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
+                                                </div>
+                                                <div class="col-md-1 ">
+                                                    <p>%</p>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <%= form.select :agreed_payments_time, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                               "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                               "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                               "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                               "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                               "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "form-control" %>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div> <%= form.text_field :agreed_payments_some_output, class: "form-control" %> </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-2 col-md-offset-1">
+                                                    <p>4. Rate</p>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <%= form.select :agreed_payments_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                    %> </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
+                                                </div>
+                                                <div class="col-md-1 ">
+                                                    <p>%</p>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <%= form.select :agreed_payments_time, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                               "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                               "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                               "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                               "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                               "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "form-control" %>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div> <%= form.text_field :agreed_payments_some_output, class: "form-control" %> </div>
                                                 </div>
 
                                             </div>
@@ -1512,35 +1485,29 @@
                                                     <p>5. Rate</p>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <%= form.select :agreed_payments_currency5, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :agreed_payments_amount5, class: "form-control", placeholder: "0,00" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                    %> </div>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :agreed_payments_output5, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
                                                 </div>
                                                 <div class="col-md-1 ">
                                                     <p>%</p>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <%= form.select :agreed_payments_time5, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
-                                                    ], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_time, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                               "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                               "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                               "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                               "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                               "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-2">
-                                                    <div> <%= form.text_field :agreed_payments_some_output5, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_some_output, class: "form-control" %> </div>
                                                 </div>
 
                                             </div>
@@ -1549,35 +1516,29 @@
                                                     <p>6. Rate</p>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <%= form.select :agreed_payments_currency6, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :agreed_payments_amount6, class: "form-control", placeholder: "0,00" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                    %> </div>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :agreed_payments_output6, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
                                                 </div>
                                                 <div class="col-md-1 ">
                                                     <p>%</p>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <%= form.select :agreed_payments_time6, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
-                                                    ], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_time, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                               "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                               "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                               "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                               "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                               "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-2">
-                                                    <div> <%= form.text_field :agreed_payments_some_output6, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_some_output, class: "form-control" %> </div>
                                                 </div>
 
                                             </div>
@@ -1586,35 +1547,29 @@
                                                     <p>7. Rate</p>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <%= form.select :agreed_payments_currency7, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :agreed_payments_amount7, class: "form-control", placeholder: "0,00" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                    %> </div>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :agreed_payments_output7, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
                                                 </div>
                                                 <div class="col-md-1 ">
                                                     <p>%</p>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <%= form.select :agreed_payments_time7, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
-                                                    ], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_time, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                               "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                               "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                               "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                               "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                               "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-2">
-                                                    <div> <%= form.text_field :agreed_payments_some_output7, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_some_output, class: "form-control" %> </div>
                                                 </div>
 
                                             </div>
@@ -1623,35 +1578,29 @@
                                                     <p>8. Rate</p>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <%= form.select :agreed_payments_currency8, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :agreed_payments_amount8, class: "form-control", placeholder: "0,00" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                    %> </div>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :agreed_payments_output8, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
                                                 </div>
                                                 <div class="col-md-1 ">
                                                     <p>%</p>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <%= form.select :agreed_payments_time8, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
-                                                    ], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_time, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                               "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                               "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                               "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                               "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                               "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-2">
-                                                    <div> <%= form.text_field :agreed_payments_some_output8, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_some_output, class: "form-control" %> </div>
                                                 </div>
 
                                             </div>
@@ -1660,31 +1609,25 @@
                                                     <p>9. Rate</p>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <%= form.select :agreed_payments_currency9, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :agreed_payments_amount9, class: "form-control", placeholder: "0,00" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                    %> </div>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :agreed_payments_output9, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
                                                 </div>
                                                 <div class="col-md-1 ">
                                                     <p>%</p>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <%= form.select :agreed_payments_time9, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
-                                                                                             ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
-                                                    ], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_time, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                               "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                               "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                               "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                               "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                               "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-2">
@@ -1697,45 +1640,39 @@
                                                     <p>10. Rate</p>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <%= form.select :agreed_payments_currency10, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :agreed_payments_amount10, class: "form-control", placeholder: "0,00" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                    %> </div>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :agreed_payments_output10, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
                                                 </div>
                                                 <div class="col-md-1 ">
                                                     <p>%</p>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <%= form.select :agreed_payments_time10, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
-                                                                                              ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
-                                                                                              ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
-                                                                                              ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
-                                                                                              ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
-                                                                                              ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
-                                                                                              ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
-                                                                                              ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
-                                                                                              ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
-                                                                                              ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
-                                                                                              ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
-                                                                                              ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
-                                                    ], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_time, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                               "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                               "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                               "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                               "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                               "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-2">
-                                                    <div> <%= form.text_field :agreed_payments_some_output10, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_some_output, class: "form-control" %> </div>
                                                 </div>
 
                                             </div>
 
-
                                             <div id="workwithothercompanies">
                                                 <div class="row">
                                                     <div class="col-md-10 col-md-offset-1">
-                                                        <br><br><br>
-                                                        <p> Wenn Sie Zahlungsvehikel wie z.B. Wechsel, Sola-Wechsel oder
+                                                        <br><br>
+                                                        <p> Wenn Sie Zahlungsvehikel wie z.B. Wechsel, Sola-Wechsel
+                                                            oder
                                                             Promissory
                                                             Notes
                                                             vereinbart haben, so geben Sie dies bitte hier an.
@@ -1750,133 +1687,117 @@
                                     </div>
                                 </div>
 
-                                <div id="MittelTermOfPayment" style="display: none; background-color: #f7f7f7;">
-
-                                    <div class="form-group">
-
-
-                                        <div class="row">
-                                            <div class="col-md-10 col-md-offset-1">
-                                                <p>Wann werden Sie die Anzahlung erhalten?
-                                                </p>
+                                <div id="MittelTermOfPayment" style="display: none;">
+                                    <div class="appear">
+                                        <br>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-10 col-md-offset-1">
+                                                    <p>Wann werden Sie die Anzahlung erhalten?
+                                                    </p>
+                                                </div>
                                             </div>
+                                            <br>
+
+                                            <div class="row">
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <%= form.select :receive_deposit_time, options_for_select(["vor Fabrikationsbeginn", "vor Liefer /- Leistungbeginn", "bei Betriebsbereitschaft",
+                                                                                                               "anderer Termin"]), {}, class: "form-control" %>
+                                                </div>
+                                            </div>
+
+                                            <br><br>
+
+                                            <div class="row">
+                                                <div class="col-md-10 col-md-offset-1">
+                                                    <p>Wie gestaltet sich das Tilgungsprofil?
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <br>
+
+                                            <div class="row">
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <%= form.select :repayment_profile_structure, options_for_select(["Monatliche Tilgungsraten", "Vierteljährliche Tilgungsprofil",
+                                                                                                                      "Halbjährige Tilgungsprofil", "Unregelmäßig"]), {}, class: "form-control" %>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-md-8 col-md-offset-1">
+                                                    <p>Wann beginnt die Kreditlaufzeit (Starting Point)?
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <br>
+
+                                            <div class="row">
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <%= form.select :loan_term_start, options_for_select(["mit Lieferung", "mit erster Lieferung (bei mehreren Lieferungen)",
+                                                                                                          "mit jeweiliger Lieferung (bei mehreren Lieferungen)",
+                                                                                                          "mittlerer gewogener Liefertermin (bei mehreren Lieferungen)",
+                                                                                                          "mit Betriebsbereitschaft", "sonstige"]), {}, class: "form-control" %>
+
+
+                                                </div>
+                                                <div class="col-md-10 col-md-offset-1">
+                                                    <br>
+                                                    <%= form.text_area :loan_term_other_description, class: "form-control", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
+                                                </div>
+
+                                            </div>
+
                                         </div>
                                         <br>
 
-                                        <div class="row">
-                                            <div class="col-md-6 col-md-offset-2">
-                                                <%= form.select :receive_deposit_time, [["vor Fabrikationsbeginn", "vor Fabrikationsbeginn"],
-                                                                                        ["vor Liefer /- Leistungbeginn", "vor Liefer /- Leistungbeginn"],
-                                                                                        ["bei Betriebsbereitschaft", "bei Betriebsbereitschaft"],
-                                                                                        ["anderer Termin", "anderer Termin"]], id: "B_168", class: "form-control" %>
+                                        <div id="workwithothercompanies">
+                                            <div class="row">
+                                                <div class="col-md-10 col-md-offset-1">
+                                                    <p> Bitte geben Sie hier die Anzahl der Raten ein
+                                                    </p>
+                                                </div>
                                             </div>
+                                            <div class="row">
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <%= form.text_field :number_of_installments, class: "form-control", placeholder: "Anzahl der Raten", :onkeypress => "return onlyAllowNumericalValue(event)" %>
+                                                </div>
+                                            </div>
+
+                                            <br><br>
                                         </div>
-
-                                        <br><br>
-
-
-                                        <div class="row">
-                                            <div class="col-md-10 col-md-offset-1">
-                                                <p>Wie gestaltet sich das Tilgungsprofil?
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <br>
-
-                                        <div class="row">
-                                            <div class="col-md-6 col-md-offset-2">
-                                                <%= form.select :repayment_profile_structure, [["Monatliche Tilgungsraten", "Monatliche Tilgungsraten"],
-                                                                                               ["Vierteljährliche Tilgungsprofil", "Vierteljährliche Tilgungsprofil"],
-                                                                                               ["Halbjährige Tilgungsprofil", "Halbjährige Tilgungsprofil"],
-                                                                                               ["Unregelmäßig", "Unregelmäßig"],
-                                                ], class: "form-control", id: "B_168" %>
-                                            </div>
-                                        </div>
-
-                                        <br><br>
-
-                                        <hr align="middle" width="90%">
-
-                                        <div class="row">
-                                            <div class="col-md-8 col-md-offset-1">
-                                                <p>Wann beginnt die Kreditlaufzeit (Starting Point)?
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <br>
-
-                                        <div class="row">
-                                            <div class="col-md-6 col-md-offset-2">
-                                                <%= form.select :loan_term_start, [["mit Lieferung", "mit Lieferung"],
-                                                                                   ["mit erster Lieferung (bei mehreren Lieferungen)", "mit erster Lieferung (bei mehreren Lieferungen)"],
-                                                                                   ["mit jeweiliger Lieferung (bei mehreren Lieferungen)", "mit jeweiliger Lieferung (bei mehreren Lieferungen)"],
-                                                                                   ["mittlerer gewogener Liefertermin (bei mehreren Lieferungen)", "mittlerer gewogener Liefertermin (bei mehreren Lieferungen)"],
-                                                                                   ["mit Betriebsbereitschaft", "mit Betriebsbereitschaft"],
-                                                                                   ["sonstige", "sonstige"],
-
-                                                ], class: "form-control", id: "B_168" %>
-
-
-                                            </div>
-                                            <div class="col-md-8 col-md-offset-1">
-                                                <br>
-                                                <%= form.text_area :loan_term_other_description, class: "form-control", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <hr align="middle" width="90%">
-                                    <br>
-
-                                    <div id="workwithothercompanies">
-                                        <div class="row">
-                                            <div class="col-md-10 col-md-offset-1">
-                                                <p> Bitte geben Sie hier die Anzahl der Raten ein
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6 col-md-offset-1">
-                                                <%= form.text_field :number_of_installments, class: "form-control", placeholder: "Anzahl der Raten", :onkeypress => "return onlyAllowNumericalValue(event)" %>
-                                            </div>
-                                        </div>
-
-                                        <br><br>
                                     </div>
 
                                 </div>
 
-                                <div id="SonstigeKurzFristigTermOfPayment" style="display: none; background-color: #f7f7f7;">
+                                <div id="SonstigeKurzFristigTermOfPayment" style="display: none;">
 
-                                    <div class="form-group">
-
-                                        <div class="row">
-                                            <div class="col-md-8 col-md-offset-1">
-
-                                                <p> Sofern Sie eine Anzahlung vereinbart haben, die vor Lieferbeginn
-                                                    geleistet
-                                                    wird,
-                                                    geben Sie bitte den entsprechenden Betrag an.</p>
+                                    <div class="appear">
+                                        <br>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-10 col-md-offset-1">
+                                                    <p> Sofern Sie eine Anzahlung vereinbart haben, die vor Lieferbeginn
+                                                        geleistet
+                                                        wird,
+                                                        geben Sie bitte den entsprechenden Betrag an.</p>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="row">
-                                            <br>
-                                            <div class="col-md-2 col-md-offset-1">
-                                                <%= form.select :down_payment_before_delivery_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div> <%= form.text_field :down_payment_before_delivery_amount, class: "form-control", placeholder: "Betrag", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div> <%= form.text_field :down_payment_before_delivery_explain, class: "form-control", placeholder: "Beschreibung" %> </div>
-                                            </div>
-                                        </div>
+                                            <div class="row">
+                                                <br>
 
-                                        <div class="row">
-                                            <br>
+                                                <div class="col-md-2 col-md-offset-1">
+                                                    <%= form.select :downpayment_delivery_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div> <%= form.text_field :downpayment_delivery_amount, class: "form-control", placeholder: "Betrag", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div> <%= form.text_field :downpayment_delivery_description, class: "form-control", placeholder: "Beschreibung" %> </div>
+                                                </div>
+                                            </div>
+
+                                            <br><br>
 
                                             <div class="row">
                                                 <div class="col-md-8 col-md-offset-1">
@@ -1889,35 +1810,29 @@
                                                     <p>1. Rate</p>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <%= form.select :sonstige_kurzfrist_agreed_payment_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                    %> </div>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_percent, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
                                                 </div>
                                                 <div class="col-md-1 ">
                                                     <p>%</p>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <%= form.select :sonstige_kurzfrist_agreed_payment_date, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
-                                                                                                              ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
-                                                                                                              ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
-                                                                                                              ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
-                                                                                                              ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
-                                                                                                              ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
-                                                                                                              ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
-                                                                                                              ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
-                                                                                                              ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
-                                                                                                              ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
-                                                                                                              ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
-                                                                                                              ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
-                                                    ], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_time, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                               "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                               "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                               "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                               "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                               "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-2">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_output, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_some_output, class: "form-control" %> </div>
                                                 </div>
 
                                             </div>
@@ -1926,35 +1841,29 @@
                                                     <p>2. Rate</p>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <%= form.select :sonstige_kurzfrist_agreed_payment_currency1, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_amount1, class: "form-control", placeholder: "0,00" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                    %> </div>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_percent1, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
                                                 </div>
                                                 <div class="col-md-1 ">
                                                     <p>%</p>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <%= form.select :sonstige_kurzfrist_agreed_payment_date1, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
-                                                    ], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_time, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                               "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                               "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                               "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                               "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                               "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-2">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_output1, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_some_output, class: "form-control" %> </div>
                                                 </div>
 
                                             </div>
@@ -1963,35 +1872,29 @@
                                                     <p>3. Rate</p>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <%= form.select :sonstige_kurzfrist_agreed_payment_currency2, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_amount2, class: "form-control", placeholder: "0,00" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                    %> </div>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_percent2, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
                                                 </div>
                                                 <div class="col-md-1 ">
                                                     <p>%</p>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <%= form.select :sonstige_kurzfrist_agreed_payment_date2, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
-                                                    ], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_time, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                               "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                               "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                               "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                               "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                               "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-2">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_output2, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_some_output, class: "form-control" %> </div>
                                                 </div>
 
                                             </div>
@@ -2000,35 +1903,29 @@
                                                     <p>4. Rate</p>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <%= form.select :sonstige_kurzfrist_agreed_payment_currency3, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_amount3, class: "form-control", placeholder: "0,00" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                    %> </div>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_percent3, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
                                                 </div>
                                                 <div class="col-md-1 ">
                                                     <p>%</p>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <%= form.select :sonstige_kurzfrist_agreed_payment_date3, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
-                                                    ], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_time, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                               "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                               "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                               "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                               "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                               "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-2">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_output3, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_some_output, class: "form-control" %> </div>
                                                 </div>
 
                                             </div>
@@ -2037,35 +1934,29 @@
                                                     <p>5. Rate</p>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <%= form.select :sonstige_kurzfrist_agreed_payment_currency4, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_amount4, class: "form-control", placeholder: "0,00" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                    %> </div>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_percent4, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
                                                 </div>
                                                 <div class="col-md-1 ">
                                                     <p>%</p>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <%= form.select :sonstige_kurzfrist_agreed_payment_date4, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
-                                                    ], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_time, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                               "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                               "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                               "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                               "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                               "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-2">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_output4, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_some_output, class: "form-control" %> </div>
                                                 </div>
 
                                             </div>
@@ -2074,35 +1965,29 @@
                                                     <p>6. Rate</p>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <%= form.select :sonstige_kurzfrist_agreed_payment_currency5, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_amount5, class: "form-control", placeholder: "0,00" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                    %> </div>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_percent5, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
                                                 </div>
                                                 <div class="col-md-1 ">
                                                     <p>%</p>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <%= form.select :sonstige_kurzfrist_agreed_payment_date5, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
-                                                    ], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_time, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                               "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                               "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                               "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                               "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                               "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-2">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_output5, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_some_output, class: "form-control" %> </div>
                                                 </div>
 
                                             </div>
@@ -2111,35 +1996,29 @@
                                                     <p>7. Rate</p>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <%= form.select :sonstige_kurzfrist_agreed_payment_currency6, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_amount6, class: "form-control", placeholder: "0,00" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                    %> </div>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_percent6, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
                                                 </div>
                                                 <div class="col-md-1 ">
                                                     <p>%</p>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <%= form.select :sonstige_kurzfrist_agreed_payment_date6, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
-                                                    ], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_time, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                               "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                               "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                               "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                               "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                               "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-2">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_output6, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_some_output, class: "form-control" %> </div>
                                                 </div>
 
                                             </div>
@@ -2148,35 +2027,29 @@
                                                     <p>8. Rate</p>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <%= form.select :sonstige_kurzfrist_agreed_payment_currency7, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_amount7, class: "form-control", placeholder: "0,00" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                    %> </div>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_percent7, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
                                                 </div>
                                                 <div class="col-md-1 ">
                                                     <p>%</p>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <%= form.select :sonstige_kurzfrist_agreed_payment_date7, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
-                                                    ], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_time, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                               "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                               "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                               "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                               "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                               "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-2">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_output7, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_some_output, class: "form-control" %> </div>
                                                 </div>
 
                                             </div>
@@ -2185,35 +2058,29 @@
                                                     <p>9. Rate</p>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <%= form.select :sonstige_kurzfrist_agreed_payment_currency8, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_amount8, class: "form-control", placeholder: "0,00" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                    %> </div>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_percent8, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
                                                 </div>
                                                 <div class="col-md-1 ">
                                                     <p>%</p>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <%= form.select :sonstige_kurzfrist_agreed_payment_date8, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
-                                                    ], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_time, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                               "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                               "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                               "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                               "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                               "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-2">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_output8, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_some_output, class: "form-control" %> </div>
                                                 </div>
 
                                             </div>
@@ -2222,153 +2089,136 @@
                                                     <p>10. Rate</p>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <%= form.select :sonstige_kurzfrist_agreed_payment_currency9, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_amount9, class: "form-control", placeholder: "0,00" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                    %> </div>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_percent9, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
                                                 </div>
                                                 <div class="col-md-1 ">
                                                     <p>%</p>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <%= form.select :sonstige_kurzfrist_agreed_payment_date9, [["bis zu 1 Monate", "bis zu 1 Monate"], ["bis zu 2 Monate", "bis zu 2 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 3 Monate"], ["bis zu 4 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 5 Monate"], ["bis zu 6 Monate", "bis zu 6 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 7 Monate"], ["bis zu 8 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 9 Monate"], ["bis zu 10 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 11 Monate"], ["bis zu 12 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 13 Monate"], ["bis zu 14 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 15 Monate"], ["bis zu 16 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 17 Monate"], ["bis zu 18 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 19 Monate"], ["bis zu 20 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 21 Monate"], ["bis zu 22 Monate", "bis zu 4 Monate"],
-                                                                                                               ["bis zu 2 Monate", "bis zu 23 Monate"], ["bis zu 24 Monate", "bis zu 4 Monate"]
-                                                    ], class: "form-control", id: "B_168" %>
+                                                    <%= form.select :agreed_payments_time, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                               "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                               "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                               "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                               "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                               "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-2">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_output9, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_some_output, class: "form-control" %> </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row">
+                                                <br>
+
+                                                <div class="col-md-8 col-md-offset-1">
+                                                    <p>Bitte geben Sie die Höhe der An- und Zwischenzahlungen an.</p>
+                                                    <br>
+
+                                                    <p><i>Bitte beachten Sie, dass die Anzahlung stets vor Lieferung
+                                                        gezahlt
+                                                        werden
+                                                        und bei
+                                                        mittel- /langfristigen Zahlungsbediungungen mindestens 15 % des
+                                                        Auftragswerts
+                                                        betragen
+                                                        muss (auf Grund internationaler Bestimmungen).. </i></p>
+                                                    <br>
+
+                                                </div>
+                                            </div>
+                                            <div class="row">
+
+                                                <div class="col-md-2 col-md-offset-1">
+                                                    <%= form.select :sonstige_kurzfrist_advance_payment_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div> <%= form.text_field :sonstige_kurzfrist_advance_payment_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div> <%= form.text_field :sonstige_kurzfrist_advance_payment_explain, class: "form-control" %> </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <p>%</p>
+                                                </div>
+
+                                            </div>
+
+                                            <br><br>
+                                            <div class="row">
+                                                <div class="col-md-10 col-md-offset-1">
+                                                    <p>Wann werden Sie die Anzahlung erhalten?
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <br>
+
+                                            <div class="row">
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <%= form.select :sonstige_kurzfrist_deposit_received, options_for_select(["vor Fabrikationsbeginn", "vor Liefer /- Leistungbeginn",
+                                                                                                                              "bei Betriebsbereitschaft", "anderer Termin",]), {}, class: "form-control" %>
+                                                </div>
+                                            </div>
+
+                                            <br><br>
+
+
+                                            <div class="row">
+                                                <div class="col-md-10 col-md-offset-1">
+                                                    <p>Wie gestaltet sich das Tilgungsprofil?
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <br>
+
+                                            <div class="row">
+                                                <div class="col-md-4 col-md-offset-1">
+                                                    <%= form.select :sonstige_kurzfrist_repayment_structure, options_for_select(["Monatliche Tilgungsraten", "Vierteljährliche Tilgungsprofil",
+                                                                                                                                 "Halbjährige Tilgungsprofil", "Unregelmäßig"]), {}, class: "form-control" %>
+                                                </div>
+                                            </div>
+                                            <br>
+
+                                            <div class="row">
+                                                <div class="col-md-10 col-md-offset-1">
+                                                    <p>Wann beginnt die Kreditlaufzeit (Starting Point)?
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <br>
+
+                                            <div class="row">
+                                                <div class="col-md-6 col-md-offset-1">
+                                                    <%= form.select :sonstige_kurzfrist_credit_start, options_for_select(["mit Lieferung", "mit erster Lieferung (bei mehreren Lieferungen)",
+                                                                                                                          "mit jeweiliger Lieferung (bei mehreren Lieferungen)",
+                                                                                                                          "mittlerer gewogener Liefertermin (bei mehreren Lieferungen)",
+                                                                                                                          "mit Betriebsbereitschaft", "sonstige"]), {}, class: "form-control" %>
+
+
+                                                </div>
+                                                <div class="col-md-8 col-md-offset-1">
+                                                    <br>
+                                                    <%= form.text_area :sonstige_kurzfrist_credit_start_sonstige_explain, class: "form-control", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
                                                 </div>
 
                                             </div>
                                         </div>
 
-
-                                        <div class="row">
-                                            <br><br><br>
-
-                                            <div class="col-md-8 col-md-offset-1">
-                                                <p>Bitte geben Sie die Höhe der An- und Zwischenzahlungen an.</p> <br>
-
-                                                <p><i>Bitte beachten Sie, dass die Anzahlung stets vor Lieferung gezahlt
-                                                    werden
-                                                    und bei
-                                                    mittel- /langfristigen Zahlungsbediungungen mindestens 15 % des
-                                                    Auftragswerts
-                                                    betragen
-                                                    muss (auf Grund internationaler Bestimmungen).. </i></p>
-                                                <br>
-
-                                            </div>
-                                        </div>
-                                        <div class="row">
-
-                                            <div class="col-md-1 col-md-offset-1">
-                                                <%= form.select :sonstige_kurzfrist_advance_payment_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div> <%= form.text_field :sonstige_kurzfrist_advance_payment_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div> <%= form.text_field :sonstige_kurzfrist_advance_payment_explain, class: "form-control" %> </div>
-                                            </div>
-                                            <div class="col-md-1">
-                                                <p>%</p>
-                                            </div>
-
-                                        </div>
-
-                                        <br><br>
-                                        <div class="row">
-                                            <div class="col-md-10 col-md-offset-1">
-                                                <p>Wann werden Sie die Anzahlung erhalten?
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <br>
-
-                                        <div class="row">
-                                            <div class="col-md-6 col-md-offset-2">
-                                                <%= form.select :sonstige_kurzfrist_deposit_received, [["vor Fabrikationsbeginn", "vor Fabrikationsbeginn"],
-                                                                                                       ["vor Liefer /- Leistungbeginn", "vor Liefer /- Leistungbeginn"],
-                                                                                                       ["bei Betriebsbereitschaft", "bei Betriebsbereitschaft"],
-                                                                                                       ["anderer Termin", "anderer Termin"]], class: "form-control", id: "B_168" %>
-                                            </div>
-                                        </div>
-
-                                        <br><br>
-
-
-                                        <div class="row">
-                                            <div class="col-md-10 col-md-offset-1">
-                                                <p>Wie gestaltet sich das Tilgungsprofil?
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <br>
-
-                                        <div class="row">
-                                            <div class="col-md-6 col-md-offset-2">
-                                                <%= form.select :sonstige_kurzfrist_repayment_structure, [["Monatliche Tilgungsraten", "Monatliche Tilgungsraten"],
-                                                                                                          ["Vierteljährliche Tilgungsprofil", "Vierteljährliche Tilgungsprofil"],
-                                                                                                          ["Halbjährige Tilgungsprofil", "Halbjährige Tilgungsprofil"],
-                                                                                                          ["Unregelmäßig", "Unregelmäßig"],
-                                                ], id: "B_168", class: "form-control", prompt: "Monatliche Tilgungsraten..." %>
-                                            </div>
-                                        </div>
-
-                                        <br><br>
-
-                                        <hr align="middle" width="90%">
-
-                                        <div class="row">
-                                            <div class="col-md-10 col-md-offset-1">
-                                                <p>Wann beginnt die Kreditlaufzeit (Starting Point)?
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <br>
-
-                                        <div class="row">
-                                            <div class="col-md-6 col-md-offset-1">
-                                                <%= form.select :sonstige_kurzfrist_credit_start, [["mit Lieferung", "mit Lieferung"],
-                                                                                                   ["mit erster Lieferung (bei mehreren Lieferungen)", "mit erster Lieferung (bei mehreren Lieferungen)"],
-                                                                                                   ["mit jeweiliger Lieferung (bei mehreren Lieferungen)", "mit jeweiliger Lieferung (bei mehreren Lieferungen)"],
-                                                                                                   ["mittlerer gewogener Liefertermin (bei mehreren Lieferungen)", "mittlerer gewogener Liefertermin (bei mehreren Lieferungen)"],
-                                                                                                   ["mit Betriebsbereitschaft", "mit Betriebsbereitschaft"],
-                                                                                                   ["sonstige", "sonstige"],
-
-                                                ], id: "B_168", class: "form-control", prompt: "mit Lieferung..." %>
-
-
-                                            </div>
-                                            <div class="col-md-8 col-md-offset-1">
-                                                <br>
-                                                <%= form.text_area :sonstige_kurzfrist_credit_start_sonstige_explain, class: "form-control", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div id="workwithothercompanies">
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-md-10 col-md-offset-1">
-                                                    <p> Bitte geben Sie hier die Anzahl der Raten ein
-                                                    </p>
+                                        <div id="workwithothercompanies">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-10 col-md-offset-1">
+                                                        <p> Bitte geben Sie hier die Anzahl der Raten ein
+                                                        </p>
+                                                    </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6 col-md-offset-1">
@@ -2376,26 +2226,26 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <br>
                                         </div>
 
-                                        <br><br>
-                                    </div>
+                                        <div id="workwithothercompanies">
+                                            <div class="row">
+                                                <div class="col-md-10 col-md-offset-1">
 
-
-                                    <div id="workwithothercompanies">
-                                        <div class="row">
-                                            <div class="col-md-10 col-md-offset-1">
-
-                                                <p> Wenn Sie Zahlungsvehikel wie z.B. Wechsel, Sola-Wechsel oder
-                                                    Promissory
-                                                    Notes vereinbart haben, so geben Sie dies bitte hier an.
-                                                </p>
-                                                <div> <%= form.text_field :sonstige_kurzfrist_payment_vehichle_explain, class: "form-control" %> </div>
+                                                    <p> Wenn Sie Zahlungsvehikel wie z.B. Wechsel, Sola-Wechsel oder
+                                                        Promissory
+                                                        Notes vereinbart haben, so geben Sie dies bitte hier an.
+                                                    </p>
+                                                    <div> <%= form.text_field :sonstige_kurzfrist_payment_vehichle_explain, class: "form-control" %> </div>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <br><br>
+                                            <br><br>
+                                        </div>
                                     </div>
+
+                                    <br>
 
                                 </div>
 
@@ -2428,91 +2278,93 @@
                                     </div>
                                 </div>
 
-                                <div id="yesNoCertificateOfOrigin" style="display: none; background-color: #f7f7f7;">
+                                <div id="yesNoCertificateOfOrigin" style="display: none;">
 
-                                    <br><br>
+                                    <br>
+                                    <div class="appear">
+                                        <br>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-8 col-md-offset-1">
+                                                    <p> Bitte geben Sie die Zulieferungen aus dem Ausland an. </p>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-md-2 col-md-offset-1">
+                                                    <%= form.select :supplied_all_rawgoods_country, options_for_select(['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
+                                                                                                                        'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados',
+                                                                                                                        'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana',
+                                                                                                                        'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon',
+                                                                                                                        'Canada', 'Central African Republic (CAR)', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros',
+                                                                                                                        'Democratic Republic of the Congo', 'Republic of the Congo', 'Costa Rica', 'Cote d\'Ivoire',
+                                                                                                                        'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic',
+                                                                                                                        'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia',
+                                                                                                                        'Eswatini (formerly Swaziland)', 'Ethiopia', 'Fiji', 'Finland', 'France', 'Gabon',
+                                                                                                                        'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea',
+                                                                                                                        'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia',
+                                                                                                                        'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan',
+                                                                                                                        'Kenya', 'Kiribati', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho',
+                                                                                                                        'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macedonia (FYROM)', 'Madagascar',
+                                                                                                                        'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius',
+                                                                                                                        'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique',
+                                                                                                                        'Myanmar (formerly Burma)', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua',
+                                                                                                                        'Niger', 'Nigeria', 'North Korea', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestine', 'Panama',
+                                                                                                                        'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania',
+                                                                                                                        'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines',
+                                                                                                                        'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles',
+                                                                                                                        'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa',
+                                                                                                                        'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname',
+                                                                                                                        'Swaziland (renamed to Eswatini)', 'Sweden', 'Switzerland', 'Syria', 'Taiwan',
+                                                                                                                        'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago',
+                                                                                                                        'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates (UAE)',
+                                                                                                                        'United Kingdom (UK)', 'United States of America (USA)', 'Uruguay', 'Uzbekistan', 'Vanuatu',
+                                                                                                                        'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe']), {}, class: "form-control" %>
+                                                </div>
 
-                                    <div class="form-group">
-                                        <div class="col-md-8 col-md-offset-2">
-                                            <p> Bitte geben Sie die Zulieferungen aus dem Ausland an. </p>
+                                                <div class="col-md-2 col-md-offset-1">
+                                                    <%= form.select :supplied_all_rawgoods_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
+                                                </div>
+
+                                                <div class="col-md-4 ">
+                                                    <%= form.text_field :supplied_all_rawgoods_text, class: "form-control" %>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <br><br>
+                                        <br>
 
-                                        <div class="row">
-                                            <div class="col-md-2 col-md-offset-2">
-                                                <%= form.select :supplied_all_rawgoods_country,
-                                                                ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
-                                                                 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados',
-                                                                 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana',
-                                                                 'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon',
-                                                                 'Canada', 'Central African Republic (CAR)', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros',
-                                                                 'Democratic Republic of the Congo', 'Republic of the Congo', 'Costa Rica', 'Cote d\'Ivoire',
-                                                                 'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic',
-                                                                 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia',
-                                                                 'Eswatini (formerly Swaziland)', 'Ethiopia', 'Fiji', 'Finland', 'France', 'Gabon',
-                                                                 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea',
-                                                                 'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia',
-                                                                 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan',
-                                                                 'Kenya', 'Kiribati', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho',
-                                                                 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macedonia (FYROM)', 'Madagascar',
-                                                                 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius',
-                                                                 'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique',
-                                                                 'Myanmar (formerly Burma)', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua',
-                                                                 'Niger', 'Nigeria', 'North Korea', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestine', 'Panama',
-                                                                 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania',
-                                                                 'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines',
-                                                                 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles',
-                                                                 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa',
-                                                                 'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname',
-                                                                 'Swaziland (renamed to Eswatini)', 'Sweden', 'Switzerland', 'Syria', 'Taiwan',
-                                                                 'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago',
-                                                                 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates (UAE)',
-                                                                 'United Kingdom (UK)', 'United States of America (USA)', 'Uruguay', 'Uzbekistan', 'Vanuatu',
-                                                                 'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'], class: "form-control", prompt: "EU-Länder" %>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-11 col-md-offset-1">
+                                                    <p> Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig
+                                                        sind. </p>
+                                                </div>
                                             </div>
 
-                                            <div class="col-md-2">
-                                                <%= form.select :supplied_all_rawgoods_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control" %>
-                                            </div>
-
-                                            <div class="col-md-4 ">
-                                                <%= form.text_field :supplied_all_rawgoods_text, class: "form-control" %>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <br><br>
-
-                                    <div class="form-group">
-                                        <div class="col-md-11 col-md-offset-2">
-                                            <p> Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig
-                                                sind. </p>
-                                        </div>
-                                        <br><br>
-
-                                        <div class="row">
-                                            <div class="col-md-8 col-md-offset-2">
-                                                <%= form.text_area :supplied_all_rawgoods_why_necessary, class: "form-control" %>
-                                                <br><br>
+                                            <div class="row">
+                                                <div class="col-md-10 col-md-offset-1">
+                                                    <%= form.text_area :supplied_all_rawgoods_why_necessary, class: "form-control" %>
+                                                    <br><br>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
 
                                 <div id="yesNoCertificateOfOriginTeil" style="display: none; background-color: #f7f7f7;">
 
                                     <br><br>
 
                                     <div class="form-group">
-                                        <div class="col-md-8 col-md-offset-2">
-                                            <p> Bitte geben Sie die Zulieferungen aus dem Ausland an. </p>
-                                        </div>
-                                        <br><br>
-
                                         <div class="row">
-                                            <div class="col-md-2 col-md-offset-2">
-                                                <%= form.select :supplied_partly_rawgoods_country, ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
+                                            <div class="col-md-8 col-md-offset-1">
+                                                <p> Bitte geben Sie die Zulieferungen aus dem Ausland an. </p>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-2 col-md-offset-1">
+                                                <%= form.select :supplied_partly_rawgoods_country, options_for_select(['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
                                                                                                     'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados',
                                                                                                     'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana',
                                                                                                     'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon',
@@ -2539,12 +2391,11 @@
                                                                                                     'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago',
                                                                                                     'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates (UAE)',
                                                                                                     'United Kingdom (UK)', 'United States of America (USA)', 'Uruguay', 'Uzbekistan', 'Vanuatu',
-                                                                                                    'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'],
-                                                                class: "form-control", prompt: "EU-Länder" %>
+                                                                                                    'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe']),{}, class: "form-control"%>
                                             </div>
 
                                             <div class="col-md-2">
-                                                <%= form.select :supplied_partly_rawgoods_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control" %>
+                                                <%= form.select :supplied_partly_rawgoods_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                             </div>
 
                                             <div class="col-md-4 ">
@@ -2553,15 +2404,16 @@
                                         </div>
                                     </div>
 
-                                    <br><br>
+                                    <br>
 
                                     <div class="form-group">
-                                        <div class="col-md-11 col-md-offset-2">
-                                            <p> Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig
-                                                sind. </p>
+                                        <div class="row">
+                                            <div class="col-md-11 col-md-offset-1">
+                                                <p> Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig
+                                                    sind. </p>
+                                            </div>
                                         </div>
-                                        <br><br>
-
+                                        <br>
                                         <div class="row">
                                             <div class="col-md-8 col-md-offset-2">
                                                 <%= form.text_area :supplied_partly_rawgoods_why_necessary, class: "form-control" %>
