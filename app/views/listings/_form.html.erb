@@ -118,7 +118,7 @@
                                     <div class="col-sm-5 col-sm-offset-3">
                                         <div class="form-group">
                                             <label>Telefon</label>
-                                            <%= form.text_field :price, class: 'form-control' %>
+                                            <%= form.text_field :price, class: 'form-control', :onkeypress=> "return onlyAllowNumericalValueAndPlus(event)" %>
                                         </div>
                                     </div>
                                 </div>
@@ -196,7 +196,7 @@
                                         <div class="col-sm-6 col-sm-offset-3">
                                             <div class="form-group">
                                                 <label>Wie hoch ist der Auftragswert in Euro?</label>
-                                                <%= form.text_field :contract_value, class: 'form-control', placeholder: 'Auftragswert (€)' %>
+                                                <%= form.text_field :contract_value, class: 'form-control', :onkeypress=> "return onlyAllowNumericalValue(event)", placeholder: 'Auftragswert (€)' %>
                                             </div>
                                         </div>
                                     </div>
@@ -797,10 +797,10 @@
                                         <div class="row">
                                             <br><br>
                                             <div class="col-md-4 col-md-offset-2">
-                                                <div> <%= form.text_field :product_original_date_of_manifacture, class: "form-control", placeholder: "Jahr der Fertigung" %> </div>
+                                                <div> <%= form.text_field :product_original_date_of_manifacture, class: "form-control", placeholder: "Jahr der Fertigung", :onkeypress=> "return isNumberInputValidation(event)" %> </div>
                                             </div>
                                             <div class="col-md-4 ">
-                                                <div> <%= form.text_field :product_remaining_life, class: "form-control", placeholder: "Restlebensdauer in Jahren" %> </div>
+                                                <div> <%= form.text_field :product_remaining_life, class: "form-control", placeholder: "Restlebensdauer in Jahren", :onkeypress=> "return isNumberInputValidation(event)"%> </div>
                                             </div>
                                         </div>
                                         <br><br>
@@ -1027,7 +1027,7 @@
                                                         <%= form.select :order_value_export_business_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
                                                     </div>
                                                     <div class="col-md-4 ">
-                                                        <div> <%= form.text_field :order_value_export_business_currency_amount, class: "form-control", placeholder: "0,00" %> </div>
+                                                        <div> <%= form.text_field :order_value_export_business_currency_amount, class: "form-control", placeholder: "0,00", :onkeypress=> "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                     </div>
                                                 </div>
                                                 <br><br>
@@ -1035,7 +1035,7 @@
                                                     <br>
                                                     <div class="col-md-8 col-md-offset-2">
                                                         <p><i>Wie hoch ist der Lieferwert?</i></p>
-                                                        <div> <%= form.text_field :total_delivery_value, class: "form-control", placeholder: "0,00" %> </div>
+                                                        <div> <%= form.text_field :total_delivery_value, class: "form-control", placeholder: "0,00", :onkeypress=> "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                     </div>
                                                 </div>
 
@@ -1044,7 +1044,7 @@
                                                     <div class="col-md-8 col-md-offset-2">
                                                         <p><i> Wie hoch ist der Anteil der Ersatzteile am
                                                             Auftragswert?</i></p>
-                                                        <div> <%= form.text_field :percentage_of_spare_parts_in_whole_order, class: "form-control", placeholder: "0,00" %> </div>
+                                                        <div> <%= form.text_field :percentage_of_spare_parts_in_whole_order, class: "form-control", placeholder: "0,00", :onkeypress=> "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                     </div>
                                                 </div>
 
@@ -1061,7 +1061,7 @@
                                                         <%= form.select :more_components_open_to_exporter_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], id: "B_168" %>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <div> <%= form.text_field :more_components_open_to_exporter_amount, class: "form-control", placeholder: "Betrag" %> </div>
+                                                        <div> <%= form.text_field :more_components_open_to_exporter_amount, class: "form-control", placeholder: "Betrag", :onkeypress=> "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                     </div>
                                                     <div class="col-md-5">
                                                         <div> <%= form.text_field :more_components_open_to_exporter_explain, class: "form-control", placeholder: "Beschreibung" %> </div>
@@ -1127,7 +1127,7 @@
                                                 <%= form.select :interest_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
                                             </div>
                                             <div class="col-md-4">
-                                                <div> <%= form.text_field :interest_amount, class: "form-control", placeholder: "Betrag" %> </div>
+                                                <div> <%= form.text_field :interest_amount, class: "form-control", placeholder: "Betrag", :onkeypress=> "return onlyAllowNumericalValueAndDotComma(event)"%> </div>
                                             </div>
                                             <br><br><br>
                                         </div>
@@ -1340,7 +1340,7 @@
                                                 <%= form.select :downpayment_delivery_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
                                             </div>
                                             <div class="col-md-4">
-                                                <div> <%= form.text_field :downpayment_delivery_amount, class: "form-control", placeholder: "Betrag" %> </div>
+                                                <div> <%= form.text_field :downpayment_delivery_amount, class: "form-control", placeholder: "Betrag", :onkeypress=> "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                             </div>
                                             <div class="col-md-5">
                                                 <div> <%= form.text_field :downpayment_delivery_description, class: "form-control", placeholder: "Beschreibung" %> </div>
@@ -1364,7 +1364,8 @@
                                                     <%= form.select :agreed_payments_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00", :onkeypress=> "return onlyAllowNumericalValueAndDotComma(event)"
+                                                    %> </div>
                                                 </div>
                                                 <div class="col-md-1">
                                                     <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
@@ -1401,7 +1402,8 @@
                                                     <%= form.select :agreed_payments_currency2, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :agreed_payments_amount2, class: "form-control", placeholder: "0,00" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_amount2, class: "form-control", placeholder: "0,00", :onkeypress=> "return onlyAllowNumericalValueAndDotComma(event)"
+                                                    %> </div>
                                                 </div>
                                                 <div class="col-md-1">
                                                     <div> <%= form.text_field :agreed_payments_output2, class: "form-control" %> </div>
@@ -1438,7 +1440,8 @@
                                                     <%= form.select :agreed_payments_currency3, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :agreed_payments_amount3, class: "form-control", placeholder: "0,00" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_amount3, class: "form-control", placeholder: "0,00", :onkeypress=> "return onlyAllowNumericalValueAndDotComma(event)"
+                                                    %> </div>
                                                 </div>
                                                 <div class="col-md-1">
                                                     <div> <%= form.text_field :agreed_payments_output3, class: "form-control" %> </div>
@@ -1475,7 +1478,7 @@
                                                     <%= form.select :agreed_payments_currency4, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :agreed_payments_amount4, class: "form-control", placeholder: "0,00" %> </div>
+                                                    <div> <%= form.text_field :agreed_payments_amount4, class: "form-control", placeholder: "0,00", :onkeypress=> "return onlyAllowNumericalValueAndDotComma(event)"%> </div>
                                                 </div>
                                                 <div class="col-md-1">
                                                     <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
@@ -1836,7 +1839,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6 col-md-offset-1">
-                                                <%= form.text_field :number_of_installments, class: "form-control", placeholder: "Anzahl der Raten" %>
+                                                <%= form.text_field :number_of_installments, class: "form-control", placeholder: "Anzahl der Raten", :onkeypress=> "return onlyAllowNumericalValue(event)" %>
                                             </div>
                                         </div>
 
@@ -1865,7 +1868,7 @@
                                                 <%= form.select :down_payment_before_delivery_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
                                             </div>
                                             <div class="col-md-3">
-                                                <div> <%= form.text_field :down_payment_before_delivery_amount, class: "form-control", placeholder: "Betrag" %> </div>
+                                                <div> <%= form.text_field :down_payment_before_delivery_amount, class: "form-control", placeholder: "Betrag", :onkeypress=> "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div> <%= form.text_field :down_payment_before_delivery_explain, class: "form-control", placeholder: "Beschreibung" %> </div>
@@ -1889,7 +1892,7 @@
                                                     <%= form.select :sonstige_kurzfrist_agreed_payment_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_amount, class: "form-control", placeholder: "0,00" %> </div>
+                                                    <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_amount, class: "form-control", placeholder: "0,00", :onkeypress=> "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                 </div>
                                                 <div class="col-md-1">
                                                     <div> <%= form.text_field :sonstige_kurzfrist_agreed_payment_percent, class: "form-control" %> </div>
@@ -2277,10 +2280,10 @@
                                                 <%= form.select :sonstige_kurzfrist_advance_payment_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], class: "form-control", id: "B_168" %>
                                             </div>
                                             <div class="col-md-4">
-                                                <div> <%= form.text_field :sonstige_kurzfrist_advance_payment_amount, class: "form-control", placeholder: "0,00" %> </div>
+                                                <div> <%= form.text_field :sonstige_kurzfrist_advance_payment_amount, class: "form-control", placeholder: "0,00", :onkeypress=> "return onlyAllowNumericalValueAndDotComma(event)"%> </div>
                                             </div>
                                             <div class="col-md-5">
-                                                <div> <%= form.text_field :sonstige_kurzfrist_advance_payment_explain, class: "form-control", placeholder: "" %> </div>
+                                                <div> <%= form.text_field :sonstige_kurzfrist_advance_payment_explain, class: "form-control" %> </div>
                                             </div>
                                             <div class="col-md-1">
                                                 <p>%</p>
@@ -2369,7 +2372,7 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6 col-md-offset-1">
-                                                        <%= form.text_field :sonstige_kurzfrist_number_of_installments, class: "form-control", placeholder: "Anzahl der Raten" %>
+                                                        <%= form.text_field :sonstige_kurzfrist_number_of_installments, class: "form-control", placeholder: "Anzahl der Raten", :onkeypress=> "return onlyAllowNumericalValue(event)"%>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2687,7 +2690,7 @@
                                             <br><br>
                                             <div class="col-md-3 col-md-offset-1">
                                                 <p> AK-Nummer </p>
-                                                <div> <%= form.text_field :customer_ak_number, class: "form-control" %> </div>
+                                                <div> <%= form.text_field :customer_ak_number, class: "form-control", :onkeypress=> "return onlyAllowNumericalValueAndDotComma(event)"%> </div>
                                             </div>
 
                                             <div class="col-md-3">
@@ -2707,12 +2710,12 @@
                                             <br>
                                             <div class="col-md-3 col-md-offset-1">
                                                 <p> Straße / Hausnummer </p>
-                                                <%= form.text_field :customer_address, class: "form-control" %>
+                                                <%= form.text_field :customer_address, class: "form-control"%>
                                             </div>
 
                                             <div class="col-md-3">
                                                 <p> PLZ </p>
-                                                <%= form.text_field :customer_plz, class: "form-control" %>
+                                                <%= form.text_field :customer_plz, class: "form-control", :onkeypress=> "return onlyAllowNumericalValueAndDotComma(event)" %>
                                             </div>
 
                                             <div class="col-md-3">
@@ -2798,7 +2801,7 @@
                                                 <br>
                                                 <div class="col-md-3 col-md-offset-1">
                                                     <p> PLZ </p>
-                                                    <%= form.text_field :customer_delivery_plz, class: "form-control" %>
+                                                    <%= form.text_field :customer_delivery_plz, class: "form-control", :onkeypress=> "return onlyAllowNumericalValueAndDotComma(event)"%>
                                                 </div>
 
                                                 <div class="col-md-3">
@@ -3051,7 +3054,7 @@
 
                                                 <div class="col-md-3">
                                                     <p> PLZ </p>
-                                                    <div> <%= form.text_field :company_plz, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :company_plz, class: "form-control", :onkeypress=> "return onlyAllowNumericalValueAndDotComma(event)"%> </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -3084,12 +3087,12 @@
                                                 <br>
                                                 <div class="col-md-3 col-md-offset-1">
                                                     <p> Anzahl der Mitarbeiterinnen und Mitarbeiter </p>
-                                                    <%= form.text_field :employees_count, class: "form-control" %>
+                                                    <%= form.text_field :employees_count, class: "form-control", :onkeypress=> "return onlyAllowNumericalValueAndDotComma(event)"%>
                                                 </div>
 
                                                 <div class="col-md-3">
                                                     <p> Umsatz im letzten vollen Geschäftsjahr </p>
-                                                    <div> <%= form.text_field :revenue_last_year, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :revenue_last_year, class: "form-control", :onkeypress=> "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                 </div>
 
                                             </div>
@@ -3103,12 +3106,6 @@
                                             <div class="row">
                                                 <div class="col-md-10 col-md-offset-1">
                                                     <p><b>Wen können wir ansprechen?</b></p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <br>
-                                                <div class="col-md-3 col-md-offset-1">
-                                                    <%= form.text_field :representative, class: "form-control" %>
                                                 </div>
                                             </div>
                                         </div>
@@ -4243,5 +4240,42 @@
             $("#showHideDivResultMessageFail").hide();
         }
     });
+
+
+    //input validation checks here
+
+
+    // only allow numerical value
+    function onlyAllowNumericalValue(evt){
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            alert("Bitte nur numerischen Wert eingeben");
+            return false;
+        }
+        return true;
+    }
+
+    // only allow numerical value and plus symbol
+    function onlyAllowNumericalValueAndPlus(evt){
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 43) {
+            alert("Bitte nur numerischen Wert eingeben");
+            return false;
+        }
+        return true;
+    }
+
+    // only allow numerical value and comma, dot
+    function onlyAllowNumericalValueAndDotComma(evt){
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 44 && charCode != 46) {
+            alert("Bitte nur numerischen Wert eingeben");
+            return false;
+        }
+        return true;
+    }
+
+
+
 
 </script>
