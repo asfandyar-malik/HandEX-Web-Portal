@@ -134,9 +134,7 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
 
                             <div class="tab-pane" id="location">
                                 <h4 class="info-text">Das Wichtigste Zuerst</h4>
@@ -574,7 +572,7 @@
                                     <div class="col-sm-11 col-sm-offset-1">
                                         <div class="form-group">
                                             <div class="row">
-                                                <br><br>
+                                                <br>
                                                 <div class="col-md-12">
                                                     <p><b>Betreffen Ihre Lieferungen bzw. Leistungen ein sensibles
                                                         Gebiet?</b></p>
@@ -756,7 +754,6 @@
                                     <div class="row">
                                         <div class="col-sm-8 col-sm-offset-1">
                                             <div class="form-group">
-                                                <br>
                                                 <p><b>Liefern Sie gebrauchte Ware? </b>
                                                 <p>
 
@@ -1012,69 +1009,74 @@
                                         </div>
                                     </div>
                                 </div>
+                                <br>
 
                                 <div id="contractAmount">
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-10 col-md-offset-1">
 
-                                                <p><b>Bitte geben Sie den Auftragswert an. </b></p>
+                                    <div class="appear">
+                                        <br>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-10 col-md-offset-1">
 
-                                                <div class="row">
-                                                    <br>
-                                                    <div class="col-md-4 ">
-                                                        <%= form.select :order_value_export_business_currency, options_for_select(["Euro", "Dollar"]), {}, class: 'form-control' %>
-                                                    </div>
-                                                    <div class="col-md-4 ">
-                                                        <div> <%= form.text_field :order_value_export_business_currency_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <br>
-                                                    <div class="col-md-6">
-                                                        <p><i>Wie hoch ist der Lieferwert?</i></p>
-                                                        <div> <%= form.text_field :total_delivery_value, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
-                                                    </div>
-                                                </div>
+                                                    <p><b>Bitte geben Sie den Auftragswert an. </b></p>
 
-                                                <div class="row">
+                                                    <div class="row">
+                                                        <div class="col-md-4 ">
+                                                            <%= form.select :order_value_export_business_currency, options_for_select(["Euro", "Dollar"]), {}, class: 'form-control' %>
+                                                        </div>
+                                                        <div class="col-md-4 ">
+                                                            <div> <%= form.text_field :order_value_export_business_currency_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                        </div>
+                                                    </div>
                                                     <br>
-                                                    <div class="col-md-8">
-                                                        <p><i> Wie hoch ist der Anteil der Ersatzteile am
-                                                            Auftragswert?</i></p>
+                                                    <div class="row">
+                                                        <br>
+                                                        <div class="col-md-6">
+                                                            <p><i>Wie hoch ist der Lieferwert?</i></p>
+                                                            <div> <%= form.text_field :total_delivery_value, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <div> <%= form.text_field :percentage_of_spare_parts_in_whole_order, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
-                                                    </div>
-                                                </div>
 
-                                                <div class="row">
+                                                    <div class="row">
+                                                        <br>
+                                                        <div class="col-md-8">
+                                                            <p><i> Wie hoch ist der Anteil der Ersatzteile am
+                                                                Auftragswert?</i></p>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div> <%= form.text_field :percentage_of_spare_parts_in_whole_order, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <br>
+                                                        <div class="col-md-8">
+                                                            <i> Wenn weitere Bestandteile offen gegenüber Ihrem Kunden
+                                                                ausgewiesen werden, tragen Sie diese bitte hier ein.</i>
+                                                        </div>
+                                                    </div>
                                                     <br>
-                                                    <div class="col-md-8">
-                                                        <i> Wenn weitere Bestandteile offen gegenüber Ihrem Kunden
-                                                            ausgewiesen werden, tragen Sie diese bitte hier ein.</i>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-md-3">
-                                                        <%= form.select :more_components_open_to_exporter_currency, options_for_select(["Euro", "Dollar"]), {}, class: 'form-control' %>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div> <%= form.text_field :more_components_open_to_exporter_amount, class: "form-control", placeholder: "Betrag", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div> <%= form.text_field :more_components_open_to_exporter_explain, class: "form-control", placeholder: "Beschreibung" %> </div>
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <%= form.select :more_components_open_to_exporter_currency, options_for_select(["Euro", "Dollar"]), {}, class: 'form-control' %>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div> <%= form.text_field :more_components_open_to_exporter_amount, class: "form-control", placeholder: "Betrag", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div> <%= form.text_field :more_components_open_to_exporter_explain, class: "form-control", placeholder: "Beschreibung" %> </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <br>
                                     </div>
                                 </div>
 
                                 <div id="interestCountedCustomer">
-                                    <br><br>
+                                    <br>
                                     <div class="row">
                                         <div class="col-md-8 col-md-offset-1">
                                             <div class="form-group">
@@ -1189,7 +1191,7 @@
                                     <div class="row">
                                         <div class="col-md-8 col-md-offset-1">
                                             <div class="form-group">
-                                                <br><br>
+                                                <br>
 
                                                 <p><b>Versenden Sie Ihre Waren/Güter/Anlagen in mehreren
                                                     Lieferungen? </b>
@@ -1266,7 +1268,7 @@
 
                                     <div class="form-group">
                                         <div class="row">
-                                            <br><br>
+                                            <br>
                                             <div class="col-md-10 col-md-offset-1">
                                                 <p><b>Wie sind Ihre Zahlungsbedingungen gestaltet? </b>
                                                 <p>
@@ -1697,7 +1699,6 @@
                                                     </p>
                                                 </div>
                                             </div>
-                                            <br>
 
                                             <div class="row">
                                                 <div class="col-md-4 col-md-offset-1">
@@ -1706,7 +1707,7 @@
                                                 </div>
                                             </div>
 
-                                            <br><br>
+                                            <br>
 
                                             <div class="row">
                                                 <div class="col-md-10 col-md-offset-1">
@@ -1714,7 +1715,6 @@
                                                     </p>
                                                 </div>
                                             </div>
-                                            <br>
 
                                             <div class="row">
                                                 <div class="col-md-4 col-md-offset-1">
@@ -1729,7 +1729,6 @@
                                                     </p>
                                                 </div>
                                             </div>
-                                            <br>
 
                                             <div class="row">
                                                 <div class="col-md-4 col-md-offset-1">
@@ -1744,11 +1743,8 @@
                                                     <br>
                                                     <%= form.text_area :loan_term_other_description, class: "form-control", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
                                                 </div>
-
                                             </div>
-
                                         </div>
-                                        <br>
 
                                         <div id="workwithothercompanies">
                                             <div class="row">
@@ -1763,10 +1759,10 @@
                                                 </div>
                                             </div>
 
-                                            <br><br>
+                                            <br>
                                         </div>
                                     </div>
-
+                                    <br>
                                 </div>
 
                                 <div id="SonstigeKurzFristigTermOfPayment" style="display: none;">
@@ -2159,7 +2155,6 @@
                                                     </p>
                                                 </div>
                                             </div>
-                                            <br>
 
                                             <div class="row">
                                                 <div class="col-md-4 col-md-offset-1">
@@ -2167,9 +2162,7 @@
                                                                                                                               "bei Betriebsbereitschaft", "anderer Termin",]), {}, class: "form-control" %>
                                                 </div>
                                             </div>
-
-                                            <br><br>
-
+                                            <br>
 
                                             <div class="row">
                                                 <div class="col-md-10 col-md-offset-1">
@@ -2177,7 +2170,6 @@
                                                     </p>
                                                 </div>
                                             </div>
-                                            <br>
 
                                             <div class="row">
                                                 <div class="col-md-4 col-md-offset-1">
@@ -2193,7 +2185,6 @@
                                                     </p>
                                                 </div>
                                             </div>
-                                            <br>
 
                                             <div class="row">
                                                 <div class="col-md-6 col-md-offset-1">
@@ -2226,7 +2217,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <br>
                                         </div>
 
                                         <div id="workwithothercompanies">
@@ -2429,7 +2419,7 @@
                                 <div id="securityForBusiness">
                                     <div class="form-group">
                                         <div class="row">
-                                            <br><br>
+                                            <br>
                                             <div class="col-md-8 col-md-offset-1">
                                                 <p><b>Sind für Ihr Geschäft Sicherheiten vorgesehen? </b>
                                                 <p>
@@ -2534,7 +2524,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <br><br>
+                                            <br>
                                             <div class="col-md-3 col-md-offset-1">
                                                 <p> AK-Nummer </p>
                                                 <div> <%= form.text_field :customer_ak_number, class: "form-control", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
@@ -2584,7 +2574,7 @@
                                         </div>
                                     </div>
 
-                                    <br><br>
+                                    <br>
 
                                     <div id="deliveryAddressCheck">
                                         <div class="row">
@@ -2886,7 +2876,6 @@
 
                                         <div class="form-group">
                                             <div class="row">
-                                                <br>
                                                 <div class="col-md-3 col-md-offset-1">
                                                     <p> Amtsgericht </p>
                                                     <%= form.text_field :company_district_court, class: "form-control" %>
@@ -2908,7 +2897,6 @@
 
                                         <div class="form-group">
                                             <div class="row">
-                                                <br>
                                                 <div class="col-md-3 col-md-offset-1">
                                                     <p> Ort </p>
                                                     <%= form.text_field :company_city, class: "form-control" %>
@@ -2929,7 +2917,6 @@
                                         <br>
                                         <div class="form-group">
                                             <div class="row">
-                                                <br>
                                                 <div class="col-md-3 col-md-offset-1">
                                                     <p> Anzahl der Mitarbeiterinnen und Mitarbeiter </p>
                                                     <%= form.text_field :employees_count, class: "form-control", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %>
@@ -3254,7 +3241,7 @@
                                         <hr align="middle" width="50%">
 
                                         <div class="row">
-                                            <br><br>
+                                            <br>
 
                                             <div class="col-md-10 col-md-offset-1">
                                                 <p>Im Fall eines Konsortiums oder einer Arbeitsgemeinschaft ist die
