@@ -315,34 +315,36 @@
 
                                 <div class="row">
                                     <div class="col-sm-10 col-sm-offset-1">
-                                        <div class="col-sm-4 col-sm-offset-2">
-
-                                            <div class="choice <%= 'active' if listing.risk_supplier_credit_cover == 'on' %>" data-toggle="wizard-checkbox">
-                                                <%= check_box_tag "listing[risk_supplier_credit_cover]", listing.risk_supplier_credit_cover ? listing.risk_supplier_credit_cover : nil %>
-
-                                                <div class="card card-checkboxes height-adjusted-big card-hover-effect">
-                                                    <i class="ti-home"></i>
-                                                    <p>Nichtbezahlung </p>
-                                                    <p>(bekannt als Lieferantenkreditdeckung)</p>
-                                                    <h7 style="color:#F3F2EE;">I</h7>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="choice <%= 'active' if listing.risk_shipment_risk_cover == 'on' %>" data-toggle="wizard-checkbox">
-                                                <%= check_box_tag "listing[risk_shipment_risk_cover]", listing.risk_shipment_risk_cover ? listing.risk_shipment_risk_cover : nil %>
-                                                <div class="card card-checkboxes card-hover-effect">
-                                                    <i class="ti-package"></i>
-                                                    <p>Vertragsstörung während der Fabrikationsphase</p>
-                                                    <p>(bekannt als Fabrikationsrisikodeckung)</p>
-                                                    <h7 style="color:red;">In Kürze verfügbar</h7>
-                                                </div>
-                                            </div>
-                                        </div>
-
 
                                         <div class="row">
-                                            <div class="col-sm-4 col-sm-offset-2">
+                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-sm-offset-2 col-xs-offset-2 col-md-offset-2 col-lg-offset-2 ">
+                                                <div class="choice <%= 'active' if listing.risk_supplier_credit_cover == 'on' %>" data-toggle="wizard-checkbox">
+                                                    <%= check_box_tag "listing[risk_supplier_credit_cover]", listing.risk_supplier_credit_cover ? listing.risk_supplier_credit_cover : nil %>
+
+                                                    <div class="card card-checkboxes height-adjusted-big card-hover-effect">
+                                                        <i class="ti-home"></i>
+                                                        <p>Nichtbezahlung </p>
+                                                        <p>(bekannt als Lieferantenkreditdeckung)</p>
+                                                        <h7 style="color:#F3F2EE;">I</h7>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                <div class="choice <%= 'active' if listing.risk_shipment_risk_cover == 'on' %>" data-toggle="wizard-checkbox">
+                                                    <%= check_box_tag "listing[risk_shipment_risk_cover]", listing.risk_shipment_risk_cover ? listing.risk_shipment_risk_cover : nil %>
+                                                    <div class="card card-checkboxes card-hover-effect">
+                                                        <i class="ti-package"></i>
+                                                        <p>Vertragsstörung während der Fabrikationsphase</p>
+                                                        <p>(bekannt als Fabrikationsrisikodeckung)</p>
+                                                        <h7 style="color:red;">In Kürze verfügbar</h7>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-sm-offset-2 col-xs-offset-2 col-md-offset-2 col-lg-offset-2">
                                                 <div class="choice <%= 'active' if listing.risk_contractual_warranty_coverage == 'on' %>" data-toggle="wizard-checkbox" onclick="ziehungVonGarantien()">
 
                                                     <%= check_box_tag "listing[risk_contractual_warranty_coverage]", listing.risk_contractual_warranty_coverage ? listing.risk_contractual_warranty_coverage : nil %>
@@ -356,8 +358,8 @@
                                                 </div>
                                             </div>
 
+                                            <div id="entlastung" class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="display: none">
 
-                                            <div id="entlastung" class="col-sm-4" , style="display: none" ;>
                                                 <div class="choice <%= 'active' if listing.risk_avaline_guarantee == 'on' %>" data-toggle="wizard-checkbox">
                                                     <%= check_box_tag "listing[risk_avaline_guarantee]", listing.risk_avaline_guarantee ? listing.risk_avaline_guarantee : nil %>
                                                     <div class="card card-checkboxes card-hover-effect">
@@ -365,13 +367,12 @@
                                                         <p>Entlastung Ihrer Avallinie</p>
                                                         <p>(bekannt als Vertragsgarantiedeckung)</p>
                                                         <h7 style="color:red;">In Kürze verfügbar</h7>
-
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div class="col-sm-4 col-sm-offset-2">
+                                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-sm-offset-2 col-xs-offset-2 col-md-offset-2 col-lg-offset-2">
                                             <div class="choice <%= 'active' if listing.risk_further_coverage == 'on' %>" data-toggle="wizard-checkbox">
                                                 <%= check_box_tag "listing[risk_further_coverage]", listing.risk_further_coverage ? listing.risk_further_coverage : nil %>
 
