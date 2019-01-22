@@ -20,14 +20,13 @@
                             </div>
                         <% end %>
 
-                        <div class="field">
-                        </div>
 
                         <div class="wizard-header">
                             <h3 class="wizard-title">Versichern Sie Ihren Export</h3>
                             <h5 align="center">In Kooperation mit Euler Hermes</h5>
                             <br><br>
                         </div>
+
                         <div class="wizard-navigation">
 
                             <div class="progress-with-circle">
@@ -83,6 +82,16 @@
                                         Notwendiges zum Schluss
                                     </a>
                                 </li>
+
+<!--                                <li>-->
+<!--                                    <a href="#summary" data-toggle="tab">-->
+<!--                                        <div class="icon-circle">-->
+<!--                                            <i class="ti-share"></i>-->
+<!--                                        </div>-->
+<!--                                        Summary-->
+<!--                                    </a>-->
+<!--                                </li>-->
+
                             </ul>
                         </div>
 
@@ -298,6 +307,7 @@
 
 
                             </div>
+
                             <div class="tab-pane" id="type">
                                 <h4 class="info-text">Ihre Risken</h4>
                                 <h5 class="info-text">Bitte geben Sie an, gegen welche Risiken Sie sich absichern
@@ -375,6 +385,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="tab-pane" id="facilities">
 
                                 <h4 class="info-text">Ihr Geschäft</h4>
@@ -1122,7 +1133,7 @@
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-md-2 col-md-offset-2">
+                                                <div class="col-md-2 col-md-offset-1">
                                                     <%= form.select :interest_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                                 </div>
                                                 <div class="col-md-4">
@@ -2655,7 +2666,8 @@
                                         <div class="row">
                                             <div class="col-md-8 col-md-offset-1">
                                                 <br>
-                                                <p><b>Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder üben
+                                                <p><b>Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder
+                                                    üben
                                                     Sie maßgeblichen Einfluss auf die Geschäftsführung aus?</b>
                                                 <p>
                                                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
@@ -2692,7 +2704,8 @@
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col-md-10 col-md-offset-1">
-                                                        <p>Bitte helfen Sie uns, die Beteiligung besser zu verstehen </p>
+                                                        <p>Bitte helfen Sie uns, die Beteiligung besser zu
+                                                            verstehen </p>
                                                         <div> <%= form.text_area :relation_to_customer_explain, class: "form-control", row: "9" %> </div>
                                                     </div>
                                                 </div>
@@ -2705,7 +2718,8 @@
                                     <div id="deliveryAddressCheck">
                                         <div class="row">
                                             <div class="col-md-8 col-md-offset-1">
-                                                <p><b>Haben Sie bereits Zahlungserfahrungen mit Ihrem Kunden? </b><p>
+                                                <p><b>Haben Sie bereits Zahlungserfahrungen mit Ihrem Kunden? </b>
+                                                <p>
 
                                                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.yes_previous_payment_experience_with_customer == 'on' %>" name="yes_previouspaymentexperiencewithcustomer" data-toggle="wizard-checkbox" onclick="previousPaymentExperienceWithCustomer()">
@@ -2751,7 +2765,6 @@
 
                                 </div>
                             </div>
-
 
                             <div class="tab-pane" id="important-at-end">
                                 <h4 class="info-text">Notwendiges zum Schluss </h4>
@@ -3354,12 +3367,45 @@
                                     <br><br><br>
                                 </div>
                             </div>
+
+                            <div class="tab-pane" id="summary">
+
+                                <h4 class="info-text"> Zusammenfassung </h4>
+                                <br>
+                                <div class="row">
+
+                                    <p> Wir haben verstanden, dass Ihr Geschäft sich wie unten aufgeführt darstellt. Bitte
+                                    überprüfen Sie Ihre Angaben bzw. ergänzen Sie weitere Details. Neben jedem Abschnitt
+                                    können Sie auf den Haken oder das Ausrufungszeichen klicken, um zum Antrag
+                                        zurückzukehren </p>
+
+                                </div>
+
+                                <br><br>
+
+                                <div class="row">
+                                    <div class="col-sm-8 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>Email adresse</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-8 col-sm-offset-1">
+                                        <p> Wenn Sie uns noch weitere Informationen zukommen lassen möchten, können Sie dies hier tun: </p>
+                                        <div> <%= form.text_field :trading_since_when_without_hermes_insurance, class: "form-control" %> </div>
+                                    </div>
+                                </div>
+
+                                <br><br>
+                            </div>
                         </div>
 
                         <div class="wizard-footer">
                             <div class="pull-right">
                                 <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Weiter'/>
-                                <%= form.submit class: 'btn btn-finish btn-fill btn-danger btn-wd', value: 'Antrag Shicken' %>
+                                <%= form.submit class: 'btn btn-finish btn-fill btn-danger btn-wd', value: 'Angaben prüfen' %>
                             </div>
 
                             <div class="pull-left">
@@ -3367,9 +3413,7 @@
                             </div>
                             <div class="clearfix"></div>
                         </div>
-
                     <% end %>
-
                 </div>
             </div>
         </div>
