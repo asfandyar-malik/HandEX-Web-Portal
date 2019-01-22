@@ -803,7 +803,7 @@
                                         </div>
 
                                         <div class="row">
-                                            <br><br>
+                                            <br>
                                             <div class="col-md-4 col-md-offset-1">
                                                 <div> <%= form.text_field :product_original_date_of_manifacture, class: "form-control", placeholder: "Jahr der Fertigung", :onkeypress => "return isNumberInputValidation(event)" %> </div>
                                             </div>
@@ -818,7 +818,7 @@
 
                                                 <div class="row">
                                                     <div class="col-md-10 col-md-offset-1">
-                                                        <br><br>
+                                                        <br>
                                                         <p> Wird die Ware vor dem Weiterverkauf überholt? </p>
                                                     </div>
                                                 </div>
@@ -2354,7 +2354,7 @@
 
                                 <div id="yesNoCertificateOfOriginTeil" style="display: none; background-color: #f7f7f7;">
 
-                                    <br><br>
+                                    <br>
 
                                     <div class="form-group">
                                         <div class="row">
@@ -2493,7 +2493,7 @@
                                             <div class="row">
                                                 <div class="col-md-10 col-md-offset-1">
                                                     <p> Welchen Anteil des Auftragswertes wird die Sicherheit umfassen?
-                                                        (Zahlungsgarantie   einer Bank-1) </p>
+                                                        (Zahlungsgarantie einer Bank-1) </p>
                                                     <div> <%= form.text_area :proportion_contract_security_provided, class: "form-control" %> </div>
                                                 </div>
                                             </div>
@@ -2530,7 +2530,7 @@
                                         <div class="row">
                                             <br>
                                             <div class="col-md-5 col-md-offset-1">
-                                                <label>Bitte geben Sie die Adresse Ihres Kunden an</label>
+                                                <p><b>Bitte geben Sie die Adresse Ihres Kunden an</b></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -2589,7 +2589,7 @@
                                     <div id="deliveryAddressCheck">
                                         <div class="row">
                                             <div class="col-md-8 col-md-offset-1">
-                                                <p>Liefern Sie an diese Adresse? </p>
+                                                <p><b>Liefern Sie an diese Adresse? </b></p>
 
                                                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.yes_delivered_at_this_address == 'on' %>" name="yes_deliveredatthisaddress" data-toggle="wizard-checkbox" onclick="deliveredAtThisAddress()">
@@ -2620,57 +2620,54 @@
                                     </div>
 
 
-                                    <div id="deliveryAddress" style="display: none; background-color: #f7f7f7;">
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <br>
-                                                <div class="col-md-3 col-md-offset-1">
-                                                    <p> Firmenname </p>
-                                                    <div> <%= form.text_field :customer_delivery_company_name, class: "form-control" %> </div>
-                                                </div>
+                                    <div id="deliveryAddress" style="display: none;">
+                                        <br>
+                                        <div class="appear">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <br>
+                                                    <div class="col-md-3 col-md-offset-1">
+                                                        <p> Firmenname </p>
+                                                        <div> <%= form.text_field :customer_delivery_company_name, class: "form-control" %> </div>
+                                                    </div>
 
-                                                <div class="col-md-3 ">
-                                                    <p> Land </p>
-                                                    <%= form.text_field :customer_delivery_country, class: "form-control" %>
-                                                </div>
+                                                    <div class="col-md-3 ">
+                                                        <p> Land </p>
+                                                        <%= form.text_field :customer_delivery_country, class: "form-control" %>
+                                                    </div>
 
-                                                <div class="col-md-3 ">
-                                                    <p> Straße / Hausnummer </p>
-                                                    <%= form.text_field :customer_delivery_address, class: "form-control" %>
+                                                    <div class="col-md-3 ">
+                                                        <p> Straße / Hausnummer </p>
+                                                        <%= form.text_field :customer_delivery_address, class: "form-control" %>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <br>
+                                                    <div class="col-md-3 col-md-offset-1">
+                                                        <p> PLZ </p>
+                                                        <%= form.text_field :customer_delivery_plz, class: "form-control", :onkeypress => "return onlyAllowNumericalValue(event)" %>
+                                                    </div>
 
-                                        <br>
+                                                    <div class="col-md-3">
+                                                        <p> Ort </p>
+                                                        <div> <%= form.text_field :customer_delivery_city, class: "form-control" %> </div>
+                                                    </div>
 
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <br>
-                                                <div class="col-md-3 col-md-offset-1">
-                                                    <p> PLZ </p>
-                                                    <%= form.text_field :customer_delivery_plz, class: "form-control", :onkeypress => "return onlyAllowNumericalValue(event)" %>
                                                 </div>
-
-                                                <div class="col-md-3">
-                                                    <p> Ort </p>
-                                                    <div> <%= form.text_field :customer_delivery_city, class: "form-control" %> </div>
-                                                </div>
-
                                             </div>
+                                            <br>
                                         </div>
-
-                                        <br>
                                     </div>
 
                                     <div id="deliveryAddressCheck">
                                         <div class="row">
                                             <div class="col-md-8 col-md-offset-1">
-                                                <br><br>
-                                                <p> Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder üben
-                                                    Sie maßgeblichen Einfluss auf die Geschäftsführung aus?
+                                                <br>
+                                                <p><b>Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder üben
+                                                    Sie maßgeblichen Einfluss auf die Geschäftsführung aus?</b>
                                                 <p>
-                                                    <br>
-
                                                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.yes_relation_to_customer == 'on' %>" name="yes_relationtocustomer" data-toggle="wizard-checkbox" onclick="relationToCustomer()">
 
@@ -2696,28 +2693,29 @@
 
                                             </div>
                                         </div>
-
-                                        <br><br>
                                     </div>
 
                                     <div id="relationToCustomerExplain" style="display: none">
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <br>
-                                                <div class="col-md-10 col-md-offset-1">
-                                                    <p><b>Bitte helfen Sie uns, die Beteiligung besser zu verstehen</b>
-                                                    </p>
-                                                    <div> <%= form.text_area :relation_to_customer_explain, class: "form-control", row: "9" %> </div>
+                                        <br>
+                                        <div class="appear">
+                                            <br>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-10 col-md-offset-1">
+                                                        <p>Bitte helfen Sie uns, die Beteiligung besser zu verstehen </p>
+                                                        <div> <%= form.text_area :relation_to_customer_explain, class: "form-control", row: "9" %> </div>
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <br>
                                         </div>
                                     </div>
+
                                     <br>
                                     <div id="deliveryAddressCheck">
                                         <div class="row">
                                             <div class="col-md-8 col-md-offset-1">
-                                                <p> Haben Sie bereits Zahlungserfahrungen mit Ihrem Kunden?
-                                                <p>
+                                                <p><b>Haben Sie bereits Zahlungserfahrungen mit Ihrem Kunden? </b><p>
 
                                                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.yes_previous_payment_experience_with_customer == 'on' %>" name="yes_previouspaymentexperiencewithcustomer" data-toggle="wizard-checkbox" onclick="previousPaymentExperienceWithCustomer()">
@@ -2745,7 +2743,7 @@
                                             </div>
                                         </div>
 
-                                        <br><br>
+                                        <br>
                                     </div>
 
                                     <div id="alreadyPaymentExperience" style="display: none; background-color: #f7f7f7;">
@@ -2755,7 +2753,7 @@
                                                 <div class="col-md-10 col-md-offset-1">
                                                     <p>Bitte beschreiben Sie diese näher.</p>
                                                     <div> <%= form.text_area :explain_previous_payment_experience_with_customer, class: "form-control" %> </div>
-                                                    <br><br>
+                                                    <br>
                                                 </div>
                                             </div>
                                         </div>
@@ -2803,7 +2801,7 @@
                                                 </div>
 
                                             </div>
-                                            <br><br>
+                                            <br>
                                         </div>
                                     </div>
 
@@ -2866,7 +2864,7 @@
 
                                             <div class="row">
 
-                                                <br><br><br>
+                                                <br>
                                                 <div class="col-md-3 col-md-offset-1">
                                                     <p> Firmenname </p>
                                                     <div> <%= form.text_field :your_company_name, class: "form-control" %> </div>
@@ -2928,7 +2926,7 @@
                                             </div>
                                         </div>
 
-                                        <br><br>
+                                        <br>
                                         <div class="form-group">
                                             <div class="row">
                                                 <br>
@@ -2956,9 +2954,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <br>
-
                                         <div class="form-group">
                                             <div class="row">
                                                 <br>
@@ -2996,7 +2991,7 @@
                                         </div>
                                     </div>
 
-                                    <br><br><br>
+                                    <br>
 
                                     <div class="form-group">
                                         <div class="row">
@@ -3007,9 +3002,8 @@
                                         </div>
                                     </div>
 
-
                                     <div id="uploadDocuments">
-                                        <br><br><br>
+                                        <br>
                                         <div class="row">
                                             <div class="col-md-5 col-md-offset-1">
                                                 <p> Selbstauskunft (bei Neukunden) </p>
@@ -3081,7 +3075,7 @@
                                     <div id="deliveryAddressCheck">
                                         <div class="row">
                                             <br><br><br>
-                                            <div class="col-md-8 col-md-offset-1">
+                                            <div class="col-md-10 col-md-offset-1">
                                                 <div class="form-group">
                                                     <p><b>Sie beantragen die Absicherung folgender
                                                         Risiken.</b></p>
