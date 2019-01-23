@@ -5,7 +5,7 @@
             <div class="wizard-container">
                 <div class="card wizard-card" data-color="blue" id="wizard">
 
-                    <%= form_with(model: listing, local: true) do |form| %>
+                    <%= form_with(model: listing, local: true, id: "customer-portal") do |form| %>
 
                         <% if listing.errors.any? %>
                             <div id="error_explanation">
@@ -83,16 +83,16 @@
                                     </a>
                                 </li>
 
-<!--                                <li>-->
-<!--                                    <a href="#summary" data-toggle="tab">-->
-<!--                                        <div class="icon-circle">-->
-<!--                                            <i class="ti-share"></i>-->
-<!--                                        </div>-->
-<!--                                        Summary-->
-<!--                                    </a>-->
-<!--                                </li>-->
-
+                                <li>
+                                    <a href="#summary" data-toggle="tab">
+                                        <div class="icon-circle">
+                                            <i class="ti-share"></i>
+                                        </div>
+                                        Summary
+                                    </a>
+                                </li>
                             </ul>
+
                         </div>
 
                         <br><br>
@@ -109,7 +109,7 @@
                                     <div class="col-sm-6 col-sm-offset-3">
                                         <div class="form-group">
                                             <label>Ihr Firmenname</label>
-                                            <%= form.text_field :price, class: 'form-control' %>
+                                            <%= form.text_field :exporter_company_name, id: 'exporter_company_name', class: 'form-control' %>
                                         </div>
                                     </div>
                                 </div>
@@ -118,7 +118,7 @@
                                     <div class="col-sm-6 col-sm-offset-3">
                                         <div class="form-group">
                                             <label>Email adresse</label>
-                                            <%= form.email_field :price, class: 'form-control' %>
+                                            <%= form.email_field :exporter_email, id: 'exporter_email', class: 'form-control' %>
                                         </div>
                                     </div>
                                 </div>
@@ -127,7 +127,7 @@
                                     <div class="col-sm-6 col-sm-offset-3">
                                         <div class="form-group">
                                             <label>Telefon</label>
-                                            <%= form.text_field :price, class: 'form-control', :onkeypress => "return onlyAllowNumericalValueAndPlus(event)" %>
+                                            <%= form.text_field :exporter_telephone, id: 'exporter_telephone', class: 'form-control', :onkeypress => "return onlyAllowNumericalValueAndPlus(event)" %>
                                         </div>
                                     </div>
                                 </div>
@@ -153,7 +153,7 @@
                                         <div class="form-group">
                                             <label>Wohin soll es gehen?</label>
                                             <%= form.select :country,
-                                                            options_for_select(['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
+                                                            options_for_select(['Mexico', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
                                                                                 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados',
                                                                                 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana',
                                                                                 'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon',
@@ -181,7 +181,7 @@
                                                                                 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates (UAE)',
                                                                                 'United Kingdom (UK)', 'United States of America (USA)', 'Uruguay', 'Uzbekistan', 'Vanuatu',
                                                                                 'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'],
-                                                                               listing.accommodates ? listing.accommodates : nil), {}, id: 'exportercountry', class: 'form-control' %>
+                                                                               listing.country ? listing.country : nil), {}, id: 'exportercountry', class: 'form-control' %>
                                         </div>
                                     </div>
                                 </div>
@@ -317,7 +317,7 @@
                                     <div class="col-sm-10 col-sm-offset-1">
 
                                         <div class="row">
-                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-sm-offset-2 col-xs-offset-2 col-md-offset-2 col-lg-offset-2 ">
+                                            <div class="col-xs-5 col-sm-5 col-md-4 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-2 col-lg-offset-2 ">
                                                 <div class="choice <%= 'active' if listing.risk_supplier_credit_cover == 'on' %>" data-toggle="wizard-checkbox">
                                                     <%= check_box_tag "listing[risk_supplier_credit_cover]", listing.risk_supplier_credit_cover ? listing.risk_supplier_credit_cover : nil %>
 
@@ -330,7 +330,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                            <div class="col-xs-5 col-sm-5 col-md-4 col-lg-4">
                                                 <div class="choice <%= 'active' if listing.risk_shipment_risk_cover == 'on' %>" data-toggle="wizard-checkbox">
                                                     <%= check_box_tag "listing[risk_shipment_risk_cover]", listing.risk_shipment_risk_cover ? listing.risk_shipment_risk_cover : nil %>
                                                     <div class="card card-checkboxes card-hover-effect">
@@ -344,7 +344,7 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-sm-offset-2 col-xs-offset-2 col-md-offset-2 col-lg-offset-2">
+                                            <div class="col-xs-5 col-sm-5 col-md-4 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-2 col-lg-offset-2">
                                                 <div class="choice <%= 'active' if listing.risk_contractual_warranty_coverage == 'on' %>" data-toggle="wizard-checkbox" onclick="ziehungVonGarantien()">
 
                                                     <%= check_box_tag "listing[risk_contractual_warranty_coverage]", listing.risk_contractual_warranty_coverage ? listing.risk_contractual_warranty_coverage : nil %>
@@ -372,7 +372,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-sm-offset-2 col-xs-offset-2 col-md-offset-2 col-lg-offset-2">
+                                        <div class="col-xs-5 col-sm-5 col-md-4 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-2 col-lg-offset-2">
                                             <div class="choice <%= 'active' if listing.risk_further_coverage == 'on' %>" data-toggle="wizard-checkbox">
                                                 <%= check_box_tag "listing[risk_further_coverage]", listing.risk_further_coverage ? listing.risk_further_coverage : nil %>
 
@@ -2294,7 +2294,7 @@
                                             <br>
                                             <div class="row">
                                                 <div class="col-md-2 col-md-offset-1">
-                                                    <%= form.select :supplied_all_rawgoods_country, options_for_select(['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
+                                                    <%= form.select :supplied_all_rawgoods_country, options_for_select(['Mexico', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
                                                                                                                         'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados',
                                                                                                                         'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana',
                                                                                                                         'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon',
@@ -2367,7 +2367,7 @@
                                         <br>
                                         <div class="row">
                                             <div class="col-md-2 col-md-offset-1">
-                                                <%= form.select :supplied_partly_rawgoods_country, options_for_select(['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
+                                                <%= form.select :supplied_partly_rawgoods_country, options_for_select(['Mexico', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
                                                                                                                        'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados',
                                                                                                                        'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana',
                                                                                                                        'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon',
@@ -3251,7 +3251,6 @@
                                             </div>
                                         </div>
 
-
                                         <hr align="middle" width="50%">
 
                                         <div class="row">
@@ -3374,779 +3373,919 @@
                                 <h4 class="info-text"> Zusammenfassung </h4>
                                 <br>
                                 <div class="row">
-
-                                    <p> Wir haben verstanden, dass Ihr Geschäft sich wie unten aufgeführt darstellt. Bitte
-                                    überprüfen Sie Ihre Angaben bzw. ergänzen Sie weitere Details. Neben jedem Abschnitt
-                                    können Sie auf den Haken oder das Ausrufungszeichen klicken, um zum Antrag
-                                        zurückzukehren </p>
-
+                                    <div class="col-sm-10 col-sm-offset-1">
+                                        <p> Wir haben verstanden, dass Ihr Geschäft sich wie unten aufgeführt darstellt.
+                                            Bitte
+                                            überprüfen Sie Ihre Angaben bzw. ergänzen Sie weitere Details. Neben jedem
+                                            Abschnitt
+                                            können Sie auf den Haken oder das Ausrufungszeichen klicken, um zum Antrag
+                                            zurückzukehren </p>
+                                    </div>
                                 </div>
 
                                 <br><br>
 
                                 <div class="row">
-                                    <div class="col-sm-8 col-sm-offset-1">
-                                        <div class="form-group">
-                                            <label>Email adresse</label>
+
+                                    <div class="col-sm-10 col-sm-offset-1">
+                                        <div class="square">
+                                            <div class="content">
+                                                <div class="row">
+                                                    <div class="col-sm-10 col-sm-offset-1">
+                                                        <span id="completeoutput"></span>
+                                                    </div>
+                                                </div>
+
+                                                <hr align="middle">
+
+                                                <div class="row">
+                                                    <div class="col-sm-10 col-sm-offset-1">
+                                                        <span id="categorysummary"></span>
+                                                    </div>
+                                                </div>
+
+                                                <hr align="middle">
+
+                                                <div class="row">
+                                                    <div class="col-sm-10 col-sm-offset-1">
+                                                    </div>
+                                                </div>
+
+                                                <hr align="middle">
+
+                                                <div class="row">
+                                                    <div class="col-sm-10 col-sm-offset-1">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <br><br>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-10 col-sm-offset-1">
+                                            <p> Wenn Sie uns noch weitere Informationen zukommen lassen möchten, können
+                                                Sie
+                                                dies hier tun: </p>
+                                            <div> <%= form.text_field :trading_since_when_without_hermes_insurance, class: "form-control" %> </div>
                                         </div>
                                     </div>
+
+                                    <br><br>
+
+                                </div>
+                            </div>
+
+                            <div class="wizard-footer">
+                                <div class="pull-right">
+                                    <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Weiter'/>
+                                    <%= form.submit class: 'btn btn-finish btn-fill btn-danger btn-wd', value: 'Angaben prüfen' %>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-sm-8 col-sm-offset-1">
-                                        <p> Wenn Sie uns noch weitere Informationen zukommen lassen möchten, können Sie dies hier tun: </p>
-                                        <div> <%= form.text_field :trading_since_when_without_hermes_insurance, class: "form-control" %> </div>
-                                    </div>
+                                <div class="pull-left">
+                                    <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Zurück'/>
                                 </div>
 
-                                <br><br>
+                                <div class="clearfix">
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="wizard-footer">
-                            <div class="pull-right">
-                                <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Weiter'/>
-                                <%= form.submit class: 'btn btn-finish btn-fill btn-danger btn-wd', value: 'Angaben prüfen' %>
-                            </div>
-
-                            <div class="pull-left">
-                                <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Zurück'/>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
                     <% end %>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<script>
+    <script>
 
-    $(function () {
-        $(".auftragwertbutton").click(function () {
-            if ($(this).is(":checked")) {
-                $("#showHideDivTotalFinancingRequired").show();
+        //------------------------- START: Summary Generation JQuery -----------------------
+
+
+        // $("#exporter_telephone").keyup(function () {
+        //     $('#completeoutput').text('ONE: ' + $('#exporter_company_name').val() + 'TWO: ' + $('#exporter_email').val() + ' THREE: ' + $('#exporter_telephone').val());
+        // });
+
+        $("#exporter_telephone").keyup(function () {
+
+            $('#completeoutput').text('Sie ' + $('#exporter_company_name').val() + ' mit Ihrem ' + $('#private_sector').val() + ' Kunden...' +
+                $('#country').val() + ' über die Lieferung eines ' + $('#is_investment_good').val() + ' mit einem Auftragswert in Höhe ' + $('#contract_value').val() + '....' +
+                ' Sie werden ' + $('#also_provide_service_training').val() + ' Leistungen, wie z.B. Montage vor Ort oder Schulungsleistungen, erbringen. Der Kunde wünscht ' +
+                $('#payment_deadline').val() + ' Zahlungsbedingungen. ' + ' \n Sie beschreiben Ihr Geschäft wie folgt: ' + $('#describe_export_business').val());
+
+
+            $('#categorysummary').text('Ihre Ware passt in folgende Kategorie: ' + $('#exporter_company_name').val() + $('#describe_export_business').val());
+
+            $('#categorysummary').text('Das Geschäft ist: ' + $('#exporter_company_name').val());
+
+            $('#categorysummary').text('Sie liefern in ein sensibles Gebiet: ' + $('#exporter_company_name').val());
+
+            $('#categorysummary').text('Die zu liefernde Ware ist: ' + $('#exporter_company_name').val());
+
+            $('#categorysummary').text('Ihr Geschäft sieht ' + $('#exporter_company_name').val() + '... Vertragsstruktur vor.');
+
+            $('#categorysummary').text('Ihr Exportvertrag sieht ' + $('#exporter_company_name').val() + ' als Vertragswährung vor.');
+
+            $('#categorysummary').text('Der Auftragswert: ' + $('#exporter_company_name').val() + ' setzt sich wie folgt zusammen: ' + $('#exporter_company_name').val()
+                + $('#exporter_company_name').val() + ' Lieferwert einschl ' + $('#exporter_company_name').val() + ' Ersatzteile ' + $('#exporter_company_name').val()
+                + $('#exporter_company_name').val() + $('#exporter_company_name').val() + $('#exporter_company_name').val() + 'Sie berechnen Ihrem Kunden'
+                + $('#exporter_company_name').val() + ' Es wird ' + $('#exporter_company_name').val() + ' vereinbart');
+
+
+            $('#categorysummary').text('Sie planen folgende Liefer- und ggf. Leistungstermine( ' + $('#exporter_company_name').val() + ' )'
+                + 'Lieferbeginn: ' + $('#exporter_company_name').val() + ' weitere zahlungsrelevante Termine: ' + $('#exporter_company_name').val()
+                + $('#exporter_company_name').val());
+
+
+            $('#categorysummary').text('Sie haben kurzfristige Zahlungsbedingungen vereinbart.' +
+                ' 1.Rate ' + $('#exporter_company_name').val() + ' ( ' + $('#exporter_company_name').val() + $('#exporter_company_name').val() + ' ) Anzahlung vor Liefer- / Leistungsbeginn ' +
+                ' 2.Rate ' + $('#exporter_company_name').val() + ' ( ' + $('#exporter_company_name').val() + $('#exporter_company_name').val() + ' ) ' +
+                $('#exporter_company_name').val() + $('#exporter_company_name').val() + ' Die Anzahlung ist noch nicht eingegangen. ' +
+                ' Sie haben ' + $('#exporter_company_name').val() + 'hinsichtlich der mit Ihrem Kunden vereinbarten Zahlungsvehikel gemacht.');
+
+            $('#categorysummary').text('Für die zu liefernden Waren bekommen Sie ' + $('#exporter_company_name').val() + ' deutsches Warenursprungszeugnis.');
+
+            $('#categorysummary').text('Für Ihr Geschäft haben Sie ' + $('#exporter_company_name').val() + ' Ihr Kunde ist:' +
+                $('#exporter_company_name').val() + $('#exporter_company_name').val() + $('#exporter_company_name').val() +
+                $('#exporter_company_name').val() + $('#exporter_company_name').val() + $('#exporter_company_name').val() +
+                $('#exporter_company_name').val() + $('#exporter_company_name').val() + ' Der Bestimmungsort Ihrer Waren/Dienstleistungen ' +
+                $('#exporter_company_name').val() + ' Sie sind an ' + $('#exporter_company_name').val() + $('#exporter_company_name').val() +
+                ' maßgeblichen Einfluss auf die Geschäftsführung aus. ' +
+                ' Sie ' + $('#exporter_company_name').val() + ' Zahlungserfahrungen mit Ihrem Kunden. '
+            );
+
+            $('#categorysummary').text('Sie sind: ' +
+                $('#exporter_company_name').val() + $('#exporter_company_name').val() +
+                $('#exporter_company_name').val() + $('#exporter_company_name').val() +
+                $('#exporter_company_name').val() + $('#exporter_company_name').val() +
+                $('#exporter_company_name').val() + $('#exporter_company_name').val() +
+                ' Sie haben ca ' + $('#exporter_company_name').val() + ' Mitarbeiter und im letzten vollen Geschäftsjahr rund '
+                + $('#exporter_company_name').val() + ' EUR Umsatz gemacht. ');
+
+            $('#categorysummary').text('Sie sind: ' +
+                $('#exporter_company_name').val() + $('#exporter_company_name').val() +
+                $('#exporter_company_name').val() + $('#exporter_company_name').val() +
+                $('#exporter_company_name').val() + $('#exporter_company_name').val() +
+                $('#exporter_company_name').val() + $('#exporter_company_name').val() +
+                ' Sie haben ca ' + $('#exporter_company_name').val() + ' Mitarbeiter und im letzten vollen Geschäftsjahr rund '
+                + $('#exporter_company_name').val() + ' EUR Umsatz gemacht. ');
+
+            $('#categorysummary').text('Sie nutzen zum ersten Mal Hermesdeckungen und haben die Fragen zur Exporterfahrung und Schadenmanagement folgendermaßen beantwortet: ' +
+                ' Exporterfahrung aus ungedecktem Geschäft: ' + $('#exporter_company_name').val() +
+                ' Exporterfahrung und Marktkenntnis im Empfängerland: ' + $('#exporter_company_name').val() +
+                ' Ausführung zum Schadenmanagement: ' + $('#exporter_company_name').val());
+
+            $('#categorysummary').text('Als Ansprechpartner fungiert: ' +
+                $('#exporter_company_name').val() + $('#exporter_company_name').val() +
+                $('#exporter_company_name').val() + $('#exporter_company_name').val() +
+                $('#exporter_company_name').val() + $('#exporter_company_name').val() +
+                $('#exporter_company_name').val() + $('#exporter_company_name').val());
+
+            $('#categorysummary').text('Sie haben folgende Anlagen hochgeladen: ' +
+                ' Selbstauskunft (bei Neukunden): ' +
+                $('#exporter_company_name').val() +
+                ' Jahresabschlüsse Ihres Kunden: ' +
+                $('#exporter_company_name').val() +
+                ' Auskünfte über Ihren Kunden: ' +
+                $('#exporter_company_name').val() +
+                ' Umwelt- und Sozialinformationen: ' +
+                $('#exporter_company_name').val() +
+                ' ggf. Projektmemorandum: ' +
+                $('#exporter_company_name').val() +
+                ' sonstiges: ' +
+                $('#exporter_company_name').val());
+
+            $('#categorysummary').text('Sie beantragen die Absicherung folgender Risiken: ' +
+                $('#exporter_company_name').val() +
+                $('#exporter_company_name').val() + ' Herabsetzung der Selbstbeteiligung für wirtschaftliche Risiken.');
+
+            $('#categorysummary').text('Sie haben die Erklärung zur Korruptionsprävention ausgefüllt. ' + ' Diese können Sie sich hier anzeigen lassen und separat ausdrucken. ' +
+                ' Sie akzeptieren die gültigen ' + ' Allgemeinen Bedingungen für Lieferantenkreditdeckung (G) ' + ' in Zusammenhang mit den ' + ' Ergänzenden Bestimmungen für Forderungsabtretungen . ' +
+                ' Sie haben die Datenschutzhinweise zur Kenntnis genommen und sind mit deren Geltung ' + $('#exporter_company_name').val() +
+                $('#exporter_company_name').val());
+
+            $('#categorysummary').text(' Bitte reichen Sie die unten stehenden Informationen baldmöglich nach: ');
+
+        });
+
+        //------------------------- END: Summary Generation JQuery -------------------------
+
+        $(function () {
+            $(".auftragwertbutton").click(function () {
+                if ($(this).is(":checked")) {
+                    $("#showHideDivTotalFinancingRequired").show();
+                } else {
+                    $("#showHideDivTotalFinancingRequired").hide();
+                }
+            });
+        });
+
+        $(function () {
+            $("#privateSector").click(function () {
+                if ($(this).is(":checked")) {
+                    $("#showHideDivResultMessage").show();
+                } else {
+                    $("#showHideDivResultMessage").hide();
+                }
+            });
+
+            $("#publicSector").click(function () {
+                if ($(this).is(":checked")) {
+                    $("#showHideDivResultMessageFail").show();
+                } else {
+                    $("#showHideDivResultMessageFail").hide();
+                }
+            });
+        });
+
+        function privateSector() {
+            var x = document.getElementById("showHideDivResultMessage");
+            var y = document.getElementById("showHideDivResultMessageFail");
+
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                y.style.display = "none";
             } else {
-                $("#showHideDivTotalFinancingRequired").hide();
+                x.style.display = "none";
+            }
+        }
+
+        function publicSector() {
+            var x = document.getElementById("showHideDivResultMessage");
+            var y = document.getElementById("showHideDivResultMessageFail");
+            if (y.style.display === "none") {
+                y.style.display = "block";
+                x.style.display = "none";
+            } else {
+                y.style.display = "none";
+            }
+        }
+
+        function ziehungVonGarantien() {
+            var x = document.getElementById("entlastung");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        function deliverWithOtherCompanies() {
+            var x = document.getElementById("showHideDivJaWorkOtherCompanies");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        function notDeliverWithOtherCompanies() {
+            var x = document.getElementById("showHideDivJaWorkOtherCompanies");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            }
+        }
+
+        function exportLicenseRequired() {
+            var x = document.getElementById("exportLicenseRequirement");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        function noExportLicenseRequired() {
+            var x = document.getElementById("exportLicenseRequirement");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            }
+        }
+
+        $(function () {
+            $("#yes_secondhand_goods").click(function () {
+                if ($(this).is(":checked")) {
+                    $("#deliverSecondHandGoods").show();
+                } else {
+                    $("#deliverSecondHandGoods").hide();
+                }
+            });
+        });
+
+        function secondHandGoods() {
+            var x = document.getElementById("deliverSecondHandGoods");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        function noSecondHandGoods() {
+            var x = document.getElementById("deliverSecondHandGoods");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            }
+        }
+
+        function contractSignedAllParties() {
+            var x = document.getElementById("contractSigned");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        function noContractSignedAllParties() {
+            var x = document.getElementById("contractSigned");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            }
+        }
+
+        function specialContractStructure() {
+            var x = document.getElementById("yesNoSpecialContractStructure");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        function noSpecialContractStructure() {
+            var x = document.getElementById("yesNoSpecialContractStructure");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            }
+        }
+
+        function customerCountsInterest() {
+            var x = document.getElementById("yesNoCustomerCountInterest");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        function noCustomerCountsInterest() {
+            var x = document.getElementById("yesNoCustomerCountInterest");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            }
+        }
+
+        function priceAdjustmentClause() {
+            var x = document.getElementById("yesNoPriceAdjustmentClause");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        function noPriceAdjustmentClause() {
+            var x = document.getElementById("yesNoPriceAdjustmentClause");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            }
+        }
+
+        function multipleDeliveries() {
+            var x = document.getElementById("yesNoMultipleDeliveries");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        function noMultipleDeliveries() {
+            var x = document.getElementById("yesNoMultipleDeliveries");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            }
+        }
+
+
+        $(function () {
+            $("#no_certificateoforigin").click(function () {
+                if ($(this).is(":checked")) {
+                    $("#yesNoCertificateOfOrigin").show();
+                } else {
+                    $("#yesNoCertificateOfOrigin").hide();
+                }
+            });
+        });
+
+        $(function () {
+            $("#teil-certificateoforigin").click(function () {
+                if ($(this).is(":checked")) {
+                    $("#yesNoCertificateOfOriginTeil").show();
+                } else {
+                    $("#yesNoCertificateOfOriginTeil").hide();
+                }
+            });
+        });
+
+        function kurzFristigTermOfPayment() {
+            var x = document.getElementById("KurzFristigTermOfPayment");
+            var y = document.getElementById("MittelTermOfPayment");
+            var z = document.getElementById("SonstigeKurzFristigTermOfPayment");
+
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                y.style.display = "none";
+                z.style.display = "none";
+            } else {
+                x.style.display = "none"
+            }
+        }
+
+        function mittelTermOfPayment() {
+            var x = document.getElementById("KurzFristigTermOfPayment");
+            var y = document.getElementById("MittelTermOfPayment");
+            var z = document.getElementById("SonstigeKurzFristigTermOfPayment");
+            if (y.style.display === "none") {
+                y.style.display = "block";
+                z.style.display = "none";
+                x.style.display = "none";
+            } else {
+                y.style.display = "none"
+            }
+        }
+
+        function sonstigeKurzFristigTermOfPayment() {
+            var x = document.getElementById("KurzFristigTermOfPayment");
+            var y = document.getElementById("MittelTermOfPayment");
+            var z = document.getElementById("SonstigeKurzFristigTermOfPayment");
+
+            if (z.style.display === "none") {
+                z.style.display = "block";
+                x.style.display = "none";
+                y.style.display = "none";
+            } else {
+                z.style.display = "none"
+            }
+        }
+
+        $(function () {
+            $("#sonstige").click(function () {
+                if ($(this).is(":checked")) {
+                    $("#entlastung").show();
+                } else {
+                    $("#entlastung").hide();
+                }
+            });
+        });
+
+        function securityBusinnesProvided() {
+            var x = document.getElementById("typeOfSecurity");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        function noSecurityBusinnesProvided() {
+            var x = document.getElementById("typeOfSecurity");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            }
+        }
+
+        function deliveredAtThisAddress() {
+            var x = document.getElementById("deliveryAddress");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            }
+        }
+
+        function notDeliveredAtThisAddress() {
+            var x = document.getElementById("deliveryAddress");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        function relationToCustomer() {
+            var x = document.getElementById("relationToCustomerExplain");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        function noRelationToCustomer() {
+            var x = document.getElementById("relationToCustomerExplain");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            }
+        }
+
+        $(function () {
+            $("#Yes-paymentExperience").click(function () {
+                if ($(this).is(":checked")) {
+                    $("#alreadyPaymentExperience").show();
+                } else {
+                    $("#alreadyPaymentExperience").hide();
+                }
+            });
+        });
+
+        function previousPaymentExperienceWithCustomer() {
+            var x = document.getElementById("alreadyPaymentExperience");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        function noPreviousPaymentExperienceWithCustomer() {
+            var x = document.getElementById("alreadyPaymentExperience");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            }
+        }
+
+        $(function () {
+            $("#No-hermesdeckungNutz").click(function () {
+                if ($(this).is(":checked")) {
+                    $("#newAtHermesDeckung").show();
+                } else {
+                    $("#newAtHermesDeckung").hide();
+                }
+            });
+        });
+
+        function previouslyHermesInsuranceUsed() {
+            var x = document.getElementById("newAtHermesDeckung");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            }
+        }
+
+        function noPreviouslyHermesInsuranceUsed() {
+            var x = document.getElementById("newAtHermesDeckung");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        $(function () {
+            $("#Yes-WorkAssociation").click(function () {
+                if ($(this).is(":checked")) {
+                    $("#workAssociationExist").show();
+                } else {
+                    $("#workAssociationExist").hide();
+                }
+            });
+        });
+
+        $(function () {
+            $("#triff_zu").click(function () {
+                if ($(this).is(":checked")) {
+                    $("#showHideDivTrifftZu").show();
+                } else {
+                    $("#showHideDivTrifftZu").hide();
+                }
+            });
+        });
+
+        var $choice = jQuery('.choice');
+
+        $choice.filter('[name="kurzfristigtermofpayment"]').click(function () {
+            $choice.filter('[name="mitteltermofpayment"]').removeClass('active');
+            $choice.filter('[name="sonstigekurzfristigtermofpayment"]').removeClass('active');
+        });
+
+        $choice.filter('[name="mitteltermofpayment"]').click(function () {
+            $choice.filter('[name="kurzfristigtermofpayment"]').removeClass('active');
+            $choice.filter('[name="sonstigekurzfristigtermofpayment"]').removeClass('active');
+        });
+
+        $choice.filter('[name="sonstigekurzfristigtermofpayment"]').click(function () {
+            $choice.filter('[name="mitteltermofpayment"]').removeClass('active');
+            $choice.filter('[name="kurzfristigtermofpayment"]').removeClass('active');
+        });
+
+
+        $choice.filter('[name="sensitivearea_nein"]').click(function () {
+            $choice.filter('[name="sensitivearea"]').removeClass('active');
+            $choice.filter('[name="sensitivearea_sonstige"]').removeClass('active');
+
+            var x = document.getElementById("affectsOtherSpecialDiv");
+            if (x.style.display === "block") {
+                x.style.display = "none";
             }
         });
-    });
 
-    $(function () {
-        $('#exportercountry').change(function () {
-            if ($(this).val() == 'Mexico') {
-                $('showHideDivResultMessageFail').show();
+        $choice.filter('[name="sensitivearea_sonstige"]').click(function () {
+            $choice.filter('[name="sensitivearea"]').removeClass('active');
+            $choice.filter('[name="sensitivearea_nein"]').removeClass('active');
+
+            var x = document.getElementById("affectsOtherSpecialDiv");
+            if (x.style.display === "none") {
+                x.style.display = "block";
             } else {
-                $('showHideDivResultMessageFail').hide();
+                x.style.display = "none";
             }
-        }).change();
-    });
+        });
 
-    $(function () {
-        $("#privateSector").click(function () {
-            if ($(this).is(":checked")) {
+        $choice.filter('[name="sensitivearea"]').click(function () {
+            $choice.filter('[name="sensitivearea_nein"]').removeClass('active');
+            $choice.filter('[name="sensitivearea_sonstige"]').removeClass('active');
+
+            var x = document.getElementById("affectsOtherSpecialDiv");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            }
+        });
+
+        $choice.filter('[name="deliverwithothercompanies_yes"]').click(function () {
+            $choice.filter('[name="deliverwithothercompanies_no"]').removeClass('active');
+        });
+
+        $choice.filter('[name="deliverwithothercompanies_no"]').click(function () {
+            $choice.filter('[name="deliverwithothercompanies_yes"]').removeClass('active');
+        });
+
+
+        $choice.filter('[name="exportlicenserequired_yes"]').click(function () {
+            $choice.filter('[name="exportlicenserequired_no"]').removeClass('active');
+        });
+
+        $choice.filter('[name="exportlicenserequired_no"]').click(function () {
+            $choice.filter('[name="exportlicenserequired_yes"]').removeClass('active');
+        });
+
+        $choice.filter('[name="yes_secondhandgoods"]').click(function () {
+            $choice.filter('[name="no_secondhandgoods"]').removeClass('active');
+        });
+
+        $choice.filter('[name="no_secondhandgoods"]').click(function () {
+            $choice.filter('[name="yes_secondhandgoods"]').removeClass('active');
+        });
+
+        $choice.filter('[name="yes_congractsignedallparties"]').click(function () {
+            $choice.filter('[name="no_congractsignedallparties"]').removeClass('active');
+        });
+
+        $choice.filter('[name="no_congractsignedallparties"]').click(function () {
+            $choice.filter('[name="yes_congractsignedallparties"]').removeClass('active');
+        });
+
+        $choice.filter('[name="yes_specialcontractstructure"]').click(function () {
+            $choice.filter('[name="no_specialcontractstructure"]').removeClass('active');
+        });
+
+        $choice.filter('[name="no_specialcontractstructure"]').click(function () {
+            $choice.filter('[name="yes_specialcontractstructure"]').removeClass('active');
+        });
+
+        $choice.filter('[name="yes_customercountsinterest"]').click(function () {
+            $choice.filter('[name="no_customercountsinterest"]').removeClass('active');
+        });
+
+        $choice.filter('[name="no_customercountsinterest"]').click(function () {
+            $choice.filter('[name="yes_customercountsinterest"]').removeClass('active');
+        });
+
+        $choice.filter('[name="yes_priceadjustmentclause"]').click(function () {
+            $choice.filter('[name="no_priceadjustmentclause"]').removeClass('active');
+        });
+
+        $choice.filter('[name="no_priceadjustmentclause"]').click(function () {
+            $choice.filter('[name="yes_priceadjustmentclause"]').removeClass('active');
+        });
+
+        $choice.filter('[name="yes_multipledeliveries"]').click(function () {
+            $choice.filter('[name="no_multipledeliveries"]').removeClass('active');
+        });
+
+        $choice.filter('[name="no_multipledeliveries"]').click(function () {
+            $choice.filter('[name="yes_multipledeliveries"]').removeClass('active');
+        });
+
+        $choice.filter('[name="yes_securitybusinnesprovided"]').click(function () {
+            $choice.filter('[name="no_securitybusinnesprovided"]').removeClass('active');
+        });
+
+        $choice.filter('[name="no_securitybusinnesprovided"]').click(function () {
+            $choice.filter('[name="yes_securitybusinnesprovided"]').removeClass('active');
+        });
+
+        $choice.filter('[name="yes_deliveredatthisaddress"]').click(function () {
+            $choice.filter('[name="no_deliveredatthisaddress"]').removeClass('active');
+        });
+
+        $choice.filter('[name="no_deliveredatthisaddress"]').click(function () {
+            $choice.filter('[name="yes_deliveredatthisaddress"]').removeClass('active');
+        });
+
+        $choice.filter('[name="yes_relationtocustomer"]').click(function () {
+            $choice.filter('[name="no_relationtocustomer"]').removeClass('active');
+        });
+
+        $choice.filter('[name="no_relationtocustomer"]').click(function () {
+            $choice.filter('[name="yes_relationtocustomer"]').removeClass('active');
+        });
+
+        $choice.filter('[name="yes_previouspaymentexperiencewithcustomer"]').click(function () {
+            $choice.filter('[name="no_previouspaymentexperiencewithcustomer"]').removeClass('active');
+        });
+
+        $choice.filter('[name="no_previouspaymentexperiencewithcustomer"]').click(function () {
+            $choice.filter('[name="yes_previouspaymentexperiencewithcustomer"]').removeClass('active');
+        });
+
+        $choice.filter('[name="yes_previouslyhermesinsuranceused"]').click(function () {
+            $choice.filter('[name="no_previouslyhermesinsuranceused"]').removeClass('active');
+        });
+
+        $choice.filter('[name="no_previouslyhermesinsuranceused"]').click(function () {
+            $choice.filter('[name="yes_previouslyhermesinsuranceused"]').removeClass('active');
+        });
+
+        $choice.filter('[name="yes_reduceeconomicrisk"]').click(function () {
+            $choice.filter('[name="dont_reduceeconomicrisk"]').removeClass('active');
+        });
+
+        $choice.filter('[name="dont_reduceeconomicrisk"]').click(function () {
+            $choice.filter('[name="yes_reduceeconomicrisk"]').removeClass('active');
+        });
+
+        $choice.filter('[name="publicsector"]').click(function () {
+            $choice.filter('[name="privatesector"]').removeClass('active');
+        });
+
+        $choice.filter('[name="privatesector"]').click(function () {
+            $choice.filter('[name="publicsector"]').removeClass('active');
+        });
+
+
+        $('input[type="checkbox"]').on('change', function () {
+
+            $('input[name="' + this.name + '"]').not(this).prop('checked', false);
+
+            if ($("#No-hermesdeckungNutz").is(":checked")) {
+                $("#newAtHermesDeckung").show();
+            } else {
+                $("#newAtHermesDeckung").hide();
+            }
+
+            if ($("#Yes-WorkAssociation").is(":checked")) {
+                $("#workAssociationExist").show();
+            } else {
+                $("#workAssociationExist").hide();
+            }
+
+            if ($("#ja_exportlicense_requirement").is(":checked")) {
+                $("#exportLicenseRequirement").show();
+            } else {
+                $("#exportLicenseRequirement").hide();
+            }
+
+            if ($("#yes_secondhand_goods").is(":checked")) {
+                $("#deliverSecondHandGoods").show();
+            } else {
+                $("#deliverSecondHandGoods").hide();
+            }
+
+            if ($("#ja_contractsigned").is(":checked")) {
+                $("#contractSigned").show();
+            } else {
+                $("#contractSigned").hide();
+            }
+
+            if ($("#yes_specialcontractstructure").is(":checked")) {
+                $("#yesNoSpecialContractStructure").show();
+            } else {
+                $("#yesNoSpecialContractStructure").hide();
+            }
+
+            if ($("#ja_customercountsinterest").is(":checked")) {
+                $("#yesNoCustomerCountInterest").show();
+            } else {
+                $("#yesNoCustomerCountInterest").hide();
+            }
+
+            if ($("#ja_priceadjustmentclause").is(":checked")) {
+                $("#yesNoPriceAdjustmentClause").show();
+            } else {
+                $("#yesNoPriceAdjustmentClause").hide();
+            }
+
+            if ($("#ja_multipledeliveries").is(":checked")) {
+                $("#yesNoMultipleDeliveries").show();
+            } else {
+                $("#yesNoMultipleDeliveries").hide();
+            }
+
+            if ($("#ja").is(":checked")) {
+                $("#showHideDivJaWorkOtherCompanies").show();
+            } else {
+                $("#showHideDivJaWorkOtherCompanies").hide();
+            }
+
+            if ($("#no_certificateoforigin").is(":checked")) {
+                $("#yesNoCertificateOfOrigin").show();
+            } else {
+                $("#yesNoCertificateOfOrigin").hide();
+            }
+
+            if ($("#teil-certificateoforigin").is(":checked")) {
+                $("#yesNoCertificateOfOriginTeil").show();
+            } else {
+                $("#yesNoCertificateOfOriginTeil").hide();
+            }
+
+            if ($("#Yes-securityForBusiness").is(":checked")) {
+                $("#typeOfSecurity").show();
+            } else {
+                $("#typeOfSecurity").hide();
+            }
+
+            if ($("#No-deliveryAddress").is(":checked")) {
+                $("#deliveryAddress").show();
+            } else {
+                $("#deliveryAddress").hide();
+            }
+
+            if ($("#Yes-relationToCustomer").is(":checked")) {
+                $("#relationToCustomerExplain").show();
+            } else {
+                $("#relationToCustomerExplain").hide();
+            }
+
+            if ($("#Yes-paymentExperience").is(":checked")) {
+                $("#alreadyPaymentExperience").show();
+            } else {
+                $("#alreadyPaymentExperience").hide();
+            }
+
+            if ($("#triff_zu").is(":checked")) {
+                $("#showHideDivTrifftZu").show();
+            } else {
+                $("#showHideDivTrifftZu").hide();
+            }
+
+            if ($("#privateSector").is(":checked")) {
                 $("#showHideDivResultMessage").show();
             } else {
                 $("#showHideDivResultMessage").hide();
             }
-        });
 
-        $("#publicSector").click(function () {
-            if ($(this).is(":checked")) {
+            if ($("#publicSector").is(":checked")) {
                 $("#showHideDivResultMessageFail").show();
             } else {
                 $("#showHideDivResultMessageFail").hide();
             }
         });
-    });
 
-    function privateSector() {
-        var x = document.getElementById("showHideDivResultMessage");
-        var y = document.getElementById("showHideDivResultMessageFail");
 
-        if (x.style.display === "none") {
-            x.style.display = "block";
-            y.style.display = "none";
-        } else {
-            x.style.display = "none";
-        }
-    }
+        //------------------------- START: input validation checks here -------------------------
 
-    function publicSector() {
-        var x = document.getElementById("showHideDivResultMessage");
-        var y = document.getElementById("showHideDivResultMessageFail");
-        if (y.style.display === "none") {
-            y.style.display = "block";
-            x.style.display = "none";
-        } else {
-            y.style.display = "none";
-        }
-    }
-
-    function ziehungVonGarantien() {
-        var x = document.getElementById("entlastung");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-    function deliverWithOtherCompanies() {
-        var x = document.getElementById("showHideDivJaWorkOtherCompanies");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-    function notDeliverWithOtherCompanies() {
-        var x = document.getElementById("showHideDivJaWorkOtherCompanies");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        }
-    }
-
-    function exportLicenseRequired() {
-        var x = document.getElementById("exportLicenseRequirement");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-    function noExportLicenseRequired() {
-        var x = document.getElementById("exportLicenseRequirement");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        }
-    }
-
-    $(function () {
-        $("#yes_secondhand_goods").click(function () {
-            if ($(this).is(":checked")) {
-                $("#deliverSecondHandGoods").show();
-            } else {
-                $("#deliverSecondHandGoods").hide();
+        // only allow numerical value
+        function onlyAllowNumericalValue(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                alert("Bitte nur numerischen Wert eingeben");
+                return false;
             }
-        });
-    });
-
-    function secondHandGoods() {
-        var x = document.getElementById("deliverSecondHandGoods");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
+            return true;
         }
-    }
 
-    function noSecondHandGoods() {
-        var x = document.getElementById("deliverSecondHandGoods");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        }
-    }
-
-    function contractSignedAllParties() {
-        var x = document.getElementById("contractSigned");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-    function noContractSignedAllParties() {
-        var x = document.getElementById("contractSigned");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        }
-    }
-
-    function specialContractStructure() {
-        var x = document.getElementById("yesNoSpecialContractStructure");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-    function noSpecialContractStructure() {
-        var x = document.getElementById("yesNoSpecialContractStructure");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        }
-    }
-
-    function customerCountsInterest() {
-        var x = document.getElementById("yesNoCustomerCountInterest");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-    function noCustomerCountsInterest() {
-        var x = document.getElementById("yesNoCustomerCountInterest");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        }
-    }
-
-    function priceAdjustmentClause() {
-        var x = document.getElementById("yesNoPriceAdjustmentClause");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-    function noPriceAdjustmentClause() {
-        var x = document.getElementById("yesNoPriceAdjustmentClause");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        }
-    }
-
-    function multipleDeliveries() {
-        var x = document.getElementById("yesNoMultipleDeliveries");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-    function noMultipleDeliveries() {
-        var x = document.getElementById("yesNoMultipleDeliveries");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        }
-    }
-
-
-    $(function () {
-        $("#no_certificateoforigin").click(function () {
-            if ($(this).is(":checked")) {
-                $("#yesNoCertificateOfOrigin").show();
-            } else {
-                $("#yesNoCertificateOfOrigin").hide();
+        // only allow numerical value and plus symbol
+        function onlyAllowNumericalValueAndPlus(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 43) {
+                alert("Bitte nur numerischen Wert eingeben");
+                return false;
             }
-        });
-    });
+            return true;
+        }
 
-    $(function () {
-        $("#teil-certificateoforigin").click(function () {
-            if ($(this).is(":checked")) {
-                $("#yesNoCertificateOfOriginTeil").show();
-            } else {
-                $("#yesNoCertificateOfOriginTeil").hide();
+        // only allow numerical value and comma, dot
+        function onlyAllowNumericalValueAndDotComma(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 44 && charCode != 46) {
+                alert("Bitte nur numerischen Wert eingeben");
+                return false;
             }
-        });
-    });
-
-    function kurzFristigTermOfPayment() {
-        var x = document.getElementById("KurzFristigTermOfPayment");
-        var y = document.getElementById("MittelTermOfPayment");
-        var z = document.getElementById("SonstigeKurzFristigTermOfPayment");
-
-        if (x.style.display === "none") {
-            x.style.display = "block";
-            y.style.display = "none";
-            z.style.display = "none";
-        } else {
-            x.style.display = "none"
-        }
-    }
-
-    function mittelTermOfPayment() {
-        var x = document.getElementById("KurzFristigTermOfPayment");
-        var y = document.getElementById("MittelTermOfPayment");
-        var z = document.getElementById("SonstigeKurzFristigTermOfPayment");
-        if (y.style.display === "none") {
-            y.style.display = "block";
-            z.style.display = "none";
-            x.style.display = "none";
-        } else {
-            y.style.display = "none"
-        }
-    }
-
-    function sonstigeKurzFristigTermOfPayment() {
-        var x = document.getElementById("KurzFristigTermOfPayment");
-        var y = document.getElementById("MittelTermOfPayment");
-        var z = document.getElementById("SonstigeKurzFristigTermOfPayment");
-
-        if (z.style.display === "none") {
-            z.style.display = "block";
-            x.style.display = "none";
-            y.style.display = "none";
-        } else {
-            z.style.display = "none"
-        }
-    }
-
-    $(function () {
-        $("#sonstige").click(function () {
-            if ($(this).is(":checked")) {
-                $("#entlastung").show();
-            } else {
-                $("#entlastung").hide();
-            }
-        });
-    });
-
-    function securityBusinnesProvided() {
-        var x = document.getElementById("typeOfSecurity");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-    function noSecurityBusinnesProvided() {
-        var x = document.getElementById("typeOfSecurity");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        }
-    }
-
-    function deliveredAtThisAddress() {
-        var x = document.getElementById("deliveryAddress");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        }
-    }
-
-    function notDeliveredAtThisAddress() {
-        var x = document.getElementById("deliveryAddress");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-    function relationToCustomer() {
-        var x = document.getElementById("relationToCustomerExplain");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-    function noRelationToCustomer() {
-        var x = document.getElementById("relationToCustomerExplain");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        }
-    }
-
-    $(function () {
-        $("#Yes-paymentExperience").click(function () {
-            if ($(this).is(":checked")) {
-                $("#alreadyPaymentExperience").show();
-            } else {
-                $("#alreadyPaymentExperience").hide();
-            }
-        });
-    });
-
-    function previousPaymentExperienceWithCustomer() {
-        var x = document.getElementById("alreadyPaymentExperience");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-    function noPreviousPaymentExperienceWithCustomer() {
-        var x = document.getElementById("alreadyPaymentExperience");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        }
-    }
-
-    $(function () {
-        $("#No-hermesdeckungNutz").click(function () {
-            if ($(this).is(":checked")) {
-                $("#newAtHermesDeckung").show();
-            } else {
-                $("#newAtHermesDeckung").hide();
-            }
-        });
-    });
-
-    function previouslyHermesInsuranceUsed() {
-        var x = document.getElementById("newAtHermesDeckung");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        }
-    }
-
-    function noPreviouslyHermesInsuranceUsed() {
-        var x = document.getElementById("newAtHermesDeckung");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-    $(function () {
-        $("#Yes-WorkAssociation").click(function () {
-            if ($(this).is(":checked")) {
-                $("#workAssociationExist").show();
-            } else {
-                $("#workAssociationExist").hide();
-            }
-        });
-    });
-
-    $(function () {
-        $("#triff_zu").click(function () {
-            if ($(this).is(":checked")) {
-                $("#showHideDivTrifftZu").show();
-            } else {
-                $("#showHideDivTrifftZu").hide();
-            }
-        });
-    });
-
-    var $choice = jQuery('.choice');
-
-    $choice.filter('[name="kurzfristigtermofpayment"]').click(function () {
-        $choice.filter('[name="mitteltermofpayment"]').removeClass('active');
-        $choice.filter('[name="sonstigekurzfristigtermofpayment"]').removeClass('active');
-    });
-
-    $choice.filter('[name="mitteltermofpayment"]').click(function () {
-        $choice.filter('[name="kurzfristigtermofpayment"]').removeClass('active');
-        $choice.filter('[name="sonstigekurzfristigtermofpayment"]').removeClass('active');
-    });
-
-    $choice.filter('[name="sonstigekurzfristigtermofpayment"]').click(function () {
-        $choice.filter('[name="mitteltermofpayment"]').removeClass('active');
-        $choice.filter('[name="kurzfristigtermofpayment"]').removeClass('active');
-    });
-
-
-    $choice.filter('[name="sensitivearea_nein"]').click(function () {
-        $choice.filter('[name="sensitivearea"]').removeClass('active');
-        $choice.filter('[name="sensitivearea_sonstige"]').removeClass('active');
-
-        var x = document.getElementById("affectsOtherSpecialDiv");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        }
-    });
-
-    $choice.filter('[name="sensitivearea_sonstige"]').click(function () {
-        $choice.filter('[name="sensitivearea"]').removeClass('active');
-        $choice.filter('[name="sensitivearea_nein"]').removeClass('active');
-
-        var x = document.getElementById("affectsOtherSpecialDiv");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    });
-
-    $choice.filter('[name="sensitivearea"]').click(function () {
-        $choice.filter('[name="sensitivearea_nein"]').removeClass('active');
-        $choice.filter('[name="sensitivearea_sonstige"]').removeClass('active');
-
-        var x = document.getElementById("affectsOtherSpecialDiv");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        }
-    });
-
-    $choice.filter('[name="deliverwithothercompanies_yes"]').click(function () {
-        $choice.filter('[name="deliverwithothercompanies_no"]').removeClass('active');
-    });
-
-    $choice.filter('[name="deliverwithothercompanies_no"]').click(function () {
-        $choice.filter('[name="deliverwithothercompanies_yes"]').removeClass('active');
-    });
-
-
-    $choice.filter('[name="exportlicenserequired_yes"]').click(function () {
-        $choice.filter('[name="exportlicenserequired_no"]').removeClass('active');
-    });
-
-    $choice.filter('[name="exportlicenserequired_no"]').click(function () {
-        $choice.filter('[name="exportlicenserequired_yes"]').removeClass('active');
-    });
-
-    $choice.filter('[name="yes_secondhandgoods"]').click(function () {
-        $choice.filter('[name="no_secondhandgoods"]').removeClass('active');
-    });
-
-    $choice.filter('[name="no_secondhandgoods"]').click(function () {
-        $choice.filter('[name="yes_secondhandgoods"]').removeClass('active');
-    });
-
-    $choice.filter('[name="yes_congractsignedallparties"]').click(function () {
-        $choice.filter('[name="no_congractsignedallparties"]').removeClass('active');
-    });
-
-    $choice.filter('[name="no_congractsignedallparties"]').click(function () {
-        $choice.filter('[name="yes_congractsignedallparties"]').removeClass('active');
-    });
-
-    $choice.filter('[name="yes_specialcontractstructure"]').click(function () {
-        $choice.filter('[name="no_specialcontractstructure"]').removeClass('active');
-    });
-
-    $choice.filter('[name="no_specialcontractstructure"]').click(function () {
-        $choice.filter('[name="yes_specialcontractstructure"]').removeClass('active');
-    });
-
-    $choice.filter('[name="yes_customercountsinterest"]').click(function () {
-        $choice.filter('[name="no_customercountsinterest"]').removeClass('active');
-    });
-
-    $choice.filter('[name="no_customercountsinterest"]').click(function () {
-        $choice.filter('[name="yes_customercountsinterest"]').removeClass('active');
-    });
-
-    $choice.filter('[name="yes_priceadjustmentclause"]').click(function () {
-        $choice.filter('[name="no_priceadjustmentclause"]').removeClass('active');
-    });
-
-    $choice.filter('[name="no_priceadjustmentclause"]').click(function () {
-        $choice.filter('[name="yes_priceadjustmentclause"]').removeClass('active');
-    });
-
-    $choice.filter('[name="yes_multipledeliveries"]').click(function () {
-        $choice.filter('[name="no_multipledeliveries"]').removeClass('active');
-    });
-
-    $choice.filter('[name="no_multipledeliveries"]').click(function () {
-        $choice.filter('[name="yes_multipledeliveries"]').removeClass('active');
-    });
-
-    $choice.filter('[name="yes_securitybusinnesprovided"]').click(function () {
-        $choice.filter('[name="no_securitybusinnesprovided"]').removeClass('active');
-    });
-
-    $choice.filter('[name="no_securitybusinnesprovided"]').click(function () {
-        $choice.filter('[name="yes_securitybusinnesprovided"]').removeClass('active');
-    });
-
-    $choice.filter('[name="yes_deliveredatthisaddress"]').click(function () {
-        $choice.filter('[name="no_deliveredatthisaddress"]').removeClass('active');
-    });
-
-    $choice.filter('[name="no_deliveredatthisaddress"]').click(function () {
-        $choice.filter('[name="yes_deliveredatthisaddress"]').removeClass('active');
-    });
-
-    $choice.filter('[name="yes_relationtocustomer"]').click(function () {
-        $choice.filter('[name="no_relationtocustomer"]').removeClass('active');
-    });
-
-    $choice.filter('[name="no_relationtocustomer"]').click(function () {
-        $choice.filter('[name="yes_relationtocustomer"]').removeClass('active');
-    });
-
-    $choice.filter('[name="yes_previouspaymentexperiencewithcustomer"]').click(function () {
-        $choice.filter('[name="no_previouspaymentexperiencewithcustomer"]').removeClass('active');
-    });
-
-    $choice.filter('[name="no_previouspaymentexperiencewithcustomer"]').click(function () {
-        $choice.filter('[name="yes_previouspaymentexperiencewithcustomer"]').removeClass('active');
-    });
-
-    $choice.filter('[name="yes_previouslyhermesinsuranceused"]').click(function () {
-        $choice.filter('[name="no_previouslyhermesinsuranceused"]').removeClass('active');
-    });
-
-    $choice.filter('[name="no_previouslyhermesinsuranceused"]').click(function () {
-        $choice.filter('[name="yes_previouslyhermesinsuranceused"]').removeClass('active');
-    });
-
-    $choice.filter('[name="yes_reduceeconomicrisk"]').click(function () {
-        $choice.filter('[name="dont_reduceeconomicrisk"]').removeClass('active');
-    });
-
-    $choice.filter('[name="dont_reduceeconomicrisk"]').click(function () {
-        $choice.filter('[name="yes_reduceeconomicrisk"]').removeClass('active');
-    });
-
-    $choice.filter('[name="publicsector"]').click(function () {
-        $choice.filter('[name="privatesector"]').removeClass('active');
-    });
-
-    $choice.filter('[name="privatesector"]').click(function () {
-        $choice.filter('[name="publicsector"]').removeClass('active');
-    });
-
-
-    $('input[type="checkbox"]').on('change', function () {
-
-        $('input[name="' + this.name + '"]').not(this).prop('checked', false);
-
-        if ($("#No-hermesdeckungNutz").is(":checked")) {
-            $("#newAtHermesDeckung").show();
-        } else {
-            $("#newAtHermesDeckung").hide();
+            return true;
         }
 
-        if ($("#Yes-WorkAssociation").is(":checked")) {
-            $("#workAssociationExist").show();
-        } else {
-            $("#workAssociationExist").hide();
-        }
-
-        if ($("#ja_exportlicense_requirement").is(":checked")) {
-            $("#exportLicenseRequirement").show();
-        } else {
-            $("#exportLicenseRequirement").hide();
-        }
-
-        if ($("#yes_secondhand_goods").is(":checked")) {
-            $("#deliverSecondHandGoods").show();
-        } else {
-            $("#deliverSecondHandGoods").hide();
-        }
-
-        if ($("#ja_contractsigned").is(":checked")) {
-            $("#contractSigned").show();
-        } else {
-            $("#contractSigned").hide();
-        }
-
-        if ($("#yes_specialcontractstructure").is(":checked")) {
-            $("#yesNoSpecialContractStructure").show();
-        } else {
-            $("#yesNoSpecialContractStructure").hide();
-        }
-
-        if ($("#ja_customercountsinterest").is(":checked")) {
-            $("#yesNoCustomerCountInterest").show();
-        } else {
-            $("#yesNoCustomerCountInterest").hide();
-        }
-
-        if ($("#ja_priceadjustmentclause").is(":checked")) {
-            $("#yesNoPriceAdjustmentClause").show();
-        } else {
-            $("#yesNoPriceAdjustmentClause").hide();
-        }
-
-        if ($("#ja_multipledeliveries").is(":checked")) {
-            $("#yesNoMultipleDeliveries").show();
-        } else {
-            $("#yesNoMultipleDeliveries").hide();
-        }
-
-        if ($("#ja").is(":checked")) {
-            $("#showHideDivJaWorkOtherCompanies").show();
-        } else {
-            $("#showHideDivJaWorkOtherCompanies").hide();
-        }
-
-        if ($("#no_certificateoforigin").is(":checked")) {
-            $("#yesNoCertificateOfOrigin").show();
-        } else {
-            $("#yesNoCertificateOfOrigin").hide();
-        }
-
-        if ($("#teil-certificateoforigin").is(":checked")) {
-            $("#yesNoCertificateOfOriginTeil").show();
-        } else {
-            $("#yesNoCertificateOfOriginTeil").hide();
-        }
-
-        if ($("#Yes-securityForBusiness").is(":checked")) {
-            $("#typeOfSecurity").show();
-        } else {
-            $("#typeOfSecurity").hide();
-        }
-
-        if ($("#No-deliveryAddress").is(":checked")) {
-            $("#deliveryAddress").show();
-        } else {
-            $("#deliveryAddress").hide();
-        }
-
-        if ($("#Yes-relationToCustomer").is(":checked")) {
-            $("#relationToCustomerExplain").show();
-        } else {
-            $("#relationToCustomerExplain").hide();
-        }
-
-        if ($("#Yes-paymentExperience").is(":checked")) {
-            $("#alreadyPaymentExperience").show();
-        } else {
-            $("#alreadyPaymentExperience").hide();
-        }
-
-        if ($("#triff_zu").is(":checked")) {
-            $("#showHideDivTrifftZu").show();
-        } else {
-            $("#showHideDivTrifftZu").hide();
-        }
-
-        if ($("#privateSector").is(":checked")) {
-            $("#showHideDivResultMessage").show();
-        } else {
-            $("#showHideDivResultMessage").hide();
-        }
-
-        if ($("#publicSector").is(":checked")) {
-            $("#showHideDivResultMessageFail").show();
-        } else {
-            $("#showHideDivResultMessageFail").hide();
-        }
-    });
+        //------------------------- END: input validation checks here -------------------------
 
 
-    //input validation checks here
-
-
-    // only allow numerical value
-    function onlyAllowNumericalValue(evt) {
-        var charCode = (evt.which) ? evt.which : event.keyCode
-        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-            alert("Bitte nur numerischen Wert eingeben");
-            return false;
-        }
-        return true;
-    }
-
-    // only allow numerical value and plus symbol
-    function onlyAllowNumericalValueAndPlus(evt) {
-        var charCode = (evt.which) ? evt.which : event.keyCode
-        if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 43) {
-            alert("Bitte nur numerischen Wert eingeben");
-            return false;
-        }
-        return true;
-    }
-
-    // only allow numerical value and comma, dot
-    function onlyAllowNumericalValueAndDotComma(evt) {
-        var charCode = (evt.which) ? evt.which : event.keyCode
-        if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 44 && charCode != 46) {
-            alert("Bitte nur numerischen Wert eingeben");
-            return false;
-        }
-        return true;
-    }
-
-
-</script>
+    </script>

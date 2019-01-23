@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_07_172326) do
+ActiveRecord::Schema.define(version: 2019_01_23_150037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -317,6 +317,9 @@ ActiveRecord::Schema.define(version: 2019_01_07_172326) do
     t.string "other_document_content_type"
     t.integer "other_document_file_size"
     t.datetime "other_document_updated_at"
+    t.string "exporter_company_name"
+    t.string "exporter_email"
+    t.string "exporter_telephone"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 

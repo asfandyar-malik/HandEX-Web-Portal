@@ -86,10 +86,10 @@ class ListingsController < ApplicationController
     
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-        params.require(:listing).permit(:city, :country, :accommodates, :price, :home, :appartment, :place_good_for,
+        params.require(:listing).permit(:exporter_company_name, :exporter_email, :exporter_telephone, :city, :country, :accommodates, :price, :home, :appartment, :place_good_for,
                                         :air_conditioning, :wifi, :breakfast, :description,
                                         :insurance_cover, :country_category, :buyer_category, :expected_date_product_received_importer, :date_contractsigned_with_importer,
-                                        :country, :is_investment_good, :contract_value, :payment_deadline, :private_sector, :public_sector,
+                                        :is_investment_good, :contract_value, :payment_deadline, :private_sector, :public_sector,
                                         :risk_avaline_guarantee, :risk_contractual_warranty_coverage, :risk_shipment_risk_cover, :risk_supplier_credit_cover,
                                         :risk_further_coverage, :describe_export_business, :reason_for_buying_good, :also_provide_service_training, :product_branch,
                                         :explain_product_branch, :part_of_big_project_yes, :part_of_big_project_no, :explain_complete_project,
