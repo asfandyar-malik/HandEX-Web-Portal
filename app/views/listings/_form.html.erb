@@ -3601,108 +3601,113 @@
 
     //------------------------- START: Summary Generation JQuery -----------------------
 
-
-    // $("#exporter_telephone").keyup(function () {
-    //     $('#completeoutput').text('ONE: ' + $('#exporter_company_name').val() + 'TWO: ' + $('#exporter_email').val() + ' THREE: ' + $('#exporter_telephone').val());
-    // });
-
     $("#exporter_telephone").keyup(function () {
 
-        $('#completeoutput').html('Sie ' + $('#exporter_company_name').val() + ' mit Ihrem ' + $('#private_sector').val() + ' Kunden...' +
-            $('#country').val() + ' über die Lieferung eines ' + $('#is_investment_good').val() + ' mit einem Auftragswert in Höhe ' + $('#contract_value').val() + '....' +
-            ' Sie werden ' + $('#also_provide_service_training').val() + ' Leistungen, wie z.B. Montage vor Ort oder Schulungsleistungen, erbringen. <br/>  Der Kunde wünscht ' +
-            $('#payment_deadline').val() + ' Zahlungsbedingungen. ' + ' <br/><br/>   Sie beschreiben Ihr Geschäft wie folgt: ' + $('#describe_export_business').val());
+        $('#completeoutput').html('Sie <b>' + $('#exporter_company_name').val() + ' </b> mit Ihrem <b> ' + $('#private_sector').val() + ' </b> Kunden... <b>' +
+            $('#country').val() + ' </b>über die Lieferung eines <b> ' + $('#is_investment_good').val() + ' </b> mit einem Auftragswert in Höhe <b> ' + $('#contract_value').val() + ' </b>.' +
+            ' Sie werden <b> ' + $('#also_provide_service_training').val() + ' </b> Leistungen, wie z.B. Montage vor Ort oder Schulungsleistungen, erbringen. <br/>  Der Kunde wünscht <b> ' +
+            $('#payment_deadline').val() + ' </b> Zahlungsbedingungen. ' + ' <br/><br/>   Sie beschreiben Ihr Geschäft wie folgt: <b> ' + $('#describe_export_business').val()) + '</b>';
 
 
         $('#categorysummary').html('Ihre Ware passt in folgende Kategorie: <br/>' +
-            $('#exporter_company_name').val() + '<br/>' +
-            $('#describe_export_business').val() + '<br/>' +
-            $('#describe_export_business').val());
+            '> <b>' + $('#exporter_company_name').val() + '</b><br/>' +
+            '> <b>' + $('#describe_export_business').val() + '</b><br/>' +
+            '> <b>' + $('#describe_export_business').val()) + '</b>';
 
-        $('#businessinfo').html('Das Geschäft ist: ' + $('#exporter_company_name').val());
+        $('#businessinfo').html('Das Geschäft ist: <b>' + $('#payment_deadline').val() + '</b>');
+        //Sie beschreiben das Gesamtprojekt wie folgt:
 
-        $('#specialarea').html('Sie liefern' + $('#exporter_company_name').val() + ' in ein sensibles Gebiet: ');
+        $('#specialarea').html('Sie liefern <b>' + $('#payment_deadline').val() + ' </b> in ein sensibles Gebiet. ');
 
-        $('#exportedgood').html('Die zu liefernde Ware ist: ' + $('#exporter_company_name').val());
+        $('#exportedgood').html('Die zu liefernde Ware ist <b>' + $('#payment_deadline').val() + '</b>.');
 
-        $('#contractstructure').html('Ihr Geschäft sieht ' + $('#exporter_company_name').val() + '... Vertragsstruktur vor.');
+        $('#contractstructure').html('Ihr Geschäft sieht <b>' + $('#payment_deadline').val() + ' </b> Vertragsstruktur vor.');
         //Sie haben die besondere Vertragsstruktur erläutert:'
-        // Sie haben folgende Details zur besonderen Vertragsstruktur hochgeladen:
+        //Sie haben folgende Details zur besonderen Vertragsstruktur hochgeladen:
 
-        $('#contractcurrency').html('Ihr Exportvertrag sieht ' + $('#exporter_company_name').val() + ' als Vertragswährung vor.');
+        $('#contractcurrency').html('Ihr Exportvertrag sieht <b>' + $('#payment_deadline').val() + ' </b>als Vertragswährung vor.');
 
-        $('#contractvalue').html('Der Auftragswert: ' + $('#exporter_company_name').val() + ' setzt sich wie folgt zusammen:  <br/>' +
-            $('#exporter_company_name').val() + ' Lieferwert einschl ' + $('#exporter_company_name').val() + ' Ersatzteile ' + '<br/>' +
-            $('#exporter_company_name').val() + $('#exporter_company_name').val() + $('#exporter_company_name').val() + '<br/>' +
-            'zzgl.' + $('#exporter_company_name').val() + '(Zinssatz: ' + $('#exporter_company_name').val() + ', in Höhe von' + $('#exporter_company_name').val() + 'degressive Berechnung).' + '<br/><br/>' +
-            ' Es wird ' + $('#exporter_company_name').val() + ' vereinbart');
+        $('#contractvalue').html('Der Auftragswert: <b>' + $('#payment_deadline').val() + ' </b>setzt sich wie folgt zusammen:  <br/>' +
+            '> <b>' + $('#payment_deadline').val() + '</b> Lieferwert einschl <b>' + $('#payment_deadline').val() + ' </b>Ersatzteile ' + '<br/>' +
+            '> <b>' + $('#payment_deadline').val() + '</b> Leistungen <b>' + $('#payment_deadline').val() + ' </b>eingeschlossen ' + '<br/>' +
+            '> <b>' + $('#payment_deadline').val() + ' </b> <b> ' + $('#payment_deadline').val() + ' </b> <b> ' + $('#payment_deadline').val() + '</b><br/>' +
+            'zzgl. <b>' + $('#payment_deadline').val() + '</b> (Zinssatz: <b>' + $('#payment_deadline').val() + '</b>, in Höhe von <b>' + $('#payment_deadline').val() + '</b> degressive Berechnung).' + '<br/><br/>' +
+            ' Es wird <b>' + $('#payment_deadline').val() + '</b> vereinbart');
+            //Sie beschreiben Ihre Berechnungsmethode wie folgt:
 
-        $('#performancedate').html('Sie planen folgende Liefer- und ggf. Leistungstermine( ' + $('#exporter_company_name').val() + ' ): <br/>' +
-            'Lieferbeginn: ' + $('#exporter_company_name').val() + ' <br/><br/> ' +
-            'weitere zahlungsrelevante Termine: <br/> ' +
-            $('#exporter_company_name').val());
+        $('#performancedate').html('Sie planen folgende Liefer- und ggf. Leistungstermine( ' + $('#payment_deadline').val() + ' ): <br/>' +
+            'Lieferzeit: <b>' + $('#payment_deadline').val() + '</b> <br/> ' +
+            'Leistungszeit:<b> ' + $('#payment_deadline').val() + '</b> <br/> ' +
+            'Betriebsbereitschaft: <b> ' + $('#payment_deadline').val() + ' </b><br/> ' +
+            'weitere zahlungsrelevante Termine: <br/> <b> ' +
+            $('#payment_deadline').val() + ' </b>');
 
         $('#paymentterm').html('Sie haben kurzfristige Zahlungsbedingungen vereinbart. <br/>' +
-            ' 1.Rate ' + $('#exporter_company_name').val() + ' ( ' + $('#exporter_company_name').val() + $('#exporter_company_name').val() + ' ) Anzahlung vor Liefer- / Leistungsbeginn <br/> ' +
-            ' 2.Rate ' + $('#exporter_company_name').val() + ' ( ' + $('#exporter_company_name').val() + $('#exporter_company_name').val() + ' ) <br/> ' + $('#exporter_company_name').val() + $('#exporter_company_name').val() +
-            ' Die Anzahlung ist ' +  $('#exporter_company_name').val() + ' eingegangen. <br/><br/> ' +
-            ' Sie haben ' + $('#exporter_company_name').val() + ' hinsichtlich der mit Ihrem Kunden vereinbarten Zahlungsvehikel gemacht.');
+            ' 1.Rate <b>' + $('#payment_deadline').val() + '  ( ' + $('#payment_deadline').val() + ' ' + $('#payment_deadline').val() + ' </b> ) Anzahlung vor Liefer- / Leistungsbeginn <br/> ' +
+            ' 2.Rate <b> ' + $('#payment_deadline').val() + ' ( ' + $('#payment_deadline').val() + ' ' + $('#payment_deadline').val() + ' ) <br/> ' + $('#payment_deadline').val() + ' ' + $('#payment_deadline').val() + '</b><br/>' +
+            ' Die Anzahlung ist <b> ' +  $('#payment_deadline').val() + ' </b> eingegangen. <br/><br/> ' +
+            ' Sie haben <b>' + $('#payment_deadline').val() + ' </b> hinsichtlich der mit Ihrem Kunden vereinbarten Zahlungsvehikel gemacht.');
 
-        $('#certificateoforigin').html('Für die zu liefernden Waren bekommen Sie ' + $('#exporter_company_name').val() + ' deutsches Warenursprungszeugnis.');
+        $('#certificateoforigin').html('Für die zu liefernden Waren bekommen Sie <b> ' + $('#payment_deadline').val() + ' </b>deutsches Warenursprungszeugnis.');
 
-        $('#paymentexperience').text('Für Ihr Geschäft haben Sie ' + $('#exporter_company_name').val());
+        $('#paymentexperience').html('Für Ihr Geschäft haben Sie <b>' + $('#payment_deadline').val()) + '</b>. ';
         // Fur ihr Geschäft I have to add a lot of other stuff
 
-        $('#customerinformation').text(' Ihr Kunde ist:' + $('#exporter_company_name').val() +
-            $('#exporter_company_name').val() + $('#exporter_company_name').val() + $('#exporter_company_name').val() +
-            $('#exporter_company_name').val() + $('#exporter_company_name').val() + $('#exporter_company_name').val() +
-            $('#exporter_company_name').val() + $('#exporter_company_name').val() + ' Der Bestimmungsort Ihrer Waren/Dienstleistungen ' +
-            $('#exporter_company_name').val() + ' Sie sind an ' + $('#exporter_company_name').val() + $('#exporter_company_name').val() +
-            ' maßgeblichen Einfluss auf die Geschäftsführung aus. ' +
-            ' Sie ' + $('#exporter_company_name').val() + ' Zahlungserfahrungen mit Ihrem Kunden. '
+        $('#customerinformation').html(' Ihr Kunde ist: <b> <br/>' +
+            $('#payment_deadline').val() + '<br/>' +
+            $('#payment_deadline').val() + '        ' +  $('#payment_deadline').val() + '<br/>' +
+            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '<br/>' +
+            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '<br/>' +
+            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '</b><br/><br/>' +
+            ' Der Bestimmungsort Ihrer Waren/Dienstleistungen <b>' + $('#payment_deadline').val() + '</b>. <br/>' +
+            ' Sie sind an <b> ' + $('#payment_deadline').val() + ' ' + $('#payment_deadline').val() + ' </b> maßgeblichen Einfluss auf die Geschäftsführung aus. ' + ' <br/>' +
+            ' Sie <b>' + $('#exporter_company_name').val() + ' </b> Zahlungserfahrungen mit Ihrem Kunden. '
         );
+        // Sie beschreiben Ihre Beteiligung wie folgt:
+        // Sie haben die Zahlungserfahrungen wie folgt näher erläutert:
 
-        $('#companyinfo').text('Sie sind: ' +
-            $('#exporter_company_name').val() + $('#exporter_company_name').val() +
-            $('#exporter_company_name').val() + $('#exporter_company_name').val() +
-            $('#exporter_company_name').val() + $('#exporter_company_name').val() +
-            $('#exporter_company_name').val() + $('#exporter_company_name').val() +
-            ' Sie haben ca ' + $('#exporter_company_name').val() + ' Mitarbeiter und im letzten vollen Geschäftsjahr rund '
-            + $('#exporter_company_name').val() + ' EUR Umsatz gemacht. ');
+        $('#companyinfo').html('<b>' + $('#payment_deadline').val() + '</b><br/>' +
+            'Sie sind: ' + '<br/> <b>' +
+            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '<br/>' +
+            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '<br/>' +
+            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '<br/>' +
+            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '</b><br/><br/>' +
+            ' Sie haben ca <b>' + $('#payment_deadline').val() + ' </b> Mitarbeiter und im letzten vollen Geschäftsjahr rund <b> ' + $('#payment_deadline').val() + ' </b> EUR Umsatz gemacht. ');
 
-        $('#firsttimehermes').text('Sie nutzen zum ersten Mal Hermesdeckungen und haben die Fragen zur Exporterfahrung und Schadenmanagement folgendermaßen beantwortet: ' +
-            ' Exporterfahrung aus ungedecktem Geschäft: ' + $('#exporter_company_name').val() +
-            ' Exporterfahrung und Marktkenntnis im Empfängerland: ' + $('#exporter_company_name').val() +
-            ' Ausführung zum Schadenmanagement: ' + $('#exporter_company_name').val());
+        $('#firsttimehermes').html('Sie nutzen zum ersten Mal Hermesdeckungen und haben die Fragen zur Exporterfahrung und Schadenmanagement folgendermaßen beantwortet: ' + '<br/><br/>' +
+            ' Exporterfahrung aus ungedecktem Geschäft: <b>' + $('#payment_deadline').val() + '</b><br/><br/>' +
+            ' Exporterfahrung und Marktkenntnis im Empfängerland: <b>' + $('#payment_deadline').val() + '</b><br/><br/>' +
+            ' Ausführung zum Schadenmanagement: <b>' + $('#payment_deadline').val() + '</b>');
 
-        $('#contactperson').text('Als Ansprechpartner fungiert: ' +
-            $('#exporter_company_name').val() + $('#exporter_company_name').val() +
-            $('#exporter_company_name').val() + $('#exporter_company_name').val() +
-            $('#exporter_company_name').val() + $('#exporter_company_name').val() +
-            $('#exporter_company_name').val() + $('#exporter_company_name').val());
+        $('#contactperson').html('Als Ansprechpartner fungiert: <b>' + '<br/>' +
+            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '<br/>' +
+            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '<br/>' +
+            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '<br/>' +
+            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '</b>');
 
-        $('#attacheddocuments').text('Sie haben folgende Anlagen hochgeladen: ' +
-            ' Selbstauskunft (bei Neukunden): ' +
-            $('#exporter_company_name').val() +
-            ' Jahresabschlüsse Ihres Kunden: ' +
-            $('#exporter_company_name').val() +
-            ' Auskünfte über Ihren Kunden: ' +
-            $('#exporter_company_name').val() +
-            ' Umwelt- und Sozialinformationen: ' +
-            $('#exporter_company_name').val() +
-            ' ggf. Projektmemorandum: ' +
-            $('#exporter_company_name').val() +
-            ' sonstiges: ' +
-            $('#exporter_company_name').val());
+        $('#attacheddocuments').html('Sie haben folgende Anlagen hochgeladen: ' + '<br/><br/>' +
+            ' Selbstauskunft (bei Neukunden): ' + '<br/>' +
+            '> <b>' + $('#payment_deadline').val() + ' </b><br/><br/>' +
+            ' Jahresabschlüsse Ihres Kunden: ' + '<br/>' +
+            '> <b>' + $('#payment_deadline').val() + '</b><br/><br/>' +
+            ' Auskünfte über Ihren Kunden: ' + '<br/>' +
+            '> <b>' + $('#payment_deadline').val() + '</b><br/><br/>' +
+            ' Umwelt- und Sozialinformationen: ' + '<br/>' +
+            '> <b>' + $('#payment_deadline').val() + '</b><br/><br/>' +
+            ' ggf. Projektmemorandum: ' + '<br/>' +
+            '> <b>' + $('#payment_deadline').val() + '</b><br/><br/>' +
+            ' sonstiges: ' + '<br/>' +
+            '> <b>' + $('#payment_deadline').val() + '</b>');
 
-        $('#risks').text('Sie beantragen die Absicherung folgender Risiken: ' +
-            $('#exporter_company_name').val() +
-            $('#exporter_company_name').val() + ' Herabsetzung der Selbstbeteiligung für wirtschaftliche Risiken.');
+        $('#risks').html('Sie beantragen die Absicherung folgender Risiken: <b>' + '<br/>' +
+            $('#payment_deadline').val() + '<br/>' +
+            $('#payment_deadline').val() + ' </b> Herabsetzung der Selbstbeteiligung für wirtschaftliche Risiken.');
 
-        $('#termsandconditions').text('Sie haben die Erklärung zur Korruptionsprävention ausgefüllt. ' + ' Diese können Sie sich hier anzeigen lassen und separat ausdrucken. ' +
-            ' Sie akzeptieren die gültigen ' + ' Allgemeinen Bedingungen für Lieferantenkreditdeckung (G) ' + ' in Zusammenhang mit den ' + ' Ergänzenden Bestimmungen für Forderungsabtretungen . ' +
-            ' Sie haben die Datenschutzhinweise zur Kenntnis genommen und sind mit deren Geltung ' + $('#exporter_company_name').val() +
-            $('#exporter_company_name').val());
+        $('#termsandconditions').html('Sie haben die Erklärung zur Korruptionsprävention ausgefüllt. ' + ' Diese können Sie sich hier anzeigen lassen und separat ausdrucken. ' + '<br/> <br/>' +
+            ' Sie akzeptieren die gültigen ' + ' Allgemeinen Bedingungen für Lieferantenkreditdeckung (G) ' + ' in Zusammenhang mit den ' + ' Ergänzenden Bestimmungen für Forderungsabtretungen . ' + '<br/> <br/> ' +
+            ' Sie haben die Datenschutzhinweise zur Kenntnis genommen und sind mit deren Geltung <b>' + $('#payment_deadline').val() + '<br/> <br/> ' +
+            $('#payment_deadline').val() + '</b>');
+
 
         $('#missinginformation').text(' Bitte reichen Sie die unten stehenden Informationen baldmöglich nach: ');
 
