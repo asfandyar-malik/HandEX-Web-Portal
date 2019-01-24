@@ -3490,6 +3490,14 @@
 
                                                         <div class="row">
                                                             <div class="col-sm-12">
+                                                                <span id="customerinformation"></span>
+                                                            </div>
+                                                        </div>
+
+                                                        <hr align="middle">
+
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
                                                                 <span id="companyinfo"></span>
                                                             </div>
                                                         </div>
@@ -3640,9 +3648,12 @@
             ' Die Anzahlung ist ' +  $('#exporter_company_name').val() + ' eingegangen. <br/><br/> ' +
             ' Sie haben ' + $('#exporter_company_name').val() + ' hinsichtlich der mit Ihrem Kunden vereinbarten Zahlungsvehikel gemacht.');
 
-        $('#certificateoforigin').text('Für die zu liefernden Waren bekommen Sie ' + $('#exporter_company_name').val() + ' deutsches Warenursprungszeugnis.');
+        $('#certificateoforigin').html('Für die zu liefernden Waren bekommen Sie ' + $('#exporter_company_name').val() + ' deutsches Warenursprungszeugnis.');
 
-        $('#paymentexperience').text('Für Ihr Geschäft haben Sie ' + $('#exporter_company_name').val() + ' Ihr Kunde ist:' +
+        $('#paymentexperience').text('Für Ihr Geschäft haben Sie ' + $('#exporter_company_name').val());
+        // Fur ihr Geschäft I have to add a lot of other stuff
+
+        $('#customerinformation').text(' Ihr Kunde ist:' + $('#exporter_company_name').val() +
             $('#exporter_company_name').val() + $('#exporter_company_name').val() + $('#exporter_company_name').val() +
             $('#exporter_company_name').val() + $('#exporter_company_name').val() + $('#exporter_company_name').val() +
             $('#exporter_company_name').val() + $('#exporter_company_name').val() + ' Der Bestimmungsort Ihrer Waren/Dienstleistungen ' +
