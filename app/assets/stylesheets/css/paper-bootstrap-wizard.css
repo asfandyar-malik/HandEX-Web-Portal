@@ -33,7 +33,8 @@
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td-name, td {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-family: "Handel Becker Light", "Handel Becker Med", "HandelGotDBol", sans-serif;
+    /*font-family: "Handel Becker Light", "Handel Becker Med", "HandelGotDBol", sans-serif;*/
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
@@ -261,7 +262,8 @@ textarea.form-control {
 body {
     color: #66615b;
     font-size: 18px;
-    font-family: "Handel Becker Light", "Handel Becker Med", "HandelGotDBol", sans-serif;
+    /*font-family: "Handel Becker Light", "Handel Becker Med", "HandelGotDBol", sans-serif;*/
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 a {
