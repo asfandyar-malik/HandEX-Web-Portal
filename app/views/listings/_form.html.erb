@@ -3554,8 +3554,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <br><br>
+                                            <br>
                                         </div>
                                     </div>
                                 </div>
@@ -3603,11 +3602,10 @@
 
     $("#exporter_telephone").keyup(function () {
 
-        $('#completeoutput').html('Sie <b>' + $('#exporter_company_name').val() + ' </b> mit Ihrem <b> ' + $('#private_sector').val() + ' </b> Kunden... <b>' +
+        $('#completeoutput').html('Sie <b>' + $('#exporter_company_name').val() + ' </b> mit Ihrem <b> ' + $('#private_sector').val() + ' ' + $('#private_sector').val() + ', ' + $('#private_sector').val() +
             $('#country').val() + ' </b>über die Lieferung eines <b> ' + $('#is_investment_good').val() + ' </b> mit einem Auftragswert in Höhe <b> ' + $('#contract_value').val() + ' </b>.' +
             ' Sie werden <b> ' + $('#also_provide_service_training').val() + ' </b> Leistungen, wie z.B. Montage vor Ort oder Schulungsleistungen, erbringen. <br/>  Der Kunde wünscht <b> ' +
             $('#payment_deadline').val() + ' </b> Zahlungsbedingungen. ' + ' <br/><br/>   Sie beschreiben Ihr Geschäft wie folgt: <b> ' + $('#describe_export_business').val()) + '</b>';
-
 
         $('#categorysummary').html('Ihre Ware passt in folgende Kategorie: <br/>' +
             '> <b>' + $('#exporter_company_name').val() + '</b><br/>' +
