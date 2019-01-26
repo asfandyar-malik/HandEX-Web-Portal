@@ -780,12 +780,11 @@
                                                     </div>
                                                 </div>
 
-
                                                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
 
                                                     <div class="choice <%= 'active' if listing.no_dont_deliver_secondhand_goods == 'on' %>" name="no_secondhandgoods" data-toggle="wizard-checkbox" onclick="noSecondHandGoods()">
 
-                                                        <%= check_box_tag "listing[no_export_requires_exportlicense]", listing.no_dont_deliver_secondhand_goods ? listing.no_dont_deliver_secondhand_goods : nil %>
+                                                        <%= check_box_tag "listing[no_dont_deliver_secondhand_goods]", listing.no_dont_deliver_secondhand_goods ? listing.no_dont_deliver_secondhand_goods : nil %>
 
                                                         <div class="card circle card-hover-effect">
                                                             <i class="ti-close"></i>
@@ -913,8 +912,7 @@
                                             <div class="row">
                                                 <div class="col-md-10 col-md-offset-1">
                                                     <p>Bitte geben Sie das Abschlussdatum des Vertrags und optional eine
-                                                        interne
-                                                        Referenz an</p>
+                                                        interne Referenz an</p>
                                                 </div>
                                             </div>
 
@@ -996,8 +994,7 @@
                                         <div class="row">
                                             <div class="col-md-10 col-md-offset-1">
                                                 <p> Wenn Sie möchten, laden Sie eine graphische Darstellung (z.B.
-                                                    Zusammenhang
-                                                    der Projektbeteiligten) hoch. </p>
+                                                    Zusammenhang der Projektbeteiligten) hoch. </p>
                                                 <br>
                                             </div>
                                             <div class="col-md-7 col-md-offset-1">
@@ -1095,9 +1092,9 @@
                                                 <p><b>Berechnen Sie Ihrem Kunden Zinsen? </b>
                                                 <p>
                                                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                                                    <div class="choice <%= 'active' if listing.ja_customer_counts_interest == 'on' %>" name="yes_customercountsinterest" data-toggle="wizard-checkbox" onclick="customerCountsInterest()">
+                                                    <div class="choice <%= 'active' if listing.yes_charge_interest_to_importer == 'on' %>" name="yes_customercountsinterest" data-toggle="wizard-checkbox" onclick="customerCountsInterest()">
 
-                                                        <%= check_box_tag "listing[ja_customer_counts_interest]", listing.ja_customer_counts_interest ? listing.ja_customer_counts_interest : nil %>
+                                                        <%= check_box_tag "listing[yes_charge_interest_to_importer]", listing.yes_charge_interest_to_importer ? listing.yes_charge_interest_to_importer : nil %>
 
                                                         <div class="card circle card-hover-effect">
                                                             <i class="ti-check"></i>
@@ -1107,9 +1104,9 @@
 
 
                                                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                                                    <div class="choice <%= 'active' if listing.no_customer_counts_interest == 'on' %>" name="no_customercountsinterest" data-toggle="wizard-checkbox" onclick="noCustomerCountsInterest()">
+                                                    <div class="choice <%= 'active' if listing.no_charge_interest_to_importer == 'on' %>" name="no_customercountsinterest" data-toggle="wizard-checkbox" onclick="noCustomerCountsInterest()">
 
-                                                        <%= check_box_tag "listing[no_customer_counts_interest]", listing.no_customer_counts_interest ? listing.no_customer_counts_interest : nil %>
+                                                        <%= check_box_tag "listing[no_charge_interest_to_importer]", listing.no_charge_interest_to_importer ? listing.no_charge_interest_to_importer : nil %>
 
                                                         <div class="card circle card-hover-effect">
                                                             <i class="ti-close"></i>
@@ -1129,7 +1126,7 @@
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-10 col-md-offset-1">
-                                                    <p>Bitte geben Sie die Zinsen an:</p>
+                                                    <p>Bitte geben Sie die Zinsen an</p>
                                                 </div>
                                             </div>
 
@@ -1190,7 +1187,13 @@
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-10 col-md-offset-1">
-                                                    <div> <%= form.text_area :explain_billing_methods, class: "form-control", placeholder: "Bitte beschreiben Sie die Details zur Verrechnungsmethode (Prozent- oder Betragsverfahren)." %> </div>
+                                                    <p> Bitte beschreiben Sie die Details zur Verrechnungsmethode
+                                                        (Prozent- oder Betragsverfahren)." </p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-10 col-md-offset-1">
+                                                    <div> <%= form.text_area :explain_billing_methods, class: "form-control" %> </div>
                                                 </div>
                                                 <br><br><br>
                                             </div>
@@ -2539,17 +2542,17 @@
                                             <br>
                                             <div class="col-md-3 col-md-offset-1">
                                                 <p> AK-Nummer </p>
-                                                <div> <%= form.text_field :customer_ak_number, class: "form-control", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                <div> <%= form.text_field :importer_ak_number, class: "form-control", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                             </div>
 
                                             <div class="col-md-3">
                                                 <p> Firmenname </p>
-                                                <div> <%= form.text_field :customer_company_name, class: "form-control" %> </div>
+                                                <div> <%= form.text_field :importer_company_name, class: "form-control" %> </div>
                                             </div>
 
                                             <div class="col-md-3">
                                                 <p> Steuernummer </p>
-                                                <%= form.text_field :customer_tax_number, class: "form-control" %>
+                                                <%= form.text_field :importer_tax_number, class: "form-control" %>
                                             </div>
                                         </div>
                                     </div>
@@ -2559,17 +2562,17 @@
                                             <br>
                                             <div class="col-md-3 col-md-offset-1">
                                                 <p> Straße / Hausnummer </p>
-                                                <%= form.text_field :customer_address, class: "form-control" %>
+                                                <%= form.text_field :importer_address, class: "form-control" %>
                                             </div>
 
                                             <div class="col-md-3">
                                                 <p> PLZ </p>
-                                                <%= form.text_field :customer_plz, class: "form-control", :onkeypress => "return onlyAllowNumericalValue(event)" %>
+                                                <%= form.text_field :importer_plz, class: "form-control", :onkeypress => "return onlyAllowNumericalValue(event)" %>
                                             </div>
 
                                             <div class="col-md-3">
                                                 <p> Ort </p>
-                                                <div> <%= form.text_field :customer_city, class: "form-control" %> </div>
+                                                <div> <%= form.text_field :importer_city, class: "form-control" %> </div>
                                             </div>
 
                                         </div>
@@ -2581,7 +2584,7 @@
 
                                             <div class="col-md-3 col-md-offset-1">
                                                 <p> Land </p>
-                                                <%= form.text_field :customer_country, class: "form-control" %>
+                                                <%= form.text_field :importer_country, class: "form-control" %>
                                             </div>
                                         </div>
                                     </div>
@@ -2630,17 +2633,17 @@
                                                     <br>
                                                     <div class="col-md-3 col-md-offset-1">
                                                         <p> Firmenname </p>
-                                                        <div> <%= form.text_field :customer_delivery_company_name, class: "form-control" %> </div>
+                                                        <div> <%= form.text_field :importer_delivery_address_company_name, class: "form-control" %> </div>
                                                     </div>
 
                                                     <div class="col-md-3 ">
                                                         <p> Land </p>
-                                                        <%= form.text_field :customer_delivery_country, class: "form-control" %>
+                                                        <%= form.text_field :importer_delivery_address_country, class: "form-control" %>
                                                     </div>
 
                                                     <div class="col-md-3 ">
                                                         <p> Straße / Hausnummer </p>
-                                                        <%= form.text_field :customer_delivery_address, class: "form-control" %>
+                                                        <%= form.text_field :importer_delivery_address_street, class: "form-control" %>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2649,12 +2652,12 @@
                                                     <br>
                                                     <div class="col-md-3 col-md-offset-1">
                                                         <p> PLZ </p>
-                                                        <%= form.text_field :customer_delivery_plz, class: "form-control", :onkeypress => "return onlyAllowNumericalValue(event)" %>
+                                                        <%= form.text_field :importer_delivery_address_plz, class: "form-control", :onkeypress => "return onlyAllowNumericalValue(event)" %>
                                                     </div>
 
                                                     <div class="col-md-3">
                                                         <p> Ort </p>
-                                                        <div> <%= form.text_field :customer_delivery_city, class: "form-control" %> </div>
+                                                        <div> <%= form.text_field :importer_delivery_address_city, class: "form-control" %> </div>
                                                     </div>
 
                                                 </div>
@@ -2672,9 +2675,9 @@
                                                     Sie maßgeblichen Einfluss auf die Geschäftsführung aus?</b>
                                                 <p>
                                                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                                                    <div class="choice <%= 'active' if listing.yes_relation_to_customer == 'on' %>" name="yes_relationtocustomer" data-toggle="wizard-checkbox" onclick="relationToCustomer()">
+                                                    <div class="choice <%= 'active' if listing.yes_exporter_infleunce_on_importer_management == 'on' %>" name="yes_relationtocustomer" data-toggle="wizard-checkbox" onclick="relationToCustomer()">
 
-                                                        <%= check_box_tag "listing[yes_relation_to_customer]", listing.yes_relation_to_customer ? listing.yes_relation_to_customer : nil %>
+                                                        <%= check_box_tag "listing[yes_exporter_infleunce_on_importer_management]", listing.yes_exporter_infleunce_on_importer_management ? listing.yes_exporter_infleunce_on_importer_management : nil %>
 
                                                         <div class="card circle card-hover-effect">
                                                             <i class="ti-check"></i>
@@ -2684,9 +2687,9 @@
 
                                                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
 
-                                                    <div class="choice <%= 'active' if listing.no_relation_to_customer == 'on' %>" name="no_relationtocustomer" data-toggle="wizard-checkbox" onclick="noRelationToCustomer()">
+                                                    <div class="choice <%= 'active' if listing.no_exporter_infleunce_on_importer_management == 'on' %>" name="no_relationtocustomer" data-toggle="wizard-checkbox" onclick="noRelationToCustomer()">
 
-                                                        <%= check_box_tag "listing[no_relation_to_customer]", listing.no_relation_to_customer ? listing.no_relation_to_customer : nil %>
+                                                        <%= check_box_tag "listing[no_exporter_infleunce_on_importer_management]", listing.no_exporter_infleunce_on_importer_management ? listing.no_exporter_infleunce_on_importer_management : nil %>
 
                                                         <div class="card circle card-hover-effect">
                                                             <i class="ti-close"></i>
@@ -2707,7 +2710,7 @@
                                                     <div class="col-md-10 col-md-offset-1">
                                                         <p>Bitte helfen Sie uns, die Beteiligung besser zu
                                                             verstehen </p>
-                                                        <div> <%= form.text_area :relation_to_customer_explain, class: "form-control", row: "9" %> </div>
+                                                        <div> <%= form.text_area :explain_exporter_infleunce_on_importer_management, class: "form-control", row: "9" %> </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2723,9 +2726,9 @@
                                                 <p>
 
                                                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                                                    <div class="choice <%= 'active' if listing.yes_previous_payment_experience_with_customer == 'on' %>" name="yes_previouspaymentexperiencewithcustomer" data-toggle="wizard-checkbox" onclick="previousPaymentExperienceWithCustomer()">
+                                                    <div class="choice <%= 'active' if listing.yes_previous_payment_experience_with_importer == 'on' %>" name="yes_previouspaymentexperiencewithcustomer" data-toggle="wizard-checkbox" onclick="previousPaymentExperienceWithCustomer()">
 
-                                                        <%= check_box_tag "listing[yes_previous_payment_experience_with_customer]", listing.yes_previous_payment_experience_with_customer ? listing.yes_previous_payment_experience_with_customer : nil %>
+                                                        <%= check_box_tag "listing[yes_previous_payment_experience_with_importer]", listing.yes_previous_payment_experience_with_importer ? listing.yes_previous_payment_experience_with_importer : nil %>
 
                                                         <div class="card circle card-hover-effect">
                                                             <i class="ti-check"></i>
@@ -2735,9 +2738,9 @@
 
                                                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
 
-                                                    <div class="choice <%= 'active' if listing.no_previous_payment_experience_with_customer == 'on' %>" name="no_previouspaymentexperiencewithcustomer" data-toggle="wizard-checkbox" onclick="noPreviousPaymentExperienceWithCustomer()">
+                                                    <div class="choice <%= 'active' if listing.no_previous_payment_experience_with_importer == 'on' %>" name="no_previouspaymentexperiencewithcustomer" data-toggle="wizard-checkbox" onclick="noPreviousPaymentExperienceWithCustomer()">
 
-                                                        <%= check_box_tag "listing[no_previous_payment_experience_with_customer]", listing.no_previous_payment_experience_with_customer ? listing.no_previous_payment_experience_with_customer : nil %>
+                                                        <%= check_box_tag "listing[no_previous_payment_experience_with_importer]", listing.no_previous_payment_experience_with_importer ? listing.no_previous_payment_experience_with_importer : nil %>
 
                                                         <div class="card circle card-hover-effect">
                                                             <i class="ti-close"></i>
@@ -2757,7 +2760,7 @@
                                                 <br>
                                                 <div class="col-md-10 col-md-offset-1">
                                                     <p>Bitte beschreiben Sie diese näher.</p>
-                                                    <div> <%= form.text_area :explain_previous_payment_experience_with_customer, class: "form-control" %> </div>
+                                                    <div> <%= form.text_area :explain_previous_payment_experience_with_importer, class: "form-control" %> </div>
                                                     <br>
                                                 </div>
                                             </div>
@@ -3022,7 +3025,7 @@
                                                 <p> Jahresabschlüsse Ihres Kunden </p>
                                             </div>
                                             <div class="col-md-6">
-                                                <%= form.file_field :financial_statement_your_customer_document %>
+                                                <%= form.file_field :annual_financial_statement_importer %>
                                             </div>
                                         </div>
 
@@ -3032,7 +3035,7 @@
                                                 <p> Auskünfte über Ihren Kunden </p>
                                             </div>
                                             <div class="col-md-6">
-                                                <%= form.file_field :customer_information_document %>
+                                                <%= form.file_field :credit_bureaus_document_importer %>
                                             </div>
                                         </div>
 
@@ -3631,7 +3634,7 @@
             '> <b>' + $('#payment_deadline').val() + ' </b> <b> ' + $('#payment_deadline').val() + ' </b> <b> ' + $('#payment_deadline').val() + '</b><br/>' +
             'zzgl. <b>' + $('#payment_deadline').val() + '</b> (Zinssatz: <b>' + $('#payment_deadline').val() + '</b>, in Höhe von <b>' + $('#payment_deadline').val() + '</b> degressive Berechnung).' + '<br/><br/>' +
             ' Es wird <b>' + $('#payment_deadline').val() + '</b> vereinbart');
-            //Sie beschreiben Ihre Berechnungsmethode wie folgt:
+        //Sie beschreiben Ihre Berechnungsmethode wie folgt:
 
         $('#performancedate').html('Sie planen folgende Liefer- und ggf. Leistungstermine( ' + $('#payment_deadline').val() + ' ): <br/>' +
             'Lieferzeit: <b>' + $('#payment_deadline').val() + '</b> <br/> ' +
@@ -3643,7 +3646,7 @@
         $('#paymentterm').html('Sie haben kurzfristige Zahlungsbedingungen vereinbart. <br/>' +
             ' 1.Rate <b>' + $('#payment_deadline').val() + '  ( ' + $('#payment_deadline').val() + ' ' + $('#payment_deadline').val() + ' </b> ) Anzahlung vor Liefer- / Leistungsbeginn <br/> ' +
             ' 2.Rate <b> ' + $('#payment_deadline').val() + ' ( ' + $('#payment_deadline').val() + ' ' + $('#payment_deadline').val() + ' ) <br/> ' + $('#payment_deadline').val() + ' ' + $('#payment_deadline').val() + '</b><br/>' +
-            ' Die Anzahlung ist <b> ' +  $('#payment_deadline').val() + ' </b> eingegangen. <br/><br/> ' +
+            ' Die Anzahlung ist <b> ' + $('#payment_deadline').val() + ' </b> eingegangen. <br/><br/> ' +
             ' Sie haben <b>' + $('#payment_deadline').val() + ' </b> hinsichtlich der mit Ihrem Kunden vereinbarten Zahlungsvehikel gemacht.');
 
         $('#certificateoforigin').html('Für die zu liefernden Waren bekommen Sie <b> ' + $('#payment_deadline').val() + ' </b>deutsches Warenursprungszeugnis.');
@@ -3653,7 +3656,7 @@
 
         $('#customerinformation').html(' Ihr Kunde ist: <b> <br/>' +
             $('#payment_deadline').val() + '<br/>' +
-            $('#payment_deadline').val() + '        ' +  $('#payment_deadline').val() + '<br/>' +
+            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '<br/>' +
             $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '<br/>' +
             $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '<br/>' +
             $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '</b><br/><br/>' +

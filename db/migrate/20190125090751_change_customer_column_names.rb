@@ -21,12 +21,8 @@ class ChangeCustomerColumnNames < ActiveRecord::Migration[5.2]
         
         rename_column :listings, :yes_previous_payment_experience_with_customer, :yes_previous_payment_experience_with_importer
         rename_column :listings, :no_previous_payment_experience_with_customer, :no_previous_payment_experience_with_importer
-        
         rename_column :listings, :explain_previous_payment_experience_with_customer, :explain_previous_payment_experience_with_importer
-        
-        rename_column :listings, :financial_statement_your_customer_document, :annual_financial_statement_importer
-        rename_column :listings, :customer_information_document, :credit_bureaus_document_importer
-        rename_column :listings, :yes_customercountsinterest, :yes_charge_interest_to_importer
-        rename_column :listings, :no_customercountsinterest, :no_charge_interest_to_importer
+        rename_column :listings, :ja_customer_counts_interest, :yes_charge_interest_to_importer
+        rename_column :listings, :no_customer_counts_interest, :no_charge_interest_to_importer
     end
 end
