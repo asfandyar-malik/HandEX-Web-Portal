@@ -152,7 +152,7 @@
                                     <div class="col-sm-6 col-sm-offset-3">
                                         <div class="form-group">
                                             <label>Wohin soll es gehen?</label>
-                                            <%= form.select :country,
+                                            <%= form.select :importer_country,
                                                             options_for_select(['Mexico', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
                                                                                 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados',
                                                                                 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana',
@@ -215,7 +215,7 @@
                                         <div class="col-sm-6 col-sm-offset-3">
                                             <div class="form-group">
                                                 <label> Welches Zahlungsziel gewähren Sie Ihrem Kunden? </label>
-                                                <%= form.select :payment_deadline, options_for_select(['3 Months', '6 Months', '9 Months', '12 Months', '15 Months', '18 Months', '21 Months', '24 Months', '27 Months', '30 Months', '33 Months', '36 Months'], listing.is_investment_good ? listing.is_investment_good : nil), {}, class: 'form-control' %>
+                                                <%= form.select :loan_duration, options_for_select(['3 Months', '6 Months', '9 Months', '12 Months', '15 Months', '18 Months', '21 Months', '24 Months', '27 Months', '30 Months', '33 Months', '36 Months'], listing.is_investment_good ? listing.is_investment_good : nil), {}, class: 'form-control' %>
                                             </div>
                                         </div>
                                     </div>
@@ -241,8 +241,8 @@
                                                     </div>
 
                                                     <div class="col-sm-6">
-                                                        <div class="choice <%= 'active' if listing.public_sector == 'on' %>" name="publicsector" data-toggle="wizard-checkbox" onclick="publicSector()">
-                                                            <%= check_box_tag "listing[public_sector]", listing.public_sector ? listing.public_sector : nil %>
+                                                        <div class="choice <%= 'active' if listing.exporting_to_public_sector == 'on' %>" name="publicsector" data-toggle="wizard-checkbox" onclick="publicSector()">
+                                                            <%= check_box_tag "listing[exporting_to_public_sector]", listing.exporting_to_public_sector ? listing.exporting_to_public_sector : nil %>
 
                                                             <div class="card card-checkboxes card-hover-effect">
                                                                 <i class="ti-home"></i>
@@ -360,8 +360,8 @@
 
                                             <div id="entlastung" class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="display: none">
 
-                                                <div class="choice <%= 'active' if listing.risk_avaline_guarantee == 'on' %>" data-toggle="wizard-checkbox">
-                                                    <%= check_box_tag "listing[risk_avaline_guarantee]", listing.risk_avaline_guarantee ? listing.risk_avaline_guarantee : nil %>
+                                                <div class="choice <%= 'active' if listing.supplementary_risk_hausbank_guarantee == 'on' %>" data-toggle="wizard-checkbox">
+                                                    <%= check_box_tag "listing[supplementary_risk_hausbank_guarantee]", listing.supplementary_risk_hausbank_guarantee ? listing.supplementary_risk_hausbank_guarantee : nil %>
                                                     <div class="card card-checkboxes card-hover-effect">
                                                         <i class="ti-envelope"></i>
                                                         <p>Entlastung Ihrer Avallinie</p>
@@ -408,7 +408,7 @@
                                                 Dienstleistung? Handelt es sich bspw. um eine Ersatz- oder um eine
                                                 Neuinvestition? Wenn Sie Leistungen (Montage, Schulungen vor Ort, etc.)
                                                 erbringen, können Sie diese hier ebenfalls beschreiben.</p>
-                                            <%= form.text_area :reason_for_buying_good, class: 'form-control' %>
+                                            <%= form.text_area :explain_why_importer_buying_goods, class: 'form-control' %>
                                         </div>
                                     </div>
                                 </div>
@@ -418,7 +418,7 @@
                                         <div class="form-group">
                                             <p><b>Wir erbringen auch Leistungen (Montage, Schulungen vor Ort,
                                                 etc.)?</b></p>
-                                            <%= form.check_box :also_provide_service_training, :style => "width: 20px; height: 20px;" %>
+                                            <%= form.check_box :exporter_offers_servicing_for_goods, :style => "width: 20px; height: 20px;" %>
                                         </div>
                                     </div>
 
@@ -431,7 +431,7 @@
 
                                             <div class="row">
                                                 <div class="col-sm-6">
-                                                    <%= form.select :product_branch, options_for_select(['Bergbau, inkl. Verarbeitung', 'Erdöl- und Erdgasförderung inkl. Verarbeitung',
+                                                    <%= form.select :exported_goods_type, options_for_select(['Bergbau, inkl. Verarbeitung', 'Erdöl- und Erdgasförderung inkl. Verarbeitung',
                                                                                                          'Chemie', 'Energie', 'Infrastruktur', 'Papier- , Holz-, Leder- und Textilindustrie',
                                                                                                          'Agrarsektor und Nahrungsmittelindustrie', 'Verarbeitende Industrie', 'Umwelttechnik',
                                                                                                          'Dienstleistungen'], listing.breakfast ? listing.breakfast : nil), {}, class: 'form-control' %>
@@ -446,7 +446,7 @@
                                     <div class="col-sm-10 col-sm-offset-1">
                                         <div class="form-group">
                                             <p><b>Bitte beschreiben Sie Ihre Industrie genauer</b></p>
-                                            <%= form.text_area :explain_product_branch, class: 'form-control', :input_html => {:rows => 20} %>
+                                            <%= form.text_area :explain_good_industry_type, class: 'form-control', :input_html => {:rows => 20} %>
                                         </div>
                                     </div>
                                 </div>
@@ -460,9 +460,9 @@
                                                     anderen Unternehmen? </b></p>
 
                                                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                                                    <div class="choice <%= 'active' if listing.part_of_big_project_yes == 'on' %>" name="deliverwithothercompanies_yes" data-toggle="wizard-checkbox" onclick="deliverWithOtherCompanies()">
+                                                    <div class="choice <%= 'active' if listing.yes_deliver_part_of_overall_project_other_companies == 'on' %>" name="deliverwithothercompanies_yes" data-toggle="wizard-checkbox" onclick="deliverWithOtherCompanies()">
 
-                                                        <%= check_box_tag "listing[part_of_big_project_yes]", listing.part_of_big_project_yes ? listing.part_of_big_project_yes : nil %>
+                                                        <%= check_box_tag "listing[yes_deliver_part_of_overall_project_other_companies]", listing.yes_deliver_part_of_overall_project_other_companies ? listing.yes_deliver_part_of_overall_project_other_companies : nil %>
 
                                                         <div class="card circle card-hover-effect">
                                                             <i class="ti-check"></i>
@@ -473,9 +473,9 @@
 
                                                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
 
-                                                    <div class="choice <%= 'active' if listing.part_of_big_project_no == 'on' %>" name="deliverwithothercompanies_no" data-toggle="wizard-checkbox" onclick="notDeliverWithOtherCompanies()">
+                                                    <div class="choice <%= 'active' if listing.no_deliver_part_of_overall_project_other_companies == 'on' %>" name="deliverwithothercompanies_no" data-toggle="wizard-checkbox" onclick="notDeliverWithOtherCompanies()">
 
-                                                        <%= check_box_tag "listing[part_of_big_project_no]", listing.part_of_big_project_no ? listing.part_of_big_project_no : nil %>
+                                                        <%= check_box_tag "listing[no_deliver_part_of_overall_project_other_companies]", listing.no_deliver_part_of_overall_project_other_companies ? listing.no_deliver_part_of_overall_project_other_companies : nil %>
 
                                                         <div class="card circle card-hover-effect">
                                                             <i class="ti-close"></i>
@@ -506,11 +506,11 @@
                                         <div class="row">
                                             <div class="col-sm-10 col-sm-offset-1">
                                                 <div class="form-group">
-                                                    <p>Wir tragen die Gesamtern/Leisten Sie im Rahverantwortung für das
+                                                    <p>Wir tragen die Gesamtverantwortung für das
                                                         Projekt</p>
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                            <%= form.check_box :overall_responsibility_project_taken, id: "investmentGoodxsadf", :style => "width: 20px; height: 20px;" %>
+                                                            <%= form.check_box :overall_responsibility_project_taken, :style => "width: 20px; height: 20px;" %>
                                                             Ja
                                                         </div>
                                                     </div>
@@ -538,8 +538,7 @@
                                             <div class="col-sm-10 col-sm-offset-1">
                                                 <div class="form-group">
                                                     <p> Bitte tragen Sie hier so detailliert wie möglich ein, wie das
-                                                        Gesamtprojekt
-                                                        finanziert ist. </p>
+                                                        Gesamtprojekt finanziert ist. </p>
                                                     <br>
                                                     <p><i>Mittelverwendung</i></p>
 
@@ -596,10 +595,9 @@
                                             <div class="col-md-12" style="display: none;background-color: #f7f7f7;">
 
                                                 <p><i>Als sensible Gebiete gelten Nationalparks und andere durch
-                                                    nationales oder
-                                                    internationales Recht geschützte Gebiete sowie sensible Regionen von
-                                                    internationaler,
-                                                    nationaler oder regionaler Bedeutung.</i></p>
+                                                    nationales oder internationales Recht geschützte Gebiete sowie
+                                                    sensible Regionen von internationaler, nationaler oder regionaler
+                                                    Bedeutung.</i></p>
                                                 <br><br><br>
                                             </div>
 
@@ -656,7 +654,9 @@
 
                                                         <div class="card card-checkboxes height-adjusted-normal-big card-hover-effect">
                                                             <i class="ti-star"></i>
-                                                            <p> Archäologische oder kulturelle Bedeutung </p>
+                                                            <p> Archäologische oder kulturelle
+                                                                <Bedeutung></Bedeutung>
+                                                            </p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -687,7 +687,7 @@
                                                 <div class="form-group">
                                                     <p>Bitte konkretisieren Sie, um was für ein sensibles Gebiet es sich
                                                         handelt
-                                                        <%= form.text_field :delivery_affects_other_explain, class: "form-control" %>
+                                                        <%= form.text_field :explain_delivery_affects_other, class: "form-control" %>
                                                 </div>
                                             </div>
                                         </div>
@@ -699,7 +699,7 @@
                                         <div class="col-sm-8 col-sm-offset-1">
                                             <div class="form-group">
                                                 <br>
-                                                <p><b>Ist Ihr Export ausfuhrgenehmigungspflichtig?</b>
+                                                    <p><b>Ist Ihr Export ausfuhrgenehmigungspflichtig?</b>
                                                 <p>
                                                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.yes_export_requires_exportlicense == 'on' %>" name="exportlicenserequired_yes" data-toggle="wizard-checkbox" onclick="exportLicenseRequired()">
@@ -742,7 +742,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-10 col-md-offset-1">
-                                                <div> <%= form.text_area :which_regulation_requires_exportlicense, class: "form-control" %> </div>
+                                                <div> <%= form.text_area :which_regulations_arises_exportlicense_requirement, class: "form-control" %> </div>
                                             </div>
                                         </div>
                                     </div>
@@ -919,11 +919,11 @@
                                             <div class="row">
                                                 <br>
                                                 <div class="col-md-2 col-md-offset-1">
-                                                    <div> <%= form.date_field :goods_completion_date, id: "start_date", type: "date", class: "datepicker" %> </div>
+                                                    <div> <%= form.date_field :trade_contract_signing_date, id: "start_date", type: "date", class: "datepicker" %> </div>
                                                 </div>
 
                                                 <div class="col-md-4 col-md-offset-1 ">
-                                                    <div> <%= form.text_field :companny_internal_id, class: "form-control", placeholder: "Ihre interne Vertragskennung" %> </div>
+                                                    <div> <%= form.text_field :exporter_internal_contract_id, class: "form-control", placeholder: "Ihre interne Vertragskennung" %> </div>
                                                     <br>
                                                 </div>
                                                 <br>
@@ -1032,10 +1032,10 @@
 
                                                     <div class="row">
                                                         <div class="col-md-4 ">
-                                                            <%= form.select :order_value_export_business_currency, options_for_select(["Euro", "Dollar"]), {}, class: 'form-control' %>
+                                                            <%= form.select :contract_trade_currency, options_for_select(["Euro", "Dollar"]), {}, class: 'form-control' %>
                                                         </div>
                                                         <div class="col-md-4 ">
-                                                            <div> <%= form.text_field :order_value_export_business_currency_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                            <div> <%= form.text_field :contract_trade_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                         </div>
                                                     </div>
                                                     <br>
@@ -1054,7 +1054,7 @@
                                                                 Auftragswert?</i></p>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <div> <%= form.text_field :percentage_of_spare_parts_in_whole_order, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                            <div> <%= form.text_field :percentage_of_spareparts_in_whole_order, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                         </div>
                                                     </div>
 
@@ -1132,10 +1132,10 @@
 
                                             <div class="row">
                                                 <div class="col-md-2 col-md-offset-1">
-                                                    <%= form.select :interest_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
+                                                    <%= form.select :charged_interest_to_importer_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <div> <%= form.text_field :interest_amount, class: "form-control", placeholder: "Betrag", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                    <div> <%= form.text_field :charged_interest_to_importer_amount, class: "form-control", placeholder: "Betrag", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                 </div>
                                                 <br><br><br>
                                             </div>
@@ -1153,7 +1153,7 @@
                                                 <p>
 
                                                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                                                    <div class="choice <%= 'active' if listing.yes_price_adjustment_clause == 'on' %>" name="yes_priceadjustmentclause" data-toggle="wizard-checkbox" onclick="priceAdjustmentClause()">
+                                                    <div class="choice <%= 'active' if listing.yes_price_adjustment_clause_with_importer == 'on' %>" name="yes_priceadjustmentclause" data-toggle="wizard-checkbox" onclick="priceAdjustmentClause()">
 
                                                         <%= check_box_tag "listing[yes_price_adjustment_clause]", listing.yes_price_adjustment_clause ? listing.yes_price_adjustment_clause : nil %>
 
@@ -1165,9 +1165,9 @@
 
 
                                                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                                                    <div class="choice <%= 'active' if listing.no_price_adjustment_clause == 'on' %>" name="no_priceadjustmentclause" data-toggle="wizard-checkbox" onclick="noPriceAdjustmentClause()">
+                                                    <div class="choice <%= 'active' if listing.no_price_adjustment_clause_with_importer == 'on' %>" name="no_priceadjustmentclause" data-toggle="wizard-checkbox" onclick="noPriceAdjustmentClause()">
 
-                                                        <%= check_box_tag "listing[no_price_adjustment_clause]", listing.no_price_adjustment_clause ? listing.no_price_adjustment_clause : nil %>
+                                                        <%= check_box_tag "listing[no_price_adjustment_clause_with_importer]", listing.no_price_adjustment_clause_with_importer ? listing.no_price_adjustment_clause_with_importer : nil %>
 
                                                         <div class="card circle card-hover-effect">
                                                             <i class="ti-close"></i>
@@ -1193,7 +1193,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-10 col-md-offset-1">
-                                                    <div> <%= form.text_area :explain_billing_methods, class: "form-control" %> </div>
+                                                    <div> <%= form.text_area :explain_accounting_methods, class: "form-control" %> </div>
                                                 </div>
                                                 <br><br><br>
                                             </div>
@@ -1212,9 +1212,9 @@
                                                     Lieferungen? </b>
                                                 <p>
                                                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                                                    <div class="choice <%= 'active' if listing.yes_multiple_deliveries == 'on' %>" name="yes_multipledeliveries" data-toggle="wizard-checkbox" onclick="multipleDeliveries()">
+                                                    <div class="choice <%= 'active' if listing.yes_goods_sent_multiple_deliveries == 'on' %>" name="yes_multipledeliveries" data-toggle="wizard-checkbox" onclick="multipleDeliveries()">
 
-                                                        <%= check_box_tag "listing[yes_multiple_deliveries]", listing.yes_multiple_deliveries ? listing.yes_multiple_deliveries : nil %>
+                                                        <%= check_box_tag "listing[yes_goods_sent_multiple_deliveries]", listing.yes_goods_sent_multiple_deliveries ? listing.yes_goods_sent_multiple_deliveries : nil %>
 
                                                         <div class="card circle card-hover-effect">
                                                             <i class="ti-check"></i>
@@ -1224,9 +1224,9 @@
 
 
                                                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                                                    <div class="choice <%= 'active' if listing.no_multiple_deliveries == 'on' %>" name="no_multipledeliveries" data-toggle="wizard-checkbox" onclick="noMultipleDeliveries()">
+                                                    <div class="choice <%= 'active' if listing.no_goods_sent_multiple_deliveries == 'on' %>" name="no_multipledeliveries" data-toggle="wizard-checkbox" onclick="noMultipleDeliveries()">
 
-                                                        <%= check_box_tag "listing[no_multiple_deliveries]", listing.no_multiple_deliveries ? listing.no_multiple_deliveries : nil %>
+                                                        <%= check_box_tag "listing[no_goods_sent_multiple_deliveries]", listing.no_goods_sent_multiple_deliveries ? listing.no_goods_sent_multiple_deliveries : nil %>
 
                                                         <div class="card circle card-hover-effect">
                                                             <i class="ti-close"></i>
@@ -2249,9 +2249,7 @@
                                             <br><br>
                                         </div>
                                     </div>
-
                                     <br>
-
                                 </div>
 
                                 <div id="certificateOfOrigin">
@@ -2294,10 +2292,9 @@
                                                     <p> Bitte geben Sie die Zulieferungen aus dem Ausland an. </p>
                                                 </div>
                                             </div>
-                                            <br>
                                             <div class="row">
                                                 <div class="col-md-2 col-md-offset-1">
-                                                    <%= form.select :supplied_all_rawgoods_country, options_for_select(['Mexico', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
+                                                    <%= form.select :all_rawgoods_supplier_country, options_for_select(['Mexico', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
                                                                                                                         'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados',
                                                                                                                         'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana',
                                                                                                                         'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon',
@@ -2320,7 +2317,7 @@
                                                                                                                         'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles',
                                                                                                                         'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa',
                                                                                                                         'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname',
-                                                                                                                        'Swaziland (renamed to Eswatini)', 'Sweden', 'Switzerland', 'Syria', 'Taiwan',
+                                                                                                                        country                               'Swaziland (renamed to Eswatini)', 'Sweden', 'Switzerland', 'Syria', 'Taiwan',
                                                                                                                         'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago',
                                                                                                                         'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates (UAE)',
                                                                                                                         'United Kingdom (UK)', 'United States of America (USA)', 'Uruguay', 'Uzbekistan', 'Vanuatu',
@@ -2328,11 +2325,11 @@
                                                 </div>
 
                                                 <div class="col-md-2 col-md-offset-1">
-                                                    <%= form.select :supplied_all_rawgoods_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
+                                                    <%= form.select :all_rawgoods_supplier_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-4 ">
-                                                    <%= form.text_field :supplied_all_rawgoods_text, class: "form-control" %>
+                                                    <%= form.text_field :all_rawgoods_supplier_text, class: "form-control" %>
                                                 </div>
                                             </div>
                                         </div>
@@ -2342,14 +2339,13 @@
                                             <div class="row">
                                                 <div class="col-md-10 col-md-offset-1">
                                                     <p> Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland
-                                                        notwendig
-                                                        sind. </p>
+                                                        notwendig sind. </p>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col-md-10 col-md-offset-1">
-                                                    <%= form.text_area :supplied_all_rawgoods_why_necessary, class: "form-control" %>
+                                                    <%= form.text_area :why_all_foreign_rawgoods_necessary, class: "form-control" %>
                                                     <br><br>
                                                 </div>
                                             </div>
@@ -2367,10 +2363,9 @@
                                                 <p> Bitte geben Sie die Zulieferungen aus dem Ausland an. </p>
                                             </div>
                                         </div>
-                                        <br>
                                         <div class="row">
                                             <div class="col-md-2 col-md-offset-1">
-                                                <%= form.select :supplied_partly_rawgoods_country, options_for_select(['Mexico', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
+                                                <%= form.select :partly_rawgoods_supplier_country, options_for_select(['Mexico', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
                                                                                                                        'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados',
                                                                                                                        'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana',
                                                                                                                        'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon',
@@ -2401,11 +2396,11 @@
                                             </div>
 
                                             <div class="col-md-2">
-                                                <%= form.select :supplied_partly_rawgoods_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
+                                                <%= form.select :partly_rawgoods_supplier_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                                             </div>
 
                                             <div class="col-md-4 ">
-                                                <%= form.text_field :supplied_partly_rawgoods_text, class: "form-control" %>
+                                                <%= form.text_field :partly_rawgoods_supplier_text, class: "form-control" %>
                                             </div>
                                         </div>
                                     </div>
@@ -2420,10 +2415,9 @@
                                                     sind. </p>
                                             </div>
                                         </div>
-                                        <br>
                                         <div class="row">
                                             <div class="col-md-10 col-md-offset-1">
-                                                <%= form.text_area :supplied_partly_rawgoods_why_necessary, class: "form-control" %>
+                                                <%= form.text_area :why_partly_foreign_rawgoods_necessary, class: "form-control" %>
                                                 <br><br>
                                             </div>
                                         </div>
@@ -2874,17 +2868,17 @@
                                                 <br>
                                                 <div class="col-md-3 col-md-offset-1">
                                                     <p> Firmenname </p>
-                                                    <div> <%= form.text_field :your_company_name, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :exporter_company_name, class: "form-control" %> </div>
                                                 </div>
 
                                                 <div class="col-md-3 ">
                                                     <p> DN-NR </p>
-                                                    <%= form.text_field :company_dnnr, class: "form-control" %>
+                                                    <%= form.text_field :exporter_company_dnnr, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-3 ">
                                                     <p> Handelsregisternummer </p>
-                                                    <%= form.text_field :company_registration_number, class: "form-control" %>
+                                                    <%= form.text_field :exporter_company_registration_number, class: "form-control" %>
                                                 </div>
                                             </div>
                                         </div>
@@ -2895,17 +2889,17 @@
                                             <div class="row">
                                                 <div class="col-md-3 col-md-offset-1">
                                                     <p> Amtsgericht </p>
-                                                    <%= form.text_field :company_district_court, class: "form-control" %>
+                                                    <%= form.text_field :exporter_district_court, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-3">
                                                     <p> Straße / Hausnummer </p>
-                                                    <div> <%= form.text_field :company_address, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :exporter_company_address, class: "form-control" %> </div>
                                                 </div>
 
                                                 <div class="col-md-3">
                                                     <p> PLZ </p>
-                                                    <div> <%= form.text_field :company_plz, class: "form-control", :onkeypress => "return onlyAllowNumericalValue(event)" %> </div>
+                                                    <div> <%= form.text_field :exporter_company_plz, class: "form-control", :onkeypress => "return onlyAllowNumericalValue(event)" %> </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2916,7 +2910,7 @@
                                             <div class="row">
                                                 <div class="col-md-3 col-md-offset-1">
                                                     <p> Ort </p>
-                                                    <%= form.text_field :company_city, class: "form-control" %>
+                                                    <%= form.text_field :exporter_company_city, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-3">
@@ -2926,7 +2920,7 @@
 
                                                 <div class="col-md-3">
                                                     <p> Land </p>
-                                                    <div> <%= form.text_field :company_country, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :exporter_company_country, class: "form-control" %> </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2963,17 +2957,17 @@
                                                 <br>
                                                 <div class="col-md-3 col-md-offset-1">
                                                     <p> First Name </p>
-                                                    <%= form.text_field :representative_firstname, class: "form-control" %>
+                                                    <%= form.text_field :exporter_company_representative_firstname, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-3">
                                                     <p> Last Name </p>
-                                                    <div> <%= form.text_field :representative_lastname, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :exporter_company_representative_lastname, class: "form-control" %> </div>
                                                 </div>
 
                                                 <div class="col-md-3">
                                                     <p> Email </p>
-                                                    <div> <%= form.email_field :representative_email, class: "form-control" %> </div>
+                                                    <div> <%= form.email_field :exporter_company_representative_email, class: "form-control" %> </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2983,12 +2977,12 @@
                                                 <br>
                                                 <div class="col-md-3 col-md-offset-1">
                                                     <p>Funktion</p>
-                                                    <%= form.text_field :representative_function, class: "form-control" %>
+                                                    <%= form.text_field :exporter_company_representative_function, class: "form-control" %>
                                                 </div>
 
                                                 <div class="col-md-3">
                                                     <p> Bereich </p>
-                                                    <div> <%= form.text_field :representative_department, class: "form-control" %> </div>
+                                                    <div> <%= form.text_field :exporter_company_representative_department, class: "form-control" %> </div>
                                                 </div>
 
                                             </div>
@@ -3013,7 +3007,7 @@
                                                 <p> Selbstauskunft (bei Neukunden) </p>
                                             </div>
                                             <div class="col-md-6">
-                                                <%= form.file_field :self_assessment_document %>
+                                                <%= form.file_field :self_disclosure %>
                                             </div>
                                         </div>
 
@@ -3035,7 +3029,7 @@
                                                 <p> Auskünfte über Ihren Kunden </p>
                                             </div>
                                             <div class="col-md-6">
-                                                <%= form.file_field :credit_bureaus_document_importer %>
+                                                <%= form.file_field :credit_bureaus_importer %>
                                             </div>
                                         </div>
 
@@ -3047,7 +3041,7 @@
                                                 <p> Umwelt- und Sozialinformationen </p>
                                             </div>
                                             <div class="col-md-6">
-                                                <%= form.file_field :environment_social_information_document %>
+                                                <%= form.file_field :environment_social_audit %>
                                             </div>
                                         </div>
 
@@ -3059,7 +3053,7 @@
                                                 <p> ggf. Projektmemorandum </p>
                                             </div>
                                             <div class="col-md-6">
-                                                <%= form.file_field :project_memorandum_document %>
+                                                <%= form.file_field :project_memorandum_exporter_business %>
                                             </div>
                                         </div>
 
@@ -3071,7 +3065,7 @@
                                                 <p> Sonstiges </p>
                                             </div>
                                             <div class="col-md-6">
-                                                <%= form.file_field :other_document %>
+                                                <%= form.file_field :additional_document %>
                                             </div>
                                         </div>
                                     </div>
@@ -3087,9 +3081,7 @@
                                                     </p>
                                                     <br>
                                                     <p>Möchten Sie die Selbstbeteiligung für wirtschaftliche Risiken
-                                                        gegen
-                                                        Zusatzentgelt
-                                                        auf 5 % absenken?</p>
+                                                        gegen Zusatzentgelt auf 5 % absenken?</p>
 
                                                     <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                         <div class="choice <%= 'active' if listing.country_category == 'on' %>" name="yes_reduceeconomicrisk" data-toggle="wizard-checkbox">
@@ -3333,7 +3325,7 @@
                                                 <br>
 
                                                 <div class="col-md-8 col-md-offset-2">
-                                                    <%= form.check_box :no_multiple_deliveries, id: "Yes-WorkAssociation", :style => "width: 20px; height: 20px;" %>
+                                                    <%= form.check_box :no_goods_sent_multiple_deliveries, id: "Yes-WorkAssociation", :style => "width: 20px; height: 20px;" %>
                                                     Wir akzeptieren die Allgemeinen Bedingungen für
                                                     Lieferantenkreditdeckung
                                                     (G)
@@ -3607,107 +3599,107 @@
 
         $('#completeoutput').html('Sie <b>' + $('#exporter_company_name').val() + ' </b> mit Ihrem <b> ' + $('#private_sector').val() + ' ' + $('#private_sector').val() + ', ' + $('#private_sector').val() +
             $('#country').val() + ' </b>über die Lieferung eines <b> ' + $('#is_investment_good').val() + ' </b> mit einem Auftragswert in Höhe <b> ' + $('#contract_value').val() + ' </b>.' +
-            ' Sie werden <b> ' + $('#also_provide_service_training').val() + ' </b> Leistungen, wie z.B. Montage vor Ort oder Schulungsleistungen, erbringen. <br/>  Der Kunde wünscht <b> ' +
-            $('#payment_deadline').val() + ' </b> Zahlungsbedingungen. ' + ' <br/><br/>   Sie beschreiben Ihr Geschäft wie folgt: <b> ' + $('#describe_export_business').val()) + '</b>';
+            ' Sie werden <b> ' + $('#exporter_offers_servicing_for_goods').val() + ' </b> Leistungen, wie z.B. Montage vor Ort oder Schulungsleistungen, erbringen. <br/>  Der Kunde wünscht <b> ' +
+            $('#loan_duration').val() + ' </b> Zahlungsbedingungen. ' + ' <br/><br/>   Sie beschreiben Ihr Geschäft wie folgt: <b> ' + $('#describe_export_business').val()) + '</b>';
 
         $('#categorysummary').html('Ihre Ware passt in folgende Kategorie: <br/>' +
             '> <b>' + $('#exporter_company_name').val() + '</b><br/>' +
             '> <b>' + $('#describe_export_business').val() + '</b><br/>' +
             '> <b>' + $('#describe_export_business').val()) + '</b>';
 
-        $('#businessinfo').html('Das Geschäft ist: <b>' + $('#payment_deadline').val() + '</b>');
+        $('#businessinfo').html('Das Geschäft ist: <b>' + $('#loan_duration').val() + '</b>');
         //Sie beschreiben das Gesamtprojekt wie folgt:
 
-        $('#specialarea').html('Sie liefern <b>' + $('#payment_deadline').val() + ' </b> in ein sensibles Gebiet. ');
+        $('#specialarea').html('Sie liefern <b>' + $('#loan_duration').val() + ' </b> in ein sensibles Gebiet. ');
 
-        $('#exportedgood').html('Die zu liefernde Ware ist <b>' + $('#payment_deadline').val() + '</b>.');
+        $('#exportedgood').html('Die zu liefernde Ware ist <b>' + $('#loan_duration').val() + '</b>.');
 
-        $('#contractstructure').html('Ihr Geschäft sieht <b>' + $('#payment_deadline').val() + ' </b> Vertragsstruktur vor.');
+        $('#contractstructure').html('Ihr Geschäft sieht <b>' + $('#loan_duration').val() + ' </b> Vertragsstruktur vor.');
         //Sie haben die besondere Vertragsstruktur erläutert:'
         //Sie haben folgende Details zur besonderen Vertragsstruktur hochgeladen:
 
-        $('#contractcurrency').html('Ihr Exportvertrag sieht <b>' + $('#payment_deadline').val() + ' </b>als Vertragswährung vor.');
+        $('#contractcurrency').html('Ihr Exportvertrag sieht <b>' + $('#loan_duration').val() + ' </b>als Vertragswährung vor.');
 
-        $('#contractvalue').html('Der Auftragswert: <b>' + $('#payment_deadline').val() + ' </b>setzt sich wie folgt zusammen:  <br/>' +
-            '> <b>' + $('#payment_deadline').val() + '</b> Lieferwert einschl <b>' + $('#payment_deadline').val() + ' </b>Ersatzteile ' + '<br/>' +
-            '> <b>' + $('#payment_deadline').val() + '</b> Leistungen <b>' + $('#payment_deadline').val() + ' </b>eingeschlossen ' + '<br/>' +
-            '> <b>' + $('#payment_deadline').val() + ' </b> <b> ' + $('#payment_deadline').val() + ' </b> <b> ' + $('#payment_deadline').val() + '</b><br/>' +
-            'zzgl. <b>' + $('#payment_deadline').val() + '</b> (Zinssatz: <b>' + $('#payment_deadline').val() + '</b>, in Höhe von <b>' + $('#payment_deadline').val() + '</b> degressive Berechnung).' + '<br/><br/>' +
-            ' Es wird <b>' + $('#payment_deadline').val() + '</b> vereinbart');
+        $('#contractvalue').html('Der Auftragswert: <b>' + $('#loan_duration').val() + ' </b>setzt sich wie folgt zusammen:  <br/>' +
+            '> <b>' + $('#loan_duration').val() + '</b> Lieferwert einschl <b>' + $('#loan_duration').val() + ' </b>Ersatzteile ' + '<br/>' +
+            '> <b>' + $('#loan_duration').val() + '</b> Leistungen <b>' + $('#loan_duration').val() + ' </b>eingeschlossen ' + '<br/>' +
+            '> <b>' + $('#loan_duration').val() + ' </b> <b> ' + $('#loan_duration').val() + ' </b> <b> ' + $('#loan_duration').val() + '</b><br/>' +
+            'zzgl. <b>' + $('#loan_duration').val() + '</b> (Zinssatz: <b>' + $('#loan_duration').val() + '</b>, in Höhe von <b>' + $('#loan_duration').val() + '</b> degressive Berechnung).' + '<br/><br/>' +
+            ' Es wird <b>' + $('#loan_duration').val() + '</b> vereinbart');
         //Sie beschreiben Ihre Berechnungsmethode wie folgt:
 
-        $('#performancedate').html('Sie planen folgende Liefer- und ggf. Leistungstermine( ' + $('#payment_deadline').val() + ' ): <br/>' +
-            'Lieferzeit: <b>' + $('#payment_deadline').val() + '</b> <br/> ' +
-            'Leistungszeit:<b> ' + $('#payment_deadline').val() + '</b> <br/> ' +
-            'Betriebsbereitschaft: <b> ' + $('#payment_deadline').val() + ' </b><br/> ' +
+        $('#performancedate').html('Sie planen folgende Liefer- und ggf. Leistungstermine( ' + $('#loan_duration').val() + ' ): <br/>' +
+            'Lieferzeit: <b>' + $('#loan_duration').val() + '</b> <br/> ' +
+            'Leistungszeit:<b> ' + $('#loan_duration').val() + '</b> <br/> ' +
+            'Betriebsbereitschaft: <b> ' + $('#loan_duration').val() + ' </b><br/> ' +
             'weitere zahlungsrelevante Termine: <br/> <b> ' +
-            $('#payment_deadline').val() + ' </b>');
+            $('#loan_duration').val() + ' </b>');
 
         $('#paymentterm').html('Sie haben kurzfristige Zahlungsbedingungen vereinbart. <br/>' +
-            ' 1.Rate <b>' + $('#payment_deadline').val() + '  ( ' + $('#payment_deadline').val() + ' ' + $('#payment_deadline').val() + ' </b> ) Anzahlung vor Liefer- / Leistungsbeginn <br/> ' +
-            ' 2.Rate <b> ' + $('#payment_deadline').val() + ' ( ' + $('#payment_deadline').val() + ' ' + $('#payment_deadline').val() + ' ) <br/> ' + $('#payment_deadline').val() + ' ' + $('#payment_deadline').val() + '</b><br/>' +
-            ' Die Anzahlung ist <b> ' + $('#payment_deadline').val() + ' </b> eingegangen. <br/><br/> ' +
-            ' Sie haben <b>' + $('#payment_deadline').val() + ' </b> hinsichtlich der mit Ihrem Kunden vereinbarten Zahlungsvehikel gemacht.');
+            ' 1.Rate <b>' + $('#loan_duration').val() + '  ( ' + $('#loan_duration').val() + ' ' + $('#loan_duration').val() + ' </b> ) Anzahlung vor Liefer- / Leistungsbeginn <br/> ' +
+            ' 2.Rate <b> ' + $('#loan_duration').val() + ' ( ' + $('#loan_duration').val() + ' ' + $('#loan_duration').val() + ' ) <br/> ' + $('#loan_duration').val() + ' ' + $('#loan_duration').val() + '</b><br/>' +
+            ' Die Anzahlung ist <b> ' + $('#loan_duration').val() + ' </b> eingegangen. <br/><br/> ' +
+            ' Sie haben <b>' + $('#loan_duration').val() + ' </b> hinsichtlich der mit Ihrem Kunden vereinbarten Zahlungsvehikel gemacht.');
 
-        $('#certificateoforigin').html('Für die zu liefernden Waren bekommen Sie <b> ' + $('#payment_deadline').val() + ' </b>deutsches Warenursprungszeugnis.');
+        $('#certificateoforigin').html('Für die zu liefernden Waren bekommen Sie <b> ' + $('#loan_duration').val() + ' </b>deutsches Warenursprungszeugnis.');
 
-        $('#paymentexperience').html('Für Ihr Geschäft haben Sie <b>' + $('#payment_deadline').val()) + '</b>. ';
+        $('#paymentexperience').html('Für Ihr Geschäft haben Sie <b>' + $('#loan_duration').val()) + '</b>. ';
         // Fur ihr Geschäft I have to add a lot of other stuff
 
         $('#customerinformation').html(' Ihr Kunde ist: <b> <br/>' +
-            $('#payment_deadline').val() + '<br/>' +
-            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '<br/>' +
-            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '<br/>' +
-            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '<br/>' +
-            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '</b><br/><br/>' +
-            ' Der Bestimmungsort Ihrer Waren/Dienstleistungen <b>' + $('#payment_deadline').val() + '</b>. <br/>' +
-            ' Sie sind an <b> ' + $('#payment_deadline').val() + ' ' + $('#payment_deadline').val() + ' </b> maßgeblichen Einfluss auf die Geschäftsführung aus. ' + ' <br/>' +
+            $('#loan_duration').val() + '<br/>' +
+            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '<br/>' +
+            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '<br/>' +
+            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '<br/>' +
+            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '</b><br/><br/>' +
+            ' Der Bestimmungsort Ihrer Waren/Dienstleistungen <b>' + $('#loan_duration').val() + '</b>. <br/>' +
+            ' Sie sind an <b> ' + $('#loan_duration').val() + ' ' + $('#loan_duration').val() + ' </b> maßgeblichen Einfluss auf die Geschäftsführung aus. ' + ' <br/>' +
             ' Sie <b>' + $('#exporter_company_name').val() + ' </b> Zahlungserfahrungen mit Ihrem Kunden. '
         );
         // Sie beschreiben Ihre Beteiligung wie folgt:
         // Sie haben die Zahlungserfahrungen wie folgt näher erläutert:
 
-        $('#companyinfo').html('<b>' + $('#payment_deadline').val() + '</b><br/>' +
+        $('#companyinfo').html('<b>' + $('#loan_duration').val() + '</b><br/>' +
             'Sie sind: ' + '<br/> <b>' +
-            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '<br/>' +
-            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '<br/>' +
-            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '<br/>' +
-            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '</b><br/><br/>' +
-            ' Sie haben ca <b>' + $('#payment_deadline').val() + ' </b> Mitarbeiter und im letzten vollen Geschäftsjahr rund <b> ' + $('#payment_deadline').val() + ' </b> EUR Umsatz gemacht. ');
+            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '<br/>' +
+            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '<br/>' +
+            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '<br/>' +
+            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '</b><br/><br/>' +
+            ' Sie haben ca <b>' + $('#loan_duration').val() + ' </b> Mitarbeiter und im letzten vollen Geschäftsjahr rund <b> ' + $('#loan_duration').val() + ' </b> EUR Umsatz gemacht. ');
 
         $('#firsttimehermes').html('Sie nutzen zum ersten Mal Hermesdeckungen und haben die Fragen zur Exporterfahrung und Schadenmanagement folgendermaßen beantwortet: ' + '<br/><br/>' +
-            ' Exporterfahrung aus ungedecktem Geschäft: <b>' + $('#payment_deadline').val() + '</b><br/><br/>' +
-            ' Exporterfahrung und Marktkenntnis im Empfängerland: <b>' + $('#payment_deadline').val() + '</b><br/><br/>' +
-            ' Ausführung zum Schadenmanagement: <b>' + $('#payment_deadline').val() + '</b>');
+            ' Exporterfahrung aus ungedecktem Geschäft: <b>' + $('#loan_duration').val() + '</b><br/><br/>' +
+            ' Exporterfahrung und Marktkenntnis im Empfängerland: <b>' + $('#loan_duration').val() + '</b><br/><br/>' +
+            ' Ausführung zum Schadenmanagement: <b>' + $('#loan_duration').val() + '</b>');
 
         $('#contactperson').html('Als Ansprechpartner fungiert: <b>' + '<br/>' +
-            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '<br/>' +
-            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '<br/>' +
-            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '<br/>' +
-            $('#payment_deadline').val() + '        ' + $('#payment_deadline').val() + '</b>');
+            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '<br/>' +
+            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '<br/>' +
+            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '<br/>' +
+            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '</b>');
 
         $('#attacheddocuments').html('Sie haben folgende Anlagen hochgeladen: ' + '<br/><br/>' +
             ' Selbstauskunft (bei Neukunden): ' + '<br/>' +
-            '> <b>' + $('#payment_deadline').val() + ' </b><br/><br/>' +
+            '> <b>' + $('#loan_duration').val() + ' </b><br/><br/>' +
             ' Jahresabschlüsse Ihres Kunden: ' + '<br/>' +
-            '> <b>' + $('#payment_deadline').val() + '</b><br/><br/>' +
+            '> <b>' + $('#loan_duration').val() + '</b><br/><br/>' +
             ' Auskünfte über Ihren Kunden: ' + '<br/>' +
-            '> <b>' + $('#payment_deadline').val() + '</b><br/><br/>' +
+            '> <b>' + $('#loan_duration').val() + '</b><br/><br/>' +
             ' Umwelt- und Sozialinformationen: ' + '<br/>' +
-            '> <b>' + $('#payment_deadline').val() + '</b><br/><br/>' +
+            '> <b>' + $('#loan_duration').val() + '</b><br/><br/>' +
             ' ggf. Projektmemorandum: ' + '<br/>' +
-            '> <b>' + $('#payment_deadline').val() + '</b><br/><br/>' +
+            '> <b>' + $('#loan_duration').val() + '</b><br/><br/>' +
             ' sonstiges: ' + '<br/>' +
-            '> <b>' + $('#payment_deadline').val() + '</b>');
+            '> <b>' + $('#loan_duration').val() + '</b>');
 
         $('#risks').html('Sie beantragen die Absicherung folgender Risiken: <b>' + '<br/>' +
-            $('#payment_deadline').val() + '<br/>' +
-            $('#payment_deadline').val() + ' </b> Herabsetzung der Selbstbeteiligung für wirtschaftliche Risiken.');
+            $('#loan_duration').val() + '<br/>' +
+            $('#loan_duration').val() + ' </b> Herabsetzung der Selbstbeteiligung für wirtschaftliche Risiken.');
 
         $('#termsandconditions').html('Sie haben die Erklärung zur Korruptionsprävention ausgefüllt. ' + ' Diese können Sie sich hier anzeigen lassen und separat ausdrucken. ' + '<br/> <br/>' +
             ' Sie akzeptieren die gültigen ' + ' Allgemeinen Bedingungen für Lieferantenkreditdeckung (G) ' + ' in Zusammenhang mit den ' + ' Ergänzenden Bestimmungen für Forderungsabtretungen . ' + '<br/> <br/> ' +
-            ' Sie haben die Datenschutzhinweise zur Kenntnis genommen und sind mit deren Geltung <b>' + $('#payment_deadline').val() + '<br/> <br/> ' +
-            $('#payment_deadline').val() + '</b>');
+            ' Sie haben die Datenschutzhinweise zur Kenntnis genommen und sind mit deren Geltung <b>' + $('#loan_duration').val() + '<br/> <br/> ' +
+            $('#loan_duration').val() + '</b>');
 
 
         $('#missinginformation').text(' Bitte reichen Sie die unten stehenden Informationen baldmöglich nach: ');
