@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_28_093212) do
+ActiveRecord::Schema.define(version: 2019_01_28_133406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -19,23 +19,10 @@ ActiveRecord::Schema.define(version: 2019_01_28_093212) do
   create_table "listings", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "city"
-    t.string "country"
-    t.string "accommodates"
     t.string "price"
-    t.string "home"
-    t.string "appartment"
-    t.string "place_good_for"
-    t.string "air_conditioning"
-    t.string "wifi"
     t.string "breakfast"
-    t.text "description"
     t.string "employees_count"
     t.string "revenue_last_year"
-    t.string "ak_number"
-    t.string "company_name"
-    t.string "tax_number"
-    t.string "years_trading_without_hermes_cover"
     t.string "experience_with_export_country"
     t.string "adequate_claims_management"
     t.string "agreed_payments_output"
@@ -278,16 +265,13 @@ ActiveRecord::Schema.define(version: 2019_01_28_093212) do
     t.string "yes_previously_hermes_insurance_used"
     t.string "no_previously_hermes_insurance_used"
     t.string "trading_since_when_without_hermes_insurance"
-    t.string "your_company_name"
     t.string "exporter_company_dnnr"
     t.string "exporter_company_registration_number"
     t.string "exporter_district_court"
-    t.string "company_address"
     t.string "exporter_company_plz"
     t.string "exporter_company_city"
     t.string "company_province"
     t.string "exporter_company_country"
-    t.string "exporter_company_representative"
     t.string "exporter_company_representative_firstname"
     t.string "exporter_company_representative_lastname"
     t.string "exporter_company_representative_email"
