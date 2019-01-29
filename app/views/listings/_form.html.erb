@@ -3238,20 +3238,21 @@
                                         </div>
                                         <br><br>
 
-                                        <div id="workAssociationExist" style="display: none; background-color:#f7f7f7;">
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <br>
-                                                    <div class="col-md-10 col-md-offset-1">
-                                                        <p>Bitte geben Sie die Firmen an
-                                                        </p>
-                                                        <%= form.text_field :explain_consortiums_companies, class: "form-control" %>
+                                        <div id="workAssociationExist" style="display: none;">
+                                            <div class="appear">
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <br>
+                                                        <div class="col-md-10 col-md-offset-1">
+                                                            <p>Bitte geben Sie die Firmen an
+                                                            </p>
+                                                            <%= form.text_field :explain_consortiums_companies, class: "form-control" %>
+                                                        </div>
                                                     </div>
+                                                    <br>
                                                 </div>
-                                                <br>
                                             </div>
                                         </div>
-
 
                                         <div class="col-md-10 col-md-offset-1">
                                             <%= form.check_box :information_inputted_best_of_knowledge, id: "YesInformationInputtedBestKnowledge", :style => "width: 20px; height: 20px;" %>
