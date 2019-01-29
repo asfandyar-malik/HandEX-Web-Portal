@@ -11,7 +11,6 @@
                             <div id="error_explanation">
                                 <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from
                                     being saved:</h2>
-
                                 <ul>
                                     <% listing.errors.full_messages.each do |message| %>
                                         <li><%= message %></li>
@@ -80,15 +79,6 @@
                                             <i class="ti-share"></i>
                                         </div>
                                         Notwendiges zum Schluss
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#summary" data-toggle="tab">
-                                        <div class="icon-circle">
-                                            <i class="ti-share"></i>
-                                        </div>
-                                        Summary
                                     </a>
                                 </li>
                             </ul>
@@ -3231,7 +3221,7 @@
                                                 <div class="row">
                                                     <br><br>
                                                     <div class="col-sm-10 col-sm-offset-2">
-                                                        <p>Bitte machen Sie nähere Angaben zu den oben stehenden Punkten
+                                                        <p> Bitte machen Sie nähere Angaben zu den oben stehenden Punkten
                                                             hinsichtlich Anklagen, strafrechtlichen oder
                                                             nicht-strafrechtlichen Sanktionen sowie Ermittlungsverfahren
                                                             und Sperrlisten</p>
@@ -3239,7 +3229,7 @@
 
                                                     <div class="row">
                                                         <div class="col-sm-10 col-sm-offset-2">
-                                                            <%= form.text_area :price, class: 'form-control' %>
+                                                            <%= form.text_area :country_category, class: 'form-control' %>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3362,213 +3352,6 @@
                                     <br><br><br>
                                 </div>
                             </div>
-
-                            <div class="tab-pane" id="summary">
-
-                                <h4 class="info-text"> Zusammenfassung </h4>
-                                <br>
-                                <div class="row">
-                                    <div class="col-sm-10 col-sm-offset-1">
-                                        <p> Wir haben verstanden, dass Ihr Geschäft sich wie unten aufgeführt darstellt.
-                                            Bitte
-                                            überprüfen Sie Ihre Angaben bzw. ergänzen Sie weitere Details. Neben jedem
-                                            Abschnitt
-                                            können Sie auf den Haken oder das Ausrufungszeichen klicken, um zum Antrag
-                                            zurückzukehren </p>
-                                    </div>
-                                </div>
-
-                                <br>
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-sm-10 col-sm-offset-1">
-
-                                            <div class="square">
-                                                <div class="content">
-
-                                                    <div class="col-sm-12">
-
-                                                        <div class="row">
-                                                            <div class="col-sm-12 ">
-                                                                <span id="completeoutput"></span>
-                                                            </div>
-                                                        </div>
-
-                                                        <hr align="middle">
-
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <span id="categorysummary"></span>
-                                                            </div>
-                                                        </div>
-
-                                                        <hr align="middle">
-
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <span id="businessinfo"></span>
-                                                            </div>
-                                                        </div>
-
-                                                        <hr align="middle">
-
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <span id="specialarea"></span>
-                                                            </div>
-                                                        </div>
-
-                                                        <hr align="middle">
-
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <span id="exportedgood"></span>
-                                                            </div>
-                                                        </div>
-
-                                                        <hr align="middle">
-
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <span id="contractstructure"></span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <span id="contractcurrency"></span>
-                                                            </div>
-                                                        </div>
-
-                                                        <hr align="middle">
-
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <span id="contractvalue"></span>
-                                                            </div>
-                                                        </div>
-
-                                                        <hr align="middle">
-
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <span id="performancedate"></span>
-                                                            </div>
-                                                        </div>
-
-                                                        <hr align="middle">
-
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <span id="paymentterm"></span>
-                                                            </div>
-                                                        </div>
-
-                                                        <hr align="middle">
-
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <span id="certificateoforigin"></span>
-                                                            </div>
-                                                        </div>
-
-                                                        <hr align="middle">
-
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <span id="paymentexperience"></span>
-                                                            </div>
-                                                        </div>
-
-                                                        <hr align="middle">
-
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <span id="customerinformation"></span>
-                                                            </div>
-                                                        </div>
-
-                                                        <hr align="middle">
-
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <span id="companyinfo"></span>
-                                                            </div>
-                                                        </div>
-
-                                                        <hr align="middle">
-
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <span id="firsttimehermes"></span>
-                                                            </div>
-                                                        </div>
-
-                                                        <hr align="middle">
-
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <span id="contactperson"></span>
-                                                            </div>
-                                                        </div>
-
-                                                        <hr align="middle">
-
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <span id="attacheddocuments"></span>
-                                                            </div>
-                                                        </div>
-
-                                                        <hr align="middle">
-
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <span id="risks"></span>
-                                                            </div>
-                                                        </div>
-
-                                                        <hr align="middle">
-
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <span id="termsandconditions"></span>
-                                                            </div>
-                                                        </div>
-
-                                                        <hr align="middle">
-
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <span id="missinginformation"></span>
-                                                                <br><br>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <br>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-sm-10 col-sm-offset-1">
-                                            <p> Wenn Sie uns noch weitere Informationen zukommen lassen möchten, können
-                                                Sie
-                                                dies hier tun: </p>
-                                            <div> <%= form.text_field :trading_since_when_without_hermes_insurance, class: "form-control" %> </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <br><br>
-
-                            </div>
                         </div>
 
                         <div class="wizard-footer">
@@ -3592,121 +3375,6 @@
 </div>
 
 <script>
-
-    //------------------------- START: Summary Generation JQuery -----------------------
-
-    $("#exporter_telephone").keyup(function () {
-
-        $('#completeoutput').html('Sie <b>' + $('#exporter_company_name').val() + ' </b> mit Ihrem <b> ' + $('#private_sector').val() + ' ' + $('#private_sector').val() + ', ' + $('#private_sector').val() +
-            $('#country').val() + ' </b>über die Lieferung eines <b> ' + $('#is_investment_good').val() + ' </b> mit einem Auftragswert in Höhe <b> ' + $('#contract_value').val() + ' </b>.' +
-            ' Sie werden <b> ' + $('#exporter_offers_servicing_for_goods').val() + ' </b> Leistungen, wie z.B. Montage vor Ort oder Schulungsleistungen, erbringen. <br/>  Der Kunde wünscht <b> ' +
-            $('#loan_duration').val() + ' </b> Zahlungsbedingungen. ' + ' <br/><br/>   Sie beschreiben Ihr Geschäft wie folgt: <b> ' + $('#describe_export_business').val()) + '</b>';
-
-        $('#categorysummary').html('Ihre Ware passt in folgende Kategorie: <br/>' +
-            '> <b>' + $('#exporter_company_name').val() + '</b><br/>' +
-            '> <b>' + $('#describe_export_business').val() + '</b><br/>' +
-            '> <b>' + $('#describe_export_business').val()) + '</b>';
-
-        $('#businessinfo').html('Das Geschäft ist: <b>' + $('#loan_duration').val() + '</b>');
-        //Sie beschreiben das Gesamtprojekt wie folgt:
-
-        $('#specialarea').html('Sie liefern <b>' + $('#loan_duration').val() + ' </b> in ein sensibles Gebiet. ');
-
-        $('#exportedgood').html('Die zu liefernde Ware ist <b>' + $('#loan_duration').val() + '</b>.');
-
-        $('#contractstructure').html('Ihr Geschäft sieht <b>' + $('#loan_duration').val() + ' </b> Vertragsstruktur vor.');
-        //Sie haben die besondere Vertragsstruktur erläutert:'
-        //Sie haben folgende Details zur besonderen Vertragsstruktur hochgeladen:
-
-        $('#contractcurrency').html('Ihr Exportvertrag sieht <b>' + $('#loan_duration').val() + ' </b>als Vertragswährung vor.');
-
-        $('#contractvalue').html('Der Auftragswert: <b>' + $('#loan_duration').val() + ' </b>setzt sich wie folgt zusammen:  <br/>' +
-            '> <b>' + $('#loan_duration').val() + '</b> Lieferwert einschl <b>' + $('#loan_duration').val() + ' </b>Ersatzteile ' + '<br/>' +
-            '> <b>' + $('#loan_duration').val() + '</b> Leistungen <b>' + $('#loan_duration').val() + ' </b>eingeschlossen ' + '<br/>' +
-            '> <b>' + $('#loan_duration').val() + ' </b> <b> ' + $('#loan_duration').val() + ' </b> <b> ' + $('#loan_duration').val() + '</b><br/>' +
-            'zzgl. <b>' + $('#loan_duration').val() + '</b> (Zinssatz: <b>' + $('#loan_duration').val() + '</b>, in Höhe von <b>' + $('#loan_duration').val() + '</b> degressive Berechnung).' + '<br/><br/>' +
-            ' Es wird <b>' + $('#loan_duration').val() + '</b> vereinbart');
-        //Sie beschreiben Ihre Berechnungsmethode wie folgt:
-
-        $('#performancedate').html('Sie planen folgende Liefer- und ggf. Leistungstermine( ' + $('#loan_duration').val() + ' ): <br/>' +
-            'Lieferzeit: <b>' + $('#loan_duration').val() + '</b> <br/> ' +
-            'Leistungszeit:<b> ' + $('#loan_duration').val() + '</b> <br/> ' +
-            'Betriebsbereitschaft: <b> ' + $('#loan_duration').val() + ' </b><br/> ' +
-            'weitere zahlungsrelevante Termine: <br/> <b> ' +
-            $('#loan_duration').val() + ' </b>');
-
-        $('#paymentterm').html('Sie haben kurzfristige Zahlungsbedingungen vereinbart. <br/>' +
-            ' 1.Rate <b>' + $('#loan_duration').val() + '  ( ' + $('#loan_duration').val() + ' ' + $('#loan_duration').val() + ' </b> ) Anzahlung vor Liefer- / Leistungsbeginn <br/> ' +
-            ' 2.Rate <b> ' + $('#loan_duration').val() + ' ( ' + $('#loan_duration').val() + ' ' + $('#loan_duration').val() + ' ) <br/> ' + $('#loan_duration').val() + ' ' + $('#loan_duration').val() + '</b><br/>' +
-            ' Die Anzahlung ist <b> ' + $('#loan_duration').val() + ' </b> eingegangen. <br/><br/> ' +
-            ' Sie haben <b>' + $('#loan_duration').val() + ' </b> hinsichtlich der mit Ihrem Kunden vereinbarten Zahlungsvehikel gemacht.');
-
-        $('#certificateoforigin').html('Für die zu liefernden Waren bekommen Sie <b> ' + $('#loan_duration').val() + ' </b>deutsches Warenursprungszeugnis.');
-
-        $('#paymentexperience').html('Für Ihr Geschäft haben Sie <b>' + $('#loan_duration').val()) + '</b>. ';
-        // Fur ihr Geschäft I have to add a lot of other stuff
-
-        $('#customerinformation').html(' Ihr Kunde ist: <b> <br/>' +
-            $('#loan_duration').val() + '<br/>' +
-            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '<br/>' +
-            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '<br/>' +
-            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '<br/>' +
-            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '</b><br/><br/>' +
-            ' Der Bestimmungsort Ihrer Waren/Dienstleistungen <b>' + $('#loan_duration').val() + '</b>. <br/>' +
-            ' Sie sind an <b> ' + $('#loan_duration').val() + ' ' + $('#loan_duration').val() + ' </b> maßgeblichen Einfluss auf die Geschäftsführung aus. ' + ' <br/>' +
-            ' Sie <b>' + $('#exporter_company_name').val() + ' </b> Zahlungserfahrungen mit Ihrem Kunden. '
-        );
-        // Sie beschreiben Ihre Beteiligung wie folgt:
-        // Sie haben die Zahlungserfahrungen wie folgt näher erläutert:
-
-        $('#companyinfo').html('<b>' + $('#loan_duration').val() + '</b><br/>' +
-            'Sie sind: ' + '<br/> <b>' +
-            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '<br/>' +
-            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '<br/>' +
-            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '<br/>' +
-            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '</b><br/><br/>' +
-            ' Sie haben ca <b>' + $('#loan_duration').val() + ' </b> Mitarbeiter und im letzten vollen Geschäftsjahr rund <b> ' + $('#loan_duration').val() + ' </b> EUR Umsatz gemacht. ');
-
-        $('#firsttimehermes').html('Sie nutzen zum ersten Mal Hermesdeckungen und haben die Fragen zur Exporterfahrung und Schadenmanagement folgendermaßen beantwortet: ' + '<br/><br/>' +
-            ' Exporterfahrung aus ungedecktem Geschäft: <b>' + $('#loan_duration').val() + '</b><br/><br/>' +
-            ' Exporterfahrung und Marktkenntnis im Empfängerland: <b>' + $('#loan_duration').val() + '</b><br/><br/>' +
-            ' Ausführung zum Schadenmanagement: <b>' + $('#loan_duration').val() + '</b>');
-
-        $('#contactperson').html('Als Ansprechpartner fungiert: <b>' + '<br/>' +
-            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '<br/>' +
-            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '<br/>' +
-            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '<br/>' +
-            $('#loan_duration').val() + '        ' + $('#loan_duration').val() + '</b>');
-
-        $('#attacheddocuments').html('Sie haben folgende Anlagen hochgeladen: ' + '<br/><br/>' +
-            ' Selbstauskunft (bei Neukunden): ' + '<br/>' +
-            '> <b>' + $('#loan_duration').val() + ' </b><br/><br/>' +
-            ' Jahresabschlüsse Ihres Kunden: ' + '<br/>' +
-            '> <b>' + $('#loan_duration').val() + '</b><br/><br/>' +
-            ' Auskünfte über Ihren Kunden: ' + '<br/>' +
-            '> <b>' + $('#loan_duration').val() + '</b><br/><br/>' +
-            ' Umwelt- und Sozialinformationen: ' + '<br/>' +
-            '> <b>' + $('#loan_duration').val() + '</b><br/><br/>' +
-            ' ggf. Projektmemorandum: ' + '<br/>' +
-            '> <b>' + $('#loan_duration').val() + '</b><br/><br/>' +
-            ' sonstiges: ' + '<br/>' +
-            '> <b>' + $('#loan_duration').val() + '</b>');
-
-        $('#risks').html('Sie beantragen die Absicherung folgender Risiken: <b>' + '<br/>' +
-            $('#loan_duration').val() + '<br/>' +
-            $('#loan_duration').val() + ' </b> Herabsetzung der Selbstbeteiligung für wirtschaftliche Risiken.');
-
-        $('#termsandconditions').html('Sie haben die Erklärung zur Korruptionsprävention ausgefüllt. ' + ' Diese können Sie sich hier anzeigen lassen und separat ausdrucken. ' + '<br/> <br/>' +
-            ' Sie akzeptieren die gültigen ' + ' Allgemeinen Bedingungen für Lieferantenkreditdeckung (G) ' + ' in Zusammenhang mit den ' + ' Ergänzenden Bestimmungen für Forderungsabtretungen . ' + '<br/> <br/> ' +
-            ' Sie haben die Datenschutzhinweise zur Kenntnis genommen und sind mit deren Geltung <b>' + $('#loan_duration').val() + '<br/> <br/> ' +
-            $('#loan_duration').val() + '</b>');
-
-
-        $('#missinginformation').text(' Bitte reichen Sie die unten stehenden Informationen baldmöglich nach: ');
-
-    });
-
-    //------------------------- END: Summary Generation JQuery -------------------------
 
     $(function () {
         $(".auftragwertbutton").click(function () {
