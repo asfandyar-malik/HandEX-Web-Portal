@@ -44,7 +44,7 @@ class ReplaceColumnNamesInListings < ActiveRecord::Migration[5.2]
         rename_column :listings, :company_plz, :exporter_company_plz
         rename_column :listings, :company_city, :exporter_company_city
         rename_column :listings, :company_country, :exporter_company_country
-        rename_col  umn :listings, :representative_firstname, :exporter_company_representative_firstname
+        rename_column :listings, :representative_firstname, :exporter_company_representative_firstname
         
         rename_column :listings, :representative_lastname, :exporter_company_representative_lastname
         rename_column :listings, :representative_email, :exporter_company_representative_email
