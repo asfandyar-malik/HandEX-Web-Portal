@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_28_140326) do
+ActiveRecord::Schema.define(version: 2019_01_29_152547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -304,6 +304,11 @@ ActiveRecord::Schema.define(version: 2019_01_28_140326) do
     t.string "exporter_company_name"
     t.string "exporter_email"
     t.string "exporter_telephone"
+    t.string "further_lower_economic_risk"
+    t.string "dont_lower_economic_risk"
+    t.string "corruption_declaration_applies"
+    t.string "no_corruption_declaration_applies"
+    t.string "explain_corruption_declaration_applies"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 

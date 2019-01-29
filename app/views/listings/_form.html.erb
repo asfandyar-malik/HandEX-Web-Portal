@@ -420,9 +420,9 @@
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <%= form.select :exported_goods_type, options_for_select(['Bergbau, inkl. Verarbeitung', 'Erdöl- und Erdgasförderung inkl. Verarbeitung',
-                                                                                                         'Chemie', 'Energie', 'Infrastruktur', 'Papier- , Holz-, Leder- und Textilindustrie',
-                                                                                                         'Agrarsektor und Nahrungsmittelindustrie', 'Verarbeitende Industrie', 'Umwelttechnik',
-                                                                                                         'Dienstleistungen'], listing.exported_goods_type ? listing.exported_goods_type : nil), {}, class: 'form-control' %>
+                                                                                                              'Chemie', 'Energie', 'Infrastruktur', 'Papier- , Holz-, Leder- und Textilindustrie',
+                                                                                                              'Agrarsektor und Nahrungsmittelindustrie', 'Verarbeitende Industrie', 'Umwelttechnik',
+                                                                                                              'Dienstleistungen'], listing.exported_goods_type ? listing.exported_goods_type : nil), {}, class: 'form-control' %>
                                                 </div>
                                             </div>
                                         </div>
@@ -687,7 +687,7 @@
                                         <div class="col-sm-8 col-sm-offset-1">
                                             <div class="form-group">
                                                 <br>
-                                                    <p><b>Ist Ihr Export ausfuhrgenehmigungspflichtig?</b>
+                                                <p><b>Ist Ihr Export ausfuhrgenehmigungspflichtig?</b>
                                                 <p>
                                                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                                     <div class="choice <%= 'active' if listing.yes_export_requires_exportlicense == 'on' %>" name="exportlicenserequired_yes" data-toggle="wizard-checkbox" onclick="exportLicenseRequired()">
@@ -3072,9 +3072,9 @@
                                                         gegen Zusatzentgelt auf 5 % absenken?</p>
 
                                                     <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                                                        <div class="choice <%= 'active' if listing.country_category == 'on' %>" name="yes_reduceeconomicrisk" data-toggle="wizard-checkbox">
+                                                        <div class="choice <%= 'active' if listing.further_lower_economic_risk == 'on' %>" name="yes_reduceEconomicRisk" data-toggle="wizard-checkbox">
 
-                                                            <%= check_box_tag "listing[country_category]", listing.country_category ? listing.country_category : nil %>
+                                                            <%= check_box_tag "listing[further_lower_economic_risk]", listing.further_lower_economic_risk ? listing.further_lower_economic_risk : nil %>
 
                                                             <div class="card circle card-hover-effect">
                                                                 <i class="ti-check"></i>
@@ -3083,9 +3083,9 @@
                                                     </div>
 
                                                     <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                                                        <div class="choice <%= 'active' if listing.country_category == 'on' %>" name="dont_reduceeconomicrisk" data-toggle="wizard-checkbox">
+                                                        <div class="choice <%= 'active' if listing.dont_lower_economic_risk == 'on' %>" name="dont_reduceEconomicRisk" data-toggle="wizard-checkbox">
 
-                                                            <%= check_box_tag "listing[country_category]", listing.country_category ? listing.country_category : nil %>
+                                                            <%= check_box_tag "listing[dont_lower_economic_risk]", listing.dont_lower_economic_risk ? listing.dont_lower_economic_risk : nil %>
 
                                                             <div class="card circle card-hover-effect">
                                                                 <i class="ti-close"></i>
@@ -3095,7 +3095,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <br><br>
                                     </div>
 
@@ -3200,12 +3199,12 @@
 
                                         <div class="row">
                                             <div class="col-md-4 col-md-offset-2">
-                                                <%= form.check_box :country_category, id: "triff_zu", :style => "width: 20px; height: 20px;" %>
+                                                <%= form.check_box :corruptionDeclarationApplies, id: "corruptionDeclarationApplies", :style => "width: 20px; height: 20px;" %>
                                                 Trifft zu
                                                 (Nähere Angaben erforderlich. Lesen Sie hierzu auch die Hinweise)
                                             </div>
                                             <div class="col-md-4">
-                                                <%= form.check_box :country_category, id: "trifft_nichtzu", :style => "width: 20px; height: 20px;" %>
+                                                <%= form.check_box :no_corruptionDeclarationApplies, id: "corruption_declaration_doesnt_apply", :style => "width: 20px; height: 20px;" %>
                                                 Trifft
                                                 nicht zu
                                             </div>
@@ -3213,13 +3212,14 @@
                                         </div>
 
 
-                                        <div id="showHideDivTrifftZu" style="display: none;background-color: #f7f7f7;">
+                                        <div id="showHideDivCorruptionDeclarationApplies" style="display: none;background-color: #f7f7f7;">
 
                                             <div class="form-group">
                                                 <div class="row">
-                                                    <br><br>
+                                                    <br>
                                                     <div class="col-sm-10 col-sm-offset-2">
-                                                        <p> Bitte machen Sie nähere Angaben zu den oben stehenden Punkten
+                                                        <p> Bitte machen Sie nähere Angaben zu den oben stehenden
+                                                            Punkten
                                                             hinsichtlich Anklagen, strafrechtlichen oder
                                                             nicht-strafrechtlichen Sanktionen sowie Ermittlungsverfahren
                                                             und Sperrlisten</p>
@@ -3227,41 +3227,36 @@
 
                                                     <div class="row">
                                                         <div class="col-sm-10 col-sm-offset-2">
-                                                            <%= form.text_area :country_category, class: 'form-control' %>
+                                                            <%= form.text_area :explain_corruptionDeclarationApplies, class: 'form-control' %>
                                                         </div>
                                                     </div>
+                                                    <br>
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <hr align="middle" width="50%">
 
                                         <div class="row">
                                             <br>
 
                                             <div class="col-md-10 col-md-offset-1">
                                                 <p>Im Fall eines Konsortiums oder einer Arbeitsgemeinschaft ist die
-                                                    Erklärung
-                                                    vom
-                                                    Konsortialführer für alle Konsortialpartner bzw. von einem Mitglied
-                                                    der
-                                                    Arbeitsgemeinschaft stellvertretend für alle anderen Mitglieder
+                                                    Erklärung vom Konsortialführer für alle Konsortialpartner bzw. von
+                                                    einem Mitglied
+                                                    der Arbeitsgemeinschaft stellvertretend für alle anderen Mitglieder
                                                     abzugeben</p>
                                                 <br><br>
                                             </div>
 
                                             <div class="col-md-4 col-md-offset-2">
-                                                <%= form.check_box :country_category, name: "group2[]", id: "Yes-WorkAssociation", :style => "width: 20px; height: 20px;" %>
+                                                <%= form.check_box :yes_jointventure_with_consortiums, name: "group2[]", id: "Yes-jointventureWithConsortiums", :style => "width: 20px; height: 20px;" %>
                                                 Konsortium
                                                 oder
                                                 Arbeitsgemeinschaft
                                             </div>
                                             <div class="col-md-4">
-                                                <%= form.check_box :country_category, name: "group2[]", id: "No-WorkAssociation", :style => "width: 20px; height: 20px;" %>
-                                                Wir
-                                                arbeiten
-                                                für
-                                                dieses Geschäft nicht in einem Konsortium oder einer Arbeitsgemeinschaft
+                                                <%= form.check_box :no_jointventure_with_consortiums, name: "group2[]", id: "No-jointventureWithConsortiums", :style => "width: 20px; height: 20px;" %>
+                                                Wir arbeiten für dieses Geschäft nicht in einem Konsortium oder einer
+                                                Arbeitsgemeinschaft
                                             </div>
                                         </div>
                                         <br><br>
@@ -3273,7 +3268,7 @@
                                                     <div class="col-md-10 col-md-offset-1">
                                                         <p>Bitte geben Sie die Firmen an
                                                         </p>
-                                                        <%= form.text_field :country_category, class: "form-control" %>
+                                                        <%= form.text_field :explain_consortiums_companies, class: "form-control" %>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -3282,7 +3277,7 @@
 
 
                                         <div class="col-md-10 col-md-offset-1">
-                                            <%= form.check_box :country_category, id: "Yes-WorkAssociation1", :style => "width: 20px; height: 20px;" %>
+                                            <%= form.check_box :information_inputted_best_of_knowledge, id: "YesInformationInputtedBestKnowledge", :style => "width: 20px; height: 20px;" %>
                                             Die vorstehenden Angaben wurden von uns nach bestem Wissen und Gewissen und
                                             in Kenntnisnahme der Erläuterungen gemacht
                                         </div>
@@ -3313,35 +3308,29 @@
                                                 <br>
 
                                                 <div class="col-md-8 col-md-offset-2">
-                                                    <%= form.check_box :no_goods_sent_multiple_deliveries, id: "Yes-WorkAssociation", :style => "width: 20px; height: 20px;" %>
-                                                    Wir akzeptieren die Allgemeinen Bedingungen für
-                                                    Lieferantenkreditdeckung
-                                                    (G)
-                                                    in Zusammenhang mit den Ergänzenden Bestimmungen für
-                                                    Forderungsabtretungen
+                                                    <%= form.check_box :accept_terms_conditions, :style => "width: 20px; height: 20px;" %>
+                                                    Wir akzeptieren die Allgemeinen Bedingungen für Lieferantenkreditdeckung(G)
+                                                    in Zusammenhang mit den Ergänzenden Bestimmungen für Forderungsabtretungen
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col-md-8 col-md-offset-2">
                                                     <br><br>
-                                                    <%= form.check_box :listings, id: "Yes-WorkAssociation1", :style => "width: 20px; height: 20px;" %>
+                                                    <%= form.check_box :read_privacy_policy, :style => "width: 20px; height: 20px;" %>
                                                     Wir haben die Datenschutzhinweise zur Kenntnis genommen und sind mit
-                                                    deren
-                                                    Geltung einverstanden.
+                                                    deren Geltung einverstanden.
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col-md-8 col-md-offset-2">
                                                     <br><br>
-                                                    <%= form.check_box :country_category, id: "Yes-WorkAssociation2", :style => "width: 20px; height: 20px;" %>
+                                                    <%= form.check_box :read_all_instructions, :style => "width: 20px; height: 20px;" %>
                                                     Wir haben die Hinweise zu Gebühren und Entgelten, Richtlinien,
                                                     Verantwortlichkeiten für den Antrag, Veröffentlichung von
-                                                    Projektdaten,
-                                                    OECD-Leitsätze für multinationale Unternehmen und UN-Leitprinzipien
-                                                    für
-                                                    Wirtschafts- und Menschenrechte zur Kenntnis genommen.
+                                                    Projektdaten, OECD-Leitsätze für multinationale Unternehmen und UN-Leitprinzipien
+                                                    für Wirtschafts- und Menschenrechte zur Kenntnis genommen.
                                                 </div>
                                             </div>
                                         </div>
@@ -3755,11 +3744,11 @@
     });
 
     $(function () {
-        $("#triff_zu").click(function () {
+        $("#corruptionDeclarationApplies").click(function () {
             if ($(this).is(":checked")) {
-                $("#showHideDivTrifftZu").show();
+                $("#showHideDivCorruptionDeclarationApplies").show();
             } else {
-                $("#showHideDivTrifftZu").hide();
+                $("#showHideDivCorruptionDeclarationApplies").hide();
             }
         });
     });
@@ -3919,12 +3908,12 @@
         $choice.filter('[name="yes_previouslyhermesinsuranceused"]').removeClass('active');
     });
 
-    $choice.filter('[name="yes_reduceeconomicrisk"]').click(function () {
-        $choice.filter('[name="dont_reduceeconomicrisk"]').removeClass('active');
+    $choice.filter('[name="yes_reduceEconomicRisk"]').click(function () {
+        $choice.filter('[name="dont_reduceEconomicRisk"]').removeClass('active');
     });
 
-    $choice.filter('[name="dont_reduceeconomicrisk"]').click(function () {
-        $choice.filter('[name="yes_reduceeconomicrisk"]').removeClass('active');
+    $choice.filter('[name="dont_reduceEconomicRisk"]').click(function () {
+        $choice.filter('[name="yes_reduceEconomicRisk"]').removeClass('active');
     });
 
     $choice.filter('[name="publicsector"]').click(function () {
@@ -4036,10 +4025,10 @@
             $("#alreadyPaymentExperience").hide();
         }
 
-        if ($("#triff_zu").is(":checked")) {
-            $("#showHideDivTrifftZu").show();
+        if ($("#corruptionDeclarationApplies").is(":checked")) {
+            $("#showHideDivCorruptionDeclarationApplies").show();
         } else {
-            $("#showHideDivTrifftZu").hide();
+            $("#showHideDivCorruptionDeclarationApplies").hide();
         }
 
         if ($("#privateSector").is(":checked")) {
