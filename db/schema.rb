@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_28_133406) do
+ActiveRecord::Schema.define(version: 2019_01_28_140326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -125,7 +125,7 @@ ActiveRecord::Schema.define(version: 2019_01_28_133406) do
     t.boolean "yes_deliver_part_of_overall_project_other_companies"
     t.boolean "no_deliver_part_of_overall_project_other_companies"
     t.string "explain_complete_project"
-    t.boolean "supplementary_risk_hausbank_guarantee"
+    t.boolean "supplementary_risk_housebank_guarantee"
     t.boolean "risk_contractual_warranty_coverage"
     t.boolean "risk_shipment_risk_cover"
     t.boolean "risk_supplier_credit_cover"
@@ -270,7 +270,7 @@ ActiveRecord::Schema.define(version: 2019_01_28_133406) do
     t.string "exporter_district_court"
     t.string "exporter_company_plz"
     t.string "exporter_company_city"
-    t.string "company_province"
+    t.string "exporter_company_province"
     t.string "exporter_company_country"
     t.string "exporter_company_representative_firstname"
     t.string "exporter_company_representative_lastname"
