@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_29_152547) do
+ActiveRecord::Schema.define(version: 2019_01_29_180535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -309,6 +309,13 @@ ActiveRecord::Schema.define(version: 2019_01_29_152547) do
     t.string "corruption_declaration_applies"
     t.string "no_corruption_declaration_applies"
     t.string "explain_corruption_declaration_applies"
+    t.string "yes_jointventure_with_consortiums"
+    t.string "no_jointventure_with_consortiums"
+    t.string "give_consortiums_companies"
+    t.string "information_inputted_best_of_knowledge"
+    t.string "accept_terms_conditions"
+    t.string "read_privacy_policy"
+    t.string "read_all_instructions"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 

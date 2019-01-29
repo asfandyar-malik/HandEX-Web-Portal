@@ -4,7 +4,6 @@ class RemoveColumnNamesInListings < ActiveRecord::Migration[5.2]
     remove_column :listings, :company_address
     remove_column :listings, :country
     remove_column :listings, :home
-    remove_column :listings, :exporter_company_representative
     remove_column :listings, :appartment
     remove_column :listings, :place_good_for
     remove_column :listings, :air_conditioning
