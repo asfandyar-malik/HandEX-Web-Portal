@@ -32,11 +32,6 @@ class ListingsController < ApplicationController
     def create
         # @listing            = Listing.new(listing_params)
         @listing = current_user.listings.build(listing_params)
-        
-        @listing.home       = params[:listing][:home]
-        @listing.appartment = params[:listing][:appartment]
-        
-        
         if @listing.save
             redirect_to pages_applicationProcessing_path(@listing), notice: 'Antrag wurde erfolgreich erstellt.'
         else
@@ -53,9 +48,6 @@ class ListingsController < ApplicationController
     # PATCH/PUT /listings/1
     # PATCH/PUT /listings/1.json
     def update
-        @listing.home       = params[:listing][:home]
-        @listing.appartment = params[:listing][:appartment]
-        
         if @listing.update(listing_params)
             redirect_to pages_applicationProcessing_path(@listing), notice: 'Antrag wurde erfolgreich aktualisiert.'
         else
