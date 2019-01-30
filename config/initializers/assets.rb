@@ -17,7 +17,7 @@ Rails.application.config.assets.precompile += %w( css/themify-icons.css )
 Rails.application.config.assets.precompile += %w( css/paper-bootstrap-wizard.css )
 Rails.application.config.assets.precompile += %w( css/demo.css )
 Rails.application.config.assets.precompile += %w( css/bootstrap.min.css )
-Rails.application.config.assets.precompile += %w( listing.css )
+Rails.application.config.assets.precompile += %w( insurance.css )
 
 
 Rails.application.config.assets.precompile += %w( vendor/jquery-2.2.4.min.js)

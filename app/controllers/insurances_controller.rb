@@ -1,66 +1,66 @@
-class ListingsController < ApplicationController
-    layout 'listing'
+class InsurancesController < ApplicationController
+    layout 'insurance'
     
-    before_action :set_listing, only: [:show, :edit, :update, :destroy]
+    before_action :set_insurance, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!, except: [:show]
     before_action :is_authorised, only: [:update]
     
-    # GET /listings
-    # GET /listings.json
+    # GET /insurances
+    # GET /insurances.json
     def index
-        # @listings = Listing.all
-        @listings = current_user.listings
+        # @insurances = Insurance.all
+        @insurances = current_user.insurances
     end
     
-    # GET /listings/1
-    # GET /listings/1.json
+    # GET /insurances/1
+    # GET /insurances/1.json
     def show
     end
     
-    # GET /listings/new
+    # GET /insurances/new
     def new
-        # @listing = Listing.new
-        @listing = current_user.listings.build
+        # @insurance = Insurance.new
+        @insurance = current_user.insurances.build
     end
     
-    # GET /listings/1/edit
+    # GET /insurances/1/edit
     def edit
     end
     
-    # POST /listings
-    # POST /listings.json
+    # POST /insurances
+    # POST /insurances.json
     def create
-        # @listing            = Listing.new(listing_params)
-        @listing = current_user.listings.build(listing_params)
-        if @listing.save
-            redirect_to pages_applicationProcessing_path(@listing), notice: 'Antrag wurde erfolgreich erstellt.'
+        # @insurance            = Insurance.new(insurance_params)
+        @insurance = current_user.insurances.build(insurance_params)
+        if @insurance.save
+            redirect_to pages_applicationProcessing_path(@insurance), notice: 'Antrag wurde erfolgreich erstellt.'
         else
             flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
             render :new
         end
-        # if @listing.save
-        #     redirect_to pages_applicationProcessing_path(@listing), notice: "Antrag absenden"
+        # if @insurance.save
+        #     redirect_to pages_applicationProcessing_path(@insurance), notice: "Antrag absenden"
         # else
         #     flash[:notice] = "Something went wrong while creating...."
         # end
     end
     
-    # PATCH/PUT /listings/1
-    # PATCH/PUT /listings/1.json
+    # PATCH/PUT /insurances/1
+    # PATCH/PUT /insurances/1.json
     def update
-        if @listing.update(listing_params)
-            redirect_to pages_applicationProcessing_path(@listing), notice: 'Antrag wurde erfolgreich aktualisiert.'
+        if @insurance.update(insurance_params)
+            redirect_to pages_applicationProcessing_path(@insurance), notice: 'Antrag wurde erfolgreich aktualisiert.'
         else
-            flash[:notice] = "Something went wrong while updating listing...."
+            flash[:notice] = "Something went wrong while updating insurance...."
         end
     end
     
-    # DELETE /listings/1
-    # DELETE /listings/1.json
+    # DELETE /insurances/1
+    # DELETE /insurances/1.json
     def destroy
-        @listing.destroy
+        @insurance.destroy
         respond_to do |format|
-            format.html {redirect_to listings_url, notice: 'Antrag wurde erfolgreich zerstört'}
+            format.html {redirect_to insurances_url, notice: 'Antrag wurde erfolgreich zerstört'}
             format.json {head :no_content}
         end
     end
@@ -68,17 +68,17 @@ class ListingsController < ApplicationController
     private
     
     # Use callbacks to share common setup or constraints between actions.
-    def set_listing
-        @listing = Listing.find(params[:id])
+    def set_insurance
+        @insurance = Insurance.find(params[:id])
     end
     
     def is_authorised
-        redirect_to root_path, alert: "You don't have permission" unless current_user.id = @listing.user_id
+        redirect_to root_path, alert: "You don't have permission" unless current_user.id = @insurance.user_id
     end
     
     # Never trust parameters from the scary internet, only allow the white list through.
-    def listing_params
-        params.require(:listing).permit(:exporter_company_name, :exporter_email, :exporter_telephone, :city, :country, :accommodates, :price, :home, :appartment, :place_good_for,
+    def insurance_params
+        params.require(:insurance).permit(:exporter_company_name, :exporter_email, :exporter_telephone, :city, :country, :accommodates, :price, :home, :appartment, :place_good_for,
                                         :air_conditioning, :wifi, :breakfast, :description,
                                         :insurance_cover, :country_category, :buyer_category, :expected_date_product_received_importer, :date_contractsigned_with_importer,
                                         :is_investment_good, :contract_value, :payment_deadline, :private_sector, :public_sector,

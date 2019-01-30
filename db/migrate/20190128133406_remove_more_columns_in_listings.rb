@@ -1,6 +1,6 @@
 class RemoveMoreColumnsInListings < ActiveRecord::Migration[5.2]
   def change
-    remove_column :listings, :city
-    remove_column :listings, :accommodates
+    remove_column :insurances, :city
+    remove_column :insurances, :accommodates
   end
 end

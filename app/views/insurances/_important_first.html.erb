@@ -33,7 +33,7 @@
                                                 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates (UAE)',
                                                 'United Kingdom (UK)', 'United States of America (USA)', 'Uruguay', 'Uzbekistan', 'Vanuatu',
                                                 'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'],
-                                               @listing.importer_country ? @listing.importer_country : nil), {}, id: 'importercountry', class: 'form-control' %>
+                                               @insurance.importer_country ? @insurance.importer_country : nil), {}, id: 'importercountry', class: 'form-control' %>
         </div>
     </div>
 </div>
@@ -67,7 +67,7 @@
         <div class="col-sm-6 col-sm-offset-3">
             <div class="form-group">
                 <label> Welches Zahlungsziel gewähren Sie Ihrem Kunden? </label>
-                <%= form.select :loan_duration, options_for_select(['3 Months', '6 Months', '9 Months', '12 Months', '15 Months', '18 Months', '21 Months', '24 Months', '27 Months', '30 Months', '33 Months', '36 Months'], @listing.is_investment_good ? @listing.is_investment_good : nil), {}, class: 'form-control' %>
+                <%= form.select :loan_duration, options_for_select(['3 Months', '6 Months', '9 Months', '12 Months', '15 Months', '18 Months', '21 Months', '24 Months', '27 Months', '30 Months', '33 Months', '36 Months'], @insurance.is_investment_good ? @insurance.is_investment_good : nil), {}, class: 'form-control' %>
             </div>
         </div>
     </div>
@@ -82,8 +82,8 @@
                 <div class="row">
 
                     <div class="col-sm-6">
-                        <div class="choice <%= 'active' if @listing.exporting_to_private_sector == 'on' %>" name="privatesector" data-toggle="wizard-checkbox" onclick="privateSector()">
-                            <%= check_box_tag "listing[exporting_to_private_sector]", @listing.exporting_to_private_sector ? @listing.exporting_to_private_sector : nil %>
+                        <div class="choice <%= 'active' if @insurance.exporting_to_private_sector == 'on' %>" name="privatesector" data-toggle="wizard-checkbox" onclick="privateSector()">
+                            <%= check_box_tag "insurance[exporting_to_private_sector]", @insurance.exporting_to_private_sector ? @insurance.exporting_to_private_sector : nil %>
 
                             <div class="card card-checkboxes card-hover-effect">
                                 <i class="ti-home"></i>
@@ -93,8 +93,8 @@
                     </div>
 
                     <div class="col-sm-6">
-                        <div class="choice <%= 'active' if @listing.exporting_to_public_sector == 'on' %>" name="publicsector" data-toggle="wizard-checkbox" onclick="publicSector()">
-                            <%= check_box_tag "listing[exporting_to_public_sector]", @listing.exporting_to_public_sector ? @listing.exporting_to_public_sector : nil %>
+                        <div class="choice <%= 'active' if @insurance.exporting_to_public_sector == 'on' %>" name="publicsector" data-toggle="wizard-checkbox" onclick="publicSector()">
+                            <%= check_box_tag "insurance[exporting_to_public_sector]", @insurance.exporting_to_public_sector ? @insurance.exporting_to_public_sector : nil %>
 
                             <div class="card card-checkboxes card-hover-effect">
                                 <i class="ti-home"></i>

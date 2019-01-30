@@ -11,9 +11,9 @@
                     <p>
 
                     <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                        <div class="choice <%= 'active' if @listing.yes_previously_hermes_insurance_used == 'on' %>" name="yes_previouslyhermesinsuranceused" data-toggle="wizard-checkbox" onclick="previouslyHermesInsuranceUsed()">
+                        <div class="choice <%= 'active' if @insurance.yes_previously_hermes_insurance_used == 'on' %>" name="yes_previouslyhermesinsuranceused" data-toggle="wizard-checkbox" onclick="previouslyHermesInsuranceUsed()">
 
-                            <%= check_box_tag "listing[yes_previously_hermes_insurance_used]", @listing.yes_previously_hermes_insurance_used ? @listing.yes_previously_hermes_insurance_used : nil %>
+                            <%= check_box_tag "insurance[yes_previously_hermes_insurance_used]", @insurance.yes_previously_hermes_insurance_used ? @insurance.yes_previously_hermes_insurance_used : nil %>
 
                             <div class="card circle card-hover-effect">
                                 <i class="ti-check"></i>
@@ -23,9 +23,9 @@
 
                     <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
 
-                        <div class="choice <%= 'active' if @listing.no_previously_hermes_insurance_used == 'on' %>" name="no_previouslyhermesinsuranceused" data-toggle="wizard-checkbox" onclick="noPreviouslyHermesInsuranceUsed()">
+                        <div class="choice <%= 'active' if @insurance.no_previously_hermes_insurance_used == 'on' %>" name="no_previouslyhermesinsuranceused" data-toggle="wizard-checkbox" onclick="noPreviouslyHermesInsuranceUsed()">
 
-                            <%= check_box_tag "listing[no_previously_hermes_insurance_used]", @listing.no_previously_hermes_insurance_used ? @listing.no_previously_hermes_insurance_used : nil %>
+                            <%= check_box_tag "insurance[no_previously_hermes_insurance_used]", @insurance.no_previously_hermes_insurance_used ? @insurance.no_previously_hermes_insurance_used : nil %>
 
                             <div class="card circle card-hover-effect">
                                 <i class="ti-close"></i>
@@ -317,9 +317,9 @@
                         gegen Zusatzentgelt auf 5 % absenken?</p>
 
                     <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                        <div class="choice <%= 'active' if @listing.further_lower_economic_risk == 'on' %>" name="yes_reduceEconomicRisk" data-toggle="wizard-checkbox">
+                        <div class="choice <%= 'active' if @insurance.further_lower_economic_risk == 'on' %>" name="yes_reduceEconomicRisk" data-toggle="wizard-checkbox">
 
-                            <%= check_box_tag "listing[further_lower_economic_risk]", @listing.further_lower_economic_risk ? @listing.further_lower_economic_risk : nil %>
+                            <%= check_box_tag "insurance[further_lower_economic_risk]", @insurance.further_lower_economic_risk ? @insurance.further_lower_economic_risk : nil %>
 
                             <div class="card circle card-hover-effect">
                                 <i class="ti-check"></i>
@@ -328,9 +328,9 @@
                     </div>
 
                     <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                        <div class="choice <%= 'active' if @listing.dont_lower_economic_risk == 'on' %>" name="dont_reduceEconomicRisk" data-toggle="wizard-checkbox">
+                        <div class="choice <%= 'active' if @insurance.dont_lower_economic_risk == 'on' %>" name="dont_reduceEconomicRisk" data-toggle="wizard-checkbox">
 
-                            <%= check_box_tag "listing[dont_lower_economic_risk]", @listing.dont_lower_economic_risk ? @listing.dont_lower_economic_risk : nil %>
+                            <%= check_box_tag "insurance[dont_lower_economic_risk]", @insurance.dont_lower_economic_risk ? @insurance.dont_lower_economic_risk : nil %>
 
                             <div class="card circle card-hover-effect">
                                 <i class="ti-close"></i>

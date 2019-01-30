@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     get 'pages/termsAndConditions' => 'pages#termsAndConditions'
     get 'pages/applicationProcessing' => 'pages#applicationProcessing'
 
-    resources :listings
-    get 'listings/index' => 'listings#index'
+    resources :insurances
+    get 'insurances/index' => 'insurances#index'
 
     devise_for :users,
                path:        '',

@@ -43,7 +43,7 @@
                     <%= form.select :exported_goods_type, options_for_select(['Bergbau, inkl. Verarbeitung', 'Erdöl- und Erdgasförderung inkl. Verarbeitung',
                                                                               'Chemie', 'Energie', 'Infrastruktur', 'Papier- , Holz-, Leder- und Textilindustrie',
                                                                               'Agrarsektor und Nahrungsmittelindustrie', 'Verarbeitende Industrie', 'Umwelttechnik',
-                                                                              'Dienstleistungen'], @listing.exported_goods_type ? @listing.exported_goods_type : nil), {}, class: 'form-control' %>
+                                                                              'Dienstleistungen'], @insurance.exported_goods_type ? @insurance.exported_goods_type : nil), {}, class: 'form-control' %>
                 </div>
             </div>
         </div>
@@ -69,9 +69,9 @@
                     anderen Unternehmen? </b></p>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @listing.yes_deliver_part_of_overall_project_other_companies == 'on' %>" name="deliverwithothercompanies_yes" data-toggle="wizard-checkbox" onclick="deliverWithOtherCompanies()">
+                    <div class="choice <%= 'active' if @insurance.yes_deliver_part_of_overall_project_other_companies == 'on' %>" name="deliverwithothercompanies_yes" data-toggle="wizard-checkbox" onclick="deliverWithOtherCompanies()">
 
-                        <%= check_box_tag "listing[yes_deliver_part_of_overall_project_other_companies]", @listing.yes_deliver_part_of_overall_project_other_companies ? @listing.yes_deliver_part_of_overall_project_other_companies : nil %>
+                        <%= check_box_tag "insurance[yes_deliver_part_of_overall_project_other_companies]", @insurance.yes_deliver_part_of_overall_project_other_companies ? @insurance.yes_deliver_part_of_overall_project_other_companies : nil %>
 
                         <div class="card circle card-hover-effect">
                             <i class="ti-check"></i>
@@ -82,9 +82,9 @@
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
 
-                    <div class="choice <%= 'active' if @listing.no_deliver_part_of_overall_project_other_companies == 'on' %>" name="deliverwithothercompanies_no" data-toggle="wizard-checkbox" onclick="notDeliverWithOtherCompanies()">
+                    <div class="choice <%= 'active' if @insurance.no_deliver_part_of_overall_project_other_companies == 'on' %>" name="deliverwithothercompanies_no" data-toggle="wizard-checkbox" onclick="notDeliverWithOtherCompanies()">
 
-                        <%= check_box_tag "listing[no_deliver_part_of_overall_project_other_companies]", @listing.no_deliver_part_of_overall_project_other_companies ? @listing.no_deliver_part_of_overall_project_other_companies : nil %>
+                        <%= check_box_tag "insurance[no_deliver_part_of_overall_project_other_companies]", @insurance.no_deliver_part_of_overall_project_other_companies ? @insurance.no_deliver_part_of_overall_project_other_companies : nil %>
 
                         <div class="card circle card-hover-effect">
                             <i class="ti-close"></i>
@@ -210,9 +210,9 @@
             <div class="row">
                 <div class="col-md-2 col-md-offset-1">
 
-                    <div class="choice <%= 'active' if @listing.delivery_doesnt_affects_sensitive_areas == 'on' %>" name="sensitivearea_nein" data-toggle="wizard-checkbox">
+                    <div class="choice <%= 'active' if @insurance.delivery_doesnt_affects_sensitive_areas == 'on' %>" name="sensitivearea_nein" data-toggle="wizard-checkbox">
 
-                        <%= check_box_tag "listing[delivery_doesnt_affects_sensitive_areas]", @listing.delivery_doesnt_affects_sensitive_areas ? @listing.delivery_doesnt_affects_sensitive_areas : nil %>
+                        <%= check_box_tag "insurance[delivery_doesnt_affects_sensitive_areas]", @insurance.delivery_doesnt_affects_sensitive_areas ? @insurance.delivery_doesnt_affects_sensitive_areas : nil %>
 
                         <div class="card card-checkboxes height-adjusted-normal card-hover-effect">
                             <i class="ti-layout-sidebar-none"></i>
@@ -223,9 +223,9 @@
 
                 <div class="col-md-2 col-md-offset-1">
 
-                    <div class="choice <%= 'active' if @listing.delivery_affects_natural_reserves == 'on' %>" name="sensitivearea" data-toggle="wizard-checkbox">
+                    <div class="choice <%= 'active' if @insurance.delivery_affects_natural_reserves == 'on' %>" name="sensitivearea" data-toggle="wizard-checkbox">
 
-                        <%= check_box_tag "listing[delivery_affects_natural_reserves]", @listing.delivery_affects_natural_reserves ? @listing.delivery_affects_natural_reserves : nil %>
+                        <%= check_box_tag "insurance[delivery_affects_natural_reserves]", @insurance.delivery_affects_natural_reserves ? @insurance.delivery_affects_natural_reserves : nil %>
 
                         <div class="card card-checkboxes height-adjusted-normal card-hover-effect">
                             <i class="ti-shine"></i>
@@ -235,9 +235,9 @@
                 </div>
 
                 <div class="col-md-2 col-md-offset-1">
-                    <div class="choice <%= 'active' if @listing.delivery_affects_indigenous_people == 'on' %>" name="sensitivearea" data-toggle="wizard-checkbox">
+                    <div class="choice <%= 'active' if @insurance.delivery_affects_indigenous_people == 'on' %>" name="sensitivearea" data-toggle="wizard-checkbox">
 
-                        <%= check_box_tag "listing[delivery_affects_indigenous_people]", @listing.delivery_affects_indigenous_people ? @listing.delivery_affects_indigenous_people : nil %>
+                        <%= check_box_tag "insurance[delivery_affects_indigenous_people]", @insurance.delivery_affects_indigenous_people ? @insurance.delivery_affects_indigenous_people : nil %>
 
                         <div class="card card-checkboxes height-adjusted-normal card-hover-effect">
                             <i class="ti-user"></i>
@@ -254,9 +254,9 @@
 
                 <div class="col-md-2 col-md-offset-2">
 
-                    <div class="choice <%= 'active' if @listing.delivery_affects_cultural_heritage == 'on' %>" name="sensitivearea" data-toggle="wizard-checkbox">
+                    <div class="choice <%= 'active' if @insurance.delivery_affects_cultural_heritage == 'on' %>" name="sensitivearea" data-toggle="wizard-checkbox">
 
-                        <%= check_box_tag "listing[delivery_affects_cultural_heritage]", @listing.delivery_affects_cultural_heritage ? @listing.delivery_affects_cultural_heritage : nil %>
+                        <%= check_box_tag "insurance[delivery_affects_cultural_heritage]", @insurance.delivery_affects_cultural_heritage ? @insurance.delivery_affects_cultural_heritage : nil %>
 
                         <div class="card card-checkboxes height-adjusted-normal-big card-hover-effect">
                             <i class="ti-star"></i>
@@ -269,9 +269,9 @@
 
                 <div class="col-md-2 col-md-offset-1">
 
-                    <div class="choice <%= 'active' if @listing.delivery_affects_other == 'on' %>" name="sensitivearea_sonstige" data-toggle="wizard-checkbox" , onclick="affectsOtherSpecial()">
+                    <div class="choice <%= 'active' if @insurance.delivery_affects_other == 'on' %>" name="sensitivearea_sonstige" data-toggle="wizard-checkbox" , onclick="affectsOtherSpecial()">
 
-                        <%= check_box_tag "listing[delivery_affects_other]", @listing.delivery_affects_other ? @listing.delivery_affects_other : nil %>
+                        <%= check_box_tag "insurance[delivery_affects_other]", @insurance.delivery_affects_other ? @insurance.delivery_affects_other : nil %>
 
                         <div class="card card-checkboxes height-adjusted-normal-big card-hover-effect">
                             <i class="ti-marker"></i>
@@ -308,8 +308,8 @@
                 <p><b>Ist Ihr Export ausfuhrgenehmigungspflichtig?</b>
                 <p>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @listing.yes_export_requires_exportlicense == 'on' %>" name="exportlicenserequired_yes" data-toggle="wizard-checkbox" onclick="exportLicenseRequired()">
-                        <%= check_box_tag "listing[yes_export_requires_exportlicense]", @listing.yes_export_requires_exportlicense ? @listing.yes_export_requires_exportlicense : nil %>
+                    <div class="choice <%= 'active' if @insurance.yes_export_requires_exportlicense == 'on' %>" name="exportlicenserequired_yes" data-toggle="wizard-checkbox" onclick="exportLicenseRequired()">
+                        <%= check_box_tag "insurance[yes_export_requires_exportlicense]", @insurance.yes_export_requires_exportlicense ? @insurance.yes_export_requires_exportlicense : nil %>
                         <div class="card circle card-hover-effect">
                             <i class="ti-check"></i>
                         </div>
@@ -317,8 +317,8 @@
                 </div>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @listing.no_export_requires_exportlicense == 'on' %>" name="exportlicenserequired_no" data-toggle="wizard-checkbox" onclick="noExportLicenseRequired()">
-                        <%= check_box_tag "listing[no_export_requires_exportlicense]", @listing.no_export_requires_exportlicense ? @listing.no_export_requires_exportlicense : nil %>
+                    <div class="choice <%= 'active' if @insurance.no_export_requires_exportlicense == 'on' %>" name="exportlicenserequired_no" data-toggle="wizard-checkbox" onclick="noExportLicenseRequired()">
+                        <%= check_box_tag "insurance[no_export_requires_exportlicense]", @insurance.no_export_requires_exportlicense ? @insurance.no_export_requires_exportlicense : nil %>
                         <div class="card circle card-hover-effect">
                             <i class="ti-close"></i>
                         </div>
@@ -373,9 +373,9 @@
                 <p>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @listing.yes_deliver_secondhand_goods == 'on' %>" name="yes_secondhandgoods" data-toggle="wizard-checkbox" onclick="secondHandGoods()">
+                    <div class="choice <%= 'active' if @insurance.yes_deliver_secondhand_goods == 'on' %>" name="yes_secondhandgoods" data-toggle="wizard-checkbox" onclick="secondHandGoods()">
 
-                        <%= check_box_tag "listing[yes_deliver_secondhand_goods]", @listing.yes_deliver_secondhand_goods ? @listing.yes_deliver_secondhand_goods : nil %>
+                        <%= check_box_tag "insurance[yes_deliver_secondhand_goods]", @insurance.yes_deliver_secondhand_goods ? @insurance.yes_deliver_secondhand_goods : nil %>
 
                         <div class="card circle card-hover-effect">
                             <i class="ti-check"></i>
@@ -385,9 +385,9 @@
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
 
-                    <div class="choice <%= 'active' if @listing.no_dont_deliver_secondhand_goods == 'on' %>" name="no_secondhandgoods" data-toggle="wizard-checkbox" onclick="noSecondHandGoods()">
+                    <div class="choice <%= 'active' if @insurance.no_dont_deliver_secondhand_goods == 'on' %>" name="no_secondhandgoods" data-toggle="wizard-checkbox" onclick="noSecondHandGoods()">
 
-                        <%= check_box_tag "listing[no_dont_deliver_secondhand_goods]", @listing.no_dont_deliver_secondhand_goods ? @listing.no_dont_deliver_secondhand_goods : nil %>
+                        <%= check_box_tag "insurance[no_dont_deliver_secondhand_goods]", @insurance.no_dont_deliver_secondhand_goods ? @insurance.no_dont_deliver_secondhand_goods : nil %>
 
                         <div class="card circle card-hover-effect">
                             <i class="ti-close"></i>
@@ -474,8 +474,8 @@
                     unterzeichnet?</b>
                 <p>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @listing.yes_contract_already_signed_all_parties == 'on' %>" name="yes_congractsignedallparties" data-toggle="wizard-checkbox" onclick="contractSignedAllParties()">
-                        <%= check_box_tag "listing[yes_contract_already_signed_all_parties]", @listing.yes_contract_already_signed_all_parties ? @listing.yes_contract_already_signed_all_parties : nil %>
+                    <div class="choice <%= 'active' if @insurance.yes_contract_already_signed_all_parties == 'on' %>" name="yes_congractsignedallparties" data-toggle="wizard-checkbox" onclick="contractSignedAllParties()">
+                        <%= check_box_tag "insurance[yes_contract_already_signed_all_parties]", @insurance.yes_contract_already_signed_all_parties ? @insurance.yes_contract_already_signed_all_parties : nil %>
                         <div class="card circle card-hover-effect">
                             <i class="ti-check"></i>
                         </div>
@@ -484,8 +484,8 @@
 
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @listing.no_contract_already_signed_all_parties == 'on' %>" name="no_congractsignedallparties" data-toggle="wizard-checkbox" onclick="noContractSignedAllParties()">
-                        <%= check_box_tag "listing[no_contract_already_signed_all_parties]", @listing.no_contract_already_signed_all_parties ? @listing.no_contract_already_signed_all_parties : nil %>
+                    <div class="choice <%= 'active' if @insurance.no_contract_already_signed_all_parties == 'on' %>" name="no_congractsignedallparties" data-toggle="wizard-checkbox" onclick="noContractSignedAllParties()">
+                        <%= check_box_tag "insurance[no_contract_already_signed_all_parties]", @insurance.no_contract_already_signed_all_parties ? @insurance.no_contract_already_signed_all_parties : nil %>
                         <div class="card circle card-hover-effect">
                             <i class="ti-close"></i>
                         </div>
@@ -535,9 +535,9 @@
                 <p>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @listing.yes_special_contract_structure == 'on' %>" name="yes_specialcontractstructure" data-toggle="wizard-checkbox" onclick="specialContractStructure()">
+                    <div class="choice <%= 'active' if @insurance.yes_special_contract_structure == 'on' %>" name="yes_specialcontractstructure" data-toggle="wizard-checkbox" onclick="specialContractStructure()">
 
-                        <%= check_box_tag "listing[yes_special_contract_structure]", @listing.yes_special_contract_structure ? @listing.yes_special_contract_structure : nil %>
+                        <%= check_box_tag "insurance[yes_special_contract_structure]", @insurance.yes_special_contract_structure ? @insurance.yes_special_contract_structure : nil %>
 
                         <div class="card circle card-hover-effect">
                             <i class="ti-check"></i>
@@ -546,9 +546,9 @@
                 </div>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @listing.no_special_contract_structure == 'on' %>" name="no_specialcontractstructure" data-toggle="wizard-checkbox" onclick="noSpecialContractStructure()">
+                    <div class="choice <%= 'active' if @insurance.no_special_contract_structure == 'on' %>" name="no_specialcontractstructure" data-toggle="wizard-checkbox" onclick="noSpecialContractStructure()">
 
-                        <%= check_box_tag "listing[no_special_contract_structure]", @listing.no_special_contract_structure ? @listing.no_special_contract_structure : nil %>
+                        <%= check_box_tag "insurance[no_special_contract_structure]", @insurance.no_special_contract_structure ? @insurance.no_special_contract_structure : nil %>
 
                         <div class="card circle card-hover-effect">
                             <i class="ti-close"></i>
@@ -681,9 +681,9 @@
                 <p><b>Berechnen Sie Ihrem Kunden Zinsen? </b>
                 <p>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @listing.yes_charge_interest_to_importer == 'on' %>" name="yes_customercountsinterest" data-toggle="wizard-checkbox" onclick="customerCountsInterest()">
+                    <div class="choice <%= 'active' if @insurance.yes_charge_interest_to_importer == 'on' %>" name="yes_customercountsinterest" data-toggle="wizard-checkbox" onclick="customerCountsInterest()">
 
-                        <%= check_box_tag "listing[yes_charge_interest_to_importer]", @listing.yes_charge_interest_to_importer ? @listing.yes_charge_interest_to_importer : nil %>
+                        <%= check_box_tag "insurance[yes_charge_interest_to_importer]", @insurance.yes_charge_interest_to_importer ? @insurance.yes_charge_interest_to_importer : nil %>
 
                         <div class="card circle card-hover-effect">
                             <i class="ti-check"></i>
@@ -693,9 +693,9 @@
 
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @listing.no_charge_interest_to_importer == 'on' %>" name="no_customercountsinterest" data-toggle="wizard-checkbox" onclick="noCustomerCountsInterest()">
+                    <div class="choice <%= 'active' if @insurance.no_charge_interest_to_importer == 'on' %>" name="no_customercountsinterest" data-toggle="wizard-checkbox" onclick="noCustomerCountsInterest()">
 
-                        <%= check_box_tag "listing[no_charge_interest_to_importer]", @listing.no_charge_interest_to_importer ? @listing.no_charge_interest_to_importer : nil %>
+                        <%= check_box_tag "insurance[no_charge_interest_to_importer]", @insurance.no_charge_interest_to_importer ? @insurance.no_charge_interest_to_importer : nil %>
 
                         <div class="card circle card-hover-effect">
                             <i class="ti-close"></i>
@@ -742,9 +742,9 @@
                 <p>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @listing.yes_price_adjustment_clause_with_importer == 'on' %>" name="yes_priceadjustmentclause" data-toggle="wizard-checkbox" onclick="priceAdjustmentClause()">
+                    <div class="choice <%= 'active' if @insurance.yes_price_adjustment_clause_with_importer == 'on' %>" name="yes_priceadjustmentclause" data-toggle="wizard-checkbox" onclick="priceAdjustmentClause()">
 
-                        <%= check_box_tag "listing[yes_price_adjustment_clause_with_importer]", @listing.yes_price_adjustment_clause_with_importer ? @listing.yes_price_adjustment_clause_with_importer : nil %>
+                        <%= check_box_tag "insurance[yes_price_adjustment_clause_with_importer]", @insurance.yes_price_adjustment_clause_with_importer ? @insurance.yes_price_adjustment_clause_with_importer : nil %>
 
                         <div class="card circle card-hover-effect">
                             <i class="ti-check"></i>
@@ -754,9 +754,9 @@
 
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @listing.no_price_adjustment_clause_with_importer == 'on' %>" name="no_priceadjustmentclause" data-toggle="wizard-checkbox" onclick="noPriceAdjustmentClause()">
+                    <div class="choice <%= 'active' if @insurance.no_price_adjustment_clause_with_importer == 'on' %>" name="no_priceadjustmentclause" data-toggle="wizard-checkbox" onclick="noPriceAdjustmentClause()">
 
-                        <%= check_box_tag "listing[no_price_adjustment_clause_with_importer]", @listing.no_price_adjustment_clause_with_importer ? @listing.no_price_adjustment_clause_with_importer : nil %>
+                        <%= check_box_tag "insurance[no_price_adjustment_clause_with_importer]", @insurance.no_price_adjustment_clause_with_importer ? @insurance.no_price_adjustment_clause_with_importer : nil %>
 
                         <div class="card circle card-hover-effect">
                             <i class="ti-close"></i>
@@ -801,9 +801,9 @@
                     Lieferungen? </b>
                 <p>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @listing.yes_goods_sent_multiple_deliveries == 'on' %>" name="yes_multipledeliveries" data-toggle="wizard-checkbox" onclick="multipleDeliveries()">
+                    <div class="choice <%= 'active' if @insurance.yes_goods_sent_multiple_deliveries == 'on' %>" name="yes_multipledeliveries" data-toggle="wizard-checkbox" onclick="multipleDeliveries()">
 
-                        <%= check_box_tag "listing[yes_goods_sent_multiple_deliveries]", @listing.yes_goods_sent_multiple_deliveries ? @listing.yes_goods_sent_multiple_deliveries : nil %>
+                        <%= check_box_tag "insurance[yes_goods_sent_multiple_deliveries]", @insurance.yes_goods_sent_multiple_deliveries ? @insurance.yes_goods_sent_multiple_deliveries : nil %>
 
                         <div class="card circle card-hover-effect">
                             <i class="ti-check"></i>
@@ -813,9 +813,9 @@
 
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @listing.no_goods_sent_multiple_deliveries == 'on' %>" name="no_multipledeliveries" data-toggle="wizard-checkbox" onclick="noMultipleDeliveries()">
+                    <div class="choice <%= 'active' if @insurance.no_goods_sent_multiple_deliveries == 'on' %>" name="no_multipledeliveries" data-toggle="wizard-checkbox" onclick="noMultipleDeliveries()">
 
-                        <%= check_box_tag "listing[no_goods_sent_multiple_deliveries]", @listing.no_goods_sent_multiple_deliveries ? @listing.no_goods_sent_multiple_deliveries : nil %>
+                        <%= check_box_tag "insurance[no_goods_sent_multiple_deliveries]", @insurance.no_goods_sent_multiple_deliveries ? @insurance.no_goods_sent_multiple_deliveries : nil %>
 
                         <div class="card circle card-hover-effect">
                             <i class="ti-close"></i>
@@ -883,9 +883,9 @@
 
             <div class="row">
                 <div class="col-md-2 col-md-offset-1">
-                    <div class="choice <%= 'active' if @listing.payment_term_shortterm == 'on' %>" data-toggle="wizard-checkbox" name="kurzfristigtermofpayment" onclick="kurzFristigTermOfPayment()">
+                    <div class="choice <%= 'active' if @insurance.payment_term_shortterm == 'on' %>" data-toggle="wizard-checkbox" name="kurzfristigtermofpayment" onclick="kurzFristigTermOfPayment()">
 
-                        <%= check_box_tag "listing[payment_term_shortterm]", @listing.payment_term_shortterm ? @listing.payment_term_shortterm : nil %>
+                        <%= check_box_tag "insurance[payment_term_shortterm]", @insurance.payment_term_shortterm ? @insurance.payment_term_shortterm : nil %>
 
                         <div class="card card-checkboxes height-adjusted-normal-big card-hover-effect">
                             <i class="ti-timer"></i>
@@ -896,9 +896,9 @@
 
                 <div class="col-md-2 col-md-offset-1">
 
-                    <div class="choice <%= 'active' if @listing.payment_term_middleterm == 'on' %>" data-toggle="wizard-checkbox" name="mitteltermofpayment" onclick="mittelTermOfPayment()">
+                    <div class="choice <%= 'active' if @insurance.payment_term_middleterm == 'on' %>" data-toggle="wizard-checkbox" name="mitteltermofpayment" onclick="mittelTermOfPayment()">
 
-                        <%= check_box_tag "listing[payment_term_middleterm]", @listing.payment_term_middleterm ? @listing.payment_term_middleterm : nil %>
+                        <%= check_box_tag "insurance[payment_term_middleterm]", @insurance.payment_term_middleterm ? @insurance.payment_term_middleterm : nil %>
 
                         <div class="card card-checkboxes height-adjusted-normal-big card-hover-effect">
                             <i class="ti-layout-width-full"></i>
@@ -909,9 +909,9 @@
 
                 <div class="col-md-2 col-md-offset-1">
 
-                    <div class="choice <%= 'active' if @listing.payment_term_both == 'on' %>" data-toggle="wizard-checkbox" name="sonstigekurzfristigtermofpayment" onclick="sonstigeKurzFristigTermOfPayment()">
+                    <div class="choice <%= 'active' if @insurance.payment_term_both == 'on' %>" data-toggle="wizard-checkbox" name="sonstigekurzfristigtermofpayment" onclick="sonstigeKurzFristigTermOfPayment()">
 
-                        <%= check_box_tag "listing[payment_term_both]", @listing.payment_term_both ? @listing.payment_term_both : nil %>
+                        <%= check_box_tag "insurance[payment_term_both]", @insurance.payment_term_both ? @insurance.payment_term_both : nil %>
 
                         <div class="card card-checkboxes height-adjusted-normal-big card-hover-effect">
                             <i class="ti-time"></i>
@@ -2019,9 +2019,9 @@
                 <p><b>Sind für Ihr Geschäft Sicherheiten vorgesehen? </b>
                 <p>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @listing.yes_security_businnes_provided == 'on' %>" name="yes_securitybusinnesprovided" data-toggle="wizard-checkbox" onclick="securityBusinnesProvided()">
+                    <div class="choice <%= 'active' if @insurance.yes_security_businnes_provided == 'on' %>" name="yes_securitybusinnesprovided" data-toggle="wizard-checkbox" onclick="securityBusinnesProvided()">
 
-                        <%= check_box_tag "listing[yes_security_businnes_provided]", @listing.yes_security_businnes_provided ? @listing.yes_security_businnes_provided : nil %>
+                        <%= check_box_tag "insurance[yes_security_businnes_provided]", @insurance.yes_security_businnes_provided ? @insurance.yes_security_businnes_provided : nil %>
 
                         <div class="card circle card-hover-effect">
                             <i class="ti-check"></i>
@@ -2031,9 +2031,9 @@
 
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @listing.no_security_businnes_provided == 'on' %>" name="no_securitybusinnesprovided" data-toggle="wizard-checkbox" onclick="noSecurityBusinnesProvided()">
+                    <div class="choice <%= 'active' if @insurance.no_security_businnes_provided == 'on' %>" name="no_securitybusinnesprovided" data-toggle="wizard-checkbox" onclick="noSecurityBusinnesProvided()">
 
-                        <%= check_box_tag "listing[no_security_businnes_provided]", @listing.no_security_businnes_provided ? @listing.no_security_businnes_provided : nil %>
+                        <%= check_box_tag "insurance[no_security_businnes_provided]", @insurance.no_security_businnes_provided ? @insurance.no_security_businnes_provided : nil %>
 
                         <div class="card circle card-hover-effect">
                             <i class="ti-close"></i>

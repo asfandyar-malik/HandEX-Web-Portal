@@ -7,8 +7,8 @@
 
         <div class="row">
             <div class="col-xs-5 col-sm-5 col-md-4 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-2 col-lg-offset-2 ">
-                <div class="choice <%= 'active' if @listing.risk_supplier_credit_cover == 'on' %>" data-toggle="wizard-checkbox">
-                    <%= check_box_tag "listing[risk_supplier_credit_cover]", @listing.risk_supplier_credit_cover ? @listing.risk_supplier_credit_cover : nil %>
+                <div class="choice <%= 'active' if @insurance.risk_supplier_credit_cover == 'on' %>" data-toggle="wizard-checkbox">
+                    <%= check_box_tag "insurance[risk_supplier_credit_cover]", @insurance.risk_supplier_credit_cover ? @insurance.risk_supplier_credit_cover : nil %>
 
                     <div class="card card-checkboxes height-adjusted-big card-hover-effect">
                         <i class="ti-home"></i>
@@ -20,8 +20,8 @@
             </div>
 
             <div class="col-xs-5 col-sm-5 col-md-4 col-lg-4">
-                <div class="choice <%= 'active' if @listing.risk_shipment_risk_cover == 'on' %>" data-toggle="wizard-checkbox">
-                    <%= check_box_tag "listing[risk_shipment_risk_cover]", @listing.risk_shipment_risk_cover ? @listing.risk_shipment_risk_cover : nil %>
+                <div class="choice <%= 'active' if @insurance.risk_shipment_risk_cover == 'on' %>" data-toggle="wizard-checkbox">
+                    <%= check_box_tag "insurance[risk_shipment_risk_cover]", @insurance.risk_shipment_risk_cover ? @insurance.risk_shipment_risk_cover : nil %>
                     <div class="card card-checkboxes card-hover-effect">
                         <i class="ti-package"></i>
                         <p>Vertragsstörung während der Fabrikationsphase</p>
@@ -34,9 +34,9 @@
 
         <div class="row">
             <div class="col-xs-5 col-sm-5 col-md-4 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-2 col-lg-offset-2">
-                <div class="choice <%= 'active' if @listing.risk_contractual_warranty_coverage == 'on' %>" data-toggle="wizard-checkbox" onclick="ziehungVonGarantien()">
+                <div class="choice <%= 'active' if @insurance.risk_contractual_warranty_coverage == 'on' %>" data-toggle="wizard-checkbox" onclick="ziehungVonGarantien()">
 
-                    <%= check_box_tag "listing[risk_contractual_warranty_coverage]", @listing.risk_contractual_warranty_coverage ? @listing.risk_contractual_warranty_coverage : nil %>
+                    <%= check_box_tag "insurance[risk_contractual_warranty_coverage]", @insurance.risk_contractual_warranty_coverage ? @insurance.risk_contractual_warranty_coverage : nil %>
 
                     <div class="card card-checkboxes card-hover-effect">
                         <i class="ti-layout-accordion-merged"></i>
@@ -49,8 +49,8 @@
 
             <div id="entlastung" class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="display: none">
 
-                <div class="choice <%= 'active' if @listing.supplementary_risk_housebank_guarantee == 'on' %>" data-toggle="wizard-checkbox">
-                    <%= check_box_tag "listing[supplementary_risk_housebank_guarantee]", @listing.supplementary_risk_housebank_guarantee ? @listing.supplementary_risk_housebank_guarantee : nil %>
+                <div class="choice <%= 'active' if @insurance.supplementary_risk_housebank_guarantee == 'on' %>" data-toggle="wizard-checkbox">
+                    <%= check_box_tag "insurance[supplementary_risk_housebank_guarantee]", @insurance.supplementary_risk_housebank_guarantee ? @insurance.supplementary_risk_housebank_guarantee : nil %>
                     <div class="card card-checkboxes card-hover-effect">
                         <i class="ti-envelope"></i>
                         <p>Entlastung Ihrer Avallinie</p>
@@ -62,8 +62,8 @@
         </div>
 
         <div class="col-xs-5 col-sm-5 col-md-4 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-2 col-lg-offset-2">
-            <div class="choice <%= 'active' if @listing.risk_further_coverage == 'on' %>" data-toggle="wizard-checkbox">
-                <%= check_box_tag "listing[risk_further_coverage]", @listing.risk_further_coverage ? @listing.risk_further_coverage : nil %>
+            <div class="choice <%= 'active' if @insurance.risk_further_coverage == 'on' %>" data-toggle="wizard-checkbox">
+                <%= check_box_tag "insurance[risk_further_coverage]", @insurance.risk_further_coverage ? @insurance.risk_further_coverage : nil %>
 
                 <div class="card card-checkboxes card-hover-effect">
                     <i class="ti-layout-grid4"></i>

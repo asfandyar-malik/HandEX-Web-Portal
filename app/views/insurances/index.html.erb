@@ -1,0 +1,32 @@
+<div class="container">
+
+    <p id="notice"><%= notice %></p>
+
+    <h1>Insurances</h1>
+    <%= link_to 'New Insurance', new_insurance_path, class: 'btn btn-warning pull-right' %>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">City</th>
+            <th scope="col">Country</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @insurances.each do |insurance| %>
+            <tr>
+<!--                <th scope="row"><%#= insurance.id %></th>-->
+<!--                <td><%#= insurance.city %></td>-->
+<!--                <td><%#= insurance.country %></td>-->
+
+                <td>
+                    <%= link_to 'Edit', edit_insurance_path(insurance), class: 'btn btn-warning btn-xs' %>
+                    <%= link_to 'Destroy', insurance, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' %>
+                </td>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>
+</div>
