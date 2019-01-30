@@ -1,0 +1,586 @@
+<h4 class="info-text">Notwendiges zum Schluss </h4>
+<br><br>
+<div class="row">
+
+    <div id="deliveryAddressCheck">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-1">
+                    <p><b>Haben Sie in der Vergangenheit schon einmal einen Antrag auf
+                        Hermesdeckung eingereicht?</b>
+                    <p>
+
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
+                        <div class="choice <%= 'active' if @listing.yes_previously_hermes_insurance_used == 'on' %>" name="yes_previouslyhermesinsuranceused" data-toggle="wizard-checkbox" onclick="previouslyHermesInsuranceUsed()">
+
+                            <%= check_box_tag "listing[yes_previously_hermes_insurance_used]", @listing.yes_previously_hermes_insurance_used ? @listing.yes_previously_hermes_insurance_used : nil %>
+
+                            <div class="card circle card-hover-effect">
+                                <i class="ti-check"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
+
+                        <div class="choice <%= 'active' if @listing.no_previously_hermes_insurance_used == 'on' %>" name="no_previouslyhermesinsuranceused" data-toggle="wizard-checkbox" onclick="noPreviouslyHermesInsuranceUsed()">
+
+                            <%= check_box_tag "listing[no_previously_hermes_insurance_used]", @listing.no_previously_hermes_insurance_used ? @listing.no_previously_hermes_insurance_used : nil %>
+
+                            <div class="card circle card-hover-effect">
+                                <i class="ti-close"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+        </div>
+    </div>
+
+    <div id="newAtHermesDeckung" style="display: none">
+        <div class="form-group">
+            <div class="row">
+                <br>
+                <div class="col-md-10 col-md-offset-1">
+                    <p>Da Sie bisher keine Hermesdeckung beantragt haben, möchte HandEX
+                        und unser Partner Euler Hermes Sie besser kennenlernen.
+                        Bitte helfen Sie uns zu verstehen, inwieweit Sie bereits über
+                        Exporterfahrung
+                        und Erfahrungen mit säumigen Auslandskunden verfügen.</p>
+                    <br><br>
+                </div>
+
+                <div class="col-md-10 col-md-offset-1">
+                    <p><i>Inwieweit bzw. seit wie vielen Jahren verfügen Sie über
+                        Exporterfahrung
+                        aus ungedeckten Geschäften, d.h. Exportgeschäfte ohne
+                        Hermesdeckung?</i></p>
+                    <div> <%= form.text_field :trading_since_when_without_hermes_insurance, class: "form-control" %> </div>
+                </div>
+
+
+                <div class="col-md-10 col-md-offset-1">
+                    <br><br>
+                    <p><i>Besteht eine langjährige Exporterfahrung sowie Marktkenntnis
+                        mit
+                        dem
+                        Empfängerland?</i></p>
+                    <%= form.text_field :experience_with_export_country, class: "form-control" %>
+                </div>
+
+                <div class="col-md-10 col-md-offset-1 ">
+                    <br><br>
+                    <p><i> Bitte legen Sie dar, inwiefern Sie über ein adäquates
+                        Schadenmanagement
+                        verfügen. Wurden Sie in der Vergangenheit bereits (häufiger) mit
+                        Zahlungsverzügen/ Forderungsausfällen konfrontiert und welche
+                        Maßnahmen greifen bei Ihnen im Unternehmen, wenn ein Kunde in
+                        Zahlungsverzug
+                        gerät? </i></p>
+                    <%= form.text_field :adequate_claims_management, class: "form-control" %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="firmenDaten">
+
+        <br>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <p><b>Bitte geben Sie Ihre Firmendaten an.</b></p>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <br>
+                <div class="col-md-3 col-md-offset-1">
+                    <p> Firmenname </p>
+                    <div> <%= form.text_field :exporter_company_name, class: "form-control" %> </div>
+                </div>
+
+                <div class="col-md-3 ">
+                    <p> DN-NR </p>
+                    <%= form.text_field :exporter_company_dnnr, class: "form-control" %>
+                </div>
+
+                <div class="col-md-3 ">
+                    <p> Handelsregisternummer </p>
+                    <%= form.text_field :exporter_company_registration_number, class: "form-control" %>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3 col-md-offset-1">
+                    <p> Amtsgericht </p>
+                    <%= form.text_field :exporter_district_court, class: "form-control" %>
+                </div>
+
+                <div class="col-md-3">
+                    <p> Straße / Hausnummer </p>
+                    <div> <%= form.text_field :exporter_company_address, class: "form-control" %> </div>
+                </div>
+
+                <div class="col-md-3">
+                    <p> PLZ </p>
+                    <div> <%= form.text_field :exporter_company_plz, class: "form-control", :onkeypress => "return onlyAllowNumericalValue(event)" %> </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3 col-md-offset-1">
+                    <p> Ort </p>
+                    <%= form.text_field :exporter_company_city, class: "form-control" %>
+                </div>
+
+                <div class="col-md-3">
+                    <p> Bundesland </p>
+                    <div> <%= form.text_field :exporter_company_province, class: "form-control" %> </div>
+                </div>
+
+                <div class="col-md-3">
+                    <p> Land </p>
+                    <div> <%= form.text_field :exporter_company_country, class: "form-control" %> </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3 col-md-offset-1">
+                    <p> Anzahl der Mitarbeiterinnen und Mitarbeiter </p>
+                    <%= form.text_field :employees_count, class: "form-control", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %>
+                </div>
+
+                <div class="col-md-3">
+                    <p> Umsatz im letzten vollen Geschäftsjahr </p>
+                    <div> <%= form.text_field :revenue_last_year, class: "form-control", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="firmenDaten">
+        <br>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <p><b>Wen können wir ansprechen?</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <br>
+                <div class="col-md-3 col-md-offset-1">
+                    <p> First Name </p>
+                    <%= form.text_field :exporter_company_representative_firstname, class: "form-control" %>
+                </div>
+
+                <div class="col-md-3">
+                    <p> Last Name </p>
+                    <div> <%= form.text_field :exporter_company_representative_lastname, class: "form-control" %> </div>
+                </div>
+
+                <div class="col-md-3">
+                    <p> Email </p>
+                    <div> <%= form.email_field :exporter_company_representative_email, class: "form-control" %> </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <br>
+                <div class="col-md-3 col-md-offset-1">
+                    <p>Funktion</p>
+                    <%= form.text_field :exporter_company_representative_function, class: "form-control" %>
+                </div>
+
+                <div class="col-md-3">
+                    <p> Bereich </p>
+                    <div> <%= form.text_field :exporter_company_representative_department, class: "form-control" %> </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-1">
+                <p><b>Diese Anlagen benötigen wir für die Prüfung Ihres
+                    Geschäftes </b></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="uploadDocuments">
+        <br>
+        <div class="row">
+            <div class="col-md-5 col-md-offset-1">
+                <p> Selbstauskunft (bei Neukunden) </p>
+            </div>
+            <div class="col-md-6">
+                <%= form.file_field :self_disclosure %>
+            </div>
+        </div>
+
+        <br><br>
+        <br>
+
+        <div class="row">
+            <div class="col-md-5 col-md-offset-1">
+                <p> Jahresabschlüsse Ihres Kunden </p>
+            </div>
+            <div class="col-md-6">
+                <%= form.file_field :annual_financial_statement_importer %>
+            </div>
+        </div>
+
+        <br><br><br>
+        <div class="row">
+            <div class="col-md-5 col-md-offset-1">
+                <p> Auskünfte über Ihren Kunden </p>
+            </div>
+            <div class="col-md-6">
+                <%= form.file_field :credit_bureaus_importer %>
+            </div>
+        </div>
+
+        <br><br>
+        <br>
+
+        <div class="row">
+            <div class="col-md-5 col-md-offset-1">
+                <p> Umwelt- und Sozialinformationen </p>
+            </div>
+            <div class="col-md-6">
+                <%= form.file_field :environment_social_audit %>
+            </div>
+        </div>
+
+        <br><br>
+        <br>
+
+        <div class="row">
+            <div class="col-md-5 col-md-offset-1">
+                <p> ggf. Projektmemorandum </p>
+            </div>
+            <div class="col-md-6">
+                <%= form.file_field :project_memorandum_exporter_business %>
+            </div>
+        </div>
+
+        <br><br>
+        <br>
+
+        <div class="row">
+            <div class="col-md-5 col-md-offset-1">
+                <p> Sonstiges </p>
+            </div>
+            <div class="col-md-6">
+                <%= form.file_field :additional_document %>
+            </div>
+        </div>
+    </div>
+
+    <div id="deliveryAddressCheck">
+        <div class="row">
+            <br><br><br>
+            <div class="col-md-10 col-md-offset-1">
+                <div class="form-group">
+                    <p><b>Sie beantragen die Absicherung folgender
+                        Risiken.</b></p>
+                    <p><i>Nichtzahlung der Forderung (Lieferantenkreditdeckung (G))</i>
+                    </p>
+                    <br>
+                    <p>Möchten Sie die Selbstbeteiligung für wirtschaftliche Risiken
+                        gegen Zusatzentgelt auf 5 % absenken?</p>
+
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
+                        <div class="choice <%= 'active' if @listing.further_lower_economic_risk == 'on' %>" name="yes_reduceEconomicRisk" data-toggle="wizard-checkbox">
+
+                            <%= check_box_tag "listing[further_lower_economic_risk]", @listing.further_lower_economic_risk ? @listing.further_lower_economic_risk : nil %>
+
+                            <div class="card circle card-hover-effect">
+                                <i class="ti-check"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
+                        <div class="choice <%= 'active' if @listing.dont_lower_economic_risk == 'on' %>" name="dont_reduceEconomicRisk" data-toggle="wizard-checkbox">
+
+                            <%= check_box_tag "listing[dont_lower_economic_risk]", @listing.dont_lower_economic_risk ? @listing.dont_lower_economic_risk : nil %>
+
+                            <div class="card circle card-hover-effect">
+                                <i class="ti-close"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+    </div>
+
+    <div id="deliveryAddressCheck">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+
+                    <p><b>Bitte geben Sie die Erklärung zur
+                        Korruptionsprävention ab. </b></p><br>
+
+                    <p><b>Beachtung gesetzlicher Vorschriften </b> <br>
+                        Wir erklären, dass der Abschluss des Liefer- bzw.
+                        Leistungsgeschäfts
+                        nicht durch
+                        eine strafbare Handlung eines Mitarbeiters, der Geschäftsleitung
+                        oder
+                        eines
+                        Inhabers unseres Unternehmens oder einer anderen in unserem
+                        Auftrag
+                        handelnden
+                        Person herbeigeführt worden ist bzw. nicht durch eine derartige
+                        Handlung
+                        herbeigeführt werden wird. </p> <br><br>
+
+
+                    <p><b>Auskunftspflicht</b> <br>
+                        Uns ist bekannt, dass wir im Antragsverfahren und nach Übernahme
+                        der
+                        jeweils
+                        beantragten Exportkreditgarantie sowie gemäß der bei Beantragung
+                        einer
+                        Exportkreditgarantie für einen gebundenen Finanzkredit
+                        abzugebenden
+                        Verpflichtungserklärung über alle Umstände des zur Deckung
+                        beantragten
+                        Geschäfts, die für die Übernahme der Exportkreditgarantie
+                        erheblich
+                        sind, dem
+                        Bund vollständig und richtig Auskunft zu erteilen haben. Dies
+                        umfasst
+                        auch die
+                        Beantwortung von Fragen des Bundes hinsichtlich der Identität
+                        von
+                        Personen, die
+                        in unserem Auftrag am Abschluss des Liefer- bzw.
+                        Leistungsgeschäfts
+                        beteiligt
+                        sind oder waren, sowie von Fragen über Grund und Höhe etwaiger
+                        Zahlungen
+                        an
+                        diese Personen. </p> <br><br>
+
+
+                    <p><b>Angaben zu Anklagen, strafrechtlichen und
+                        nicht-strafrechtlichen
+                        Sanktionen
+                        sowie Ermittlungsverfahren und Sperrlisten</b> <br>
+                        Mitarbeiter, die Geschäftsleitung oder Inhaber unseres
+                        Unternehmens
+                        oder
+                        andere
+                        an diesem Vertragsabschluss beteiligte und in unserem Auftrag
+                        handelnde
+                        Personen
+                        oder unser Unternehmen selbst sind/ist wegen eines
+                        Korruptionsdelikts
+                    </p>
+                    <br>
+
+                    <ul class="text-white">
+                        <li> gegenwärtig vor einem staatlichen Gericht angeklagt oder
+                        </li>
+                        <br>
+                        <li> innerhalb der letzten 5 Jahre von einem staatlichen Gericht
+                            verurteilt
+                            oder
+                        </li>
+                        <br>
+                        <li> mit einer mit einem Gerichtsurteil vergleichbaren
+                            nicht-strafrechtlichen
+                            Sanktion belegt worden oder
+                        </li>
+                        <br>
+                        <li> einem staatsanwaltschaftlichen Ermittlungsverfahren
+                            unterworfen
+                            worden oder
+
+                        </li>
+                        <br>
+                        <li> auf einer Sperrliste einer internationalen
+                            Finanzorganisation
+                            aufgeführt.
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-md-4 col-md-offset-2">
+                <%= form.check_box :corruptionDeclarationApplies, id: "corruptionDeclarationApplies", :style => "width: 20px; height: 20px;" %>
+                Trifft zu
+                (Nähere Angaben erforderlich. Lesen Sie hierzu auch die Hinweise)
+            </div>
+            <div class="col-md-4">
+                <%= form.check_box :no_corruptionDeclarationApplies, id: "corruption_declaration_doesnt_apply", :style => "width: 20px; height: 20px;" %>
+                Trifft
+                nicht zu
+            </div>
+            <br><br>
+        </div>
+
+        <div id="showHideDivCorruptionDeclarationApplies" style="display: none;">
+            <div class="appear">
+                <div class="form-group">
+                    <div class="row">
+                        <br>
+                        <div class="col-sm-10 col-sm-offset-2">
+                            <p> Bitte machen Sie nähere Angaben zu den oben stehenden
+                                Punkten
+                                hinsichtlich Anklagen, strafrechtlichen oder
+                                nicht-strafrechtlichen Sanktionen sowie
+                                Ermittlungsverfahren
+                                und Sperrlisten</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-10 col-sm-offset-2">
+                                <%= form.text_area :explain_corruptionDeclarationApplies, class: 'form-control' %>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <br>
+
+            <div class="col-md-10 col-md-offset-1">
+                <p>Im Fall eines Konsortiums oder einer Arbeitsgemeinschaft ist die
+                    Erklärung vom Konsortialführer für alle Konsortialpartner bzw. von
+                    einem Mitglied
+                    der Arbeitsgemeinschaft stellvertretend für alle anderen Mitglieder
+                    abzugeben</p>
+                <br><br>
+            </div>
+
+            <div class="col-md-4 col-md-offset-2">
+                <%= form.check_box :yes_jointventure_with_consortiums, name: "group2[]", id: "Yes-jointventureWithConsortiums", :style => "width: 20px; height: 20px;" %>
+                Konsortium
+                oder
+                Arbeitsgemeinschaft
+            </div>
+            <div class="col-md-4">
+                <%= form.check_box :no_jointventure_with_consortiums, name: "group2[]", id: "No-jointventureWithConsortiums", :style => "width: 20px; height: 20px;" %>
+                Wir arbeiten für dieses Geschäft nicht in einem Konsortium oder einer
+                Arbeitsgemeinschaft
+            </div>
+        </div>
+        <br><br>
+
+        <div id="workAssociationExist" style="display: none;">
+            <div class="appear">
+                <div class="form-group">
+                    <div class="row">
+                        <br>
+                        <div class="col-md-10 col-md-offset-1">
+                            <p>Bitte geben Sie die Firmen an
+                            </p>
+                            <%= form.text_field :explain_consortiums_companies, class: "form-control" %>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-10 col-md-offset-1">
+            <%= form.check_box :information_inputted_best_of_knowledge, id: "YesInformationInputtedBestKnowledge", :style => "width: 20px; height: 20px;" %>
+            Die vorstehenden Angaben wurden von uns nach bestem Wissen und Gewissen und
+            in Kenntnisnahme der Erläuterungen gemacht
+        </div>
+
+        <br><br>
+
+        <div class="col-md-10 col-md-offset-1">
+            <p>Liefern Sie gemeinsam mit Verbundunternehmen oder sind Zwischenhändler
+                eingesetzt? Dann
+                müssen diese die Erklärung zur Korruptionsprävention separat
+                unterzeichnen.
+                Bitte leiten
+                Sie das Formular entsprechend weiter und reichen es uns nach.</p>
+        </div>
+
+        <div id="finalDeclaration">
+
+            <br><br>
+            <div class="col-md-10 col-md-offset-1">
+                <p> Bitte geben Sie zuletzt noch die
+                    Abschlusserklärungen
+                    ab.</p>
+                <br><br>
+            </div>
+            <div class="row">
+                <br>
+
+                <div class="col-md-8 col-md-offset-2">
+                    <%= form.check_box :accept_terms_conditions, :style => "width: 20px; height: 20px;" %>
+                    Wir akzeptieren die Allgemeinen Bedingungen für
+                    Lieferantenkreditdeckung(G)
+                    in Zusammenhang mit den Ergänzenden Bestimmungen für
+                    Forderungsabtretungen
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <br><br>
+                    <%= form.check_box :read_privacy_policy, :style => "width: 20px; height: 20px;" %>
+                    Wir haben die Datenschutzhinweise zur Kenntnis genommen und sind mit
+                    deren Geltung einverstanden.
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <br><br>
+                    <%= form.check_box :read_all_instructions, :style => "width: 20px; height: 20px;" %>
+                    Wir haben die Hinweise zu Gebühren und Entgelten, Richtlinien,
+                    Verantwortlichkeiten für den Antrag, Veröffentlichung von
+                    Projektdaten, OECD-Leitsätze für multinationale Unternehmen und
+                    UN-Leitprinzipien
+                    für Wirtschafts- und Menschenrechte zur Kenntnis genommen.
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br><br><br>
+</div>

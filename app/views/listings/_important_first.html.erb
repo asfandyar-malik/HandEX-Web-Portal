@@ -1,0 +1,158 @@
+<h4 class="info-text">Das Wichtigste Zuerst</h4>
+<br>
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="form-group">
+            <label>Wohin soll es gehen?</label>
+            <%= form.select :importer_country,
+                            options_for_select(['Mexico', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
+                                                'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados',
+                                                'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana',
+                                                'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon',
+                                                'Canada', 'Central African Republic (CAR)', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros',
+                                                'Democratic Republic of the Congo', 'Republic of the Congo', 'Costa Rica', 'Cote d\'Ivoire',
+                                                'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic',
+                                                'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia',
+                                                'Eswatini (formerly Swaziland)', 'Ethiopia', 'Fiji', 'Finland', 'France', 'Gabon',
+                                                'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea',
+                                                'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia',
+                                                'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan',
+                                                'Kenya', 'Kiribati', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho',
+                                                'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macedonia (FYROM)', 'Madagascar',
+                                                'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius',
+                                                'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique',
+                                                'Myanmar (formerly Burma)', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua',
+                                                'Niger', 'Nigeria', 'North Korea', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestine', 'Panama',
+                                                'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania',
+                                                'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines',
+                                                'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles',
+                                                'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa',
+                                                'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname',
+                                                'Swaziland (renamed to Eswatini)', 'Sweden', 'Switzerland', 'Syria', 'Taiwan',
+                                                'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago',
+                                                'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates (UAE)',
+                                                'United Kingdom (UK)', 'United States of America (USA)', 'Uruguay', 'Uzbekistan', 'Vanuatu',
+                                                'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'],
+                                               @listing.importer_country ? @listing.importer_country : nil), {}, id: 'importercountry', class: 'form-control' %>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="form-group">
+            <label>Handelt es sich bei Ihrer Ware um
+                Investitionsgüter?
+            </label> <br>
+            <%= form.check_box :is_investment_good, id: "investmentGood", :style => "width: 20px; height: 20px;" %>
+            Ja
+        </div>
+    </div>
+</div>
+
+<div id="showHideDivTotalFinancingRequired">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="form-group">
+                <label>Wie hoch ist der Auftragswert in Euro?</label>
+                <%= form.text_field :contract_value, class: 'form-control', :onkeypress => "return onlyAllowNumericalValue(event)", placeholder: 'Auftragswert (€)' %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="showHideDivPaymentGoal">
+
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="form-group">
+                <label> Welches Zahlungsziel gewähren Sie Ihrem Kunden? </label>
+                <%= form.select :loan_duration, options_for_select(['3 Months', '6 Months', '9 Months', '12 Months', '15 Months', '18 Months', '21 Months', '24 Months', '27 Months', '30 Months', '33 Months', '36 Months'], @listing.is_investment_good ? @listing.is_investment_good : nil), {}, class: 'form-control' %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="showHideDivDeliveryGoal">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="form-group">
+                <label>An wen liefern Sie?</label>
+
+                <div class="row">
+
+                    <div class="col-sm-6">
+                        <div class="choice <%= 'active' if @listing.exporting_to_private_sector == 'on' %>" name="privatesector" data-toggle="wizard-checkbox" onclick="privateSector()">
+                            <%= check_box_tag "listing[exporting_to_private_sector]", @listing.exporting_to_private_sector ? @listing.exporting_to_private_sector : nil %>
+
+                            <div class="card card-checkboxes card-hover-effect">
+                                <i class="ti-home"></i>
+                                <p>Privater Sektor</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="choice <%= 'active' if @listing.exporting_to_public_sector == 'on' %>" name="publicsector" data-toggle="wizard-checkbox" onclick="publicSector()">
+                            <%= check_box_tag "listing[exporting_to_public_sector]", @listing.exporting_to_public_sector ? @listing.exporting_to_public_sector : nil %>
+
+                            <div class="card card-checkboxes card-hover-effect">
+                                <i class="ti-home"></i>
+                                <p>Öffentlicher Sektor</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="showHideDivResultMessage" style="display: none">
+
+    <div class="row">
+        <div class="row">
+            <div class="col-md-9 col-md-offset-2">
+                <p>
+                    Ihr Geschäft eignet sich grundsätzlich und vorbehaltlich einer
+                    tieferen Prüfung des Sachverhalts und der Bonität Ihres
+                    ausländischen Bestellers bzw. Garantien für eine Hermesdeckung. Nach
+                    Vorliegen aller relevanten Informationen eine Entscheidung innerhalb
+                    von durchschnittlich 2 Wochen möglich. Im Rahmen Ihrer weiteren
+                    Eingaben wird fortwährend geprüft, ob Ihr Geschäft weiterhin für
+                    eine Hermesdeckung geeignet ist – am Ende können Sie jedoch selbst
+                    entscheiden, welche Absicherungsvariante Sie wählen. Sollte sich im
+                    Rahmen der Einzelfallprüfung des Antrags zeigen, dass der digitalen
+                    Antrag für eine Hermesdeckung nicht zulässig ist, ist weiterhin der
+                    Zugang zur klassischen Lieferantenkreditdeckung durch Euler Hermes
+                    möglich.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="showHideDivResultMessageFail" style="display: none">
+
+    <div class="row">
+        <div class="row">
+            <div class="col-md-9 col-md-offset-2">
+                <p>
+                    hr Geschäft birgt Besonderheiten, die eine Absicherung erschweren
+                    könnten: <br>
+
+                    Deckungsmöglichkeiten bei Bestellern des öffentlichen Sektors,
+                    soweit diese privatwirtschaftlich organisiert sind und ohne
+                    Rückgriff auf öffentliche Mittel wirtschaften. <br>
+
+                    Gern möchten wir Ihnen die besonderen Gegebenheiten in einem
+                    persönlichen Gespräch erläutern und die Struktur Ihres Geschäfts
+                    besprechen. Bitte kontaktieren Sie uns über den untenstehenden
+                    Kontaktbutton oder rufen Sie uns unter +49 (0) 15751174449 an.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
