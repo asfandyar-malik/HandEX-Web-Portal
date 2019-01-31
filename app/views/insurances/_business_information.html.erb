@@ -942,7 +942,6 @@
 
             <div class="row">
                 <br>
-
                 <div class="col-md-2 col-md-offset-1">
                     <%= form.select :downpayment_delivery_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
                 </div>
@@ -989,10 +988,11 @@
                 </div>
 
                 <div class="col-md-2">
-                    <div> <%= form.text_field :agreed_payments_some_output, class: "form-control" %> </div>
+                    <div> <%= form.text_field :agreed_payments_some_output, class: "form-control", placeholder: "Referenztermin/Milestone   " %> </div>
                 </div>
 
             </div>
+
             <div class="row">
                 <div class="col-md-2 col-md-offset-1">
                     <p>2. Rate</p>
