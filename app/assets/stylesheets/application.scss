@@ -141,7 +141,7 @@ p {
 .btn-green {
   background-color: rgb(9, 208, 183);
   //font-family: "komet",sans-serif;
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .btn-green:active {
@@ -153,8 +153,22 @@ p {
   background-color: rgb(179, 6, 25);
 }
 
+.btn-gray {
+  background-color: rgb(107, 107, 111);
+  //font-family: "komet",sans-serif;
+  font-size: 22px;
+}
 
-@media (max-width: 767px) {
+.btn-gray:active {
+  background-color: rgb(9, 208, 183);
+}
+
+.btn-gray:hover, .btn-gray:focus {
+  color: #fff;
+  background-color: rgb(179, 6, 25);
+}
+
+@media (max-width: 992px) {
   .btn-green {
     background-color: rgb(9, 208, 183);
     //font-family: "komet",sans-serif;
@@ -170,21 +184,20 @@ p {
     background-color: rgb(179, 6, 25);
   }
 
-}
+  .btn-gray {
+    background-color: rgb(9, 208, 183);
+    //font-family: "komet",sans-serif;
+    font-size: 18px;
+  }
 
-.btn-gray {
-  background-color: rgb(107, 107, 111);
-  //font-family: "komet",sans-serif;
-  font-size: 24px;
-}
+  .btn-gray:active {
+    background-color: rgb(9, 208, 183);
+  }
 
-.btn-gray:active {
-  background-color: rgb(9, 208, 183);
-}
-
-.btn-gray:hover, .btn-gray:focus {
-  color: #fff;
-  background-color: rgb(179, 6, 25);
+  .btn-gray:hover, .btn-gray:focus {
+    color: #fff;
+    background-color: rgb(179, 6, 25);
+  }
 }
 
 .btn {

@@ -124,7 +124,7 @@ h4, h5, h6 {
 }
 
 h1, .h1 {
-  font-size: 50px;
+  font-size: 44px;
 }
 
 h2, .h2 {
@@ -148,7 +148,7 @@ h6, .h6 {
   color: #222222;
 }
 
-// Asfandyar Font
+// HandEX Font
 h7, h8, h9, h10, .h7, .h8, .h9, .h10{
   font-family: "Handel Becker Light", "Handel Becker Med", "HandelGotDBol", sans-serif;
   color: #222222;
@@ -193,6 +193,12 @@ h10, .h10 {
 
   h10, .h10 {
     font-size: 9px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .h1, h1 {
+    font-size: 36px;
   }
 }
 
