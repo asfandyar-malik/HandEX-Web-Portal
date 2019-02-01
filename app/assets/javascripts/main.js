@@ -14,7 +14,7 @@ $(document).ready(function(){
  //        $(".preloader").fadeOut("slow");;
  //    });
 	
-	$(".fullscreen").css("height", window_height)
+	$(".fullscreen").css("height", window_height);
 	$(".fitscreen").css("height", fitscreen);
 
     //-------- Active Sticky Js ----------//
@@ -75,7 +75,7 @@ $(document).ready(function(){
                 items:3,
              }
         }
-    })
+    });
      // -------   Mail Send ajax
 
      $(document).ready(function() {
@@ -141,7 +141,7 @@ $(document).ready(function(){
         $circle.css({
           'stroke-dasharray' : circumference,
           'stroke-dashoffset' : percentage
-        })
+        });
         
         //Animation de la barre de progression
         if(options.animate === true){
@@ -190,4 +190,4 @@ $(document).ready(function(){
   
   $('.progressBar--animateAll').bekeyProgressbar();
   
-})
+});

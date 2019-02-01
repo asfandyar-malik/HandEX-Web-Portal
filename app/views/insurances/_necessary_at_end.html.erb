@@ -109,23 +109,17 @@
                     <%= form.text_field :exporter_company_dnnr, class: "form-control" %>
                 </div>
 
-                <div class="col-md-3 ">
-                    <p> Handelsregisternummer </p>
-                    <%= form.text_field :exporter_company_registration_number, class: "form-control" %>
+                <div class="col-md-3">
+                    <p>Telefon</p>
+                    <%= form.text_field :exporter_telephone, id: 'exporter_telephone', class: 'form-control', :onkeypress => "return onlyAllowNumericalValueAndPlus(event)" %>
                 </div>
             </div>
         </div>
-
         <br>
 
         <div class="form-group">
             <div class="row">
                 <div class="col-md-3 col-md-offset-1">
-                    <p> Amtsgericht </p>
-                    <%= form.text_field :exporter_district_court, class: "form-control" %>
-                </div>
-
-                <div class="col-md-3">
                     <p> Straße / Hausnummer </p>
                     <div> <%= form.text_field :exporter_company_address, class: "form-control" %> </div>
                 </div>
@@ -133,22 +127,6 @@
                 <div class="col-md-3">
                     <p> PLZ </p>
                     <div> <%= form.text_field :exporter_company_plz, class: "form-control", :onkeypress => "return onlyAllowNumericalValue(event)" %> </div>
-                </div>
-            </div>
-        </div>
-
-        <br>
-
-        <div class="form-group">
-            <div class="row">
-                <div class="col-md-3 col-md-offset-1">
-                    <p> Ort </p>
-                    <%= form.text_field :exporter_company_city, class: "form-control" %>
-                </div>
-
-                <div class="col-md-3">
-                    <p> Bundesland </p>
-                    <div> <%= form.text_field :exporter_company_province, class: "form-control" %> </div>
                 </div>
 
                 <div class="col-md-3">
@@ -189,12 +167,12 @@
             <div class="row">
                 <br>
                 <div class="col-md-3 col-md-offset-1">
-                    <p> First Name </p>
+                    <p> Vorname </p>
                     <%= form.text_field :exporter_company_representative_firstname, class: "form-control" %>
                 </div>
 
                 <div class="col-md-3">
-                    <p> Last Name </p>
+                    <p> Nachname </p>
                     <div> <%= form.text_field :exporter_company_representative_lastname, class: "form-control" %> </div>
                 </div>
 
@@ -579,8 +557,22 @@
                     für Wirtschafts- und Menschenrechte zur Kenntnis genommen.
                 </div>
             </div>
-        </div>
 
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <br><br>
+                    <div class="form-group">
+                        <input type="checkbox" style="width: 20px; height: 20px;">
+                        <a target="_blank" rel="noopener noreferrer" href="/pages/termsAndConditions">
+                            Datenrechtschutzlinie </a>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
+
     <br><br><br>
+
 </div>

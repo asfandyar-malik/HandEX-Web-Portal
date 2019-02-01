@@ -32,14 +32,6 @@
 
                             <ul>
                                 <li>
-                                    <a href="#contactinformation" data-toggle="tab">
-                                        <div class="icon-circle">
-                                            <i class="ti-clipboard"></i>
-                                        </div>
-                                        Kontaktinformation
-                                    </a>
-                                </li>
-                                <li>
                                     <a href="#location" data-toggle="tab">
                                         <div class="icon-circle">
                                             <i class="ti-map"></i>
@@ -86,10 +78,6 @@
                         <br><br>
 
                         <div class="tab-content">
-                            <div class="tab-pane" id="contactinformation">
-                                <%= render "contact_information.html.erb", form: form %>
-                            </div>
-
                             <div class="tab-pane" id="location">
                                 <%= render "important_first.html.erb", form: form %>
                             </div>
@@ -819,7 +807,7 @@
 
     // only allow numerical value
     function onlyAllowNumericalValue(evt) {
-        var charCode = (evt.which) ? evt.which : event.keyCode
+        var charCode = (evt.which) ? evt.which : event.keyCode;
         if (charCode > 31 && (charCode < 48 || charCode > 57)) {
             alert("Bitte nur numerischen Wert eingeben");
             return false;
@@ -829,7 +817,7 @@
 
     // only allow numerical value and plus symbol
     function onlyAllowNumericalValueAndPlus(evt) {
-        var charCode = (evt.which) ? evt.which : event.keyCode
+        var charCode = (evt.which) ? evt.which : event.keyCode;
         if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 43) {
             alert("Bitte nur numerischen Wert eingeben");
             return false;
@@ -839,7 +827,7 @@
 
     // only allow numerical value and comma, dot
     function onlyAllowNumericalValueAndDotComma(evt) {
-        var charCode = (evt.which) ? evt.which : event.keyCode
+        var charCode = (evt.which) ? evt.which : event.keyCode;
         if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 44 && charCode != 46) {
             alert("Bitte nur numerischen Wert eingeben");
             return false;

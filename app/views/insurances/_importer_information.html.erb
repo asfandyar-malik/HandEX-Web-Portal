@@ -10,12 +10,8 @@
         </div>
         <div class="row">
             <br>
-            <div class="col-md-3 col-md-offset-1">
-                <p> AK-Nummer </p>
-                <div> <%= form.text_field :importer_ak_number, class: "form-control", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
-            </div>
 
-            <div class="col-md-3">
+            <div class="col-md-3 col-md-offset-1">
                 <p> Firmenname </p>
                 <div> <%= form.text_field :importer_company_name, class: "form-control" %> </div>
             </div>
@@ -24,6 +20,12 @@
                 <p> Steuernummer </p>
                 <%= form.text_field :importer_tax_number, class: "form-control" %>
             </div>
+
+            <div class="col-md-3">
+                <p> Straße / Hausnummer </p>
+                <%= form.text_field :importer_address, class: "form-control" %>
+            </div>
+
         </div>
     </div>
 
@@ -31,11 +33,6 @@
         <div class="row">
             <br>
             <div class="col-md-3 col-md-offset-1">
-                <p> Straße / Hausnummer </p>
-                <%= form.text_field :importer_address, class: "form-control" %>
-            </div>
-
-            <div class="col-md-3">
                 <p> PLZ </p>
                 <%= form.text_field :importer_plz, class: "form-control", :onkeypress => "return onlyAllowNumericalValue(event)" %>
             </div>
@@ -44,7 +41,6 @@
                 <p> Ort </p>
                 <div> <%= form.text_field :importer_city, class: "form-control" %> </div>
             </div>
-
         </div>
     </div>
 

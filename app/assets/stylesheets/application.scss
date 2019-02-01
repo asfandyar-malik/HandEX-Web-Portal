@@ -138,10 +138,58 @@ p {
   width: 100%;
 }
 
+.btn-green {
+  background-color: rgb(9, 208, 183);
+  //font-family: "komet",sans-serif;
+  font-size: 24px;
+}
+
+.btn-green:active {
+  background-color: rgb(9, 208, 183);
+}
+
+.btn-green:hover, .btn-green:focus {
+  color: #fff;
+  background-color: rgb(179, 6, 25);
+}
+
+
+@media (max-width: 767px) {
+  .btn-green {
+    background-color: rgb(9, 208, 183);
+    //font-family: "komet",sans-serif;
+    font-size: 18px;
+  }
+
+  .btn-green:active {
+    background-color: rgb(9, 208, 183);
+  }
+
+  .btn-green:hover, .btn-green:focus {
+    color: #fff;
+    background-color: rgb(179, 6, 25);
+  }
+
+}
+
+.btn-gray {
+  background-color: rgb(107, 107, 111);
+  //font-family: "komet",sans-serif;
+  font-size: 24px;
+}
+
+.btn-gray:active {
+  background-color: rgb(9, 208, 183);
+}
+
+.btn-gray:hover, .btn-gray:focus {
+  color: #fff;
+  background-color: rgb(179, 6, 25);
+}
+
 .btn {
   color: #fff;
   border-radius: 5px;
-  font-weight: bold;
   padding: 9px 27px;
 }
 
@@ -173,16 +221,6 @@ p {
   outline: none;
   border-color: #e00007;
   background-color: #e00007;
-}
-
-.btn.btn-green {
-  border: 1px solid rgb(9, 208, 183);
-  background-color: rgb(9, 208, 183);
-}
-
-.btn.btn-green:active {
-  border: 1px solid rgb(9, 208, 183);
-  background-color: rgb(9, 208, 183);
 }
 
 .btn.btn-form {
