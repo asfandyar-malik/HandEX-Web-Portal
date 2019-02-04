@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get 'pages/impressum' => 'pages#impressum'
     get 'pages/termsAndConditions' => 'pages#termsAndConditions'
     get 'pages/applicationProcessing' => 'pages#applicationProcessing'
+    get 'pages/guidelines' => 'pages#guidelines'
 
     resources :insurances
     get 'insurances/index' => 'insurances#index'

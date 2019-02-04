@@ -12,5 +12,8 @@ class PagesController < ApplicationController
 
     def impressum
     end
+
+    def guidelines
+    end
     
 end
