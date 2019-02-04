@@ -65,11 +65,10 @@
     <div class="row">
         <div class="col-sm-8 col-sm-offset-1">
             <div class="form-group">
-                <p><b>Liefern/Leisten Sie im Rahmen eines Gesamtprojekts zusammen mit
-                    anderen Unternehmen? </b></p>
+                <p><b>Liefern/Leisten Sie im Rahmen eines Gesamtprojekts zusammen mit anderen Unternehmen? </b></p>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @insurance.yes_deliver_part_of_overall_project_other_companies == 'on' %>" name="deliverwithothercompanies_yes" data-toggle="wizard-checkbox" onclick="deliverWithOtherCompanies()">
+                    <div class="choice <%= 'active' if @insurance.yes_deliver_part_of_overall_project_other_companies == 'on' %>" name="deliverwithothercompanies_yes" data-toggle="wizard-checkbox"> <!-- onclick="deliverWithOtherCompanies()" -->
 
                         <%= check_box_tag "insurance[yes_deliver_part_of_overall_project_other_companies]", @insurance.yes_deliver_part_of_overall_project_other_companies ? @insurance.yes_deliver_part_of_overall_project_other_companies : nil %>
 
@@ -82,7 +81,7 @@
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
 
-                    <div class="choice <%= 'active' if @insurance.no_deliver_part_of_overall_project_other_companies == 'on' %>" name="deliverwithothercompanies_no" data-toggle="wizard-checkbox" onclick="notDeliverWithOtherCompanies()">
+                    <div class="choice <%= 'active' if @insurance.no_deliver_part_of_overall_project_other_companies == 'on' %>" name="deliverwithothercompanies_no" data-toggle="wizard-checkbox"> <!-- onclick="notDeliverWithOtherCompanies()"> -->
 
                         <%= check_box_tag "insurance[no_deliver_part_of_overall_project_other_companies]", @insurance.no_deliver_part_of_overall_project_other_companies ? @insurance.no_deliver_part_of_overall_project_other_companies : nil %>
 
@@ -97,96 +96,96 @@
     </div>
 </div>
 
-<div id="showHideDivJaWorkOtherCompanies" style="display: none;">
-    <br/>
+<!--<div id="showHideDivJaWorkOtherCompanies" style="display: none;">-->
+<!--    <br/>-->
 
-    <div class="appear">
+<!--    <div class="appear">-->
 
-        <div class="row">
-            <div class="col-sm-10 col-sm-offset-1">
-                <br>
-                <div class="form-group">
-                    <p>Bitte beschreiben Sie das Gesamtprojekt detaillierter</p>
-                    <%= form.text_area :explain_complete_project, class: 'form-control' %>
-                </div>
-            </div>
-        </div>
+<!--        <div class="row">-->
+<!--            <div class="col-sm-10 col-sm-offset-1">-->
+<!--                <br>-->
+<!--                <div class="form-group">-->
+<!--                    <p>Bitte beschreiben Sie das Gesamtprojekt detaillierter</p>-->
+                    <%#= form.text_area :explain_complete_project, class: 'form-control' %>
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
 
-        <div class="row">
-            <div class="col-sm-10 col-sm-offset-1">
-                <div class="form-group">
-                    <p>Wir tragen die Gesamtverantwortung für das
-                        Projekt</p>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <%= form.check_box :overall_responsibility_project_taken, :style => "width: 20px; height: 20px;" %>
-                            Ja
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--        <div class="row">-->
+<!--            <div class="col-sm-10 col-sm-offset-1">-->
+<!--                <div class="form-group">-->
+<!--                    <p>Wir tragen die Gesamtverantwortung für das-->
+<!--                        Projekt</p>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-md-4">-->
+                            <%#= form.check_box :overall_responsibility_project_taken, :style => "width: 20px; height: 20px;" %>
+<!--                            Ja-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
 
-        <div class="row">
-            <div class="col-sm-10 col-sm-offset-1">
-                <div class="form-group">
-                    <p>Wie hoch ist das Gesamtprojektvolumen?</p>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <%= form.select :overall_project_volume_currency, options_for_select(["Euro", "Dollar"]), {}, class: 'form-control', prompt: "Currency..." %>
-                        </div>
-                        <div class="col-sm-6">
-                            <%= form.text_field :overall_project_volume, class: "form-control" %>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--        <div class="row">-->
+<!--            <div class="col-sm-10 col-sm-offset-1">-->
+<!--                <div class="form-group">-->
+<!--                    <p>Wie hoch ist das Gesamtprojektvolumen?</p>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-sm-4">-->
+                            <%#= form.select :overall_project_volume_currency, options_for_select(["Euro", "Dollar"]), {}, class: 'form-control', prompt: "Currency..." %>
+<!--                        </div>-->
+<!--                        <div class="col-sm-6">-->
+                            <%#= form.text_field :overall_project_volume, class: "form-control" %>
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
 
-        <div class="row">
-            <div class="col-sm-10 col-sm-offset-1">
-                <div class="form-group">
-                    <p> Bitte tragen Sie hier so detailliert wie möglich ein, wie das
-                        Gesamtprojekt finanziert ist. </p>
-                    <br>
-                    <p><i>Mittelverwendung</i></p>
+<!--        <div class="row">-->
+<!--            <div class="col-sm-10 col-sm-offset-1">-->
+<!--                <div class="form-group">-->
+<!--                    <p> Bitte tragen Sie hier so detailliert wie möglich ein, wie das-->
+<!--                        Gesamtprojekt finanziert ist. </p>-->
+<!--                    <br>-->
+<!--                    <p><i>Mittelverwendung</i></p>-->
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <%= form.text_field :use_of_fund, class: "form-control", placeholder: "Fiktives Beispiel: Maschine \"x\"", prompt: "fiktives Beispiel: Maschine \"x\" " %>
-                        </div>
+<!--                    <div class="row">-->
+<!--                        <div class="col-md-6">-->
+                            <%#= form.text_field :use_of_fund, class: "form-control", placeholder: "Fiktives Beispiel: Maschine \"x\"", prompt: "fiktives Beispiel: Maschine \"x\" " %>
+<!--                        </div>-->
 
-                        <div class="col-md-2">
-                            <%= form.select :use_of_fund_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], {}, class: "form-control", prompt: "Währung..." %>
-                        </div>
+<!--                        <div class="col-md-2">-->
+                            <%#= form.select :use_of_fund_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], {}, class: "form-control", prompt: "Währung..." %>
+<!--                        </div>-->
 
-                        <div class="col-md-4 ">
-                            <%= form.text_field :amount_of_fund, class: "form-control", placeholder: "Betrag" %>
-                        </div>
-                    </div>
+<!--                        <div class="col-md-4 ">-->
+                            <%#= form.text_field :amount_of_fund, class: "form-control", placeholder: "Betrag" %>
+<!--                        </div>-->
+<!--                    </div>-->
 
-                    <br>
+<!--                    <br>-->
 
-                    <p><i>Mittelherkunft</i></p>
+<!--                    <p><i>Mittelherkunft</i></p>-->
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <%= form.text_field :source_of_fund, class: "form-control", placeholder: "z.B. \"ECA-Finanzierung\" " %>
-                        </div>
+<!--                    <div class="row">-->
+<!--                        <div class="col-md-6">-->
+                            <%#= form.text_field :source_of_fund, class: "form-control", placeholder: "z.B. \"ECA-Finanzierung\" " %>
+<!--                        </div>-->
 
-                        <div class="col-md-2">
-                            <%= form.select :source_of_fund_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], {}, class: "form-control", prompt: "Währung..." %>
-                        </div>
+<!--                        <div class="col-md-2">-->
+                            <%#= form.select :source_of_fund_currency, [["Euro", "Euro"], ["Dollar", "Dollar"]], {}, class: "form-control", prompt: "Währung..." %>
+<!--                        </div>-->
 
-                        <div class="col-md-4 ">
-                            <%= form.text_field :source_of_fund_amount, class: "form-control", placeholder: "Betrag" %>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!--                        <div class="col-md-4 ">-->
+                            <%#= form.text_field :source_of_fund_amount, class: "form-control", placeholder: "Betrag" %>
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <div class="row">
     <div class="col-sm-11 col-sm-offset-1">
@@ -373,7 +372,7 @@
                 <p>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @insurance.yes_deliver_secondhand_goods == 'on' %>" name="yes_secondhandgoods" data-toggle="wizard-checkbox" onclick="secondHandGoods()">
+                    <div class="choice <%= 'active' if @insurance.yes_deliver_secondhand_goods == 'on' %>" name="yes_secondhandgoods" data-toggle="wizard-checkbox"> <!-- onclick="secondHandGoods()"> -->
 
                         <%= check_box_tag "insurance[yes_deliver_secondhand_goods]", @insurance.yes_deliver_secondhand_goods ? @insurance.yes_deliver_secondhand_goods : nil %>
 
@@ -385,7 +384,7 @@
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
 
-                    <div class="choice <%= 'active' if @insurance.no_dont_deliver_secondhand_goods == 'on' %>" name="no_secondhandgoods" data-toggle="wizard-checkbox" onclick="noSecondHandGoods()">
+                    <div class="choice <%= 'active' if @insurance.no_dont_deliver_secondhand_goods == 'on' %>" name="no_secondhandgoods" data-toggle="wizard-checkbox"> <!-- onclick="noSecondHandGoods()"> -->
 
                         <%= check_box_tag "insurance[no_dont_deliver_secondhand_goods]", @insurance.no_dont_deliver_secondhand_goods ? @insurance.no_dont_deliver_secondhand_goods : nil %>
 
@@ -400,70 +399,70 @@
     <br>
 </div>
 
-<div id="deliverSecondHandGoods" style="display: none;">
-    <div class="appear">
-        <div class="form-group">
-            <br>
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <p>Wann wurde die Ware ursprünglich gefertigt und wie lang ist die
-                        Restlebensdauer?</p>
-                </div>
-            </div>
+<!--<div id="deliverSecondHandGoods" style="display: none;">-->
+<!--    <div class="appear">-->
+<!--        <div class="form-group">-->
+<!--            <br>-->
+<!--            <div class="row">-->
+<!--                <div class="col-md-10 col-md-offset-1">-->
+<!--                    <p>Wann wurde die Ware ursprünglich gefertigt und wie lang ist die-->
+<!--                        Restlebensdauer?</p>-->
+<!--                </div>-->
+<!--            </div>-->
 
-            <div class="row">
-                <br>
-                <div class="col-md-4 col-md-offset-1">
-                    <div> <%= form.text_field :product_original_date_of_manifacture, class: "form-control", placeholder: "Jahr der Fertigung", :onkeypress => "return isNumberInputValidation(event)" %> </div>
-                </div>
-                <div class="col-md-4 ">
-                    <div> <%= form.text_field :product_remaining_life, class: "form-control", placeholder: "Restlebensdauer in Jahren", :onkeypress => "return isNumberInputValidation(event)" %> </div>
-                </div>
-            </div>
-            <br>
+<!--            <div class="row">-->
+<!--                <br>-->
+<!--                <div class="col-md-4 col-md-offset-1">-->
+<!--                    <div> <%#= form.text_field :product_original_date_of_manifacture, class: "form-control", placeholder: "Jahr der Fertigung", :onkeypress => "return isNumberInputValidation(event)" %> </div>-->
+<!--                </div>-->
+<!--                <div class="col-md-4 ">-->
+<!--                    <div> <%#= form.text_field :product_remaining_life, class: "form-control", placeholder: "Restlebensdauer in Jahren", :onkeypress => "return isNumberInputValidation(event)" %> </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <br>-->
 
-            <div id="outdatedGoods">
-                <div class="form-group">
+<!--            <div id="outdatedGoods">-->
+<!--                <div class="form-group">-->
 
-                    <div class="row">
-                        <div class="col-md-10 col-md-offset-1">
-                            <br>
-                            <p> Wird die Ware vor dem Weiterverkauf überholt? </p>
-                        </div>
-                    </div>
-                    <br>
+<!--                    <div class="row">-->
+<!--                        <div class="col-md-10 col-md-offset-1">-->
+<!--                            <br>-->
+<!--                            <p> Wird die Ware vor dem Weiterverkauf überholt? </p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <br>-->
 
-                    <div class="row">
-                        <div class="col-md-3 col-md-offset-2">
-                            <%= form.check_box :yes_good_overhauled_before_reselling, id: "yes_outdated_goods", :style => "width: 20px; height: 20px;" %>
-                            Ja
-                        </div>
-                        <div class="col-md-3">
-                            <%= form.check_box :no_good_arent_overhauled_before_reselling, id: "no_outdated_goods", :style => "width: 20px; height: 20px;" %>
-                            Nein
-                        </div>
-                    </div>
+<!--                    <div class="row">-->
+<!--                        <div class="col-md-3 col-md-offset-2">-->
+                            <%#= form.check_box :yes_good_overhauled_before_reselling, id: "yes_outdated_goods", :style => "width: 20px; height: 20px;" %>
+<!--                            Ja-->
+<!--                        </div>-->
+<!--                        <div class="col-md-3">-->
+                            <%#= form.check_box :no_good_arent_overhauled_before_reselling, id: "no_outdated_goods", :style => "width: 20px; height: 20px;" %>
+<!--                            Nein-->
+<!--                        </div>-->
+<!--                    </div>-->
 
-                    <br><br>
+<!--                    <br><br>-->
 
-                    <div class="row">
-                        <div class="col-md-4 col-md-offset-1">
-                            <p> Wo wird die Ware überholt? </p>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-4 col-md-offset-1">
-                            <%= form.select :goods_overhauled_location, options_for_select(["In Deuschland", "im Ausland", "sowohl als auch"]), {}, class: "form-control" %>
-                        </div>
-                    </div>
-                </div>
-                <br>
-            </div>
+<!--                    <div class="row">-->
+<!--                        <div class="col-md-4 col-md-offset-1">-->
+<!--                            <p> Wo wird die Ware überholt? </p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <br>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-md-4 col-md-offset-1">-->
+                            <%#= form.select :goods_overhauled_location, options_for_select(["In Deuschland", "im Ausland", "sowohl als auch"]), {}, class: "form-control" %>
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <br>-->
+<!--            </div>-->
 
-        </div>
-    </div>
-</div>
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <div id="workwithothercompanies">
     <div class="row">
@@ -530,12 +529,11 @@
         <div class="col-md-8 col-md-offset-1">
             <div class="form-group">
 
-                <p><b>Vereinbaren Sie mit Ihrem Vertragspartner eine besondere
-                    Vertragsstruktur? </b>
+                <p><b>Vereinbaren Sie mit Ihrem Vertragspartner eine besondere Vertragsstruktur? </b>
                 <p>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @insurance.yes_special_contract_structure == 'on' %>" name="yes_specialcontractstructure" data-toggle="wizard-checkbox" onclick="specialContractStructure()">
+                    <div class="choice <%= 'active' if @insurance.yes_special_contract_structure == 'on' %>" name="yes_specialcontractstructure" data-toggle="wizard-checkbox"> <!--onclick="specialContractStructure()"> -->
 
                         <%= check_box_tag "insurance[yes_special_contract_structure]", @insurance.yes_special_contract_structure ? @insurance.yes_special_contract_structure : nil %>
 
@@ -546,7 +544,7 @@
                 </div>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @insurance.no_special_contract_structure == 'on' %>" name="no_specialcontractstructure" data-toggle="wizard-checkbox" onclick="noSpecialContractStructure()">
+                    <div class="choice <%= 'active' if @insurance.no_special_contract_structure == 'on' %>" name="no_specialcontractstructure" data-toggle="wizard-checkbox"> <!-- onclick="noSpecialContractStructure()"> -->
 
                         <%= check_box_tag "insurance[no_special_contract_structure]", @insurance.no_special_contract_structure ? @insurance.no_special_contract_structure : nil %>
 
@@ -561,39 +559,39 @@
     <br><br>
 </div>
 
-<div id="yesNoSpecialContractStructure" style="display: none;">
-    <div class="appear">
-        <div class="form-group">
-            <br>
+<!--<div id="yesNoSpecialContractStructure" style="display: none;">-->
+<!--    <div class="appear">-->
+<!--        <div class="form-group">-->
+<!--            <br>-->
 
-            <div class="row">
-                <div class="col-md-8 col-md-offset-1">
-                    <p>Bitte erläutern Sie diese näher.</p>
-                </div>
-            </div>
+<!--            <div class="row">-->
+<!--                <div class="col-md-8 col-md-offset-1">-->
+<!--                    <p>Bitte erläutern Sie diese näher.</p>-->
+<!--                </div>-->
+<!--            </div>-->
 
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div> <%= form.text_area :explain_special_contract_structure, class: "form-control" %> </div>
-                </div>
-                <br><br><br>
-            </div>
-        </div>
+<!--            <div class="row">-->
+<!--                <div class="col-md-10 col-md-offset-1">-->
+<!--                    <div> <%#= form.text_area :explain_special_contract_structure, class: "form-control" %> </div>-->
+<!--                </div>-->
+<!--                <br><br><br>-->
+<!--            </div>-->
+<!--        </div>-->
 
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <p> Wenn Sie möchten, laden Sie eine graphische Darstellung (z.B.
-                    Zusammenhang der Projektbeteiligten) hoch. </p>
-                <br>
-            </div>
-            <div class="col-md-7 col-md-offset-1">
-                <%= form.file_field :graphic_representation_project_participants, class: "form-control" %>
-            </div>
-        </div>
-        <br>
-    </div>
-    <br>
-</div>
+<!--        <div class="row">-->
+<!--            <div class="col-md-10 col-md-offset-1">-->
+<!--                <p> Wenn Sie möchten, laden Sie eine graphische Darstellung (z.B.-->
+<!--                    Zusammenhang der Projektbeteiligten) hoch. </p>-->
+<!--                <br>-->
+<!--            </div>-->
+<!--            <div class="col-md-7 col-md-offset-1">-->
+                <%#= form.file_field :graphic_representation_project_participants, class: "form-control" %>
+<!--            </div>-->
+<!--        </div>-->
+<!--        <br>-->
+<!--    </div>-->
+<!--    <br>-->
+<!--</div>-->
 
 <div id="workwithothercompanies">
     <div class="form-group">

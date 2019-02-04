@@ -181,21 +181,21 @@
         }
     }
 
-    function deliverWithOtherCompanies() {
-        var x = document.getElementById("showHideDivJaWorkOtherCompanies");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-    function notDeliverWithOtherCompanies() {
-        var x = document.getElementById("showHideDivJaWorkOtherCompanies");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        }
-    }
+    // function deliverWithOtherCompanies() {
+    //     var x = document.getElementById("showHideDivJaWorkOtherCompanies");
+    //     if (x.style.display === "none") {
+    //         x.style.display = "block";
+    //     } else {
+    //         x.style.display = "none";
+    //     }
+    // }
+    //
+    // function notDeliverWithOtherCompanies() {
+    //     var x = document.getElementById("showHideDivJaWorkOtherCompanies");
+    //     if (x.style.display === "block") {
+    //         x.style.display = "none";
+    //     }
+    // }
 
     function exportLicenseRequired() {
         var x = document.getElementById("exportLicenseRequirement");
@@ -213,31 +213,31 @@
         }
     }
 
-    $(function () {
-        $("#yes_secondhand_goods").click(function () {
-            if ($(this).is(":checked")) {
-                $("#deliverSecondHandGoods").show();
-            } else {
-                $("#deliverSecondHandGoods").hide();
-            }
-        });
-    });
+    // $(function () {
+    //     $("#yes_secondhand_goods").click(function () {
+    //         if ($(this).is(":checked")) {
+    //             $("#deliverSecondHandGoods").show();
+    //         } else {
+    //             $("#deliverSecondHandGoods").hide();
+    //         }
+    //     });
+    // });
 
-    function secondHandGoods() {
-        var x = document.getElementById("deliverSecondHandGoods");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-    function noSecondHandGoods() {
-        var x = document.getElementById("deliverSecondHandGoods");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        }
-    }
+    // function secondHandGoods() {
+    //     var x = document.getElementById("deliverSecondHandGoods");
+    //     if (x.style.display === "none") {
+    //         x.style.display = "block";
+    //     } else {
+    //         x.style.display = "none";
+    //     }
+    // }
+    //
+    // function noSecondHandGoods() {
+    //     var x = document.getElementById("deliverSecondHandGoods");
+    //     if (x.style.display === "block") {
+    //         x.style.display = "none";
+    //     }
+    // }
 
     function contractSignedAllParties() {
         var x = document.getElementById("contractSigned");
@@ -255,21 +255,21 @@
         }
     }
 
-    function specialContractStructure() {
-        var x = document.getElementById("yesNoSpecialContractStructure");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-    function noSpecialContractStructure() {
-        var x = document.getElementById("yesNoSpecialContractStructure");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        }
-    }
+    // function specialContractStructure() {
+    //     var x = document.getElementById("yesNoSpecialContractStructure");
+    //     if (x.style.display === "none") {
+    //         x.style.display = "block";
+    //     } else {
+    //         x.style.display = "none";
+    //     }
+    // }
+    //
+    // function noSpecialContractStructure() {
+    //     var x = document.getElementById("yesNoSpecialContractStructure");
+    //     if (x.style.display === "block") {
+    //         x.style.display = "none";
+    //     }
+    // }
 
     function customerCountsInterest() {
         var x = document.getElementById("yesNoCustomerCountInterest");
@@ -705,11 +705,11 @@
             $("#exportLicenseRequirement").hide();
         }
 
-        if ($("#yes_secondhand_goods").is(":checked")) {
-            $("#deliverSecondHandGoods").show();
-        } else {
-            $("#deliverSecondHandGoods").hide();
-        }
+        // if ($("#yes_secondhand_goods").is(":checked")) {
+        //     $("#deliverSecondHandGoods").show();
+        // } else {
+        //     $("#deliverSecondHandGoods").hide();
+        // }
 
         if ($("#ja_contractsigned").is(":checked")) {
             $("#contractSigned").show();
@@ -717,11 +717,11 @@
             $("#contractSigned").hide();
         }
 
-        if ($("#yes_specialcontractstructure").is(":checked")) {
-            $("#yesNoSpecialContractStructure").show();
-        } else {
-            $("#yesNoSpecialContractStructure").hide();
-        }
+        // if ($("#yes_specialcontractstructure").is(":checked")) {
+        //     $("#yesNoSpecialContractStructure").show();
+        // } else {
+        //     $("#yesNoSpecialContractStructure").hide();
+        // }
 
         if ($("#ja_customercountsinterest").is(":checked")) {
             $("#yesNoCustomerCountInterest").show();
@@ -741,11 +741,11 @@
             $("#yesNoMultipleDeliveries").hide();
         }
 
-        if ($("#ja").is(":checked")) {
-            $("#showHideDivJaWorkOtherCompanies").show();
-        } else {
-            $("#showHideDivJaWorkOtherCompanies").hide();
-        }
+        // if ($("#ja").is(":checked")) {
+        //     $("#showHideDivJaWorkOtherCompanies").show();
+        // } else {
+        //     $("#showHideDivJaWorkOtherCompanies").hide();
+        // }
 
         if ($("#no_certificateoforigin").is(":checked")) {
             $("#yesNoCertificateOfOrigin").show();
