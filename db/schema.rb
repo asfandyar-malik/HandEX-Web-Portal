@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_29_180535) do
+ActiveRecord::Schema.define(version: 2019_02_06_155049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -328,6 +328,7 @@ ActiveRecord::Schema.define(version: 2019_01_29_180535) do
     t.string "accept_terms_conditions"
     t.string "read_privacy_policy"
     t.string "read_all_instructions"
+    t.string "exporter_company_street"
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 

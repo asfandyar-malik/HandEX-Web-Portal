@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
 
   def application_submit_email
     @user = params[:user]
-    @url  = 'http://example.com/login'
+    @insurance = params[:insurance]
     mail(to: @user.email, subject: 'Welcome to HandEX')
   end
 

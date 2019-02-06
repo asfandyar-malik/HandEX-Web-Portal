@@ -2,22 +2,616 @@
 <html>
 <head>
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 5px;
+    }
+    th {
+      text-align: left;
+    }
+  </style>
+
 </head>
 <body>
-<h3> Welcome to example.com, <%= @user.email %></h3>
-<p>
 
-  Hi <b><%= @user.email %></b>,
+<div class="container">
 
-  Ihr Antrag wurde erfolgreich versendet und wird nun von HandEX in Kooperation mit Euler Hermes geprüft. Sie erhalten
-  voraussichtlich eine Antwort in den nächsten zwei Wochen. Bei Rückfragen können Sie sich jederzeit an HandEX wenden,
-  indem Sie uns eine Email senden an info@handex.co
+  <p>
+    Hi <b><%= @user.fullname %></b>,
 
-  your username is: <%= @user.email %>.<br>
-</p>
-<p>
-  To login to the site, just follow this link .
-</p>
-<p>Thanks for joining and have a great day!</p>
+    <br><br>
+    Ihr Antrag wurde erfolgreich versendet und wird nun von HandEX in Kooperation mit Euler Hermes geprüft.
+    <br>Sie erhalten voraussichtlich eine Antwort in den nächsten zwei Wochen.
+    <br><br><br>
+    Bei Rückfragen können Sie sich jederzeit an HandEX wenden, indem Sie uns eine Email senden an info@handex.co
+
+    <br><br>
+
+  </p>
+
+  <p> Sie haben die folgenden Informationen eingegeben </p>
+
+
+  <h4> Das Wichtigste Zuerst </h4>
+
+  <table style="width:100%">
+<!--    <tr>-->
+<!--      <th> Name </th>-->
+<!--      <th> Value </th>-->
+<!--    </tr>-->
+    <tr>
+      <td>Employee Count </td>
+      <td> <%= @insurance.employees_count %></td>
+    </tr>
+    <tr>
+      <td>Importer Country </td>
+      <td> <%= @insurance.importer_country %> </td>
+    </tr>
+    <tr>
+      <td>Investment Goods</td>
+      <td><%= @insurance.is_investment_good %> </td>
+    </tr>
+    <tr>
+      <td>Contract value </td>
+      <td><%= @insurance.contract_value %> </td>
+    </tr>
+    <tr>
+      <td>Investment Goods</td>
+      <td><%= @insurance.loan_duration %> </td>
+    </tr>
+    <tr>
+      <td>Exporting to Private Sector</td>
+      <td><%= @insurance.exporting_to_private_sector %> </td>
+    </tr>
+    <tr>
+      <td>Exporting to Public Sector</td>
+      <td><%= @insurance.exporting_to_public_sector %> </td>
+    </tr>
+  </table>
+
+  <br>
+  <hr>
+  <br>
+
+  <h4> Ihre Risiken </h4>
+
+  <table style="width:100%">
+  <tr>
+    <td> Supplier Credit Cover </td>
+    <td> <%= @insurance.risk_supplier_credit_cover%></td>
+  </tr>
+  <tr>
+    <td> Shipment Risk Cover </td>
+    <td> <%= @insurance.risk_shipment_risk_cover %> </td>
+  </tr>
+  </table>
+
+  <br>
+  <hr>
+  <br>
+
+  <h4> Ihr Geschäft </h4>
+
+  <table style="width:100%">
+    <tr>
+      <td> Describe Export Business  </td>
+      <td> <%= @insurance.describe_export_business%></td>
+    </tr>
+    <tr>
+      <td> Why importer buying goods </td>
+      <td> <%= @insurance.explain_why_importer_buying_goods %> </td>
+    </tr>
+    <tr>
+      <td> exporter_offers_servicing_for_goods</td>
+      <td> <%= @insurance.exporter_offers_servicing_for_goods %> </td>
+    </tr>
+    <tr>
+      <td> Why importer buying goods </td>
+      <td> <%= @insurance.exported_goods_type %> </td>
+    </tr>
+    <tr>
+      <td> explain_good_industry_type</td>
+      <td> <%= @insurance.explain_good_industry_type %> </td>
+    </tr>
+
+    <tr>
+      <td> yes_deliver_part_of_overall_project_other_companies</td>
+      <td> <%= @insurance.yes_deliver_part_of_overall_project_other_companies %> </td>
+    </tr>
+    <tr>
+      <td> no_deliver_part_of_overall_project_other_companies</td>
+      <td> <%= @insurance.no_deliver_part_of_overall_project_other_companies %> </td>
+    </tr>
+    <tr>
+      <td> delivery_doesnt_affects_sensitive_areas</td>
+      <td> <%= @insurance.delivery_doesnt_affects_sensitive_areas %> </td>
+    </tr>
+    <tr>
+      <td> delivery_affects_natural_reserves</td>
+      <td> <%= @insurance.delivery_affects_natural_reserves %> </td>
+    </tr>
+    <tr>
+      <td> delivery_affects_indigenous_people</td>
+      <td> <%= @insurance.delivery_affects_indigenous_people %> </td>
+    </tr>
+    <tr>
+      <td> delivery_affects_cultural_heritage</td>
+      <td> <%= @insurance.delivery_affects_cultural_heritage %> </td>
+    </tr>
+    <tr>
+      <td> delivery_affects_other</td>
+      <td> <%= @insurance.delivery_affects_other %> </td>
+    </tr>
+    <tr>
+      <td> explain_delivery_affects_other</td>
+      <td> <%= @insurance.explain_delivery_affects_other %> </td>
+    </tr>
+    <tr>
+      <td> yes_export_requires_exportlicense</td>
+      <td> <%= @insurance.yes_export_requires_exportlicense %> </td>
+    </tr>
+    <tr>
+      <td> no_export_requires_exportlicense</td>
+      <td> <%= @insurance.no_export_requires_exportlicense %> </td>
+    </tr>
+    <tr>
+      <td> which_regulations_arises_exportlicense_requirement</td>
+      <td> <%= @insurance.which_regulations_arises_exportlicense_requirement %> </td>
+    </tr>
+    <tr>
+      <td> exportlicense_status</td>
+      <td> <%= @insurance.exportlicense_status %> </td>
+    </tr>
+    <tr>
+      <td> yes_deliver_secondhand_goods</td>
+      <td> <%= @insurance.yes_deliver_secondhand_goods %> </td>
+    </tr>
+
+    <tr>
+      <td> no_dont_deliver_secondhand_goods</td>
+      <td> <%= @insurance.no_dont_deliver_secondhand_goods %> </td>
+    </tr>
+    <tr>
+      <td> yes_contract_already_signed_all_parties</td>
+      <td> <%= @insurance.yes_contract_already_signed_all_parties %> </td>
+    </tr>
+    <tr>
+      <td> no_contract_already_signed_all_parties</td>
+      <td> <%= @insurance.no_contract_already_signed_all_parties %> </td>
+    </tr>
+    <tr>
+      <td> trade_contract_signing_date</td>
+      <td> <%= @insurance.trade_contract_signing_date %> </td>
+    </tr>
+    <tr>
+      <td> exporter_internal_contract_id</td>
+      <td> <%= @insurance.exporter_internal_contract_id %> </td>
+    </tr>
+    <tr>
+      <td> yes_special_contract_structure</td>
+      <td> <%= @insurance.yes_special_contract_structure %> </td>
+    </tr>
+    <tr>
+      <td> no_special_contract_structure</td>
+      <td> <%= @insurance.no_special_contract_structure %> </td>
+    </tr>
+    <tr>
+      <td> contract_currency</td>
+      <td> <%= @insurance.contract_currency %> </td>
+    </tr>
+    <tr>
+      <td> contract_trade_currency</td>
+      <td> <%= @insurance.contract_trade_currency %> </td>
+    </tr>
+    <tr>
+      <td> contract_trade_amount</td>
+      <td> <%= @insurance.contract_trade_amount %> </td>
+    </tr>
+    <tr>
+      <td> total_delivery_value</td>
+      <td> <%= @insurance.total_delivery_value %> </td>
+    </tr>
+    <tr>
+      <td> percentage_of_spareparts_in_whole_order</td>
+      <td> <%= @insurance.percentage_of_spareparts_in_whole_order %> </td>
+    </tr>
+    <tr>
+      <td> more_components_open_to_exporter_currency</td>
+      <td> <%= @insurance.more_components_open_to_exporter_currency %> </td>
+    </tr>
+    <tr>
+      <td> more_components_open_to_exporter_amount</td>
+      <td> <%= @insurance.more_components_open_to_exporter_amount %> </td>
+    </tr>
+    <tr>
+      <td> more_components_open_to_exporter_explain</td>
+      <td> <%= @insurance.more_components_open_to_exporter_explain %> </td>
+    </tr>
+    <tr>
+      <td> yes_charge_interest_to_importer</td>
+      <td> <%= @insurance.yes_charge_interest_to_importer %> </td>
+    </tr>
+    <tr>
+      <td> no_charge_interest_to_importer</td>
+      <td> <%= @insurance.no_charge_interest_to_importer %> </td>
+    </tr>
+    <tr>
+      <td> charged_interest_to_importer_currency</td>
+      <td> <%= @insurance.charged_interest_to_importer_currency %> </td>
+    </tr>
+    <tr>
+      <td> yes_price_adjustment_clause_with_importer</td>
+      <td> <%= @insurance.yes_price_adjustment_clause_with_importer %> </td>
+    </tr>
+    <tr>
+      <td> no_price_adjustment_clause_with_importer</td>
+      <td> <%= @insurance.no_price_adjustment_clause_with_importer %> </td>
+    </tr>
+    <tr>
+      <td> explain_accounting_methods</td>
+      <td> <%= @insurance.explain_accounting_methods %> </td>
+    </tr>
+    <tr>
+      <td> yes_goods_sent_multiple_deliveries</td>
+      <td> <%= @insurance.yes_goods_sent_multiple_deliveries %> </td>
+    </tr>
+    <tr>
+      <td> no_goods_sent_multiple_deliveries</td>
+      <td> <%= @insurance.no_goods_sent_multiple_deliveries %> </td>
+    </tr>
+    <tr>
+      <td> delivery_start</td>
+      <td> <%= @insurance.delivery_start %> </td>
+    </tr>
+    <tr>
+      <td> delivery_end</td>
+      <td> <%= @insurance.delivery_end %> </td>
+    </tr>
+    <tr>
+      <td> other_important_delivery_information</td>
+      <td> <%= @insurance.other_important_delivery_information %> </td>
+    </tr>
+    <tr>
+      <td> other_important_delivery_milestones</td>
+      <td> <%= @insurance.other_important_delivery_milestones %> </td>
+    </tr>
+    <tr>
+      <td> payment_term_shortterm</td>
+      <td> <%= @insurance.payment_term_shortterm %> </td>
+    </tr>
+    <tr>
+      <td> payment_term_middleterm</td>
+      <td> <%= @insurance.payment_term_middleterm %> </td>
+    </tr>
+    <tr>
+      <td> payment_term_both</td>
+      <td> <%= @insurance.payment_term_both %> </td>
+    </tr>
+    <tr>
+      <td> downpayment_delivery_currency</td>
+      <td> <%= @insurance.downpayment_delivery_currency %> </td>
+    </tr>
+    <tr>
+      <td> downpayment_delivery_amount</td>
+      <td> <%= @insurance.downpayment_delivery_amount %> </td>
+    </tr>
+
+    <tr>
+      <td> yes_sonstige_kurzfrist_certificate_of_origin</td>
+      <td> <%= @insurance.yes_sonstige_kurzfrist_certificate_of_origin %> </td>
+    </tr>
+    <tr>
+      <td> no_sonstige_kurzfrist_certificate_of_origin</td>
+      <td> <%= @insurance.no_sonstige_kurzfrist_certificate_of_origin %> </td>
+    </tr>
+    <tr>
+      <td> part_of_goods__sonstige_kurzfrist_certificate_of_origin</td>
+      <td> <%= @insurance.part_of_goods__sonstige_kurzfrist_certificate_of_origin %> </td>
+    </tr>
+    <tr>
+      <td> all_rawgoods_supplier_country</td>
+      <td> <%= @insurance.all_rawgoods_supplier_country %> </td>
+    </tr>
+    <tr>
+      <td> all_rawgoods_supplier_currency</td>
+      <td> <%= @insurance.all_rawgoods_supplier_currency %> </td>
+    </tr>
+    <tr>
+      <td> all_rawgoods_supplier_text</td>
+      <td> <%= @insurance.all_rawgoods_supplier_text %> </td>
+    </tr>
+    <tr>
+      <td> why_all_foreign_rawgoods_necessary</td>
+      <td> <%= @insurance.why_all_foreign_rawgoods_necessary %> </td>
+    </tr>
+    <tr>
+      <td> partly_rawgoods_supplier_country</td>
+      <td> <%= @insurance.partly_rawgoods_supplier_country %> </td>
+    </tr>
+    <tr>
+      <td> partly_rawgoods_supplier_currency</td>
+      <td> <%= @insurance.partly_rawgoods_supplier_currency%> </td>
+    </tr>
+    <tr>
+      <td> partly_rawgoods_supplier_text</td>
+      <td> <%= @insurance.partly_rawgoods_supplier_text %> </td>
+    </tr>
+    <tr>
+      <td> why_partly_foreign_rawgoods_necessary</td>
+      <td> <%= @insurance.why_partly_foreign_rawgoods_necessary %> </td>
+    </tr>
+    <tr>
+      <td> yes_security_businnes_provided</td>
+      <td> <%= @insurance.yes_security_businnes_provided %> </td>
+    </tr>
+    <tr>
+      <td> no_security_businnes_provided </td>
+      <td> <%= @insurance.no_security_businnes_provided %> </td>
+    </tr>
+
+
+    <tr>
+      <td> security_type </td>
+      <td> <%= @insurance.security_type %> </td>
+    </tr>
+
+    <tr>
+      <td> security_type_name </td>
+      <td> <%= @insurance.security_type_name %> </td>
+    </tr>
+    <tr>
+      <td> proportion_contract_security_provided </td>
+      <td> <%= @insurance.proportion_contract_security_provided %> </td>
+    </tr>
+    <tr>
+      <td> when_security_received </td>
+      <td> <%= @insurance.when_security_received %> </td>
+    </tr>
+
+  </table>
+
+  <br>
+  <hr>
+  <br>
+
+  <h4> Ihr Kunde </h4>
+
+  <table style="width:100%">
+    <tr>
+      <td> importer_company_name </td>
+      <td> <%= @insurance.importer_company_name %></td>
+    </tr>
+    <tr>
+      <td> importer_tax_number </td>
+      <td> <%= @insurance.importer_tax_number %> </td>
+    </tr>
+    <tr>
+      <td> importer_address </td>
+      <td> <%= @insurance.importer_address %> </td>
+    </tr>
+    <tr>
+      <td> importer_plz </td>
+      <td> <%= @insurance.importer_plz %> </td>
+    </tr>
+    <tr>
+      <td> importer_city </td>
+      <td> <%= @insurance.importer_city %> </td>
+    </tr>
+    <tr>
+      <td> importer_country </td>
+      <td> <%= @insurance.importer_country %> </td>
+    </tr>
+    <tr>
+      <td> yes_delivered_at_this_address </td>
+      <td> <%= @insurance.yes_delivered_at_this_address %> </td>
+    </tr>
+    <tr>
+      <td> importer_delivery_address_company_name </td>
+      <td> <%= @insurance.importer_delivery_address_company_name %> </td>
+    </tr>
+    <tr>
+      <td> importer_delivery_address_country </td>
+      <td> <%= @insurance.importer_delivery_address_country %> </td>
+    </tr>
+    <tr>
+      <td> importer_delivery_address_street </td>
+      <td> <%= @insurance.importer_delivery_address_street %> </td>
+    </tr>
+    <tr>
+      <td> importer_delivery_address_plz </td>
+      <td> <%= @insurance.importer_delivery_address_plz %> </td>
+    </tr>
+    <tr>
+      <td> importer_delivery_address_city </td>
+      <td> <%= @insurance.importer_delivery_address_city %> </td>
+    </tr>
+    <tr>
+      <td> yes_exporter_infleunce_on_importer_management  </td>
+      <td> <%= @insurance.yes_exporter_infleunce_on_importer_management  %> </td>
+    </tr>
+    <tr>
+      <td> no_exporter_infleunce_on_importer_management  </td>
+      <td> <%= @insurance.no_exporter_infleunce_on_importer_management  %> </td>
+    </tr>
+    <tr>
+      <td> explain_exporter_infleunce_on_importer_management </td>
+      <td> <%= @insurance.explain_exporter_infleunce_on_importer_management %> </td>
+    </tr>
+    <tr>
+      <td> yes_previous_payment_experience_with_importer </td>
+      <td> <%= @insurance.yes_previous_payment_experience_with_importer %> </td>
+    </tr>
+    <tr>
+      <td> no_previous_payment_experience_with_importer </td>
+      <td> <%= @insurance.no_previous_payment_experience_with_importer %> </td>
+    </tr>
+    <tr>
+      <td> explain_previous_payment_experience_with_importer </td>
+      <td> <%= @insurance.explain_previous_payment_experience_with_importer %> </td>
+    </tr>
+  </table>
+
+  <br>
+  <hr>
+  <br>
+
+
+  <h4> Notwendiges zum Schluss </h4>
+
+  <table style="width:100%">
+    <tr>
+      <td> yes_previously_hermes_insurance_used </td>
+      <td> <%= @insurance.yes_previously_hermes_insurance_used %></td>
+    </tr>
+    <tr>
+      <td> no_previously_hermes_insurance_used </td>
+      <td> <%= @insurance.no_previously_hermes_insurance_used %> </td>
+    </tr>
+
+    <tr>
+      <td> trading_since_when_without_hermes_insurance </td>
+      <td> <%= @insurance.trading_since_when_without_hermes_insurance  %> </td>
+    </tr>
+    <tr>
+      <td> adequate_claims_management </td>
+      <td> <%= @insurance.adequate_claims_management %> </td>
+    </tr>
+    <tr>
+      <td> exporter_company_name </td>
+      <td> <%= @insurance.exporter_company_name %> </td>
+    </tr>
+    <tr>
+      <td> exporter_company_dnnr </td>
+      <td> <%= @insurance.exporter_company_dnnr %> </td>
+    </tr>
+    <tr>
+      <td> exporter_telephone </td>
+      <td> <%= @insurance.exporter_telephone %> </td>
+    </tr>
+    <tr>
+      <td> exporter_company_street </td>
+      <td> <%= @insurance.exporter_company_street %> </td>
+    </tr>
+    <tr>
+      <td> exporter_company_plz </td>
+      <td> <%= @insurance.exporter_company_plz %> </td>
+    </tr>
+    <tr>
+      <td> exporter_company_country </td>
+      <td> <%= @insurance.exporter_company_country %> </td>
+    </tr>
+    <tr>
+      <td> employees_count </td>
+      <td> <%= @insurance.employees_count%> </td>
+    </tr>
+    <tr>
+      <td> exporter_company_representative_firstname </td>
+      <td> <%= @insurance.exporter_company_representative_firstname %> </td>
+    </tr>
+    <tr>
+      <td> exporter_company_representative_lastname </td>
+      <td> <%= @insurance.exporter_company_representative_lastname %> </td>
+    </tr>
+    <tr>
+      <td> exporter_company_representative_email </td>
+      <td> <%= @insurance.exporter_company_representative_email %> </td>
+    </tr>
+    <tr>
+      <td> exporter_company_representative_function </td>
+      <td> <%= @insurance.exporter_company_representative_function %> </td>
+    </tr>
+    <tr>
+      <td> exporter_company_representative_department </td>
+      <td> <%= @insurance.exporter_company_representative_department %> </td>
+    </tr>
+    <tr>
+      <td> self_disclosure </td>
+      <td> <%= @insurance.self_disclosure_file_name %> </td>
+    </tr>
+    <tr>
+      <td> annual_financial_statement_importer </td>
+      <td> <%= @insurance.annual_financial_statement_importer_file_name  %> </td>
+    </tr>
+    <tr>
+      <td> credit_bureaus_importer </td>
+      <td> <%= @insurance.credit_bureaus_importer_file_name  %> </td>
+    </tr>
+    <tr>
+      <td> environment_social_audit </td>
+      <td> <%= @insurance.environment_social_audit_file_name  %> </td>
+    </tr>
+    <tr>
+      <td> project_memorandum_exporter_business </td>
+      <td> <%= @insurance.project_memorandum_exporter_business_file_name  %> </td>
+    </tr>
+    <tr>
+      <td> further_lower_economic_risk </td>
+      <td> <%= @insurance.further_lower_economic_risk %> </td>
+    </tr>
+    <tr>
+      <td> dont_lower_economic_risk </td>
+      <td> <%= @insurance.dont_lower_economic_risk %> </td>
+    </tr>
+    <tr>
+      <td> corruption_declaration_applies </td>
+      <td> <%= @insurance.corruption_declaration_applies %> </td>
+    </tr>
+    <tr>
+      <td> no_corruption_declaration_applies </td>
+      <td> <%= @insurance.no_corruption_declaration_applies %> </td>
+    </tr>
+    <tr>
+      <td> explain_corruption_declaration_applies </td>
+      <td> <%= @insurance.explain_corruption_declaration_applies %> </td>
+    </tr>
+    <tr>
+      <td> yes_jointventure_with_consortiums </td>
+      <td> <%= @insurance.yes_jointventure_with_consortiums %> </td>
+    </tr>
+    <tr>
+      <td> no_jointventure_with_consortiums </td>
+      <td> <%= @insurance.no_jointventure_with_consortiums %> </td>
+    </tr>
+    <tr>
+      <td> give_consortiums_companies </td>
+      <td> <%= @insurance.give_consortiums_companies %> </td>
+    </tr>
+    <tr>
+      <td> information_inputted_best_of_knowledge </td>
+      <td> <%= @insurance.information_inputted_best_of_knowledge %> </td>
+    </tr>
+    <tr>
+      <td> accept_terms_conditions</td>
+      <td> <%= @insurance.accept_terms_conditions %> </td>
+    </tr>
+    <tr>
+      <td> read_privacy_policy </td>
+      <td> <%= @insurance.read_privacy_policy %> </td>
+    </tr>
+    <tr>
+      <td> read_all_instructions </td>
+      <td> <%= @insurance.read_all_instructions %> </td>
+    </tr>
+  </table>
+
+  <br>
+  <hr>
+  <br>
+
+
+
+  <p style="margin:0; color:#333333; font-size:11px; line-height:18px;">
+    Hamburg, Germany<br>
+    Help &amp; Support Center: 015751174449 <br>
+    Website: <a href="httpa://www.handex.co" style="color:rgb(24, 110, 133); text-decoration:none; font-weight:bold;">www.handex.co</a>
+  </p>
+
+</div>
+
 </body>
 </html>
