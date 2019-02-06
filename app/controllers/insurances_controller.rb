@@ -31,8 +31,11 @@ class InsurancesController < ApplicationController
     # POST /insurances.json
     def create
         # @insurance            = Insurance.new(insurance_params)
+        puts current_user
+        puts current_user.email
         @insurance = current_user.insurances.build(insurance_params)
         if @insurance.save
+            UserMailer.with(user: current_user).application_submit_email.deliver_now
             redirect_to pages_applicationProcessing_path(@insurance), notice: 'Antrag wurde erfolgreich erstellt.'
         else
             flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
