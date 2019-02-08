@@ -1,7 +1,6 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-
             <div class="wizard-container">
                 <div class="card wizard-card" data-color="blue" id="wizard">
 
@@ -36,7 +35,7 @@
                                         <div class="icon-circle">
                                             <i class="ti-map"></i>
                                         </div>
-                                        Das Wichtigste Zuerst
+                                        Das wichtigste zuerst
                                     </a>
                                 </li>
                                 <li>
@@ -44,7 +43,7 @@
                                         <div class="icon-circle">
                                             <i class="ti-direction-alt"></i>
                                         </div>
-                                        Ihre Risiken
+                                        Ihre Finanzierung
                                     </a>
                                 </li>
                                 <li>
@@ -83,7 +82,7 @@
                             </div>
 
                             <div class="tab-pane" id="type">
-                                <%= render "risk_insure.html.erb", form: form %>
+                                <%= render "financing.html.erb", form: form %>
                             </div>
 
                             <div class="tab-pane" id="facilities">
@@ -213,6 +212,39 @@
         }
     }
 
+    function alreadyCompletedTransaction() {
+        var x = document.getElementById("completedTransaction");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function noAlreadyCompletedTransaction() {
+        var x = document.getElementById("completedTransaction");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+    }
+
+    function paymentTermAgreed() {
+        var x = document.getElementById("termOfPayments");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function noPaymentTermAgreed() {
+        var x = document.getElementById("termOfPayments");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+    }
+
+
     // $(function () {
     //     $("#yes_secondhand_goods").click(function () {
     //         if ($(this).is(":checked")) {
@@ -272,18 +304,26 @@
     // }
 
     function customerCountsInterest() {
-        var x = document.getElementById("yesNoCustomerCountInterest");
+        var x = document.getElementById("yesCustomerCountInterest");
+        var y = document.getElementById("noCustomerCountInterest");
+
         if (x.style.display === "none") {
             x.style.display = "block";
+            y.style.display = "none";
         } else {
             x.style.display = "none";
         }
     }
 
     function noCustomerCountsInterest() {
-        var x = document.getElementById("yesNoCustomerCountInterest");
-        if (x.style.display === "block") {
+        var x = document.getElementById("yesCustomerCountInterest");
+        var y = document.getElementById("noCustomerCountInterest");
+
+        if (y.style.display === "none") {
+            y.style.display = "block";
             x.style.display = "none";
+        }else {
+            y.style.display = "none";
         }
     }
 
@@ -569,13 +609,20 @@
         $choice.filter('[name="deliverwithothercompanies_yes"]').removeClass('active');
     });
 
-
     $choice.filter('[name="exportlicenserequired_yes"]').click(function () {
         $choice.filter('[name="exportlicenserequired_no"]').removeClass('active');
     });
 
     $choice.filter('[name="exportlicenserequired_no"]').click(function () {
         $choice.filter('[name="exportlicenserequired_yes"]').removeClass('active');
+    });
+
+    $choice.filter('[name="paymentTermAgreed_yes"]').click(function () {
+        $choice.filter('[name="paymentTermAgreed_no"]').removeClass('active');
+    });
+
+    $choice.filter('[name="paymentTermAgreed_no"]').click(function () {
+        $choice.filter('[name="paymentTermAgreed_yes"]').removeClass('active');
     });
 
     $choice.filter('[name="yes_secondhandgoods"]').click(function () {
@@ -682,6 +729,13 @@
         $choice.filter('[name="publicsector"]').removeClass('active');
     });
 
+    $choice.filter('[name="alreadyCompletedTransaction_yes"]').click(function () {
+        $choice.filter('[name="alreadyCompletedTransaction_no"]').removeClass('active');
+    });
+
+    $choice.filter('[name="alreadyCompletedTransaction_no"]').click(function () {
+        $choice.filter('[name="alreadyCompletedTransaction_yes"]').removeClass('active');
+    });
 
     $('input[type="checkbox"]').on('change', function () {
 
@@ -724,9 +778,9 @@
         // }
 
         if ($("#ja_customercountsinterest").is(":checked")) {
-            $("#yesNoCustomerCountInterest").show();
+            $("#yesCustomerCountInterest").show();
         } else {
-            $("#yesNoCustomerCountInterest").hide();
+            $("#yesCustomerCountInterest").hide();
         }
 
         if ($("#ja_priceadjustmentclause").is(":checked")) {
@@ -802,9 +856,7 @@
         }
     });
 
-
     //------------------------- START: input validation checks here -------------------------
-
     // only allow numerical value
     function onlyAllowNumericalValue(evt) {
         var charCode = (evt.which) ? evt.which : event.keyCode;
@@ -836,6 +888,5 @@
     }
 
     //------------------------- END: input validation checks here -------------------------
-
 
 </script>

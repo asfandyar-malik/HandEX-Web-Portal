@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_06_155049) do
+ActiveRecord::Schema.define(version: 2019_02_07_163945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -329,6 +329,11 @@ ActiveRecord::Schema.define(version: 2019_02_06_155049) do
     t.string "read_privacy_policy"
     t.string "read_all_instructions"
     t.string "exporter_company_street"
+    t.string "yes_already_completed_transaction"
+    t.string "no_already_completed_transaction"
+    t.string "yes_payment_term_already_agreed"
+    t.string "no_payment_term_already_agreed"
+    t.string "loan_term"
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 
