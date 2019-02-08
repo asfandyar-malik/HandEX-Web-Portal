@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
   def application_submit_email
     @user = params[:user]
     @insurance = params[:insurance]
-    emails = ['asfandyarashrafmalik@gmail.com', 'hanoomalik420@gmail.com']
+    emails = [@user.email, 'asfandyarashrafmalik@gmail.com', 'hanoomalik420@gmail.com']
     mail(to: emails, subject: 'Welcome to HandEX')
   end
 
