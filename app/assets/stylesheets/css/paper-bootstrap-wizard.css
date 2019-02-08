@@ -30,14 +30,14 @@
  *               Buddha Bless:  "No Bugs"
  *
  * ========================================================= */
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td-name, td {
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, h7, .h7, p, .navbar, .brand, a, .td-name, td {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     /*font-family: "Handel Becker Light", "Handel Becker Med", "HandelGotDBol", sans-serif;*/
     font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h7, .h7 {
     font-weight: 400;
     margin: 30px 0 15px;
 }
@@ -75,12 +75,19 @@ h6, .h6 {
     text-transform: uppercase;
 }
 
+h7, .h7 {
+    font-size: 0.5em;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+
 p {
     font-size: 18px;
     line-height: 1.4em;
 }
 
-h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, .h7 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, h7 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
     color: #9A9A9A;
     font-weight: 300;
     line-height: 1.4em;
