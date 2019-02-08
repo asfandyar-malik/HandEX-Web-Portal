@@ -328,8 +328,8 @@
     }
 
     function residualRiskApetite() {
-        var x = document.getElementById("yesCustomerCountInterest");
-        var y = document.getElementById("noCustomerCountInterest");
+        var x = document.getElementById("yesResidualRiskApetite");
+        var y = document.getElementById("noResidualRiskApetite");
 
         if (x.style.display === "none") {
             x.style.display = "block";
@@ -340,8 +340,8 @@
     }
 
     function noResidualRiskApetite() {
-        var x = document.getElementById("yesCustomerCountInterest");
-        var y = document.getElementById("noCustomerCountInterest");
+        var x = document.getElementById("yesResidualRiskApetite");
+        var y = document.getElementById("noResidualRiskApetite");
 
         if (y.style.display === "none") {
             y.style.display = "block";
@@ -350,9 +350,6 @@
             y.style.display = "none";
         }
     }
-
-
-
 
     function priceAdjustmentClause() {
         var x = document.getElementById("yesNoPriceAdjustmentClause");
@@ -684,6 +681,14 @@
         $choice.filter('[name="yes_customercountsinterest"]').removeClass('active');
     });
 
+    $choice.filter('[name="yes_residualriskapetite"]').click(function () {
+        $choice.filter('[name="no_residualriskapetite"]').removeClass('active');
+    });
+
+    $choice.filter('[name="no_residualriskapetite"]').click(function () {
+        $choice.filter('[name="yes_residualriskapetite"]').removeClass('active');
+    });
+
     $choice.filter('[name="yes_priceadjustmentclause"]').click(function () {
         $choice.filter('[name="no_priceadjustmentclause"]').removeClass('active');
     });
@@ -804,11 +809,11 @@
         //     $("#yesNoSpecialContractStructure").hide();
         // }
 
-        if ($("#ja_customercountsinterest").is(":checked")) {
-            $("#yesCustomerCountInterest").show();
-        } else {
-            $("#yesCustomerCountInterest").hide();
-        }
+        // if ($("#ja_customercountsinterest").is(":checked")) {
+        //     $("#yesCustomerCountInterest").show();
+        // } else {
+        //     $("#yesCustomerCountInterest").hide();
+        // }
 
         if ($("#ja_priceadjustmentclause").is(":checked")) {
             $("#yesNoPriceAdjustmentClause").show();
