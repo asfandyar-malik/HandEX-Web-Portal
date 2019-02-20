@@ -14,6 +14,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <!-- Stylesheet for the shared navbar -->
+    <%= render 'shared/navbar/header' %>
+
     <%= stylesheet_link_tag 'insurance', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'css/themify-icons-demo', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'css/themify-icons', 'data-turbolinks-track': 'reload' %>
@@ -47,6 +50,9 @@
 </head>
 
 <body>
+
+   <%= render 'shared/navbar/content' %>
+
     <!-- Google Tag Manager (noscript) -->
     <noscript>
         <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6"
