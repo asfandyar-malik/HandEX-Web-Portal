@@ -14,15 +14,14 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <!-- Stylesheet for the shared navbar -->
-    <%= render 'shared/navbar/header' %>
-
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= stylesheet_link_tag 'insurance', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'css/themify-icons-demo', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'css/themify-icons', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'css/paper-bootstrap-wizard', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'css/demo', 'data-turbolinks-track': 'reload' %>
 
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'activestorage.js', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'turbolinks.js', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'js/jquery-2.2.4.min', 'data-turbolinks-track': 'reload' %>
@@ -31,8 +30,10 @@
     <%= javascript_include_tag 'js/demo', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'js/paper-bootstrap-wizard', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'js/jquery.validate.min', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag('jquery.sticky.js') %>
 
-    <!-- Google Tag Manager -->
+
+  <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({
@@ -51,7 +52,9 @@
 
 <body>
 
-   <%= render 'shared/navbar/content' %>
+   <%= render 'shared/navbar' %>
+   <br><br>
+   <%= render 'shared/message' %>
 
     <!-- Google Tag Manager (noscript) -->
     <noscript>
@@ -60,7 +63,6 @@
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-<!--    <div class="image-container set-full-height" style="background-image: url('<%#= asset_path ['edit','create','new','upadate'].include?(params[:action]) ? 'banner4.jpg' : '' %>')">-->
     <div class="image-container set-full-height" style="background: linear-gradient(to right, rgb(11,215,164), rgb(6,200,203), rgb(9,208,183), rgb(4,193,222));">
         <%= yield %>
     </div>
