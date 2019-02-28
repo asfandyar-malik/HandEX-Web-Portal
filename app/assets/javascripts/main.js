@@ -38,7 +38,13 @@ $(document).ready(function(){
     // $(function(){
     //     $('#Container').mixItUp();
     // });
-    var mixer = mixitup('#filter-content');
+
+    var filter_content_element = document.querySelector('#filter-content');
+    var mixer;
+    if (filter_content_element) {
+        mixer = mixitup(filter_content_element);
+    }
+
     $(".controls .filter").on('click', function(event){
         $(".controls .filter").removeClass('active');
         $(this).addClass('active');
