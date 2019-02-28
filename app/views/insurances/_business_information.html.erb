@@ -207,7 +207,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-2 col-md-offset-1">
+                <div class="col-md-3">
 
                     <div class="choice <%= 'active' if @insurance.delivery_doesnt_affects_sensitive_areas == 'on' %>" name="sensitivearea_nein" data-toggle="wizard-checkbox">
 
@@ -220,7 +220,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-2 col-md-offset-1">
+                <div class="col-md-3 col-md-offset-1">
 
                     <div class="choice <%= 'active' if @insurance.delivery_affects_natural_reserves == 'on' %>" name="sensitivearea" data-toggle="wizard-checkbox">
 
@@ -233,7 +233,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-2 col-md-offset-1">
+                <div class="col-md-3 col-md-offset-1">
                     <div class="choice <%= 'active' if @insurance.delivery_affects_indigenous_people == 'on' %>" name="sensitivearea" data-toggle="wizard-checkbox">
 
                         <%= check_box_tag "insurance[delivery_affects_indigenous_people]", @insurance.delivery_affects_indigenous_people ? @insurance.delivery_affects_indigenous_people : nil %>
@@ -251,7 +251,7 @@
 
             <div class="row">
 
-                <div class="col-md-2 col-md-offset-2">
+                <div class="col-md-3 col-md-offset-2">
 
                     <div class="choice <%= 'active' if @insurance.delivery_affects_cultural_heritage == 'on' %>" name="sensitivearea" data-toggle="wizard-checkbox">
 
@@ -266,7 +266,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-2 col-md-offset-1">
+                <div class="col-md-3 col-md-offset-1">
 
                     <div class="choice <%= 'active' if @insurance.delivery_affects_other == 'on' %>" name="sensitivearea_sonstige" data-toggle="wizard-checkbox" , onclick="affectsOtherSpecial()">
 

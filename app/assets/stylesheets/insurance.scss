@@ -12,7 +12,31 @@
  *
  *= require css/bootstrap.min
  *= require css/paper-bootstrap-wizard
- *= require css/demo
  *= require_self
  */
+
+@import "css/themify-icons-demo";
 @import "css/themify-icons";
+@import "css/paper-bootstrap-wizard";
+@import "css/demo";
+
+body {
+  margin: 0 auto 0;
+  font-family: "Handel Becker Light", "Handel Becker Med", "HandelGotDBol", sans-serif;
+}
+
+.h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, h7, .h7, p, .navbar, .brand, a, .td-name, td {
+  font-family: "Handel Becker Light", "Handel Becker Med", "HandelGotDBol", sans-serif;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.navbar-default {
+  background-color: #ffffff;
+}
+
+.form-group select {
+  padding: 8px 18px;
+}
