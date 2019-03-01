@@ -1,0 +1,9 @@
+<div class="row">
+  <% applications.each do |insurance| %>
+    <%= render partial: "insurances/application_summary_card_version_1",
+               locals: {insurance: insurance,
+                        can_edit: can_edit} %>
+  <% end %>
+</div>
+
+

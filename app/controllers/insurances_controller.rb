@@ -1,39 +1,35 @@
 class InsurancesController < ApplicationController
-    layout 'insurance'
+    layout "insurance" , only: [:new, :edit]
     
     before_action :set_insurance, only: [:show, :edit, :update, :destroy]
-    before_action :authenticate_user!, except: [:show]
+    before_action :authenticate_user!
     before_action :is_authorised, only: [:update]
-    
-    # GET /insurances
-    # GET /insurances.json
+
     def index
-        # @insurances = Insurance.all
-        @insurances = current_user.insurances
+        @new_applications = filer_application_by_status "new"
     end
-    
-    # GET /insurances/1
-    # GET /insurances/1.json
+
+    def submitted_applications
+        @submitted_applications = filer_application_by_status "submitted"
+    end
+
+    def approved_applications
+        @approved_applications = filer_application_by_status "approved"
+    end
+
     def show
     end
-    
-    # GET /insurances/new
+
     def new
-        # @insurance = Insurance.new
         @insurance = current_user.insurances.build
     end
     
-    # GET /insurances/1/edit
     def edit
     end
-    
-    # POST /insurances
-    # POST /insurances.json
+
     def create
-        # @insurance            = Insurance.new(insurance_params)
-        puts current_user
-        puts current_user.email
         @insurance = current_user.insurances.build(insurance_params)
+
         if @insurance.save
             UserMailer.with(user: current_user, insurance: @insurance).application_submit_email.deliver_now
             redirect_to pages_applicationProcessing_path(@insurance), notice: 'Antrag wurde erfolgreich erstellt.'
@@ -41,15 +37,8 @@ class InsurancesController < ApplicationController
             flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
             render :new
         end
-        # if @insurance.save
-        #     redirect_to pages_applicationProcessing_path(@insurance), notice: "Antrag absenden"
-        # else
-        #     flash[:notice] = "Something went wrong while creating...."
-        # end
     end
-    
-    # PATCH/PUT /insurances/1
-    # PATCH/PUT /insurances/1.json
+
     def update
         if @insurance.update(insurance_params)
             redirect_to pages_applicationProcessing_path(@insurance), notice: 'Antrag wurde erfolgreich aktualisiert.'
@@ -57,9 +46,7 @@ class InsurancesController < ApplicationController
             flash[:notice] = "Something went wrong while updating insurance...."
         end
     end
-    
-    # DELETE /insurances/1
-    # DELETE /insurances/1.json
+
     def destroy
         @insurance.destroy
         respond_to do |format|
@@ -69,7 +56,11 @@ class InsurancesController < ApplicationController
     end
     
     private
-    
+
+    def filer_application_by_status status
+        current_user.insurances.where("application_status = ?", status)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_insurance
         @insurance = Insurance.find(params[:id])
