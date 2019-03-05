@@ -1,4 +1,4 @@
-class ReplaceColumnNamesInListings < ActiveRecord::Migration[5.2]
+class ReplaceColumnNamesInInsurance < ActiveRecord::Migration[5.2]
     def change
         rename_column :insurances, :payment_deadline, :loan_duration
         rename_column :insurances, :private_sector, :exporting_to_private_sector

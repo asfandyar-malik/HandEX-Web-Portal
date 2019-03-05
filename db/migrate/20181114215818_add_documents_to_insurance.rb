@@ -1,4 +1,4 @@
-class AddDocumentsToListing < ActiveRecord::Migration[5.2]
+class AddDocumentsToInsurance < ActiveRecord::Migration[5.2]
   def self.up
     change_table :insurances do |t|
       t.attachment :self_assessment_document

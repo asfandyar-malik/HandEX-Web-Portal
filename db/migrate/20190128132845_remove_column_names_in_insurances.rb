@@ -1,4 +1,4 @@
-class RemoveColumnNamesInListings < ActiveRecord::Migration[5.2]
+class RemoveColumnNamesInInsurances < ActiveRecord::Migration[5.2]
   def change
     remove_column :insurances, :your_company_name
     remove_column :insurances, :company_address

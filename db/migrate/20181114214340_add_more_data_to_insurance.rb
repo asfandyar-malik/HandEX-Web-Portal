@@ -1,4 +1,4 @@
-class AddMoreDataToListing < ActiveRecord::Migration[5.2]
+class AddMoreDataToInsurance < ActiveRecord::Migration[5.2]
   def change
     add_column :insurances, :agreed_payments_currency2, :string
     add_column :insurances, :agreed_payments_amount2, :string
