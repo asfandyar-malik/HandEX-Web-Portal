@@ -29,7 +29,7 @@ class InsurancesController < ApplicationController
 
     def create
         @insurance = current_user.insurances.build(insurance_params)
-
+        @insurance.application_status = "submitted"
         if @insurance.save
             UserMailer.with(user: current_user, insurance: @insurance).application_submit_email.deliver_now
             redirect_to pages_applicationProcessing_path(@insurance), notice: 'Antrag wurde erfolgreich erstellt.'
@@ -43,7 +43,7 @@ class InsurancesController < ApplicationController
         if @insurance.update(insurance_params)
             redirect_to pages_applicationProcessing_path(@insurance), notice: 'Antrag wurde erfolgreich aktualisiert.'
         else
-            flash[:notice] = "Something went wrong while updating insurance...."
+            flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
         end
     end
 
@@ -102,6 +102,6 @@ class InsurancesController < ApplicationController
                                         :sonstige_kurzfrist_credit_start_sonstige_explain, :sonstige_kurzfrist_number_of_installments, :sonstige_kurzfrist_payment_vehichle_explain,
                                         :yes_sonstige_kurzfrist_certificate_of_origin, :no_sonstige_kurzfrist_certificate_of_origin, :part_of_goods__sonstige_kurzfrist_certificate_of_origin,
                                         :ak_number, :company_name, :tax_number, :years_trading_without_hermes_cover, :experience_with_export_country, :adequate_claims_management,
-                                        :employees_count, :revenue_last_year, :sonstige_kurzfrist_agreed_payment_output)
+                                        :employees_count, :revenue_last_year, :sonstige_kurzfrist_agreed_payment_output, :application_status)
     end
 end
