@@ -1,4 +1,4 @@
-class AddColumnsToListings < ActiveRecord::Migration[5.2]
+class AddColumnsToInsurances < ActiveRecord::Migration[5.2]
   def change
     add_column :insurances, :further_lower_economic_risk, :string
     add_column :insurances, :dont_lower_economic_risk, :string

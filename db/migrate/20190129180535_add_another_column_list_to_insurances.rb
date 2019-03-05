@@ -1,4 +1,4 @@
-class AddAnotherColumnListToListings < ActiveRecord::Migration[5.2]
+class AddAnotherColumnListToInsurances < ActiveRecord::Migration[5.2]
     def change
         add_column :insurances, :yes_jointventure_with_consortiums, :string
         add_column :insurances, :no_jointventure_with_consortiums, :string

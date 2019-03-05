@@ -8,8 +8,15 @@ Rails.application.routes.draw do
     get 'pages/applicationProcessing' => 'pages#applicationProcessing'
     get 'pages/guidelines' => 'pages#guidelines'
 
-    resources :insurances
-    get 'insurances/index' => 'insurances#index'
+    # resources :insurances
+    # get 'insurances/index' => 'insurances#index'
+
+    resources :insurances do
+      member do
+        get 'submitted_applications'
+        get 'approved_applications'
+      end
+    end
 
     devise_for :users,
                path:        '',
@@ -17,5 +24,4 @@ Rails.application.routes.draw do
                controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
     
     resources :users, only: [:show]
-    
 end

@@ -1,4 +1,4 @@
-class CreateListings < ActiveRecord::Migration[5.2]
+class CreateInsurances < ActiveRecord::Migration[5.2]
   def change
 
     enable_extension 'citext'

@@ -1,11 +1,11 @@
-class AddNewColumnsToListings < ActiveRecord::Migration[5.2]
+class AddNewColumnsToInsurances < ActiveRecord::Migration[5.2]
   def change
     add_column :insurances, :employees_count, :string
     add_column :insurances, :revenue_last_year, :string
     add_column :insurances, :ak_number, :string
     add_column :insurances, :company_name, :string
     add_column :insurances, :tax_number, :string
-    add_column :insurances, :years_trading_without_hermes_cover, F:string
+    add_column :insurances, :years_trading_without_hermes_cover, :string
     add_column :insurances, :experience_with_export_country, :string
     add_column :insurances, :adequate_claims_management, :string
     add_column :insurances, :agreed_payments_output, :string

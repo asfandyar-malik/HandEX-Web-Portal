@@ -1,4 +1,4 @@
-class AddOneColumnsToListings < ActiveRecord::Migration[5.2]
+class AddOneColumnsToInsurances < ActiveRecord::Migration[5.2]
   def change
     add_column :insurances, :country_category, :string
   end

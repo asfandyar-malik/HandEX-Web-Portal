@@ -1,4 +1,4 @@
-class AddNewFieldsToListings < ActiveRecord::Migration[5.2]
+class AddNewFieldsToInsurances < ActiveRecord::Migration[5.2]
   def change
     add_column :insurances, :city, :string
     add_column :insurances, :country, :string
