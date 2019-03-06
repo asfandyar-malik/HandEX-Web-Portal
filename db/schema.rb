@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_05_152014) do
+ActiveRecord::Schema.define(version: 2019_03_06_130541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -19,8 +19,6 @@ ActiveRecord::Schema.define(version: 2019_03_05_152014) do
   create_table "insurances", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "price"
-    t.string "breakfast"
     t.string "employees_count"
     t.string "revenue_last_year"
     t.string "experience_with_export_country"
@@ -131,7 +129,6 @@ ActiveRecord::Schema.define(version: 2019_03_05_152014) do
     t.boolean "risk_supplier_credit_cover"
     t.boolean "risk_further_coverage"
     t.string "total_financing_required"
-    t.string "is_investment_good"
     t.string "contract_value"
     t.string "loan_duration"
     t.boolean "exporting_to_private_sector"
@@ -324,6 +321,7 @@ ActiveRecord::Schema.define(version: 2019_03_05_152014) do
     t.string "no_payment_term_already_agreed"
     t.string "loan_term"
     t.string "application_status"
+    t.boolean "is_investment_good"
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 
