@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<h1 class="text-center">Summary</h1>
+<br>
+
+<% sections = ["important_first" , "finance", 'business', 'customer', 'important_at_end'] %>
+<% titles = ["Das wichtigste zuerst" , "Ihre Finanzierung", 'Ihr Geschäft', 'Ihr Kunde', 'Notwendiges zum Schluss'] %>
+
+<% sections.zip(titles).each do |section, title| %>
+  <div class='row'>
+    <div class='col-md-8 col-md-offset-2 text-justify'>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <%= title %>
+        </div>
+        <div class="panel-body">
+          <%= render partial: "insurances/summary/user/#{section}.html.erb"%>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
