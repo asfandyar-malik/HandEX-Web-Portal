@@ -1,4 +1,4 @@
-<% qa_partial = 'insurances/summary_partials/user/question_answer.html.erb' %>
+<% qa_partial = 'insurances/summary/user/shared_partials/question_answer.html.erb' %>
 
 <%= render qa_partial, question: "Haben Sie bereits das Geschäft mit Ihrem Kunden abgeschlossen bzw. eine Forderung gebucht?",
                        answer: @insurance.yes_already_completed_transaction?? 'Ja':'Nein' %>
@@ -22,23 +22,22 @@
 
 <% if @insurance.yes_payment_term_already_agreed? %>
 
-
-  <div id="interestCountedCustomer">
-    <%= render qa_partial, question: "Berechnen Sie Ihrem Kunden Zinsen?",
-                           answer: @insurance.yes_charge_interest_to_importer?? 'Ja':'Nein' %>
-  </div>
-
   <%= if @insurance.payment_term_shortterm? %>
 
   <%= elsif @insurance.payment_term_middleterm? %>
 
-  <%= elseif @insurance.payment_term_both? %>
+  <%= elsif @insurance.payment_term_both? %>
 
   <% end %>
 
+  <div id="interestCountedCustomer">
+    <%= render qa_partial, question: "Berechnen Sie Ihrem Kunden Zinsen?",
+                           answer:   @insurance.yes_charge_interest_to_importer?? 'Ja':'Nein' %>
+  </div>
+
   <div id="residualRiskApetite">
     <%= render qa_partial, question: "Sind Sie bereit ein Restrisiko von 5% der Forderungen zu behalten?",
-                           answer: @insurance.loan_term?? 'Ja' : 'Nein' %>
+                           answer:   @insurance.loan_term?? 'Ja' : 'Nein' %>
   </div>
 
 <% end %>
@@ -75,7 +74,7 @@
         <span>Beschreibung</span>
         <span class="text-babu"><%= check_missing(@insurance.downpayment_delivery_description) %></span>
       </div>
-    </div>
+  </div>
 
     <div class="row">
       <div class="col-md-8 col-md-offset-2">

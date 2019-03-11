@@ -1,4 +1,4 @@
-<% qa_partial = 'insurances/summary_partials/user/question_answer.html.erb' %>
+<% qa_partial = 'insurances/summary/user/shared_partials/question_answer.html.erb' %>
 
 <%= render qa_partial, question: "Wohin soll es gehen?",
                        answer: @insurance.importer_country %>
@@ -12,10 +12,10 @@
 <%= render qa_partial, question: "Welches Zahlungsziel gewähren Sie Ihrem Kunden?",
                        answer: @insurance.loan_duration %>
 
-<% delivery_goal_answer = @insurance.exporting_to_private_sector %>
-<%= render qa_partial, question: "An wen liefern Sie?",
+<%= render qa_partial,  question: "An wen liefern Sie?",
                         answer: @insurance.exporting_to_private_sector %>
 
+<% delivery_goal_answer = @insurance.exporting_to_private_sector %>
 <% can_show_success_result_message = (delivery_goal_answer == 'Private Sector') %>
 <% can_show_fail_result_message = (delivery_goal_answer == 'Public Sector') %>
 

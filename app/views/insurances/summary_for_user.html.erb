@@ -19,7 +19,7 @@
 
         <div class="panel-body">
           <%= form_with(model: @insurance, local: true, id: "customer-portal") do |form| %>
-            <%= render partial: "insurances/summary/user/#{panel_name}/#{panel_name}.html.erb", locals: {insurance: @insurance, form: form} %>
+            <%= render partial: "insurances/summary/user/panels/#{panel_name}.html.erb", locals: {insurance: @insurance, form: form} %>
           <% end %>
         </div>
 
