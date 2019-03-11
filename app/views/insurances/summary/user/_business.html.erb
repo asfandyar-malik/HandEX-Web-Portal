@@ -231,7 +231,7 @@
                 <p>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <#%= 'active' if @insurance.yes_special_contract_structure == 'on' %>" name="yes_specialcontractstructure" data-toggle="wizard-checkbox"> <!--onclick="specialContractStructure()"> -->
+                    <div class="choice <#%= 'active' if @insurance.yes_special_contract_structure == 'on' %>" name="yes_specialcontractstructure" data-toggle="wizard-checkbox"> onclick="specialContractStructure()"> -->
 
                         <%# <% <%= check_box_tag "insurance[yes_special_contract_structure]", @insurance.yes_special_contract_structure ? @insurance.yes_special_contract_structure : nil %> %> %>
 
@@ -242,7 +242,7 @@
                 </div>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <#%= 'active' if @insurance.no_special_contract_structure == 'on' %>" name="no_specialcontractstructure" data-toggle="wizard-checkbox"> <!-- onclick="noSpecialContractStructure()"> -->
+                    <div class="choice <#%= 'active' if @insurance.no_special_contract_structure == 'on' %>" name="no_specialcontractstructure" data-toggle="wizard-checkbox">  onclick="noSpecialContractStructure()"> -->
 
                         <%# <%= check_box_tag "insurance[no_special_contract_structure]", @insurance.no_special_contract_structure ? @insurance.no_special_contract_structure : nil %>
 

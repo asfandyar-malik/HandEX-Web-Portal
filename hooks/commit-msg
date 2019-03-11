@@ -1,0 +1,16 @@
+#!/bin/sh
+# This hook will make sure that the commit message contains a JIRA issue and time logs.
+# To enable this hook, rename this file to ".git/hooks/commit-msg".
+
+export MESSAGE=$(<$1)
+export JIRA_ISSUE_TAG='BACK-([0-9]*)'
+export TIME='#time'
+export COMMENT='#comment'
+
+if [[ $MESSAGE =~ $JIRA_ISSUE_TAG ]] && [[ $MESSAGE =~ $TIME ]]; then
+  exit 0;
+fi
+
+echo "Error, please follow commit message template: \"BACK-210 #time 2d 5h 30m Fixed the progress bar\"  ";
+
+exit 1;

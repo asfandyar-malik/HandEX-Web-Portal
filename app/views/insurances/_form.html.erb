@@ -120,6 +120,13 @@
 
 <script>
 
+    //disabling ENTER key (Ascii: 13) on our form because enter was submitting application
+    $("form").on("keypress", function (e) {
+        if (e.keyCode == 13) {
+            return false;
+        }
+    });
+
     $(function () {
         $(".auftragwertbutton").click(function () {
             if ($(this).is(":checked")) {
