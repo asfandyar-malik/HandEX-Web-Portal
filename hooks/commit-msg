@@ -1,15 +1,13 @@
 #!/bin/sh
-# This hook will make sure that the commit message contains a JIRA issue.
-#
+# This hook will make sure that the commit message contains a JIRA issue and time logs.
 # To enable this hook, rename this file to ".git/hooks/commit-msg".
-# Make sure to add execution permissions to the file.
 
 export MESSAGE=$(<$1)
 export JIRA_ISSUE_TAG='BACK-([0-9]*)'
 export TIME='#time'
 export COMMENT='#comment'
 
-if [[ $MESSAGE =~ $JIRA_ISSUE_TAG ]] || [[ $MESSAGE =~ $TIME ]]; then
+if [[ $MESSAGE =~ $JIRA_ISSUE_TAG ]] && [[ $MESSAGE =~ $TIME ]]; then
   exit 0;
 fi
 
