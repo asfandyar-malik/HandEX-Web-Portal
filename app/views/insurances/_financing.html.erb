@@ -323,7 +323,6 @@
                     <div class="col-md-2">
                         <div> <%= form.text_field :agreed_payments_some_output, class: "form-control" %> </div>
                     </div>
-
                 </div>
                 <div class="row">
                     <div class="col-md-2 col-md-offset-1">
@@ -528,6 +527,7 @@
 
                     <br><br>
                 </div>
+
             </div>
         </div>
     </div>
@@ -592,16 +592,14 @@
             <div id="workwithothercompanies">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                        <p> Bitte geben Sie hier die Anzahl der Raten ein
-                        </p>
+                      <p> Bitte geben Sie hier die Anzahl der Raten ein</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 col-md-offset-1">
-                        <%= form.text_field :number_of_installments, class: "form-control", placeholder: "Anzahl der Raten", :onkeypress => "return onlyAllowNumericalValue(event)" %>
+                      <%= form.text_field :number_of_installments, class: "form-control", placeholder: "Anzahl der Raten", :onkeypress => "return onlyAllowNumericalValue(event)" %>
                     </div>
                 </div>
-
                 <br>
             </div>
         </div>
@@ -1222,4 +1220,3 @@
 
 
 </div>
-

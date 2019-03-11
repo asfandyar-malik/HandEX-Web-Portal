@@ -1,7 +1,8 @@
+
 class InsurancesController < ApplicationController
     layout "insurance", only: [:new, :edit]
 
-    before_action :set_insurance, only: [:show, :edit, :update, :destroy]
+    before_action :set_insurance, only: [:show, :edit, :update, :destroy, :summary_for_user]
     before_action :authenticate_user!
     before_action :is_authorised, only: [:update]
 
