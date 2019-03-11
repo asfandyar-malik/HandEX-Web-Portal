@@ -1,28 +1,53 @@
 <% qa_partial = 'insurances/summary_partials/user/question_answer.html.erb' %>
 
-<%#= render qa_partial, question: "Haben Sie bereits das Geschäft mit Ihrem Kunden abgeschlossen bzw. eine Forderung gebucht?",-->-->
-                            answer: @insurance.yes_already_completed_transaction?? 'Ja':'Nein' %>
+<%= render qa_partial, question: "Haben Sie bereits das Geschäft mit Ihrem Kunden abgeschlossen bzw. eine Forderung gebucht?",
+                       answer: @insurance.yes_already_completed_transaction?? 'Ja':'Nein' %>
 
-<%# if @insurance.yes_already_completed_transaction? %>
-<!--  <div id="completedTransaction" >-->
-<!--    <div class="row">-->
-<!--      <div class="col-md-9 col-md-offset-2 text-babu">-->
-<!--        <p>HandEX kann in diesem Fall keine digitale Beantragung einer Exportkreditgarantie des Bundes für-->
-<!--           Sie bei Euler Hermes vornehmen. Jedoch ist bei guter Bonität Ihres Kunden und entsprechender-->
-<!--           Sicherheiten, eine Forfaitierung Ihrer Forderungen gegenüber Ihrem Kunden möglich. Hierbei kauft eine unserer-->
-<!--           Partnerbanken. Ihre Forderungen und Sie erhalten direkt Liquidität. Dieses Angebot bieten wir Ihnen in Kürzean.-->
-<!--        </p>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<%# end %>
+<% if @insurance.yes_already_completed_transaction? %>
+  <div id="completedTransaction" >
+    <div class="row">
+      <div class="col-md-9 col-md-offset-2 text-babu">
+        <p>HandEX kann in diesem Fall keine digitale Beantragung einer Exportkreditgarantie des Bundes für
+           Sie bei Euler Hermes vornehmen. Jedoch ist bei guter Bonität Ihres Kunden und entsprechender
+           Sicherheiten, eine Forfaitierung Ihrer Forderungen gegenüber Ihrem Kunden möglich. Hierbei kauft eine unserer
+           Partnerbanken. Ihre Forderungen und Sie erhalten direkt Liquidität. Dieses Angebot bieten wir Ihnen in Kürzean.
+        </p>
+      </div>
+    </div>
+  </div>
+<% end %>
 
-<%#= render qa_partial, question: "Haben Sie bereits ein Zahlungsziel bzw. eine eigene Finanzierung mit Ihrem Kunden vereinbart?",
+<%= render qa_partial, question: "Haben Sie bereits ein Zahlungsziel bzw. eine eigene Finanzierung mit Ihrem Kunden vereinbart?",
                        answer: @insurance.yes_payment_term_already_agreed?? 'Ja':'Nein' %>
+
+<% if @insurance.yes_payment_term_already_agreed? %>
+
+
+  <div id="interestCountedCustomer">
+    <%= render qa_partial, question: "Berechnen Sie Ihrem Kunden Zinsen?",
+                           answer: @insurance.yes_charge_interest_to_importer?? 'Ja':'Nein' %>
+  </div>
+
+  <%= if @insurance.payment_term_shortterm? %>
+
+  <%= elsif @insurance.payment_term_middleterm? %>
+
+  <%= elseif @insurance.payment_term_both? %>
+
+  <% end %>
+
+  <div id="residualRiskApetite">
+    <%= render qa_partial, question: "Sind Sie bereit ein Restrisiko von 5% der Forderungen zu behalten?",
+                           answer: @insurance.loan_term?? 'Ja' : 'Nein' %>
+  </div>
+
+<% end %>
+
+
 
 <% if false %>
 
-  <%#= @insurance.payment_term_shortterm? %>
+  <%= @insurance.payment_term_shortterm? %>
 
   <%= render qa_partial, question: "Wie sind Ihre Zahlungsbedingungen gestaltet?",
                          answer:   "kurzfristig (bis zu 2 Jahre Kreditlaufzeit)" %>
@@ -133,7 +158,7 @@
     </div>
   </div>
 
-<% elsif false %>
+<% elsif true %>
   <%# @insurance.payment_term_middleterm? %>
 
   <%= render qa_partial, question: "Wie sind Ihre Zahlungsbedingungen gestaltet?",
@@ -161,7 +186,7 @@
     </div>
   </div>
 
-<% elsif true %>
+<% elsif false %>
   <%# @insurance.payment_term_both? %>
 
   <%= render qa_partial, question: "Wie sind Ihre Zahlungsbedingungen gestaltet?",
@@ -204,7 +229,7 @@
        </div>
      </div>
      <br>
-     
+
      <% num_payment_term = 10 %>
      <% for i in 1..num_payment_term do %>
        <div class="row">
@@ -273,86 +298,41 @@
      <%= render qa_partial, question: "Wann werden Sie die Anzahlung erhalten?",
                             answer:   @insurance.sonstige_kurzfrist_deposit_received %>
 
-     <%= render qa_partial, question: "Wann werden Sie die Anzahlung erhalten?",
-                            answer:   @insurance.sonstige_kurzfrist_deposit_received %>
+     <%= render qa_partial, question: "Wie gestaltet sich das Tilgungsprofil?",
+                            answer:   @insurance.sonstige_kurzfrist_repayment_structure %>
 
+     <%= render qa_partial, question: "Wann beginnt die Kreditlaufzeit (Starting Point)?",
+                            answer:   @insurance.sonstige_kurzfrist_credit_start %>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <%= check_missing(@insurance.sonstige_kurzfrist_credit_start_sonstige_explain,
+                          error_message: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt.") %>
+      </div>
+    </div>
+
+    <div id="workwithothercompanies">
+      <%= render qa_partial, question: "Bitte geben Sie hier die Anzahl der Raten ein.",
+                             answer:   @insurance.sonstige_kurzfrist_number_of_installments %>
+
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <label> Wenn Sie Zahlungsvehikel wie z.B. Wechsel, Sola-Wechsel oder
+            Promissory Notes vereinbart haben, so geben Sie dies bitte hier an.</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <%= check_missing(@insurance.sonstige_kurzfrist_payment_vehichle_explain) %>
+        </div>
+      </div>
+    </div>
 
   </div>
 
 
   <div id="SonstigeKurzFristigTermOfPayment">
-    <div class="appear">
-      <div class="form-group">
-        <br><br>
-        <div class="row">
-          <div class="col-md-10 col-md-offset-1">
-            <p>Wann werden Sie die Anzahlung erhalten?
-            </p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-4 col-md-offset-1">
-            <%= form.select :sonstige_kurzfrist_deposit_received, options_for_select(["vor Fabrikationsbeginn", "vor Liefer /- Leistungbeginn",
-                                                                                      "bei Betriebsbereitschaft", "anderer Termin",]), {}, class: "form-control" %>
-          </div>
-        </div>
-        <br>
-
-        <div class="row">
-          <div class="col-md-10 col-md-offset-1">
-            <p>Wie gestaltet sich das Tilgungsprofil?
-            </p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-4 col-md-offset-1">
-            <%= form.select :sonstige_kurzfrist_repayment_structure, options_for_select(["Monatliche Tilgungsraten", "Vierteljährliche Tilgungsprofil",
-                                                                                         "Halbjährige Tilgungsprofil", "Unregelmäßig"]), {}, class: "form-control" %>
-          </div>
-        </div>
-        <br>
-
-        <div class="row">
-          <div class="col-md-10 col-md-offset-1">
-            <p>Wann beginnt die Kreditlaufzeit (Starting Point)?
-            </p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6 col-md-offset-1">
-            <%= form.select :sonstige_kurzfrist_credit_start, options_for_select(["mit Lieferung", "mit erster Lieferung (bei mehreren Lieferungen)",
-                                                                                  "mit jeweiliger Lieferung (bei mehreren Lieferungen)",
-                                                                                  "mittlerer gewogener Liefertermin (bei mehreren Lieferungen)",
-                                                                                  "mit Betriebsbereitschaft", "sonstige"]), {}, class: "form-control" %>
-
-
-          </div>
-          <div class="col-md-8 col-md-offset-1">
-            <br>
-            <%= form.text_area :sonstige_kurzfrist_credit_start_sonstige_explain, class: "form-control", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
-          </div>
-
-        </div>
-      </div>
-
-      <div id="workwithothercompanies">
-        <div class="form-group">
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-              <p> Bitte geben Sie hier die Anzahl der Raten ein
-              </p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 col-md-offset-1">
-              <%= form.text_field :sonstige_kurzfrist_number_of_installments, class: "form-control", placeholder: "Anzahl der Raten", :onkeypress => "return onlyAllowNumericalValue(event)" %>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div id="workwithothercompanies">
         <div class="row">
