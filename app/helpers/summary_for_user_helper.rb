@@ -5,9 +5,7 @@ module SummaryForUserHelper
         error_message || '...'
       end
     else
-      content_tag(:div, class: "text-babu") do
         answer
-      end
     end
   end
 end

@@ -20,10 +20,10 @@
 <%= render qa_partial, question: "Haben Sie bereits ein Zahlungsziel bzw. eine eigene Finanzierung mit Ihrem Kunden vereinbart?",
                        answer: @insurance.yes_payment_term_already_agreed?? 'Ja':'Nein' %>
 
-<% if answer: @insurance.yes_payment_term_already_agreed? %>
+<% if @insurance.yes_payment_term_already_agreed?  %>
 
   <%= render qa_partial, question: "Wie sind Ihre Zahlungsbedingungen gestaltet?",
-                          answer: @insurance.yes_payment_term_already_agreed?? 'Ja':'Nein' %>
+                         answer: @insurance.yes_payment_term_already_agreed?? 'Ja':'Nein' %>
 
   <% answer = nil %>
   <% if @insurance.payment_term_shortterm? %>
@@ -63,7 +63,7 @@
 
     <div id="noCustomerCountInterest">
       <%= render qa_partial, question: "Welche Kreditlaufzeit wünscht ihr Kunde?",
-                 answer: @insurance.loan_term %>
+                             answer: @insurance.loan_term %>
     </div>
 
   <% end %>
@@ -77,7 +77,7 @@
 
   <div id="residualRiskApetite">
     <%= render qa_partial, question: "Sind Sie bereit ein Restrisiko von 5% der Forderungen zu behalten?",
-               answer: @insurance.loan_term?? 'Ja' : 'Nein' %>
+                           answer: @insurance.loan_term?? 'Ja' : 'Nein' %>
   </div>
 
   <% if @insurance.yes_charge_interest_to_importer? %>
