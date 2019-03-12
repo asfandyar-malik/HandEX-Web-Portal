@@ -20,7 +20,6 @@
 //= require toastr
 //= require owl.carousel
 //= require mixitup
-//= require 'js/paper-bootstrap-wizard'
 //= require_tree .
 //= stub 'js/demo'
 //= stub 'js/jquery.bootstrap.wizard'

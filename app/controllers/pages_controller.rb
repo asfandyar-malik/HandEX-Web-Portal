@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 
     def home
+        render :layout => "home.html.erb"
     end
 
     def aboutus

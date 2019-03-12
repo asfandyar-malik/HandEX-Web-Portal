@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
     
-    root to: 'insurances#new'
+    root to: 'pages#home'
     
     get 'pages/landing' => 'pages#landing'
     get 'pages/impressum' => 'pages#impressum'
