@@ -1,227 +1,227 @@
 <% qa_partial = 'insurances/summary/user/shared_partials/question_answer.html.erb' %>
 
-<!--<div id="deliveryAddressCheck">-->
-<!--  <%#= render qa_partial, question: "Haben Sie in der Vergangenheit schon einmal einen Antrag auf Hermesdeckung eingereicht?",-->
+<div id="deliveryAddressCheck">
+  <%= render qa_partial, question: "Haben Sie in der Vergangenheit schon einmal einen Antrag auf Hermesdeckung eingereicht?",
                          answer:   @insurance.yes_previously_hermes_insurance_used?? 'Ja':'Nein' %>
-</div>-->
+</div>
 
-<!--<div id="newAtHermesDeckung" style= "display: <%#= @insurance.yes_previously_hermes_insurance_used?? 'none' : 'block' %>">-->
-<!--  <div class="row">-->
-<!--    <div class="col-md-8 col-md-offset-2">-->
-<!--      <label>Da Sie bisher keine Hermesdeckung beantragt haben, möchte HandEX-->
-<!--        und unser Partner Euler Hermes Sie besser kennenlernen.-->
-<!--        Bitte helfen Sie uns zu verstehen, inwieweit Sie bereits über-->
-<!--        Exporterfahrung-->
-<!--        und Erfahrungen mit säumigen Auslandskunden verfügen.</label>-->
-<!--      <br><br>-->
-<!--    </div>-->
-<!--  </div>-->
+<div id="newAtHermesDeckung" style= "display: <%= @insurance.yes_previously_hermes_insurance_used?? 'none' : 'block' %>">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <label>Da Sie bisher keine Hermesdeckung beantragt haben, möchte HandEX
+        und unser Partner Euler Hermes Sie besser kennenlernen.
+        Bitte helfen Sie uns zu verstehen, inwieweit Sie bereits über
+        Exporterfahrung
+        und Erfahrungen mit säumigen Auslandskunden verfügen.</label>
+      <br><br>
+    </div>
+  </div>
 
-<!--  <div class="row">-->
-<!--    <div class="col-md-8 col-md-offset-2">-->
-<!--      <label><i>Inwieweit bzw. seit wie vielen Jahren verfügen Sie über-->
-<!--        Exporterfahrung-->
-<!--        aus ungedeckten Geschäften, d.h. Exportgeschäfte ohne-->
-<!--        Hermesdeckung?</i></label>-->
-<!--    </div>-->
-<!--  </div>-->
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <label><i>Inwieweit bzw. seit wie vielen Jahren verfügen Sie über
+        Exporterfahrung
+        aus ungedeckten Geschäften, d.h. Exportgeschäfte ohne
+        Hermesdeckung?</i></label>
+    </div>
+  </div>
 
-<!--  <div class="row">-->
-<!--    <div class="col-md-8 col-md-offset-2">-->
-      <%#= check_missing(@insurance.trading_since_when_without_hermes_insurance) %>
-<!--      <hr>-->
-<!--    </div>-->
-<!--  </div>-->
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <%= check_missing(@insurance.trading_since_when_without_hermes_insurance) %>
+      <hr>
+    </div>
+  </div>
 
-<!--  <div class="row">-->
-<!--    <div class="col-md-8 col-md-offset-2">-->
-<!--      <label><i>Besteht eine langjährige Exporterfahrung sowie Marktkenntnis mit dem Empfängerland?</i></label>-->
-<!--    </div>-->
-<!--  </div>-->
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <label><i>Besteht eine langjährige Exporterfahrung sowie Marktkenntnis mit dem Empfängerland?</i></label>
+    </div>
+  </div>
 
-<!--  <div class="row">-->
-<!--    <div class="col-md-8 col-md-offset-2">-->
-      <%#= check_missing(@insurance.experience_with_export_country) %>
-<!--      <hr>-->
-<!--    </div>-->
-<!--  </div>-->
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <%= check_missing(@insurance.experience_with_export_country) %>
+      <hr>
+    </div>
+  </div>
 
-<!--  <div class="row">-->
-<!--    <div class="col-md-8 col-md-offset-2 ">-->
-<!--      <label><i> Bitte legen Sie dar, inwiefern Sie über ein adäquates-->
-<!--        Schadenmanagement-->
-<!--        verfügen. Wurden Sie in der Vergangenheit bereits (häufiger) mit-->
-<!--        Zahlungsverzügen/ Forderungsausfällen konfrontiert und welche-->
-<!--        Maßnahmen greifen bei Ihnen im Unternehmen, wenn ein Kunde in-->
-<!--        Zahlungsverzug-->
-<!--        gerät? </i></label>-->
-<!--    </div>-->
-<!--  </div>-->
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 ">
+      <label><i> Bitte legen Sie dar, inwiefern Sie über ein adäquates
+        Schadenmanagement
+        verfügen. Wurden Sie in der Vergangenheit bereits (häufiger) mit
+        Zahlungsverzügen/ Forderungsausfällen konfrontiert und welche
+        Maßnahmen greifen bei Ihnen im Unternehmen, wenn ein Kunde in
+        Zahlungsverzug
+        gerät? </i></label>
+    </div>
+  </div>
 
-<!--  <div class="row">-->
-<!--    <div class="col-md-8 col-md-offset-2">-->
-      <%#= check_missing(@insurance.adequate_claims_management) %>
-<!--      <hr>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <%= check_missing(@insurance.adequate_claims_management) %>
+      <hr>
+    </div>
+  </div>
+</div>
 
 
-<!--<div id="firmDaten">-->
+<div id="firmDaten">
 
-<!--  <div class="row">-->
-<!--    <div class="col-md-8 col-md-offset-2">-->
-<!--      <label> Bitte geben Sie Ihre Firmendaten an. </label>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <br>-->
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <label> Bitte geben Sie Ihre Firmendaten an. </label>
+    </div>
+  </div>
+  <br>
 
-<!--  <div class="row">-->
-<!--    <div class="col-md-8 col-md-offset-2">-->
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
 
-<!--      <%# address_keys = ["Firmenname",-->
-<!--                         "DN-NR",-->
-<!--                         "Telefon",-->
-<!--                         "Straße / Hausnummer",-->
-<!--                         "PLZ",-->
+      <% address_keys = ["Firmenname",
+                         "DN-NR",
+                         "Telefon",
+                         "Straße / Hausnummer",
+                         "PLZ",
                          "Land"] %>
 
-      <%# address_values = [@insurance.exporter_company_name,-->
-<!--                           @insurance.exporter_company_dnnr,-->
-<!--                           @insurance.exporter_telephone,-->
-<!--                           @insurance.exporter_company_street,-->
-<!--                           @insurance.exporter_company_plz,-->
-<!--                           @insurance.exporter_company_country-->
+      <% address_values = [@insurance.exporter_company_name,
+                           @insurance.exporter_company_dnnr,
+                           @insurance.exporter_telephone,
+                           @insurance.exporter_company_street,
+                           @insurance.exporter_company_plz,
+                           @insurance.exporter_company_country
 
       ] %>
 
-      <%# address_keys.zip(address_values).each do |addr_key, addr_value| %>
+      <% address_keys.zip(address_values).each do |addr_key, addr_value| %>
 
-        <div class="row">-->
-<!--          <div class="col-sm-6">-->
-<!--            <span><%#= addr_key %></span>-->
-<!--          </div>-->
-<!--          <div class="col-sm-6 text-babu">-->
-            <%#= check_missing(addr_value) %>
-<!--          </div>-->
-<!--        </div>-->
+        <div class="row">
+          <div class="col-sm-6">
+            <span><%= addr_key %></span>
+          </div>
+          <div class="col-sm-6 text-babu">
+            <%= check_missing(addr_value) %>
+          </div>
+        </div>
 
-      <%# end %>
-<!--      <hr>-->
-<!--    </div>-->
-<!--  </div>-->
+      <% end %>
+      <hr>
+    </div>
+  </div>
 
-<!--  <div class="row">-->
-<!--    <div class="col-md-8 col-md-offset-2">-->
-<!--      <label> Anzahl der Mitarbeiterinnen und Mitarbeiter </label>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="row">-->
-<!--    <div class="col-md-8 col-md-offset-2">-->
-<!--      <label>  <%#= check_missing(@insurance.employees_count) %> </label>-->
-<!--    </div>-->
-<!--  </div>-->
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <label> Anzahl der Mitarbeiterinnen und Mitarbeiter </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <label>  <%= check_missing(@insurance.employees_count) %> </label>
+    </div>
+  </div>
 
-<!--  <div class="row">-->
-<!--    <div class="col-md-8 col-md-offset-2">-->
-<!--      <label> Umsatz im letzten vollen Geschäftsjahr </label>-->
-<!--    </div>-->
-<!--  </div>-->
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <label> Umsatz im letzten vollen Geschäftsjahr </label>
+    </div>
+  </div>
 
-<!--  <div class="row">-->
-<!--    <div class="col-md-8 col-md-offset-2">-->
-<!--      <label> <%#= check_missing(@insurance.revenue_last_year) %></label>-->
-<!--      <hr>-->
-<!--    </div>-->
-<!--  </div>-->
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <label> <%= check_missing(@insurance.revenue_last_year) %></label>
+      <hr>
+    </div>
+  </div>
 
-<!--</div>-->
+</div>
 
 
-<!--<div id="firmenDaten">-->
+<div id="firmenDaten">
 
-<!--  <div class="row">-->
-<!--    <div class="col-md-8 col-md-offset-2">-->
-<!--      <label> Wen können wir ansprechen? </label>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <br>-->
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <label> Wen können wir ansprechen? </label>
+    </div>
+  </div>
+  <br>
 
-<!--  <div class="row">-->
-<!--    <div class="col-md-8 col-md-offset-2">-->
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
 
-<!--      <%# address_keys = ["Vorname",-->
-<!--                         "Nachname",-->
-<!--                         "Email",-->
-<!--                         "Funktion",-->
+      <% address_keys = ["Vorname",
+                         "Nachname",
+                         "Email",
+                         "Funktion",
                          "Bereich"] %>
 
-      <%# address_values = [@insurance.exporter_company_representative_firstname,-->
-<!--                           @insurance.exporter_company_representative_lastname,-->
-<!--                           @insurance.exporter_company_representative_email,-->
-<!--                           @insurance.exporter_company_representative_function,-->
+      <% address_values = [@insurance.exporter_company_representative_firstname,
+                           @insurance.exporter_company_representative_lastname,
+                           @insurance.exporter_company_representative_email,
+                           @insurance.exporter_company_representative_function,
                            @insurance.exporter_company_representative_department] %>
 
-      <%# address_keys.zip(address_values).each do |addr_key, addr_value| %>
+      <% address_keys.zip(address_values).each do |addr_key, addr_value| %>
 
-        <div class="row">-->
-<!--          <div class="col-sm-6">-->
-<!--            <span><%#= addr_key %></span>-->
-<!--          </div>-->
-<!--          <div class="col-sm-6 text-babu">-->
-            <%#= check_missing(addr_value) %>
-<!--          </div>-->
-<!--        </div>-->
+        <div class="row">
+          <div class="col-sm-6">
+            <span><%= addr_key %></span>
+          </div>
+          <div class="col-sm-6 text-babu">
+            <%= check_missing(addr_value) %>
+          </div>
+        </div>
 
-      <%# end %>
-<!--      <hr>-->
-<!--    </div>-->
-<!--  </div>-->
+      <% end %>
+      <hr>
+    </div>
+  </div>
 
-<!--</div>-->
+</div>
 
-<!--<div class="form-group">-->
-<!--  <div class="row">-->
-<!--    <div class="col-md-8 col-md-offset-2">-->
-<!--      <label><b>Diese Anlagen benötigen wir für die Prüfung Ihres Geschäftes </b></label>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+<div class="form-group">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <label><b>Diese Anlagen benötigen wir für die Prüfung Ihres Geschäftes </b></label>
+    </div>
+  </div>
+</div>
 
-<!--<div id="uploadDocuments">-->
-<!--  <div class="row">-->
-<!--    <div class="col-md-8 col-md-offset-2">-->
+<div id="uploadDocuments">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
 
-<!--      <%# file_types = ["Selbstauskunft (bei Neukunden)",-->
-<!--                       "Jahresabschlüsse Ihres Kunden",-->
-<!--                       "Auskünfte über Ihren Kunden",-->
-<!--                       "Umwelt- und Sozialinformationen",-->
-<!--                       "ggf. Projektmemorandum",-->
+      <% file_types = ["Selbstauskunft (bei Neukunden)",
+                       "Jahresabschlüsse Ihres Kunden",
+                       "Auskünfte über Ihren Kunden",
+                       "Umwelt- und Sozialinformationen",
+                       "ggf. Projektmemorandum",
                        "Sonstiges"] %>
 
-      <%# file_names = [@insurance.self_disclosure_file_name,-->
-<!--                       @insurance.annual_financial_statement_importer_file_name,-->
-<!--                       @insurance.credit_bureaus_importer_file_name,-->
-<!--                       @insurance.environment_social_audit_file_name,-->
-<!--                       @insurance.project_memorandum_exporter_business_file_name,-->
+      <% file_names = [@insurance.self_disclosure_file_name,
+                       @insurance.annual_financial_statement_importer_file_name,
+                       @insurance.credit_bureaus_importer_file_name,
+                       @insurance.environment_social_audit_file_name,
+                       @insurance.project_memorandum_exporter_business_file_name,
                        @insurance.additional_document_file_name ] %>
 
-      <%# file_types.zip(file_names).each do |file_type, file_name| %>
+      <% file_types.zip(file_names).each do |file_type, file_name| %>
 
-        <div class="row">-->
-<!--          <div class="col-sm-6">-->
-<!--            <span><%#= file_type %></span>-->
-<!--          </div>-->
-<!--          <div class="col-sm-6 text-babu">-->
-            <%#= check_missing(file_name) %>
-<!--          </div>-->
-<!--        </div>-->
+        <div class="row">
+          <div class="col-sm-6">
+            <span><%= file_type %></span>
+          </div>
+          <div class="col-sm-6 text-babu">
+            <%= check_missing(file_name) %>
+          </div>
+        </div>
 
-      <%# end %>
-<!--      <hr>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+      <% end %>
+      <hr>
+    </div>
+  </div>
+</div>
 
 <div id="corruptionDeclaration">
 
@@ -287,7 +287,7 @@
     </div>
   </div>
 
-  <div class="row"">
+  <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <label class="<%= @insurance.accept_terms_conditions?? 'text-babu' : 'text-red' %>">
 
