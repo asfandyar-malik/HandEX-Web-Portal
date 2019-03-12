@@ -1,0 +1,140 @@
+<% qa_partial = 'insurances/summary/user/shared_partials/question_answer.html.erb' %>
+
+<div id="SonstigeKurzFristigTermOfPayment">
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <label> Sofern Sie eine Anzahlung vereinbart haben, die vor Lieferbeginn
+        geleistet wird, geben Sie bitte den entsprechenden Betrag an.
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2 col-md-offset-2">
+      <span>Currency</span>
+      <span class="text-babu"><%= check_missing(@insurance.downpayment_delivery_currency) %></span>
+    </div>
+    <div class="col-md-2">
+      <span> Betrag </span>
+      <span class="text-babu"><%= check_missing(@insurance.downpayment_delivery_amount) %></span>
+    </div>
+    <div class="col-md-2">
+      <span>Beschreibung</span>
+      <span class="text-babu"><%= check_missing(@insurance.downpayment_delivery_description) %></span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <hr>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <label> Welche Zahlungen vereinbaren Sie?</label>
+    </div>
+  </div>
+  <br>
+
+  <% num_payment_term = 10 %>
+  <% for i in 1..num_payment_term do %>
+    <div class="row">
+      <div class="col-md-2 col-md-offset-2">
+        <label> <%=i%>. Rate</label>
+      </div>
+
+      <div class="col-md-1">
+        <%= check_missing(@insurance.agreed_payments_currency) %>
+      </div>
+
+      <div class="col-md-1">
+        <%= check_missing(@insurance.agreed_payments_amount) %>
+      </div>
+
+      <div class="col-md-1">
+        <%= check_missing(@insurance.agreed_payments_output) %>
+      </div>
+
+      <div class="col-md-1 ">
+        <p>%</p>
+      </div>
+
+      <div class="col-md-2">
+        <%= check_missing(@insurance.agreed_payments_time) %>
+      </div>
+
+      <div class="col-md-2">
+        <%= check_missing(@insurance.agreed_payments_some_output) %>
+      </div>
+    </div>
+  <% end %>
+  <hr>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <label> Bitte geben Sie die Höhe der An- und Zwischenzahlungen an.</label>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <label> <i>Bitte beachten Sie, dass die Anzahlung stets vor Lieferung
+        gezahlt werden und bei mittel- /langfristigen Zahlungsbediungungen mindestens 15 % des
+        Auftragswerts betragen muss (auf Grund internationaler Bestimmungen).. </i>
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2 col-md-offset-2">
+      <span>Currency</span>
+      <span class="text-babu"><%= check_missing(@insurance.sonstige_kurzfrist_advance_payment_currency) %></span>
+    </div>
+    <div class="col-md-2">
+      <span> Betrag </span>
+      <span class="text-babu"><%= check_missing(@insurance.sonstige_kurzfrist_advance_payment_amount) %></span>
+    </div>
+    <div class="col-md-2">
+      <span>Beschreibung</span>
+      <span class="text-babu"><%= check_missing(@insurance.sonstige_kurzfrist_advance_payment_explain) %>%</span>
+    </div>
+  </div>
+
+  <%= render qa_partial, question: "Wann werden Sie die Anzahlung erhalten?",
+             answer:   @insurance.sonstige_kurzfrist_deposit_received %>
+
+  <%= render qa_partial, question: "Wie gestaltet sich das Tilgungsprofil?",
+             answer:   @insurance.sonstige_kurzfrist_repayment_structure %>
+
+  <%= render qa_partial, question: "Wann beginnt die Kreditlaufzeit (Starting Point)?",
+             answer:   @insurance.sonstige_kurzfrist_credit_start %>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <%= check_missing(@insurance.sonstige_kurzfrist_credit_start_sonstige_explain,
+                        error_message: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt.") %>
+    </div>
+  </div>
+
+  <div id="workwithothercompanies">
+    <%= render qa_partial, question: "Bitte geben Sie hier die Anzahl der Raten ein.",
+               answer:   @insurance.sonstige_kurzfrist_number_of_installments %>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <label> Wenn Sie Zahlungsvehikel wie z.B. Wechsel, Sola-Wechsel oder
+          Promissory Notes vereinbart haben, so geben Sie dies bitte hier an.</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <%= check_missing(@insurance.sonstige_kurzfrist_payment_vehichle_explain) %>
+      </div>
+    </div>
+  </div>
+
+</div>

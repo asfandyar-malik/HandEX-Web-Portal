@@ -1,5 +1,11 @@
 <% qa_partial = 'insurances/summary_partials/user/question_answer.html.erb' %>
 
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 text-babu">
+    <label> Bitte beschreiben Sie Ihre Produkte und Leistungen. </label>
+  </div>
+</div>
+
 <%= render qa_partial, question: "Bitte beschreiben Sie Ihre Produkte und Leistungen",
                        answer: @insurance.describe_export_business %><hr>
 <div class="row">

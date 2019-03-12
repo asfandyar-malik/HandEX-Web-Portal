@@ -1,0 +1,106 @@
+<div id="KurzFristigTermOfPayment">
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <label> Sofern Sie eine Anzahlung vereinbart haben, die vor Lieferbeginn
+        geleistet wird, geben Sie bitte den entsprechenden Betrag an.
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2 col-md-offset-2">
+      <span>Currency</span>
+      <span class="text-babu"><%= check_missing(@insurance.downpayment_delivery_currency) %></span>
+    </div>
+    <div class="col-md-2">
+      <span> Betrag </span>
+      <span class="text-babu"><%= check_missing(@insurance.downpayment_delivery_amount) %></span>
+    </div>
+    <div class="col-md-2">
+      <span>Beschreibung</span>
+      <span class="text-babu"><%= check_missing(@insurance.downpayment_delivery_description) %></span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <hr>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <label>Welche Zahlungen vereinbaren Sie?</label>
+    </div>
+  </div>
+
+  <% if false %>
+    Comment: Need to populate the variable below 'num_payment_term' with some logic regards to the data
+    stored in the database
+  <% end %>
+
+  <% num_payment_term = 10 %>
+  <% for i in 1..num_payment_term do %>
+    <div class="row">
+      <div class="col-md-2 col-md-offset-2">
+        <label> <%=i%>. Rate</label>
+      </div>
+
+      <div class="col-md-1">
+        <%= check_missing(@insurance.agreed_payments_currency) %>
+      </div>
+
+      <div class="col-md-1">
+        <%= check_missing(@insurance.agreed_payments_amount) %>
+      </div>
+
+      <div class="col-md-1">
+        <%= check_missing(@insurance.agreed_payments_output) %>
+      </div>
+
+      <div class="col-md-1 ">
+        <p>%</p>
+      </div>
+
+      <div class="col-md-2">
+        <%= check_missing(@insurance.agreed_payments_time) %>
+      </div>
+
+      <div class="col-md-2">
+        <%= check_missing(@insurance.agreed_payments_some_output) %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <hr>
+    </div>
+  </div>
+
+  <div id="workwithothercompanies">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <label>
+          Wenn Sie Zahlungsvehikel wie z.B. Wechsel, Sola-Wechsel
+          oder Promissory Notes vereinbart haben, so geben Sie dies bitte hier an.
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <%= check_missing(@insurance.payment_vehichle) %>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <hr>
+  </div>
+</div>
+
