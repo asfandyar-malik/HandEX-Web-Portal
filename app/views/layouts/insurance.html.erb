@@ -17,7 +17,9 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= stylesheet_link_tag 'insurance', 'data-turbolinks-track': 'reload' %>
 
-    <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%# https://stackoverflow.com/questions/23368994/no-route-matches-get-logout-rails %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
     <%= javascript_include_tag 'activestorage.js', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'turbolinks.js', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'js/jquery-2.2.4.min', 'data-turbolinks-track': 'reload' %>
@@ -27,7 +29,6 @@
     <%= javascript_include_tag 'js/paper-bootstrap-wizard', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'js/jquery.validate.min', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag('jquery.sticky.js') %>
-
 
   <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
