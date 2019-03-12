@@ -61,10 +61,10 @@
     </div>
   <% else %>
 
-    <div id="noCustomerCountInterest">
-      <%= render qa_partial, question: "Welche Kreditlaufzeit wünscht ihr Kunde?",
-                             answer: @insurance.loan_term %>
-    </div>
+  <div id="noCustomerCountInterest">
+    <%= render qa_partial, question: "Welche Kreditlaufzeit wünscht ihr Kunde?",
+                           answer: @insurance.loan_term %>
+  </div>
 
   <% end %>
 
@@ -77,11 +77,11 @@
 
   <div id="residualRiskApetite">
     <%= render qa_partial, question: "Sind Sie bereit ein Restrisiko von 5% der Forderungen zu behalten?",
-                           answer: @insurance.loan_term?? 'Ja' : 'Nein' %>
+                           answer:   @insurance.loan_term?? 'Ja' : 'Nein' %>
   </div>
 
   <% if @insurance.yes_charge_interest_to_importer? %>
-    <div id="yesResidualRiskApetite">
+    <div id="yesResidualRiskApetite" >
       <div class="row">
         <div class="col-md-8 col-md-offset-2 text-babu">
           <p> In diesem Fall gibt es die Möglichkeit die Finanzierung im Rahmen einer Forfaitierung oder
