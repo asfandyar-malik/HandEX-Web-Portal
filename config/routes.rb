@@ -12,7 +12,8 @@ Rails.application.routes.draw do
       member do
         get 'submitted_applications'
         get 'approved_applications'
-        get 'summary_for_user'
+        get 'user_summary'
+        get 'pdf_user_summary'
       end
     end
 

@@ -1,8 +1,10 @@
 
 class InsurancesController < ApplicationController
+    include Html2pdfconverter
+
     layout "insurance", only: [:new, :edit]
 
-    before_action :set_insurance, only: [:show, :edit, :update, :destroy, :summary_for_user]
+    before_action :set_insurance, only: [:show, :edit, :update, :destroy, :user_summary, :user_summary_pdf, :pdf_user_summary]
     before_action :authenticate_user!
     before_action :is_authorised, only: [:update]
 
@@ -56,7 +58,13 @@ class InsurancesController < ApplicationController
         @approved_applications = filer_application_by_status "approved"
     end
 
-    def summary_for_user
+    def user_summary
+    end
+
+    def pdf_user_summary
+
+      configure_html_to_pdf output_file_name: 'insurance/pdf_user_summary.html.erb', layout: 'application_pdf.html.erb', view: 'insurances/pdf_user_summary.html.erb'
+
     end
 
     private
