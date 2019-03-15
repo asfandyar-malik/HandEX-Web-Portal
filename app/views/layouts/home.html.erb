@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html class="nojs">
+<head>
+
+    <! Global site tag (gtag.js)  Google Analytics >
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA1250491951"></script>
+    <meta name="googlesiteverification" content="W5f_acjB7RRBkTjQsgza4zJpdUCne6ll6Ztk5v4LwOg"/>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA1250491951');
+    </script>
+
+    <! Hotjar Tracking Code for www.handex.co >
+    <script>
+        (function (h, o, t, j, a, r) {
+            h.hj = h.hj || function () {
+                (h.hj.q = h.hj.q || []).push(arguments)
+            };
+            h._hjSettings = {hjid: 998709, hjsv: 6};
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script');
+            r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window, document, 'https://static.hotjar.com/c/hotjar', '.js?sv=');
+    </script>
+
+    <! Mobile Specific Meta >
+    <meta name="viewport" content="width=devicewidth, initialscale=1, shrinktofit=no">
+    <! Favicon>
+    <%= favicon_link_tag 'fav_5.png' %>
+    <! Author Meta >
+    <meta name="author" content="Asfandyar Malik">
+    <! Meta Description >
+    <meta name="description" content="This is the Web Portal of HandEX">
+    <! Meta Keyword >
+    <meta name="keywords" content="waren, euler hermes kredit, trade credit, euler hermes versicherung, letter of credit, warenfinanzierung, hermes deckung, akkreditiv, exportkredite, importeur, außenhandelsfinanzierung, import bank, hermes cover, exportfinanzierung, export bank, hermes guarantee, handelsfinanzierung, euler hermes, export trade finance, export kredit, import, export, international trade finance, aussenhandelsfinanzierung, trade finance, trade, export financing, handel, ausfuhr">
+    <! meta character set >
+    <meta charset="UTF8">
+    <! Site Title >
+    <title>HandEX</title>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'dataturbolinkstrack' => true %>
+    <%= javascript_include_tag 'application', 'dataturbolinkstrack' => true %>
+    <%= javascript_include_tag('js/jquery2.2.4.min.js') %>
+    <%= javascript_include_tag('jquery.sticky.js') %>
+    <%= javascript_include_tag('jquery.ajaxchimp.min.js') %>
+    <%= javascript_include_tag('owl.carousel.min.js') %>
+    <%= javascript_include_tag('mixitup.min.js') %>
+    <%= javascript_include_tag('main.js') %>
+
+
+    <%= csrf_meta_tags %>
+</head>
+
+<body>
+<%= yield %>
+
+<! Start of HubSpot Embed Code >
+<script type="text/javascript" id="hsscriptloader" async defer src="//js.hsscripts.com/5380143.js"></script>
+<! End of HubSpot Embed Code >
+
+
+</body>
+
+</html>
