@@ -108,6 +108,10 @@ class InsurancesController < ApplicationController
             :yes_sonstige_kurzfrist_certificate_of_origin, :no_sonstige_kurzfrist_certificate_of_origin, :part_of_goods__sonstige_kurzfrist_certificate_of_origin,
             :ak_number, :company_name, :tax_number, :years_trading_without_hermes_cover, :experience_with_export_country, :adequate_claims_management,
             :employees_count, :revenue_last_year, :sonstige_kurzfrist_agreed_payment_output, :application_status,
+            #documents
+            :self_disclosure, :annual_financial_statement_importer, :credit_bureaus_importer, :environment_social_audit, :project_memorandum_exporter_business,
+            :additional_document,
+            #terms&conditions
             :accept_terms_conditions, :read_privacy_policy, :read_all_instructions)
     end
 end
