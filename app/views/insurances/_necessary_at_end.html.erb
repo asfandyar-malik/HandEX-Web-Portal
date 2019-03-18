@@ -40,53 +40,55 @@
     </div>
 
     <div id="newAtHermesDeckung" style="display: none">
-        <div class="form-group">
-            <div class="row">
-                <br>
-                <div class="col-md-10 col-md-offset-1">
-                    <p>Da Sie bisher keine Hermesdeckung beantragt haben, möchte HandEX
-                        und unser Partner Euler Hermes Sie besser kennenlernen.
-                        Bitte helfen Sie uns zu verstehen, inwieweit Sie bereits über
-                        Exporterfahrung
-                        und Erfahrungen mit säumigen Auslandskunden verfügen.</p>
-                    <br><br>
-                </div>
+        <div class="appear">
+            <div class="form-group">
+                <div class="row">
+                    <br>
+                    <div class="col-md-10 col-md-offset-1">
+                        <p>Da Sie bisher keine Hermesdeckung beantragt haben, möchte HandEX
+                            und unser Partner Euler Hermes Sie besser kennenlernen.
+                            Bitte helfen Sie uns zu verstehen, inwieweit Sie bereits über
+                            Exporterfahrung
+                            und Erfahrungen mit säumigen Auslandskunden verfügen.</p>
+                        <br><br>
+                    </div>
 
-                <div class="col-md-10 col-md-offset-1">
-                    <p><i>Inwieweit bzw. seit wie vielen Jahren verfügen Sie über
-                        Exporterfahrung
-                        aus ungedeckten Geschäften, d.h. Exportgeschäfte ohne
-                        Hermesdeckung?</i></p>
-                    <div> <%= form.text_field :trading_since_when_without_hermes_insurance, class: "form-control" %> </div>
-                </div>
+                    <div class="col-md-10 col-md-offset-1">
+                        <p><i>Inwieweit bzw. seit wie vielen Jahren verfügen Sie über
+                            Exporterfahrung
+                            aus ungedeckten Geschäften, d.h. Exportgeschäfte ohne
+                            Hermesdeckung?</i></p>
+                        <div> <%= form.text_field :trading_since_when_without_hermes_insurance, class: "form-control" %> </div>
+                    </div>
 
 
-                <div class="col-md-10 col-md-offset-1">
-                    <br><br>
-                    <p><i>Besteht eine langjährige Exporterfahrung sowie Marktkenntnis
-                        mit
-                        dem
-                        Empfängerland?</i></p>
-                    <%= form.text_field :experience_with_export_country, class: "form-control" %>
-                </div>
+                    <div class="col-md-10 col-md-offset-1">
+                        <br><br>
+                        <p><i>Besteht eine langjährige Exporterfahrung sowie Marktkenntnis
+                            mit
+                            dem
+                            Empfängerland?</i></p>
+                        <%= form.text_field :experience_with_export_country, class: "form-control" %>
+                    </div>
 
-                <div class="col-md-10 col-md-offset-1 ">
-                    <br><br>
-                    <p><i> Bitte legen Sie dar, inwiefern Sie über ein adäquates
-                        Schadenmanagement
-                        verfügen. Wurden Sie in der Vergangenheit bereits (häufiger) mit
-                        Zahlungsverzügen/ Forderungsausfällen konfrontiert und welche
-                        Maßnahmen greifen bei Ihnen im Unternehmen, wenn ein Kunde in
-                        Zahlungsverzug
-                        gerät? </i></p>
-                    <%= form.text_field :adequate_claims_management, class: "form-control" %>
+                    <div class="col-md-10 col-md-offset-1 ">
+                        <br><br>
+                        <p><i> Bitte legen Sie dar, inwiefern Sie über ein adäquates
+                            Schadenmanagement
+                            verfügen. Wurden Sie in der Vergangenheit bereits (häufiger) mit
+                            Zahlungsverzügen/ Forderungsausfällen konfrontiert und welche
+                            Maßnahmen greifen bei Ihnen im Unternehmen, wenn ein Kunde in
+                            Zahlungsverzug
+                            gerät? </i></p>
+                        <%= form.text_field :adequate_claims_management, class: "form-control" %>
+                    </div>
                 </div>
             </div>
+            <br>
         </div>
     </div>
 
     <div id="firmenDaten">
-
         <br>
         <div class="form-group">
             <div class="row">
