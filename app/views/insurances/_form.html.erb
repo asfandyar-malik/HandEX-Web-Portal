@@ -4,7 +4,7 @@
             <div class="wizard-container">
                 <div class="card wizard-card" data-color="blue" id="wizard">
 
-                    <%= form_with(model: insurance, local: true, id: "customer-portal") do |form| %>
+                    <%= form_with(model: insurance, local: true, html: { multipart: true }, id: "customer-portal") do |form| %>
 
                         <% if insurance.errors.any? %>
                             <div id="error_explanation">
