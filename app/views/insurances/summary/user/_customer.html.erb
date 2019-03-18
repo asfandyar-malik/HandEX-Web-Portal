@@ -25,7 +25,6 @@
                            @insurance.importer_city ] %>
 
       <% address_keys.zip(address_values).each do |addr_key, addr_value| %>
-
         <div class="row">
           <div class="col-sm-6">
             <span><%= addr_key %></span>
@@ -34,7 +33,6 @@
             <%= check_missing(addr_value) %>
           </div>
         </div>
-
       <% end %>
 
     </div>
