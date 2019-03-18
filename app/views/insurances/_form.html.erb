@@ -236,21 +236,27 @@
     }
 
     function paymentTermAgreed() {
-        var x = document.getElementById("termOfPayments");
+        var x = document.getElementById("paymentTermWithImporter");
+        var y = document.getElementById("noPaymentTermWithImporter");
+
         if (x.style.display === "none") {
             x.style.display = "block";
+            y.style.display = "none";
         } else {
             x.style.display = "none";
         }
     }
 
     function noPaymentTermAgreed() {
-        var x = document.getElementById("termOfPayments");
-        if (x.style.display === "block") {
+        var x = document.getElementById("noPaymentTermWithImporter");
+        var y = document.getElementById("paymentTermWithImporter");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.display = "none";
+        } else {
             x.style.display = "none";
         }
     }
-
 
     // $(function () {
     //     $("#yes_secondhand_goods").click(function () {
@@ -774,6 +780,14 @@
 
     $choice.filter('[name="alreadyCompletedTransaction_no"]').click(function () {
         $choice.filter('[name="alreadyCompletedTransaction_yes"]').removeClass('active');
+    });
+
+    $choice.filter('[name="residualriskapetiteFive_yes"]').click(function () {
+        $choice.filter('[name="residualriskapetiteFive_no"]').removeClass('active');
+    });
+
+    $choice.filter('[name="residualriskapetiteFive_no"]').click(function () {
+        $choice.filter('[name="residualriskapetiteFive_yes"]').removeClass('active');
     });
 
     $('input[type="checkbox"]').on('change', function () {
