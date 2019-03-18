@@ -466,7 +466,7 @@
                 <br>
 
                 <div class="col-md-8 col-md-offset-2">
-                    <%= form.check_box :accept_terms_conditions, :style => "width: 20px; height: 20px;" %>
+                    <%= form.check_box :accept_terms_conditions, required: true, :style => "width: 20px; height: 20px;" %>
                     Wir akzeptieren die <span><a target="_blank" rel="noopener noreferrer" href="https://www.agaportal.de/_Resources/Persistent/3bfd6a43f17d04f9b34d523df323f0a44a9eaa17/ab_fab.pdf">
                     Allgemeinen Bedingungen für Lieferantenkreditdeckung(G)  </a> </span> in Zusammenhang mit den
                     <span><a target="_blank" rel="noopener noreferrer" href="https://www.agaportal.de/_Resources/Persistent/b751b874fd137e5f8b22b25d2bd8a15995b09eb2/ab_g.pdf">
@@ -478,7 +478,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <br><br>
-                    <%= form.check_box :read_privacy_policy, :style => "width: 20px; height: 20px;" %>
+                    <%= form.check_box :read_privacy_policy, required: true, :style => "width: 20px; height: 20px;" %>
                     Wir haben die <span><a target="_blank" rel="noopener noreferrer" href="/pages/termsAndConditions">
                     Datenschutzhinweise  </a> </span> zur Kenntnis genommen und sind mit
                     deren Geltung einverstanden.
@@ -490,7 +490,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <br><br>
-                    <%= form.check_box :read_all_instructions, :style => "width: 20px; height: 20px;" %>
+                    <%= form.check_box :read_all_instructions, required: true, :style => "width: 20px; height: 20px;"%>
                     Wir haben die <span><a target="_blank" rel="noopener noreferrer" href="/pages/guidelines">
                     Hinweise zu Gebühren und Entgelten, Richtlinien, Verantwortlichkeiten   </a> </span> für den Antrag,
                     Veröffentlichung von Projektdaten, OECD-Leitsätze für multinationale Unternehmen und
@@ -500,7 +500,5 @@
 
         </div>
     </div>
-
     <br><br><br>
-
 </div>
