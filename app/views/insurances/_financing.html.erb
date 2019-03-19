@@ -1,54 +1,5 @@
 <h4 class="info-text">Ihre Finanzierung</h4>
 
-<div class="row">
-    <div class="col-sm-8 col-sm-offset-1">
-        <div class="form-group">
-            <br>
-            <p><b>Haben Sie bereits das Geschäft mit Ihrem Kunden abgeschlossen bzw. eine Forderung gebucht?</b>
-            <p>
-            <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                <div class="choice <%= 'active' if @insurance.yes_already_completed_transaction == 'on' %>" name="alreadyCompletedTransaction_yes" data-toggle="wizard-checkbox" onclick="alreadyCompletedTransaction()">
-                    <%= check_box_tag "insurance[yes_already_completed_transaction]", @insurance.yes_already_completed_transaction ? @insurance.yes_already_completed_transaction : nil %>
-                    <div class="card circle card-hover-effect">
-                        <i class="ti-check"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                <div class="choice <%= 'active' if @insurance.no_already_completed_transaction == 'on' %>" name="alreadyCompletedTransaction_no" data-toggle="wizard-checkbox" onclick="noAlreadyCompletedTransaction()">
-                    <%= check_box_tag "insurance[no_export_requires_exportlicense]", @insurance.no_already_completed_transaction ? @insurance.no_export_requires_exportlicense : nil %>
-                    <div class="card circle card-hover-effect">
-                        <i class="ti-close"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<br><br>
-
-<div id="completedTransaction" style="display: none;">
-    <div class="appear">
-        <br>
-        <div class="form-group">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <p>HandEX kann in diesem Fall keine digitale Beantragung einer Exportkreditgarantie des Bundes für
-                        Sie bei
-                        Euler Hermes vornehmen. Jedoch ist bei guter Bonität Ihres Kunden und entsprechender
-                        Sicherheiten, eine
-                        Forfaitierung Ihrer Forderungen gegenüber Ihrem Kunden möglich. Hierbei kauft eine unserer
-                        Partnerbanken
-                        Ihre Forderungen und Sie erhalten direkt Liquidität. Dieses Angebot bieten wir Ihnen in Kürze
-                        an. </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
-</div>
-
 <div id="residualRiskApetite">
     <br>
     <div class="row">
@@ -84,7 +35,6 @@
     <br>
 </div>
 
-
 <div id="yesResidualRiskApetite" style="display: none;">
     <div class="appear">
         <br>
@@ -114,9 +64,6 @@
         </div>
     </div>
 </div>
-
-
-
 
 <div class="row">
     <div class="col-sm-8 col-sm-offset-1">
@@ -1181,7 +1128,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-1">
                     <div class="form-group">
-                        <p><b> Welches Zahlungsziel wünscht Ihr Kunde (in Monaten) </b></p>
+                        <p><b> Welches Zahlungsziel wünscht Ihr Kunde (in Monaten)? </b></p>
                     </div>
                 </div>
                 <div class="col-md-4 col-md-offset-1">
