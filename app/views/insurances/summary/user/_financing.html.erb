@@ -1,0 +1,110 @@
+<% qa_partial = 'insurances/summary/user/shared_partials/question_answer.html.erb' %>
+
+<%= render qa_partial, question: "Haben Sie bereits das Geschäft mit Ihrem Kunden abgeschlossen bzw. eine Forderung gebucht?",
+           answer: @insurance.is_transaction_already_completed? ? 'Ja' : 'Nein' %>
+
+<% if @insurance.is_transaction_already_completed? %>
+  <div id="completedTransaction">
+    <div class="row">
+      <div class="col-md-9 col-md-offset-2 text-babu">
+        <p>HandEX kann in diesem Fall keine digitale Beantragung einer Exportkreditgarantie des Bundes für
+          Sie bei Euler Hermes vornehmen. Jedoch ist bei guter Bonität Ihres Kunden und entsprechender
+          Sicherheiten, eine Forfaitierung Ihrer Forderungen gegenüber Ihrem Kunden möglich. Hierbei kauft eine unserer
+          Partnerbanken. Ihre Forderungen und Sie erhalten direkt Liquidität. Dieses Angebot bieten wir Ihnen in
+          Kürzean.
+        </p>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= render qa_partial, question: "Haben Sie bereits ein Zahlungsziel bzw. eine eigene Finanzierung mit Ihrem Kunden vereinbart?",
+           answer: @insurance.is_payment_term_already_agreed? ? 'Ja' : 'Nein' %>
+
+<% if @insurance.is_payment_term_already_agreed? %>
+
+  <%= render qa_partial, question: "Wie sind Ihre Zahlungsbedingungen gestaltet?",
+             answer: @insurance.is_payment_term_already_agreed? ? 'Ja' : 'Nein' %>
+
+  <% answer = nil %>
+  <% if @insurance.payment_term_shortterm? %>
+
+    <% answer = "kurzfristig (bis zu 2 Jahre Kreditlaufzeit" %>
+    <%= render 'insurances/summary/user/_finance_partials/kurzFristigTermOfPayment.html.erb' %>
+
+  <% elsif @insurance.payment_term_middleterm? %>
+
+    <% answer = "mittel-/langfristig (über 2 Jahre Kreditlaufzeit)" %>
+    <%= render 'insurances/summary/user/_finance_partials/mittelTermOfPayment.html.erb' %>
+
+  <% elsif @insurance.payment_term_both? %>
+
+    <% answer = "sowohl kurzfristig als auch mittel-/langfristig" %>
+    <%= render 'insurances/summary/user/_finance_partials/sonstigeKurzFristigTermOfPayment.html.erb' %>
+
+  <% end %>
+
+  <div id="interestCountedCustomer">
+    <%= render qa_partial, question: "Berechnen Sie Ihrem Kunden Zinsen?",
+               answer: answer %>
+  </div>
+
+
+  <% if @insurance.does_charge_interest_to_importer? %>
+
+    <div id="yesCustomerCountInterest">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-babu">
+          <label> In diesem Fall gibt es die Möglichkeit, Ihre Forderungen gegenüber Ihrem Käufer mit einer
+            Forfaitierung zu refinanzieren. Das bedeutet eine unserer Partnerbanken kauft Ihre Forderungen ab und
+            refinanziert bis zu 95% des gesamten Forderungsbetrages. </label>
+        </div>
+      </div>
+    </div>
+
+  <% else %>
+
+    <div id="noCustomerCountInterest">
+      <%= render qa_partial, question: "Welche Kreditlaufzeit wünscht ihr Kunde?",
+                 answer: @insurance.loan_term %>
+    </div>
+
+  <% end %>
+
+  <% if false %>
+    Asfand: From here I am not making stuff in backend. Have to come back to this
+    Utkrist: General: The overall code must be refactored.
+    With regards to you prev comment: The issues must be fixed, and variables below must me set to
+    the appropriate one in the database.
+  <% end %>
+
+  <div id="residualRiskApetite">
+    <%= render qa_partial, question: "Sind Sie bereit ein Restrisiko von 5% der Forderungen zu behalten?",
+               answer: @insurance.loan_term? ? 'Ja' : 'Nein' %>
+  </div>
+
+  <% if @insurance.does_charge_interest_to_importer? %>
+    <div id="yesResidualRiskApetite">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-babu">
+          <p> In diesem Fall gibt es die Möglichkeit die Finanzierung im Rahmen einer Forfaitierung oder
+            eines direkten Kredites von einer unserer Partnerbanken an Ihren Käufer zu realisieren. Im
+            Laufe des Antrages ermitteln wir welche der beiden Finanzierungsformen wir Ihnen anbieten
+            können.
+          </p>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div id="noResidualRiskApetite">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-babu">
+          <p> In diesem Fall gibt es die Möglichkeit die Finanzierung im Rahmen eines direkten Kredites
+            von einer unserer Partnerbanken an Ihren Käufer zu realisieren.
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+<% end %>

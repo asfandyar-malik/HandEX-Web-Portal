@@ -76,5 +76,10 @@ gem 'owlcarousel-rails'
 gem 'mixitup_rails'
 gem 'popper_js', '~> 1.11', '>= 1.11.1'
 gem "sprockets", '3.6.3'
+
+# HTML to pdf generator
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 gem 'cloudinary', '~> 1.11', '>= 1.11.1'
 gem 'paperclip-cloudinary', '~> 1.3', '>= 1.3.2'

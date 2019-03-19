@@ -8,13 +8,13 @@ Rails.application.routes.draw do
     get 'pages/applicationProcessing' => 'pages#applicationProcessing'
     get 'pages/guidelines' => 'pages#guidelines'
 
-    # resources :insurances
-    # get 'insurances/index' => 'insurances#index'
 
     resources :insurances do
       member do
         get 'submitted_applications'
         get 'approved_applications'
+        get 'user_summary'
+        get 'pdf_user_summary'
       end
     end
 
@@ -22,6 +22,6 @@ Rails.application.routes.draw do
                path:        '',
                path_names:  {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'},
                controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
-    
+
     resources :users, only: [:show]
 end

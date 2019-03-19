@@ -16,27 +16,28 @@
  *= require css/main
  *= require css/owl.carousel
  */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "toastr";
 
 @font-face {
   font-family: "Handel Becker Light";
-  src: asset-url('Handel_Becker_Light.ttf') format('truetype');
+  src: asset-data-url('Handel_Becker_Light.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Handel Becker Med";
-  src: asset-url('Handel_Becker_Med.ttf') format('truetype');
+  src: asset-data-url('Handel_Becker_Med.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "HandelGotDBol";
-  src: asset-url('HandelGotDBol.ttf') format('truetype');
+  src: asset-data-url('HandelGotDBol.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

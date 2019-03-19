@@ -1,24 +1,27 @@
+
 class InsurancesController < ApplicationController
+    include Html2pdfconverter
+
     layout "insurance", only: [:new, :edit]
-    
-    before_action :set_insurance, only: [:show, :edit, :update, :destroy]
+
+    before_action :set_insurance, only: [:show, :edit, :update, :destroy, :user_summary, :user_summary_pdf, :pdf_user_summary]
     before_action :authenticate_user!
     before_action :is_authorised, only: [:update]
-    
+
     def index
         @new_applications = filer_application_by_status "new"
     end
-    
+
     def show
     end
-    
+
     def new
         @insurance = current_user.insurances.build
     end
-    
+
     def edit
     end
-    
+
     def create
         @insurance                    = current_user.insurances.build(insurance_params)
         @insurance.application_status = "submitted"
@@ -30,7 +33,7 @@ class InsurancesController < ApplicationController
             render :new
         end
     end
-    
+
     def update
         if @insurance.update(insurance_params)
             redirect_to pages_applicationProcessing_path(@insurance), notice: 'Antrag wurde erfolgreich aktualisiert.'
@@ -38,7 +41,7 @@ class InsurancesController < ApplicationController
             flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
         end
     end
-    
+
     def destroy
         @insurance.destroy
         respond_to do |format|
@@ -46,30 +49,41 @@ class InsurancesController < ApplicationController
             format.json {head :no_content}
         end
     end
-    
+
     def submitted_applications
         @submitted_applications = filer_application_by_status "submitted"
     end
-    
+
     def approved_applications
         @approved_applications = filer_application_by_status "approved"
     end
-    
+
+    def user_summary
+    end
+
+    def pdf_user_summary
+
+      configure_html_to_pdf output_file_name: 'insurance/pdf_user_summary.html.erb',
+                            layout: 'application_pdf.html.erb',
+                            view: 'insurances/pdf_user_summary.html.erb'
+
+    end
+
     private
-    
+
     def filer_application_by_status status
         current_user.insurances.where("application_status = ?", status)
     end
-    
+
     # Use callbacks to share common setup or constraints between actions.
     def set_insurance
         @insurance = Insurance.find(params[:id])
     end
-    
+
     def is_authorised
         redirect_to root_path, alert: "You don't have permission" unless current_user.id = @insurance.user_id
     end
-    
+
     def insurance_params
         params.require(:insurance).permit(
             #important_first

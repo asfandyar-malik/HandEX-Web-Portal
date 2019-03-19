@@ -312,6 +312,34 @@
                         </div>
 
                     </div>
+<<<<<<< HEAD
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-1">
+                        <p>5. Rate</p>
+                    </div>
+                    <div class="col-md-1">
+                        <%= form.select :agreed_payments_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
+                    </div>
+                    <div class="col-md-1">
+                        <div> <%= form.text_field :agreed_payments_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                        %> </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div> <%= form.text_field :agreed_payments_output, class: "form-control" %> </div>
+                    </div>
+                    <div class="col-md-1 ">
+                        <p>%</p>
+                    </div>
+                    <div class="col-md-2">
+                        <%= form.select :agreed_payments_time, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                   "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                   "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                   "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                   "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                   "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "form-control" %>
+                    </div>
+=======
                     <div class="row">
                         <div class="col-md-2 col-md-offset-1">
                             <p>5. Rate</p>
@@ -341,6 +369,7 @@
                         <div class="col-md-2">
                             <div> <%= form.text_field :agreed_payments_some_output, class: "form-control" %> </div>
                         </div>
+>>>>>>> dfa3954fbf4cab7f19e255a0d804f1e92054d5e8
 
                     </div>
                     <div class="row">
@@ -516,6 +545,7 @@
                         <br><br>
                     </div>
                 </div>
+
             </div>
         </div>
 
@@ -576,6 +606,20 @@
                     </div>
                 </div>
 
+<<<<<<< HEAD
+            <div id="workwithothercompanies">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                      <p> Bitte geben Sie hier die Anzahl der Raten ein</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-1">
+                      <%= form.text_field :number_of_installments, class: "form-control", placeholder: "Anzahl der Raten", :onkeypress => "return onlyAllowNumericalValue(event)" %>
+                    </div>
+                </div>
+                <br>
+=======
                 <div id="workwithothercompanies">
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
@@ -591,6 +635,7 @@
 
                     <br>
                 </div>
+>>>>>>> dfa3954fbf4cab7f19e255a0d804f1e92054d5e8
             </div>
             <br>
         </div>
@@ -1140,4 +1185,10 @@
         </div>
         <br>
     </div>
+<<<<<<< HEAD
+
+
 </div>
+=======
+</div>
+>>>>>>> dfa3954fbf4cab7f19e255a0d804f1e92054d5e8
