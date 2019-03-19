@@ -4,7 +4,7 @@
             <div class="wizard-container">
                 <div class="card wizard-card" data-color="blue" id="wizard">
 
-                    <%= form_with(model: insurance, local: true, id: "customer-portal") do |form| %>
+                    <%= form_with(model: insurance, local: true, html: { multipart: true }, id: "customer-portal") do |form| %>
 
                         <% if insurance.errors.any? %>
                             <div id="error_explanation">
@@ -31,22 +31,6 @@
 
                             <ul>
                                 <li>
-                                    <a href="#location" data-toggle="tab">
-                                        <div class="icon-circle">
-                                            <i class="ti-map"></i>
-                                        </div>
-                                        Das wichtigste zuerst
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#type" data-toggle="tab">
-                                        <div class="icon-circle">
-                                            <i class="ti-direction-alt"></i>
-                                        </div>
-                                        Ihre Finanzierung
-                                    </a>
-                                </li>
-                                <li>
                                     <a href="#facilities" data-toggle="tab">
                                         <div class="icon-circle">
                                             <i class="ti-panel"></i>
@@ -60,6 +44,14 @@
                                             <i class="ti-comments"></i>
                                         </div>
                                         Ihr Kunde
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#type" data-toggle="tab">
+                                        <div class="icon-circle">
+                                            <i class="ti-direction-alt"></i>
+                                        </div>
+                                        Ihre Finanzierung
                                     </a>
                                 </li>
                                 <li>
@@ -77,13 +69,6 @@
                         <br><br>
 
                         <div class="tab-content">
-                            <div class="tab-pane" id="location">
-                                <%= render "important_first.html.erb", form: form %>
-                            </div>
-
-                            <div class="tab-pane" id="type">
-                                <%= render "financing.html.erb", form: form %>
-                            </div>
 
                             <div class="tab-pane" id="facilities">
                                 <%= render "business_information.html.erb", form: form %>
@@ -91,6 +76,10 @@
 
                             <div class="tab-pane" id="description">
                                 <%= render "importer_information.html.erb", form: form %>
+                            </div>
+
+                            <div class="tab-pane" id="type">
+                                <%= render "financing.html.erb", form: form %>
                             </div>
 
                             <div class="tab-pane" id="important-at-end">
@@ -101,7 +90,7 @@
                         <div class="wizard-footer">
                             <div class="pull-right">
                                 <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Weiter'/>
-                                <%= form.submit class: 'btn btn-finish btn-fill btn-danger btn-wd', value: 'Angaben prüfen' %>
+                                <%= form.submit class: 'btn btn-finish btn-fill btn-danger btn-wd', value: 'Angaben prüfen', :onclick => "validateCheckbox();" %>
                             </div>
 
                             <div class="pull-left">
@@ -120,7 +109,7 @@
 
 <script>
 
-    //disabling ENTER key (Ascii: 13) on our form because enter was submitting application
+    //disabling ENTER key (AscII: 13) on our form because enter was submitting application
     $("form").on("keypress", function (e) {
         if (e.keyCode == 13) {
             return false;
@@ -136,47 +125,6 @@
             }
         });
     });
-
-    $(function () {
-        $("#privateSector").click(function () {
-            if ($(this).is(":checked")) {
-                $("#showHideDivResultMessage").show();
-            } else {
-                $("#showHideDivResultMessage").hide();
-            }
-        });
-
-        $("#publicSector").click(function () {
-            if ($(this).is(":checked")) {
-                $("#showHideDivResultMessageFail").show();
-            } else {
-                $("#showHideDivResultMessageFail").hide();
-            }
-        });
-    });
-
-    function privateSector() {
-        var x = document.getElementById("showHideDivResultMessage");
-        var y = document.getElementById("showHideDivResultMessageFail");
-
-        if (x.style.display === "none") {
-            x.style.display = "block";
-            y.style.display = "none";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-    function publicSector() {
-        var x = document.getElementById("showHideDivResultMessage");
-        var y = document.getElementById("showHideDivResultMessageFail");
-        if (y.style.display === "none") {
-            y.style.display = "block";
-            x.style.display = "none";
-        } else {
-            y.style.display = "none";
-        }
-    }
 
     function ziehungVonGarantien() {
         var x = document.getElementById("entlastung");
@@ -219,38 +167,28 @@
         }
     }
 
-    function alreadyCompletedTransaction() {
-        var x = document.getElementById("completedTransaction");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-    function noAlreadyCompletedTransaction() {
-        var x = document.getElementById("completedTransaction");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        }
-    }
-
     function paymentTermAgreed() {
-        var x = document.getElementById("termOfPayments");
+        var x = document.getElementById("paymentTermWithImporter");
+        var y = document.getElementById("noPaymentTermWithImporter");
+
         if (x.style.display === "none") {
             x.style.display = "block";
+            y.style.display = "none";
         } else {
             x.style.display = "none";
         }
     }
 
     function noPaymentTermAgreed() {
-        var x = document.getElementById("termOfPayments");
-        if (x.style.display === "block") {
+        var x = document.getElementById("noPaymentTermWithImporter");
+        var y = document.getElementById("paymentTermWithImporter");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.display = "none";
+        } else {
             x.style.display = "none";
         }
     }
-
 
     // $(function () {
     //     $("#yes_secondhand_goods").click(function () {
@@ -312,11 +250,8 @@
 
     function customerCountsInterest() {
         var x = document.getElementById("yesCustomerCountInterest");
-        var y = document.getElementById("noCustomerCountInterest");
-
         if (x.style.display === "none") {
             x.style.display = "block";
-            y.style.display = "none";
         } else {
             x.style.display = "none";
         }
@@ -324,13 +259,8 @@
 
     function noCustomerCountsInterest() {
         var x = document.getElementById("yesCustomerCountInterest");
-        var y = document.getElementById("noCustomerCountInterest");
-
-        if (y.style.display === "none") {
-            y.style.display = "block";
+        if (x.style.display === "block") {
             x.style.display = "none";
-        }else {
-            y.style.display = "none";
         }
     }
 
@@ -761,19 +691,11 @@
     });
 
     $choice.filter('[name="publicsector"]').click(function () {
-        $choice.filter('[name="privatesector"]').removeClass('active');
+        $choice.filter('[name="privateprivatesector"]').removeClass('active');
     });
 
     $choice.filter('[name="privatesector"]').click(function () {
         $choice.filter('[name="publicsector"]').removeClass('active');
-    });
-
-    $choice.filter('[name="alreadyCompletedTransaction_yes"]').click(function () {
-        $choice.filter('[name="alreadyCompletedTransaction_no"]').removeClass('active');
-    });
-
-    $choice.filter('[name="alreadyCompletedTransaction_no"]').click(function () {
-        $choice.filter('[name="alreadyCompletedTransaction_yes"]').removeClass('active');
     });
 
     $('input[type="checkbox"]').on('change', function () {
@@ -880,18 +802,6 @@
             $("#showHideDivCorruptionDeclarationApplies").show();
         } else {
             $("#showHideDivCorruptionDeclarationApplies").hide();
-        }
-
-        if ($("#privateSector").is(":checked")) {
-            $("#showHideDivResultMessage").show();
-        } else {
-            $("#showHideDivResultMessage").hide();
-        }
-
-        if ($("#publicSector").is(":checked")) {
-            $("#showHideDivResultMessageFail").show();
-        } else {
-            $("#showHideDivResultMessageFail").hide();
         }
     });
 

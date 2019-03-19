@@ -40,53 +40,55 @@
     </div>
 
     <div id="newAtHermesDeckung" style="display: none">
-        <div class="form-group">
-            <div class="row">
-                <br>
-                <div class="col-md-10 col-md-offset-1">
-                    <p>Da Sie bisher keine Hermesdeckung beantragt haben, möchte HandEX
-                        und unser Partner Euler Hermes Sie besser kennenlernen.
-                        Bitte helfen Sie uns zu verstehen, inwieweit Sie bereits über
-                        Exporterfahrung
-                        und Erfahrungen mit säumigen Auslandskunden verfügen.</p>
-                    <br><br>
-                </div>
+        <div class="appear">
+            <div class="form-group">
+                <div class="row">
+                    <br>
+                    <div class="col-md-10 col-md-offset-1">
+                        <p>Da Sie bisher keine Hermesdeckung beantragt haben, möchte HandEX
+                            und unser Partner Euler Hermes Sie besser kennenlernen.
+                            Bitte helfen Sie uns zu verstehen, inwieweit Sie bereits über
+                            Exporterfahrung
+                            und Erfahrungen mit säumigen Auslandskunden verfügen.</p>
+                        <br><br>
+                    </div>
 
-                <div class="col-md-10 col-md-offset-1">
-                    <p><i>Inwieweit bzw. seit wie vielen Jahren verfügen Sie über
-                        Exporterfahrung
-                        aus ungedeckten Geschäften, d.h. Exportgeschäfte ohne
-                        Hermesdeckung?</i></p>
-                    <div> <%= form.text_field :trading_since_when_without_hermes_insurance, class: "form-control" %> </div>
-                </div>
+                    <div class="col-md-10 col-md-offset-1">
+                        <p><i>Inwieweit bzw. seit wie vielen Jahren verfügen Sie über
+                            Exporterfahrung
+                            aus ungedeckten Geschäften, d.h. Exportgeschäfte ohne
+                            Hermesdeckung?</i></p>
+                        <div> <%= form.text_field :trading_since_when_without_hermes_insurance, class: "form-control" %> </div>
+                    </div>
 
 
-                <div class="col-md-10 col-md-offset-1">
-                    <br><br>
-                    <p><i>Besteht eine langjährige Exporterfahrung sowie Marktkenntnis
-                        mit
-                        dem
-                        Empfängerland?</i></p>
-                    <%= form.text_field :experience_with_export_country, class: "form-control" %>
-                </div>
+                    <div class="col-md-10 col-md-offset-1">
+                        <br><br>
+                        <p><i>Besteht eine langjährige Exporterfahrung sowie Marktkenntnis
+                            mit
+                            dem
+                            Empfängerland?</i></p>
+                        <%= form.text_field :experience_with_export_country, class: "form-control" %>
+                    </div>
 
-                <div class="col-md-10 col-md-offset-1 ">
-                    <br><br>
-                    <p><i> Bitte legen Sie dar, inwiefern Sie über ein adäquates
-                        Schadenmanagement
-                        verfügen. Wurden Sie in der Vergangenheit bereits (häufiger) mit
-                        Zahlungsverzügen/ Forderungsausfällen konfrontiert und welche
-                        Maßnahmen greifen bei Ihnen im Unternehmen, wenn ein Kunde in
-                        Zahlungsverzug
-                        gerät? </i></p>
-                    <%= form.text_field :adequate_claims_management, class: "form-control" %>
+                    <div class="col-md-10 col-md-offset-1 ">
+                        <br><br>
+                        <p><i> Bitte legen Sie dar, inwiefern Sie über ein adäquates
+                            Schadenmanagement
+                            verfügen. Wurden Sie in der Vergangenheit bereits (häufiger) mit
+                            Zahlungsverzügen/ Forderungsausfällen konfrontiert und welche
+                            Maßnahmen greifen bei Ihnen im Unternehmen, wenn ein Kunde in
+                            Zahlungsverzug
+                            gerät? </i></p>
+                        <%= form.text_field :adequate_claims_management, class: "form-control" %>
+                    </div>
                 </div>
             </div>
+            <br>
         </div>
     </div>
 
     <div id="firmenDaten">
-
         <br>
         <div class="form-group">
             <div class="row">
@@ -131,7 +133,37 @@
 
                 <div class="col-md-3">
                     <p> Land </p>
-                    <div> <%= form.text_field :exporter_company_country, class: "form-control" %> </div>
+                    <%= form.select :exporter_company_country,
+                                    options_for_select(['Mexico', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
+                                                        'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados',
+                                                        'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana',
+                                                        'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon',
+                                                        'Canada', 'Central African Republic (CAR)', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros',
+                                                        'Democratic Republic of the Congo', 'Republic of the Congo', 'Costa Rica', 'Cote d\'Ivoire',
+                                                        'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic',
+                                                        'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia',
+                                                        'Eswatini (formerly Swaziland)', 'Ethiopia', 'Fiji', 'Finland', 'France', 'Gabon',
+                                                        'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea',
+                                                        'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia',
+                                                        'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan',
+                                                        'Kenya', 'Kiribati', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho',
+                                                        'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macedonia (FYROM)', 'Madagascar',
+                                                        'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius',
+                                                        'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique',
+                                                        'Myanmar (formerly Burma)', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua',
+                                                        'Niger', 'Nigeria', 'North Korea', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestine', 'Panama',
+                                                        'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania',
+                                                        'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines',
+                                                        'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles',
+                                                        'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa',
+                                                        'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname',
+                                                        'Swaziland (renamed to Eswatini)', 'Sweden', 'Switzerland', 'Syria', 'Taiwan',
+                                                        'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago',
+                                                        'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates (UAE)',
+                                                        'United Kingdom (UK)', 'United States of America (USA)', 'Uruguay', 'Uzbekistan', 'Vanuatu',
+                                                        'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'],
+                                                       @insurance.exporter_company_country ? @insurance.exporter_company_country : nil), id: 'exporter_company_country', class: 'form-control' %>
+
                 </div>
             </div>
         </div>
@@ -466,7 +498,7 @@
                 <br>
 
                 <div class="col-md-8 col-md-offset-2">
-                    <%= form.check_box :accept_terms_conditions, :style => "width: 20px; height: 20px;" %>
+                    <%= form.check_box :accept_terms_conditions, required: true, :style => "width: 20px; height: 20px;" %>
                     Wir akzeptieren die <span><a target="_blank" rel="noopener noreferrer" href="https://www.agaportal.de/_Resources/Persistent/3bfd6a43f17d04f9b34d523df323f0a44a9eaa17/ab_fab.pdf">
                     Allgemeinen Bedingungen für Lieferantenkreditdeckung(G)  </a> </span> in Zusammenhang mit den
                     <span><a target="_blank" rel="noopener noreferrer" href="https://www.agaportal.de/_Resources/Persistent/b751b874fd137e5f8b22b25d2bd8a15995b09eb2/ab_g.pdf">
@@ -478,7 +510,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <br><br>
-                    <%= form.check_box :read_privacy_policy, :style => "width: 20px; height: 20px;" %>
+                    <%= form.check_box :read_privacy_policy, required: true, :style => "width: 20px; height: 20px;" %>
                     Wir haben die <span><a target="_blank" rel="noopener noreferrer" href="/pages/termsAndConditions">
                     Datenschutzhinweise  </a> </span> zur Kenntnis genommen und sind mit
                     deren Geltung einverstanden.
@@ -490,7 +522,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <br><br>
-                    <%= form.check_box :read_all_instructions, :style => "width: 20px; height: 20px;" %>
+                    <%= form.check_box :read_all_instructions, required: true, :style => "width: 20px; height: 20px;"%>
                     Wir haben die <span><a target="_blank" rel="noopener noreferrer" href="/pages/guidelines">
                     Hinweise zu Gebühren und Entgelten, Richtlinien, Verantwortlichkeiten   </a> </span> für den Antrag,
                     Veröffentlichung von Projektdaten, OECD-Leitsätze für multinationale Unternehmen und
@@ -500,7 +532,5 @@
 
         </div>
     </div>
-
     <br><br><br>
-
 </div>
