@@ -38,7 +38,7 @@
 </div>
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <label> <%= check_missing(@insurance.explain_good_industry_type) %></label>
+    <label> <%= check_missing(@insurance.is_transaction_already_completed) %></label>
   </div>
 </div>
 <hr>
@@ -50,107 +50,49 @@
       %>
 </div>
 
-<!--<div class="row">-->
+<div class="row">
 
-<!--  <div class="row">-->
-<!--    <div class="col-md-8 col-md-offset-2">-->
-<!--      <label> Betreffen Ihre Lieferungen bzw. Leistungen ein sensibles Gebiet?  </label>-->
-<!--    </div>-->
-<!--  </div>-->
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <label> Betreffen Ihre Lieferungen bzw. Leistungen ein sensibles Gebiet?  </label>
+    </div>
+  </div>
 
-<!--  <div class="row">-->
-<!--    <div class="col-md-8 col-md-offset-2">-->
-<!--      <label> <%#= check_missing(@insurance.describe_export_business) %></label>-->
-<!--      <p><i>Als sensible Gebiete gelten Nationalparks und andere durch-->
-<!--        nationales oder internationales Recht geschützte Gebiete sowie-->
-<!--        sensible Regionen von internationaler, nationaler oder-->
-<!--        regionaler-->
-<!--        Bedeutung.</i></p>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <hr>-->
-<!--  # Tala ko ra mathi ko related ho:-->
-<!--  # gara: garna lageko chu-->
-<!--  <div class="col-sm-11 col-sm-offset-1">-->
-<!--    <div class="form-group">-->
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <label> <%= check_missing(@insurance.describe_export_business) %></label>
+      <p><i>Als sensible Gebiete gelten Nationalparks und andere durch
+        nationales oder internationales Recht geschützte Gebiete sowie
+        sensible Regionen von internationaler, nationaler oder
+        regionaler
+        Bedeutung.</i></p>
+    </div>
+  </div>
 
+  <% options = ["Nein",
+                "Naturschutzgebiet",
+                "Bedeutung für indigene Völker",
+                "Archäologische oder kulturelle",
+                "Sonstige"] %>
 
-<!--      <div class="row">-->
-<!--        <div class="col-md-3">-->
+  <% options_vars = [@insurance.delivery_doesnt_affects_sensitive_areas,
+                     @insurance.delivery_affects_natural_reserves,
+                     @insurance.delivery_affects_indigenous_people,
+                     @insurance.delivery_affects_cultural_heritage,
+                     @insurance.delivery_affects_other] %>
 
-<!--          <div class="choice <%#= 'active' if @insurance.delivery_doesnt_affects_sensitive_areas == 'on' %>" name="sensitivearea_nein" data-toggle="wizard-checkbox">-->
+  <% options.zip(options_vars).each do |option, opt_var| %>
+    <% if opt_var? %>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <label> <%= option %></label>
+        </div>
+      </div>
 
-<%#= check_box_tag "insurance[delivery_doesnt_affects_sensitive_areas]", @insurance.delivery_doesnt_affects_sensitive_areas ? @insurance.delivery_doesnt_affects_sensitive_areas : nil %>
-
-<!--            <div class="card card-checkboxes height-adjusted-normal card-hover-effect">-->
-<!--              <i class="ti-layout-sidebar-none"></i>-->
-<!--              <p>Nein</p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        <div class="col-md-3 col-md-offset-1">-->
-
-<!--          <div class="choice <%#= 'active' if @insurance.delivery_affects_natural_reserves == 'on' %>" name="sensitivearea" data-toggle="wizard-checkbox">-->
-
-<%#= check_box_tag "insurance[delivery_affects_natural_reserves]", @insurance.delivery_affects_natural_reserves ? @insurance.delivery_affects_natural_reserves : nil %>
-
-<!--            <div class="card card-checkboxes height-adjusted-normal card-hover-effect">-->
-<!--              <i class="ti-shine"></i>-->
-<!--              <p>Naturschutzgebiet</p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        <div class="col-md-3 col-md-offset-1">-->
-<!--          <div class="choice <%#= 'active' if @insurance.delivery_affects_indigenous_people == 'on' %>" name="sensitivearea" data-toggle="wizard-checkbox">-->
-
-<%#= check_box_tag "insurance[delivery_affects_indigenous_people]", @insurance.delivery_affects_indigenous_people ? @insurance.delivery_affects_indigenous_people : nil %>
-
-<!--            <div class="card card-checkboxes height-adjusted-normal card-hover-effect">-->
-<!--              <i class="ti-user"></i>-->
-<!--              <p>Bedeutung für indigene Völker</p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--      </div>-->
-
-<!--      <br>-->
-
-<!--      <div class="row">-->
-
-<!--        <div class="col-md-3 col-md-offset-2">-->
-
-<!--          <div class="choice <%#= 'active' if @insurance.delivery_affects_cultural_heritage == 'on' %>" name="sensitivearea" data-toggle="wizard-checkbox">-->
-
-<%#= check_box_tag "insurance[delivery_affects_cultural_heritage]", @insurance.delivery_affects_cultural_heritage ? @insurance.delivery_affects_cultural_heritage : nil %>
-
-<!--            <div class="card card-checkboxes height-adjusted-normal-big card-hover-effect">-->
-<!--              <i class="ti-star"></i>-->
-<!--              <p> Archäologische oder kulturelle-->
-<!--                <Bedeutung></Bedeutung>-->
-<!--              </p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        <div class="col-md-3 col-md-offset-1">-->
-
-<!--          <div class="choice <%#= 'active' if @insurance.delivery_affects_other == 'on' %>" name="sensitivearea_sonstige" data-toggle="wizard-checkbox" , onclick="affectsOtherSpecial()">-->
-
-<%#= check_box_tag "insurance[delivery_affects_other]", @insurance.delivery_affects_other ? @insurance.delivery_affects_other : nil %>
-
-<!--            <div class="card card-checkboxes height-adjusted-normal-big card-hover-effect">-->
-<!--              <i class="ti-marker"></i>-->
-<!--              <p>Sonstige</p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+    <% else %>
+      <span class="text-red">...</span>
+    <% end %>
+  <% end %>
 
 
 <div id="affectsOtherSpecialDiv" style="display: <%= @insurance.delivery_affects_other?? 'block' : 'none' %>">
@@ -416,7 +358,9 @@
 
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <label class="text-babu"> <%= check_missing(@insurance.why_all_foreign_rawgoods_necessary 'Ja': 'Nein') %></label>
+        <label class="text-babu">
+          <%= check_missing(@insurance.why_all_foreign_rawgoods_necessary?? 'Ja': 'Nein') %>
+        </label>
       </div>
     </div>
   </div>
