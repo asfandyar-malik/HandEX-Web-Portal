@@ -30,3 +30,7 @@ test
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+
+#ephemeral files are created here. Lets not commit them
+public/system/*

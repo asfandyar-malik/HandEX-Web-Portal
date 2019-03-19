@@ -1,36 +1,5 @@
 <h4 class="info-text">Ihre Finanzierung</h4>
 
-<!--<div class="row">-->
-<!--    <div class="col-sm-10 col-sm-offset-1">-->
-
-<!--        <div class="row">-->
-<!--            <div class="col-xs-5 col-sm-5 col-md-4 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-2 col-lg-offset-2">-->
-<!--                <div class="choice <%#= 'active' if @insurance.risk_contractual_warranty_coverage == 'on' %>" data-toggle="wizard-checkbox" onclick="ziehungVonGarantien()">-->
-<%#= check_box_tag "insurance[risk_contractual_warranty_coverage]", @insurance.risk_contractual_warranty_coverage ? @insurance.risk_contractual_warranty_coverage : nil %>
-<!--                    <div class="card card-checkboxes card-hover-effect">-->
-<!--                        <i class="ti-layout-accordion-merged"></i>-->
-<!--                        <p>Ziehung von Garantien</p>-->
-<!--                        <p>(bekannt als Vertragsgarantiedeckung)</p>-->
-<!--                        <h7 style="color:red;">In Kürze verfügbar</h7>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--            <div id="entlastung" class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="display: none">-->
-<!--                <div class="choice <%#= 'active' if @insurance.supplementary_risk_housebank_guarantee == 'on' %>" data-toggle="wizard-checkbox">-->
-<%#= check_box_tag "insurance[supplementary_risk_housebank_guarantee]", @insurance.supplementary_risk_housebank_guarantee ? @insurance.supplementary_risk_housebank_guarantee : nil %>
-<!--                    <div class="card card-checkboxes card-hover-effect">-->
-<!--                        <i class="ti-envelope"></i>-->
-<!--                        <p>Entlastung Ihrer Avallinie</p>-->
-<!--                        <p>(bekannt als Vertragsgarantiedeckung)</p>-->
-<!--                        <h7 style="color:red;">In Kürze verfügbar</h7>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
 <div class="row">
     <div class="col-sm-8 col-sm-offset-1">
         <div class="form-group">
@@ -79,6 +48,75 @@
     </div>
     <br>
 </div>
+
+<div id="residualRiskApetite">
+    <br>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <div class="form-group">
+                <p><b> Sind Sie bereit eine (Re-)Finanzierung anzunehmen, die nicht dem vollständigen Auftragswert entspricht (85-95%)? </b>
+                <p>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
+                    <div class="choice <%= 'active' if @insurance.yes_residualriskapetite_minimum_five == 'on' %>" name="yes_residualriskapetite" data-toggle="wizard-checkbox" onclick="residualRiskApetite()">
+
+                        <%= check_box_tag "insurance[yes_residualriskapetite_minimum_five]", @insurance.yes_residualriskapetite_minimum_five ? @insurance.yes_residualriskapetite_minimum_five : nil %>
+
+                        <div class="card circle card-hover-effect">
+                            <i class="ti-check"></i>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
+                    <div class="choice <%= 'active' if @insurance.no_residualriskapetite_minimum_five == 'on' %>" name="no_residualriskapetite" data-toggle="wizard-checkbox" onclick="noResidualRiskApetite()">
+
+                        <%= check_box_tag "insurance[no_residualriskapetite_minimum_five]", @insurance.no_residualriskapetite_minimum_five ? @insurance.no_residualriskapetite_minimum_five : nil %>
+
+                        <div class="card circle card-hover-effect">
+                            <i class="ti-close"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+
+
+<div id="yesResidualRiskApetite" style="display: none;">
+    <div class="appear">
+        <br>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <p> In diesem Fall gibt es die Möglichkeit die Finanzierung im Rahmen einer Forfaitierung oder
+                        eines direkten Kredites von einer unserer Partnerbanken an Ihren Käufer zu realisieren. Im
+                        Laufe des Antrages ermitteln wir welche der beiden Finanzierungsformen wir Ihnen anbieten
+                        können. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="noResidualRiskApetite" style="display: none;">
+    <div class="appear">
+        <br>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <p> In diesem Fall gibt es die Möglichkeit die Finanzierung im Rahmen eines direkten Kredites
+                        von einer unserer Partnerbanken an Ihren Käufer zu realisieren. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 <div class="row">
     <div class="col-sm-8 col-sm-offset-1">
@@ -1111,7 +1149,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -1134,92 +1171,6 @@
                 </div>
             </div>
         </div>
-
-        <div id="noCustomerCountInterest" style="display: none;">
-            <div class="appear">
-                <br>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-10 col-md-offset-1">
-                            <p> Welche Kreditlaufzeit wünscht ihr Kunde? </p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4 col-md-offset-1">
-                            <div> <%= form.text_field :loan_term, placeholder: "Monate", class: "form-control" %> </div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-            </div>
-        </div>
-
-        <div id="residualRiskApetite">
-            <br>
-            <div class="row">
-                <div class="col-md-8 col-md-offset-1">
-                    <div class="form-group">
-                        <p><b>  Sind Sie bereit ein Restrisiko von mindestens 5% der Forderungen zu behalten bzw. können Sie eine Anzahlung in Höhe von mindestens 5% mit dem Kunden vereinbaren? </b>
-                        <p>
-                        <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                            <div class="choice <%= 'active' if @insurance.yes_residualriskapetite_minimum_five == 'on' %>" name="yes_residualriskapetite" data-toggle="wizard-checkbox" onclick="residualRiskApetite()">
-
-                                <%= check_box_tag "insurance[yes_residualriskapetite_minimum_five]", @insurance.yes_residualriskapetite_minimum_five ? @insurance.yes_residualriskapetite_minimum_five : nil %>
-
-                                <div class="card circle card-hover-effect">
-                                    <i class="ti-check"></i>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                            <div class="choice <%= 'active' if @insurance.no_residualriskapetite_minimum_five == 'on' %>" name="no_residualriskapetite" data-toggle="wizard-checkbox" onclick="noResidualRiskApetite()">
-
-                                <%= check_box_tag "insurance[no_residualriskapetite_minimum_five]", @insurance.no_residualriskapetite_minimum_five ? @insurance.no_residualriskapetite_minimum_five : nil %>
-
-                                <div class="card circle card-hover-effect">
-                                    <i class="ti-close"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br>
-        </div>
-
-        <div id="yesResidualRiskApetite" style="display: none;">
-            <div class="appear">
-                <br>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-10 col-md-offset-1">
-                            <p> In diesem Fall gibt es die Möglichkeit die Finanzierung im Rahmen einer Forfaitierung oder
-                                eines direkten Kredites von einer unserer Partnerbanken an Ihren Käufer zu realisieren. Im
-                                Laufe des Antrages ermitteln wir welche der beiden Finanzierungsformen wir Ihnen anbieten
-                                können. </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="noResidualRiskApetite" style="display: none;">
-            <div class="appear">
-                <br>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-10 col-md-offset-1">
-                            <p> In diesem Fall gibt es die Möglichkeit die Finanzierung im Rahmen eines direkten Kredites
-                                von einer unserer Partnerbanken an Ihren Käufer zu realisieren. </p>
-                        </div>
-                    </div>
-                </div>
-                <br>
-            </div>
-        </div>
-
     </div>
 </div>
 
@@ -1230,33 +1181,16 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-1">
                     <div class="form-group">
-                        <p><b> Sind Sie bereit ein Restrisiko von 5% der Forderungen zu behalten bzw. können Sie eine Anzahlung in Höhe von 5% mit dem Kunden vereinbaren? </b>
-                        <p>
-                        <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                            <div class="choice <%= 'active' if @insurance.yes_residualriskapetite_five == 'on' %>" name="residualriskapetiteFive_yes" data-toggle="wizard-checkbox">
-
-                                <%= check_box_tag "insurance[yes_residualriskapetite_five]", @insurance.yes_residualriskapetite_five ? @insurance.yes_residualriskapetite_five : nil %>
-
-                                <div class="card circle card-hover-effect">
-                                    <i class="ti-check"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                            <div class="choice <%= 'active' if @insurance.no_residualriskapetite_five == 'on' %>" name="residualriskapetiteFive_no" data-toggle="wizard-checkbox">
-
-                                <%= check_box_tag "insurance[no_residualriskapetite_five]", @insurance.no_residualriskapetite_five ? @insurance.no_residualriskapetite_five : nil %>
-
-                                <div class="card circle card-hover-effect">
-                                    <i class="ti-close"></i>
-                                </div>
-                            </div>
-                        </div>
+                        <p><b> Welches Zahlungsziel wünscht Ihr Kunde (in Monaten) </b></p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-md-offset-1">
+                    <div class="form-group">
+                        <%= form.text_field :contract_value, class: 'form-control', placeholder: 'Monaten' %>
                     </div>
                 </div>
             </div>
-            <br>
         </div>
+        <br>
     </div>
 </div>
