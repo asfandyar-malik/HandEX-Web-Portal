@@ -38,14 +38,7 @@
             <p><b>Haben Sie bereits das Geschäft mit Ihrem Kunden abgeschlossen bzw. eine Forderung gebucht?</b>
             <p>
             <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                <div class="choice <%= 'active' if @insurance.yes_already_completed_transaction == 'on' %>" name="alreadyCompletedTransaction_yes" data-toggle="wizard-checkbox" onclick="alreadyCompletedTransaction()">
-                    <%= check_box_tag "insurance[yes_already_completed_transaction]", @insurance.yes_already_completed_transaction ? @insurance.yes_already_completed_transaction : nil %>
-                    <div class="card circle card-hover-effect">
-                        <i class="ti-check"></i>
-                    </div>
-                </div>
-            </div>
-
+                <div class="choice <%= 'active' if @insurance.is_transactionalready_completed == 'on' %>" name="alreadyCompletedTransaction_yes" data-toggle="wizard-checkbox" onclick="alreadyCompletedTransaction()">
             <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                 <div class="choice <%= 'active' if @insurance.no_already_completed_transaction == 'on' %>" name="alreadyCompletedTransaction_no" data-toggle="wizard-checkbox" onclick="noAlreadyCompletedTransaction()">
                     <%= check_box_tag "insurance[no_export_requires_exportlicense]", @insurance.no_already_completed_transaction ? @insurance.no_export_requires_exportlicense : nil %>
