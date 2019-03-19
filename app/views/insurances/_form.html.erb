@@ -31,22 +31,6 @@
 
                             <ul>
                                 <li>
-                                    <a href="#location" data-toggle="tab">
-                                        <div class="icon-circle">
-                                            <i class="ti-map"></i>
-                                        </div>
-                                        Das wichtigste zuerst
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#type" data-toggle="tab">
-                                        <div class="icon-circle">
-                                            <i class="ti-direction-alt"></i>
-                                        </div>
-                                        Ihre Finanzierung
-                                    </a>
-                                </li>
-                                <li>
                                     <a href="#facilities" data-toggle="tab">
                                         <div class="icon-circle">
                                             <i class="ti-panel"></i>
@@ -60,6 +44,14 @@
                                             <i class="ti-comments"></i>
                                         </div>
                                         Ihr Kunde
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#type" data-toggle="tab">
+                                        <div class="icon-circle">
+                                            <i class="ti-direction-alt"></i>
+                                        </div>
+                                        Ihre Finanzierung
                                     </a>
                                 </li>
                                 <li>
@@ -77,13 +69,6 @@
                         <br><br>
 
                         <div class="tab-content">
-                            <div class="tab-pane" id="location">
-                                <%= render "important_first.html.erb", form: form %>
-                            </div>
-
-                            <div class="tab-pane" id="type">
-                                <%= render "financing.html.erb", form: form %>
-                            </div>
 
                             <div class="tab-pane" id="facilities">
                                 <%= render "business_information.html.erb", form: form %>
@@ -91,6 +76,10 @@
 
                             <div class="tab-pane" id="description">
                                 <%= render "importer_information.html.erb", form: form %>
+                            </div>
+
+                            <div class="tab-pane" id="type">
+                                <%= render "financing.html.erb", form: form %>
                             </div>
 
                             <div class="tab-pane" id="important-at-end">
@@ -137,47 +126,6 @@
         });
     });
 
-    $(function () {
-        $("#privateSector").click(function () {
-            if ($(this).is(":checked")) {
-                $("#showHideDivResultMessage").show();
-            } else {
-                $("#showHideDivResultMessage").hide();
-            }
-        });
-
-        $("#publicSector").click(function () {
-            if ($(this).is(":checked")) {
-                $("#showHideDivResultMessageFail").show();
-            } else {
-                $("#showHideDivResultMessageFail").hide();
-            }
-        });
-    });
-
-    function privateSector() {
-        var x = document.getElementById("showHideDivResultMessage");
-        var y = document.getElementById("showHideDivResultMessageFail");
-
-        if (x.style.display === "none") {
-            x.style.display = "block";
-            y.style.display = "none";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-    function publicSector() {
-        var x = document.getElementById("showHideDivResultMessage");
-        var y = document.getElementById("showHideDivResultMessageFail");
-        if (y.style.display === "none") {
-            y.style.display = "block";
-            x.style.display = "none";
-        } else {
-            y.style.display = "none";
-        }
-    }
-
     function ziehungVonGarantien() {
         var x = document.getElementById("entlastung");
         if (x.style.display === "none") {
@@ -214,22 +162,6 @@
 
     function noExportLicenseRequired() {
         var x = document.getElementById("exportLicenseRequirement");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        }
-    }
-
-    function alreadyCompletedTransaction() {
-        var x = document.getElementById("completedTransaction");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-    function noAlreadyCompletedTransaction() {
-        var x = document.getElementById("completedTransaction");
         if (x.style.display === "block") {
             x.style.display = "none";
         }
@@ -759,19 +691,11 @@
     });
 
     $choice.filter('[name="publicsector"]').click(function () {
-        $choice.filter('[name="privatesector"]').removeClass('active');
+        $choice.filter('[name="privateprivatesector"]').removeClass('active');
     });
 
     $choice.filter('[name="privatesector"]').click(function () {
         $choice.filter('[name="publicsector"]').removeClass('active');
-    });
-
-    $choice.filter('[name="alreadyCompletedTransaction_yes"]').click(function () {
-        $choice.filter('[name="alreadyCompletedTransaction_no"]').removeClass('active');
-    });
-
-    $choice.filter('[name="alreadyCompletedTransaction_no"]').click(function () {
-        $choice.filter('[name="alreadyCompletedTransaction_yes"]').removeClass('active');
     });
 
     $('input[type="checkbox"]').on('change', function () {
@@ -878,18 +802,6 @@
             $("#showHideDivCorruptionDeclarationApplies").show();
         } else {
             $("#showHideDivCorruptionDeclarationApplies").hide();
-        }
-
-        if ($("#privateSector").is(":checked")) {
-            $("#showHideDivResultMessage").show();
-        } else {
-            $("#showHideDivResultMessage").hide();
-        }
-
-        if ($("#publicSector").is(":checked")) {
-            $("#showHideDivResultMessageFail").show();
-        } else {
-            $("#showHideDivResultMessageFail").hide();
         }
     });
 

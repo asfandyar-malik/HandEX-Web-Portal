@@ -9,6 +9,48 @@
         </div>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+        <div class="form-group">
+            <p><b>Handelt es sich bei Ihrer Ware um Investitionsgüter?</b></p>
+            <%= form.check_box :is_investment_good, id: "investmentGood", :style => "width: 20px; height: 20px;" %>
+            Ja
+        </div>
+    </div>
+</div>
+
+<div id="showHideDivDeliveryGoal">
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+            <div class="form-group">
+                <p><b>Ist Ihr Kunde ein Unternehmen des öffentlichen oder privaten Sektors?</b></p>
+                <div class="col-sm-4 col-sm-offset-1">
+                    <div class="choice <%= 'active' if @insurance.exporting_to_private_sector == 'on' %>" name="privatesector" data-toggle="wizard-checkbox">
+                        <%= check_box_tag "insurance[exporting_to_private_sector]" %>
+                        <div class="card card-checkboxes card-hover-effect">
+                            <i class="ti-home"></i>
+                            <p>Privater Sektor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="choice <%= 'active' if @insurance.exporting_to_public_sector == 'on' %>" name="publicsector" data-toggle="wizard-checkbox">
+
+                        <%= check_box_tag "insurance[exporting_to_public_sector]", @insurance.exporting_to_public_sector ? @insurance.exporting_to_public_sector : nil %>
+
+                        <div class="card card-checkboxes card-hover-effect">
+                            <i class="ti-home"></i>
+                            <p>Öffentlicher Sektor</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
         <p><b>Bitte helfen Sie uns nun, das Vorhaben gut zu verstehen</b></p>
@@ -27,7 +69,7 @@
         <div class="form-group">
             <p><b>Wir erbringen auch Leistungen (Montage, Schulungen vor Ort,
                 etc.)?</b></p>
-            <%= form.check_box :exporter_offers_servicing_for_goods, :style => "width: 20px; height: 20px;" %>
+            <%= form.check_box :exporter_offers_servicing_for_goods, :style => "width: 20px; height: 20px;" %> Ja
         </div>
     </div>
 
