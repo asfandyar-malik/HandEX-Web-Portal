@@ -2,10 +2,10 @@
 
 <div id="deliveryAddressCheck">
   <%= render qa_partial, question: "Haben Sie in der Vergangenheit schon einmal einen Antrag auf Hermesdeckung eingereicht?",
-                         answer:   @insurance.has_previously_hermes_insurance_used?? 'Ja':'Nein' %>
+             answer: @insurance.has_previously_hermes_insurance_used? ? 'Ja' : 'Nein' %>
 </div>
 
-<div id="newAtHermesDeckung" style= "display: <%= @insurance.has_previously_hermes_insurance_used?? 'none' : 'block' %>">
+<div id="newAtHermesDeckung" style="display: <%= @insurance.has_previously_hermes_insurance_used? ? 'none' : 'block' %>">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <label>Da Sie bisher keine Hermesdeckung beantragt haben, möchte HandEX
@@ -204,7 +204,7 @@
                        @insurance.credit_bureaus_importer_file_name,
                        @insurance.environment_social_audit_file_name,
                        @insurance.project_memorandum_exporter_business_file_name,
-                       @insurance.additional_document_file_name ] %>
+                       @insurance.additional_document_file_name] %>
 
       <% file_types.zip(file_names).each do |file_type, file_name| %>
 
@@ -241,11 +241,12 @@
     </div>
   </div>
 
-  <div id="showHideDivCorruptionDeclarationApplies" style="display:<%= !@insurance.corruption_declaration_applies?? 'block' : 'none' %>">
+  <div id="showHideDivCorruptionDeclarationApplies" style="display:<%= !@insurance.corruption_declaration_applies? ? 'block' : 'none' %>">
 
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <label> Bitte machen Sie nähere Angaben zu den oben stehenden Punkten hinsichtlich Anklagen, strafrechtlichen oder nicht-strafrechtlichen Sanktionen sowie Ermittlungsverfahren  und Sperrlisten </label>
+        <label> Bitte machen Sie nähere Angaben zu den oben stehenden Punkten hinsichtlich Anklagen, strafrechtlichen
+          oder nicht-strafrechtlichen Sanktionen sowie Ermittlungsverfahren und Sperrlisten </label>
       </div>
     </div>
 
@@ -258,7 +259,7 @@
 
   </div>
 
-  <div class="row" style="display: <%= @insurance.no_corruption_declaration_applies?? 'block' : 'none' %>">
+  <div class="row" style="display: <%= @insurance.no_corruption_declaration_applies? ? 'block' : 'none' %>">
     <div class="col-md-8 col-md-offset-2">
       <label class="text-babu">
         Trifft nicht zu
@@ -268,8 +269,9 @@
 
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <div class="<%= @insurance.information_inputted_best_of_knowledge?? 'text-babu' : 'text-red' %>">
-        Die vorstehenden Angaben wurden von uns nach bestem Wissen und Gewissen und in Kenntnisnahme der Erläuterungen gemacht.
+      <div class="<%= @insurance.information_inputted_best_of_knowledge? ? 'text-babu' : 'text-red' %>">
+        Die vorstehenden Angaben wurden von uns nach bestem Wissen und Gewissen und in Kenntnisnahme der Erläuterungen
+        gemacht.
       </div>
       <hr>
     </div>
@@ -289,15 +291,15 @@
 
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <label class="<%= @insurance.accept_terms_conditions?? 'text-babu' : 'text-red' %>">
+      <label class="<%= @insurance.accept_terms_conditions? ? 'text-babu' : 'text-red' %>">
 
         Wir akzeptieren die
-          <span>
+        <span>
             <a target="_blank" rel="noopener noreferrer" href="https://www.agaportal.de/_Resources/Persistent/3bfd6a43f17d04f9b34d523df323f0a44a9eaa17/ab_fab.pdf">
               Allgemeinen Bedingungen für Lieferantenkreditdeckung(G)
             </a>
           </span> in Zusammenhang mit den
-          <span>
+        <span>
             <a target="_blank" rel="noopener noreferrer" href="https://www.agaportal.de/_Resources/Persistent/b751b874fd137e5f8b22b25d2bd8a15995b09eb2/ab_g.pdf">
               Ergänzenden Bestimmungen für Forderungsabtretungen
             </a>
@@ -310,7 +312,7 @@
 
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <label class="<%= @insurance.read_privacy_policy?? 'text-babu' : 'text-red' %>">
+      <label class="<%= @insurance.read_privacy_policy? ? 'text-babu' : 'text-red' %>">
 
         Wir haben die <span><a target="_blank" rel="noopener noreferrer" href="/pages/termsAndConditions">
         Datenschutzhinweise  </a> </span> zur Kenntnis genommen und sind mit deren Geltung einverstanden.
@@ -322,7 +324,7 @@
 
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <div class="<%= @insurance.read_all_instructions?? 'text-babu' : 'text-red' %>">
+      <div class="<%= @insurance.read_all_instructions? ? 'text-babu' : 'text-red' %>">
         Wir haben die <span><a target="_blank" rel="noopener noreferrer" href="/pages/guidelines">
                     Hinweise zu Gebühren und Entgelten, Richtlinien, Verantwortlichkeiten   </a> </span> für den Antrag,
         Veröffentlichung von Projektdaten, OECD-Leitsätze für multinationale Unternehmen und

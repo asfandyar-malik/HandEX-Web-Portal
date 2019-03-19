@@ -63,7 +63,9 @@ class InsurancesController < ApplicationController
 
     def pdf_user_summary
 
-      configure_html_to_pdf output_file_name: 'insurance/pdf_user_summary.html.erb', layout: 'application_pdf.html.erb', view: 'insurances/pdf_user_summary.html.erb'
+      configure_html_to_pdf output_file_name: 'insurance/pdf_user_summary.html.erb',
+                            layout: 'application_pdf.html.erb',
+                            view: 'insurances/pdf_user_summary.html.erb'
 
     end
 

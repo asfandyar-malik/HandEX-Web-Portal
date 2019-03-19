@@ -4,7 +4,7 @@
 
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <label> Bitte geben Sie die Adresse Ihres Kunden an  </label>
+      <label> Bitte geben Sie die Adresse Ihres Kunden an </label>
     </div>
   </div>
   <br>
@@ -16,13 +16,13 @@
                          "Steuernummer",
                          "Straße / Hausnummer",
                          "PLZ",
-                         "Ort" ] %>
+                         "Ort"] %>
 
       <% address_values = [@insurance.importer_company_name,
                            @insurance.importer_tax_number,
                            @insurance.importer_address,
                            @insurance.importer_plz,
-                           @insurance.importer_city ] %>
+                           @insurance.importer_city] %>
 
       <% address_keys.zip(address_values).each do |addr_key, addr_value| %>
         <div class="row">
@@ -47,7 +47,7 @@
 
 <div id="deliveryAddressCheck">
   <%= render qa_partial, question: "Liefern Sie an diese Adresse?",
-                         answer: @insurance.is_delivered_at_this_address?? 'Ja':'Nein' %>
+             answer: @insurance.is_delivered_at_this_address? ? 'Ja' : 'Nein' %>
 </div>
 
 <% if !@insurance.is_delivered_at_this_address? %>
@@ -59,13 +59,13 @@
                          "Land",
                          "Straße / Hausnummer",
                          "PLZ",
-                         "Ort" ] %>
+                         "Ort"] %>
 
       <% address_values = [@insurance.importer_delivery_address_company_name,
                            @insurance.importer_delivery_address_country,
                            @insurance.importer_delivery_address_street,
                            @insurance.importer_delivery_address_plz,
-                           @insurance.importer_delivery_address_city ] %>
+                           @insurance.importer_delivery_address_city] %>
 
       <% address_keys.zip(address_values).each do |addr_key, addr_value| %>
         <div class="row">
@@ -93,7 +93,7 @@
 
 <div id="deliveryAddressCheck">
   <%= render qa_partial, question: "Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder üben Sie maßgeblichen Einfluss auf die Geschäftsführung aus?",
-                         answer: @insurance.has_exporter_influence_on_importer_management?? 'Ja':'Nein' %>
+             answer: @insurance.has_exporter_influence_on_importer_management? ? 'Ja' : 'Nein' %>
 </div>
 
 <% if @insurance.has_exporter_influence_on_importer_management %>
@@ -102,14 +102,15 @@
 
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <label> Bitte helfen Sie uns, die Beteiligung besser zu verstehen.  </label>
+        <label> Bitte helfen Sie uns, die Beteiligung besser zu verstehen. </label>
       </div>
     </div>
     <br>
 
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <label> <% @insurance.explain_exporter_infleunce_on_importer_management %>  </label>
+        <label>
+          <% @insurance.explain_exporter_infleunce_on_importer_management %>  </label>
       </div>
     </div>
 
@@ -119,7 +120,7 @@
 
 <div id="deliveryAddressCheck">
   <%= render qa_partial, question: "Haben Sie bereits Zahlungserfahrungen mit Ihrem Kunden?",
-                         answer: @insurance.has_previous_payment_experience_with_importer?? 'Ja':'Nein' %>
+             answer: @insurance.has_previous_payment_experience_with_importer? ? 'Ja' : 'Nein' %>
 </div>
 
 <% if @insurance.has_previous_payment_experience_with_importer? %>
@@ -128,14 +129,15 @@
 
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <label> Bitte beschreiben Sie diese näher.  </label>
+        <label> Bitte beschreiben Sie diese näher. </label>
       </div>
     </div>
     <br>
 
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <label> <% @insurance.explain_previous_payment_experience_with_importer %>  </label>
+        <label>
+          <% @insurance.explain_previous_payment_experience_with_importer %>  </label>
       </div>
     </div>
 
