@@ -69,33 +69,36 @@
     </div>
   </div>
 
-  <% options = ["Nein",
-                "Naturschutzgebiet",
-                "Bedeutung für indigene Völker",
-                "Archäologische oder kulturelle",
-                "Sonstige"] %>
+  <% option_titles = ["Nein",
+                      "Naturschutzgebiet",
+                      "Bedeutung für indigene Völker",
+                      "Archäologische oder kulturelle",
+                      "Sonstige"] %>
 
-  <% options_vars = [@insurance.delivery_doesnt_affects_sensitive_areas,
+  <% option_vars  = [@insurance.delivery_doesnt_affects_sensitive_areas,
                      @insurance.delivery_affects_natural_reserves,
                      @insurance.delivery_affects_indigenous_people,
                      @insurance.delivery_affects_cultural_heritage,
                      @insurance.delivery_affects_other] %>
 
-  <% options.zip(options_vars).each do |option, opt_var| %>
-    <% if opt_var? %>
+  <% option_selected = false %>
+  <% option_titles.zip(option_vars).each do |option, opt_var| %>
+
+    <% if opt_var == true %>
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <label> <%= option %></label>
+          <% option_selected = true %>
         </div>
       </div>
-
-    <% else %>
-      <span class="text-red">...</span>
     <% end %>
   <% end %>
+  <% if !option_selected %>
+    <span class="text-red col-md-8 col-md-offset-2">...</span><br>
+  <% end %>
+  <hr>
 
-
-<div id="affectsOtherSpecialDiv" style="display: <%= @insurance.delivery_affects_other?? 'block' : 'none' %>">
+  <div id="affectsOtherSpecialDiv" style="display: <%= @insurance.delivery_affects_other?? 'block' : 'none' %>">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <label>Bitte konkretisieren Sie, um was für ein sensibles Gebiet es sich handelt</label>
