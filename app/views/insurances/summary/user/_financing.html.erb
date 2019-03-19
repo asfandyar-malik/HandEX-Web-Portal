@@ -1,9 +1,9 @@
 <% qa_partial = 'insurances/summary/user/shared_partials/question_answer.html.erb' %>
 
 <%= render qa_partial, question: "Haben Sie bereits das Geschäft mit Ihrem Kunden abgeschlossen bzw. eine Forderung gebucht?",
-                       answer: @insurance.yes_already_completed_transaction?? 'Ja':'Nein' %>
+                       answer: @insurance.is_transaction_already_completed?? 'Ja':'Nein' %>
 
-<% if @insurance.yes_already_completed_transaction? %>
+<% if @insurance.is_transaction_already_completed? %>
   <div id="completedTransaction" >
     <div class="row">
       <div class="col-md-9 col-md-offset-2 text-babu">
@@ -18,12 +18,12 @@
 <% end %>
 
 <%= render qa_partial, question: "Haben Sie bereits ein Zahlungsziel bzw. eine eigene Finanzierung mit Ihrem Kunden vereinbart?",
-                       answer: @insurance.yes_payment_term_already_agreed?? 'Ja':'Nein' %>
+                       answer: @insurance.is_payment_term_already_agreed?? 'Ja':'Nein' %>
 
-<% if @insurance.yes_payment_term_already_agreed?  %>
+<% if @insurance.is_payment_term_already_agreed?  %>
 
   <%= render qa_partial, question: "Wie sind Ihre Zahlungsbedingungen gestaltet?",
-                         answer: @insurance.yes_payment_term_already_agreed?? 'Ja':'Nein' %>
+                         answer: @insurance.is_payment_term_already_agreed?? 'Ja':'Nein' %>
 
   <% answer = nil %>
   <% if @insurance.payment_term_shortterm? %>
@@ -49,7 +49,8 @@
   </div>
 
 
-  <% if @insurance.yes_charge_interest_to_importer? %>
+  <% if @insurance.does_charge_interest_to_importer? %>
+
     <div id="yesCustomerCountInterest">
       <div class="row">
         <div class="col-md-8 col-md-offset-2 text-babu">
@@ -59,6 +60,7 @@
         </div>
       </div>
     </div>
+
   <% else %>
 
   <div id="noCustomerCountInterest">
@@ -80,7 +82,7 @@
                            answer:   @insurance.loan_term?? 'Ja' : 'Nein' %>
   </div>
 
-  <% if @insurance.yes_charge_interest_to_importer? %>
+  <% if @insurance.does_charge_interest_to_importer? %>
     <div id="yesResidualRiskApetite" >
       <div class="row">
         <div class="col-md-8 col-md-offset-2 text-babu">

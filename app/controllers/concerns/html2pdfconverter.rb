@@ -1,17 +1,14 @@
-
 module Html2pdfconverter
   include ActiveSupport::Concern
 
-  def configure_html_to_pdf(output_file_name:, layout:, view:)
-    # output_file_name:   #{controller}/#{action}.html.erb
-    # view:               #{controller}s/#{action_name}.html.erb'
-    #                     Take care of the difference between these two parameters:
-    #                     The lower one required pluralisation of controller name
-    # layout:             This is a separate layout file that mimics the original lauyout file
-    #                     The only difference to the original layout file is the asset management, and
-    #                     the dependency management
-    #                     More info at: https://handex.atlassian.net/wiki/spaces/BAC/pages/164560939/Wicked+pdf+rendering+issues
+  # Renders an html view inside a layout file, where the assets are managed by wicked pdf helpers
+  # See details on asset management at:
+  #       https://handex.atlassian.net/wiki/spaces/BAC/pages/164560939/Wicked+pdf+rendering+issues
 
+  def configure_html_to_pdf(output_file_name:, layout:, view:)
+    # @param output_file_name Expected filename format: #{controller}/#{action}.html.erb
+    # @param layout           Layout file, where the dependency management is done with helpers from Wicked PDF library.
+    # @param view             Expected filename format: #{controller}s/#{action}.html.erb'
     respond_to do |format|
         format.html
         format.pdf do
@@ -21,7 +18,6 @@ module Html2pdfconverter
                    layout: layout,
                    show_as_html: params[:debug].present?,
                    page_size: 'A4'
-                   # dpi: '300'
         end
     end
   end

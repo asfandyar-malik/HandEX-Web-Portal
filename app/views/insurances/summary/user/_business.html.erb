@@ -99,14 +99,15 @@
   <hr>
 
   <div id="affectsOtherSpecialDiv" style="display: <%= @insurance.delivery_affects_other?? 'block' : 'none' %>">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <label>Bitte konkretisieren Sie, um was für ein sensibles Gebiet es sich handelt</label>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <label>Bitte konkretisieren Sie, um was für ein sensibles Gebiet es sich handelt</label>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <label> <%= check_missing(@insurance.explain_delivery_affects_other) %></label>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <label> <%= check_missing(@insurance.explain_delivery_affects_other) %></label>
+      </div>
     </div>
   </div>
 </div>
@@ -153,7 +154,7 @@
 <div id="contractSigned" style="display: <%= @insurance.is_contract_already_signed_by_all_parties?? 'block' : 'block' %>">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <label>Bitte geben Sie das Abschlussdatum des Vertrags und optional eine interne Referenz an. <label>
+      <label>Bitte geben Sie das Abschlussdatum des Vertrags und optional eine interne Referenz an. </label>
     </div>
   </div>
   <div class="row">
@@ -478,5 +479,4 @@
                  question: " Wann werden Sie die Sicherheiten erhalten? (unbestätigtes Akkreditiv einer Bank-1)",
                  answer: @insurance.when_security_received %>
     </div>
-  </div>
-</div>
+  </div></div>
