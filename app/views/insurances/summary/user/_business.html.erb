@@ -48,7 +48,7 @@
 <div id="workwithothercompanies">
   <%= render qa_partial,
              question: "Liefern/Leisten Sie im Rahmen eines Gesamtprojekts zusammen mit anderen Unternehmen?",
-             answer: @insurance.yes_deliver_part_of_overall_project_other_companies ? 'Ja' : 'Nein'
+             answer: @insurance.yes_deliver_part_of_overall_project_other_companies? ? 'Ja' : 'Nein'
   %>
 </div>
 
@@ -116,7 +116,7 @@
 
 <%= render qa_partial,
            question: "Ist Ihr Export ausfuhrgenehmigungspflichtig?",
-           answer: @insurance.yes_deliver_part_of_overall_project_other_companies ? 'Ja' : 'Nein'
+           answer: @insurance.yes_deliver_part_of_overall_project_other_companies? ? 'Ja' : 'Nein'
 %>
 
 <div id="workwithothercompanies">
@@ -150,10 +150,10 @@
 
 <%= render qa_partial,
            question: "Haben bereits alle Parteien den Vertrag für das Exportgeschäft unterzeichnet?",
-           answer: @insurance.yes_contract_already_signed_all_parties ? 'Ja' : 'Nein'
+           answer: @insurance.yes_contract_already_signed_all_parties? ? 'Ja' : 'Nein'
 %>
 
-<div id="contractSigned" style="display: <%= @insurance.yes_contract_already_signed_all_parties ? 'block' : 'block' %>">
+<div id="contractSigned" style="display: <%= @insurance.yes_contract_already_signed_all_parties? ? 'block' : 'block' %>">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <label>Bitte geben Sie das Abschlussdatum des Vertrags und optional eine interne Referenz an. </label>
@@ -174,7 +174,7 @@
 <div id="specialContractStructure">
   <%= render qa_partial,
              question: "Vereinbaren Sie mit Ihrem Vertragspartner eine besondere Vertragsstruktur?",
-             answer: check_missing(@insurance.yes_special_contract_structure ? 'Ja' : 'Nein') %>
+             answer: check_missing(@insurance.yes_special_contract_structure? ? 'Ja' : 'Nein') %>
 </div>
 
 <div id="contractAmount">
