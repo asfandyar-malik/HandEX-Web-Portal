@@ -13,13 +13,11 @@
     <div class="col-md-8 col-md-offset-2">
 
       <% address_keys = ["Firmenname",
-                         "Steuernummer",
                          "Straße / Hausnummer",
                          "PLZ",
                          "Ort"] %>
 
       <% address_values = [@insurance.importer_company_name,
-                           @insurance.importer_tax_number,
                            @insurance.importer_address,
                            @insurance.importer_plz,
                            @insurance.importer_city] %>
@@ -47,10 +45,10 @@
 
 <div id="deliveryAddressCheck">
   <%= render qa_partial, question: "Liefern Sie an diese Adresse?",
-             answer: @insurance.is_delivered_at_this_address? ? 'Ja' : 'Nein' %>
+             answer: @insurance.yes_delivered_at_this_address? ? 'Ja' : 'Nein' %>
 </div>
 
-<% if !@insurance.is_delivered_at_this_address? %>
+<% if !@insurance.yes_delivered_at_this_address? %>
 
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
@@ -89,14 +87,12 @@
 
 <% end %>
 
-
-
 <div id="deliveryAddressCheck">
   <%= render qa_partial, question: "Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder üben Sie maßgeblichen Einfluss auf die Geschäftsführung aus?",
-             answer: @insurance.has_exporter_influence_on_importer_management? ? 'Ja' : 'Nein' %>
+             answer: @insurance.yes_exporter_infleunce_on_importer_management ? 'Ja' : 'Nein' %>
 </div>
 
-<% if @insurance.has_exporter_influence_on_importer_management %>
+<% if @insurance.yes_exporter_infleunce_on_importer_management %>
 
   <div id="relationToCustomerExplain">
 
@@ -120,10 +116,10 @@
 
 <div id="deliveryAddressCheck">
   <%= render qa_partial, question: "Haben Sie bereits Zahlungserfahrungen mit Ihrem Kunden?",
-             answer: @insurance.has_previous_payment_experience_with_importer? ? 'Ja' : 'Nein' %>
+             answer: @insurance.yes_previous_payment_experience_with_importer? ? 'Ja' : 'Nein' %>
 </div>
 
-<% if @insurance.has_previous_payment_experience_with_importer? %>
+<% if @insurance.yes_previous_payment_experience_with_importer? %>
 
   <div id="alreadyPaymentExperience">
 

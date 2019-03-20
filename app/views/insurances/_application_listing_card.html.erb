@@ -4,7 +4,7 @@
 
       <div class="row">
         <div class="col-sm-6">
-          <h4 class="text-blue">Importer</h4>
+          <h4 class="text-blue">Importeur</h4>
         </div>
         <div class="col-sm-6">
           <%= insurance.importer_company_name %>
@@ -13,7 +13,7 @@
 
       <div class="row">
         <div class="col-sm-6">
-          <h4 class="text-blue">Destination</h4>
+          <h4 class="text-blue">Zielland</h4>
         </div>
         <div class="col-sm-6">
           <%= insurance.importer_country %>
@@ -22,7 +22,7 @@
 
       <div class="row">
         <div class="col-sm-6">
-          <h4 class="text-blue">Product</h4>
+          <h4 class="text-blue">Produkt</h4>
         </div>
         <div class="col-sm-6">
           <%= insurance.exported_goods_type %>
@@ -31,7 +31,7 @@
 
       <div class="row">
         <div class="col-sm-6">
-          <h4 class="text-blue">Price</h4>
+          <h4 class="text-blue">Auftragswert</h4>
         </div>
         <% if insurance.contract_value %>
           <div class="col-sm-6">
@@ -46,7 +46,7 @@
 
       <div class="row">
         <div class="col-sm-6">
-          <h4 class="text-blue">Last Updated at</h4>
+          <h4 class="text-blue">Abgeschickt am</h4>
         </div>
         <div class="col-sm-6">
           <%= insurance.updated_at.strftime('%d %b %Y') %>
@@ -61,7 +61,7 @@
             <%= link_to "Update", edit_insurance_path(insurance.user_id), class: "btn btn-form pull-right"%>
           <% else %>
             <div class="btn btn-form pull-right">
-              View
+                <%= link_to "View", user_summary_insurance_path(insurance.id), class: "btn btn-form pull-right"%>
             </div>
           <% end %>
         </div>
