@@ -85,7 +85,11 @@ p {
 }
 
 .text-babu, .icon-babu {
-  color: rgb(9, 208, 183);
+   color: rgb(9, 208, 183);
+ }
+
+.text-blue, .icon-babu {
+  color: rgb(0, 103, 200);
 }
 
 .text-red, .icon-red {
@@ -229,6 +233,17 @@ p {
   background-color: rgb(9, 208, 183);
 }
 
+.btn.btn-profile {
+  border: 1px solid rgb(4, 166, 238);
+  background-color: rgb(4, 166, 238);
+}
+
+.btn.btn-profile:active {
+  outline: none;
+  border-color: rgb(9, 208, 183);
+  background-color: rgb(9, 208, 183);
+}
+
 .btn.btn-facebook {
   border: 1px solid #3B5998;
   background-color: #3B5998;
@@ -243,7 +258,7 @@ p {
 // PANELS
 .panel-default .panel-heading {
   color: #ffffff;
-  background-color: rgb(9, 208, 183);
+  background-color: rgb(4, 166, 238);
   font-size: 18px;
   font-weight: 400;
 }
