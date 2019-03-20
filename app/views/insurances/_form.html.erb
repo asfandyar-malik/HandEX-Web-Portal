@@ -562,6 +562,22 @@
         }
     });
 
+    $choice.filter('[name="investmentgoods_yes"]').click(function () {
+        $choice.filter('[name="investmentgoods_no"]').removeClass('active');
+    });
+
+    $choice.filter('[name="investmentgoods_no"]').click(function () {
+        $choice.filter('[name="investmentgoods_yes"]').removeClass('active');
+    });
+
+    $choice.filter('[name="exporteroffersservicingforgoods_yes"]').click(function () {
+        $choice.filter('[name="exporteroffersservicingforgoods_no"]').removeClass('active');
+    });
+
+    $choice.filter('[name="exporteroffersservicingforgoods_no"]').click(function () {
+        $choice.filter('[name="exporteroffersservicingforgoods_yes"]').removeClass('active');
+    });
+
     $choice.filter('[name="deliverwithothercompanies_yes"]').click(function () {
         $choice.filter('[name="deliverwithothercompanies_no"]').removeClass('active');
     });

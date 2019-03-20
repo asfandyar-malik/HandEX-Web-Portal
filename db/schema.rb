@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_18_135516) do
+ActiveRecord::Schema.define(version: 2019_03_20_183511) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "citext"
   enable_extension "plpgsql"
 
   create_table "insurances", force: :cascade do |t|
@@ -116,7 +117,6 @@ ActiveRecord::Schema.define(version: 2019_03_18_135516) do
     t.string "downpayment_delivery_description"
     t.string "describe_export_business"
     t.string "explain_why_importer_buying_goods"
-    t.boolean "exporter_offers_servicing_for_goods"
     t.string "exported_goods_type"
     t.string "explain_good_industry_type"
     t.boolean "yes_deliver_part_of_overall_project_other_companies"
@@ -128,8 +128,6 @@ ActiveRecord::Schema.define(version: 2019_03_18_135516) do
     t.boolean "risk_supplier_credit_cover"
     t.boolean "risk_further_coverage"
     t.string "total_financing_required"
-    t.string "contract_value"
-    t.string "loan_duration"
     t.boolean "exporting_to_private_sector"
     t.boolean "exporting_to_public_sector"
     t.string "country_category"
@@ -240,7 +238,6 @@ ActiveRecord::Schema.define(version: 2019_03_18_135516) do
     t.string "when_security_received"
     t.string "importer_ak_number"
     t.string "importer_company_name"
-    t.string "importer_tax_number"
     t.string "importer_address"
     t.string "importer_plz"
     t.string "importer_city"
@@ -314,17 +311,16 @@ ActiveRecord::Schema.define(version: 2019_03_18_135516) do
     t.string "read_privacy_policy"
     t.string "read_all_instructions"
     t.string "exporter_company_street"
-    t.string "yes_already_completed_transaction"
-    t.string "no_already_completed_transaction"
     t.string "yes_payment_term_already_agreed"
     t.string "no_payment_term_already_agreed"
     t.string "loan_term"
     t.string "application_status"
-    t.boolean "is_investment_good"
     t.boolean "yes_residualriskapetite_minimum_five"
     t.boolean "no_residualriskapetite_minimum_five"
-    t.boolean "yes_residualriskapetite_five"
-    t.boolean "no_residualriskapetite_five"
+    t.boolean "yes_investment_good"
+    t.boolean "no_investment_good"
+    t.boolean "yes_exporter_offers_servicing_for_goods"
+    t.boolean "no_exporter_offers_servicing_for_goods"
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 

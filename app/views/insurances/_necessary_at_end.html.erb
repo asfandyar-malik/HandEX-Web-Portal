@@ -1,4 +1,4 @@
-<h4 class="info-text" style="font-family: 'Handel Becker Light', 'Handel Becker Med', 'HandelGotDBol', sans-serif;" >Notwendiges zum Schluss </h4>
+<h4 class="info-text" style="font-family: 'Handel Becker Light', 'Handel Becker Med', 'HandelGotDBol', sans-serif;">Notwendiges zum Schluss </h4>
 
 <br><br>
 <div class="row">
@@ -469,36 +469,39 @@
             </div>
         </div>
 
-        <div class="col-md-10 col-md-offset-1">
-            <%= form.check_box :information_inputted_best_of_knowledge, id: "YesInformationInputtedBestKnowledge", :style => "width: 20px; height: 20px;" %>
-            Die vorstehenden Angaben wurden von uns nach bestem Wissen und Gewissen und
-            in Kenntnisnahme der Erläuterungen gemacht
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <%= form.check_box :information_inputted_best_of_knowledge, id: "YesInformationInputtedBestKnowledge", :style => "width: 20px; height: 20px;" %>
+                Die vorstehenden Angaben wurden von uns nach bestem Wissen und Gewissen und
+                in Kenntnisnahme der Erläuterungen gemacht
+            </div>
         </div>
 
         <br><br>
 
-        <div class="col-md-10 col-md-offset-1">
-            <p>Liefern Sie gemeinsam mit Verbundunternehmen oder sind Zwischenhändler
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                Liefern Sie gemeinsam mit Verbundunternehmen oder sind Zwischenhändler
                 eingesetzt? Dann
                 müssen diese die Erklärung zur Korruptionsprävention separat
                 unterzeichnen.
                 Bitte leiten
-                Sie das Formular entsprechend weiter und reichen es uns nach.</p>
+                Sie das Formular entsprechend weiter und reichen es uns nach.
+            </div>
+
+            <br><br>
+            <div class="col-md-10 col-md-offset-1">
+                Bitte geben Sie zuletzt noch die Abschlusserklärungen ab.
+                <br><br>
+            </div>
         </div>
 
         <div id="finalDeclaration">
 
-            <br><br>
-            <div class="col-md-10 col-md-offset-1">
-                <p> Bitte geben Sie zuletzt noch die
-                    Abschlusserklärungen
-                    ab.</p>
-                <br><br>
-            </div>
             <div class="row">
                 <br>
 
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-10 col-md-offset-1">
                     <%= form.check_box :accept_terms_conditions, required: true, :style => "width: 20px; height: 20px;" %>
                     Wir akzeptieren die <span><a target="_blank" rel="noopener noreferrer" href="https://www.agaportal.de/_Resources/Persistent/3bfd6a43f17d04f9b34d523df323f0a44a9eaa17/ab_fab.pdf">
                     Allgemeinen Bedingungen für Lieferantenkreditdeckung(G)  </a> </span> in Zusammenhang mit den
@@ -509,7 +512,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-10 col-md-offset-1">
                     <br><br>
                     <%= form.check_box :read_privacy_policy, required: true, :style => "width: 20px; height: 20px;" %>
                     Wir haben die <span><a target="_blank" rel="noopener noreferrer" href="/pages/termsAndConditions">
@@ -521,9 +524,9 @@
             </div>
 
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-10 col-md-offset-1">
                     <br><br>
-                    <%= form.check_box :read_all_instructions, required: true, :style => "width: 20px; height: 20px;"%>
+                    <%= form.check_box :read_all_instructions, required: true, :style => "width: 20px; height: 20px;" %>
                     Wir haben die <span><a target="_blank" rel="noopener noreferrer" href="/pages/guidelines">
                     Hinweise zu Gebühren und Entgelten, Richtlinien, Verantwortlichkeiten   </a> </span> für den Antrag,
                     Veröffentlichung von Projektdaten, OECD-Leitsätze für multinationale Unternehmen und
