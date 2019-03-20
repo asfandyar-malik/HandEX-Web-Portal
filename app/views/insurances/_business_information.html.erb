@@ -1,4 +1,4 @@
-<h4 class="info-text">Ihr Geschäft</h4>
+<h4 class="info-text" style="font-family: 'Handel Becker Light', 'Handel Becker Med', 'HandelGotDBol', sans-serif;">Ihr Geschäft</h4>
 
 <br>
 <div class="row">
@@ -20,37 +20,6 @@
     </div>
 </div>
 
-<div id="showHideDivDeliveryGoal">
-    <div class="row">
-        <div class="col-sm-10 col-sm-offset-1">
-            <div class="form-group">
-                <p><b>Ist Ihr Kunde ein Unternehmen des öffentlichen oder privaten Sektors?</b></p>
-                <div class="col-sm-4 col-sm-offset-1">
-                    <div class="choice <%= 'active' if @insurance.exporting_to_private_sector == 'on' %>" name="privatesector" data-toggle="wizard-checkbox">
-                        <%= check_box_tag "insurance[exporting_to_private_sector]" %>
-                        <div class="card card-checkboxes card-hover-effect">
-                            <i class="ti-home"></i>
-                            <p>Privater Sektor</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4">
-                    <div class="choice <%= 'active' if @insurance.exporting_to_public_sector == 'on' %>" name="publicsector" data-toggle="wizard-checkbox">
-
-                        <%= check_box_tag "insurance[exporting_to_public_sector]", @insurance.exporting_to_public_sector ? @insurance.exporting_to_public_sector : nil %>
-
-                        <div class="card card-checkboxes card-hover-effect">
-                            <i class="ti-home"></i>
-                            <p>Öffentlicher Sektor</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
         <p><b>Bitte helfen Sie uns nun, das Vorhaben gut zu verstehen</b></p>
@@ -67,7 +36,7 @@
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
         <div class="form-group">
-            <p><b>Wir erbringen auch Leistungen (Montage, Schulungen vor Ort,
+            <p><b>Erbringen Sie auch Leistungen (Montage, Schulungen vor Ort,
                 etc.)?</b></p>
             <%= form.check_box :exporter_offers_servicing_for_goods, :style => "width: 20px; height: 20px;" %> Ja
         </div>
@@ -82,10 +51,11 @@
 
             <div class="row">
                 <div class="col-sm-6">
-                    <%= form.select :exported_goods_type, options_for_select(['Bergbau, inkl. Verarbeitung', 'Erdöl- und Erdgasförderung inkl. Verarbeitung',
+                    <%= form.select :exported_goods_type, options_for_select(['Bitte auswählen','Bergbau, inkl. Verarbeitung', 'Erdöl- und Erdgasförderung inkl. Verarbeitung',
                                                                               'Chemie', 'Energie', 'Infrastruktur', 'Papier- , Holz-, Leder- und Textilindustrie',
                                                                               'Agrarsektor und Nahrungsmittelindustrie', 'Verarbeitende Industrie', 'Umwelttechnik',
-                                                                              'Dienstleistungen'], @insurance.exported_goods_type ? @insurance.exported_goods_type : nil), {}, class: 'form-control' %>
+                                                                              'Dienstleistungen'], @insurance.exported_goods_type ? @insurance.exported_goods_type : nil),
+                                    {}, class: 'form-control' %>
                 </div>
             </div>
         </div>
@@ -397,7 +367,7 @@
                     <p> Die Ausfuhrgenehmigung .. </p>
                 </div>
                 <div class="col-md-3">
-                    <%= form.select :exportlicense_status, options_for_select(["... wurde erteilt.", "... ist beantragt.", "... ist noch zu beantragen."]), {}, class: 'form-control' %>
+                    <%= form.select :exportlicense_status, options_for_select(["Bitte auswählen", "... wurde erteilt.", "... ist beantragt.", "... ist noch zu beantragen."]), {}, class: 'form-control' %>
                 </div>
             </div>
         </div>
@@ -610,22 +580,22 @@
                 <div class="col-md-10 col-md-offset-1">
 
                     <p><b>Bitte geben Sie den Auftragswert an. </b></p>
-                    <p><i>Welche Vertragswährung vereinbaren Sie </i></p>
+                    <p><i>Vertragswährung </i></p>
 
                     <div class="row">
                         <div class="col-md-4 ">
-                            <%= form.select :contract_trade_currency, options_for_select(["Euro", "Dollar"]), {}, class: 'form-control' %>
+                            <%= form.select :contract_trade_currency, options_for_select(["Bitte auswählen", "Euro", "Dollar"]), {}, class: 'form-control' %>
                         </div>
                         <div class="col-md-4 ">
-                            <div> <%= form.text_field :contract_trade_amount, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                            <div> <%= form.text_field :contract_trade_amount, class: "form-control", placeholder: "Auftragswert", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                         </div>
                     </div>
                     <div class="row">
                         <br>
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <p><i>Wie hoch ist der Lieferwert der Güter exkl. anderer Leistungen (Montagen, etc.)</i>
                             </p>
-                            <div> <%= form.text_field :total_delivery_value, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                            <div> <%= form.text_field :total_delivery_value, class: "form-control", placeholder: "Lieferwert (Betrag)", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                         </div>
                     </div>
 
@@ -635,7 +605,7 @@
                             <p><i> Wie hoch ist der Anteil der Ersatzteile am Lieferwert? </i></p>
                         </div>
                         <div class="col-md-6">
-                            <div> <%= form.text_field :percentage_of_spareparts_in_whole_order, class: "form-control", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                            <div> <%= form.text_field :percentage_of_spareparts_in_whole_order, class: "form-control", placeholder: "Wert Ersatzteile in Prozent oder Betrag", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                         </div>
                     </div>
 
@@ -649,7 +619,7 @@
                     <br>
                     <div class="row">
                         <div class="col-md-3">
-                            <%= form.select :more_components_open_to_exporter_currency, options_for_select(["Euro", "Dollar"]), {}, class: 'form-control' %>
+                            <%= form.select :more_components_open_to_exporter_currency, options_for_select(["Bitte auswählen","Euro", "Dollar"]), {}, class: 'form-control' %>
                         </div>
                         <div class="col-md-3">
                             <div> <%= form.text_field :more_components_open_to_exporter_amount, class: "form-control", placeholder: "Betrag", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
@@ -838,12 +808,12 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-8 col-md-offset-1">
-                    <p> Bitte geben Sie die Zulieferungen aus dem Ausland an. </p>
+                    <p> Bitte geben Sie die Zulieferungen aus dem Ausland an.</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-2 col-md-offset-1">
-                    <%= form.select :all_rawgoods_supplier_country, options_for_select(['Mexico', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
+                    <%= form.select :all_rawgoods_supplier_country, options_for_select(['Bitte auswählen', 'Mexico', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
                                                                                         'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados',
                                                                                         'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana',
                                                                                         'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon',
@@ -874,7 +844,7 @@
                 </div>
 
                 <div class="col-md-2 col-md-offset-1">
-                    <%= form.select :all_rawgoods_supplier_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
+                    <%= form.select :all_rawgoods_supplier_currency, options_for_select(["Bitte auswählen" ,"Euro", "Dollar"]), {}, class: "form-control" %>
                 </div>
 
                 <div class="col-md-4 ">
@@ -914,7 +884,7 @@
             </div>
             <div class="row">
                 <div class="col-md-2 col-md-offset-1">
-                    <%= form.select :partly_rawgoods_supplier_country, options_for_select(['Mexico', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
+                    <%= form.select :partly_rawgoods_supplier_country, options_for_select(['Bitte auswählen','Mexico', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
                                                                                            'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados',
                                                                                            'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana',
                                                                                            'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon',
@@ -945,7 +915,7 @@
                 </div>
 
                 <div class="col-md-2">
-                    <%= form.select :partly_rawgoods_supplier_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
+                    <%= form.select :partly_rawgoods_supplier_currency, options_for_select(["Bitte auswählen","Euro", "Dollar"]), {}, class: "form-control" %>
                 </div>
 
                 <div class="col-md-4 ">
@@ -1023,7 +993,7 @@
 
             <div class="row">
                 <div class="col-md-4 col-md-offset-1">
-                    <%= form.select :security_type, options_for_select(["Unbestätigtes Akkreditiv einer Bank", "Bestätigtes Akkreditiv", "Zahlungsgarantie einer Bank",
+                    <%= form.select :security_type, options_for_select(["Bitte auswählen","Unbestätigtes Akkreditiv einer Bank", "Bestätigtes Akkreditiv", "Zahlungsgarantie einer Bank",
                                                                         "Zahlungsgarantie eines Unternehmens", "(eingetragener) Eigentumsvorbehalt (dingliche Sicherheit)",
                                                                         "Pfandrecht (dingliche Sicherheit)", "sonstige"]), {}, class: "form-control" %>
                 </div>
@@ -1053,7 +1023,7 @@
 
             <div class="row">
                 <div class="col-md-4 col-md-offset-1">
-                    <%= form.select :when_security_received, options_for_select(["Vor Fabrikationsbeginn", "Vor Liefer-/Leistungsbeginn", "Später",
+                    <%= form.select :when_security_received, options_for_select(["Bitte auswählen","Vor Fabrikationsbeginn", "Vor Liefer-/Leistungsbeginn", "Später",
                                                                                  "Anderer Termin"]), {}, class: "form-control" %>
                 </div>
             </div>

@@ -28,24 +28,10 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: "Handel Becker Med";
-  src: asset-data-url('Handel_Becker_Med.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "HandelGotDBol";
-  src: asset-data-url('HandelGotDBol.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 body {
   color: #000000;
   background-color: #FFFFFF;
-  font-family: "Handel Becker Light", "Handel Becker Med", "HandelGotDBol", sans-serif;
+  font-family: "assistant, sans-serif";
   font-size: 16px;
 }
 
@@ -140,7 +126,6 @@ p {
 
 .btn-green {
   background-color: rgb(9, 208, 183);
-  //font-family: "komet",sans-serif;
   font-size: 22px;
 }
 
@@ -155,7 +140,6 @@ p {
 
 .btn-gray {
   background-color: rgb(107, 107, 111);
-  //font-family: "komet",sans-serif;
   font-size: 22px;
 }
 
@@ -171,7 +155,6 @@ p {
 @media (max-width: 1199px) {
   .btn-green {
     background-color: rgb(9, 208, 183);
-    //font-family: "komet",sans-serif;
     font-size: 18px;
   }
 
@@ -186,7 +169,6 @@ p {
 
   .btn-gray {
     background-color: rgb(9, 208, 183);
-    //font-family: "komet",sans-serif;
     font-size: 18px;
   }
 
