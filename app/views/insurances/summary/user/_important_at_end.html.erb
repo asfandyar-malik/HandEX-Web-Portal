@@ -2,10 +2,10 @@
 
 <div id="deliveryAddressCheck">
   <%= render qa_partial, question: "Haben Sie in der Vergangenheit schon einmal einen Antrag auf Hermesdeckung eingereicht?",
-             answer: @insurance.has_previously_hermes_insurance_used? ? 'Ja' : 'Nein' %>
+             answer: @insurance.yes_previously_hermes_insurance_used? ? 'Ja' : 'Nein' %>
 </div>
 
-<div id="newAtHermesDeckung" style="display: <%= @insurance.has_previously_hermes_insurance_used? ? 'none' : 'block' %>">
+<div id="newAtHermesDeckung" style="display: <%= @insurance.yes_previously_hermes_insurance_used? ? 'none' : 'block' %>">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <label>Da Sie bisher keine Hermesdeckung beantragt haben, möchte HandEX
