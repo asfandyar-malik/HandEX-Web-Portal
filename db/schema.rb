@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_20_183511) do
+ActiveRecord::Schema.define(version: 2019_03_20_190551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -321,6 +321,8 @@ ActiveRecord::Schema.define(version: 2019_03_20_183511) do
     t.boolean "no_investment_good"
     t.boolean "yes_exporter_offers_servicing_for_goods"
     t.boolean "no_exporter_offers_servicing_for_goods"
+    t.string "loan_duration"
+    t.string "contract_value"
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 
