@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_21_152556) do
+ActiveRecord::Schema.define(version: 2019_03_21_182830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -127,9 +127,9 @@ ActiveRecord::Schema.define(version: 2019_03_21_152556) do
     t.string "importer_delivery_address_plz"
     t.string "importer_delivery_address_city"
     t.string "importer_delivery_address_country"
-    t.string "yes_exporter_infleunce_on_importer_management"
-    t.string "no_exporter_infleunce_on_importer_management"
-    t.string "explain_exporter_infleunce_on_importer_management"
+    t.string "yes_exporter_influence_on_importer_management"
+    t.string "no_exporter_influence_on_importer_management"
+    t.string "explain_exporter_influence_on_importer_management"
     t.string "yes_previous_payment_experience_with_importer"
     t.string "no_previous_payment_experience_with_importer"
     t.string "explain_previous_payment_experience_with_importer"

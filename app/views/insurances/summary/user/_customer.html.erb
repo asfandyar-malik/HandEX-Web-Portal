@@ -89,10 +89,10 @@
 
 <div id="deliveryAddressCheck">
   <%= render qa_partial, question: "Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder üben Sie maßgeblichen Einfluss auf die Geschäftsführung aus?",
-             answer: @insurance.yes_exporter_infleunce_on_importer_management ? 'Ja' : 'Nein' %>
+             answer: @insurance.yes_exporter_influence_on_importer_management ? 'Ja' : 'Nein' %>
 </div>
 
-<% if @insurance.yes_exporter_infleunce_on_importer_management %>
+<% if @insurance.yes_exporter_influence_on_importer_management %>
 
   <div id="relationToCustomerExplain">
 
@@ -106,7 +106,7 @@
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <label>
-          <% @insurance.explain_exporter_infleunce_on_importer_management %>  </label>
+          <% @insurance.explain_exporter_influence_on_importer_management %>  </label>
       </div>
     </div>
 

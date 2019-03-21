@@ -210,9 +210,9 @@
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
 
-                    <div class="choice <%= 'active' if @insurance.no_exporter_infleunce_on_importer_management == 'on' %>" name="no_relationtocustomer" data-toggle="wizard-checkbox" onclick="noRelationToCustomer()">
+                    <div class="choice <%= 'active' if @insurance.no_exporter_influence_on_importer_management == 'on' %>" name="no_relationtocustomer" data-toggle="wizard-checkbox" onclick="noRelationToCustomer()">
 
-                        <%= check_box_tag "insurance[no_exporter_infleunce_on_importer_management]", @insurance.no_exporter_infleunce_on_importer_management ? @insurance.no_exporter_infleunce_on_importer_management : nil %>
+                        <%= check_box_tag "insurance[no_exporter_influence_on_importer_management]", @insurance.no_exporter_influence_on_importer_management ? @insurance.no_exporter_influence_on_importer_management : nil %>
 
                         <div class="card circle card-hover-effect">
                             <i class="ti-close"></i>
@@ -233,7 +233,7 @@
                     <div class="col-md-10 col-md-offset-1">
                         <p>Bitte helfen Sie uns, die Beteiligung besser zu
                             verstehen </p>
-                        <div> <%= form.text_area :explain_exporter_infleunce_on_importer_management, class: "form-control", row: "9" %> </div>
+                        <div> <%= form.text_area :explain_exporter_influence_on_importer_management, class: "form-control", row: "9" %> </div>
                     </div>
                 </div>
             </div>

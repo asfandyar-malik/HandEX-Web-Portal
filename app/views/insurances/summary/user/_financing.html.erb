@@ -32,7 +32,7 @@
   </div>
 
 
-  <% if @insurance.does_charge_interest_to_importer? %>
+  <% if @insurance.yes_charge_interest_to_importer? %>
 
     <div id="yesCustomerCountInterest">
       <div class="row">
@@ -65,7 +65,7 @@
                answer: @insurance.loan_term?? 'Ja' : 'Nein' %>
   </div>
 
-  <% if @insurance.does_charge_interest_to_importer? %>
+  <% if @insurance.yes_charge_interest_to_importer? %>
     <div id="yesResidualRiskApetite">
       <div class="row">
         <div class="col-md-8 col-md-offset-2 text-babu">

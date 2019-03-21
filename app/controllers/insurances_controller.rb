@@ -103,8 +103,8 @@ class InsurancesController < ApplicationController
             # Ihr Kunde ----------------------------------------
             :importer_company_name, :importer_address, :importer_plz, :importer_city, :importer_country, :exporting_to_private_sector, :yes_delivered_at_this_address,
             :no_delivered_at_this_address, :importer_delivery_address_company_name, :importer_delivery_address_country, :importer_delivery_address_street,
-            :importer_delivery_address_plz, :importer_delivery_address_city, :yes_exporter_infleunce_on_importer_management, :no_exporter_infleunce_on_importer_management,
-            :explain_exporter_infleunce_on_importer_management, :yes_previous_payment_experience_with_importer, :no_previous_payment_experience_with_importer,
+            :importer_delivery_address_plz, :importer_delivery_address_city, :yes_exporter_influence_on_importer_management, :no_exporter_influence_on_importer_management,
+            :explain_exporter_influence_on_importer_management, :yes_previous_payment_experience_with_importer, :no_previous_payment_experience_with_importer,
             :explain_previous_payment_experience_with_importer,
             
             # Ihre Finanzierung --------------------------------
