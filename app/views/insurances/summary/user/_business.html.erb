@@ -28,7 +28,7 @@
 <hr>
 
 <%= render qa_partial, question: "Wir erbringen auch Leistungen (Montage, Schulungen vor Ort, etc.) ?",
-           answer: @insurance.yes_exporter_offers_servicing_for_goods? ? 'Ja' : 'Nein' %>
+           answer: @insurance.yes_exporter_offers_servicing_for_goods??'Ja' : 'Nein' %>
 
 <%= render qa_partial, question: "Bitte ordnen Sie die von Ihnen zu liefernden Waren/Güter/Anlagen bzw. Dienstleistungen Ihrer Branche und der passenden Warenart zu.",
            answer: check_missing(@insurance.exported_goods_type) %>
@@ -48,7 +48,7 @@
 <div id="workwithothercompanies">
   <%= render qa_partial,
              question: "Liefern/Leisten Sie im Rahmen eines Gesamtprojekts zusammen mit anderen Unternehmen?",
-             answer: @insurance.yes_deliver_part_of_overall_project_other_companies? ? 'Ja' : 'Nein'
+             answer: @insurance.yes_deliver_part_of_overall_project_other_companies??'Ja' : 'Nein'
   %>
 </div>
 
@@ -305,19 +305,19 @@
 
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <label class="text-babu"> <%= check_missing(@insurance.yes_sonstige_kurzfrist_certificate_of_origin? ? 'Ja' : 'Nein') %></label>
+        <label class="text-babu"> <%= check_missing(@insurance.yes_sonstige_kurzfrist_certificate_of_origin??'Ja' : 'Nein') %></label>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <label class="text-babu"> <%= @insurance.part_of_goods__sonstige_kurzfrist_certificate_of_origin? ? 'für Teile der Ware' : "" %></label>
+        <label class="text-babu"> <%= @insurance.part_of_goods__sonstige_kurzfrist_certificate_of_origin??'für Teile der Ware' : "" %></label>
       </div>
     </div>
   </div>
   <hr>
 
-  <div id="yesNoCertificateOfOrigin" style="display: <%= @insurance.yes_sonstige_kurzfrist_certificate_of_origin? ? 'block' : 'block' %>">
+  <div id="yesNoCertificateOfOrigin" style="display: <%= @insurance.yes_sonstige_kurzfrist_certificate_of_origin??'block' : 'block' %>">
     <div class="row">
       <%= render qa_partial,
                  question: "Bitte geben Sie die Zulieferungen aus dem Ausland an.",
@@ -332,19 +332,19 @@
 
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <label class="text-babu"> <%= check_missing(@insurance.all_rawgoods_supplier_country? ? 'Ja' : 'Nein') %></label>
+        <label class="text-babu"> <%= check_missing(@insurance.all_rawgoods_supplier_country??'Ja' : 'Nein') %></label>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <label class="text-babu"> <%= @insurance.all_rawgoods_supplier_currency? ? 'für Teile der Ware' : "" %></label>
+        <label class="text-babu"> <%= @insurance.all_rawgoods_supplier_currency??'für Teile der Ware' : "" %></label>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <label class="text-babu"> <%= @insurance.all_rawgoods_supplier_text? ? 'für Teile der Ware' : "" %></label>
+        <label class="text-babu"> <%= @insurance.all_rawgoods_supplier_text??'für Teile der Ware' : "" %></label>
       </div>
     </div>
 
@@ -357,7 +357,7 @@
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <label class="text-babu">
-          <%= check_missing(@insurance.why_all_foreign_rawgoods_necessary? ? 'Ja' : 'Nein') %>
+          <%= check_missing(@insurance.why_all_foreign_rawgoods_necessary??'Ja' : 'Nein') %>
         </label>
       </div>
     </div>
@@ -433,10 +433,10 @@
   <div id="securityForBusiness">
     <%= render qa_partial,
                question: "Sind für Ihr Geschäft Sicherheiten (bspw. Akkreditiv, Zahlungsgarantien, etc.) vorgesehen?",
-               answer: @insurance.yes_security_businnes_provided? ? 'Ja' : 'Nein' %>
+               answer: @insurance.yes_security_businnes_provided??'Ja' : 'Nein' %>
   </div>
 
-  <div id="typeOfSecurity" style="display: <%= @insurance.yes_security_businnes_provided? ? 'block' : 'block' %>">
+  <div id="typeOfSecurity" style="display: <%= @insurance.yes_security_businnes_provided??'block' : 'block' %>">
     <div class="row">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
