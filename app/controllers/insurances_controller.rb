@@ -121,7 +121,18 @@ class InsurancesController < ApplicationController
             
             # Documents ----------------------------------------
             :self_disclosure, :annual_financial_statement_importer, :credit_bureaus_importer, :environment_social_audit, :project_memorandum_exporter_business,
-            :additional_document
+            :additional_document,
+
+            # Orphan ----------------------------------------
+            :agreed_payments_output, :agreed_payments_time, :agreed_payments_some_output, :payment_vehichle, :receive_deposit_time, :repayment_profile_structure,
+            :loan_term_start, :loan_term_other_description, :number_of_installments, :sonstige_kurzfrist_advance_payment_currency, :sonstige_kurzfrist_advance_payment_amount,
+            :sonstige_kurzfrist_advance_payment_explain, :sonstige_kurzfrist_deposit_received, :sonstige_kurzfrist_repayment_structure, :sonstige_kurzfrist_credit_start,
+            :sonstige_kurzfrist_credit_start_sonstige_explain, :sonstige_kurzfrist_number_of_installments, :sonstige_kurzfrist_payment_vehichle_explain,
+            :agreed_payments_currency, :agreed_payments_amount, :source_of_fund_amount, :goods_overhauled_location, :explain_special_contract_structure,
+            :graphic_representation_project_participants, :contract_currency, :charged_interest_to_importer_currency, :downpayment_delivery_currency,
+            :downpayment_delivery_amount, :downpayment_delivery_description, :risk_shipment_risk_cover, :risk_supplier_credit_cover, :exporter_company_city,
+            :further_lower_economic_risk, :dont_lower_economic_risk, :yes_jointventure_with_consortiums, :no_jointventure_with_consortiums,  :loan_term
+            
         )
     end
 end
