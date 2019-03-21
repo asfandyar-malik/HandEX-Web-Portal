@@ -663,6 +663,30 @@
                             <div> <%= form.text_field :more_components_open_to_exporter_explain, class: "form-control", placeholder: "Beschreibung" %> </div>
                         </div>
                     </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <%= form.select :more_components_open_to_exporter_currency, options_for_select(["Bitte auswählen", "Euro", "Dollar"]), {}, class: 'form-control' %>
+                        </div>
+                        <div class="col-md-3">
+                            <div> <%= form.text_field :more_components_open_to_exporter_amount, class: "form-control", placeholder: "Betrag", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div> <%= form.text_field :more_components_open_to_exporter_explain, class: "form-control", placeholder: "Beschreibung" %> </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <%= form.select :more_components_open_to_exporter_currency, options_for_select(["Bitte auswählen", "Euro", "Dollar"]), {}, class: 'form-control' %>
+                        </div>
+                        <div class="col-md-3">
+                            <div> <%= form.text_field :more_components_open_to_exporter_amount, class: "form-control", placeholder: "Betrag", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div> <%= form.text_field :more_components_open_to_exporter_explain, class: "form-control", placeholder: "Beschreibung" %> </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -675,7 +699,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
             <div class="form-group">
-
+                <br>
                 <p><b>Haben Sie mit Ihrem Kunden eine Preisgleitklausel vereinbart? </b>
                 <p>
 
@@ -784,59 +808,96 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-1">
                 <p><i>Lieferbeginn</i></p>
-                <div> <%= form.date_field :delivery_start, id: "start_date", type: "date", class: "datepicker" %> </div>
+                <div> <%= form.date_field :delivery_start, id: "start_date", type: "date", class: "form-control" %> </div>
             </div>
             <div class="col-md-4">
                 <p><i>Lieferende</i></p>
-                <div> <%= form.date_field :delivery_end, id: "start_date", type: "date", class: "datepicker" %> </div>
+                <div> <%= form.date_field :delivery_end, id: "start_date", type: "date", class: "form-control" %> </div>
             </div>
         </div>
-
+        <br>
         <div class="row">
-            <br>
+
             <div class="col-md-4 col-md-offset-1">
                 <div> <%= form.text_field :other_important_delivery_information, class: "form-control", placeholder: "Weiterer zahlungsrelevanter Termin" %> </div>
             </div>
             <div class="col-md-4">
-                <div> <%= form.text_field :other_important_delivery_milestones, class: "form-control", placeholder: "z.B. Milestone xy" %> </div>
+                <div> <%= form.text_field :other_important_delivery_milestones, placeholder: "z.B. Milestone xy", class: "textbox-n", onfocus: "(this.type='date')" %> </div>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-1">
+                <div> <%= form.text_field :other_important_delivery_information, class: "form-control", placeholder: "Weiterer zahlungsrelevanter Termin" %> </div>
+            </div>
+            <div class="col-md-4">
+                <div> <%= form.text_field :other_important_delivery_milestones, placeholder: "z.B. Milestone xy", class: "textbox-n", onfocus: "(this.type='date')" %> </div>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-1">
+                <div> <%= form.text_field :other_important_delivery_information, class: "form-control", placeholder: "Weiterer zahlungsrelevanter Termin" %> </div>
+            </div>
+            <div class="col-md-4">
+                <div> <%= form.text_field :other_important_delivery_milestones, placeholder: "z.B. Milestone xy", class: "textbox-n", onfocus: "(this.type='date')" %> </div>
                 <br>
             </div>
         </div>
     </div>
-
 </div>
 
 <div id="certificateOfOrigin">
     <div class="form-group">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <br>
-                <p><b>Bekommen Sie für die zu liefernde Ware ein deutsches
-                    Warenursprungszeugnis?</b></p>
-            </div>
-        </div>
+            <div class="col-md-12 col-md-offset-1">
+                <div class="form-group">
+                    <br>
+                    <p><b>Bekommen Sie für die zu liefernde Ware ein deutsches
+                        Warenursprungszeugnis? </b></p>
 
-        <div class="row">
-            <div class="col-md-3 col-md-offset-1">
-                <%= form.check_box :yes_sonstige_kurzfrist_certificate_of_origin, name: "group12[]", id: "yes_certificateoforigin", :style => "width: 20px; height: 20px;" %>
-                Ja
-            </div>
-            <div class="col-md-4">
-                <%= form.check_box :no_sonstige_kurzfrist_certificate_of_origin, name: "group12[]", id: "no_certificateoforigin", :style => "width: 20px; height: 20px;" %>
-                Nein
-            </div>
-            <div class="col-md-4">
-                <%= form.check_box :part_of_goods__sonstige_kurzfrist_certificate_of_origin, name: "group12[]", id: "teil-certificateoforigin", :style => "width: 20px; height: 20px;" %>
-                für
-                Teile
-                der
-                Ware
+                    <div class="col-xs-3 col-sm-3 col-md-3">
+                        <div class="choice <%= 'active' if @insurance.yes_sonstige_kurzfrist_certificate_of_origin == 'on' %>" name="yes_certificateoforigin" data-toggle="wizard-checkbox" onclick="yesCertificateOfOrigin()">
+
+                            <%= check_box_tag "insurance[yes_sonstige_kurzfrist_certificate_of_origin]", @insurance.yes_sonstige_kurzfrist_certificate_of_origin ? @insurance.yes_sonstige_kurzfrist_certificate_of_origin : nil %>
+
+                            <div class="card circle card-hover-effect">
+                                <i class="ti-check"></i>
+                                <p>Ja</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3">
+                        <div class="choice <%= 'active' if @insurance.no_sonstige_kurzfrist_certificate_of_origin == 'on' %>" name="no_certificateoforigin" data-toggle="wizard-checkbox" onclick="noCertificateOfOrigin()">
+
+                            <%= check_box_tag "insurance[no_sonstige_kurzfrist_certificate_of_origin]", @insurance.no_sonstige_kurzfrist_certificate_of_origin ? @insurance.no_sonstige_kurzfrist_certificate_of_origin : nil %>
+                            <div class="card circle card-hover-effect">
+                                <i class="ti-close"></i>
+                                <p>Nein</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3">
+                        <div class="choice <%= 'active' if @insurance.part_of_goods__sonstige_kurzfrist_certificate_of_origin == 'on' %>" name="teil_certificateoforigin" data-toggle="wizard-checkbox" onclick="teilCertificateOfOrigin()">
+
+                            <%= check_box_tag "insurance[part_of_goods__sonstige_kurzfrist_certificate_of_origin]", @insurance.part_of_goods__sonstige_kurzfrist_certificate_of_origin ? @insurance.part_of_goods__sonstige_kurzfrist_certificate_of_origin : nil %>
+
+                            <div class="card circle card-hover-effect">
+                                <i class="ti-star"></i>
+                                <p> für Teile der Ware</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<div id="yesNoCertificateOfOrigin" style="display: none;">
+<br><br>
+
+
+<div id="noCertificateOfOrigin" style="display: none;">
     <br>
     <div class="appear">
         <br>
@@ -878,7 +939,7 @@
                                                                                         'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe']), {}, class: "form-control" %>
                 </div>
 
-                <div class="col-md-2 col-md-offset-1">
+                <div class="col-md-2">
                     <%= form.select :all_rawgoods_supplier_currency, options_for_select(["Bitte auswählen", "Euro", "Dollar"]), {}, class: "form-control" %>
                 </div>
 
@@ -907,7 +968,7 @@
     </div>
 </div>
 
-<div id="yesNoCertificateOfOriginTeil" style="display: none;">
+<div id="teilCertificateOfOrigin" style="display: none;">
     <br>
     <div class="appear">
         <br>
