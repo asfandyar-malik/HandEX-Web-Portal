@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_21_182830) do
+ActiveRecord::Schema.define(version: 2019_03_21_192609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -96,8 +96,6 @@ ActiveRecord::Schema.define(version: 2019_03_21_182830) do
     t.string "explain_good_industry_type"
     t.boolean "yes_deliver_part_of_overall_project_other_companies"
     t.boolean "no_deliver_part_of_overall_project_other_companies"
-    t.boolean "risk_shipment_risk_cover"
-    t.boolean "risk_supplier_credit_cover"
     t.boolean "exporting_to_private_sector"
     t.boolean "exporting_to_public_sector"
     t.bigint "user_id"
