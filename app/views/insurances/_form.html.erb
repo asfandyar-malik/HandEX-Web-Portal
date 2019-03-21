@@ -4,7 +4,7 @@
             <div class="wizard-container">
                 <div class="card wizard-card" data-color="blue" id="wizard">
 
-                    <%= form_with(model: insurance, local: true, html: { multipart: true }, id: "customer-portal") do |form| %>
+                    <%= form_with(model: insurance, local: true, html: {multipart: true}, id: "customer-portal") do |form| %>
 
                         <% if insurance.errors.any? %>
                             <div id="error_explanation">
@@ -19,7 +19,7 @@
                         <% end %>
 
                         <div class="wizard-header">
-<!--                            <h3 class="wizard-title">Versichern Sie Ihren Export</h3>-->
+                            <!--                            <h3 class="wizard-title">Versichern Sie Ihren Export</h3>-->
                             <br><br>
                         </div>
 
@@ -283,7 +283,7 @@
         if (y.style.display === "none") {
             y.style.display = "block";
             x.style.display = "none";
-        }else {
+        } else {
             y.style.display = "none";
         }
     }
@@ -320,26 +320,34 @@
         }
     }
 
+    function yesCertificateOfOrigin() {
+        var x = document.getElementById("noCertificateOfOrigin");
+        var y = document.getElementById("teilCertificateOfOrigin");
+        x.style.display = "none";
+        y.style.display = "none";
+    }
 
-    $(function () {
-        $("#no_certificateoforigin").click(function () {
-            if ($(this).is(":checked")) {
-                $("#yesNoCertificateOfOrigin").show();
-            } else {
-                $("#yesNoCertificateOfOrigin").hide();
-            }
-        });
-    });
+    function noCertificateOfOrigin() {
+        var x = document.getElementById("noCertificateOfOrigin");
+        var y = document.getElementById("teilCertificateOfOrigin");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.display = "none";
+        } else {
+            x.style.display = "none";
+        }
+    }
 
-    $(function () {
-        $("#teil-certificateoforigin").click(function () {
-            if ($(this).is(":checked")) {
-                $("#yesNoCertificateOfOriginTeil").show();
-            } else {
-                $("#yesNoCertificateOfOriginTeil").hide();
-            }
-        });
-    });
+    function teilCertificateOfOrigin() {
+        var x = document.getElementById("teilCertificateOfOrigin");
+        var y = document.getElementById("noCertificateOfOrigin");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.display = "none";
+        } else {
+            x.style.display = "none";
+        }
+    }
 
     function kurzFristigTermOfPayment() {
         var x = document.getElementById("KurzFristigTermOfPayment");
@@ -466,6 +474,7 @@
         }
     }
 
+
     $(function () {
         $("#No-hermesdeckungNutz").click(function () {
             if ($(this).is(":checked")) {
@@ -502,15 +511,23 @@
         });
     });
 
-    $(function () {
-        $("#corruptionDeclarationApplies").click(function () {
-            if ($(this).is(":checked")) {
-                $("#showHideDivCorruptionDeclarationApplies").show();
-            } else {
-                $("#showHideDivCorruptionDeclarationApplies").hide();
-            }
-        });
-    });
+
+    function corruptionDeclarationApplies() {
+        var x = document.getElementById("showHideDivCorruptionDeclarationApplies");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        }
+        else {
+            x.style.display = "none";
+        }
+    }
+
+    function noCorruptionDeclarationApplies() {
+        var x = document.getElementById("showHideDivCorruptionDeclarationApplies");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+    }
 
     var $choice = jQuery('.choice');
 
@@ -528,7 +545,6 @@
         $choice.filter('[name="mitteltermofpayment"]').removeClass('active');
         $choice.filter('[name="kurzfristigtermofpayment"]').removeClass('active');
     });
-
 
     $choice.filter('[name="sensitivearea_nein"]').click(function () {
         $choice.filter('[name="sensitivearea"]').removeClass('active');
@@ -658,6 +674,23 @@
         $choice.filter('[name="yes_multipledeliveries"]').removeClass('active');
     });
 
+    $choice.filter('[name="yes_certificateoforigin"]').click(function () {
+        $choice.filter('[name="no_certificateoforigin"]').removeClass('active');
+        $choice.filter('[name="teil_certificateoforigin"]').removeClass('active');
+
+    });
+
+    $choice.filter('[name="no_certificateoforigin"]').click(function () {
+        $choice.filter('[name="yes_certificateoforigin"]').removeClass('active');
+        $choice.filter('[name="teil_certificateoforigin"]').removeClass('active');
+
+    });
+
+    $choice.filter('[name="teil_certificateoforigin"]').click(function () {
+        $choice.filter('[name="no_certificateoforigin"]').removeClass('active');
+        $choice.filter('[name="yes_certificateoforigin"]').removeClass('active');
+    });
+
     $choice.filter('[name="yes_securitybusinnesprovided"]').click(function () {
         $choice.filter('[name="no_securitybusinnesprovided"]').removeClass('active');
     });
@@ -712,6 +745,14 @@
 
     $choice.filter('[name="privatesector"]').click(function () {
         $choice.filter('[name="publicsector"]').removeClass('active');
+    });
+
+    $choice.filter('[name="corruptionDeclarationApplies"]').click(function () {
+        $choice.filter('[name="corruption_declaration_doesnt_apply"]').removeClass('active');
+    });
+
+    $choice.filter('[name="corruption_declaration_doesnt_apply"]').click(function () {
+        $choice.filter('[name="corruptionDeclarationApplies"]').removeClass('active');
     });
 
     $('input[type="checkbox"]').on('change', function () {
@@ -772,24 +813,6 @@
             $("#yesNoMultipleDeliveries").hide();
         }
 
-        // if ($("#ja").is(":checked")) {
-        //     $("#showHideDivJaWorkOtherCompanies").show();
-        // } else {
-        //     $("#showHideDivJaWorkOtherCompanies").hide();
-        // }
-
-        if ($("#no_certificateoforigin").is(":checked")) {
-            $("#yesNoCertificateOfOrigin").show();
-        } else {
-            $("#yesNoCertificateOfOrigin").hide();
-        }
-
-        if ($("#teil-certificateoforigin").is(":checked")) {
-            $("#yesNoCertificateOfOriginTeil").show();
-        } else {
-            $("#yesNoCertificateOfOriginTeil").hide();
-        }
-
         if ($("#Yes-securityForBusiness").is(":checked")) {
             $("#typeOfSecurity").show();
         } else {
@@ -812,12 +835,6 @@
             $("#alreadyPaymentExperience").show();
         } else {
             $("#alreadyPaymentExperience").hide();
-        }
-
-        if ($("#corruptionDeclarationApplies").is(":checked")) {
-            $("#showHideDivCorruptionDeclarationApplies").show();
-        } else {
-            $("#showHideDivCorruptionDeclarationApplies").hide();
         }
     });
 
