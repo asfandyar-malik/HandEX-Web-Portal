@@ -13,7 +13,7 @@
            answer: @insurance.loan_duration %>
 
 <%= render qa_partial, question: "An wen liefern Sie?",
-           answer: @insurance.exporting_to_private_sector %>
+           answer: @insurance.exporting_to_private_sector?? 'Ja' : 'Nein'%>
 
 <% delivery_goal_answer = @insurance.exporting_to_private_sector %>
 <% can_show_success_result_message = (delivery_goal_answer == 'Private Sector') %>

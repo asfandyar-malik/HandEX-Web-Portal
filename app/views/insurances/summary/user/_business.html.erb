@@ -100,7 +100,7 @@
   <% end %>
   <hr>
 
-  <div id="affectsOtherSpecialDiv" style="display: <%= @insurance.delivery_affects_other? ? 'block' : 'none' %>">
+  <div id="affectsOtherSpecialDiv" style="display: <%= @insurance.delivery_affects_other?? 'block' : 'none' %>">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <label>Bitte konkretisieren Sie, um was für ein sensibles Gebiet es sich handelt</label>
@@ -116,7 +116,7 @@
 
 <%= render qa_partial,
            question: "Ist Ihr Export ausfuhrgenehmigungspflichtig?",
-           answer: @insurance.yes_deliver_part_of_overall_project_other_companies? ? 'Ja' : 'Nein'
+           answer: @insurance.yes_deliver_part_of_overall_project_other_companies?? 'Ja' : 'Nein'
 %>
 
 <div id="workwithothercompanies">
@@ -145,15 +145,15 @@
 
 <%= render qa_partial,
            question: "Liefern Sie gebrauchte Ware?",
-           answer: @insurance.yes_deliver_secondhand_goods? ? 'Ja' : 'Nein'
+           answer: @insurance.yes_deliver_secondhand_goods?? 'Ja' : 'Nein'
 %>
 
 <%= render qa_partial,
            question: "Haben bereits alle Parteien den Vertrag für das Exportgeschäft unterzeichnet?",
-           answer: @insurance.yes_contract_already_signed_all_parties? ? 'Ja' : 'Nein'
+           answer: @insurance.yes_contract_already_signed_all_parties?? 'Ja' : 'Nein'
 %>
 
-<div id="contractSigned" style="display: <%= @insurance.yes_contract_already_signed_all_parties? ? 'block' : 'block' %>">
+<div id="contractSigned" style="display: <%= @insurance.yes_contract_already_signed_all_parties?? 'block' : 'block' %>">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <label>Bitte geben Sie das Abschlussdatum des Vertrags und optional eine interne Referenz an. </label>
@@ -174,7 +174,7 @@
 <div id="specialContractStructure">
   <%= render qa_partial,
              question: "Vereinbaren Sie mit Ihrem Vertragspartner eine besondere Vertragsstruktur?",
-             answer: check_missing(@insurance.yes_special_contract_structure? ? 'Ja' : 'Nein') %>
+             answer: check_missing(@insurance.yes_special_contract_structure?? 'Ja' : 'Nein') %>
 </div>
 
 <div id="contractAmount">
@@ -225,10 +225,10 @@
 <div id="priceAdjustmentClause">
   <%= render qa_partial,
              question: "Haben Sie mit Ihrem Kunden eine Preisgleitklausel vereinbart? ",
-             answer: @insurance.yes_price_adjustment_clause_with_importer? ? 'Ja' : 'Nein' %>
+             answer: @insurance.yes_price_adjustment_clause_with_importer?? 'Ja' : 'Nein' %>
 </div>
 
-<div id="yesNoPriceAdjustmentClause" style="display: <%= @insurance.yes_price_adjustment_clause_with_importer? ? 'block' : 'block' %>">
+<div id="yesNoPriceAdjustmentClause" style="display: <%= @insurance.yes_price_adjustment_clause_with_importer?? 'block' : 'block' %>">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <label>Bitte beschreiben Sie die Details zur Verrechnungsmethode (Prozent- oder Betragsverfahren) </label>
@@ -246,10 +246,10 @@
 <div id="multipleDeliveries">
   <%= render qa_partial,
              question: "Versenden Sie Ihre Waren/Güter/Anlagen in mehreren Lieferungen? ",
-             answer: @insurance.yes_goods_sent_multiple_deliveries? ? 'Ja' : 'Nein' %>
+             answer: @insurance.yes_goods_sent_multiple_deliveries?? 'Ja' : 'Nein' %>
 </div>
 
-<div id="yesNoMultipleDeliveries" style="display: <%= @insurance.yes_goods_sent_multiple_deliveries? ? 'block' : 'block' %>">
+<div id="yesNoMultipleDeliveries" style="display: <%= @insurance.yes_goods_sent_multiple_deliveries?? 'block' : 'block' %>">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <label> Bitte teilen Sie uns die Liefer- und ggf. Leistungstermine Ihres Exportgeschäftes mit. </label>
@@ -321,7 +321,7 @@
     <div class="row">
       <%= render qa_partial,
                  question: "Bitte geben Sie die Zulieferungen aus dem Ausland an.",
-                 answer: @insurance.yes_goods_sent_multiple_deliveries? ? 'Ja' : 'Nein' %>
+                 answer: @insurance.yes_goods_sent_multiple_deliveries?? 'Ja' : 'Nein' %>
     </div>
 
     <div class="row">

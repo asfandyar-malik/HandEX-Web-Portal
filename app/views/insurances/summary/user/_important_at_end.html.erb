@@ -2,10 +2,10 @@
 
 <div id="deliveryAddressCheck">
   <%= render qa_partial, question: "Haben Sie in der Vergangenheit schon einmal einen Antrag auf Hermesdeckung eingereicht?",
-             answer: @insurance.yes_previously_hermes_insurance_used? ? 'Ja' : 'Nein' %>
+             answer: @insurance.yes_previously_hermes_insurance_used?? 'Ja' : 'Nein' %>
 </div>
 
-<div id="newAtHermesDeckung" style="display: <%= @insurance.yes_previously_hermes_insurance_used? ? 'none' : 'block' %>">
+<div id="newAtHermesDeckung" style="display: <%= @insurance.yes_previously_hermes_insurance_used?? 'none' : 'block' %>">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <label>Da Sie bisher keine Hermesdeckung beantragt haben, möchte HandEX
@@ -241,7 +241,7 @@
     </div>
   </div>
 
-  <div id="showHideDivCorruptionDeclarationApplies" style="display:<%= !@insurance.corruption_declaration_applies? ? 'block' : 'none' %>">
+  <div id="showHideDivCorruptionDeclarationApplies" style="display:<%= !@insurance.corruption_declaration_applies?? 'block' : 'none' %>">
 
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
@@ -259,7 +259,7 @@
 
   </div>
 
-  <div class="row" style="display: <%= @insurance.no_corruption_declaration_applies? ? 'block' : 'none' %>">
+  <div class="row" style="display: <%= @insurance.no_corruption_declaration_applies?? 'block' : 'none' %>">
     <div class="col-md-8 col-md-offset-2">
       <label class="text-babu">
         Trifft nicht zu
@@ -269,7 +269,7 @@
 
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <div class="<%= @insurance.information_inputted_best_of_knowledge? ? 'text-babu' : 'text-red' %>">
+      <div class="<%= @insurance.information_inputted_best_of_knowledge?? 'text-babu' : 'text-red' %>">
         Die vorstehenden Angaben wurden von uns nach bestem Wissen und Gewissen und in Kenntnisnahme der Erläuterungen
         gemacht.
       </div>
@@ -291,7 +291,7 @@
 
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <label class="<%= @insurance.accept_terms_conditions? ? 'text-babu' : 'text-red' %>">
+      <label class="<%= @insurance.accept_terms_conditions?? 'text-babu' : 'text-red' %>">
 
         Wir akzeptieren die
         <span>
@@ -312,7 +312,7 @@
 
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <label class="<%= @insurance.read_privacy_policy? ? 'text-babu' : 'text-red' %>">
+      <label class="<%= @insurance.read_privacy_policy?? 'text-babu' : 'text-red' %>">
 
         Wir haben die <span><a target="_blank" rel="noopener noreferrer" href="/pages/termsAndConditions">
         Datenschutzhinweise  </a> </span> zur Kenntnis genommen und sind mit deren Geltung einverstanden.
@@ -324,7 +324,7 @@
 
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <div class="<%= @insurance.read_all_instructions? ? 'text-babu' : 'text-red' %>">
+      <div class="<%= @insurance.read_all_instructions?? 'text-babu' : 'text-red' %>">
         Wir haben die <span><a target="_blank" rel="noopener noreferrer" href="/pages/guidelines">
                     Hinweise zu Gebühren und Entgelten, Richtlinien, Verantwortlichkeiten   </a> </span> für den Antrag,
         Veröffentlichung von Projektdaten, OECD-Leitsätze für multinationale Unternehmen und
