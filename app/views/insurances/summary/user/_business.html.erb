@@ -178,18 +178,16 @@
 </div>
 
 <div id="contractAmount">
-
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <label>Bitte geben Sie den Auftragswert an.</label>
-    </div>
-  </div>
-
-  <% answer = check_missing(@insurance.contract_trade_currency) + " " + check_missing(@insurance.contract_trade_amount) %>
   <%= render qa_partial,
              question: "Welche Vertragswährung vereinbaren Sie",
-             answer: check_missing(@insurance.contract_trade_currency) + " " + check_missing(@insurance.contract_trade_amount) %>
-  <%= render qa_partial,
+             answer: check_missing(@insurance.contract_trade_currency) %>
+
+    <%= render qa_partial,
+               question: "Bitte geben Sie den Auftragswert an",
+               answer: check_missing(@insurance.contract_trade_amount) %>
+
+
+    <%= render qa_partial,
              question: "Wie hoch ist der Lieferwert der Güter exkl. anderer Leistungen (Montagen, etc.)",
              answer: check_missing(@insurance.total_delivery_value) %>
 

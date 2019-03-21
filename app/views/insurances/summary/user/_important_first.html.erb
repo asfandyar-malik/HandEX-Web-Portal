@@ -12,7 +12,7 @@
 <%= render qa_partial, question: "Welches Zahlungsziel gewähren Sie Ihrem Kunden?",
            answer: @insurance.loan_duration %>
 
-<%= render qa_partial, question: "An wen liefern Sie?",
+<%= render qa_partial, question: "Liefern Sie an Privatsektor?",
            answer: @insurance.exporting_to_private_sector?? 'Ja' : 'Nein'%>
 
 <% delivery_goal_answer = @insurance.exporting_to_private_sector %>

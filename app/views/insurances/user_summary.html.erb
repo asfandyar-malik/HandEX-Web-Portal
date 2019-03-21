@@ -7,7 +7,7 @@
 
 <div class='row'>
   <% panel_names.zip(panel_headings).each do |panel_name, panel_title| %>
-    <div class='col-md-8 col-md-offset-2 text-justify'>
+    <div class='col-md-6 col-md-offset-3 text-justify'>
       <div class="panel panel-default">
 
         <div class="panel-heading">
@@ -19,7 +19,6 @@
             <%= render partial: "insurances/summary/user/#{panel_name}.html.erb", locals: {insurance: @insurance, form: form} %>
           <% end %>
         </div>
-
       </div>
     </div>
   <% end %>
