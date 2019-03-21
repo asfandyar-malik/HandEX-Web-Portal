@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_21_192609) do
+ActiveRecord::Schema.define(version: 2019_03_21_220359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -41,29 +41,27 @@ ActiveRecord::Schema.define(version: 2019_03_21_192609) do
     t.string "sonstige_kurzfrist_credit_start_sonstige_explain"
     t.string "sonstige_kurzfrist_number_of_installments"
     t.string "sonstige_kurzfrist_payment_vehichle_explain"
-    t.string "yes_sonstige_kurzfrist_certificate_of_origin"
-    t.string "no_sonstige_kurzfrist_certificate_of_origin"
     t.string "part_of_goods__sonstige_kurzfrist_certificate_of_origin"
     t.string "agreed_payments_currency"
     t.string "agreed_payments_amount"
-    t.boolean "delivery_doesnt_affects_sensitive_areas"
-    t.boolean "delivery_affects_natural_reserves"
-    t.boolean "delivery_affects_indigenous_people"
-    t.boolean "delivery_affects_cultural_heritage"
-    t.boolean "delivery_affects_other"
+    t.boolean "delivery_doesnt_affects_sensitive_areas", default: false
+    t.boolean "delivery_affects_natural_reserves", default: false
+    t.boolean "delivery_affects_indigenous_people", default: false
+    t.boolean "delivery_affects_cultural_heritage", default: false
+    t.boolean "delivery_affects_other", default: false
     t.string "explain_delivery_affects_other"
-    t.boolean "yes_export_requires_exportlicense"
-    t.boolean "no_export_requires_exportlicense"
+    t.boolean "yes_export_requires_exportlicense", default: false
+    t.boolean "no_export_requires_exportlicense", default: false
     t.string "which_regulations_arises_exportlicense_requirement"
     t.string "exportlicense_status"
-    t.boolean "yes_deliver_secondhand_goods"
-    t.boolean "no_dont_deliver_secondhand_goods"
-    t.boolean "yes_contract_already_signed_all_parties"
-    t.boolean "no_contract_already_signed_all_parties"
+    t.boolean "yes_deliver_secondhand_goods", default: false
+    t.boolean "no_dont_deliver_secondhand_goods", default: false
+    t.boolean "yes_contract_already_signed_all_parties", default: false
+    t.boolean "no_contract_already_signed_all_parties", default: false
     t.string "trade_contract_signing_date"
     t.string "exporter_internal_contract_id"
-    t.boolean "yes_special_contract_structure"
-    t.boolean "no_special_contract_structure"
+    t.boolean "yes_special_contract_structure", default: false
+    t.boolean "no_special_contract_structure", default: false
     t.string "contract_currency"
     t.string "contract_trade_currency"
     t.string "contract_trade_amount"
@@ -72,21 +70,18 @@ ActiveRecord::Schema.define(version: 2019_03_21_192609) do
     t.string "more_components_open_to_exporter_currency"
     t.string "more_components_open_to_exporter_amount"
     t.string "more_components_open_to_exporter_explain"
-    t.boolean "yes_charge_interest_to_importer"
-    t.boolean "no_charge_interest_to_importer"
+    t.boolean "yes_charge_interest_to_importer", default: false
+    t.boolean "no_charge_interest_to_importer", default: false
     t.string "charged_interest_to_importer_currency"
-    t.boolean "yes_price_adjustment_clause_with_importer"
-    t.boolean "no_price_adjustment_clause_with_importer"
+    t.boolean "yes_price_adjustment_clause_with_importer", default: false
+    t.boolean "no_price_adjustment_clause_with_importer", default: false
     t.string "explain_accounting_methods"
-    t.boolean "yes_goods_sent_multiple_deliveries"
-    t.boolean "no_goods_sent_multiple_deliveries"
+    t.boolean "yes_goods_sent_multiple_deliveries", default: false
+    t.boolean "no_goods_sent_multiple_deliveries", default: false
     t.string "delivery_start"
     t.string "delivery_end"
     t.string "other_important_delivery_information"
     t.string "other_important_delivery_milestones"
-    t.string "payment_term_shortterm"
-    t.string "payment_term_middleterm"
-    t.string "payment_term_both"
     t.string "downpayment_delivery_currency"
     t.string "downpayment_delivery_amount"
     t.string "downpayment_delivery_description"
@@ -94,10 +89,10 @@ ActiveRecord::Schema.define(version: 2019_03_21_192609) do
     t.string "explain_why_importer_buying_goods"
     t.string "exported_goods_type"
     t.string "explain_good_industry_type"
-    t.boolean "yes_deliver_part_of_overall_project_other_companies"
-    t.boolean "no_deliver_part_of_overall_project_other_companies"
-    t.boolean "exporting_to_private_sector"
-    t.boolean "exporting_to_public_sector"
+    t.boolean "yes_deliver_part_of_overall_project_other_companies", default: false
+    t.boolean "no_deliver_part_of_overall_project_other_companies", default: false
+    t.boolean "exporting_to_private_sector", default: false
+    t.boolean "exporting_to_public_sector", default: false
     t.bigint "user_id"
     t.string "all_rawgoods_supplier_country"
     t.string "all_rawgoods_supplier_currency"
@@ -107,8 +102,6 @@ ActiveRecord::Schema.define(version: 2019_03_21_192609) do
     t.string "partly_rawgoods_supplier_currency"
     t.string "partly_rawgoods_supplier_text"
     t.string "why_partly_foreign_rawgoods_necessary"
-    t.string "yes_security_businnes_provided"
-    t.string "no_security_businnes_provided"
     t.string "security_type"
     t.string "security_type_name"
     t.string "proportion_contract_security_provided"
@@ -118,21 +111,13 @@ ActiveRecord::Schema.define(version: 2019_03_21_192609) do
     t.string "importer_plz"
     t.string "importer_city"
     t.string "importer_country"
-    t.string "yes_delivered_at_this_address"
-    t.string "no_delivered_at_this_address"
     t.string "importer_delivery_address_company_name"
     t.string "importer_delivery_address_street"
     t.string "importer_delivery_address_plz"
     t.string "importer_delivery_address_city"
     t.string "importer_delivery_address_country"
-    t.string "yes_exporter_influence_on_importer_management"
-    t.string "no_exporter_influence_on_importer_management"
     t.string "explain_exporter_influence_on_importer_management"
-    t.string "yes_previous_payment_experience_with_importer"
-    t.string "no_previous_payment_experience_with_importer"
     t.string "explain_previous_payment_experience_with_importer"
-    t.string "yes_previously_hermes_insurance_used"
-    t.string "no_previously_hermes_insurance_used"
     t.string "trading_since_when_without_hermes_insurance"
     t.string "exporter_company_dnnr"
     t.string "exporter_company_plz"
@@ -171,29 +156,44 @@ ActiveRecord::Schema.define(version: 2019_03_21_192609) do
     t.string "exporter_telephone"
     t.string "further_lower_economic_risk"
     t.string "dont_lower_economic_risk"
-    t.string "corruption_declaration_applies"
-    t.string "no_corruption_declaration_applies"
     t.string "explain_corruption_declaration_applies"
-    t.string "yes_jointventure_with_consortiums"
-    t.string "no_jointventure_with_consortiums"
     t.string "give_consortiums_companies"
     t.string "information_inputted_best_of_knowledge"
-    t.string "accept_terms_conditions"
-    t.string "read_privacy_policy"
-    t.string "read_all_instructions"
     t.string "exporter_company_street"
-    t.string "yes_payment_term_already_agreed"
-    t.string "no_payment_term_already_agreed"
     t.string "loan_term"
-    t.string "application_status"
-    t.boolean "yes_residualriskapetite_minimum_five"
-    t.boolean "no_residualriskapetite_minimum_five"
-    t.boolean "yes_investment_good"
-    t.boolean "no_investment_good"
-    t.boolean "yes_exporter_offers_servicing_for_goods"
-    t.boolean "no_exporter_offers_servicing_for_goods"
+    t.string "application_status", default: "new"
+    t.boolean "yes_residualriskapetite_minimum_five", default: false
+    t.boolean "no_residualriskapetite_minimum_five", default: false
+    t.boolean "yes_investment_good", default: false
+    t.boolean "no_investment_good", default: false
+    t.boolean "yes_exporter_offers_servicing_for_goods", default: false
+    t.boolean "no_exporter_offers_servicing_for_goods", default: false
     t.string "loan_duration"
     t.string "contract_value"
+    t.boolean "yes_sonstige_kurzfrist_certificate_of_origin", default: false
+    t.boolean "no_sonstige_kurzfrist_certificate_of_origin", default: false
+    t.boolean "yes_security_businnes_provided", default: false
+    t.boolean "no_security_businnes_provided", default: false
+    t.boolean "yes_delivered_at_this_address", default: false
+    t.boolean "no_delivered_at_this_address", default: false
+    t.boolean "yes_exporter_influence_on_importer_management", default: false
+    t.boolean "no_exporter_influence_on_importer_management", default: false
+    t.boolean "yes_previous_payment_experience_with_importer", default: false
+    t.boolean "no_previous_payment_experience_with_importer", default: false
+    t.boolean "yes_previously_hermes_insurance_used", default: false
+    t.boolean "no_previously_hermes_insurance_used", default: false
+    t.boolean "corruption_declaration_applies", default: false
+    t.boolean "no_corruption_declaration_applies", default: false
+    t.boolean "yes_jointventure_with_consortiums", default: false
+    t.boolean "no_jointventure_with_consortiums", default: false
+    t.boolean "yes_payment_term_already_agreed", default: false
+    t.boolean "no_payment_term_already_agreed", default: false
+    t.boolean "accept_terms_conditions", default: false
+    t.boolean "read_privacy_policy", default: false
+    t.boolean "read_all_instructions", default: false
+    t.boolean "payment_term_shortterm", default: false
+    t.boolean "payment_term_middleterm", default: false
+    t.boolean "payment_term_both", default: false
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 

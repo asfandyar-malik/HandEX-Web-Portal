@@ -131,7 +131,7 @@ class InsurancesController < ApplicationController
             :agreed_payments_currency, :agreed_payments_amount, :source_of_fund_amount, :goods_overhauled_location, :explain_special_contract_structure,
             :graphic_representation_project_participants, :contract_currency, :charged_interest_to_importer_currency, :downpayment_delivery_currency,
             :downpayment_delivery_amount, :downpayment_delivery_description, :risk_shipment_risk_cover, :risk_supplier_credit_cover, :exporter_company_city,
-            :further_lower_economic_risk, :dont_lower_economic_risk, :yes_jointventure_with_consortiums, :no_jointventure_with_consortiums,  :loan_term
+            :further_lower_economic_risk, :yes_jointventure_with_consortiums, :no_jointventure_with_consortiums,  :loan_term
             
         )
     end
