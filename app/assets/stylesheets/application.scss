@@ -223,12 +223,14 @@ p {
 }
 
 .btn.btn-form {
+  color: white;
   border: 1px solid rgb(9, 208, 183);
   background-color: rgb(9, 208, 183);
 }
 
 .btn.btn-form:active {
   outline: none;
+  color: white;
   border-color: rgb(9, 208, 183);
   background-color: rgb(9, 208, 183);
 }
