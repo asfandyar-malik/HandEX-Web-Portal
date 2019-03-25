@@ -58,12 +58,13 @@ class InsurancesController < ApplicationController
     end
     
     def user_summary
+        render "insurances/summary/user_summary"
     end
     
     def pdf_user_summary
-        configure_html_to_pdf output_file_name: 'insurance/pdf_user_summary.html.erb',
+        configure_html_to_pdf output_file_name: 'insurances/summary/pdf_generated_user_summary.html.erb',
                               layout:           'application_pdf.html.erb',
-                              view:             'insurances/pdf_user_summary.html.erb'
+                              view:             'insurances/summary/pdf_user_summary.html.erb'
     end
     
     private
