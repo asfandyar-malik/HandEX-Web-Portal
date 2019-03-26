@@ -2,140 +2,124 @@
 
 <div id="customerAddress">
 
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <label> Bitte geben Sie die Adresse Ihres Kunden an </label>
-    </div>
-  </div>
-  <br>
-
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-
-      <% address_keys = ["Firmenname",
-                         "Straße / Hausnummer",
-                         "PLZ",
-                         "Ort"] %>
-
-      <% address_values = [@insurance.importer_company_name,
-                           @insurance.importer_address,
-                           @insurance.importer_plz,
-                           @insurance.importer_city] %>
-
-      <% address_keys.zip(address_values).each do |addr_key, addr_value| %>
-        <div class="row">
-          <div class="col-sm-6">
-            <span><%= addr_key %></span>
-          </div>
-          <div class="col-sm-6 text-babu">
-            <%= check_missing(addr_value) %>
-          </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <p> Bitte geben Sie die Adresse Ihres Kunden an </p>
         </div>
-      <% end %>
-
     </div>
-  </div>
+    <br>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+
+            <% address_keys = ["Firmenname", "Straße / Hausnummer", "PLZ", "Ort"] %>
+
+            <% address_values = [@insurance.importer_company_name, @insurance.importer_address, @insurance.importer_plz, @insurance.importer_city] %>
+
+            <% address_keys.zip(address_values).each do |addr_key, addr_value| %>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <span><%= addr_key %></span>
+                    </div>
+                    <div class="col-sm-6 text-babu">
+                        <%= check_missing(addr_value) %>
+                    </div>
+                </div>
+            <% end %>
+
+        </div>
+    </div>
 </div>
 
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <hr>
-  </div>
+    <div class="col-md-8 col-md-offset-1">
+        <hr>
+    </div>
 </div>
 
 <div id="deliveryAddressCheck">
-  <%= render qa_partial, question: "Liefern Sie an diese Adresse?",
-             answer: @insurance.yes_delivered_at_this_address?? 'Ja' : 'Nein' %>
+    <%= render qa_partial, question: "Liefern Sie an diese Adresse?", answer: @insurance.yes_delivered_at_this_address? ? 'Ja' : 'Nein' %>
 </div>
 
 <% if !@insurance.yes_delivered_at_this_address? %>
 
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
 
-      <% address_keys = ["Firmenname",
-                         "Land",
-                         "Straße / Hausnummer",
-                         "PLZ",
-                         "Ort"] %>
+            <% address_keys = ["Firmenname", "Land", "Straße / Hausnummer", "PLZ", "Ort"] %>
 
-      <% address_values = [@insurance.importer_delivery_address_company_name,
-                           @insurance.importer_delivery_address_country,
-                           @insurance.importer_delivery_address_street,
-                           @insurance.importer_delivery_address_plz,
-                           @insurance.importer_delivery_address_city] %>
+            <% address_values = [@insurance.importer_delivery_address_company_name, @insurance.importer_delivery_address_country, @insurance.importer_delivery_address_street, @insurance.importer_delivery_address_plz, @insurance.importer_delivery_address_city] %>
 
-      <% address_keys.zip(address_values).each do |addr_key, addr_value| %>
-        <div class="row">
-          <div class="col-sm-6">
-            <span><%= addr_key %></span>
-          </div>
-          <div class="col-sm-6 text-babu">
-            <%= check_missing(addr_value) %>
-          </div>
+            <% address_keys.zip(address_values).each do |addr_key, addr_value| %>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <span><%= addr_key %></span>
+                    </div>
+                    <div class="col-sm-6 text-babu">
+                        <%= check_missing(addr_value) %>
+                    </div>
+                </div>
+            <% end %>
+
         </div>
-      <% end %>
-
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <hr>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <hr>
+        </div>
     </div>
-  </div>
 
 <% end %>
 
 <div id="deliveryAddressCheck">
-  <%= render qa_partial, question: "Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder üben Sie maßgeblichen Einfluss auf die Geschäftsführung aus?",
-             answer: @insurance.yes_exporter_influence_on_importer_management?? 'Ja' : 'Nein' %>
+    <%= render qa_partial, question: "Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder üben Sie maßgeblichen Einfluss auf die Geschäftsführung aus?", answer: @insurance.yes_exporter_influence_on_importer_management? ? 'Ja' : 'Nein' %>
 </div>
 
 <% if @insurance.yes_exporter_influence_on_importer_management? %>
 
-  <div id="relationToCustomerExplain">
+    <div id="relationToCustomerExplain">
 
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <label> Bitte helfen Sie uns, die Beteiligung besser zu verstehen. </label>
-      </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-1">
+                <p> Bitte helfen Sie uns, die Beteiligung besser zu verstehen. </p>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-1">
+                <p>
+                    <% @insurance.explain_exporter_influence_on_importer_management %>  </p>
+            </div>
+        </div>
+
     </div>
-    <br>
-
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <label>
-          <% @insurance.explain_exporter_influence_on_importer_management %>  </label>
-      </div>
-    </div>
-
-  </div>
 
 <% end %>
 
 <div id="deliveryAddressCheck">
-  <%= render qa_partial, question: "Haben Sie bereits Zahlungserfahrungen mit Ihrem Kunden?",
-             answer: @insurance.yes_previous_payment_experience_with_importer?? 'Ja' : 'Nein' %>
+    <%= render qa_partial, question: "Haben Sie bereits Zahlungserfahrungen mit Ihrem Kunden?", answer: @insurance.yes_previous_payment_experience_with_importer? ? 'Ja' : 'Nein' %>
 </div>
 
 <% if @insurance.yes_previous_payment_experience_with_importer? %>
 
-  <div id="alreadyPaymentExperience">
+    <div id="alreadyPaymentExperience">
 
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <label> Bitte beschreiben Sie diese näher. </label>
-      </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-1">
+                <p> Bitte beschreiben Sie diese näher. </p>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-1">
+                <p>
+                    <% @insurance.explain_previous_payment_experience_with_importer %>  </p>
+            </div>
+        </div>
+
     </div>
-    <br>
-
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <label> <% @insurance.explain_previous_payment_experience_with_importer %>  </label>
-      </div>
-    </div>
-
-  </div>
 
 <% end %>

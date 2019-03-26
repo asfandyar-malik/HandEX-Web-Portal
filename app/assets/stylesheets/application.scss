@@ -16,7 +16,6 @@
  *= require css/main
  *= require css/owl.carousel
  */
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "toastr";
@@ -32,7 +31,7 @@ body {
   color: #000000;
   background-color: #FFFFFF;
   font-family: "assistant, sans-serif";
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .down {
@@ -85,8 +84,8 @@ p {
 }
 
 .text-babu, .icon-babu {
-   color: rgb(9, 208, 183);
- }
+  color: rgb(9, 208, 183);
+}
 
 .text-blue, .icon-babu {
   color: rgb(0, 103, 200);
@@ -223,21 +222,22 @@ p {
 }
 
 .btn.btn-form {
-  color: white;
-  border: 1px solid rgb(9, 208, 183);
-  background-color: rgb(9, 208, 183);
+  border-color: rgb(4, 166, 238);
+  background-color: rgb(4, 166, 238);
+  font-size: 18px;
 }
 
 .btn.btn-form:active {
   outline: none;
-  color: white;
-  border-color: rgb(9, 208, 183);
+  border: 1px solid rgb(9, 208, 183);
   background-color: rgb(9, 208, 183);
+  font-size: 18px;
 }
 
 .btn.btn-profile {
   border: 1px solid rgb(4, 166, 238);
   background-color: rgb(4, 166, 238);
+  font-size: 20px;
 }
 
 .btn.btn-profile:active {

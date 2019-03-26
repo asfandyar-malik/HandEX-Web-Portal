@@ -17,6 +17,7 @@
 
 @import "css/themify-icons-demo";
 @import "css/themify-icons";
+@import "css/themify-icons";
 @import "css/paper-bootstrap-wizard";
 @import "css/demo";
 
@@ -39,4 +40,16 @@ body {
 
 .form-group select {
   padding: 8px 18px;
+}
+
+.dropdown-menu > li > a {
+  font-family: "Handel Becker Light", "Handel Becker Med", "HandelGotDBol", sans-serif;
+  font-size: 18px;
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: nowrap
 }

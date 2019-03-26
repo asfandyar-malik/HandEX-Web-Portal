@@ -1,19 +1,14 @@
 <% qa_partial = 'insurances/summary/user/shared_partials/question_answer.html.erb' %>
 
-<%= render qa_partial, question: "Wohin soll es gehen?",
-           answer: @insurance.importer_country %>
+<%= render qa_partial, question: "Wohin soll es gehen?", answer: @insurance.importer_country %>
 
-<%= render qa_partial, question: "Handelt es sich bei Ihrer Ware um Investitionsgüter?",
-           answer: @insurance.yes_investment_good?? 'Ja' : 'Nein' %>
+<%= render qa_partial, question: "Handelt es sich bei Ihrer Ware um Investitionsgüter?", answer: @insurance.yes_investment_good? ? 'Ja' : 'Nein' %>
 
-<%= render qa_partial, question: "Wie hoch ist der Auftragswert in Euro?",
-           answer: @insurance.contract_value %>
+<%= render qa_partial, question: "Wie hoch ist der Auftragswert in Euro?", answer: @insurance.contract_value %>
 
-<%= render qa_partial, question: "Welches Zahlungsziel gewähren Sie Ihrem Kunden?",
-           answer: @insurance.loan_duration %>
+<%= render qa_partial, question: "Welches Zahlungsziel gewähren Sie Ihrem Kunden?", answer: @insurance.loan_duration %>
 
-<%= render qa_partial, question: "Liefern Sie an Privatsektor?",
-           answer: @insurance.exporting_to_private_sector?? 'Ja' : 'Nein'%>
+<%= render qa_partial, question: "Liefern Sie an Privatsektor?", answer: @insurance.exporting_to_private_sector? ? 'Ja' : 'Nein' %>
 
 <% delivery_goal_answer = @insurance.exporting_to_private_sector %>
 <% can_show_success_result_message = (delivery_goal_answer == 'Private Sector') %>
@@ -21,41 +16,41 @@
 
 <% if can_show_success_result_message %>
 
-  <div class="row">
     <div class="row">
-      <div class="col-md-9 col-md-offset-2 text-babu">
-        <p>
-          Ihr Geschäft eignet sich grundsätzlich und vorbehaltlich einer
-          tieferen Prüfung des Sachverhalts und der Bonität Ihres
-          ausländischen Bestellers bzw. Garantien für eine Hermesdeckung
-          und einer Exportfinanzierung. Im Rahmen Ihrer weiteren Eingaben
-          wird fortwährend geprüpft, ob Ihr Gescäft weiterhin für eine
-          Hermesdeckung(Click&Cover bzw. Express Finanykreditdeckung)
-          geeignet ist.
-        </p>
-      </div>
+        <div class="row">
+            <div class="col-md-9 col-md-offset-1 text-babu">
+                <p>
+                    Ihr Geschäft eignet sich grundsätzlich und vorbehaltlich einer
+                    tieferen Prüfung des Sachverhalts und der Bonität Ihres
+                    ausländischen Bestellers bzw. Garantien für eine Hermesdeckung
+                    und einer Exportfinanzierung. Im Rahmen Ihrer weiteren Eingaben
+                    wird fortwährend geprüpft, ob Ihr Gescäft weiterhin für eine
+                    Hermesdeckung(Click&Cover bzw. Express Finanykreditdeckung)
+                    geeignet ist.
+                </p>
+            </div>
+        </div>
     </div>
-  </div>
 
 <% elsif can_show_fail_result_message %>
 
-  <div class="row">
     <div class="row">
-      <div class="col-md-9 col-md-offset-2 text-babu">
-        <p>
-          Ihr Geschäft birgt Besonderheiten, die eine Absicherung erschweren
-          könnten: <br><br>
+        <div class="row">
+            <div class="col-md-9 col-md-offset-1 text-babu">
+                <p>
+                    Ihr Geschäft birgt Besonderheiten, die eine Absicherung erschweren
+                    könnten: <br><br>
 
-          Deckungsmöglichkeiten bei Bestellern des öffentlichen Sektors,
-          soweit diese privatwirtschaftlich organisiert sind und ohne
-          Rückgriff auf öffentliche Mittel wirtschaften. <br><br>
+                    Deckungsmöglichkeiten bei Bestellern des öffentlichen Sektors,
+                    soweit diese privatwirtschaftlich organisiert sind und ohne
+                    Rückgriff auf öffentliche Mittel wirtschaften. <br><br>
 
-          Gern möchten wir Ihnen die besonderen Gegebenheiten in einem
-          persönlichen Gespräch erläutern und die Struktur Ihres Geschäfts
-          besprechen. Bitte kontaktieren Sie uns über den untenstehenden
-          Kontaktbutton oder rufen Sie uns unter +49 (0) 15751174449 an.
-        </p>
-      </div>
+                    Gern möchten wir Ihnen die besonderen Gegebenheiten in einem
+                    persönlichen Gespräch erläutern und die Struktur Ihres Geschäfts
+                    besprechen. Bitte kontaktieren Sie uns über den untenstehenden
+                    Kontaktbutton oder rufen Sie uns unter +49 (0) 15751174449 an.
+                </p>
+            </div>
+        </div>
     </div>
-  </div>
 <% end %>

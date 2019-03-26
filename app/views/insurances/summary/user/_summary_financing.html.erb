@@ -1,92 +1,87 @@
 <% qa_partial = 'insurances/summary/user/shared_partials/question_answer.html.erb' %>
 
-<%= render qa_partial, question: "Haben Sie bereits ein Zahlungsziel bzw. eine eigene Finanzierung mit Ihrem Kunden vereinbart?",
-           answer: @insurance.yes_payment_term_already_agreed?? 'Ja' : 'Nein' %>
+<%= render qa_partial, question: "Haben Sie bereits ein Zahlungsziel bzw. eine eigene Finanzierung mit Ihrem Kunden vereinbart?", answer: @insurance.yes_payment_term_already_agreed? ? 'Ja' : 'Nein' %>
 
 <% if @insurance.yes_payment_term_already_agreed? %>
 
-  <%= render qa_partial, question: "Wie sind Ihre Zahlungsbedingungen gestaltet?",
-             answer: @insurance.yes_payment_term_already_agreed?? 'Ja' : 'Nein' %>
+    <%= render qa_partial, question: "Wie sind Ihre Zahlungsbedingungen gestaltet?", answer: @insurance.yes_payment_term_already_agreed? ? 'Ja' : 'Nein' %>
 
-  <% answer = nil %>
-  <% if @insurance.payment_term_shortterm? %>
+    <% answer = nil %>
+    <% if @insurance.payment_term_shortterm? %>
 
-    <% answer = "kurzfristig (bis zu 2 Jahre Kreditlaufzeit" %>
-    <%= render 'insurances/summary/user/_finance_partials/kurzFristigTermOfPayment.html.erb' %>
+        <% answer = "kurzfristig (bis zu 2 Jahre Kreditlaufzeit" %>
+        <%= render 'insurances/summary/user/_finance_partials/kurzFristigTermOfPayment.html.erb' %>
 
-  <% elsif @insurance.payment_term_middleterm? %>
+    <% elsif @insurance.payment_term_middleterm? %>
 
-    <% answer = "mittel-/langfristig (über 2 Jahre Kreditlaufzeit)" %>
-    <%= render 'insurances/summary/user/_finance_partials/mittelTermOfPayment.html.erb' %>
+        <% answer = "mittel-/langfristig (über 2 Jahre Kreditlaufzeit)" %>
+        <%= render 'insurances/summary/user/_finance_partials/mittelTermOfPayment.html.erb' %>
 
-  <% elsif @insurance.payment_term_both? %>
+    <% elsif @insurance.payment_term_both? %>
 
-    <% answer = "sowohl kurzfristig als auch mittel-/langfristig" %>
-    <%= render 'insurances/summary/user/_finance_partials/sonstigeKurzFristigTermOfPayment.html.erb' %>
+        <% answer = "sowohl kurzfristig als auch mittel-/langfristig" %>
+        <%= render 'insurances/summary/user/_finance_partials/sonstigeKurzFristigTermOfPayment.html.erb' %>
 
-  <% end %>
+    <% end %>
 
-  <div id="interestCountedCustomer">
-    <%= render qa_partial, question: "Berechnen Sie Ihrem Kunden Zinsen?",
-               answer: answer %>
-  </div>
+    <div id="interestCountedCustomer">
+        <%= render qa_partial, question: "Berechnen Sie Ihrem Kunden Zinsen?", answer: answer %>
+    </div>
 
 
-  <% if @insurance.yes_charge_interest_to_importer? %>
+    <% if @insurance.yes_charge_interest_to_importer? %>
 
-    <div id="yesCustomerCountInterest">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2 text-babu">
-          <label> In diesem Fall gibt es die Möglichkeit, Ihre Forderungen gegenüber Ihrem Käufer mit einer
-            Forfaitierung zu refinanzieren. Das bedeutet eine unserer Partnerbanken kauft Ihre Forderungen ab und
-            refinanziert bis zu 95% des gesamten Forderungsbetrages. </label>
+        <div id="yesCustomerCountInterest">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-1 text-babu">
+                    <p> In diesem Fall gibt es die Möglichkeit, Ihre Forderungen gegenüber Ihrem Käufer mit einer
+                        Forfaitierung zu refinanzieren. Das bedeutet eine unserer Partnerbanken kauft Ihre Forderungen ab und
+                        refinanziert bis zu 95% des gesamten Forderungsbetrages. </p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-  <% else %>
+    <% else %>
 
-    <div id="noCustomerCountInterest">
-      <%= render qa_partial, question: "Welche Kreditlaufzeit wünscht ihr Kunde?",
-                 answer: @insurance.loan_term %>
-    </div>
-
-  <% end %>
-
-  <% if false %>
-    Asfand: From here I am not making stuff in backend. Have to come back to this
-    Utkrist: General: The overall code must be refactored.
-    With regards to you prev comment: The issues must be fixed, and variables below must me set to
-    the appropriate one in the database.
-  <% end %>
-
-  <div id="residualRiskApetite">
-    <%= render qa_partial, question: "Sind Sie bereit ein Restrisiko von 5% der Forderungen zu behalten?",
-               answer: @insurance.loan_term?? 'Ja' : 'Nein' %>
-  </div>
-
-  <% if @insurance.yes_charge_interest_to_importer? %>
-    <div id="yesResidualRiskApetite">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2 text-babu">
-          <p> In diesem Fall gibt es die Möglichkeit die Finanzierung im Rahmen einer Forfaitierung oder
-            eines direkten Kredites von einer unserer Partnerbanken an Ihren Käufer zu realisieren. Im
-            Laufe des Antrages ermitteln wir welche der beiden Finanzierungsformen wir Ihnen anbieten
-            können.
-          </p>
+        <div id="noCustomerCountInterest">
+            <%= render qa_partial, question: "Welche Kreditlaufzeit wünscht ihr Kunde?", answer: @insurance.loan_term %>
         </div>
-      </div>
+
+    <% end %>
+
+    <% if false %>
+        Asfand: From here I am not making stuff in backend. Have to come back to this
+        Utkrist: General: The overall code must be refactored.
+        With regards to you prev comment: The issues must be fixed, and variables below must me set to
+        the appropriate one in the database.
+    <% end %>
+
+    <div id="residualRiskApetite">
+        <%= render qa_partial, question: "Sind Sie bereit ein Restrisiko von 5% der Forderungen zu behalten?", answer: @insurance.loan_term? ? 'Ja' : 'Nein' %>
     </div>
-  <% else %>
-    <div id="noResidualRiskApetite">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2 text-babu">
-          <p> In diesem Fall gibt es die Möglichkeit die Finanzierung im Rahmen eines direkten Kredites
-            von einer unserer Partnerbanken an Ihren Käufer zu realisieren.
-          </p>
+
+    <% if @insurance.yes_charge_interest_to_importer? %>
+        <div id="yesResidualRiskApetite">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-1 text-babu">
+                    <p> In diesem Fall gibt es die Möglichkeit die Finanzierung im Rahmen einer Forfaitierung oder
+                        eines direkten Kredites von einer unserer Partnerbanken an Ihren Käufer zu realisieren. Im
+                        Laufe des Antrages ermitteln wir welche der beiden Finanzierungsformen wir Ihnen anbieten
+                        können.
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  <% end %>
+    <% else %>
+        <div id="noResidualRiskApetite">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-1 text-babu">
+                    <p> In diesem Fall gibt es die Möglichkeit die Finanzierung im Rahmen eines direkten Kredites
+                        von einer unserer Partnerbanken an Ihren Käufer zu realisieren.
+                    </p>
+                </div>
+            </div>
+        </div>
+    <% end %>
 
 <% end %>

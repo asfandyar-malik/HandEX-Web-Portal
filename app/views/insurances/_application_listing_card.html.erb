@@ -1,71 +1,69 @@
 <div class="col-md-6">
-  <div class="panel panel-default">
-    <div class="panel-body">
+    <div class="panel panel-default">
+        <div class="panel-body">
 
-      <div class="row">
-        <div class="col-sm-6">
-          <h4 class="text-blue">Importeur</h4>
-        </div>
-        <div class="col-sm-6">
-          <%= insurance.importer_company_name %>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-6">
-          <h4 class="text-blue">Zielland</h4>
-        </div>
-        <div class="col-sm-6">
-          <%= insurance.importer_country %>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-6">
-          <h4 class="text-blue">Produkt</h4>
-        </div>
-        <div class="col-sm-6">
-          <%= insurance.exported_goods_type %>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-6">
-          <h4 class="text-blue">Auftragswert</h4>
-        </div>
-        <% if insurance.contract_value %>
-          <div class="col-sm-6">
-            &euro; <%= insurance.contract_value %>
-          </div>
-        <% else %>
-          <div class="col-sm-6 text-red">
-            MISSING
-          </div>
-        <% end %>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-6">
-          <h4 class="text-blue">Abgeschickt am</h4>
-        </div>
-        <div class="col-sm-6">
-          <%= insurance.updated_at.strftime('%d %b %Y') %>
-        </div>
-      </div>
-
-      <hr>
-
-      <div class="row">
-        <div class="col-sm-12">
-          <% if can_edit %>
-            <%= link_to "Update", edit_insurance_path(insurance.user_id), class: "btn btn-form pull-right"%>
-          <% else %>
-            <div class="btn btn-form pull-right">
-                <%= link_to "Zusammenfassung ansehen", user_summary_insurance_path(insurance.id), target: :_blank, class: "btn btn-form pull-right"%>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4 class="text-blue">Importeur</h4>
+                </div>
+                <div class="col-sm-6">
+                    <%= insurance.importer_company_name %>
+                </div>
             </div>
-          <% end %>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4 class="text-blue">Zielland</h4>
+                </div>
+                <div class="col-sm-6">
+                    <%= insurance.importer_country %>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4 class="text-blue">Produkt</h4>
+                </div>
+                <div class="col-sm-6">
+                    <%= insurance.exported_goods_type %>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4 class="text-blue">Auftragswert</h4>
+                </div>
+                <% if insurance.contract_value %>
+                    <div class="col-sm-6">
+                        &euro; <%= insurance.contract_value %>
+                    </div>
+                <% else %>
+                    <div class="col-sm-6 text-red">
+                        MISSING
+                    </div>
+                <% end %>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4 class="text-blue">Abgeschickt am</h4>
+                </div>
+                <div class="col-sm-6">
+                    <%= insurance.updated_at.strftime('%d %b %Y') %>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <% if can_edit %>
+                        <%= link_to "Update", edit_insurance_path(insurance.user_id), class: "btn btn-form pull-right" %>
+                    <% else %>
+                        <%= link_to "Zusammenfassung ansehen", user_summary_insurance_path(insurance.id), target: :_blank, class: "btn btn-form pull-right" %>
+                    <% end %>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>

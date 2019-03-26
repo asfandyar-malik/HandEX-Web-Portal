@@ -1,472 +1,407 @@
 <% qa_partial = 'insurances/summary/user/shared_partials/question_answer.html.erb' %>
 
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <label> Bitte beschreiben Sie Ihre Produkte und Leistungen </label>
-  </div>
+    <div class="col-md-8 col-md-offset-1">
+        <p> Bitte beschreiben Sie Ihre Produkte und Leistungen </p>
+    </div>
 </div>
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <label> <%= check_missing(@insurance.describe_export_business) %></label>
-  </div>
-</div>
-<hr>
-
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <p><b>Bitte helfen Sie uns nun, das Vorhaben gut zu verstehen</b></p>
-    <label> Wofür benötigt Ihr Kunde die Maschinen/Güter/Anlagen bzw. die Dienstleistung? Handelt es sich bspw. um eine
-      Ersatz- oder um eine Neuinvestition? Wenn Sie Leistungen (Montage, Schulungen vor Ort, etc.) erbringen, können Sie
-      diese hier ebenfalls beschreiben. </label>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <label> <%= check_missing(@insurance.explain_why_importer_buying_goods) %></label>
-  </div>
+    <div class="col-md-8 col-md-offset-1">
+        <p> <%= check_missing(@insurance.describe_export_business) %></p>
+    </div>
 </div>
 <hr>
 
-<%= render qa_partial, question: "Wir erbringen auch Leistungen (Montage, Schulungen vor Ort, etc.) ?",
-           answer: @insurance.yes_exporter_offers_servicing_for_goods?? 'Ja' : 'Nein' %>
-
-<%= render qa_partial, question: "Bitte ordnen Sie die von Ihnen zu liefernden Waren/Güter/Anlagen bzw. Dienstleistungen Ihrer Branche und der passenden Warenart zu.",
-           answer: check_missing(@insurance.exported_goods_type) %>
-
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <label>Bitte beschreiben Sie Ihre Industrie genauer</label>
-  </div>
+    <div class="col-md-8 col-md-offset-1">
+        <p><b>Bitte helfen Sie uns nun, das Vorhaben gut zu verstehen</b></p>
+        <p> Wofür benötigt Ihr Kunde die Maschinen/Güter/Anlagen bzw. die Dienstleistung? Handelt es sich bspw. um eine
+            Ersatz- oder um eine Neuinvestition? Wenn Sie Leistungen (Montage, Schulungen vor Ort, etc.) erbringen, können Sie
+            diese hier ebenfalls beschreiben. </p>
+    </div>
 </div>
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <label> <%= check_missing(@insurance.describe_export_business) %></label>
-  </div>
+    <div class="col-md-8 col-md-offset-1">
+        <p> <%= check_missing(@insurance.explain_why_importer_buying_goods) %></p>
+    </div>
+</div>
+<hr>
+
+<%= render qa_partial, question: "Wir erbringen auch Leistungen (Montage, Schulungen vor Ort, etc.) ?", answer: @insurance.yes_exporter_offers_servicing_for_goods? ? 'Ja' : 'Nein' %>
+
+<%= render qa_partial, question: "Bitte ordnen Sie die von Ihnen zu liefernden Waren/Güter/Anlagen bzw. Dienstleistungen Ihrer Branche und der passenden Warenart zu.", answer: check_missing(@insurance.exported_goods_type) %>
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-1">
+        <p>Bitte beschreiben Sie Ihre Industrie genauer</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-1">
+        <p> <%= check_missing(@insurance.describe_export_business) %></p>
+    </div>
 </div>
 <hr>
 
 <div id="workwithothercompanies">
-  <%= render qa_partial,
-             question: "Liefern/Leisten Sie im Rahmen eines Gesamtprojekts zusammen mit anderen Unternehmen?",
-             answer: @insurance.yes_deliver_part_of_overall_project_other_companies?? 'Ja' : 'Nein'
-  %>
+    <%= render qa_partial, question: "Liefern/Leisten Sie im Rahmen eines Gesamtprojekts zusammen mit anderen Unternehmen?", answer: @insurance.yes_deliver_part_of_overall_project_other_companies? ? 'Ja' : 'Nein' %>
+</div>
+
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-1">
+        <p> Betreffen Ihre Lieferungen bzw. Leistungen ein sensibles Gebiet? </p>
+    </div>
 </div>
 
 <div class="row">
-
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <label> Betreffen Ihre Lieferungen bzw. Leistungen ein sensibles Gebiet? </label>
+    <div class="col-md-8 col-md-offset-1">
+        <p> <%= check_missing(@insurance.describe_export_business) %></p>
+        <p><i>Als sensible Gebiete gelten Nationalparks und andere durch
+            nationales oder internationales Recht geschützte Gebiete sowie
+            sensible Regionen von internationaler, nationaler oder
+            regionaler
+            Bedeutung.</i></p>
     </div>
-  </div>
+</div>
 
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <label> <%= check_missing(@insurance.describe_export_business) %></label>
-      <p><i>Als sensible Gebiete gelten Nationalparks und andere durch
-        nationales oder internationales Recht geschützte Gebiete sowie
-        sensible Regionen von internationaler, nationaler oder
-        regionaler
-        Bedeutung.</i></p>
-    </div>
-  </div>
+<% option_titles = ["Nein", "Naturschutzgebiet", "Bedeutung für indigene Völker", "Archäologische oder kulturelle", "Sonstige"] %>
 
-  <% option_titles = ["Nein",
-                      "Naturschutzgebiet",
-                      "Bedeutung für indigene Völker",
-                      "Archäologische oder kulturelle",
-                      "Sonstige"] %>
+<% option_vars = [@insurance.delivery_doesnt_affects_sensitive_areas, @insurance.delivery_affects_natural_reserves, @insurance.delivery_affects_indigenous_people, @insurance.delivery_affects_cultural_heritage, @insurance.delivery_affects_other] %>
 
-  <% option_vars = [@insurance.delivery_doesnt_affects_sensitive_areas,
-                    @insurance.delivery_affects_natural_reserves,
-                    @insurance.delivery_affects_indigenous_people,
-                    @insurance.delivery_affects_cultural_heritage,
-                    @insurance.delivery_affects_other] %>
-
-  <% option_selected = false %>
-  <% option_titles.zip(option_vars).each do |option, opt_var| %>
+<% option_selected = false %>
+<% option_titles.zip(option_vars).each do |option, opt_var| %>
 
     <% if opt_var == true %>
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <label> <%= option %></label>
-          <% option_selected = true %>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-1">
+                <p> <%= option %></p>
+                <% option_selected = true %>
+            </div>
         </div>
-      </div>
     <% end %>
-  <% end %>
-  <% if !option_selected %>
-    <span class="text-red col-md-8 col-md-offset-2">...</span><br>
-  <% end %>
-  <hr>
+<% end %>
+<% if !option_selected %>
+    <span class="text-red col-md-8 col-md-offset-1">...</span><br>
+<% end %>
+<hr>
 
-  <div id="affectsOtherSpecialDiv" style="display: <%= @insurance.delivery_affects_other?? 'block' : 'none' %>">
+<div id="affectsOtherSpecialDiv" style="display: <%= @insurance.delivery_affects_other? ? 'block' : 'none' %>">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <label>Bitte konkretisieren Sie, um was für ein sensibles Gebiet es sich handelt</label>
-      </div>
+        <div class="col-md-8 col-md-offset-1">
+            <p>Bitte konkretisieren Sie, um was für ein sensibles Gebiet es sich handelt</p>
+        </div>
     </div>
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <label> <%= check_missing(@insurance.explain_delivery_affects_other) %></label>
-      </div>
+        <div class="col-md-8 col-md-offset-1">
+            <p> <%= check_missing(@insurance.explain_delivery_affects_other) %></p>
+        </div>
     </div>
-  </div>
 </div>
 
-<%= render qa_partial,
-           question: "Ist Ihr Export ausfuhrgenehmigungspflichtig?",
-           answer: @insurance.yes_deliver_part_of_overall_project_other_companies?? 'Ja' : 'Nein'
-%>
+<%= render qa_partial, question: "Ist Ihr Export ausfuhrgenehmigungspflichtig?", answer: @insurance.yes_deliver_part_of_overall_project_other_companies? ? 'Ja' : 'Nein' %>
 
 <div id="workwithothercompanies">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <label>Aus welchen Vorschriften bzw. welchem Teil/Abschnitt der Ausfuhrliste ergibt sich die
-        Genehmigungspflicht?</label>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <p>Aus welchen Vorschriften bzw. welchem Teil/Abschnitt der Ausfuhrliste ergibt sich die
+                Genehmigungspflicht?</p>
+        </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <label> <%= check_missing(@insurance.which_regulations_arises_exportlicense_requirement) %></label>
-    </div>
-  </div>
-
-  <%# Add placeholder field and draw value from datbase after:  'Die Ausfuhrgenehmigung ...' %>
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <label> Die Ausfuhrgenehmigung ... </label>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <p> <%= check_missing(@insurance.which_regulations_arises_exportlicense_requirement) %></p>
+        </div>
     </div>
 
-  </div>
+    <%# Add placeholder field and draw value from datbase after:  'Die Ausfuhrgenehmigung ...' %>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <p> Die Ausfuhrgenehmigung ... </p>
+        </div>
 
-  <hr>
+    </div>
+
+    <hr>
 </div>
 
-<%= render qa_partial,
-           question: "Liefern Sie gebrauchte Ware?",
-           answer: @insurance.yes_deliver_secondhand_goods?? 'Ja' : 'Nein'
-%>
+<%= render qa_partial, question: "Liefern Sie gebrauchte Ware?", answer: @insurance.yes_deliver_secondhand_goods? ? 'Ja' : 'Nein' %>
 
-<%= render qa_partial,
-           question: "Haben bereits alle Parteien den Vertrag für das Exportgeschäft unterzeichnet?",
-           answer: @insurance.yes_contract_already_signed_all_parties?? 'Ja' : 'Nein'
-%>
+<%= render qa_partial, question: "Haben bereits alle Parteien den Vertrag für das Exportgeschäft unterzeichnet?", answer: @insurance.yes_contract_already_signed_all_parties? ? 'Ja' : 'Nein' %>
 
-<div id="contractSigned" style="display: <%= @insurance.yes_contract_already_signed_all_parties?? 'block' : 'block' %>">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <label>Bitte geben Sie das Abschlussdatum des Vertrags und optional eine interne Referenz an. </label>
+<div id="contractSigned" style="display: <%= @insurance.yes_contract_already_signed_all_parties? ? 'block' : 'block' %>">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <p>Bitte geben Sie das Abschlussdatum des Vertrags und optional eine interne Referenz an. </p>
+        </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <label> <%= check_missing(@insurance.trade_contract_signing_date) %></label>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <p> <%= check_missing(@insurance.trade_contract_signing_date) %></p>
+        </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <label> <%= check_missing(@insurance.exporter_internal_contract_id) %></label>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <p> <%= check_missing(@insurance.exporter_internal_contract_id) %></p>
+        </div>
     </div>
-  </div>
 </div>
 
 <div id="specialContractStructure">
-  <%= render qa_partial,
-             question: "Vereinbaren Sie mit Ihrem Vertragspartner eine besondere Vertragsstruktur?",
-             answer: check_missing(@insurance.yes_special_contract_structure?? 'Ja' : 'Nein') %>
+    <%= render qa_partial, question: "Vereinbaren Sie mit Ihrem Vertragspartner eine besondere Vertragsstruktur?", answer: check_missing(@insurance.yes_special_contract_structure? ? 'Ja' : 'Nein') %>
 </div>
 
 <div id="contractAmount">
-  <%= render qa_partial,
-             question: "Welche Vertragswährung vereinbaren Sie",
-             answer: check_missing(@insurance.contract_trade_currency) %>
+    <%= render qa_partial, question: "Welche Vertragswährung vereinbaren Sie", answer: check_missing(@insurance.contract_trade_currency) %>
 
-    <%= render qa_partial,
-               question: "Bitte geben Sie den Auftragswert an",
-               answer: check_missing(@insurance.contract_trade_amount) %>
+    <%= render qa_partial, question: "Bitte geben Sie den Auftragswert an", answer: check_missing(@insurance.contract_trade_amount) %>
 
 
-    <%= render qa_partial,
-             question: "Wie hoch ist der Lieferwert der Güter exkl. anderer Leistungen (Montagen, etc.)",
-             answer: check_missing(@insurance.total_delivery_value) %>
+    <%= render qa_partial, question: "Wie hoch ist der Lieferwert der Güter exkl. anderer Leistungen (Montagen, etc.)", answer: check_missing(@insurance.total_delivery_value) %>
 
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <label>Wenn weitere Bestandteile offen gegenüber Ihrem Kunden ausgewiesen werden (bspw.
-        Montagen, Trainings, etc.), tragen Sie diese bitte hier ein.</label>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <p>Wenn weitere Bestandteile offen gegenüber Ihrem Kunden ausgewiesen werden (bspw.
+                Montagen, Trainings, etc.), tragen Sie diese bitte hier ein.</p>
+        </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <span> Currency </span>
-      <span class="text-babu"><%= check_missing(@insurance.more_components_open_to_exporter_currency) %> </span>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <span> Currency </span>
+            <span class="text-babu"><%= check_missing(@insurance.more_components_open_to_exporter_currency) %> </span>
+        </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <span> Betrag </span>
-      <span class="text-babu"><%= check_missing(@insurance.more_components_open_to_exporter_amount) %> </span>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <span> Betrag </span>
+            <span class="text-babu"><%= check_missing(@insurance.more_components_open_to_exporter_amount) %> </span>
+        </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <span>Beschreibung</span>
-      <span class="text-babu"><%= check_missing(@insurance.more_components_open_to_exporter_explain) %> </span>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <span>Beschreibung</span>
+            <span class="text-babu"><%= check_missing(@insurance.more_components_open_to_exporter_explain) %> </span>
+        </div>
     </div>
-  </div>
 </div>
 
 <div id="priceAdjustmentClause">
-  <%= render qa_partial,
-             question: "Haben Sie mit Ihrem Kunden eine Preisgleitklausel vereinbart? ",
-             answer: @insurance.yes_price_adjustment_clause_with_importer?? 'Ja' : 'Nein' %>
+    <%= render qa_partial, question: "Haben Sie mit Ihrem Kunden eine Preisgleitklausel vereinbart? ", answer: @insurance.yes_price_adjustment_clause_with_importer? ? 'Ja' : 'Nein' %>
 </div>
 
-<div id="yesNoPriceAdjustmentClause" style="display: <%= @insurance.yes_price_adjustment_clause_with_importer?? 'block' : 'block' %>">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <label>Bitte beschreiben Sie die Details zur Verrechnungsmethode (Prozent- oder Betragsverfahren) </label>
+<div id="yesNoPriceAdjustmentClause" style="display: <%= @insurance.yes_price_adjustment_clause_with_importer? ? 'block' : 'block' %>">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <p>Bitte beschreiben Sie die Details zur Verrechnungsmethode (Prozent- oder Betragsverfahren) </p>
+        </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <label> <%= check_missing(@insurance.explain_accounting_methods) %></label>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <p> <%= check_missing(@insurance.explain_accounting_methods) %></p>
+        </div>
     </div>
-  </div>
 
 </div>
 
 <div id="multipleDeliveries">
-  <%= render qa_partial,
-             question: "Versenden Sie Ihre Waren/Güter/Anlagen in mehreren Lieferungen? ",
-             answer: @insurance.yes_goods_sent_multiple_deliveries?? 'Ja' : 'Nein' %>
+    <%= render qa_partial, question: "Versenden Sie Ihre Waren/Güter/Anlagen in mehreren Lieferungen? ", answer: @insurance.yes_goods_sent_multiple_deliveries? ? 'Ja' : 'Nein' %>
 </div>
 
-<div id="yesNoMultipleDeliveries" style="display: <%= @insurance.yes_goods_sent_multiple_deliveries?? 'block' : 'block' %>">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <label> Bitte teilen Sie uns die Liefer- und ggf. Leistungstermine Ihres Exportgeschäftes mit. </label>
-    </div>
-  </div>
-
-  <div class="row">
-
+<div id="yesNoMultipleDeliveries" style="display: <%= @insurance.yes_goods_sent_multiple_deliveries? ? 'block' : 'block' %>">
     <div class="row">
-      <div class="col-sm-4 col-md-offset-2">
-        <span>Lieferbeginn</span>
-      </div>
-      <div class="col-sm-6 text-babu">
-        <%= check_missing(@insurance.delivery_start) %>
-      </div>
+        <div class="col-md-8 col-md-offset-1">
+            <p> Bitte teilen Sie uns die Liefer- und ggf. Leistungstermine Ihres Exportgeschäftes mit. </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 col-md-offset-1">
+            <span>Lieferbeginn</span>
+        </div>
+        <div class="col-sm-6 text-babu">
+            <%= check_missing(@insurance.delivery_start) %>
+        </div>
     </div>
 
     <div class="row">
-      <div class="col-sm-4 col-md-offset-2">
-        <span>Lieferende</span>
-      </div>
-      <div class="col-sm-6 text-babu">
-        <%= check_missing(@insurance.delivery_end) %>
-      </div>
+        <div class="col-sm-4 col-md-offset-1">
+            <span>Lieferende</span>
+        </div>
+        <div class="col-sm-6 text-babu">
+            <%= check_missing(@insurance.delivery_end) %>
+        </div>
     </div>
 
     <div class="row">
-      <div class="col-sm-4 col-md-offset-2">
-        <span>Weiterer zahlungsrelevanter Termin</span>
-      </div>
-      <div class="col-sm-6 text-babu">
-        <%= check_missing(@insurance.other_important_delivery_information) %>
-      </div>
+        <div class="col-sm-4 col-md-offset-1">
+            <span>Weiterer zahlungsrelevanter Termin</span>
+        </div>
+        <div class="col-sm-6 text-babu">
+            <%= check_missing(@insurance.other_important_delivery_information) %>
+        </div>
     </div>
 
     <div class="row">
-      <div class="col-sm-4 col-md-offset-2">
-        <span>z.B. Milestone xy</span>
-      </div>
-      <div class="col-sm-6 text-babu">
-        <%= check_missing(@insurance.other_important_delivery_milestones) %>
-      </div>
+        <div class="col-sm-4 col-md-offset-1">
+            <span>z.B. Milestone xy</span>
+        </div>
+        <div class="col-sm-6 text-babu">
+            <%= check_missing(@insurance.other_important_delivery_milestones) %>
+        </div>
     </div>
-  </div>
-  <hr>
+    <hr>
 
-  <div id="certificateOfOrigin">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <label> Bekommen Sie für die zu liefernde Ware ein deutsches Warenursprungszeugnis? </label>
-      </div>
+    <div id="certificateOfOrigin">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-1">
+                <p> Bekommen Sie für die zu liefernde Ware ein deutsches Warenursprungszeugnis? </p>
+            </div>
+
+            <div class="col-md-2">
+                <p class="text-babu"> <%= check_missing(@insurance.yes_sonstige_kurzfrist_certificate_of_origin? ? 'Ja' : 'Nein') %></p>
+            </div>
+
+            <div class="col-md-2">
+                <p class="text-babu"> <%= @insurance.part_of_goods__sonstige_kurzfrist_certificate_of_origin? ? 'für Teile der Ware' : "" %></p>
+            </div>
+        </div>
     </div>
+    <hr>
 
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <label class="text-babu"> <%= check_missing(@insurance.yes_sonstige_kurzfrist_certificate_of_origin?? 'Ja' : 'Nein') %></label>
-      </div>
-    </div>
+    <div id="yesNoCertificateOfOrigin" style="display: <%= @insurance.yes_sonstige_kurzfrist_certificate_of_origin? ? 'none' : 'block' %>">
 
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <label class="text-babu"> <%= @insurance.part_of_goods__sonstige_kurzfrist_certificate_of_origin?? 'für Teile der Ware' : "" %></label>
-      </div>
-    </div>
-  </div>
-  <hr>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-1">
+                <p> Bitte geben Sie die Zulieferungen aus dem Ausland an. </p>
+            </div>
+            <br>
 
-  <div id="yesNoCertificateOfOrigin" style="display: <%= @insurance.yes_sonstige_kurzfrist_certificate_of_origin?? 'block' : 'block' %>">
-    <div class="row">
-      <%= render qa_partial,
-                 question: "Bitte geben Sie die Zulieferungen aus dem Ausland an.",
-                 answer: @insurance.yes_goods_sent_multiple_deliveries?? 'Ja' : 'Nein' %>
-    </div>
+            <div class="col-md-2">
+                <p class="text-babu"> <%= check_missing(@insurance.all_rawgoods_supplier_country? ? 'Ja' : 'Nein') %></p>
+            </div>
 
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <label> Bitte geben Sie die Zulieferungen aus dem Ausland an. </label>
-      </div>
-    </div>
+<!--            <div class="col-md-2">-->
+<!--                <p class="text-babu"> <%#= @insurance.all_rawgoods_supplier_currency? ? 'für Teile der Ware' : "" %></p>-->
+<!--            </div>-->
+        </div>
 
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <label class="text-babu"> <%= check_missing(@insurance.all_rawgoods_supplier_country?? 'Ja' : 'Nein') %></label>
-      </div>
-    </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-1">
+                <p> Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig sind. </p>
+            </div>
 
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <label class="text-babu"> <%= @insurance.all_rawgoods_supplier_currency?? 'für Teile der Ware' : "" %></label>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <label class="text-babu"> <%= @insurance.all_rawgoods_supplier_text?? 'für Teile der Ware' : "" %></label>
-      </div>
+            <div class="col-md-3">
+                <p class="text-babu">
+                    <%= check_missing(@insurance.why_all_foreign_rawgoods_necessary? ? 'Ja' : 'Nein') %>
+                </p>
+            </div>
+        </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <label> Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig sind. </label>
-      </div>
+    <div id="yesNoCertificateOfOriginTeil" style="display: none;">
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-1">
+                <p> Bitte geben Sie die Zulieferungen aus dem Ausland an. </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <p class="text-babu"> <%= check_missing(@insurance.partly_rawgoods_supplier_country) %></p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <p class="text-babu"> <%= check_missing(@insurance.partly_rawgoods_supplier_currency) %></p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <p class="text-babu"> <%= check_missing(@insurance.partly_rawgoods_supplier_text) %></p>
+            </div>
+        </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <label class="text-babu">
-          <%= check_missing(@insurance.why_all_foreign_rawgoods_necessary?? 'Ja' : 'Nein') %>
-        </label>
-      </div>
+    <div id="yesNoCertificateOfOriginTeil" style="display: none;">
+        <br>
+        <div class="appear">
+            <br>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-1">
+                        <p> Bitte geben Sie die Zulieferungen aus dem Ausland an. </p>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-2">
+                        <%= form.select :partly_rawgoods_supplier_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
+                    </div>
+
+                    <div class="col-md-4 ">
+                        <%= form.text_field :partly_rawgoods_supplier_text, class: "form-control" %>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <p> Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland
+                            notwendig
+                            sind. </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <%= form.text_area :why_partly_foreign_rawgoods_necessary, class: "form-control" %>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <div id="yesNoCertificateOfOriginTeil" style="display: none;">
-
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <label> Bitte geben Sie die Zulieferungen aus dem Ausland an. </label>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <label class="text-babu"> <%= check_missing(@insurance.partly_rawgoods_supplier_country) %></label>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <label class="text-babu"> <%= check_missing(@insurance.partly_rawgoods_supplier_currency) %></label>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <label class="text-babu"> <%= check_missing(@insurance.partly_rawgoods_supplier_text) %></label>
-      </div>
-    </div>
-  </div>
-
-  <div id="yesNoCertificateOfOriginTeil" style="display: none;">
     <br>
-    <div class="appear">
-      <br>
-      <div class="form-group">
-        <div class="row">
-          <div class="col-md-8 col-md-offset-1">
-            <p> Bitte geben Sie die Zulieferungen aus dem Ausland an. </p>
-          </div>
-        </div>
-        <div class="row">
-
-          <div class="col-md-2">
-            <%= form.select :partly_rawgoods_supplier_currency, options_for_select(["Euro", "Dollar"]), {}, class: "form-control" %>
-          </div>
-
-          <div class="col-md-4 ">
-            <%= form.text_field :partly_rawgoods_supplier_text, class: "form-control" %>
-          </div>
-        </div>
-      </div>
-      <br>
-      <div class="form-group">
-        <div class="row">
-          <div class="col-md-10 col-md-offset-1">
-            <p> Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland
-              notwendig
-              sind. </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-10 col-md-offset-1">
-            <%= form.text_area :why_partly_foreign_rawgoods_necessary, class: "form-control" %>
-            <br><br>
-          </div>
-        </div>
-      </div>
+    <div id="securityForBusiness">
+        <%= render qa_partial, question: "Sind für Ihr Geschäft Sicherheiten (bspw. Akkreditiv, Zahlungsgarantien, etc.) vorgesehen?", answer: @insurance.yes_security_businnes_provided? ? 'Ja' : 'Nein' %>
     </div>
-  </div>
 
-  <div id="securityForBusiness">
-    <%= render qa_partial,
-               question: "Sind für Ihr Geschäft Sicherheiten (bspw. Akkreditiv, Zahlungsgarantien, etc.) vorgesehen?",
-               answer: @insurance.yes_security_businnes_provided?? 'Ja' : 'Nein' %>
-  </div>
+    <div id="typeOfSecurity" style="display: <%= @insurance.yes_security_businnes_provided? ? 'block' : 'block' %>">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-1">
+                <p> Welche Art von Sicherheiten? </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-1">
+                <p> <%= check_missing(@insurance.security_type) %></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-1">
+                <p> <%= check_missing(@insurance.security_type_name) %></p>
+            </div>
+        </div>
 
-  <div id="typeOfSecurity" style="display: <%= @insurance.yes_security_businnes_provided?? 'block' : 'block' %>">
-    <div class="row">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <label> Welche Art von Sicherheiten? </label>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-1">
+                <p> Welchen Anteil des Auftragswertes wird die Sicherheit umfassen?
+                    (Zahlungsgarantie einer Bank-1) </p>
+            </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <label> <%= check_missing(@insurance.security_type) %></label>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-1">
+                <p> <%= check_missing(@insurance.proportion_contract_security_provided) %></p>
+            </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <label> <%= check_missing(@insurance.security_type_name) %></label>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <label> Welchen Anteil des Auftragswertes wird die Sicherheit umfassen?
-            (Zahlungsgarantie einer Bank-1) </label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <label> <%= check_missing(@insurance.proportion_contract_security_provided) %></label>
-        </div>
-      </div>
-
-      <%= render qa_partial,
-                 question: " Wann werden Sie die Sicherheiten erhalten? (unbestätigtes Akkreditiv einer Bank-1)",
-                 answer: @insurance.when_security_received %>
+        <%= render qa_partial, question: " Wann werden Sie die Sicherheiten erhalten? (unbestätigtes Akkreditiv einer Bank-1)", answer: @insurance.when_security_received %>
     </div>
-  </div>
 </div>
