@@ -40,48 +40,46 @@ LANGUAGE = "English"
 BASE_URL = "http://#{APPLICATION_ID}:#{PASSWORD}@cloud.ocrsdk.com"
 
 # Routine for OCR SDK error output
-def output_response_error(response)
-  # Parse response xml (see http://ocrsdk.com/documentation/specifications/status-codes)
-  xml_data = REXML::Document.new(response)
-  error_message = xml_data.elements["error/message"]
-  puts "Error: #{error_message.text}" if error_message
+def output_response_error(response) # Parse response xml (see http://ocrsdk.com/documentation/specifications/status-codes)
+    xml_data      = REXML::Document.new(response)
+    error_message = xml_data.elements["error/message"]
+    puts "Error: #{error_message.text}" if error_message
 end
 
 # Upload and process the image (see http://ocrsdk.com/documentation/apireference/processImage)
 puts "Image will be recognized with #{LANGUAGE} language."
 puts "Uploading file.."
 begin
-  response = RestClient.post("#{BASE_URL}/processImage?language=#{LANGUAGE}&exportFormat=txt", :upload => { 
-    :file => File.new(FILE_NAME, 'rb') 
-  })  
+    response = RestClient.post("#{BASE_URL}/processImage?language=#{LANGUAGE}&exportFormat=txt", :upload => {:file => File.new(FILE_NAME, 'rb')
+    })
+    
+    puts "response(Invoice) #{response}"
+    
 rescue RestClient::ExceptionWithResponse => e
-  # Show processImage errors
-  output_response_error(e.response)
-  raise
-else
-  # Get task id from response xml to check task status later
-  xml_data = REXML::Document.new(response)
-  task_element = xml_data.elements["response/task"]
-  task_id = task_element.attributes["id"]
-  # Obtain the task status here so that the loop below is not started
-  # if your application account has not enough credits
-  task_status = task_element.attributes["status"]
+    # Show processImage errors
+    output_response_error(e.response)
+    raise
+else # Get task id from response xml to check task status later
+    xml_data     = REXML::Document.new(response)
+    task_element = xml_data.elements["response/task"]
+    task_id      = task_element.attributes["id"]
+    # Obtain the task status here so that the loop below is not started
+    # if your application account has not enough credits
+    task_status = task_element.attributes["status"]
 end
 
 # Get task information in a loop until task processing finishes
 puts "Waiting till image is processed.."
-while task_status == "InProgress" or task_status == "Queued" do
-  begin
-    # Note: it's recommended that your application waits
-    # at least 2 seconds before making the first getTaskStatus request
-    # and also between such requests for the same task.
-    # Making requests more often will not improve your application performance.
-    # Note: if your application queues several files and waits for them
-    # it's recommended that you use listFinishedTasks instead (which is described
-    # at http://ocrsdk.com/documentation/apireference/listFinishedTasks/).
-    # Wait a bit
+while task_status == "InProgress" or task_status == "Queued" do begin # Note: it's recommended that your application waits
+                                                                    # at least 2 seconds before making the first getTaskStatus request
+                                                                    # and also between such requests for the same task.
+                                                                    # Making requests more often will not improve your application performance.
+                                                                    # Note: if your application queues several files and waits for them
+                                                                    # it's recommended that you use listFinishedTasks instead (which is described
+                                                                    # at http://ocrsdk.com/documentation/apireference/listFinishedTasks/).
+                                                                    # Wait a bit
     sleep(5)
-  
+
     # Call the getTaskStatus function (see http://ocrsdk.com/documentation/apireference/getTaskStatus)
 
     # Note: a logical error in more complex surrounding code can cause
@@ -90,32 +88,33 @@ while task_status == "InProgress" or task_status == "Queued" do
     # It's highly recommended that you have an explicit task id validity check
     # right before preparing a getTaskStatus request.
     raise "Invalid task id used when preparing getTaskStatus request"\
-      if ((!(defined? task_id)) || task_id.nil? ||task_id.empty?|| (task_id.include? "00000000-0"))
+      if ((!(defined? task_id)) || task_id.nil? || task_id.empty? || (task_id.include? "00000000-0"))
     response = RestClient.get("#{BASE_URL}/getTaskStatus?taskid=#{task_id}")
-  rescue RestClient::ExceptionWithResponse => e
+rescue RestClient::ExceptionWithResponse => e
     # Show getTaskStatus errors
     output_response_error(e.response)
     raise
-  else
-    # Get the task status from response xml
-    xml_data = REXML::Document.new(response)
+else # Get the task status from response xml
+    xml_data     = REXML::Document.new(response)
     task_element = xml_data.elements["response/task"]
-    task_status = task_element.attributes["status"]
-  end
+    task_status  = task_element.attributes["status"]
+end
 end
 
 # Check if there were errors ..
 raise "The task hasn't been processed because an error occurred" if task_status == "ProcessingFailed"
-  
+
 # .. or you don't have enough credits (see http://ocrsdk.com/documentation/specifications/task-statuses for other statuses)
 raise "You don't have enough money on your account to process the task" if task_status == "NotEnoughCredits"
 
 # Get the result download link
 download_url = xml_data.elements["response/task"].attributes["resultUrl"]
 
+puts "xml_data(Invoice) #{xml_data}"
+
 # Download the result
 puts "Downloading result..  download_url #{download_url}"
 recognized_text = RestClient.get(download_url)
 
 # We have the recognized text - output it!
-puts recognized_text
+puts recognized_textg
