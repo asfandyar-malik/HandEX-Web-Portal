@@ -46,7 +46,6 @@ class DocumentsController < ApplicationController
     @thing = %x( echo 'hi' )
     @wework = %x( ruby ocr/ocr_ruby_example_wework.rb )
     @legalName = @wework.match(/Legal Name:(.*)/)
-
     @vatId = @wework.match(/VAT ID:(.*)/)
     @companyName = @wework.match(/Company Name:(.*)/)
     @tax = @wework.match(/Tax:(.*)/)
