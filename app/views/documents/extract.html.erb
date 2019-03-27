@@ -2,7 +2,70 @@
 
     <h1> Extracting information from Wework Invoice </h1>
 
-    <p> Extracted Information: <%= @wework %> </p>
+<!--    <p> <%#= @wework %> </p>-->
+<!--    <p> <%#= @legalName %> </p>-->
+<!--    <p> <%#= @totalPrice %> </p>-->
+<!--    <p> <%#= @fullAddress %> <%#= @licensee %> c/o betahaus, Eifflerstraße 43 Hamburg 22769 DE </p>-->
+<!--    <p> <%#= @companyName %> </p>-->
+<!--    <p> <%#= @vatId %> </p>-->
+<!--    <p> <%#= @tax %> </p>-->
 
+    <br><br>
+
+    <table>
+        <tr>
+            <th> Key</th>
+            <th> Extacted Value </th>
+        </tr>
+        <tr>
+            <td> Legal Name </td>
+            <td><p> <%= @legalName%> </p></td>
+        </tr>
+        <tr>
+            <td> Price </td>
+            <td><p> <%= @totalPrice %> </p></td>
+        </tr>
+        <tr>
+            <td>Full Address </td>
+            <td><p> <%= @fullAddress %> <%= @licensee %> c/o betahaus, Eifflerstraße 43 Hamburg 22769 DE </p></td>
+        </tr>
+
+        <tr>
+            <td> VAT </td>
+            <td><p> <%= @vatId %> </p></td>
+        </tr>
+        <tr>
+            <td> Tax </td>
+            <td><p> <%= @tax %> </p></td>
+        </tr>
+
+        <tr>
+            <td> Company </td>
+            <td><p> <%= @companyName %> </p></td>
+        </tr>
+
+        <tr>
+            <td> Raw Data </td>
+            <td><p> <%= @wework %> </p></td>
+        </tr>
+    </table>
 
 </div>
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>

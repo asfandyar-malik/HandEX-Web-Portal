@@ -44,9 +44,15 @@ class DocumentsController < ApplicationController
 
   def extract
     @thing = %x( echo 'hi' )
-
     @wework = %x( ruby ocr/abbyy_ruby_example_wework.rb )
-    
+    @legalName = @wework.match(/Legal Name:(.*)/)
+
+    @vatId = @wework.match(/VAT ID:(.*)/)
+    @companyName = @wework.match(/Company Name:(.*)/)
+    @tax = @wework.match(/Tax:(.*)/)
+    @totalPrice = @wework.match(/Total Price:(.*)/)
+    @fullAddress= @wework.match(/Full Address:(.*)/)
+    @licensee= @wework.match(/Licensee:(.*)/)
   end
   
     # PATCH/PUT /documents/1

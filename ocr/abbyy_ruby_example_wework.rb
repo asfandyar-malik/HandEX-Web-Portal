@@ -135,8 +135,7 @@ xmlDoc.elements.each("receipts/receipt/recognizedText") do |e|
     vatId = fullText.match(/VAT ID:(.*)/)
     companyName = fullText.match(/Company Name:(.*)/)
     legalName = fullText.match(/Legal Name:(.*)/)
-    puts "vatId: #{vatId}"
-    puts "companyName: #{companyName}"
-    puts "legalName: #{legalName}"
-    # puts "fullText: #{fullText}"
+    puts vatId
+    puts companyName
+    puts legalName
 end
