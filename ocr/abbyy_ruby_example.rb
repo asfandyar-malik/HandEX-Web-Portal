@@ -1,6 +1,5 @@
 # OCR SDK Ruby sample
 # Documentation available on http://ocrsdk.com/documentation/
-
 require "rubygems"
 
 # IMPORTANT!
@@ -9,6 +8,7 @@ require "rubygems"
 require "rest_client"
 
 require "rexml/document"
+include REXML
 
 # IMPORTANT!
 # To create an application and obtain a password,
@@ -28,7 +28,7 @@ PASSWORD = CGI.escape("i3n2RoLue0ivExRRox64IMMK")
 FILE_NAME = "WeWorkFeb2019.pdf"
 
 # IMPORTANT!
-# Specify recognition languages of document. For full list of available languaes see
+# Specify recognition languages of documents. For full list of available languaes see
 # http://ocrsdk.com/documentation/apireference/processImage/
 # Examples: 
 #   English
@@ -50,10 +50,8 @@ end
 puts "Image will be recognized with #{LANGUAGE} language."
 puts "Uploading file.."
 begin
-    response = RestClient.post("#{BASE_URL}/processImage?language=#{LANGUAGE}&exportFormat=txt", :upload => {:file => File.new(FILE_NAME, 'rb')
+    response = RestClient.post("#{BASE_URL}/processReceipt?country=germany", :upload => {:file => File.new(FILE_NAME, 'rb')
     })
-    
-    puts "response(Invoice) #{response}"
     
 rescue RestClient::ExceptionWithResponse => e
     # Show processImage errors
@@ -78,27 +76,27 @@ while task_status == "InProgress" or task_status == "Queued" do begin # Note: it
                                                                     # it's recommended that you use listFinishedTasks instead (which is described
                                                                     # at http://ocrsdk.com/documentation/apireference/listFinishedTasks/).
                                                                     # Wait a bit
-    sleep(5)
-
-    # Call the getTaskStatus function (see http://ocrsdk.com/documentation/apireference/getTaskStatus)
-
-    # Note: a logical error in more complex surrounding code can cause
-    # a situation where the code below tries to prepare for getTaskStatus request
-    # while not having a valid task id. Such request would fail anyway.
-    # It's highly recommended that you have an explicit task id validity check
-    # right before preparing a getTaskStatus request.
-    raise "Invalid task id used when preparing getTaskStatus request"\
-      if ((!(defined? task_id)) || task_id.nil? || task_id.empty? || (task_id.include? "00000000-0"))
-    response = RestClient.get("#{BASE_URL}/getTaskStatus?taskid=#{task_id}")
-rescue RestClient::ExceptionWithResponse => e
-    # Show getTaskStatus errors
-    output_response_error(e.response)
-    raise
-else # Get the task status from response xml
-    xml_data     = REXML::Document.new(response)
-    task_element = xml_data.elements["response/task"]
-    task_status  = task_element.attributes["status"]
-end
+        sleep(5)
+    
+        # Call the getTaskStatus function (see http://ocrsdk.com/documentation/apireference/getTaskStatus)
+    
+        # Note: a logical error in more complex surrounding code can cause
+        # a situation where the code below tries to prepare for getTaskStatus request
+        # while not having a valid task id. Such request would fail anyway.
+        # It's highly recommended that you have an explicit task id validity check
+        # right before preparing a getTaskStatus request.
+        raise "Invalid task id used when preparing getTaskStatus request"\
+          if ((!(defined? task_id)) || task_id.nil? || task_id.empty? || (task_id.include? "00000000-0"))
+        response = RestClient.get("#{BASE_URL}/getTaskStatus?taskid=#{task_id}")
+    rescue RestClient::ExceptionWithResponse => e
+        # Show getTaskStatus errors
+        output_response_error(e.response)
+        raise
+    else # Get the task status from response xml
+        xml_data     = REXML::Document.new(response)
+        task_element = xml_data.elements["response/task"]
+        task_status  = task_element.attributes["status"]
+    end
 end
 
 # Check if there were errors ..
@@ -110,11 +108,35 @@ raise "You don't have enough money on your account to process the task" if task_
 # Get the result download link
 download_url = xml_data.elements["response/task"].attributes["resultUrl"]
 
-puts "xml_data(Invoice) #{xml_data}"
-
 # Download the result
 puts "Downloading result..  download_url #{download_url}"
+puts "-----------------------------"
 recognized_text = RestClient.get(download_url)
 
-# We have the recognized text - output it!
-puts recognized_textg
+xmlDoc = Document.new(recognized_text)
+
+xmlDoc.elements.each("receipts/receipt/vendor/fullAddress/text") do |e|
+    fullAddress = e.text
+    puts "Full Address: #{fullAddress}"
+end
+
+xmlDoc.elements.each("receipts/receipt/total/recognizedValue/text") do |e|
+    totalPrice = e.text
+    puts "Total Price: #{totalPrice}"
+end
+
+xmlDoc.elements.each("receipts/receipt/tax/recognizedValue/text") do |e|
+    tax = e.text
+    puts "Tax: #{tax}"
+end
+
+xmlDoc.elements.each("receipts/receipt/recognizedText") do |e|
+    fullText = e.text
+    vatId = fullText.match(/VAT ID:(.*)/)
+    companyName = fullText.match(/Company Name:(.*)/)
+    legalName = fullText.match(/Legal Name:(.*)/)
+    puts "vatId: #{vatId}"
+    puts "companyName: #{companyName}"
+    puts "legalName: #{legalName}"
+    # puts "fullText: #{fullText}"
+end

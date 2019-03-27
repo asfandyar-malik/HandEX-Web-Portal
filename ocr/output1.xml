@@ -1,0 +1,233 @@
+<receipts xmlns="https://www.abbyy.com/ReceiptCaptureSDK_xml/ReceiptCapture-1.1.xsd" count="1">
+  <style type="text/css" id="block-image-video"/>
+  <receipt currency="EUR" rotation="RT_NoRotation">
+    <vendor confidence="0.000" isSuspicious="true">
+      <name>
+        <recognizedValue>
+          <text>overages for</text>
+        </recognizedValue>
+      </name>
+      <fullAddress>
+        <text>
+          <![CDATA[
+HANDEX WCWOfk UG(SLOORU) ▼ VVUILV Legal Name: HandEX UG Licensee: Vincent Lauer c/o betahaus, EifflerstraBe 43 Hamburg 22769 DE
+]]>
+        </text>
+      </fullAddress>
+      <address>
+        <text>
+          <![CDATA[
+HANDEX WCWOfk UG(SLOORU) ▼ VVUILV Legal Name: HandEX UG Licensee: Vincent Lauer c/o betahaus, EifflerstraBe 43
+]]>
+        </text>
+      </address>
+      <phone confidence="0" isSuspicious="true">
+        <normalizedValue>5316157371</normalizedValue>
+        <recognizedValue>
+          <text>E316157371</text>
+        </recognizedValue>
+      </phone>
+      <purchaseType>Hotel</purchaseType>
+      <city>
+        <normalizedValue>Hamburg</normalizedValue>
+        <recognizedValue>
+          <text>Hamburg</text>
+        </recognizedValue>
+      </city>
+      <administrativeRegion>
+        <normalizedValue>DE</normalizedValue>
+        <recognizedValue>
+          <text>DE</text>
+        </recognizedValue>
+      </administrativeRegion>
+    </vendor>
+    <date confidence="89" isSuspicious="false">
+      <normalizedValue>2019-02-01</normalizedValue>
+      <recognizedValue>
+        <text>February 01,2019</text>
+      </recognizedValue>
+    </date>
+    <checkInDate>
+      <normalizedValue>2002-02-01</normalizedValue>
+      <recognizedValue>
+        <text>02/01-02</text>
+      </recognizedValue>
+    </checkInDate>
+    <checkOutDate>
+      <normalizedValue>2002-02-01</normalizedValue>
+      <recognizedValue>
+        <text>02/01-02</text>
+      </recognizedValue>
+    </checkOutDate>
+    <total>
+      <normalizedValue>1302.80</normalizedValue>
+      <recognizedValue>
+        <text>€1.302,80</text>
+      </recognizedValue>
+    </total>
+    <tax total="false" rate="19">
+      <normalizedValue>247.53</normalizedValue>
+      <recognizedValue>
+        <text>19.0%) €247,53</text>
+      </recognizedValue>
+    </tax>
+    <payment type="Card" cardType="Undefined">
+      <value>
+        <normalizedValue>1302.80</normalizedValue>
+        <recognizedValue>
+          <text>€1.302,80</text>
+        </recognizedValue>
+      </value>
+      <cardNumber>
+        <normalizedValue/>
+      </cardNumber>
+    </payment>
+    <recognizedItems count="8">
+      <item index="1">
+        <name>
+          <text>Keycard Replacement Fee (x-1)</text>
+        </name>
+        <count>
+          <normalizedValue>1</normalizedValue>
+        </count>
+        <total>
+          <normalizedValue>1.00</normalizedValue>
+          <recognizedValue>
+            <text>-1.0</text>
+          </recognizedValue>
+        </total>
+        <amountUnits>unit</amountUnits>
+      </item>
+      <item index="2">
+        <name>
+          <text>Office 05-130</text>
+        </name>
+        <count>
+          <normalizedValue>1</normalizedValue>
+        </count>
+        <total>
+          <normalizedValue>1.00</normalizedValue>
+          <recognizedValue>
+            <text>1.0</text>
+          </recognizedValue>
+        </total>
+        <amountUnits>unit</amountUnits>
+      </item>
+      <item index="3">
+        <name>
+          <text>Membership fee for 05-130</text>
+        </name>
+        <count>
+          <normalizedValue>1</normalizedValue>
+        </count>
+        <total>
+          <normalizedValue>1.00</normalizedValue>
+          <recognizedValue>
+            <text>1.0</text>
+          </recognizedValue>
+        </total>
+        <amountUnits>unit</amountUnits>
+      </item>
+      <item index="4">
+        <name>
+          <text>Keycard Replacement Fee</text>
+        </name>
+        <count>
+          <normalizedValue>1</normalizedValue>
+        </count>
+        <total>
+          <normalizedValue>1.00</normalizedValue>
+          <recognizedValue>
+            <text>1.0</text>
+          </recognizedValue>
+        </total>
+        <amountUnits>unit</amountUnits>
+        <date>
+          <normalizedValue>2002-01-18</normalizedValue>
+          <recognizedValue>
+            <text>01/18</text>
+          </recognizedValue>
+        </date>
+      </item>
+      <item index="5">
+        <name>
+          <text>Overage (x40)</text>
+        </name>
+        <count>
+          <normalizedValue>1</normalizedValue>
+        </count>
+        <amountUnits>unit</amountUnits>
+        <date>
+          <normalizedValue>2002-01-31</normalizedValue>
+          <recognizedValue>
+            <text>01/31</text>
+          </recognizedValue>
+        </date>
+      </item>
+      <item index="6">...</item>
+      <item index="7">...</item>
+      <item index="8">
+        <name>
+          <text>(19.0%)</text>
+        </name>
+        <count>
+          <normalizedValue>1</normalizedValue>
+        </count>
+        <total>
+          <normalizedValue>247.53</normalizedValue>
+          <recognizedValue>
+            <text>€247,53</text>
+          </recognizedValue>
+        </total>
+        <amountUnits>unit</amountUnits>
+      </item>
+    </recognizedItems>
+    <country>
+      <normalizedValue>USA</normalizedValue>
+    </country>
+    <recognizedText>
+      <![CDATA[
+handex WCWOfk
+ UG(SLOORU) ▼ VVUILV
+ Legal Name: HandEX UG
+ Licensee: Vincent Lauer
+ c/o betahaus, EifflerstraBe 43
+ Hamburg
+ 22769
+ DE
+ INVOICE #2570130652 I Europa a Details February 01,2019
+ Passage
+ DESCRIPTION PERIOD QUANTITY UNIT PRICE VAT % AMOUNT
+ Keycard Replacement Fee (x-1) 01/31 -1.0 €25,00 19.000% -€25,00
+ Office 05-130 02/01-02/28 1.0 €1.700,00 19.000% €1.700,00
+ Membership fee for 05-130 02/01-02/28 1.0 €1.700,00 19.000% €1.700,00
+ Keycard Replacement Fee 01/18 1.0 €25,00 19.000% €25,00
+ Color Print Overage (x40) 01/31 40.0 €0,32 19.000% €12,80
+ Mid-Month Discount for 07-110 01/14 1.0 -€410,00 19.000% -€410,00
+ Total Before Tax €1.302,80
+ VAT (19.0%) €247,53
+ Total €1.550,33
+ Wire Payment Details
+ Company Name: Ballindamm 40 Tenant GmbH
+ Account Number: 6161520488
+ Routing Number: 50110800
+ IBAN Number: DE96501108006161520488
+ Sort code: CHASDEFX
+ Payment reference: HandEX UG
+ Billing Info
+ VAT ID: DE316157371
+ Terms: Due Upon Receipt
+ Overage Pricing: B&W Prints --- €0,06/page; Color Prints --- €0,32/page; Conference Room Credits --- €20,00/credit.
+ Ballindamm 40 Tenant GmbH
+ Tax ID: DE316157371
+ Hermannstrasse 13
+ Hamburg, 20095,Germany
+ 855-5-WEWORK
+ WE-DE-22287@wework.com (mailto:WE-DE-
+ 22287@wework.com)
+ NOTE: This invoice includes recurring charges for the upcoming month, which begins on 02/01/2019, as well as prior month consumption overages for
+ services such as printing and conference room hours.
+]]>
+    </recognizedText>
+  </receipt>
+</receipts>
