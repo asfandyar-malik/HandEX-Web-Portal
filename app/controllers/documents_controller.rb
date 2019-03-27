@@ -44,7 +44,7 @@ class DocumentsController < ApplicationController
 
   def extract
     @thing = %x( echo 'hi' )
-    @wework = %x( ruby ocr/abbyy_ruby_example_wework.rb )
+    @wework = %x( ruby ocr/ocr_ruby_example_wework.rb )
     @legalName = @wework.match(/Legal Name:(.*)/)
 
     @vatId = @wework.match(/VAT ID:(.*)/)
