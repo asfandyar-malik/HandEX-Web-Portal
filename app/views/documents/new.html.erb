@@ -6,7 +6,7 @@
     <%= form_for @document, url: documents_path, html: { multipart: true } do |form| %>
 
       <div class="col-md-6 col-md-offset-3">
-          <%= form.submit value: 'OCR on WeWork Invoice', class: "btn btn-green btn-block"  %>
+          <%= form.submit value: 'OCR on WeWork Invoice', class: "btn btn-green btn-block", :formtarget => "_blank"  %>
 
           <%#= form.submit "OCR on Hannover Messe Invoice", class: "btn btn-green btn-block" %>
 
@@ -18,9 +18,5 @@
       </div>
 
 <% end %>
-
 <!--    extract_document_path(@document)-->
-
-
-
 </div>
