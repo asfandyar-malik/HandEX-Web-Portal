@@ -1,8 +1,8 @@
-<h1>New Document</h1>
+<h1>New Invoice </h1>
 
-<%= link_to 'Back', documents_path %>
+<%#= link_to 'Back', documents_path %>
+
 
 <%= form_for @document, url: documents_path, html: { multipart: true } do |form| %>
-    <%= form.file_field :invoice %>
-    <%= form.submit %>
+    <%= form.submit value: 'OCR machen' %>
 <% end %>

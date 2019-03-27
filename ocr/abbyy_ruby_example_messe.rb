@@ -25,7 +25,7 @@ PASSWORD = CGI.escape("i3n2RoLue0ivExRRox64IMMK")
 
 # IMPORTANT!
 # Specify path to image file you want to recognize
-FILE_NAME = "WeWorkFeb2019.pdf"
+FILE_NAME = "20190320_HannoverMesse.pdf"
 
 # IMPORTANT!
 # Specify recognition languages of documents. For full list of available languaes see

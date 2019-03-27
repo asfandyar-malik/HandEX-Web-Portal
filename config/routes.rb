@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :documents do
         member do
             get 'ocr'
+            get 'extract'
         end
     end
     

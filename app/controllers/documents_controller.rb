@@ -10,6 +10,7 @@ class DocumentsController < ApplicationController
   # GET /documents/1
   # GET /documents/1.json
   def show
+  
   end
 
   # GET /documents/new
@@ -32,8 +33,8 @@ class DocumentsController < ApplicationController
 
     respond_to do |format|
       if @document.save
-        format.html { redirect_to @document, notice: 'Document was successfully created.' }
-        format.json { render :show, status: :created, location: @document }
+        format.html { redirect_to extract_document_path(@document), notice: 'Document was successfully created.' }
+        # format.json { render :show, status: :created, location: @document }
       else
         format.html { render :new }
         format.json { render json: @document.errors, status: :unprocessable_entity }
@@ -41,7 +42,14 @@ class DocumentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /documents/1
+  def extract
+    @thing = %x( echo 'hi' )
+
+    @wework = %x( ruby ocr/abbyy_ruby_example_wework.rb )
+    
+  end
+  
+    # PATCH/PUT /documents/1
   # PATCH/PUT /documents/1.json
   def update
     respond_to do |format|
@@ -73,6 +81,6 @@ class DocumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
-        params.require(:document).permit(:invoice)
+      params.fetch(:document, {})
     end
 end
