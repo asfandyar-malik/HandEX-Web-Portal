@@ -1,11 +1,8 @@
-<h1> Oh Damn</h1>
+<h1>New Document</h1>
 
-<p> Lets test this stupid OCR sotware </p>
+<%= link_to 'Back', documents_path %>
 
-
-<div class="container">
-    <%= form_for @user, url: users_path, html: { multipart: true } do |form| %>
-        <%= form.file_field :avatar %>
-        <%= form.submit %>
-    <% end %>
-</div>
+<%= form_for @document, url: documents_path, html: { multipart: true } do |form| %>
+    <%= form.file_field :invoice %>
+    <%= form.submit %>
+<% end %>

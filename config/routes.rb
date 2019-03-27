@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
     
+    resources :documents do
+        member do
+            get 'ocr'
+        end
+    end
+    
+    # get 'documents/test' => 'documents#test'
     root to: 'insurances#new'
     
     get 'pages/landing' => 'pages#landing'
@@ -7,7 +14,6 @@ Rails.application.routes.draw do
     get 'pages/termsAndConditions' => 'pages#termsAndConditions'
     get 'pages/applicationProcessing' => 'pages#applicationProcessing'
     get 'pages/guidelines' => 'pages#guidelines'
-
 
     resources :insurances do
       member do
