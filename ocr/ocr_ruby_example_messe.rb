@@ -33,7 +33,7 @@ FILE_NAME = "20190320_HannoverMesse.pdf"
 LANGUAGE = "English"
 
 # OCR SDK base url with application id and password
-BASE_URL = "http://#{APPLICATION_ID}:#{PASSWORD}@cloud.ocrsdk.com"
+BASE_URL = "http://#{APPLICATION_ID}:#{PASSWORD}@cloud.ocr-handex.com"
 
 # Routine for OCR SDK error output
 def output_response_error(response) # Parse response xml
