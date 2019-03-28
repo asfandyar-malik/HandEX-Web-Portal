@@ -12,7 +12,7 @@
                     <p>
 
                     <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                        <div class="choice <%= 'active' if @insurance.yes_previously_hermes_insurance_used == 'on' %>" name="yes_previouslyhermesinsuranceused" data-toggle="wizard-checkbox" onclick="previouslyHermesInsuranceUsed()">
+                        <div class="choice" name="yes_previouslyhermesinsuranceused" data-toggle="wizard-checkbox" onclick="previouslyHermesInsuranceUsed()">
 
                             <%= check_box_tag "insurance[yes_previously_hermes_insurance_used]", @insurance.yes_previously_hermes_insurance_used ? @insurance.yes_previously_hermes_insurance_used : nil %>
 
@@ -24,7 +24,7 @@
 
                     <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
 
-                        <div class="choice <%= 'active' if @insurance.no_previously_hermes_insurance_used == 'on' %>" name="no_previouslyhermesinsuranceused" data-toggle="wizard-checkbox" onclick="noPreviouslyHermesInsuranceUsed()">
+                        <div class="choice" name="no_previouslyhermesinsuranceused" data-toggle="wizard-checkbox" onclick="noPreviouslyHermesInsuranceUsed()">
 
                             <%= check_box_tag "insurance[no_previously_hermes_insurance_used]", @insurance.no_previously_hermes_insurance_used ? @insurance.no_previously_hermes_insurance_used : nil %>
 
@@ -163,7 +163,7 @@
                                                         'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates (UAE)',
                                                         'United Kingdom (UK)', 'United States of America (USA)', 'Uruguay', 'Uzbekistan', 'Vanuatu',
                                                         'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'],
-                                                       @insurance.exporter_company_country ? @insurance.exporter_company_country : nil), id: 'exporter_company_country', class: 'form-control' %>
+                                                       @insurance.exporter_company_country ? @insurance.exporter_company_country : nil), {}, class: 'form-control' %>
 
                 </div>
             </div>
@@ -416,7 +416,7 @@
             <div class="col-md-8 col-md-offset-1">
                 <div class="form-group">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                        <div class="choice <%= 'active' if @insurance.corruption_declaration_applies == 'on' %>" name="corruptionDeclarationApplies" data-toggle="wizard-checkbox" onclick="corruptionDeclarationApplies()">
+                        <div class="choice" name="corruptionDeclarationApplies" data-toggle="wizard-checkbox" onclick="corruptionDeclarationApplies()">
 
                             <%= check_box_tag "insurance[corruption_declaration_applies]", @insurance.corruption_declaration_applies ? @insurance.corruption_declaration_applies : nil %>
 
@@ -430,7 +430,7 @@
 
 
                     <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                        <div class="choice <%= 'active' if @insurance.no_corruption_declaration_applies == 'on' %>" name="corruption_declaration_doesnt_apply" data-toggle="wizard-checkbox" onclick="noCorruptionDeclarationApplies()">
+                        <div class="choice" name="corruption_declaration_doesnt_apply" data-toggle="wizard-checkbox" onclick="noCorruptionDeclarationApplies()">
 
                             <%= check_box_tag "insurance[no_corruption_declaration_applies]", @insurance.no_corruption_declaration_applies ? @insurance.no_corruption_declaration_applies : nil %>
 
@@ -520,7 +520,7 @@
                 <br>
 
                 <div class="col-md-10 col-md-offset-1">
-                    <%= form.check_box :accept_terms_conditions, required: true, :style => "width: 20px; height: 20px;" %>
+                    <%= form.check_box :accept_terms_conditions, :style => "width: 20px; height: 20px;" %>
                     Wir akzeptieren die <span><a target="_blank" rel="noopener noreferrer" href="https://www.agaportal.de/_Resources/Persistent/3bfd6a43f17d04f9b34d523df323f0a44a9eaa17/ab_fab.pdf">
                     Allgemeinen Bedingungen für Lieferantenkreditdeckung(G)  </a> </span> in Zusammenhang mit den
                     <span><a target="_blank" rel="noopener noreferrer" href="https://www.agaportal.de/_Resources/Persistent/b751b874fd137e5f8b22b25d2bd8a15995b09eb2/ab_g.pdf">
@@ -532,7 +532,7 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <br><br>
-                    <%= form.check_box :read_privacy_policy, required: true, :style => "width: 20px; height: 20px;" %>
+                    <%= form.check_box :read_privacy_policy, :style => "width: 20px; height: 20px;" %>
                     Wir haben die <span><a target="_blank" rel="noopener noreferrer" href="/pages/termsAndConditions">
                     Datenschutzhinweise  </a> </span> zur Kenntnis genommen und sind mit
                     deren Geltung einverstanden.
@@ -544,7 +544,7 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <br><br>
-                    <%= form.check_box :read_all_instructions, required: true, :style => "width: 20px; height: 20px;" %>
+                    <%= form.check_box :read_all_instructions, :style => "width: 20px; height: 20px;" %>
                     Wir haben die <span><a target="_blank" rel="noopener noreferrer" href="/pages/guidelines">
                     Hinweise zu Gebühren und Entgelten, Richtlinien, Verantwortlichkeiten   </a> </span> für den Antrag,
                     Veröffentlichung von Projektdaten, OECD-Leitsätze für multinationale Unternehmen und

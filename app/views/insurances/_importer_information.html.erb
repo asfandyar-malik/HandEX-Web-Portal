@@ -69,7 +69,7 @@
                                                     'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates (UAE)',
                                                     'United Kingdom (UK)', 'United States of America (USA)', 'Uruguay', 'Uzbekistan', 'Vanuatu',
                                                     'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'],
-                                                   @insurance.importer_country ? @insurance.importer_country : nil), id: 'importercountry', class: 'form-control' %>
+                                                       @insurance.importer_country ? @insurance.importer_country : nil), {}, class: 'form-control' %>
             </div>
         </div>
     </div>
@@ -83,7 +83,7 @@
             <div class="col-sm-10">
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-1">
-                        <div class="choice <%= 'active' if @insurance.exporting_to_private_sector == 'on' %>" name="privatesector" data-toggle="wizard-checkbox">
+                        <div class="choice" name="privatesector" data-toggle="wizard-checkbox">
                             <%= check_box_tag "insurance[exporting_to_private_sector]" %>
                             <div class="card card-checkboxes card-hover-effect">
                                 <i class="ti-home"></i>
@@ -93,7 +93,7 @@
                     </div>
 
                     <div class="col-sm-4">
-                        <div class="choice <%= 'active' if @insurance.exporting_to_public_sector == 'on' %>" name="publicsector" data-toggle="wizard-checkbox">
+                        <div class="choice" name="publicsector" data-toggle="wizard-checkbox">
 
                             <%= check_box_tag "insurance[exporting_to_public_sector]", @insurance.exporting_to_public_sector ? @insurance.exporting_to_public_sector : nil %>
 
@@ -115,7 +115,7 @@
                 <p><b>Liefern Sie an diese Adresse? </b></p>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @insurance.yes_delivered_at_this_address == 'on' %>" name="yes_deliveredatthisaddress" data-toggle="wizard-checkbox" onclick="deliveredAtThisAddress()">
+                    <div class="choice" name="yes_deliveredatthisaddress" data-toggle="wizard-checkbox" onclick="deliveredAtThisAddress()">
 
                         <%= check_box_tag "insurance[yes_delivered_at_this_address]", @insurance.yes_delivered_at_this_address ? @insurance.yes_delivered_at_this_address : nil %>
 
@@ -127,7 +127,7 @@
 
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @insurance.no_delivered_at_this_address == 'on' %>" name="no_deliveredatthisaddress" data-toggle="wizard-checkbox" onclick="notDeliveredAtThisAddress()">
+                    <div class="choice" name="no_deliveredatthisaddress" data-toggle="wizard-checkbox" onclick="notDeliveredAtThisAddress()">
 
                         <%= check_box_tag "insurance[no_delivered_at_this_address]", @insurance.no_delivered_at_this_address ? @insurance.no_delivered_at_this_address : nil %>
 
@@ -198,7 +198,7 @@
             <div class="col-md-8 col-md-offset-1">
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @insurance.yes_exporter_influence_on_importer_management == 'on' %>" name="yes_relationtocustomer" data-toggle="wizard-checkbox" onclick="relationToCustomer()">
+                    <div class="choice" name="yes_relationtocustomer" data-toggle="wizard-checkbox" onclick="relationToCustomer()">
 
                         <%= check_box_tag "insurance[yes_exporter_influence_on_importer_management]", @insurance.yes_exporter_influence_on_importer_management ? @insurance.yes_exporter_influence_on_importer_management : nil %>
 
@@ -210,7 +210,7 @@
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
 
-                    <div class="choice <%= 'active' if @insurance.no_exporter_influence_on_importer_management == 'on' %>" name="no_relationtocustomer" data-toggle="wizard-checkbox" onclick="noRelationToCustomer()">
+                    <div class="choice" name="no_relationtocustomer" data-toggle="wizard-checkbox" onclick="noRelationToCustomer()">
 
                         <%= check_box_tag "insurance[no_exporter_influence_on_importer_management]", @insurance.no_exporter_influence_on_importer_management ? @insurance.no_exporter_influence_on_importer_management : nil %>
 
@@ -249,7 +249,7 @@
                 <p>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @insurance.yes_previous_payment_experience_with_importer == 'on' %>" name="yes_previouspaymentexperiencewithcustomer" data-toggle="wizard-checkbox" onclick="previousPaymentExperienceWithCustomer()">
+                    <div class="choice" name="yes_previouspaymentexperiencewithcustomer" data-toggle="wizard-checkbox" onclick="previousPaymentExperienceWithCustomer()">
 
                         <%= check_box_tag "insurance[yes_previous_payment_experience_with_importer]", @insurance.yes_previous_payment_experience_with_importer ? @insurance.yes_previous_payment_experience_with_importer : nil %>
 
@@ -261,7 +261,7 @@
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
 
-                    <div class="choice <%= 'active' if @insurance.no_previous_payment_experience_with_importer == 'on' %>" name="no_previouspaymentexperiencewithcustomer" data-toggle="wizard-checkbox" onclick="noPreviousPaymentExperienceWithCustomer()">
+                    <div class="choice" name="no_previouspaymentexperiencewithcustomer" data-toggle="wizard-checkbox" onclick="noPreviousPaymentExperienceWithCustomer()">
 
                         <%= check_box_tag "insurance[no_previous_payment_experience_with_importer]", @insurance.no_previous_payment_experience_with_importer ? @insurance.no_previous_payment_experience_with_importer : nil %>
 

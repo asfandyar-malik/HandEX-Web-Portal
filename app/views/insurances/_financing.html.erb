@@ -8,7 +8,7 @@
                 <p><b> Sind Sie bereit eine (Re-)Finanzierung anzunehmen, die nicht dem vollständigen Auftragswert entspricht (85-95%)? </b>
                 <p>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @insurance.yes_residualriskapetite_minimum_five == 'on' %>" name="yes_residualriskapetite" data-toggle="wizard-checkbox" onclick="residualRiskApetite()">
+                    <div class="choice" name="yes_residualriskapetite" data-toggle="wizard-checkbox" onclick="residualRiskApetite()">
 
                         <%= check_box_tag "insurance[yes_residualriskapetite_minimum_five]", @insurance.yes_residualriskapetite_minimum_five ? @insurance.yes_residualriskapetite_minimum_five : nil %>
 
@@ -20,7 +20,7 @@
 
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice <%= 'active' if @insurance.no_residualriskapetite_minimum_five == 'on' %>" name="no_residualriskapetite" data-toggle="wizard-checkbox" onclick="noResidualRiskApetite()">
+                    <div class="choice" name="no_residualriskapetite" data-toggle="wizard-checkbox" onclick="noResidualRiskApetite()">
 
                         <%= check_box_tag "insurance[no_residualriskapetite_minimum_five]", @insurance.no_residualriskapetite_minimum_five ? @insurance.no_residualriskapetite_minimum_five : nil %>
 
@@ -72,7 +72,7 @@
             <p><b>Haben Sie bereits ein Zahlungsziel bzw. eine eigene Finanzierung mit Ihrem Kunden vereinbart?</b>
             <p>
             <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                <div class="choice <%= 'active' if @insurance.yes_payment_term_already_agreed == 'on' %>" name="paymentTermAgreed_yes" data-toggle="wizard-checkbox" onclick="paymentTermAgreed()">
+                <div class="choice" name="paymentTermAgreed_yes" data-toggle="wizard-checkbox" onclick="paymentTermAgreed()">
                     <%= check_box_tag "insurance[yes_payment_term_already_agreed]", @insurance.yes_payment_term_already_agreed ? @insurance.yes_payment_term_already_agreed : nil %>
                     <div class="card circle card-hover-effect">
                         <i class="ti-check"></i>
@@ -81,7 +81,7 @@
             </div>
 
             <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                <div class="choice <%= 'active' if @insurance.no_payment_term_already_agreed == 'on' %>" name="paymentTermAgreed_no" data-toggle="wizard-checkbox" onclick="noPaymentTermAgreed()">
+                <div class="choice" name="paymentTermAgreed_no" data-toggle="wizard-checkbox" onclick="noPaymentTermAgreed()">
                     <%= check_box_tag "insurance[no_payment_term_already_agreed]", @insurance.no_payment_term_already_agreed ? @insurance.no_payment_term_already_agreed : nil %>
                     <div class="card circle card-hover-effect">
                         <i class="ti-close"></i>
@@ -108,7 +108,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-2 col-md-offset-1">
-                        <div class="choice <%= 'active' if @insurance.payment_term_shortterm == 'on' %>" data-toggle="wizard-checkbox" name="kurzfristigtermofpayment" onclick="kurzFristigTermOfPayment()">
+                        <div class="choice" data-toggle="wizard-checkbox" name="kurzfristigtermofpayment" onclick="kurzFristigTermOfPayment()">
 
                             <%= check_box_tag "insurance[payment_term_shortterm]", @insurance.payment_term_shortterm ? @insurance.payment_term_shortterm : nil %>
 
@@ -120,7 +120,7 @@
                     </div>
 
                     <div class="col-md-2 col-md-offset-1">
-                        <div class="choice <%= 'active' if @insurance.payment_term_middleterm == 'on' %>" data-toggle="wizard-checkbox" name="mitteltermofpayment" onclick="mittelTermOfPayment()">
+                        <div class="choice" data-toggle="wizard-checkbox" name="mitteltermofpayment" onclick="mittelTermOfPayment()">
 
                             <%= check_box_tag "insurance[payment_term_middleterm]", @insurance.payment_term_middleterm ? @insurance.payment_term_middleterm : nil %>
 
@@ -132,7 +132,7 @@
                     </div>
 
                     <div class="col-md-2 col-md-offset-1">
-                        <div class="choice <%= 'active' if @insurance.payment_term_both == 'on' %>" data-toggle="wizard-checkbox" name="sonstigekurzfristigtermofpayment" onclick="sonstigeKurzFristigTermOfPayment()">
+                        <div class="choice" data-toggle="wizard-checkbox" name="sonstigekurzfristigtermofpayment" onclick="sonstigeKurzFristigTermOfPayment()">
 
                             <%= check_box_tag "insurance[payment_term_both]", @insurance.payment_term_both ? @insurance.payment_term_both : nil %>
 
@@ -1086,7 +1086,7 @@
                         <p><b>Berechnen Sie Ihrem Kunden Zinsen? </b>
                         <p>
                         <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                            <div class="choice <%= 'active' if @insurance.yes_charge_interest_to_importer == 'on' %>" name="yes_customercountsinterest" data-toggle="wizard-checkbox" onclick="customerCountsInterest()">
+                            <div class="choice" name="yes_customercountsinterest" data-toggle="wizard-checkbox" onclick="customerCountsInterest()">
 
                                 <%= check_box_tag "insurance[yes_charge_interest_to_importer]", @insurance.yes_charge_interest_to_importer ? @insurance.yes_charge_interest_to_importer : nil %>
 
@@ -1098,7 +1098,7 @@
 
 
                         <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                            <div class="choice <%= 'active' if @insurance.no_charge_interest_to_importer == 'on' %>" name="no_customercountsinterest" data-toggle="wizard-checkbox" onclick="noCustomerCountsInterest()">
+                            <div class="choice" name="no_customercountsinterest" data-toggle="wizard-checkbox" onclick="noCustomerCountsInterest()">
 
                                 <%= check_box_tag "insurance[no_charge_interest_to_importer]", @insurance.no_charge_interest_to_importer ? @insurance.no_charge_interest_to_importer : nil %>
 

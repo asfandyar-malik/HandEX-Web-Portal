@@ -1,9 +1,9 @@
 class Insurance < ApplicationRecord
     belongs_to :user
     
-    validates :read_all_instructions, :acceptance => true
-    validates :read_privacy_policy, :acceptance => true
-    validates :accept_terms_conditions, :acceptance => true
+    # validates :read_all_instructions, :acceptance => true
+    # validates :read_privacy_policy, :acceptance => true
+    # validates :accept_terms_conditions, :acceptance => true
 
     has_attached_file :self_disclosure, :storage => :cloudinary,  :cloudinary_resource_type => :image, :path => "insurances/:attachment/:id/:style/:filename",
                       styles: { medium: "300x300>", thumb: "100x100>" }
