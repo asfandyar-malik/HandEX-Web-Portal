@@ -130,7 +130,7 @@ class InsurancesController < ApplicationController
             :sonstige_kurzfrist_advance_payment_explain, :sonstige_kurzfrist_deposit_received, :sonstige_kurzfrist_repayment_structure, :sonstige_kurzfrist_credit_start,
             :sonstige_kurzfrist_credit_start_sonstige_explain, :sonstige_kurzfrist_number_of_installments, :sonstige_kurzfrist_payment_vehichle_explain,
             :agreed_payments_currency, :agreed_payments_amount, :source_of_fund_amount, :goods_overhauled_location, :explain_special_contract_structure,
-            :graphic_representation_project_participants, :contract_currency, :charged_interest_to_importer_currency, :downpayment_delivery_currency,
+            :graphic_representation_project_participants, :contract_currency, :downpayment_delivery_currency,
             :downpayment_delivery_amount, :downpayment_delivery_description, :risk_shipment_risk_cover, :risk_supplier_credit_cover, :exporter_company_city,
             :further_lower_economic_risk, :yes_jointventure_with_consortiums, :no_jointventure_with_consortiums,  :loan_term
             

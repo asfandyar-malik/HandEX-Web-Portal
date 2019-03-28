@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_27_065536) do
+ActiveRecord::Schema.define(version: 2019_03_28_155824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(version: 2019_03_27_065536) do
     t.string "more_components_open_to_exporter_explain"
     t.boolean "yes_charge_interest_to_importer", default: false
     t.boolean "no_charge_interest_to_importer", default: false
-    t.string "charged_interest_to_importer_currency"
     t.boolean "yes_price_adjustment_clause_with_importer", default: false
     t.boolean "no_price_adjustment_clause_with_importer", default: false
     t.string "explain_accounting_methods"
@@ -164,7 +163,6 @@ ActiveRecord::Schema.define(version: 2019_03_27_065536) do
     t.string "exporter_company_name"
     t.string "exporter_telephone"
     t.string "further_lower_economic_risk"
-    t.string "dont_lower_economic_risk"
     t.string "explain_corruption_declaration_applies"
     t.string "give_consortiums_companies"
     t.string "information_inputted_best_of_knowledge"
