@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_28_155824) do
+ActiveRecord::Schema.define(version: 2019_04_02_171053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -60,17 +60,13 @@ ActiveRecord::Schema.define(version: 2019_03_28_155824) do
     t.boolean "delivery_affects_other", default: false
     t.string "explain_delivery_affects_other"
     t.boolean "yes_export_requires_exportlicense", default: false
-    t.boolean "no_export_requires_exportlicense", default: false
     t.string "which_regulations_arises_exportlicense_requirement"
     t.string "exportlicense_status"
     t.boolean "yes_deliver_secondhand_goods", default: false
-    t.boolean "no_dont_deliver_secondhand_goods", default: false
     t.boolean "yes_contract_already_signed_all_parties", default: false
-    t.boolean "no_contract_already_signed_all_parties", default: false
     t.string "trade_contract_signing_date"
     t.string "exporter_internal_contract_id"
     t.boolean "yes_special_contract_structure", default: false
-    t.boolean "no_special_contract_structure", default: false
     t.string "contract_currency"
     t.string "contract_trade_currency"
     t.string "contract_trade_amount"
@@ -80,12 +76,9 @@ ActiveRecord::Schema.define(version: 2019_03_28_155824) do
     t.string "more_components_open_to_exporter_amount"
     t.string "more_components_open_to_exporter_explain"
     t.boolean "yes_charge_interest_to_importer", default: false
-    t.boolean "no_charge_interest_to_importer", default: false
     t.boolean "yes_price_adjustment_clause_with_importer", default: false
-    t.boolean "no_price_adjustment_clause_with_importer", default: false
     t.string "explain_accounting_methods"
     t.boolean "yes_goods_sent_multiple_deliveries", default: false
-    t.boolean "no_goods_sent_multiple_deliveries", default: false
     t.string "delivery_start"
     t.string "delivery_end"
     t.string "other_important_delivery_information"
@@ -98,7 +91,6 @@ ActiveRecord::Schema.define(version: 2019_03_28_155824) do
     t.string "exported_goods_type"
     t.string "explain_good_industry_type"
     t.boolean "yes_deliver_part_of_overall_project_other_companies", default: false
-    t.boolean "no_deliver_part_of_overall_project_other_companies", default: false
     t.boolean "exporting_to_private_sector", default: false
     t.boolean "exporting_to_public_sector", default: false
     t.bigint "user_id"
@@ -170,31 +162,22 @@ ActiveRecord::Schema.define(version: 2019_03_28_155824) do
     t.string "loan_term"
     t.string "application_status", default: "new"
     t.boolean "yes_residualriskapetite_minimum_five", default: false
-    t.boolean "no_residualriskapetite_minimum_five", default: false
     t.boolean "yes_investment_good", default: false
-    t.boolean "no_investment_good", default: false
     t.boolean "yes_exporter_offers_servicing_for_goods", default: false
-    t.boolean "no_exporter_offers_servicing_for_goods", default: false
     t.string "loan_duration"
     t.string "contract_value"
     t.boolean "yes_sonstige_kurzfrist_certificate_of_origin", default: false
     t.boolean "no_sonstige_kurzfrist_certificate_of_origin", default: false
     t.boolean "yes_security_businnes_provided", default: false
-    t.boolean "no_security_businnes_provided", default: false
     t.boolean "yes_delivered_at_this_address", default: false
     t.boolean "no_delivered_at_this_address", default: false
     t.boolean "yes_exporter_influence_on_importer_management", default: false
-    t.boolean "no_exporter_influence_on_importer_management", default: false
     t.boolean "yes_previous_payment_experience_with_importer", default: false
-    t.boolean "no_previous_payment_experience_with_importer", default: false
     t.boolean "yes_previously_hermes_insurance_used", default: false
-    t.boolean "no_previously_hermes_insurance_used", default: false
     t.boolean "corruption_declaration_applies", default: false
-    t.boolean "no_corruption_declaration_applies", default: false
     t.boolean "yes_jointventure_with_consortiums", default: false
     t.boolean "no_jointventure_with_consortiums", default: false
     t.boolean "yes_payment_term_already_agreed", default: false
-    t.boolean "no_payment_term_already_agreed", default: false
     t.boolean "accept_terms_conditions", default: false
     t.boolean "read_privacy_policy", default: false
     t.boolean "read_all_instructions", default: false

@@ -203,7 +203,7 @@
         </div>
     </div>
 
-    <div class="row" style="display: <%= !@insurance.corruption_declaration_applies?? 'block' : 'none' %>;">
+    <div class="row" style="display: <%= !@insurance.corruption_declaration_applies? ? 'block' : 'none' %>;">
         <div class="col-md-8 col-md-offset-1">
             <p class="text-babu">
                 Trifft zu (Nähere Angaben erforderlich. Lesen Sie hierzu auch die Hinweise)
@@ -213,7 +213,6 @@
     </div>
 
     <div id="showHideDivCorruptionDeclarationApplies" style="display:<%= !@insurance.corruption_declaration_applies? ? 'block' : 'none' %>">
-
         <div class="row">
             <div class="col-md-8 col-md-offset-1">
                 <p> Bitte machen Sie nähere Angaben zu den oben stehenden Punkten hinsichtlich Anklagen, strafrechtlichen
@@ -227,10 +226,9 @@
                 <hr>
             </div>
         </div>
-
     </div>
 
-    <div class="row" style="display: <%= @insurance.no_corruption_declaration_applies? ? 'block' : 'none' %>">
+    <div class="row" style="display: <%= @insurance.corruption_declaration_applies? ? 'none' : 'block' %>">
         <div class="col-md-8 col-md-offset-1">
             <p class="text-babu">
                 Trifft nicht zu
@@ -247,9 +245,7 @@
             <hr>
         </div>
     </div>
-
 </div>
-
 
 <div id="finalDeclaration">
 

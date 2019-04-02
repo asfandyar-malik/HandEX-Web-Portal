@@ -13,9 +13,7 @@
 
                     <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                         <div class="choice" name="yes_previouslyhermesinsuranceused" data-toggle="wizard-checkbox" onclick="previouslyHermesInsuranceUsed()">
-
                             <%= check_box_tag "insurance[yes_previously_hermes_insurance_used]", @insurance.yes_previously_hermes_insurance_used ? @insurance.yes_previously_hermes_insurance_used : nil %>
-
                             <div class="card circle card-hover-effect">
                                 <i class="ti-check"></i>
                             </div>
@@ -23,11 +21,8 @@
                     </div>
 
                     <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-
                         <div class="choice" name="no_previouslyhermesinsuranceused" data-toggle="wizard-checkbox" onclick="noPreviouslyHermesInsuranceUsed()">
-
-                            <%= check_box_tag "insurance[no_previously_hermes_insurance_used]", @insurance.no_previously_hermes_insurance_used ? @insurance.no_previously_hermes_insurance_used : nil %>
-
+                            <%= check_box_tag "insurance[yes_previously_hermes_insurance_used]", @insurance.yes_previously_hermes_insurance_used ? nil : @insurance.yes_previously_hermes_insurance_used %>
                             <div class="card circle card-hover-effect">
                                 <i class="ti-close"></i>
                             </div>
@@ -417,9 +412,7 @@
                 <div class="form-group">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                         <div class="choice" name="corruptionDeclarationApplies" data-toggle="wizard-checkbox" onclick="corruptionDeclarationApplies()">
-
                             <%= check_box_tag "insurance[corruption_declaration_applies]", @insurance.corruption_declaration_applies ? @insurance.corruption_declaration_applies : nil %>
-
                             <div class="card circle card-hover-effect">
                                 <i class="ti-check"></i>
                                 <p>Trifft zu </p>
@@ -428,12 +421,9 @@
                         </div>
                     </div>
 
-
                     <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                         <div class="choice" name="corruption_declaration_doesnt_apply" data-toggle="wizard-checkbox" onclick="noCorruptionDeclarationApplies()">
-
-                            <%= check_box_tag "insurance[no_corruption_declaration_applies]", @insurance.no_corruption_declaration_applies ? @insurance.no_corruption_declaration_applies : nil %>
-
+                            <%= check_box_tag "insurance[corruption_declaration_applies]", @insurance.corruption_declaration_applies ? nil : @insurance.corruption_declaration_applies %>
                             <div class="card circle card-hover-effect">
                                 <i class="ti-close"></i>
                                 <p>Trifft nicht zu</p>
