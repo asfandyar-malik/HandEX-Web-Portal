@@ -1,22 +1,82 @@
 <!--<p id="notice"><%#= notice %></p>-->
-<div class="container">
+<div class="container" align="center">
+    <div class="row">
+        <div class="wizard-container">
+            <div class="card wizard-card" data-color="blue" id="wizard">
 
-  <div class="col-md-3">
-    <div class="panel">
-      <ul class="sidebar-list">
-<!--        <li class="sidebar-item"><%#= link_to "Anträge in Bearbeitung", insurances_path, class: "sidebar-link active" %></li>-->
-        <li class="sidebar-item"><%= link_to "Versendete Anträge", submitted_applications_insurance_path(current_user.id), class: "sidebar-link" %></li>
-        <li class="sidebar-item"><%= link_to "Abgeschlossene Transaktionen", approved_applications_insurance_path(current_user.id), class: "sidebar-link" %></li>
-<!--        <li class="sidebar-item"><%#= link_to "OCR", new_document_path, class: "sidebar-link" %></li>-->
+                <br>
+                <br>
 
-      </ul>
-      <br/>
-      <%= link_to 'Neuer Antrag', new_insurance_path, target: "_blank", class: 'text-center btn btn-profile' %>
+                <div class="wizard-header">
+                    <h4 class="wizard-title"><b>Please choose your desired product to finance your trade </b></h4>
+                    <br><br>
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group">
+
+                        <div class="col-sm-2 col-sm-offset-2">
+                            <div class="choice" id="export-financing" data-toggle="wizard-checkbox" onclick="noCustomerCountsInterest()">
+                                <div class="card card-checkboxes card-hover-effect">
+                                    <p><br></p>
+                                    <i class="ti-home"></i>
+                                    <p>Export Financing <br><br><br></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <div class="choice" id="import-financing" data-toggle="wizard-checkbox">
+                                <div class="card card-checkboxes card-hover-effect">
+                                    <p><br></p>
+                                    <i class="ti-package"></i>
+                                    <p>Import Financing <br><br><br></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <div class="choice" id="forfaiting" data-toggle="wizard-checkbox" >
+                                <div class="card card-checkboxes card-hover-effect">
+                                    <p><br></p>
+                                    <i class="ti-control-stop"></i>
+                                    <p>Forfaiting<br><br><br></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <div class="choice" id="bank-guarantee" data-toggle="wizard-checkbox">
+                                <div class="card card-checkboxes card-hover-effect">
+                                    <p><br></p>
+                                    <i class="ti-layout-grid4-alt"></i>
+                                    <p>Importer Bank Guarantee <br><br></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br><br><br>
+                <br><br><br>
+                <br><br><br>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <div class="col-md-9">
-    <%= render partial: "insurances/listing", locals: {applications: @new_applications,
-                                                       can_edit: true} %>
-  </div>
 </div>
+
+<script type="text/javascript">
+    document.getElementById("export-financing").onclick = function () {
+        location.href = "/insurances/new";
+    };
+    document.getElementById("import-financing").onclick = function () {
+        location.href = "/imports/new";
+    };
+    document.getElementById("forfaiting").onclick = function () {
+        location.href = "/insurances/new";
+    };
+    document.getElementById("bank-guarantee").onclick = function () {
+        location.href = "/insurances/new";
+    };
+</script>

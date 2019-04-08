@@ -1,7 +1,7 @@
 class InsurancesController < ApplicationController
     include Html2pdfconverter
     
-    layout "insurance", only: [:new, :edit]
+    layout "insurance", only: [:new, :edit, :index]
     
     before_action :set_insurance, only: [:show, :edit, :update, :destroy, :user_summary, :user_summary_pdf, :pdf_user_summary]
     before_action :authenticate_user!

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
     
+  resources :imports
     resources :documents do
         member do
             get 'ocr'
@@ -8,7 +9,8 @@ Rails.application.routes.draw do
     end
     
     # get 'documents/test' => 'documents#test'
-    root to: 'insurances#new'
+    # root to: 'insurances#new'
+    root to: 'insurances#index'
     
     get 'pages/landing' => 'pages#landing'
     get 'pages/impressum' => 'pages#impressum'
