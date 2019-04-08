@@ -34,3 +34,9 @@ test
 
 #ephemeral files are created here. Lets not commit them
 public/system/*
+
+ocr/.DS_Store
+.DS_Store
+.gitignore
+app/.DS_Store
+app/views/.DS_Store
