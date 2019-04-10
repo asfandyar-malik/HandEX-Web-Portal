@@ -42,7 +42,7 @@ class ImportsController < ApplicationController
   end
   
   def destroy
-    @import.destroy
+    @import.destroywhen_security_received
     respond_to do |format|
       format.html {redirect_to imports_url, notice: 'Antrag wurde erfolgreich zerstört'}
       format.json {head :no_content}

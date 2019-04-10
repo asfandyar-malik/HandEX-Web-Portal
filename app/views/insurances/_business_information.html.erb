@@ -851,7 +851,7 @@
                     <div class="col-xs-3 col-sm-3 col-md-3">
                         <div class="choice" name="no_certificateoforigin" data-toggle="wizard-checkbox" onclick="noCertificateOfOrigin()">
 
-                            <%= check_box_tag "insurance[no_sonstige_kurzfrist_certificate_of_origin]", @insurance.no_sonstige_kurzfrist_certificate_of_origin ? @insurance.no_sonstige_kurzfrist_certificate_of_origin : nil %>
+                            <%= check_box_tag "insurance[yes_sonstige_kurzfrist_certificate_of_origin]", @insurance.yes_sonstige_kurzfrist_certificate_of_origin ? nil : @insurance.yes_sonstige_kurzfrist_certificate_of_origin  %>
                             <div class="card circle card-hover-effect">
                                 <i class="ti-close"></i>
                                 <p>Nein</p>
