@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_08_082717) do
+ActiveRecord::Schema.define(version: 2019_04_12_131109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -169,7 +169,6 @@ ActiveRecord::Schema.define(version: 2019_04_08_082717) do
     t.string "information_inputted_best_of_knowledge"
     t.string "exporter_company_street"
     t.string "loan_term"
-    t.string "application_status", default: "new"
     t.boolean "yes_residualriskapetite_minimum_five", default: false
     t.boolean "yes_investment_good", default: false
     t.boolean "yes_exporter_offers_servicing_for_goods", default: false
@@ -193,6 +192,7 @@ ActiveRecord::Schema.define(version: 2019_04_08_082717) do
     t.boolean "payment_term_shortterm", default: false
     t.boolean "payment_term_middleterm", default: false
     t.boolean "payment_term_both", default: false
+    t.string "application_status", default: "new"
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 
