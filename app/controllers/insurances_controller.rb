@@ -3,7 +3,7 @@ class InsurancesController < ApplicationController
     
     layout "insurance", only: [:new, :edit, :index]
     
-    before_action :set_insurance, only: [:show, :edit, :update, :destroy, :user_summary, :user_summary_pdf, :pdf_user_summary]
+    before_action :set_insurance, only: [:show, :edit, :update, :destroy, :user_summary, :pdf_user_summary]
     before_action :authenticate_user!
     before_action :is_authorised, only: [:update]
     
@@ -137,12 +137,8 @@ class InsurancesController < ApplicationController
             :advance_payment_description_payment_term_both, :deposit_received_payment_term_both, :repayment_structure_payment_term_both, :credit_start_date_payment_term_both,
             :credit_start_special_description_payment_term_both, :number_of_installments_payment_term_both, :payment_vehichle_explain_payment_term_both,
             :agreed_payments_currency_payment_term_short, :agreed_payments_amount_payment_term_short, :source_of_fund_amount, :goods_overhauled_location,
-            :explain_special_contract_structure, :graphic_representation_project_participants, :contract_currency,
-            
-            
-            :risk_shipment_risk_cover, :risk_supplier_credit_cover,
-            :further_lower_economic_risk, :loan_term
-            
+            :explain_special_contract_structure, :graphic_representation_project_participants, :contract_currency, :risk_shipment_risk_cover,
+            :risk_supplier_credit_cover, :further_lower_economic_risk, :loan_term
         )
     end
 end
