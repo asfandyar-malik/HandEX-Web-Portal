@@ -1,10 +1,10 @@
 <% qa_partial = 'insurances/summary/user/shared_partials/question_answer.html.erb' %>
 
 <div id="deliveryAddressCheck">
-    <%= render qa_partial, question: "Haben Sie in der Vergangenheit schon einmal einen Antrag auf Hermesdeckung eingereicht?", answer: @insurance.yes_previously_hermes_insurance_used? ? 'Ja' : 'Nein' %>
+    <%= render qa_partial, question: "Haben Sie in der Vergangenheit schon einmal einen Antrag auf Hermesdeckung eingereicht?", answer: @insurance.has_previously_used_hermes_cover ? 'Ja' : 'Nein' %>
 </div>
 
-<div id="newAtHermesDeckung" style="display: <%= @insurance.yes_previously_hermes_insurance_used? ? 'none' : 'block' %>">
+<div id="newAtHermesDeckung" style="display: <%= @insurance.has_previously_used_hermes_cover? ? 'none' : 'block' %>">
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
             <p>Da Sie bisher keine Hermesdeckung beantragt haben, möchte HandEX
@@ -27,7 +27,7 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
-            <%= check_missing(@insurance.trading_since_when_without_hermes_insurance) %>
+            <%= check_missing(@insurance.years_trading_without_hermes_insurance) %>
             <hr>
         </div>
     </div>
@@ -40,7 +40,7 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
-            <%= check_missing(@insurance.experience_with_export_country) %>
+            <%= check_missing(@insurance.experience_with_importer_country) %>
             <hr>
         </div>
     </div>
@@ -80,7 +80,7 @@
 
             <% address_keys = ["Firmenname", "DN-NR", "Telefon", "Straße / Hausnummer", "PLZ", "Land"] %>
 
-            <% address_values = [@insurance.exporter_company_name, @insurance.exporter_company_dnnr, @insurance.exporter_telephone, @insurance.exporter_company_street, @insurance.exporter_company_plz, @insurance.exporter_company_country
+            <% address_values = [@insurance.exporter_name, @insurance.exporter_dn_no, @insurance.exporter_telephone, @insurance.exporter_street, @insurance.exporter_plz, @insurance.exporter_country
 
             ] %>
 
@@ -141,7 +141,7 @@
 
             <% address_keys = ["Vorname", "Nachname", "Email", "Funktion", "Bereich"] %>
 
-            <% address_values = [@insurance.exporter_company_representative_firstname, @insurance.exporter_company_representative_lastname, @insurance.exporter_company_representative_email, @insurance.exporter_company_representative_function, @insurance.exporter_company_representative_department] %>
+            <% address_values = [@insurance.exporter_representative_firstname, @insurance.exporter_representative_lastname, @insurance.exporter_representative_email, @insurance.exporter_representative_function, @insurance.exporter_representative_department] %>
 
             <% address_keys.zip(address_values).each do |addr_key, addr_value| %>
 
@@ -203,7 +203,7 @@
         </div>
     </div>
 
-    <div class="row" style="display: <%= !@insurance.corruption_declaration_applies? ? 'block' : 'none' %>;">
+    <div class="row" style="display: <%= !@insurance.does_corruption_declaration_apply? ? 'block' : 'none' %>;">
         <div class="col-md-8 col-md-offset-1">
             <p class="text-babu">
                 Trifft zu (Nähere Angaben erforderlich. Lesen Sie hierzu auch die Hinweise)
@@ -212,7 +212,7 @@
         </div>
     </div>
 
-    <div id="showHideDivCorruptionDeclarationApplies" style="display:<%= !@insurance.corruption_declaration_applies? ? 'block' : 'none' %>">
+    <div id="showHideDivCorruptionDeclarationApplies" style="display:<%= !@insurance.does_corruption_declaration_apply? ? 'block' : 'none' %>">
         <div class="row">
             <div class="col-md-8 col-md-offset-1">
                 <p> Bitte machen Sie nähere Angaben zu den oben stehenden Punkten hinsichtlich Anklagen, strafrechtlichen
@@ -222,13 +222,13 @@
 
         <div class="row">
             <div class="col-md-8 col-md-offset-1">
-                <p> <%= check_missing(@insurance.explain_corruption_declaration_applies) %> </p>
+                <p> <%= check_missing(@insurance.explain_corruption_sanctions) %> </p>
                 <hr>
             </div>
         </div>
     </div>
 
-    <div class="row" style="display: <%= @insurance.corruption_declaration_applies? ? 'none' : 'block' %>">
+    <div class="row" style="display: <%= @insurance.does_corruption_declaration_apply? ? 'none' : 'block' %>">
         <div class="col-md-8 col-md-offset-1">
             <p class="text-babu">
                 Trifft nicht zu
@@ -238,7 +238,7 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
-            <div class="<%= @insurance.information_inputted_best_of_knowledge? ? 'text-babu' : 'text-red' %>">
+            <div class="<%= @insurance.is_all_information_provided_with_best_of_knowledge? ? 'text-babu' : 'text-red' %>">
                 Die vorstehenden Angaben wurden von uns nach bestem Wissen und Gewissen und in Kenntnisnahme der Erläuterungen
                 gemacht.
             </div>
@@ -258,7 +258,7 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
-            <p class="<%= @insurance.accept_terms_conditions? ? 'text-babu' : 'text-red' %>">
+            <p class="<%= @insurance.has_accepted_terms_conditions? ? 'text-babu' : 'text-red' %>">
 
                 Wir akzeptieren die
                 <span>
@@ -279,7 +279,7 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
-            <p class="<%= @insurance.read_privacy_policy? ? 'text-babu' : 'text-red' %>">
+            <p class="<%= @insurance.has_read_privacy_policy? ? 'text-babu' : 'text-red' %>">
 
                 Wir haben die <span><a target="_blank" rel="noopener noreferrer" href="/pages/termsAndConditions">
         Datenschutzhinweise  </a> </span> zur Kenntnis genommen und sind mit deren Geltung einverstanden.
@@ -291,7 +291,7 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
-            <div class="<%= @insurance.read_all_instructions? ? 'text-babu' : 'text-red' %>">
+            <div class="<%= @insurance.has_read_all_instructions? ? 'text-babu' : 'text-red' %>">
                 Wir haben die <span><a target="_blank" rel="noopener noreferrer" href="/pages/guidelines">
                     Hinweise zu Gebühren und Entgelten, Richtlinien, Verantwortlichkeiten   </a> </span> für den Antrag,
                 Veröffentlichung von Projektdaten, OECD-Leitsätze für multinationale Unternehmen und

@@ -119,7 +119,7 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="deliverwithothercompanies_yes" data-toggle="wizard-checkbox"> <!-- onclick="deliverWithOtherCompanies()" -->
 
-                        <%= check_box_tag "import[yes_deliver_part_of_overall_project_other_companies]", @import.description ? @import.description : nil %>
+                        <%= check_box_tag "import[description]", @import.description ? @import.description : nil %>
 
                         <div class="card circle card-hover-effect">
                             <i class="ti-check"></i>
@@ -129,7 +129,7 @@
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="deliverwithothercompanies_no" data-toggle="wizard-checkbox"> <!-- onclick="notDeliverWithOtherCompanies()"> -->
-                        <%= check_box_tag "import[yes_deliver_part_of_overall_project_other_companies]", @import.description ? nil : @import.description %>
+                        <%= check_box_tag "import[description]", @import.description ? nil : @import.description %>
                         <div class="card circle card-hover-effect">
                             <i class="ti-close"></i>
                         </div>

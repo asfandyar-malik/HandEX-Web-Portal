@@ -116,7 +116,7 @@
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_deliveredatthisaddress" data-toggle="wizard-checkbox" onclick="deliveredAtThisAddress()">
-                        <%= check_box_tag "insurance[yes_delivered_at_this_address]", @insurance.yes_delivered_at_this_address ? @insurance.yes_delivered_at_this_address : nil %>
+                        <%= check_box_tag "insurance[is_shipment_address]", @insurance.is_shipment_address ? @insurance.is_shipment_address : nil %>
                         <div class="card circle card-hover-effect">
                             <i class="ti-check"></i>
                         </div>
@@ -125,7 +125,7 @@
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="no_deliveredatthisaddress" data-toggle="wizard-checkbox" onclick="notDeliveredAtThisAddress()">
-                        <%= check_box_tag "insurance[yes_delivered_at_this_address]", @insurance.yes_delivered_at_this_address ? nil : @insurance.yes_delivered_at_this_address %>
+                        <%= check_box_tag "insurance[is_shipment_address]", @insurance.is_shipment_address ? nil : @insurance.is_shipment_address %>
                         <div class="card circle card-hover-effect">
                             <i class="ti-close"></i>
                         </div>
@@ -145,17 +145,17 @@
                     <br>
                     <div class="col-md-3 col-md-offset-1">
                         <p> Firmenname </p>
-                        <div> <%= form.text_field :importer_delivery_address_company_name, class: "form-control" %> </div>
+                        <div> <%= form.text_field :importer_shipment_company_name, class: "form-control" %> </div>
                     </div>
 
                     <div class="col-md-3 ">
                         <p> Land </p>
-                        <%= form.text_field :importer_delivery_address_country, class: "form-control" %>
+                        <%= form.text_field :importer_shipment_country, class: "form-control" %>
                     </div>
 
                     <div class="col-md-3 ">
                         <p> Straße / Hausnummer </p>
-                        <%= form.text_field :importer_delivery_address_street, class: "form-control" %>
+                        <%= form.text_field :importer_shipment_street, class: "form-control" %>
                     </div>
                 </div>
             </div>
@@ -164,12 +164,12 @@
                     <br>
                     <div class="col-md-3 col-md-offset-1">
                         <p> PLZ </p>
-                        <%= form.text_field :importer_delivery_address_plz, class: "form-control"%>
+                        <%= form.text_field :importer_shipment_plz, class: "form-control"%>
                     </div>
 
                     <div class="col-md-3">
                         <p> Ort </p>
-                        <div> <%= form.text_field :importer_delivery_address_city, class: "form-control" %> </div>
+                        <div> <%= form.text_field :importer_shipment_city, class: "form-control" %> </div>
                     </div>
 
                 </div>
@@ -193,7 +193,7 @@
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_relationtocustomer" data-toggle="wizard-checkbox" onclick="relationToCustomer()">
-                        <%= check_box_tag "insurance[yes_exporter_influence_on_importer_management]", @insurance.yes_exporter_influence_on_importer_management ? @insurance.yes_exporter_influence_on_importer_management : nil %>
+                        <%= check_box_tag "insurance[has_significant_influence_on_importer_management]", @insurance.has_significant_influence_on_importer_management ? @insurance.has_significant_influence_on_importer_management : nil %>
                         <div class="card circle card-hover-effect">
                             <i class="ti-check"></i>
                         </div>
@@ -203,7 +203,7 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
 
                     <div class="choice" name="no_relationtocustomer" data-toggle="wizard-checkbox" onclick="noRelationToCustomer()">
-                        <%= check_box_tag "insurance[yes_exporter_influence_on_importer_management]", @insurance.yes_exporter_influence_on_importer_management ? nil : @insurance.yes_exporter_influence_on_importer_management %>
+                        <%= check_box_tag "insurance[has_significant_influence_on_importer_management]", @insurance.has_significant_influence_on_importer_management ? nil : @insurance.has_significant_influence_on_importer_management %>
                         <div class="card circle card-hover-effect">
                             <i class="ti-close"></i>
                         </div>
@@ -238,7 +238,7 @@
                 <p>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_previouspaymentexperiencewithcustomer" data-toggle="wizard-checkbox" onclick="previousPaymentExperienceWithCustomer()">
-                        <%= check_box_tag "insurance[yes_previous_payment_experience_with_importer]", @insurance.yes_previous_payment_experience_with_importer ? @insurance.yes_previous_payment_experience_with_importer : nil %>
+                        <%= check_box_tag "insurance[has_payment_experience_with_importer]", @insurance.has_payment_experience_with_importer ? @insurance.has_payment_experience_with_importer : nil %>
                         <div class="card circle card-hover-effect">
                             <i class="ti-check"></i>
                         </div>
@@ -247,7 +247,7 @@
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="no_previouspaymentexperiencewithcustomer" data-toggle="wizard-checkbox" onclick="noPreviousPaymentExperienceWithCustomer()">
-                        <%= check_box_tag "insurance[yes_previous_payment_experience_with_importer]", @insurance.yes_previous_payment_experience_with_importer ? nil : @insurance.yes_previous_payment_experience_with_importer %>
+                        <%= check_box_tag "insurance[has_payment_experience_with_importer]", @insurance.has_payment_experience_with_importer ? nil : @insurance.has_payment_experience_with_importer %>
                         <div class="card circle card-hover-effect">
                             <i class="ti-close"></i>
                         </div>

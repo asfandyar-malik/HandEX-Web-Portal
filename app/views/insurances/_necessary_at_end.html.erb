@@ -10,10 +10,9 @@
                     <p><b>Haben Sie in der Vergangenheit schon einmal einen Antrag auf
                         Hermesdeckung eingereicht?</b>
                     <p>
-
                     <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                         <div class="choice" name="yes_previouslyhermesinsuranceused" data-toggle="wizard-checkbox" onclick="previouslyHermesInsuranceUsed()">
-                            <%= check_box_tag "insurance[yes_previously_hermes_insurance_used]", @insurance.yes_previously_hermes_insurance_used ? @insurance.yes_previously_hermes_insurance_used : nil %>
+                            <%= check_box_tag "insurance[has_previously_used_hermes_cover]", @insurance.has_previously_used_hermes_cover ? @insurance.has_previously_used_hermes_cover : nil %>
                             <div class="card circle card-hover-effect">
                                 <i class="ti-check"></i>
                             </div>
@@ -22,14 +21,13 @@
 
                     <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                         <div class="choice" name="no_previouslyhermesinsuranceused" data-toggle="wizard-checkbox" onclick="noPreviouslyHermesInsuranceUsed()">
-                            <%= check_box_tag "insurance[yes_previously_hermes_insurance_used]", @insurance.yes_previously_hermes_insurance_used ? nil : @insurance.yes_previously_hermes_insurance_used %>
+                            <%= check_box_tag "insurance[has_previously_used_hermes_cover]", @insurance.has_previously_used_hermes_cover ? nil : @insurance.has_previously_used_hermes_cover %>
                             <div class="card circle card-hover-effect">
                                 <i class="ti-close"></i>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
             <br>
         </div>
@@ -54,9 +52,8 @@
                             Exporterfahrung
                             aus ungedeckten Geschäften, d.h. Exportgeschäfte ohne
                             Hermesdeckung?</i></p>
-                        <div> <%= form.text_field :trading_since_when_without_hermes_insurance, class: "form-control" %> </div>
+                        <div> <%= form.text_field :years_trading_without_hermes_insurance, class: "form-control" %> </div>
                     </div>
-
 
                     <div class="col-md-10 col-md-offset-1">
                         <br><br>
@@ -64,7 +61,7 @@
                             mit
                             dem
                             Empfängerland?</i></p>
-                        <%= form.text_field :experience_with_export_country, class: "form-control" %>
+                        <%= form.text_field :experience_with_importer_country, class: "form-control" %>
                     </div>
 
                     <div class="col-md-10 col-md-offset-1 ">
@@ -99,12 +96,12 @@
                 <br>
                 <div class="col-md-3 col-md-offset-1">
                     <p> Firmenname </p>
-                    <div> <%= form.text_field :exporter_company_name, class: "form-control" %> </div>
+                    <div> <%= form.text_field :exporter_name, class: "form-control" %> </div>
                 </div>
 
                 <div class="col-md-3 ">
                     <p> DN-NR </p>
-                    <%= form.text_field :exporter_company_dnnr, class: "form-control" %>
+                    <%= form.text_field :exporter_dn_no, class: "form-control" %>
                 </div>
 
                 <div class="col-md-3">
@@ -119,17 +116,17 @@
             <div class="row">
                 <div class="col-md-3 col-md-offset-1">
                     <p> Straße / Hausnummer </p>
-                    <div> <%= form.text_field :exporter_company_street, class: "form-control" %> </div>
+                    <div> <%= form.text_field :exporter_street, class: "form-control" %> </div>
                 </div>
 
                 <div class="col-md-3">
                     <p> PLZ </p>
-                    <div> <%= form.text_field :exporter_company_plz, class: "form-control" %> </div>
+                    <div> <%= form.text_field :exporter_plz, class: "form-control" %> </div>
                 </div>
 
                 <div class="col-md-3">
                     <p> Land </p>
-                    <%= form.select :exporter_company_country,
+                    <%= form.select :exporter_country,
                                     options_for_select(['Bitte auswählen', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
                                                         'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados',
                                                         'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana',
@@ -158,7 +155,7 @@
                                                         'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates (UAE)',
                                                         'United Kingdom (UK)', 'United States of America (USA)', 'Uruguay', 'Uzbekistan', 'Vanuatu',
                                                         'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'],
-                                                       @insurance.exporter_company_country ? @insurance.exporter_company_country : nil), {}, class: 'form-control' %>
+                                                       @insurance.exporter_country ? @insurance.exporter_country : nil), {}, class: 'form-control' %>
 
                 </div>
             </div>
@@ -195,17 +192,17 @@
                 <br>
                 <div class="col-md-3 col-md-offset-1">
                     <p> Vorname </p>
-                    <%= form.text_field :exporter_company_representative_firstname, class: "form-control" %>
+                    <%= form.text_field :exporter_representative_firstname, class: "form-control" %>
                 </div>
 
                 <div class="col-md-3">
                     <p> Nachname </p>
-                    <div> <%= form.text_field :exporter_company_representative_lastname, class: "form-control" %> </div>
+                    <div> <%= form.text_field :exporter_representative_lastname, class: "form-control" %> </div>
                 </div>
 
                 <div class="col-md-3">
                     <p> Email </p>
-                        <div> <%= form.email_field :exporter_company_representative_email, class: "form-control" %> </div>
+                        <div> <%= form.email_field :exporter_representative_email, class: "form-control" %> </div>
                 </div>
             </div>
         </div>
@@ -215,12 +212,12 @@
                 <br>
                 <div class="col-md-3 col-md-offset-1">
                     <p>Funktion</p>
-                    <%= form.text_field :exporter_company_representative_function, class: "form-control" %>
+                    <%= form.text_field :exporter_representative_function, class: "form-control" %>
                 </div>
 
                 <div class="col-md-3">
                     <p> Bereich </p>
-                    <div> <%= form.text_field :exporter_company_representative_department, class: "form-control" %> </div>
+                    <div> <%= form.text_field :exporter_representative_department, class: "form-control" %> </div>
                 </div>
 
             </div>
@@ -412,7 +409,7 @@
                 <div class="form-group">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                         <div class="choice" name="corruptionDeclarationApplies" data-toggle="wizard-checkbox" onclick="corruptionDeclarationApplies()">
-                            <%= check_box_tag "insurance[corruption_declaration_applies]", @insurance.corruption_declaration_applies ? @insurance.corruption_declaration_applies : nil %>
+                            <%= check_box_tag "insurance[does_corruption_declaration_apply]", @insurance.does_corruption_declaration_apply ? @insurance.does_corruption_declaration_apply : nil %>
                             <div class="card circle card-hover-effect">
                                 <i class="ti-check"></i>
                                 <p>Trifft zu </p>
@@ -423,7 +420,7 @@
 
                     <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                         <div class="choice" name="corruption_declaration_doesnt_apply" data-toggle="wizard-checkbox" onclick="noCorruptionDeclarationApplies()">
-                            <%= check_box_tag "insurance[corruption_declaration_applies]", @insurance.corruption_declaration_applies ? nil : @insurance.corruption_declaration_applies %>
+                            <%= check_box_tag "insurance[does_corruption_declaration_apply]", @insurance.does_corruption_declaration_apply ? nil : @insurance.does_corruption_declaration_apply %>
                             <div class="card circle card-hover-effect">
                                 <i class="ti-close"></i>
                                 <p>Trifft nicht zu</p>
@@ -452,7 +449,7 @@
                                 nicht-strafrechtlichen Sanktionen sowie
                                 Ermittlungsverfahren
                                 und Sperrlisten</p>
-                            <%= form.text_area :explain_corruption_declaration_applies, class: 'form-control' %>
+                            <%= form.text_area :explain_corruption_sanctions, class: 'form-control' %>
                         </div>
                     </div>
                     <br>
@@ -463,7 +460,7 @@
 
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                <%= form.check_box :information_inputted_best_of_knowledge, id: "YesInformationInputtedBestKnowledge", :style => "width: 20px; height: 20px;" %>
+                <%= form.check_box :is_all_information_provided_with_best_of_knowledge, id: "YesInformationInputtedBestKnowledge", :style => "width: 20px; height: 20px;" %>
                 Die vorstehenden Angaben wurden von uns nach bestem Wissen und Gewissen und
                 in Kenntnisnahme der Erläuterungen gemacht
             </div>
@@ -494,7 +491,7 @@
                 <br>
 
                 <div class="col-md-10 col-md-offset-1">
-                    <%= form.check_box :accept_terms_conditions, :style => "width: 20px; height: 20px;" %>
+                    <%= form.check_box :has_accepted_terms_conditions, :style => "width: 20px; height: 20px;" %>
                     Wir akzeptieren die <span><a target="_blank" rel="noopener noreferrer" href="https://www.agaportal.de/_Resources/Persistent/3bfd6a43f17d04f9b34d523df323f0a44a9eaa17/ab_fab.pdf">
                     Allgemeinen Bedingungen für Lieferantenkreditdeckung(G)  </a> </span> in Zusammenhang mit den
                     <span><a target="_blank" rel="noopener noreferrer" href="https://www.agaportal.de/_Resources/Persistent/b751b874fd137e5f8b22b25d2bd8a15995b09eb2/ab_g.pdf">
@@ -506,7 +503,7 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <br><br>
-                    <%= form.check_box :read_privacy_policy, :style => "width: 20px; height: 20px;" %>
+                    <%= form.check_box :has_read_privacy_policy, :style => "width: 20px; height: 20px;" %>
                     Wir haben die <span><a target="_blank" rel="noopener noreferrer" href="/pages/termsAndConditions">
                     Datenschutzhinweise  </a> </span> zur Kenntnis genommen und sind mit
                     deren Geltung einverstanden.
@@ -518,7 +515,7 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <br><br>
-                    <%= form.check_box :read_all_instructions, :style => "width: 20px; height: 20px;" %>
+                    <%= form.check_box :has_read_all_instructions, :style => "width: 20px; height: 20px;" %>
                     Wir haben die <span><a target="_blank" rel="noopener noreferrer" href="/pages/guidelines">
                     Hinweise zu Gebühren und Entgelten, Richtlinien, Verantwortlichkeiten   </a> </span> für den Antrag,
                     Veröffentlichung von Projektdaten, OECD-Leitsätze für multinationale Unternehmen und

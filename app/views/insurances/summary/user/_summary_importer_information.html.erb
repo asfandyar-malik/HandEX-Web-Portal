@@ -38,17 +38,17 @@
 </div>
 
 <div id="deliveryAddressCheck">
-    <%= render qa_partial, question: "Liefern Sie an diese Adresse?", answer: @insurance.yes_delivered_at_this_address? ? 'Ja' : 'Nein' %>
+    <%= render qa_partial, question: "Liefern Sie an diese Adresse?", answer: @insurance.is_shipment_address? ? 'Ja' : 'Nein' %>
 </div>
 
-<% if !@insurance.yes_delivered_at_this_address? %>
+<% if !@insurance.is_shipment_address? %>
 
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
 
             <% address_keys = ["Firmenname", "Land", "Straße / Hausnummer", "PLZ", "Ort"] %>
 
-            <% address_values = [@insurance.importer_delivery_address_company_name, @insurance.importer_delivery_address_country, @insurance.importer_delivery_address_street, @insurance.importer_delivery_address_plz, @insurance.importer_delivery_address_city] %>
+            <% address_values = [@insurance.importer_shipment_company_name, @insurance.importer_shipment_country, @insurance.importer_shipment_street, @insurance.importer_shipment_plz, @insurance.importer_shipment_city] %>
 
             <% address_keys.zip(address_values).each do |addr_key, addr_value| %>
                 <div class="row">
@@ -73,10 +73,10 @@
 <% end %>
 
 <div id="deliveryAddressCheck">
-    <%= render qa_partial, question: "Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder üben Sie maßgeblichen Einfluss auf die Geschäftsführung aus?", answer: @insurance.yes_exporter_influence_on_importer_management? ? 'Ja' : 'Nein' %>
+    <%= render qa_partial, question: "Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder üben Sie maßgeblichen Einfluss auf die Geschäftsführung aus?", answer: @insurance.has_significant_influence_on_importer_management ? 'Ja' : 'Nein' %>
 </div>
 
-<% if @insurance.yes_exporter_influence_on_importer_management? %>
+<% if @insurance.has_significant_influence_on_importer_management? %>
 
     <div id="relationToCustomerExplain">
 
@@ -99,10 +99,10 @@
 <% end %>
 
 <div id="deliveryAddressCheck">
-    <%= render qa_partial, question: "Haben Sie bereits Zahlungserfahrungen mit Ihrem Kunden?", answer: @insurance.yes_previous_payment_experience_with_importer? ? 'Ja' : 'Nein' %>
+    <%= render qa_partial, question: "Haben Sie bereits Zahlungserfahrungen mit Ihrem Kunden?", answer: @insurance.has_payment_experience_with_importer? ? 'Ja' : 'Nein' %>
 </div>
 
-<% if @insurance.yes_previous_payment_experience_with_importer? %>
+<% if @insurance.has_payment_experience_with_importer? %>
 
     <div id="alreadyPaymentExperience">
 

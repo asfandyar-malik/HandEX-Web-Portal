@@ -2,7 +2,7 @@
 
 <%= render qa_partial, question: "Wohin soll es gehen?", answer: @insurance.importer_country %>
 
-<%= render qa_partial, question: "Handelt es sich bei Ihrer Ware um Investitionsgüter?", answer: @insurance.yes_investment_good? ? 'Ja' : 'Nein' %>
+<%= render qa_partial, question: "Handelt es sich bei Ihrer Ware um Investitionsgüter?", answer: @insurance.is_investment_good ? 'Ja' : 'Nein' %>
 
 <%= render qa_partial, question: "Wie hoch ist der Auftragswert in Euro?", answer: @insurance.contract_value %>
 

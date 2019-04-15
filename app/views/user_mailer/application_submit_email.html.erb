@@ -87,7 +87,7 @@
     </tr>
     <tr>
       <td> Why importer buying goods </td>
-      <td> <%= @insurance.explain_why_importer_buying_goods %> </td>
+      <td> <%= @insurance.explain_why_importer_buying_good %> </td>
     </tr>
     <tr>
       <td> exporter_offers_servicing_for_goods</td>
@@ -103,8 +103,8 @@
     </tr>
 
     <tr>
-      <td> yes_deliver_part_of_overall_project_other_companies</td>
-      <td> <%= @insurance.yes_deliver_part_of_overall_project_other_companies %> </td>
+      <td> is_delivered_part_of_consortium_with_other_companies</td>
+      <td> <%= @insurance.is_delivered_part_of_consortium_with_other_companies %> </td>
     </tr>
     <tr>
       <td> no_deliver_part_of_overall_project_other_companies</td>
@@ -135,8 +135,8 @@
       <td> <%= @insurance.explain_delivery_affects_other %> </td>
     </tr>
     <tr>
-      <td> yes_export_requires_exportlicense</td>
-      <td> <%= @insurance.yes_export_requires_exportlicense %> </td>
+      <td> is_export_licence_needed</td>
+      <td> <%= @insurance.is_export_licence_needed %> </td>
     </tr>
     <tr>
       <td> no_export_requires_exportlicense</td>
@@ -144,15 +144,15 @@
     </tr>
     <tr>
       <td> which_regulations_arises_exportlicense_requirement</td>
-      <td> <%= @insurance.which_regulations_arises_exportlicense_requirement %> </td>
+      <td> <%= @insurance.which_regulations_enforcing_exportlicense_requirement %> </td>
     </tr>
     <tr>
       <td> exportlicense_status</td>
-      <td> <%= @insurance.exportlicense_status %> </td>
+      <td> <%= @insurance.export_license_status %> </td>
     </tr>
     <tr>
       <td> yes_deliver_secondhand_goods</td>
-      <td> <%= @insurance.yes_deliver_secondhand_goods %> </td>
+      <td> <%= @insurance.does_deliver_secondhand_goods %> </td>
     </tr>
 
     <tr>
@@ -161,7 +161,7 @@
     </tr>
     <tr>
       <td> yes_contract_already_signed_all_parties</td>
-      <td> <%= @insurance.yes_contract_already_signed_all_parties %> </td>
+      <td> <%= @insurance.is_contract_already_signed_between_parties %> </td>
     </tr>
     <tr>
       <td> no_contract_already_signed_all_parties</td>
@@ -169,7 +169,7 @@
     </tr>
     <tr>
       <td> trade_contract_signing_date</td>
-      <td> <%= @insurance.trade_contract_signing_date %> </td>
+      <td> <%= @insurance.contract_signing_date %> </td>
     </tr>
     <tr>
       <td> exporter_internal_contract_id</td>
@@ -177,7 +177,7 @@
     </tr>
     <tr>
       <td> yes_special_contract_structure</td>
-      <td> <%= @insurance.yes_special_contract_structure %> </td>
+      <td> <%= @insurance.has_special_contract_structure %> </td>
     </tr>
     <tr>
       <td> no_special_contract_structure</td>
@@ -205,27 +205,27 @@
     </tr>
     <tr>
       <td> more_components_open_to_exporter_currency</td>
-      <td> <%= @insurance.more_components_open_to_exporter_currency %> </td>
+      <td> <%= @insurance.other_billed_items_in_contract_currency %> </td>
     </tr>
     <tr>
       <td> more_components_open_to_exporter_amount</td>
-      <td> <%= @insurance.more_components_open_to_exporter_amount %> </td>
+      <td> <%= @insurance.other_billed_items_in_contract_amount %> </td>
     </tr>
     <tr>
       <td> more_components_open_to_exporter_explain</td>
-      <td> <%= @insurance.more_components_open_to_exporter_explain %> </td>
+      <td> <%= @insurance.describe_other_billed_items_in_contract %> </td>
     </tr>
     <tr>
-      <td> yes_charge_interest_to_importer</td>
-      <td> <%= @insurance.yes_charge_interest_to_importer %> </td>
+      <td> is_interest_charged_to_importer</td>
+      <td> <%= @insurance.is_interest_charged_to_importer %> </td>
     </tr>
     <tr>
       <td> no_charge_interest_to_importer</td>
       <td> <%= @insurance.no_charge_interest_to_importer %> </td>
     </tr>
     <tr>
-      <td> yes_price_adjustment_clause_with_importer</td>
-      <td> <%= @insurance.yes_price_adjustment_clause_with_importer %> </td>
+      <td> is_price_adjustment_clause_with_importer</td>
+      <td> <%= @insurance.is_price_adjustment_clause_with_importer %> </td>
     </tr>
     <tr>
       <td> no_price_adjustment_clause_with_importer</td>
@@ -236,8 +236,8 @@
       <td> <%= @insurance.explain_accounting_methods %> </td>
     </tr>
     <tr>
-      <td> yes_goods_sent_multiple_deliveries</td>
-      <td> <%= @insurance.yes_goods_sent_multiple_deliveries %> </td>
+      <td> is_good_sent_in_multiple_deliveries</td>
+      <td> <%= @insurance.is_good_sent_in_multiple_deliveries %> </td>
     </tr>
     <tr>
       <td> no_goods_sent_multiple_deliveries</td>
@@ -260,37 +260,37 @@
       <td> <%= @insurance.other_important_delivery_milestones %> </td>
     </tr>
     <tr>
-      <td> payment_term_shortterm</td>
-      <td> <%= @insurance.payment_term_shortterm %> </td>
+      <td> payment_term_short</td>
+      <td> <%= @insurance.payment_term_short %> </td>
     </tr>
     <tr>
-      <td> payment_term_middleterm</td>
-      <td> <%= @insurance.payment_term_middleterm %> </td>
+      <td> payment_term_mid</td>
+      <td> <%= @insurance.payment_term_mid %> </td>
     </tr>
     <tr>
       <td> payment_term_both</td>
       <td> <%= @insurance.payment_term_both %> </td>
     </tr>
     <tr>
-      <td> downpayment_delivery_currency</td>
-      <td> <%= @insurance.downpayment_delivery_currency %> </td>
+      <td> downpayment_delivery_currency_payment_term_short</td>
+      <td> <%= @insurance.downpayment_delivery_currency_payment_term_short %> </td>
     </tr>
     <tr>
-      <td> downpayment_delivery_amount</td>
-      <td> <%= @insurance.downpayment_delivery_amount %> </td>
+      <td> downpayment_delivery_amount_payment_term_short</td>
+      <td> <%= @insurance.downpayment_delivery_amount_payment_term_short %> </td>
     </tr>
 
     <tr>
-      <td> yes_sonstige_kurzfrist_certificate_of_origin</td>
-      <td> <%= @insurance.yes_sonstige_kurzfrist_certificate_of_origin %> </td>
+      <td> has_german_certificate_of_origin</td>
+      <td> <%= @insurance.has_german_certificate_of_origin %> </td>
     </tr>
     <tr>
       <td> no_sonstige_kurzfrist_certificate_of_origin</td>
       <td> <%= @insurance.no_sonstige_kurzfrist_certificate_of_origin %> </td>
     </tr>
     <tr>
-      <td> part_of_goods__sonstige_kurzfrist_certificate_of_origin</td>
-      <td> <%= @insurance.part_of_goods__sonstige_kurzfrist_certificate_of_origin %> </td>
+      <td> has_german_certificate_of_origin_for_only_parts_of_good</td>
+      <td> <%= @insurance.has_german_certificate_of_origin_for_only_parts_of_good %> </td>
     </tr>
     <tr>
       <td> all_rawgoods_supplier_country</td>
@@ -325,8 +325,8 @@
       <td> <%= @insurance.why_partly_foreign_rawgoods_necessary %> </td>
     </tr>
     <tr>
-      <td> yes_security_businnes_provided</td>
-      <td> <%= @insurance.yes_security_businnes_provided %> </td>
+      <td> is_security_present_for_transaction</td>
+      <td> <%= @insurance.is_security_present_for_transaction %> </td>
     </tr>
     <tr>
       <td> no_security_businnes_provided </td>
@@ -344,8 +344,8 @@
       <td> <%= @insurance.security_type_name %> </td>
     </tr>
     <tr>
-      <td> proportion_contract_security_provided </td>
-      <td> <%= @insurance.proportion_contract_security_provided %> </td>
+      <td> proportion_of_good_covered_by_security </td>
+      <td> <%= @insurance.proportion_of_good_covered_by_security %> </td>
     </tr>
     <tr>
       <td> when_security_received </td>
@@ -386,32 +386,32 @@
       <td> <%= @insurance.importer_country %> </td>
     </tr>
     <tr>
-      <td> yes_delivered_at_this_address </td>
-      <td> <%= @insurance.yes_delivered_at_this_address %> </td>
+      <td> is_shipment_address </td>
+      <td> <%= @insurance.is_shipment_address %> </td>
     </tr>
     <tr>
-      <td> importer_delivery_address_company_name </td>
-      <td> <%= @insurance.importer_delivery_address_company_name %> </td>
+      <td> importer_shipment_company_name </td>
+      <td> <%= @insurance.importer_shipment_company_name %> </td>
     </tr>
     <tr>
-      <td> importer_delivery_address_country </td>
-      <td> <%= @insurance.importer_delivery_address_country %> </td>
+      <td> importer_shipment_country </td>
+      <td> <%= @insurance.importer_shipment_country %> </td>
     </tr>
     <tr>
-      <td> importer_delivery_address_street </td>
-      <td> <%= @insurance.importer_delivery_address_street %> </td>
+      <td> importer_shipment_street </td>
+      <td> <%= @insurance.importer_shipment_street %> </td>
     </tr>
     <tr>
-      <td> importer_delivery_address_plz </td>
-      <td> <%= @insurance.importer_delivery_address_plz %> </td>
+      <td> importer_shipment_plz </td>
+      <td> <%= @insurance.importer_shipment_plz %> </td>
     </tr>
     <tr>
-      <td> importer_delivery_address_city </td>
-      <td> <%= @insurance.importer_delivery_address_city %> </td>
+      <td> importer_shipment_city </td>
+      <td> <%= @insurance.importer_shipment_city %> </td>
     </tr>
     <tr>
-      <td> yes_exporter_influence_on_importer_management  </td>
-      <td> <%= @insurance.yes_exporter_influence_on_importer_management  %> </td>
+      <td> has_significant_influence_on_importer_management  </td>
+      <td> <%= @insurance.has_significant_influence_on_importer_management  %> </td>
     </tr>
     <tr>
       <td> no_exporter_influence_on_importer_management  </td>
@@ -422,8 +422,8 @@
       <td> <%= @insurance.explain_exporter_influence_on_importer_management %> </td>
     </tr>
     <tr>
-      <td> yes_previous_payment_experience_with_importer </td>
-      <td> <%= @insurance.yes_previous_payment_experience_with_importer %> </td>
+      <td> has_payment_experience_with_importer </td>
+      <td> <%= @insurance.has_payment_experience_with_importer %> </td>
     </tr>
     <tr>
       <td> no_previous_payment_experience_with_importer </td>
@@ -444,8 +444,8 @@
 
   <table style="width:100%">
     <tr>
-      <td> yes_previously_hermes_insurance_used </td>
-      <td> <%= @insurance.yes_previously_hermes_insurance_used %></td>
+      <td> has_previously_used_hermes_cover </td>
+      <td> <%= @insurance.has_previously_used_hermes_cover %></td>
     </tr>
     <tr>
       <td> no_previously_hermes_insurance_used </td>
@@ -453,60 +453,60 @@
     </tr>
 
     <tr>
-      <td> trading_since_when_without_hermes_insurance </td>
-      <td> <%= @insurance.trading_since_when_without_hermes_insurance  %> </td>
+      <td> years_trading_without_hermes_insurance </td>
+      <td> <%= @insurance.years_trading_without_hermes_insurance  %> </td>
     </tr>
     <tr>
       <td> adequate_claims_management </td>
       <td> <%= @insurance.adequate_claims_management %> </td>
     </tr>
     <tr>
-      <td> exporter_company_name </td>
-      <td> <%= @insurance.exporter_company_name %> </td>
+      <td> exporter_name </td>
+      <td> <%= @insurance.exporter_name %> </td>
     </tr>
     <tr>
-      <td> exporter_company_dnnr </td>
-      <td> <%= @insurance.exporter_company_dnnr %> </td>
+      <td> exporter_dn_no </td>
+      <td> <%= @insurance.exporter_dn_no %> </td>
     </tr>
     <tr>
       <td> exporter_telephone </td>
       <td> <%= @insurance.exporter_telephone %> </td>
     </tr>
     <tr>
-      <td> exporter_company_street </td>
-      <td> <%= @insurance.exporter_company_street %> </td>
+      <td> exporter_street </td>
+      <td> <%= @insurance.exporter_street %> </td>
     </tr>
     <tr>
-      <td> exporter_company_plz </td>
-      <td> <%= @insurance.exporter_company_plz %> </td>
+      <td> exporter_plz </td>
+      <td> <%= @insurance.exporter_plz %> </td>
     </tr>
     <tr>
-      <td> exporter_company_country </td>
-      <td> <%= @insurance.exporter_company_country %> </td>
+      <td> exporter_country </td>
+      <td> <%= @insurance.exporter_country %> </td>
     </tr>
     <tr>
       <td> employees_count </td>
       <td> <%= @insurance.employees_count%> </td>
     </tr>
     <tr>
-      <td> exporter_company_representative_firstname </td>
-      <td> <%= @insurance.exporter_company_representative_firstname %> </td>
+      <td> exporter_representative_firstname </td>
+      <td> <%= @insurance.exporter_representative_firstname %> </td>
     </tr>
     <tr>
-      <td> exporter_company_representative_lastname </td>
-      <td> <%= @insurance.exporter_company_representative_lastname %> </td>
+      <td> exporter_representative_lastname </td>
+      <td> <%= @insurance.exporter_representative_lastname %> </td>
     </tr>
     <tr>
-      <td> exporter_company_representative_email </td>
-      <td> <%= @insurance.exporter_company_representative_email %> </td>
+      <td> exporter_representative_email </td>
+      <td> <%= @insurance.exporter_representative_email %> </td>
     </tr>
     <tr>
-      <td> exporter_company_representative_function </td>
-      <td> <%= @insurance.exporter_company_representative_function %> </td>
+      <td> exporter_representative_function </td>
+      <td> <%= @insurance.exporter_representative_function %> </td>
     </tr>
     <tr>
-      <td> exporter_company_representative_department </td>
-      <td> <%= @insurance.exporter_company_representative_department %> </td>
+      <td> exporter_representative_department </td>
+      <td> <%= @insurance.exporter_representative_department %> </td>
     </tr>
     <tr>
       <td> self_disclosure </td>
@@ -533,16 +533,16 @@
       <td> <%= @insurance.further_lower_economic_risk %> </td>
     </tr>
     <tr>
-      <td> corruption_declaration_applies </td>
-      <td> <%= @insurance.corruption_declaration_applies %> </td>
+      <td> does_corruption_declaration_apply</td>
+      <td> <%= @insurance.does_corruption_declaration_apply %> </td>
     </tr>
     <tr>
       <td> no_corruption_declaration_applies </td>
       <td> <%= @insurance.no_corruption_declaration_applies %> </td>
     </tr>
     <tr>
-      <td> explain_corruption_declaration_applies </td>
-      <td> <%= @insurance.explain_corruption_declaration_applies %> </td>
+      <td> explain_corruption_sanctions </td>
+      <td> <%= @insurance.explain_corruption_sanctions %> </td>
     </tr>
     <tr>
       <td> yes_jointventure_with_consortiums </td>
@@ -557,20 +557,20 @@
       <td> <%= @insurance.give_consortiums_companies %> </td>
     </tr>
     <tr>
-      <td> information_inputted_best_of_knowledge </td>
-      <td> <%= @insurance.information_inputted_best_of_knowledge %> </td>
+      <td> is_all_information_provided_with_best_of_knowledge </td>
+      <td> <%= @insurance.is_all_information_provided_with_best_of_knowledge %> </td>
     </tr>
     <tr>
-      <td> accept_terms_conditions</td>
-      <td> <%= @insurance.accept_terms_conditions %> </td>
+      <td> has_accepted_terms_conditions</td>
+      <td> <%= @insurance.has_accepted_terms_conditions %> </td>
     </tr>
     <tr>
-      <td> read_privacy_policy </td>
-      <td> <%= @insurance.read_privacy_policy %> </td>
+      <td> has_read_privacy_policy </td>
+      <td> <%= @insurance.has_read_privacy_policy %> </td>
     </tr>
     <tr>
-      <td> read_all_instructions </td>
-      <td> <%= @insurance.read_all_instructions %> </td>
+      <td> has_read_all_instructions </td>
+      <td> <%= @insurance.has_read_all_instructions %> </td>
     </tr>
   </table>
 

@@ -13,15 +13,15 @@
     <div class="row">
         <div class="col-md-2 col-md-offset-2">
             <span>Currency</span>
-            <span class="text-babu"><%= check_missing(@insurance.downpayment_delivery_currency) %></span>
+            <span class="text-babu"><%= check_missing(@insurance.downpayment_delivery_currency_payment_term_both) %></span>
         </div>
         <div class="col-md-2">
             <span> Betrag </span>
-            <span class="text-babu"><%= check_missing(@insurance.downpayment_delivery_amount) %></span>
+            <span class="text-babu"><%= check_missing(@insurance.downpayment_delivery_amount_payment_term_both) %></span>
         </div>
         <div class="col-md-2">
             <span>Beschreibung</span>
-            <span class="text-babu"><%= check_missing(@insurance.downpayment_delivery_description) %></span>
+            <span class="text-babu"><%= check_missing(@insurance.downpayment_delivery_description_payment_term_short) %></span>
         </div>
     </div>
 
@@ -46,15 +46,15 @@
             </div>
 
             <div class="col-md-1">
-                <%= check_missing(@insurance.agreed_payments_currency) %>
+                <%= check_missing(@insurance.agreed_payments_currency_payment_term_both) %>
             </div>
 
             <div class="col-md-1">
-                <%= check_missing(@insurance.agreed_payments_amount) %>
+                <%= check_missing(@insurance.agreed_payments_amount_payment_term_both) %>
             </div>
 
             <div class="col-md-1">
-                <%= check_missing(@insurance.agreed_payments_output) %>
+                <%= check_missing(@insurance.agreed_payments_output_payment_term_both) %>
             </div>
 
             <div class="col-md-1 ">
@@ -62,11 +62,11 @@
             </div>
 
             <div class="col-md-2">
-                <%= check_missing(@insurance.agreed_payments_time) %>
+                <%= check_missing(@insurance.agreed_payments_time_payment_term_both) %>
             </div>
 
             <div class="col-md-2">
-                <%= check_missing(@insurance.agreed_payments_some_output) %>
+                <%= check_missing(@insurance.agreed_payments_some_output_payment_term_both) %>
             </div>
         </div>
     <% end %>
@@ -91,32 +91,32 @@
     <div class="row">
         <div class="col-md-2 col-md-offset-2">
             <span>Currency</span>
-            <span class="text-babu"><%= check_missing(@insurance.sonstige_kurzfrist_advance_payment_currency) %></span>
+            <span class="text-babu"><%= check_missing(@insurance.advance_payment_currency_payment_term_both) %></span>
         </div>
         <div class="col-md-2">
             <span> Betrag </span>
-            <span class="text-babu"><%= check_missing(@insurance.sonstige_kurzfrist_advance_payment_amount) %></span>
+            <span class="text-babu"><%= check_missing(@insurance.advance_payment_amount_payment_term_both) %></span>
         </div>
         <div class="col-md-2">
             <span>Beschreibung</span>
-            <span class="text-babu"><%= check_missing(@insurance.sonstige_kurzfrist_advance_payment_explain) %>%</span>
+            <span class="text-babu"><%= check_missing(@insurance.advance_payment_description_payment_term_both) %>%</span>
         </div>
     </div>
 
-    <%= render qa_partial, question: "Wann werden Sie die Anzahlung erhalten?", answer: @insurance.sonstige_kurzfrist_deposit_received %>
+    <%= render qa_partial, question: "Wann werden Sie die Anzahlung erhalten?", answer: @insurance.deposit_received_payment_term_both %>
 
-    <%= render qa_partial, question: "Wie gestaltet sich das Tilgungsprofil?", answer: @insurance.sonstige_kurzfrist_repayment_structure %>
+    <%= render qa_partial, question: "Wie gestaltet sich das Tilgungsprofil?", answer: @insurance.repayment_structure_payment_term_both %>
 
-    <%= render qa_partial, question: "Wann beginnt die Kreditlaufzeit (Starting Point)?", answer: @insurance.sonstige_kurzfrist_credit_start %>
+    <%= render qa_partial, question: "Wann beginnt die Kreditlaufzeit (Starting Point)?", answer: @insurance.credit_start_date_payment_term_both %>
 
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <%= check_missing(@insurance.sonstige_kurzfrist_credit_start_sonstige_explain, error_message: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt.") %>
+            <%= check_missing(@insurance.credit_start_special_description_payment_term_both, error_message: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt.") %>
         </div>
     </div>
 
     <div id="workwithothercompanies">
-        <%= render qa_partial, question: "Bitte geben Sie hier die Anzahl der Raten ein.", answer: @insurance.sonstige_kurzfrist_number_of_installments %>
+        <%= render qa_partial, question: "Bitte geben Sie hier die Anzahl der Raten ein.", answer: @insurance.number_of_installments_payment_term_both %>
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -127,7 +127,7 @@
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <%= check_missing(@insurance.sonstige_kurzfrist_payment_vehichle_explain) %>
+                <%= check_missing(@insurance.payment_vehichle_explain_payment_term_both) %>
             </div>
         </div>
     </div>
