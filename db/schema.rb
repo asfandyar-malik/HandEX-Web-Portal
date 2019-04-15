@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_15_112455) do
+ActiveRecord::Schema.define(version: 2019_04_15_123100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -76,8 +76,6 @@ ActiveRecord::Schema.define(version: 2019_04_15_112455) do
     t.string "contract_signing_date"
     t.string "exporter_internal_contract_id"
     t.boolean "has_special_contract_structure", default: false
-    t.string "contract_trade_currency"
-    t.string "contract_trade_amount"
     t.string "total_delivery_value"
     t.string "percentage_of_spareparts_in_whole_order"
     t.string "other_billed_items_in_contract_currency"
@@ -173,7 +171,6 @@ ActiveRecord::Schema.define(version: 2019_04_15_112455) do
     t.string "loan_duration"
     t.string "contract_value"
     t.boolean "has_german_certificate_of_origin", default: false
-    t.boolean "no_sonstige_kurzfrist_certificate_of_origin", default: false
     t.boolean "is_security_present_for_transaction", default: false
     t.boolean "is_shipment_address", default: false
     t.boolean "has_significant_influence_on_importer_management", default: false

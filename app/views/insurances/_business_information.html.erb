@@ -608,10 +608,10 @@
 
                     <div class="row">
                         <div class="col-md-4 ">
-                            <%= form.select :contract_trade_currency, options_for_select(["Bitte auswählen", "Euro", "Dollar"]), {}, class: 'form-control' %>
+                            <%= form.select :contract_currency, options_for_select(["Bitte auswählen", "Euro", "Dollar"]), {}, class: 'form-control' %>
                         </div>
                         <div class="col-md-4 ">
-                            <div> <%= form.text_field :contract_trade_amount, class: "form-control", placeholder: "Auftragswert", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                            <div> <%= form.text_field :contract_value, class: "form-control", placeholder: "Auftragswert", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                         </div>
                     </div>
                     <div class="row">

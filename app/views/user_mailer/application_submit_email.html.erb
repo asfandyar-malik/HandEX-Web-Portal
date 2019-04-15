@@ -56,10 +56,7 @@
       <td>Investment Goods</td>
       <td><%= @insurance.is_investment_good %> </td>
     </tr>
-    <tr>
-      <td>Contract value </td>
-      <td><%= @insurance.contract_value %> </td>
-    </tr>
+
     <tr>
       <td>Loan Duration </td>
       <td><%= @insurance.loan_duration %> </td>
@@ -151,7 +148,7 @@
       <td> <%= @insurance.export_license_status %> </td>
     </tr>
     <tr>
-      <td> yes_deliver_secondhand_goods</td>
+      <td> does_deliver_secondhand_goods</td>
       <td> <%= @insurance.does_deliver_secondhand_goods %> </td>
     </tr>
 
@@ -160,7 +157,7 @@
       <td> <%= @insurance.no_dont_deliver_secondhand_goods %> </td>
     </tr>
     <tr>
-      <td> yes_contract_already_signed_all_parties</td>
+      <td> is_contract_already_signed_between_parties</td>
       <td> <%= @insurance.is_contract_already_signed_between_parties %> </td>
     </tr>
     <tr>
@@ -176,7 +173,7 @@
       <td> <%= @insurance.exporter_internal_contract_id %> </td>
     </tr>
     <tr>
-      <td> yes_special_contract_structure</td>
+      <td> has_special_contract_structure</td>
       <td> <%= @insurance.has_special_contract_structure %> </td>
     </tr>
     <tr>
@@ -188,12 +185,12 @@
       <td> <%= @insurance.contract_currency %> </td>
     </tr>
     <tr>
-      <td> contract_trade_currency</td>
-      <td> <%= @insurance.contract_trade_currency %> </td>
+      <td> contract_currency </td>
+      <td> <%= @insurance.contract_currency %> </td>
     </tr>
     <tr>
-      <td> contract_trade_amount</td>
-      <td> <%= @insurance.contract_trade_amount %> </td>
+      <td> contract_value </td>
+      <td> <%= @insurance.contract_value %> </td>
     </tr>
     <tr>
       <td> total_delivery_value</td>
@@ -545,10 +542,6 @@
       <td> <%= @insurance.explain_corruption_sanctions %> </td>
     </tr>
     <tr>
-      <td> yes_jointventure_with_consortiums </td>
-      <td> <%= @insurance.yes_jointventure_with_consortiums %> </td>
-    </tr>
-    <tr>
       <td> no_jointventure_with_consortiums </td>
       <td> <%= @insurance.no_jointventure_with_consortiums %> </td>
     </tr>
@@ -577,8 +570,6 @@
   <br>
   <hr>
   <br>
-
-
 
   <p style="margin:0; color:#333333; font-size:11px; line-height:18px;">
     Hamburg, Germany<br>
