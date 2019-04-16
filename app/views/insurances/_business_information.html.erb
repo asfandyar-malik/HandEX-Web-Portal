@@ -418,7 +418,7 @@
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_secondhandgoods" data-toggle="wizard-checkbox"> <!-- onclick="secondHandGoods()"> -->
-                        <%= check_box_tag "insurance[does_deliver_secondhand_goods]", @insurance.does_deliver_secondhand_goods ? @insurance.does_deliver_secondhand_goods : nil %>
+                        <%= check_box_tag "insurance[are_secondhand_goods_delivered]", @insurance.are_secondhand_goods_delivered ? @insurance.are_secondhand_goods_delivered : nil %>
                         <div class="card circle card-hover-effect">
                             <i class="ti-check"></i>
                         </div>
@@ -427,7 +427,7 @@
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="no_secondhandgoods" data-toggle="wizard-checkbox"> <!-- onclick="noSecondHandGoods()"> -->
-                        <%= check_box_tag "insurance[does_deliver_secondhand_goods]", @insurance.does_deliver_secondhand_goods ? nil : @insurance.does_deliver_secondhand_goods %>
+                        <%= check_box_tag "insurance[are_secondhand_goods_delivered]", @insurance.are_secondhand_goods_delivered ? nil : @insurance.are_secondhand_goods_delivered %>
                         <div class="card circle card-hover-effect">
                             <i class="ti-close"></i>
                         </div>
@@ -724,7 +724,7 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <p> Bitte beschreiben Sie die Details zur Verrechnungsmethode
-                        (Prozent- oder Betragsverfahren)." </p>
+                        (Prozent- oder Betragsverfahren). </p>
                 </div>
             </div>
             <div class="row">
@@ -779,9 +779,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
 
-                <p> Bitte teilen Sie uns die Liefer- und ggf. Leistungstermine Ihres
-                    Exportgeschäftes
-                    mit.
+                <p> Bitte teilen Sie uns die Liefer- und ggf. Leistungstermine Ihres Exportgeschäftes mit.
                 </p>
             </div>
         </div>
@@ -834,8 +832,7 @@
             <div class="col-md-12 col-md-offset-1">
                 <div class="form-group">
                     <br>
-                    <p><b>Bekommen Sie für die zu liefernde Ware ein deutsches
-                        Warenursprungszeugnis? </b></p>
+                    <p><b>Bekommen Sie für die zu liefernde Ware ein deutsches Warenursprungszeugnis? </b></p>
 
                     <div class="col-xs-3 col-sm-3 col-md-3">
                         <div class="choice" name="yes_certificateoforigin" data-toggle="wizard-checkbox" onclick="yesCertificateOfOrigin()">
@@ -1005,8 +1002,7 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <p> Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland
-                        notwendig
-                        sind. </p>
+                        notwendig sind. </p>
                 </div>
             </div>
             <div class="row">
