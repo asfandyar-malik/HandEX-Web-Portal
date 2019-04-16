@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_15_123100) do
+ActiveRecord::Schema.define(version: 2019_04_15_184925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2019_04_15_123100) do
     t.boolean "is_export_licence_needed", default: false
     t.string "which_regulations_enforcing_exportlicense_requirement"
     t.string "export_license_status"
-    t.boolean "does_deliver_secondhand_goods", default: false
+    t.boolean "are_secondhand_goods_delivered", default: false
     t.boolean "is_contract_already_signed_between_parties", default: false
     t.string "contract_signing_date"
     t.string "exporter_internal_contract_id"
