@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
     
-    scope "(:locale)", locale: /en|es|de/ do
+    # scope "(:locale)", locale: /en|es|de/ do
     
         get '/:locale' => 'insurances#index'
         root to: 'insurances#index'
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
                 get 'extract'
             end
         end
-    end
+    # end
     
     devise_for :users,
                path:        '',

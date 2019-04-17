@@ -135,22 +135,6 @@
         }
     }
 
-    // function deliverWithOtherCompanies() {
-    //     var x = document.getElementById("showHideDivJaWorkOtherCompanies");
-    //     if (x.style.display === "none") {
-    //         x.style.display = "block";
-    //     } else {
-    //         x.style.display = "none";
-    //     }
-    // }
-    //
-    // function notDeliverWithOtherCompanies() {
-    //     var x = document.getElementById("showHideDivJaWorkOtherCompanies");
-    //     if (x.style.display === "block") {
-    //         x.style.display = "none";
-    //     }
-    // }
-
     function exportLicenseRequired() {
         var x = document.getElementById("exportLicenseRequirement");
         if (x.style.display === "none") {
@@ -190,32 +174,6 @@
         }
     }
 
-    // $(function () {
-    //     $("#yes_secondhand_goods").click(function () {
-    //         if ($(this).is(":checked")) {
-    //             $("#deliverSecondHandGoods").show();
-    //         } else {
-    //             $("#deliverSecondHandGoods").hide();
-    //         }
-    //     });
-    // });
-
-    // function secondHandGoods() {
-    //     var x = document.getElementById("deliverSecondHandGoods");
-    //     if (x.style.display === "none") {
-    //         x.style.display = "block";
-    //     } else {
-    //         x.style.display = "none";
-    //     }
-    // }
-    //
-    // function noSecondHandGoods() {
-    //     var x = document.getElementById("deliverSecondHandGoods");
-    //     if (x.style.display === "block") {
-    //         x.style.display = "none";
-    //     }
-    // }
-
     function contractSignedAllParties() {
         var x = document.getElementById("contractSigned");
         if (x.style.display === "none") {
@@ -231,22 +189,6 @@
             x.style.display = "none";
         }
     }
-
-    // function specialContractStructure() {
-    //     var x = document.getElementById("yesNoSpecialContractStructure");
-    //     if (x.style.display === "none") {
-    //         x.style.display = "block";
-    //     } else {
-    //         x.style.display = "none";
-    //     }
-    // }
-    //
-    // function noSpecialContractStructure() {
-    //     var x = document.getElementById("yesNoSpecialContractStructure");
-    //     if (x.style.display === "block") {
-    //         x.style.display = "none";
-    //     }
-    // }
 
     function customerCountsInterest() {
         var x = document.getElementById("yesCustomerCountInterest");
@@ -448,16 +390,6 @@
         }
     }
 
-    $(function () {
-        $("#Yes-paymentExperience").click(function () {
-            if ($(this).is(":checked")) {
-                $("#alreadyPaymentExperience").show();
-            } else {
-                $("#alreadyPaymentExperience").hide();
-            }
-        });
-    });
-
     function previousPaymentExperienceWithCustomer() {
         var x = document.getElementById("alreadyPaymentExperience");
         if (x.style.display === "none") {
@@ -474,17 +406,6 @@
         }
     }
 
-
-    $(function () {
-        $("#No-hermesdeckungNutz").click(function () {
-            if ($(this).is(":checked")) {
-                $("#newAtHermesDeckung").show();
-            } else {
-                $("#newAtHermesDeckung").hide();
-            }
-        });
-    });
-
     function previouslyHermesInsuranceUsed() {
         var x = document.getElementById("newAtHermesDeckung");
         if (x.style.display === "block") {
@@ -500,17 +421,6 @@
             x.style.display = "none";
         }
     }
-
-    $(function () {
-        $("#Yes-WorkAssociation").click(function () {
-            if ($(this).is(":checked")) {
-                $("#workAssociationExist").show();
-            } else {
-                $("#workAssociationExist").hide();
-            }
-        });
-    });
-
 
     function corruptionDeclarationApplies() {
         var x = document.getElementById("showHideDivCorruptionDeclarationApplies");
@@ -755,89 +665,6 @@
         $choice.filter('[name="corruptionDeclarationApplies"]').removeClass('active');
     });
 
-    $('input[type="checkbox"]').on('change', function () {
-
-        $('input[name="' + this.name + '"]').not(this).prop('checked', false);
-
-        if ($("#No-hermesdeckungNutz").is(":checked")) {
-            $("#newAtHermesDeckung").show();
-        } else {
-            $("#newAtHermesDeckung").hide();
-        }
-
-        if ($("#Yes-WorkAssociation").is(":checked")) {
-            $("#workAssociationExist").show();
-        } else {
-            $("#workAssociationExist").hide();
-        }
-
-        if ($("#ja_exportlicense_requirement").is(":checked")) {
-            $("#exportLicenseRequirement").show();
-        } else {
-            $("#exportLicenseRequirement").hide();
-        }
-
-        // if ($("#yes_secondhand_goods").is(":checked")) {
-        //     $("#deliverSecondHandGoods").show();
-        // } else {
-        //     $("#deliverSecondHandGoods").hide();
-        // }
-
-        if ($("#ja_contractsigned").is(":checked")) {
-            $("#contractSigned").show();
-        } else {
-            $("#contractSigned").hide();
-        }
-
-        // if ($("#yes_specialcontractstructure").is(":checked")) {
-        //     $("#yesNoSpecialContractStructure").show();
-        // } else {
-        //     $("#yesNoSpecialContractStructure").hide();
-        // }
-
-        // if ($("#ja_customercountsinterest").is(":checked")) {
-        //     $("#yesCustomerCountInterest").show();
-        // } else {
-        //     $("#yesCustomerCountInterest").hide();
-        // }
-
-        if ($("#ja_priceadjustmentclause").is(":checked")) {
-            $("#yesNoPriceAdjustmentClause").show();
-        } else {
-            $("#yesNoPriceAdjustmentClause").hide();
-        }
-
-        if ($("#ja_multipledeliveries").is(":checked")) {
-            $("#yesNoMultipleDeliveries").show();
-        } else {
-            $("#yesNoMultipleDeliveries").hide();
-        }
-
-        if ($("#Yes-securityForBusiness").is(":checked")) {
-            $("#typeOfSecurity").show();
-        } else {
-            $("#typeOfSecurity").hide();
-        }
-
-        if ($("#No-deliveryAddress").is(":checked")) {
-            $("#deliveryAddress").show();
-        } else {
-            $("#deliveryAddress").hide();
-        }
-
-        if ($("#Yes-relationToCustomer").is(":checked")) {
-            $("#relationToCustomerExplain").show();
-        } else {
-            $("#relationToCustomerExplain").hide();
-        }
-
-        if ($("#Yes-paymentExperience").is(":checked")) {
-            $("#alreadyPaymentExperience").show();
-        } else {
-            $("#alreadyPaymentExperience").hide();
-        }
-    });
-
     //------------------------- START: input validation checks here -------------------------
     // only allow numerical value
     function onlyAllowNumericalValue(evt) {
@@ -870,5 +697,7 @@
     }
 
     //------------------------- END: input validation checks here -------------------------
+
+
 
 </script>

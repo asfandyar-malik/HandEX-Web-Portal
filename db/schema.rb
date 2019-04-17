@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_16_185122) do
+ActiveRecord::Schema.define(version: 2019_04_17_145513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -187,7 +187,7 @@ ActiveRecord::Schema.define(version: 2019_04_16_185122) do
     t.string "downpayment_delivery_currency_payment_term_mid"
     t.string "downpayment_delivery_amount_payment_term_mid"
     t.string "downpayment_delivery_description_payment_term_mid"
-    t.string "agreed_prepayment_payment_term_mid"
+    t.string "agreed_payments_currency_payment_term_mid"
     t.string "agreed_payments_output_payment_term_mid"
     t.string "agreed_payments_amount_payment_term_mid"
     t.string "downpayment_delivery_currency_payment_term_both"
@@ -199,6 +199,7 @@ ActiveRecord::Schema.define(version: 2019_04_16_185122) do
     t.string "agreed_payments_time_payment_term_both"
     t.string "agreed_payments_some_output_payment_term_both"
     t.integer "number_of_installments_payment_term_mid"
+    t.float "contract_currency"
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 
