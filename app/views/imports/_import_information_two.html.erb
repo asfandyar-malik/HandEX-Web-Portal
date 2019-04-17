@@ -84,7 +84,7 @@
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-1">
                         <div class="choice" name="privatesector" data-toggle="wizard-checkbox">
-                            <%= check_box_tag "import[exporting_to_private_sector]" %>
+                            <%= check_box_tag "import[is_exporting_to_private_sctor]" %>
                             <div class="card card-checkboxes card-hover-effect">
                                 <i class="ti-home"></i>
                                 <p>Privater Sektor</p>
@@ -95,7 +95,7 @@
                     <div class="col-sm-4">
                         <div class="choice" name="publicsector" data-toggle="wizard-checkbox">
 
-                            <%= check_box_tag "import[exporting_to_public_sector]", @import.description ? @import.description : nil %>
+                            <%= check_box_tag "import[is_exporting_to_public_sector]", @import.description ? @import.description : nil %>
 
                             <div class="card card-checkboxes card-hover-effect">
                                 <i class="ti-home"></i>

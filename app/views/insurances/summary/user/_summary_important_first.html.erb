@@ -8,9 +8,9 @@
 
 <%= render qa_partial, question: "Welches Zahlungsziel gewähren Sie Ihrem Kunden?", answer: @insurance.loan_duration %>
 
-<%= render qa_partial, question: "Liefern Sie an Privatsektor?", answer: @insurance.exporting_to_private_sector? ? 'Ja' : 'Nein' %>
+<%= render qa_partial, question: "Liefern Sie an Privatsektor?", answer: @insurance.is_exporting_to_private_sctor ? 'Ja' : 'Nein' %>
 
-<% delivery_goal_answer = @insurance.exporting_to_private_sector %>
+<% delivery_goal_answer = @insurance.is_exporting_to_private_sctor %>
 <% can_show_success_result_message = (delivery_goal_answer == 'Private Sector') %>
 <% can_show_fail_result_message = (delivery_goal_answer == 'Public Sector') %>
 

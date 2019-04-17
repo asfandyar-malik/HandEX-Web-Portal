@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_15_184925) do
+ActiveRecord::Schema.define(version: 2019_04_16_185122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2019_04_15_184925) do
     t.string "contract_signing_date"
     t.string "exporter_internal_contract_id"
     t.boolean "has_special_contract_structure", default: false
-    t.string "total_delivery_value"
+    t.string "total_delivery_value_excluding_servicing"
     t.string "percentage_of_spareparts_in_whole_order"
     t.string "other_billed_items_in_contract_currency"
     t.string "other_billed_items_in_contract_amount"
@@ -97,8 +97,8 @@ ActiveRecord::Schema.define(version: 2019_04_15_184925) do
     t.string "exported_goods_type"
     t.string "explain_good_industry_type"
     t.boolean "is_delivered_part_of_consortium_with_other_companies", default: false
-    t.boolean "exporting_to_private_sector", default: false
-    t.boolean "exporting_to_public_sector", default: false
+    t.boolean "is_exporting_to_private_sctor", default: false
+    t.boolean "is_exporting_to_public_sector", default: false
     t.bigint "user_id"
     t.string "all_rawgoods_supplier_country"
     t.string "all_rawgoods_supplier_currency"
@@ -113,12 +113,12 @@ ActiveRecord::Schema.define(version: 2019_04_15_184925) do
     t.string "proportion_of_good_covered_by_security"
     t.string "when_security_received"
     t.string "importer_company_name"
-    t.string "importer_address"
+    t.string "importer_street_hno"
     t.string "importer_plz"
     t.string "importer_city"
     t.string "importer_country"
     t.string "importer_shipment_company_name"
-    t.string "importer_shipment_street"
+    t.string "importer_shipment_street_hno"
     t.string "importer_shipment_plz"
     t.string "importer_shipment_city"
     t.string "importer_shipment_country"
@@ -162,7 +162,7 @@ ActiveRecord::Schema.define(version: 2019_04_15_184925) do
     t.string "exporter_telephone"
     t.string "explain_corruption_sanctions"
     t.string "is_all_information_provided_with_best_of_knowledge"
-    t.string "exporter_street"
+    t.string "exporter_street_hno"
     t.string "loan_term"
     t.string "application_status", default: "new"
     t.boolean "accept_partial_refinancing", default: false
@@ -187,7 +187,7 @@ ActiveRecord::Schema.define(version: 2019_04_15_184925) do
     t.string "downpayment_delivery_currency_payment_term_mid"
     t.string "downpayment_delivery_amount_payment_term_mid"
     t.string "downpayment_delivery_description_payment_term_mid"
-    t.string "agreed_payments_currency_payment_term_mid"
+    t.string "agreed_prepayment_payment_term_mid"
     t.string "agreed_payments_output_payment_term_mid"
     t.string "agreed_payments_amount_payment_term_mid"
     t.string "downpayment_delivery_currency_payment_term_both"

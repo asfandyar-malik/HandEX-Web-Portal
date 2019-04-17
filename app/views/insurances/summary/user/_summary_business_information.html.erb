@@ -157,7 +157,7 @@
     <%= render qa_partial, question: "Bitte geben Sie den Auftragswert an", answer: check_missing(@insurance.contract_value) %>
 
 
-    <%= render qa_partial, question: "Wie hoch ist der Lieferwert der Güter exkl. anderer Leistungen (Montagen, etc.)", answer: check_missing(@insurance.total_delivery_value) %>
+    <%= render qa_partial, question: "Wie hoch ist der Lieferwert der Güter exkl. anderer Leistungen (Montagen, etc.)", answer: check_missing(@insurance.total_delivery_value_excluding_servicing) %>
 
     <div class="row">
         <div class="col-md-8 col-md-offset-1">

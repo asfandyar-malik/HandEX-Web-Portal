@@ -14,7 +14,7 @@
 
             <% address_keys = ["Firmenname", "Straße / Hausnummer", "PLZ", "Ort"] %>
 
-            <% address_values = [@insurance.importer_company_name, @insurance.importer_address, @insurance.importer_plz, @insurance.importer_city] %>
+            <% address_values = [@insurance.importer_company_name, @insurance.importer_street_hno, @insurance.importer_plz, @insurance.importer_city] %>
 
             <% address_keys.zip(address_values).each do |addr_key, addr_value| %>
                 <div class="row">
@@ -48,7 +48,7 @@
 
             <% address_keys = ["Firmenname", "Land", "Straße / Hausnummer", "PLZ", "Ort"] %>
 
-            <% address_values = [@insurance.importer_shipment_company_name, @insurance.importer_shipment_country, @insurance.importer_shipment_street, @insurance.importer_shipment_plz, @insurance.importer_shipment_city] %>
+            <% address_values = [@insurance.importer_shipment_company_name, @insurance.importer_shipment_country, @insurance.importer_shipment_street_hno, @insurance.importer_shipment_plz, @insurance.importer_shipment_city] %>
 
             <% address_keys.zip(address_values).each do |addr_key, addr_value| %>
                 <div class="row">

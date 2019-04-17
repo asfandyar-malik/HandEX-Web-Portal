@@ -92,7 +92,7 @@ class InsurancesController < ApplicationController
             :is_export_licence_needed, :which_regulations_enforcing_exportlicense_requirement, :export_license_status,
             :does_deliver_secondhand_goods, :is_contract_already_signed_between_parties,
             :contract_signing_date, :exporter_internal_contract_id, :has_special_contract_structure,
-            :total_delivery_value, :percentage_of_spareparts_in_whole_order, :other_billed_items_in_contract_currency,
+            :total_delivery_value_excluding_servicing, :percentage_of_spareparts_in_whole_order, :other_billed_items_in_contract_currency,
             :other_billed_items_in_contract_amount, :describe_other_billed_items_in_contract, :is_price_adjustment_clause_with_importer, :explain_accounting_methods,
             :is_good_sent_in_multiple_deliveries,
             :delivery_start, :delivery_end, :other_important_delivery_information, :other_important_delivery_milestones, :has_german_certificate_of_origin,
@@ -102,8 +102,8 @@ class InsurancesController < ApplicationController
             :proportion_of_good_covered_by_security, :when_security_received,
            
             # Ihr Kunde ----------------------------------------
-            :importer_company_name, :importer_address, :importer_plz, :importer_city, :importer_country, :exporting_to_private_sector, :exporting_to_public_sector, :is_shipment_address,
-            :importer_shipment_company_name, :importer_shipment_country, :importer_shipment_street,
+            :importer_company_name, :importer_street_hno, :importer_plz, :importer_city, :importer_country, :is_exporting_to_private_sctor, :is_exporting_to_public_sector, :is_shipment_address,
+            :importer_shipment_company_name, :importer_shipment_country, :importer_shipment_street_hno,
             :importer_shipment_plz, :importer_shipment_city, :has_significant_influence_on_importer_management,
             :explain_exporter_influence_on_importer_management, :has_payment_experience_with_importer,
             :explain_previous_payment_experience_with_importer,
@@ -112,7 +112,7 @@ class InsurancesController < ApplicationController
             :loan_duration, :accept_partial_refinancing, :has_agreed_payment_term_already,
             :payment_term_short, :payment_term_mid, :payment_term_both, :is_interest_charged_to_importer,  :downpayment_delivery_currency_payment_term_short,
             :downpayment_delivery_amount_payment_term_short, :downpayment_delivery_description_payment_term_short, :downpayment_delivery_currency_payment_term_mid,
-            :downpayment_delivery_amount_payment_term_mid, :downpayment_delivery_description_payment_term_mid, :agreed_payments_currency_payment_term_mid,
+            :downpayment_delivery_amount_payment_term_mid, :downpayment_delivery_description_payment_term_mid, :agreed_prepayment_payment_term_mid,
             :agreed_payments_output_payment_term_mid, :agreed_payments_amount_payment_term_mid, :downpayment_delivery_currency_payment_term_both,
             :downpayment_delivery_amount_payment_term_both, :downpayment_delivery_description_payemnt_term_both, :agreed_payments_currency_payment_term_both,
             :agreed_payments_amount_payment_term_both, :agreed_payments_output_payment_term_both, :agreed_payments_time_payment_term_both,
@@ -120,7 +120,7 @@ class InsurancesController < ApplicationController
 
             # Notwendiges zum Schluss --------------------------
             :has_previously_used_hermes_cover, :years_trading_without_hermes_insurance, :experience_with_importer_country,
-            :adequate_claims_management, :exporter_name, :exporter_dn_no, :exporter_telephone, :exporter_street, :exporter_plz,
+            :adequate_claims_management, :exporter_name, :exporter_dn_no, :exporter_telephone, :exporter_street_hno, :exporter_plz,
             :exporter_country, :exporter_city, :employees_count, :revenue_last_year, :exporter_representative_firstname, :exporter_representative_lastname,
             :exporter_representative_email, :exporter_representative_function, :exporter_representative_department,
             :does_corruption_declaration_apply, :explain_corruption_sanctions, :give_consortiums_companies,

@@ -18,7 +18,7 @@
 
             <div class="col-md-3">
                 <p> Straße / Hausnummer </p>
-                <%= form.text_field :importer_address, class: "form-control" %>
+                <%= form.text_field :importer_street_hno, class: "form-control" %>
             </div>
 
             <div class="col-md-3">
@@ -84,7 +84,7 @@
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-1">
                         <div class="choice" name="privatesector" data-toggle="wizard-checkbox">
-                            <%= check_box_tag "insurance[exporting_to_private_sector]" %>
+                            <%= check_box_tag "insurance[is_exporting_to_private_sctor]" %>
                             <div class="card card-checkboxes card-hover-effect">
                                 <i class="ti-home"></i>
                                 <p>Privater Sektor</p>
@@ -95,7 +95,7 @@
                     <div class="col-sm-4">
                         <div class="choice" name="publicsector" data-toggle="wizard-checkbox">
 
-                            <%= check_box_tag "insurance[exporting_to_public_sector]", @insurance.exporting_to_public_sector ? @insurance.exporting_to_public_sector : nil %>
+                            <%= check_box_tag "insurance[is_exporting_to_public_sector]", @insurance.is_exporting_to_public_sector ? @insurance.is_exporting_to_public_sector : nil %>
 
                             <div class="card card-checkboxes card-hover-effect">
                                 <i class="ti-home"></i>
@@ -155,7 +155,7 @@
 
                     <div class="col-md-3 ">
                         <p> Straße / Hausnummer </p>
-                        <%= form.text_field :importer_shipment_street, class: "form-control" %>
+                        <%= form.text_field :importer_shipment_street_hno, class: "form-control" %>
                     </div>
                 </div>
             </div>

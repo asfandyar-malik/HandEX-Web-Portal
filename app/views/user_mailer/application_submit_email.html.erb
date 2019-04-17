@@ -63,11 +63,11 @@
     </tr>
     <tr>
       <td>Exporting to Private Sector</td>
-      <td><%= @insurance.exporting_to_private_sector %> </td>
+      <td><%= @insurance.is_exporting_to_private_sctor %> </td>
     </tr>
     <tr>
       <td>Exporting to Public Sector</td>
-      <td><%= @insurance.exporting_to_public_sector %> </td>
+      <td><%= @insurance.is_exporting_to_public_sector %> </td>
     </tr>
   </table>
 
@@ -193,8 +193,8 @@
       <td> <%= @insurance.contract_value %> </td>
     </tr>
     <tr>
-      <td> total_delivery_value</td>
-      <td> <%= @insurance.total_delivery_value %> </td>
+      <td> total_delivery_value_excluding_servicing</td>
+      <td> <%= @insurance.total_delivery_value_excluding_servicing %> </td>
     </tr>
     <tr>
       <td> percentage_of_spareparts_in_whole_order</td>
@@ -367,8 +367,8 @@
       <td> <%= @insurance.importer_tax_number %> </td>
     </tr>
     <tr>
-      <td> importer_address </td>
-      <td> <%= @insurance.importer_address %> </td>
+      <td> importer_street_hno </td>
+      <td> <%= @insurance.importer_street_hno %> </td>
     </tr>
     <tr>
       <td> importer_plz </td>
@@ -395,8 +395,8 @@
       <td> <%= @insurance.importer_shipment_country %> </td>
     </tr>
     <tr>
-      <td> importer_shipment_street </td>
-      <td> <%= @insurance.importer_shipment_street %> </td>
+      <td> importer_shipment_street_hno </td>
+      <td> <%= @insurance.importer_shipment_street_hno %> </td>
     </tr>
     <tr>
       <td> importer_shipment_plz </td>
@@ -470,8 +470,8 @@
       <td> <%= @insurance.exporter_telephone %> </td>
     </tr>
     <tr>
-      <td> exporter_street </td>
-      <td> <%= @insurance.exporter_street %> </td>
+      <td> exporter_street_hno </td>
+      <td> <%= @insurance.exporter_street_hno %> </td>
     </tr>
     <tr>
       <td> exporter_plz </td>
