@@ -26,7 +26,7 @@ class InsurancesController < ApplicationController
         @insurance.application_status = "submitted"
         if @insurance.save
             # UserMailer.with(user: current_user, insurance: @insurance).application_submit_email.deliver_now
-            redirect_to pages_applicationProcessing_path(@insurance), notice: 'Antrag wurde erfolgreich erstellt.'
+            redirect_to pages_submitted_path, notice: 'Antrag wurde erfolgreich erstellt.'
         else
             flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
             render :new
@@ -35,7 +35,7 @@ class InsurancesController < ApplicationController
     
     def update
         if @insurance.update(insurance_params)
-            redirect_to pages_applicationProcessing_path(@insurance), notice: 'Antrag wurde erfolgreich aktualisiert.'
+            redirect_to pages_submitted_path, notice: 'Antrag wurde erfolgreich aktualisiert.'
         else
             flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
         end

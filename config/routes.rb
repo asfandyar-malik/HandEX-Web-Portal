@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
     
-    # scope "(:locale)", locale: /en|es|de/ do
+    scope "(:locale)", locale: /en|es|de/ do
     
         get '/:locale' => 'insurances#index'
         root to: 'insurances#index'
@@ -8,7 +8,7 @@ Rails.application.routes.draw do
         get 'pages/landing' => 'pages#landing'
         get 'pages/impressum' => 'pages#impressum'
         get 'pages/termsAndConditions' => 'pages#termsAndConditions'
-        get 'pages/applicationProcessing' => 'pages#applicationProcessing'
+        get 'pages/submitted' => 'pages#submitted'
         get 'pages/guidelines' => 'pages#guidelines'
         
         resources :insurances do
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
                 get 'extract'
             end
         end
-    # end
+    end
     
     devise_for :users,
                path:        '',

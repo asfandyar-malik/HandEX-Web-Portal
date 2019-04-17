@@ -26,7 +26,7 @@ class ImportsController < ApplicationController
     # @import.application_status = "submitted"
     if @import.save
       # UserMailer.with(user: current_user, import: @import).application_submit_email.deliver_now
-      redirect_to pages_applicationProcessing_path(@import), notice: 'Antrag wurde erfolgreich erstellt.'
+      redirect_to pages_submitted_path, notice: 'Antrag wurde erfolgreich erstellt.'
     else
       flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
       render :new
@@ -35,7 +35,7 @@ class ImportsController < ApplicationController
   
   def update
     if @import.update(import_params)
-      redirect_to pages_applicationProcessing_path(@import), notice: 'Antrag wurde erfolgreich aktualisiert.'
+      redirect_to pages_submitted_path, notice: 'Antrag wurde erfolgreich aktualisiert.'
     else
       flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
     end

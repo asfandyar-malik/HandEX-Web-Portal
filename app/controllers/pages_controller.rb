@@ -14,5 +14,8 @@ class PagesController < ApplicationController
     
     def guidelines
     end
+    
+    def submitted
+    end
 
 end
