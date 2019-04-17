@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
         <div class="form-group">
-            <p><b>Bitte beschreiben Sie Ihre Produkte und Leistungen</b></p>
+            <p><b><%= t('describe_export_business') %></b></p>
             <%= form.text_area :describe_export_business, class: 'form-control' %>
         </div>
     </div>
@@ -13,7 +13,7 @@
 <div class="row">
     <div class="col-sm-8 col-sm-offset-1">
         <div class="form-group">
-            <p><b>Handelt es sich bei Ihrer Ware um Investitionsgüter?</b></p>
+            <p><b><%= t('is_investment_good') %></b></p>
 
             <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                 <div class="choice" name="investmentgoods_yes" data-toggle="wizard-checkbox">
@@ -40,12 +40,9 @@
 
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
-        <p><b>Bitte helfen Sie uns nun, das Vorhaben gut zu verstehen</b></p>
+        <p><b><%= t('explain_why_importer_buying_good') %></b></p>
         <div class="form-group">
-            <p>Wofür benötigt Ihr Kunde die Maschinen/Güter/Anlagen bzw. die
-                Dienstleistung? Handelt es sich bspw. um eine Ersatz- oder um eine
-                Neuinvestition? Wenn Sie Leistungen (Montage, Schulungen vor Ort, etc.)
-                erbringen, können Sie diese hier ebenfalls beschreiben.</p>
+            <p><%= t('explain_why_importer_buying_good_additional_information') %> </p>
             <%= form.text_area :explain_why_importer_buying_good, class: 'form-control' %>
         </div>
     </div>
@@ -54,7 +51,7 @@
 <div class="row">
     <div class="col-sm-8 col-sm-offset-1">
         <div class="form-group">
-            <p><b>Erbringen Sie auch Leistungen (Montage, Schulungen vor Ort etc.)?</b></p>
+            <p><b><%= t('is_servicing_for_goods_offered') %></b></p>
 
             <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                 <div class="choice" name="exporteroffersservicingforgoods_yes" data-toggle="wizard-checkbox">
@@ -82,8 +79,7 @@
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
         <div class="form-group">
-            <p><b>Bitte ordnen Sie die von Ihnen zu liefernden Waren/Güter/Anlagen bzw.
-                Dienstleistungen Ihrer Branche und der passenden Warenart zu.</b></p>
+            <p><b> <%= t('exported_goods_type') %> </b></p>
 
             <div class="row">
                 <div class="col-sm-6">
@@ -102,7 +98,7 @@
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
         <div class="form-group">
-            <p><b>Bitte beschreiben Sie Ihre Industrie genauer</b></p>
+            <p><b><%= t('explain_good_industry_type') %>></b></p>
             <%= form.text_area :explain_good_industry_type, class: 'form-control', :input_html => {:rows => 20} %>
         </div>
     </div>
@@ -111,7 +107,7 @@
 <div id="workwithothercompanies">
     <div class="row">
         <div class="col-sm-10 col-sm-offset-1">
-            <p><b>Liefern/Leisten Sie im Rahmen eines Gesamtprojekts zusammen mit anderen Unternehmen? </b></p>
+            <p><b><%= t('is_delivered_part_of_consortium_with_other_companies') %> </b></p>
         </div>
         <div class="col-sm-8 col-sm-offset-1">
             <div class="form-group">
@@ -147,17 +143,12 @@
             <div class="row">
                 <br>
                 <div class="col-md-12">
-                    <p><b>Betreffen Ihre Lieferungen bzw. Leistungen ein sensibles
-                        Gebiet?</b></p>
+                    <p><b> <%= t('sensitivearea') %></b></p>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="row">
-                    <p><i>Als sensible Gebiete gelten Nationalparks und andere durch
-                        nationales oder internationales Recht geschützte Gebiete sowie
-                        sensible Regionen von internationaler, nationaler oder
-                        regionaler
-                        Bedeutung.</i></p>
+                    <p><i><%= t('sensitivearea_additional_information') %></i></p>
                 </div>
             </div>
             <div class="row">
@@ -169,7 +160,7 @@
 
                         <div class="card card-checkboxes height-adjusted-normal card-hover-effect">
                             <i class="ti-layout-sidebar-none"></i>
-                            <p>Nein</p>
+                            <p><%= t('no') %> </p>
                         </div>
                     </div>
                 </div>
@@ -182,7 +173,7 @@
 
                         <div class="card card-checkboxes height-adjusted-normal card-hover-effect">
                             <i class="ti-shine"></i>
-                            <p>Naturschutzgebiet</p>
+                            <p><%= t('delivery_affects_natural_reserves') %>></p>
                         </div>
                     </div>
                 </div>
@@ -194,7 +185,7 @@
 
                         <div class="card card-checkboxes height-adjusted-normal card-hover-effect">
                             <i class="ti-user"></i>
-                            <p>Bedeutung für indigene Völker</p>
+                            <p><%= t('delivery_affects_indigenous_people') %></p>
                         </div>
                     </div>
                 </div>
@@ -213,7 +204,7 @@
 
                         <div class="card card-checkboxes height-adjusted-normal-big card-hover-effect">
                             <i class="ti-star"></i>
-                            <p> Archäologische oder kulturelle
+                            <p> <%= t('delivery_affects_cultural_heritage') %>
                                 <Bedeutung></Bedeutung>
                             </p>
                         </div>
@@ -228,7 +219,7 @@
 
                         <div class="card card-checkboxes height-adjusted-normal-big card-hover-effect">
                             <i class="ti-marker"></i>
-                            <p>Sonstige</p>
+                            <p><%= t('Others') %>></p>
                         </div>
                     </div>
                 </div>
@@ -244,8 +235,7 @@
             <div class="col-sm-10 col-sm-offset-1">
                 <br>
                 <div class="form-group">
-                    <p>Bitte konkretisieren Sie, um was für ein sensibles Gebiet es sich
-                        handelt
+                    <p><%= t('explain_delivery_affects_other') %>
                         <%= form.text_field :explain_delivery_affects_other, class: "form-control" %>
                 </div>
             </div>
@@ -258,7 +248,7 @@
         <div class="col-sm-8 col-sm-offset-1">
             <div class="form-group">
                 <br>
-                <p><b>Ist Ihr Export ausfuhrgenehmigungspflichtig?</b>
+                <p><b><%= t('is_export_licence_needed') %></b>
                 <p>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="exportlicenserequired_yes" data-toggle="wizard-checkbox" onclick="exportLicenseRequired()">
@@ -290,8 +280,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <p><b>Aus welchen Vorschriften bzw. welchem Teil/Abschnitt der
-                        Ausfuhrliste ergibt sich die Genehmigungspflicht? </b></p>
+                    <p><b> <%= t('which_regulations_enforcing_exportlicense_requirement') %> </b></p>
                 </div>
             </div>
             <div class="row">
@@ -306,7 +295,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-3 col-md-offset-1">
-                    <p> Die Ausfuhrgenehmigung .. </p>
+                    <p> <%= t('export_license_status') %> </p>
                 </div>
                 <div class="col-md-3">
                     <%= form.select :export_license_status, options_for_select(["Bitte auswählen", "... wurde erteilt.", "... ist beantragt.", "... ist noch zu beantragen."]), {}, class: 'form-control' %>
@@ -322,7 +311,7 @@
     <div class="row">
         <div class="col-sm-8 col-sm-offset-1">
             <div class="form-group">
-                <p><b>Liefern Sie gebrauchte Ware? </b>
+                <p><b> <%= t('are_secondhand_goods_delivered') %></b>
                 <p>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
@@ -353,8 +342,7 @@
         <div class="col-md-8 col-md-offset-1">
             <div class="form-group">
                 <br>
-                <p><b>Haben bereits alle Parteien den Vertrag für das Exportgeschäft
-                    unterzeichnet?</b>
+                <p><b> <%= t('is_contract_already_signed_between_parties') %></b>
                 <p>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_congractsignedallparties" data-toggle="wizard-checkbox" onclick="contractSignedAllParties()">
@@ -386,8 +374,7 @@
             <br>
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <p>Bitte geben Sie das Abschlussdatum des Vertrags und optional eine
-                        interne Referenz an</p>
+                    <p> <%= t('contract_signing_date_exporter_internal_contract_id') %></p>
                 </div>
             </div>
 
@@ -413,7 +400,7 @@
         <div class="col-md-8 col-md-offset-1">
             <div class="form-group">
 
-                <p><b>Vereinbaren Sie mit Ihrem Vertragspartner eine besondere Vertragsstruktur? </b>
+                <p><b> <%= t('has_special_contract_structure') %> </b>
                 <p>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
@@ -447,8 +434,8 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
 
-                    <p><b>Bitte geben Sie den Auftragswert an. </b></p>
-                    <p><i>Vertragswährung </i></p>
+                    <p><b><%= t('contract_value') %></b></p>
+                    <p><i><%= t('contract_currency')  %> </i></p>
 
                     <div class="row">
                         <div class="col-md-4 ">
@@ -461,7 +448,7 @@
                     <div class="row">
                         <br>
                         <div class="col-md-8">
-                            <p><i>Wie hoch ist der Lieferwert der Güter exkl. anderer Leistungen (Montagen, etc.)</i>
+                            <p><i> <%= t('total_delivery_value_excluding_servicing') %></i>
                             </p>
                             <div> <%= form.text_field :total_delivery_value_excluding_servicing, class: "form-control", placeholder: "Lieferwert (Betrag)", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                         </div>
@@ -470,7 +457,7 @@
                     <div class="row">
                         <br>
                         <div class="col-md-8">
-                            <p><i> Wie hoch ist der Anteil der Ersatzteile am Lieferwert? </i></p>
+                            <p><i> <%= t('percentage_of_spareparts_in_whole_order') %></i></p>
                         </div>
                         <div class="col-md-6">
                             <div> <%= form.text_field :percentage_of_spareparts_in_whole_order, class: "form-control", placeholder: "Wert Ersatzteile in Prozent oder Betrag", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
@@ -480,8 +467,7 @@
                     <div class="row">
                         <br>
                         <div class="col-md-8">
-                            <i> Wenn weitere Bestandteile offen gegenüber Ihrem Kunden ausgewiesen werden (bspw.
-                                Montagen, Trainings, etc.), tragen Sie diese bitte hier ein.</i>
+                            <i> <%= t('other_billed_items_in_contract') %></i>
                         </div>
                     </div>
                     <br>
@@ -533,7 +519,7 @@
         <div class="col-md-8 col-md-offset-1">
             <div class="form-group">
                 <br>
-                <p><b>Haben Sie mit Ihrem Kunden eine Preisgleitklausel vereinbart? </b>
+                <p><b><%= t('is_price_adjustment_clause_with_importer') %></b>
                 <p>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
@@ -567,8 +553,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <p> Bitte beschreiben Sie die Details zur Verrechnungsmethode
-                        (Prozent- oder Betragsverfahren). </p>
+                    <p> <%= t('explain_accounting_methods') %> </p>
                 </div>
             </div>
             <div class="row">
@@ -588,8 +573,7 @@
             <div class="form-group">
                 <br>
 
-                <p><b>Versenden Sie Ihre Waren/Güter/Anlagen in mehreren
-                    Lieferungen? </b>
+                <p><b> <%= t('is_good_sent_in_multiple_deliveries') %> </b>
                 <p>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_multipledeliveries" data-toggle="wizard-checkbox" onclick="multipleDeliveries()">
@@ -623,18 +607,17 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
 
-                <p> Bitte teilen Sie uns die Liefer- und ggf. Leistungstermine Ihres Exportgeschäftes mit.
-                </p>
+                <p> <%= t('delivery_or_performance_dates') %> </p>
             </div>
         </div>
         <br>
         <div class="row">
             <div class="col-md-4 col-md-offset-1">
-                <p><i>Lieferbeginn</i></p>
+                <p><i><%= t('delivery_start') %>></i></p>
                 <div> <%= form.date_field :delivery_start, id: "start_date", type: "date", class: "form-control" %> </div>
             </div>
             <div class="col-md-4">
-                <p><i>Lieferende</i></p>
+                <p><i><%= t("delivery_end") %></i></p>
                 <div> <%= form.date_field :delivery_end, id: "start_date", type: "date", class: "form-control" %> </div>
             </div>
         </div>
@@ -676,7 +659,7 @@
             <div class="col-md-12 col-md-offset-1">
                 <div class="form-group">
                     <br>
-                    <p><b>Bekommen Sie für die zu liefernde Ware ein deutsches Warenursprungszeugnis? </b></p>
+                    <p><b> <%= t('has_german_certificate_of_origin') %></b></p>
 
                     <div class="col-xs-3 col-sm-3 col-md-3">
                         <div class="choice" name="yes_certificateoforigin" data-toggle="wizard-checkbox" onclick="yesCertificateOfOrigin()">
@@ -685,7 +668,7 @@
 
                             <div class="card circle card-hover-effect">
                                 <i class="ti-check"></i>
-                                <p>Ja</p>
+                                <p><%= t('yes') %></p>
                             </div>
                         </div>
                     </div>
@@ -695,7 +678,7 @@
                             <%= check_box_tag "insurance[has_german_certificate_of_origin]", @insurance.has_german_certificate_of_origin ? nil : @insurance.has_german_certificate_of_origin  %>
                             <div class="card circle card-hover-effect">
                                 <i class="ti-close"></i>
-                                <p>Nein</p>
+                                <p><%= t('no') %></p>
                             </div>
                         </div>
                     </div>
@@ -706,7 +689,7 @@
 
                             <div class="card circle card-hover-effect">
                                 <i class="ti-star"></i>
-                                <p> für Teile der Ware</p>
+                                <p> <%= t('part_of_goods') %></p>
                             </div>
                         </div>
                     </div>
@@ -726,7 +709,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-8 col-md-offset-1">
-                    <p> Bitte geben Sie die Zulieferungen aus dem Ausland an.</p>
+                    <p> <%= t('all_rawgoods_supplier_country') %></p>
                 </div>
             </div>
             <div class="row">
@@ -775,8 +758,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <p> Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland
-                        notwendig sind. </p>
+                    <p> <%= t('why_all_foreign_rawgoods_necessary') %> </p>
                 </div>
             </div>
 
@@ -797,7 +779,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-8 col-md-offset-1">
-                    <p> Bitte geben Sie die Zulieferungen aus dem Ausland an. </p>
+                    <p> <%= t('partly_rawgoods_supplier_country') %> </p>
                 </div>
             </div>
             <div class="row">
@@ -845,8 +827,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <p> Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland
-                        notwendig sind. </p>
+                    <p> <%= t('why_partly_foreign_rawgoods_necessary') %> </p>
                 </div>
             </div>
             <div class="row">
@@ -863,8 +844,8 @@
     <div class="form-group">
         <div class="row">
             <br>
-            <div class="col-md-8 col-md-offset-1">
-                <p><b>Sind für Ihr Geschäft Sicherheiten (bspw. Akkreditiv, Zahlungsgarantien, etc.) vorgesehen? </b>
+            <div class="col-md-10 col-md-offset-1">
+                <p><b><%= t('is_security_present_for_transaction') %> </b>
                 <p>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_securitybusinnesprovided" data-toggle="wizard-checkbox" onclick="securityBusinnesProvided()">
@@ -897,7 +878,7 @@
             <div class="row">
 
                 <div class="col-md-8 col-md-offset-1">
-                    <p> Welche Art von Sicherheiten? </p>
+                    <p> <%= t('security_type') %> </p>
                 </div>
             </div>
             <br>
@@ -917,8 +898,7 @@
 
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <p> Welchen Anteil des Auftragswertes wird die Sicherheit umfassen?
-                        (Zahlungsgarantie einer Bank-1) </p>
+                    <p> <%= t('proportion_of_good_covered_by_security') %>  </p>
                     <div> <%= form.text_area :proportion_of_good_covered_by_security, class: "form-control" %> </div>
                 </div>
             </div>
@@ -927,8 +907,7 @@
 
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <p> Wann werden Sie die Sicherheiten erhalten? (unbestätigtes
-                        Akkreditiv einer Bank-1) </p>
+                    <p> <%= t('when_security_received') %>  </p>
                 </div>
             </div>
 

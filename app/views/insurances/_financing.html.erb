@@ -1,11 +1,11 @@
-<h4 class="info-text" style="font-family: 'Handel Becker Light', 'Handel Becker Med', 'HandelGotDBol', sans-serif;">Ihre Finanzierung</h4>
+<h4 class="info-text" style="font-family: 'Handel Becker Light', 'Handel Becker Med', 'HandelGotDBol', sans-serif;"><%= t('your_financing')%></h4>
 
 <div id="residualRiskApetite">
     <br>
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
             <div class="form-group">
-                <p><b> Sind Sie bereit eine (Re-)Finanzierung anzunehmen, die nicht dem vollständigen Auftragswert entspricht (85-95%)? </b>
+                <p><b> <%= t('accept_partial_refinancing')%> </b>
                 <p>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_residualriskapetite" data-toggle="wizard-checkbox" onclick="residualRiskApetite()">
@@ -36,10 +36,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <p> In diesem Fall gibt es die Möglichkeit die Finanzierung im Rahmen einer Forfaitierung oder
-                        eines direkten Kredites von einer unserer Partnerbanken an Ihren Käufer zu realisieren. Im
-                        Laufe des Antrages ermitteln wir welche der beiden Finanzierungsformen wir Ihnen anbieten
-                        können. </p>
+                    <p> <%= t('accepted_partial_refinancing_text')%> </p>
                 </div>
             </div>
         </div>
@@ -52,8 +49,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <p> In diesem Fall gibt es die Möglichkeit die Finanzierung im Rahmen eines direkten Kredites
-                        von einer unserer Partnerbanken an Ihren Käufer zu realisieren. </p>
+                    <p> <%= t('reject_partial_refinancing_text')%> </p>
                 </div>
             </div>
         </div>
@@ -64,7 +60,7 @@
     <div class="col-sm-8 col-sm-offset-1">
         <div class="form-group">
             <br>
-            <p><b>Haben Sie bereits ein Zahlungsziel bzw. eine eigene Finanzierung mit Ihrem Kunden vereinbart?</b>
+            <p><b><%= t('has_agreed_payment_term_already')%></b>
             <p>
             <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                 <div class="choice" name="paymentTermAgreed_yes" data-toggle="wizard-checkbox" onclick="paymentTermAgreed()">
@@ -95,7 +91,7 @@
             <div class="row">
                 <br>
                 <div class="col-md-10 col-md-offset-1">
-                    <p><b>Wie sind Ihre Zahlungsbedingungen gestaltet? </b>
+                    <p><b><%= t('payment_term')%> </b>
                     <p>
                 </div>
             </div>
@@ -109,7 +105,7 @@
 
                             <div class="card card-checkboxes height-adjusted-normal-big card-hover-effect">
                                 <i class="ti-timer"></i>
-                                <p> kurzfristig (bis zu 2 Jahre Kreditlaufzeit) </p>
+                                <p> <%= t('payment_term_short')%></p>
                             </div>
                         </div>
                     </div>
@@ -121,7 +117,7 @@
 
                             <div class="card card-checkboxes height-adjusted-normal-big card-hover-effect">
                                 <i class="ti-layout-width-full"></i>
-                                <p>mittel-/langfristig (über 2 Jahre Kreditlaufzeit)</p>
+                                <p><%= t('payment_term_mid')%></p>
                             </div>
                         </div>
                     </div>
@@ -133,7 +129,7 @@
 
                             <div class="card card-checkboxes height-adjusted-normal-big card-hover-effect">
                                 <i class="ti-time"></i>
-                                <p>sowohl kurzfristig als auch mittel-/langfristig</p>
+                                <p><%= t('payment_term_both')%></p>
                             </div>
                         </div>
                     </div>
@@ -149,10 +145,7 @@
 
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
-                            <p> Sofern Sie eine Anzahlung vereinbart haben, die vor Lieferbeginn
-                                geleistet
-                                wird,
-                                geben Sie bitte den entsprechenden Betrag an.</p>
+                            <p> <%= t('downpayment_before_delivery')%></p>
                         </div>
                     </div>
 
@@ -173,7 +166,7 @@
 
                     <div class="row">
                         <div class="col-md-8 col-md-offset-1">
-                            <p> Welche Zahlungen vereinbaren Sie?</p>
+                            <p> <%= t('agreed_payments')%>/p>
                         </div>
                     </div>
 
@@ -322,11 +315,7 @@
                         <div class="row">
                             <div class="col-md-10 col-md-offset-1">
                                 <br><br>
-                                <p> Wenn Sie Zahlungsvehikel wie z.B. Wechsel, Sola-Wechsel
-                                    oder
-                                    Promissory
-                                    Notes
-                                    vereinbart haben, so geben Sie dies bitte hier an.
+                                <p> <%= t('payment_vehichle_payment_term_short')%>
                                 </p>
                                 <div> <%= form.text_area :payment_vehichle_payment_term_short, class: "form-control" %> </div>
                             </div>
@@ -342,14 +331,11 @@
             <div class="appear">
                 <br>
                 <div class="form-group">
-
-
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
-                            <p><b>Bitte geben Sie die Höhe der An- und Zwischenzahlungen an. </b></p>
+                            <p><b> <%= t('amount_advance_interim_payment')%> </b></p>
                             <br>
-                            <p> Bitte beachten Sie, dass die Anzahlung stets vor Lieferung gezahlt werden und bei mittel- /langfristigen Zahlungsbediungungen mindestens 15 % des Auftragswerts betragen
-                                muss (auf Grund internationaler Bestimmungen).</p>
+                            <p><%= t('notice_prepayment')%></p>
                         </div>
                     </div>
 
@@ -399,7 +385,8 @@
 
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
-                            <p>Wann werden Sie die Anzahlung erhalten?
+                            <p>
+                            <%= t('receive_deposit_time_payment_term_mid') %>
                             </p>
                         </div>
                     </div>
@@ -415,7 +402,7 @@
 
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
-                            <p>Wie gestaltet sich das Tilgungsprofil?
+                            <p> <%= t('repayment_profile_structure') %>
                             </p>
                         </div>
                     </div>
@@ -429,7 +416,7 @@
                     <br>
                     <div class="row">
                         <div class="col-md-8 col-md-offset-1">
-                            <p>Wann beginnt die Kreditlaufzeit (Starting Point)?
+                            <p> <%= t('loan_term_start') %>
                             </p>
                         </div>
                     </div>
@@ -453,7 +440,7 @@
                 <div id="workwithothercompanies">
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
-                            <p> Bitte geben Sie hier die Anzahl der Raten ein</p>
+                            <p> <%= t('number_of_installments') %></p>
                         </div>
                     </div>
                     <div class="row">
@@ -475,16 +462,13 @@
 
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
-                            <p><b>Bitte geben Sie zunächst die kurzfristigen Zahlungsbedingungen an. </b></p>
+                            <p><b> <%= t('payment_term_both_info1') %></b></p>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
-                            <p> Sofern Sie eine Anzahlung vereinbart haben, die vor Lieferbeginn
-                                geleistet
-                                wird,
-                                geben Sie bitte den entsprechenden Betrag an.</p>
+                            <p> <%= t('downpayment_before_delivery') %></p>
                         </div>
                     </div>
 
@@ -506,7 +490,7 @@
 
                     <div class="row">
                         <div class="col-md-8 col-md-offset-1">
-                            <p> Welche Zahlungen vereinbaren Sie?</p>
+                            <p> <%= t('agreed_payments') %></p>
                         </div>
                     </div>
 
@@ -653,24 +637,17 @@
 
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
-                            <p><b>Bitte geben Sie nun die mittel-/langfristigen Zahlungsbedingungen an. </b></p>
+                            <p><b> <%= t('payment_term_both_info2') %></b></p>
                             <br>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
-                            <p>Bitte geben Sie die Höhe der An- und Zwischenzahlungen an. </p>
+                            <p> <%= t('amount_advance_interim_payment') %></p>
                             <br>
 
-                            <p><i>Bitte beachten Sie, dass die Anzahlung stets vor Lieferung
-                                gezahlt
-                                werden
-                                und bei
-                                mittel- /langfristigen Zahlungsbediungungen mindestens 15 % des
-                                Auftragswerts
-                                betragen
-                                muss (auf Grund internationaler Bestimmungen).. </i></p>
+                            <p><i> <%= t('notice_prepayment') %></i></p>
                             <br>
 
                         </div>
@@ -695,7 +672,7 @@
                     <br><br>
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
-                            <p>Wann werden Sie die Anzahlung erhalten?
+                            <p> <%= t('receive_deposit_time_payment_term_mid') %>
                             </p>
                         </div>
                     </div>
@@ -710,7 +687,7 @@
 
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
-                            <p>Wie gestaltet sich das Tilgungsprofil?
+                            <p> <%= t('repayment_profile_structure') %>
                             </p>
                         </div>
                     </div>
@@ -725,7 +702,7 @@
 
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
-                            <p>Wann beginnt die Kreditlaufzeit (Starting Point)?
+                            <p> <%= t('loan_term_start') %>
                             </p>
                         </div>
                     </div>
@@ -751,7 +728,7 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-10 col-md-offset-1">
-                                <p> Bitte geben Sie hier die Anzahl der Raten ein
+                                <p> <%= t('number_of_installments') %>
                                 </p>
                             </div>
                         </div>
@@ -767,9 +744,7 @@
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
 
-                            <p> Wenn Sie Zahlungsvehikel wie z.B. Wechsel, Sola-Wechsel oder
-                                Promissory
-                                Notes vereinbart haben, so geben Sie dies bitte hier an.
+                            <p> <%= t('payment_vehichle_payment_term_short') %>
                             </p>
                             <div> <%= form.text_field :payment_vehichle_explain_payment_term_both, class: "form-control" %> </div>
                         </div>
@@ -784,7 +759,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-1">
                     <div class="form-group">
-                        <p><b>Berechnen Sie Ihrem Kunden Zinsen? </b>
+                        <p><b> <%= t('is_interest_charged_to_importer') %></b>
                         <p>
                         <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                             <div class="choice" name="yes_customercountsinterest" data-toggle="wizard-checkbox" onclick="customerCountsInterest()">
@@ -815,11 +790,7 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
-                            <p> In diesem Fall gibt es die Möglichkeit, Ihre Forderungen gegenüber Ihrem Käufer mit einer
-                                Forfaitierung zu
-                                refinanzieren. Das bedeutet eine unserer Partnerbanken kauft Ihre Forderungen ab und
-                                refinanziert bis zu 95%
-                                des gesamten Forderungsbetrages. </p>
+                            <p> <%= t('notice_interest_charged') %> </p>
                         </div>
                     </div>
                 </div>
@@ -835,7 +806,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-1">
                     <div class="form-group">
-                        <p><b> Welches Zahlungsziel wünscht Ihr Kunde (in Monaten)? </b></p>
+                        <p><b> <%= t('payment_goal') %> </b></p>
                     </div>
                 </div>
                 <div class="col-md-4 col-md-offset-1">
