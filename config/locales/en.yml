@@ -106,7 +106,7 @@ en:
   has_agreed_payment_term_already: "Have you already agreed on payment terms or own financing terms with your customer?"
   payment_term: "How are your payment terms structured?"
   payment_term_short: "short-term (up to 2 years)"
-  payment-term_mid: "mid-/long-term (more than 2 years)"
+  payment_term_mid: "mid-/long-term (more than 2 years)"
   payment_term_both: "short and mid-/-long-term"
   downpayment_before_delivery: "If you have agreed on a down payment before delivery, please indicate here."
   agreed_payments: "Which payments do you agree?"
