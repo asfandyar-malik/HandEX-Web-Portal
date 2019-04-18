@@ -1,10 +1,10 @@
 <% qa_partial = 'insurances/summary/user/shared_partials/question_answer.html.erb' %>
 
-<%= render qa_partial, question: t('has_agreed_payment_term_already'), answer: @insurance.has_agreed_payment_term_already? ? 'Ja' : 'Nein' %>
+<%= render qa_partial, question: t('has_agreed_payment_term_already'), answer: @insurance.has_agreed_payment_term_already? ? t('yes') : t('no') %>
 
 <% if @insurance.has_agreed_payment_term_already? %>
 
-    <%= render qa_partial, question: t('payment_term'), answer: @insurance.has_agreed_payment_term_already? ? 'Ja' : 'Nein' %>
+    <%= render qa_partial, question: t('payment_term'), answer: @insurance.has_agreed_payment_term_already? ? t('yes') : t('no') %>
 
     <% answer = nil %>
     <% if @insurance.payment_term_short? %>
@@ -48,7 +48,7 @@
     <% end %>
 
     <div id="residualRiskApetite">
-        <%= render qa_partial, question: t('accept_partial_refinancing'), answer: @insurance.loan_term? ? 'Ja' : 'Nein' %>
+        <%= render qa_partial, question: t('accept_partial_refinancing'), answer: @insurance.loan_term? ? t('yes') : t('no') %>
     </div>
 
     <% if @insurance.is_interest_charged_to_importer? %>

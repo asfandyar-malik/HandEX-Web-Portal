@@ -196,5 +196,11 @@ en:
   export_credit_financing: "Export Credit Financing"
   buyers_financing: "Buyers Financing"
   export_credit_insurance: "Export Credit Insurance"
+  #summary
+  summary: "Summary"
+  where_should_it_go: "Where are you exporting to?"
+  how_high_contract_value: "How high is the contract value"
+  exporting_to_private_sector: "Do you also deliver to Private sector"
+  corruption_delcaration: "Corruption Declaration"
 
 

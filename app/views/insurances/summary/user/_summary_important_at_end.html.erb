@@ -1,7 +1,7 @@
 <% qa_partial = 'insurances/summary/user/shared_partials/question_answer.html.erb' %>
 
 <div id="deliveryAddressCheck">
-    <%= render qa_partial, question: t('has_previously_used_hermes_cover'), answer: @insurance.has_previously_used_hermes_cover ? 'Ja' : 'Nein' %>
+    <%= render qa_partial, question: t('has_previously_used_hermes_cover'), answer: @insurance.has_previously_used_hermes_cover ? t('yes') : t('no') %>
 </div>
 
 <div id="newAtHermesDeckung" style="display: <%= @insurance.has_previously_used_hermes_cover? ? 'none' : 'block' %>">

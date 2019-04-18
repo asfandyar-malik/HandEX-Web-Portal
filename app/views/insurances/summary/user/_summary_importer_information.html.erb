@@ -38,7 +38,7 @@
 </div>
 
 <div id="deliveryAddressCheck">
-    <%= render qa_partial, question: t('is_shipment_address'), answer: @insurance.is_shipment_address? ? 'Ja' : 'Nein' %>
+    <%= render qa_partial, question: t('is_shipment_address'), answer: @insurance.is_shipment_address? ? t('yes') : t('no') %>
 </div>
 
 <% if !@insurance.is_shipment_address? %>
@@ -73,7 +73,7 @@
 <% end %>
 
 <div id="deliveryAddressCheck">
-    <%= render qa_partial, question: t('has_significant_influence_on_importer_management'), answer: @insurance.has_significant_influence_on_importer_management ? 'Ja' : 'Nein' %>
+    <%= render qa_partial, question: t('has_significant_influence_on_importer_management'), answer: @insurance.has_significant_influence_on_importer_management ? t('yes') : t('no') %>
 </div>
 
 <% if @insurance.has_significant_influence_on_importer_management? %>
@@ -99,7 +99,7 @@
 <% end %>
 
 <div id="deliveryAddressCheck">
-    <%= render qa_partial, question: t('has_payment_experience_with_importer'), answer: @insurance.has_payment_experience_with_importer? ? 'Ja' : 'Nein' %>
+    <%= render qa_partial, question: t('has_payment_experience_with_importer'), answer: @insurance.has_payment_experience_with_importer? ? t('yes') : t('no') %>
 </div>
 
 <% if @insurance.has_payment_experience_with_importer? %>
@@ -119,7 +119,6 @@
                     <% @insurance.explain_previous_payment_experience_with_importer %>  </p>
             </div>
         </div>
-
     </div>
 
 <% end %>
