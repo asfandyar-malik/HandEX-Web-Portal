@@ -19,6 +19,7 @@ de:
   login: "Einloggen"
   register: "Registrieren"
   save_data: "Daten speichern"
+  save: "Speichern"
   password_forgotten: "Passwort vergessen?"
   password: "Passwort"
   new_application: "Neuer Antrag"

@@ -1,6 +1,6 @@
 en:
-  amount: "amount"
-  description: "description"
+  amount: "Amount"
+  description: "Description"
   please_select: "Please Select"
   delivery_start: "Start of delivery"
   delivery_end: "End of delivery"
@@ -19,6 +19,7 @@ en:
   login: "Login"
   register: "Register"
   save_data: "Save Data"
+  save: "Save"
   password_forgotten: "Forgot password?"
   password: "Password"
   new_application: "New Application"
@@ -32,7 +33,7 @@ en:
   #navbar
   submitted_application: "Submitted Applications"
   approved_application: "Approved Applications"
-  your_profile: "Profile"
+  your_profile: "Your Profile"
   #business information
   business_heading: "Your Business"
   describe_export_business: "Please describe your products and services"
