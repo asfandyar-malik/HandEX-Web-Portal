@@ -30,6 +30,9 @@ en:
   application_sent_at: "Sent at"
   see_summary_of_application: "View Summary"
   currency: "Currency"
+  back: "Back"
+  next_step: "Next"
+  application_submit: "Submit Application"
   #navbar
   submitted_application: "Submitted Applications"
   approved_application: "Approved Applications"

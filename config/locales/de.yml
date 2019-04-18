@@ -30,6 +30,9 @@ de:
   application_sent_at: "Abgeschickt am"
   see_summary_of_application: "Zusammenfassung ansehen"
   currency: "Währung"
+  back: "Zurück"
+  next_step: "Weiter"
+  application_submit: "Angaben prüfen"
   #navbar
   submitted_application: "Versendete Anträge"
   approved_application: "Abgeschlossene Transaktionen"
