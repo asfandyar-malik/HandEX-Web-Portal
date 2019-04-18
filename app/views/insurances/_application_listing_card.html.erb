@@ -4,7 +4,7 @@
 
             <div class="row">
                 <div class="col-sm-6">
-                    <h4 class="text-blue">Importeur</h4>
+                    <h4 class="text-blue"><%= t('importer') %></h4>
                 </div>
                 <div class="col-sm-6">
                     <%= insurance.importer_company_name %>
@@ -13,7 +13,7 @@
 
             <div class="row">
                 <div class="col-sm-6">
-                    <h4 class="text-blue">Zielland</h4>
+                    <h4 class="text-blue"><%= t('destination_country') %></h4>
                 </div>
                 <div class="col-sm-6">
                     <%= insurance.importer_country %>
@@ -22,7 +22,7 @@
 
             <div class="row">
                 <div class="col-sm-6">
-                    <h4 class="text-blue">Produkt</h4>
+                    <h4 class="text-blue"><%= t('product') %></h4>
                 </div>
                 <div class="col-sm-6">
                     <%= insurance.exported_goods_type %>
@@ -31,7 +31,7 @@
 
             <div class="row">
                 <div class="col-sm-6">
-                    <h4 class="text-blue">Auftragswert</h4>
+                    <h4 class="text-blue"><%= t('contract_value') %></h4>
                 </div>
                 <% if insurance.contract_value %>
                     <div class="col-sm-6">
@@ -46,7 +46,7 @@
 
             <div class="row">
                 <div class="col-sm-6">
-                    <h4 class="text-blue">Abgeschickt am</h4>
+                    <h4 class="text-blue"><%= t('application_sent_at') %></h4>
                 </div>
                 <div class="col-sm-6">
                     <%= insurance.updated_at.strftime('%d %b %Y') %>
@@ -60,7 +60,7 @@
                     <% if can_edit %>
                         <%= link_to "Update", edit_insurance_path(insurance.user_id), class: "btn btn-form pull-right" %>
                     <% else %>
-                        <%= link_to "Zusammenfassung ansehen", user_summary_insurance_path(insurance.id), target: :_blank, class: "btn btn-form pull-right" %>
+                        <%= link_to t('see_summary_of_application'), user_summary_insurance_path(insurance.id), target: :_blank, class: "btn btn-form pull-right" %>
                     <% end %>
                 </div>
             </div>

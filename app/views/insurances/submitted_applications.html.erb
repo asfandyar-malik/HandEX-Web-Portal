@@ -5,13 +5,13 @@
     <div class="panel">
         <ul class="sidebar-list">
             <!--        <li class="sidebar-item"><%#= link_to "Anträge in Bearbeitung", insurances_path, class: "sidebar-link" %></li>-->
-            <li class="sidebar-item"><%= link_to "Versendete Anträge", submitted_applications_insurance_path(current_user.id), class: "sidebar-link active" %></li>
-            <li class="sidebar-item"><%= link_to "Abgeschlossene Transaktionen", approved_applications_insurance_path(current_user.id), class: "sidebar-link" %></li>
+            <li class="sidebar-item"><%= link_to t('submitted_application'), submitted_applications_insurance_path(current_user.id), class: "sidebar-link active" %></li>
+            <li class="sidebar-item"><%= link_to t('approved_application'), approved_applications_insurance_path(current_user.id), class: "sidebar-link" %></li>
             <!--          <li class="sidebar-item"><%#= link_to "OCR", new_document_path, class: "sidebar-link" %></li>-->
 
         </ul>
         <br/>
-        <%= link_to 'Neuer Antrag', "/insurances", target: "_blank", class: 'text-center btn btn-profile' %>
+        <%= link_to t('new_application'), "/insurances", target: "_blank", class: 'text-center btn btn-profile' %>
     </div>
 </div>
 

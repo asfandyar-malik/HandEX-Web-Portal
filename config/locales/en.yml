@@ -15,7 +15,25 @@ en:
   other_meeting: "Another date"
   applies: "Applies"
   doesnt_apply: "Does not apply"
-
+  logout: "Logout"
+  login: "Login"
+  register: "Register"
+  save_data: "Save Data"
+  password_forgotten: "Forgot password?"
+  password: "Password"
+  new_application: "New Application"
+  importer: "Importer"
+  destination_country: "Destination Country"
+  product: "Product"
+  contract_value: "Contract value"
+  application_sent_at: "Sent at"
+  see_summary_of_application: "View Summary"
+  currency: "Currency"
+  #navbar
+  submitted_application: "Submitted Applications"
+  approved_application: "Approved Applications"
+  your_profile: "Profile"
+  #business information
   business_heading: "Your Business"
   describe_export_business: "Please describe your products and services"
   is_investment_good: "Are you exporting investment goods?"
@@ -52,7 +70,7 @@ en:
   is_contract_already_signed_between_parties: "Have all parties already signed the contract for the export transaction?"
   contract_signing_date_exporter_internal_contract_id: "Please indicate the date on signing for the and optionally an internal reference"
   has_special_contract_structure: "Do you agree a special contract structure with your contract partner?"
-  contract_value: "Please specify the contract value."
+  give_contract_value: "Please specify the contract value."
   contract_currency: "Contract currency"
   total_delivery_value_excluding_servicing: "What is the contract value excl. service (installation, etc.)?"
   percentage_of_spareparts_in_whole_order: "What is the share of spare parts in the contract value?"
@@ -77,7 +95,7 @@ en:
   when_security_received: "When did you you receive the securities? (Unconfirmed letter of credit from a bank)"
   before_manufacture: "Before manufacture"
   before_delivery: "Before delivery"
-
+  #customer information
   your_importer: "Your customer"
   importer_address: "Please indicate the address of your customer"
   importer_company_name: "Company Name"
@@ -98,7 +116,7 @@ en:
   explain_exporter_influence_on_importer_management: "Please help us to better understand your investment / participation"
   has_payment_experience_with_importer: "Do you already have a payment history with your customer?"
   explain_previous_payment_experience_with_importer: "Please describe these in more detail"
-
+  #financing
   your_financing: "Your financing"
   accept_partial_refinancing: "Are you prepared to accept a (re-) financing that does not correspond to the full order value (85-95%)?"
   accepted_partial_refinancing_text: "In this case, there is the possibility to realize the financing by means of a forfaiting or a direct loan from one of our partner banks to your buyer. In the course of the application we determine which of the two forms of financing we can offer you."
@@ -129,7 +147,7 @@ en:
   is_interest_charged_to_importer: "Are you charging your customer interests?"
   notice_interest_charged: "In this case, there is the possibility to refinance your receivables against your buyer via forfaiting. This means that one of our partner banks buys your receivables and refinances up to 95% of the total claim amount."
   payment_goal: "What payment terms is your customer looking for? "
-
+  #necessary at end
   necessary_at_end: "Necessary at end"
   has_previously_used_hermes_cover: "Have you ever applied for Hermes Cover in the past?"
   new_to_hermes_cover: "Since you have not applied for Hermes Covers in the past, HandEX and our partner Euler Hermes would like to get to know you better. Please help us to understand to what extent you already have export experience and experience with defaulting foreign customers."
@@ -173,3 +191,10 @@ en:
   is_all_information_provided_with_best_of_knowledge: "The above information was provided by us to the best of our knowledge and belief and in consideration of the explanations"
   deliver_together_with_intermediaries: "Do you deliver together with affiliates or are intermediaries involved? Then they have to sign the declaration on corruption prevention separately. Please forward the form accordingly and submit it to us."
   submit_final_statement: "Please submit the final statements last."
+  #product
+  desired_product: "Please choose your desired product to finance your trade"
+  export_credit_financing: "Export Credit Financing"
+  buyers_financing: "Buyers Financing"
+  export_credit_insurance: "Export Credit Insurance"
+
+

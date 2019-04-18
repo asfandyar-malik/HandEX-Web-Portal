@@ -1,31 +1,31 @@
 <% qa_partial = 'insurances/summary/user/shared_partials/question_answer.html.erb' %>
 
-<%= render qa_partial, question: "Haben Sie bereits ein Zahlungsziel bzw. eine eigene Finanzierung mit Ihrem Kunden vereinbart?", answer: @insurance.has_agreed_payment_term_already? ? 'Ja' : 'Nein' %>
+<%= render qa_partial, question: t('has_agreed_payment_term_already'), answer: @insurance.has_agreed_payment_term_already? ? 'Ja' : 'Nein' %>
 
 <% if @insurance.has_agreed_payment_term_already? %>
 
-    <%= render qa_partial, question: "Wie sind Ihre Zahlungsbedingungen gestaltet?", answer: @insurance.has_agreed_payment_term_already? ? 'Ja' : 'Nein' %>
+    <%= render qa_partial, question: t('payment_term'), answer: @insurance.has_agreed_payment_term_already? ? 'Ja' : 'Nein' %>
 
     <% answer = nil %>
     <% if @insurance.payment_term_short? %>
 
-        <% answer = "kurzfristig (bis zu 2 Jahre Kreditlaufzeit" %>
+        <% answer = t('payment_term_short') %>
         <%= render 'insurances/summary/user/_finance_partials/shortPaymentTerm.html.erb' %>
 
     <% elsif @insurance.payment_term_mid? %>
 
-        <% answer = "mittel-/langfristig (über 2 Jahre Kreditlaufzeit)" %>
+        <% answer = t('payment_term_mid') %>
         <%= render 'insurances/summary/user/_finance_partials/midPaymentTerm.html.erb' %>
 
     <% elsif @insurance.payment_term_both? %>
 
-        <% answer = "sowohl kurzfristig als auch mittel-/langfristig" %>
+        <% answer = t('payment_term_both') %>
         <%= render 'insurances/summary/user/_finance_partials/bothPaymentTerm.html.erb' %>
 
     <% end %>
 
     <div id="interestCountedCustomer">
-        <%= render qa_partial, question: "Berechnen Sie Ihrem Kunden Zinsen?", answer: answer %>
+        <%= render qa_partial, question: t('is_interest_charged_to_importer'), answer: answer %>
     </div>
 
 
@@ -34,9 +34,7 @@
         <div id="yesCustomerCountInterest">
             <div class="row">
                 <div class="col-md-8 col-md-offset-1 text-babu">
-                    <p> In diesem Fall gibt es die Möglichkeit, Ihre Forderungen gegenüber Ihrem Käufer mit einer
-                        Forfaitierung zu refinanzieren. Das bedeutet eine unserer Partnerbanken kauft Ihre Forderungen ab und
-                        refinanziert bis zu 95% des gesamten Forderungsbetrages. </p>
+                    <p> <%= t('notice_interest_charged') %></p>
                 </div>
             </div>
         </div>
@@ -44,30 +42,20 @@
     <% else %>
 
         <div id="noCustomerCountInterest">
-            <%= render qa_partial, question: "Welche Kreditlaufzeit wünscht ihr Kunde?", answer: @insurance.loan_term %>
+            <%= render qa_partial, question:  t('payment_goal'), answer: @insurance.loan_term %>
         </div>
 
     <% end %>
 
-    <% if false %>
-        Asfand: From here I am not making stuff in backend. Have to come back to this
-        Utkrist: General: The overall code must be refactored.
-        With regards to you prev comment: The issues must be fixed, and variables below must me set to
-        the appropriate one in the database.
-    <% end %>
-
     <div id="residualRiskApetite">
-        <%= render qa_partial, question: "Sind Sie bereit ein Restrisiko von 5% der Forderungen zu behalten?", answer: @insurance.loan_term? ? 'Ja' : 'Nein' %>
+        <%= render qa_partial, question: t('accept_partial_refinancing'), answer: @insurance.loan_term? ? 'Ja' : 'Nein' %>
     </div>
 
     <% if @insurance.is_interest_charged_to_importer? %>
         <div id="yesResidualRiskApetite">
             <div class="row">
                 <div class="col-md-8 col-md-offset-1 text-babu">
-                    <p> In diesem Fall gibt es die Möglichkeit die Finanzierung im Rahmen einer Forfaitierung oder
-                        eines direkten Kredites von einer unserer Partnerbanken an Ihren Käufer zu realisieren. Im
-                        Laufe des Antrages ermitteln wir welche der beiden Finanzierungsformen wir Ihnen anbieten
-                        können.
+                    <p> <%= t('accepted_partial_refinancing_text') %>
                     </p>
                 </div>
             </div>
@@ -76,8 +64,7 @@
         <div id="noResidualRiskApetite">
             <div class="row">
                 <div class="col-md-8 col-md-offset-1 text-babu">
-                    <p> In diesem Fall gibt es die Möglichkeit die Finanzierung im Rahmen eines direkten Kredites
-                        von einer unserer Partnerbanken an Ihren Käufer zu realisieren.
+                    <p> <%= t('reject_partial_refinancing_text') %>
                     </p>
                 </div>
             </div>

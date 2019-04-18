@@ -15,7 +15,25 @@ de:
   other_meeting: "Anderer Termin"
   applies: "Trifft zu "
   doesnt_apply: "Trifft nicht zu"
-
+  logout: "Ausloggen"
+  login: "Einloggen"
+  register: "Registrieren"
+  save_data: "Daten speichern"
+  password_forgotten: "Passwort vergessen?"
+  password: "Passwort"
+  new_application: "Neuer Antrag"
+  importer: "Importeur"
+  destination_country: "Zielland"
+  product: "Produkt"
+  contract_value: "Auftragswert"
+  application_sent_at: "Abgeschickt am"
+  see_summary_of_application: "Zusammenfassung ansehen"
+  currency: "Währung"
+  #navbar
+  submitted_application: "Versendete Anträge"
+  approved_application: "Abgeschlossene Transaktionen"
+  your_profile: "Ihr Profil"
+  #business information
   business_heading: "Ihr Geschäft"
   describe_export_business: "Bitte beschreiben Sie Ihre Produkte und Leistungen"
   is_investment_good: "Handelt es sich bei Ihrer Ware um Investitionsgüter?"
@@ -52,7 +70,7 @@ de:
   is_contract_already_signed_between_parties: "Haben bereits alle Parteien den Vertrag für das Exportgeschäft unterzeichnet?"
   contract_signing_date_exporter_internal_contract_id: "Bitte geben Sie das Abschlussdatum des Vertrags und optional eine interne Referenz an"
   has_special_contract_structure: "Vereinbaren Sie mit Ihrem Vertragspartner eine besondere Vertragsstruktur?"
-  contract_value: "Bitte geben Sie den Auftragswert an."
+  give_contract_value: "Bitte geben Sie den Auftragswert an."
   contract_currency: "Vertragswährung"
   total_delivery_value_excluding_servicing: "Wie hoch ist der Lieferwert der Güter exkl. anderer Leistungen (Montagen, etc.)"
   percentage_of_spareparts_in_whole_order: "Wie hoch ist der Anteil der Ersatzteile am Lieferwert?"
@@ -77,7 +95,7 @@ de:
   when_security_received: "Wann werden Sie die Sicherheiten erhalten? (unbestätigtes Akkreditiv einer Bank-1)"
   before_manufacture: "Vor Fabrikationsbeginn"
   before_delivery: "Vor Liefer-/Leistungsbeginn"
-
+  #customer information
   your_importer: "Ihr Kunde"
   importer_address: "Bitte geben Sie die Adresse Ihres Kunden an"
   importer_company_name: "Firmenname"
@@ -98,7 +116,7 @@ de:
   explain_exporter_influence_on_importer_management: "Bitte helfen Sie uns, die Beteiligung besser zu verstehen"
   has_payment_experience_with_importer: "Haben Sie bereits Zahlungserfahrungen mit Ihrem Kunden? "
   explain_previous_payment_experience_with_importer: "Bitte beschreiben Sie diese näher."
-
+  #financing
   your_financing: "Ihre Finanzierung"
   accept_partial_refinancing: "Sind Sie bereit eine (Re-)Finanzierung anzunehmen, die nicht dem vollständigen Auftragswert entspricht (85-95%)? "
   accepted_partial_refinancing_text: "In diesem Fall gibt es die Möglichkeit die Finanzierung im Rahmen einer Forfaitierung oder eines direkten Kredites von einer unserer Partnerbanken an Ihren Käufer zu realisieren. Im Laufe des Antrages ermitteln wir welche der beiden Finanzierungsformen wir Ihnen anbieten können."
@@ -131,7 +149,7 @@ de:
   is_interest_charged_to_importer: "Berechnen Sie Ihrem Kunden Zinsen?"
   notice_interest_charged: "In diesem Fall gibt es die Möglichkeit, Ihre Forderungen gegenüber Ihrem Käufer mit einer Forfaitierung zu refinanzieren. Das bedeutet eine unserer Partnerbanken kauft Ihre Forderungen ab und refinanziert bis zu 95% des gesamten Forderungsbetrages."
   payment_goal: "Welches Zahlungsziel wünscht Ihr Kunde (in Monaten)? "
-
+  #necessary at end
   necessary_at_end: "Notwendiges zum Schluss"
   has_previously_used_hermes_cover: "Haben Sie in der Vergangenheit schon einmal einen Antrag auf Hermesdeckung eingereicht?"
   new_to_hermes_cover: "Da Sie bisher keine Hermesdeckung beantragt haben, möchte HandEX und unser Partner Euler Hermes Sie besser kennenlernen. Bitte helfen Sie uns zu verstehen, inwieweit Sie bereits über Exporterfahrung und Erfahrungen mit säumigen Auslandskunden verfügen."
@@ -162,7 +180,6 @@ de:
   corruption_prevention_statement: "Bitte geben Sie die Erklärung zur Korruptionsprävention ab."
   compliance_heading: "Beachtung gesetzlicher Vorschriften "
   compliance_statement: "Wir erklären, dass der Abschluss des Liefer- bzw. Leistungsgeschäfts nicht durch eine strafbare Handlung eines Mitarbeiters, der Geschäftsleitung oder eines Inhabers unseres Unternehmens oder einer anderen in unserem Auftrag handelnden Person herbeigeführt worden ist bzw. nicht durch eine derartige Handlung herbeigeführt werden wird."
-
   obligation_heading: "Auskunftspflicht "
   obligation_statement: " Uns ist bekannt, dass wir im Antragsverfahren und nach Übernahme der jeweils beantragten Exportkreditgarantie sowie gemäß der bei Beantragung einer Exportkreditgarantie für einen gebundenen Finanzkredit abzugebenden Verpflichtungserklärung über alle Umstände des zur Deckung beantragten Geschäfts, die für die Übernahme der Exportkreditgarantie erheblich sind, dem Bund vollständig und richtig Auskunft zu erteilen haben. Dies umfasst auch die Beantwortung von Fragen des Bundes hinsichtlich der Identität von Personen, die in unserem Auftrag am Abschluss des Liefer- bzw. Leistungsgeschäfts beteiligt sind oder waren, sowie von Fragen über Grund und Höhe etwaiger Zahlungen an diese Personen. "
   criminal_information_heading: "Angaben zu Anklagen, strafrechtlichen und nicht-strafrechtlichen Sanktionen sowie Ermittlungsverfahren und Sperrlisten"
@@ -176,3 +193,14 @@ de:
   is_all_information_provided_with_best_of_knowledge: "Die vorstehenden Angaben wurden von uns nach bestem Wissen und Gewissen und in Kenntnisnahme der Erläuterungen gemacht"
   deliver_together_with_intermediaries: "Liefern Sie gemeinsam mit Verbundunternehmen oder sind Zwischenhändler eingesetzt? Dann müssen diese die Erklärung zur Korruptionsprävention separat unterzeichnen. Bitte leiten Sie das Formular entsprechend weiter und reichen es uns nach."
   submit_final_statement: "Bitte geben Sie zuletzt noch die Abschlusserklärungen ab."
+  #product
+  desired_product: "Bitte wählen Sie Ihr gewünschtes Produkt aus, um Ihren Handel zu finanzieren"
+  export_credit_financing: "Exportkredit finanzierung"
+  buyers_financing: "Einkaufs finanzierung"
+  export_credit_insurance: "Exportkredit versicherung"
+  #summary
+  summary: "Zusammenfassung"
+  where_should_it_go: "Wohin soll es gehen?"
+  how_high_contract_value: "Wie hoch ist der Auftragswert in Euro?"
+  exporting_to_private_sector: "Liefern Sie an Privatsektor?"
+  corruption_delcaration: "Korruptionserklärung"

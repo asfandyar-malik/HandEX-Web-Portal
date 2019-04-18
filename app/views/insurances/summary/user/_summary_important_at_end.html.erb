@@ -1,27 +1,20 @@
 <% qa_partial = 'insurances/summary/user/shared_partials/question_answer.html.erb' %>
 
 <div id="deliveryAddressCheck">
-    <%= render qa_partial, question: "Haben Sie in der Vergangenheit schon einmal einen Antrag auf Hermesdeckung eingereicht?", answer: @insurance.has_previously_used_hermes_cover ? 'Ja' : 'Nein' %>
+    <%= render qa_partial, question: t('has_previously_used_hermes_cover'), answer: @insurance.has_previously_used_hermes_cover ? 'Ja' : 'Nein' %>
 </div>
 
 <div id="newAtHermesDeckung" style="display: <%= @insurance.has_previously_used_hermes_cover? ? 'none' : 'block' %>">
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
-            <p>Da Sie bisher keine Hermesdeckung beantragt haben, möchte HandEX
-                und unser Partner Euler Hermes Sie besser kennenlernen.
-                Bitte helfen Sie uns zu verstehen, inwieweit Sie bereits über
-                Exporterfahrung
-                und Erfahrungen mit säumigen Auslandskunden verfügen.</p>
+            <p><%= t('new_to_hermes_cover') %></p>
             <br><br>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
-            <p><i>Inwieweit bzw. seit wie vielen Jahren verfügen Sie über
-                Exporterfahrung
-                aus ungedeckten Geschäften, d.h. Exportgeschäfte ohne
-                Hermesdeckung?</i></p>
+            <p><i> <%= t('years_trading_without_hermes_insurance') %></i></p>
         </div>
     </div>
 
@@ -34,7 +27,7 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
-            <p><i>Besteht eine langjährige Exporterfahrung sowie Marktkenntnis mit dem Empfängerland?</i></p>
+            <p><i> <%= t('experience_with_importer_country') %></i></p>
         </div>
     </div>
 
@@ -47,13 +40,7 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-1 ">
-            <p><i> Bitte legen Sie dar, inwiefern Sie über ein adäquates
-                Schadenmanagement
-                verfügen. Wurden Sie in der Vergangenheit bereits (häufiger) mit
-                Zahlungsverzügen/ Forderungsausfällen konfrontiert und welche
-                Maßnahmen greifen bei Ihnen im Unternehmen, wenn ein Kunde in
-                Zahlungsverzug
-                gerät? </i></p>
+            <p><i> <%= t('adequate_claims_management') %> </i></p>
         </div>
     </div>
 
@@ -70,7 +57,7 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
-            <p> Bitte geben Sie Ihre Firmendaten an. </p>
+            <p> <%= t('exporter_company_data') %></p>
         </div>
     </div>
     <br>
@@ -78,7 +65,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
 
-            <% address_keys = ["Firmenname", "DN-NR", "Telefon", "Straße / Hausnummer", "PLZ", "Land"] %>
+            <% address_keys = [t('exporter_name'),t('exporter_dn_no'), t('exporter_telephone'), t('exporter_street_hno'), t('exporter_plz'), t('exporter_country')] %>
 
             <% address_values = [@insurance.exporter_name, @insurance.exporter_dn_no, @insurance.exporter_telephone, @insurance.exporter_street_hno, @insurance.exporter_plz, @insurance.exporter_country
 
@@ -102,7 +89,7 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
-            <p> Anzahl der Mitarbeiterinnen und Mitarbeiter </p>
+            <p> <%= t('employees_count') %> </p>
         </div>
     </div>
     <div class="row">
@@ -113,7 +100,7 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
-            <p> Umsatz im letzten vollen Geschäftsjahr </p>
+            <p> <%= t('revenue_last_year') %> </p>
         </div>
     </div>
 
@@ -131,7 +118,7 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
-            <p> Wen können wir ansprechen? </p>
+            <p> <%= t('exporter_representative') %> </p>
         </div>
     </div>
     <br>
@@ -139,7 +126,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
 
-            <% address_keys = ["Vorname", "Nachname", "Email", "Funktion", "Bereich"] %>
+            <% address_keys = [t('exporter_representative_firstname'),t('exporter_representative_lastname'),t('exporter_representative_email'),t('exporter_representative_function'),t('exporter_representative_department')] %>
 
             <% address_values = [@insurance.exporter_representative_firstname, @insurance.exporter_representative_lastname, @insurance.exporter_representative_email, @insurance.exporter_representative_function, @insurance.exporter_representative_department] %>
 
@@ -164,7 +151,7 @@
 <div class="form-group">
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
-            <p><b>Diese Anlagen benötigen wir für die Prüfung Ihres Geschäftes </b></p>
+            <p><b><%= t('documents_for_examination') %> </b></p>
         </div>
     </div>
 </div>
@@ -173,7 +160,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
 
-            <% file_types = ["Selbstauskunft (bei Neukunden)", "Jahresabschlüsse Ihres Kunden", "Auskünfte über Ihren Kunden", "Umwelt- und Sozialinformationen", "ggf. Projektmemorandum", "Sonstiges"] %>
+            <% file_types = [t('self_declaration_document'),t('annual_financial_statement_importer_document'), t('credit_bureaus_importer_document'), t('environment_social_audit_document'), t('project_memorandum_exporter_business'), t('Others')] %>
 
             <% file_names = [@insurance.self_disclosure_file_name, @insurance.annual_financial_statement_importer_file_name, @insurance.credit_bureaus_importer_file_name, @insurance.environment_social_audit_file_name, @insurance.project_memorandum_exporter_business_file_name, @insurance.additional_document_file_name] %>
 
@@ -206,7 +193,7 @@
     <div class="row" style="display: <%= !@insurance.does_corruption_declaration_apply? ? 'block' : 'none' %>;">
         <div class="col-md-8 col-md-offset-1">
             <p class="text-babu">
-                Trifft zu (Nähere Angaben erforderlich. Lesen Sie hierzu auch die Hinweise)
+                <%= t('applies') %>
             </p>
             <hr>
         </div>
@@ -215,8 +202,7 @@
     <div id="showHideDivCorruptionDeclarationApplies" style="display:<%= !@insurance.does_corruption_declaration_apply? ? 'block' : 'none' %>">
         <div class="row">
             <div class="col-md-8 col-md-offset-1">
-                <p> Bitte machen Sie nähere Angaben zu den oben stehenden Punkten hinsichtlich Anklagen, strafrechtlichen
-                    oder nicht-strafrechtlichen Sanktionen sowie Ermittlungsverfahren und Sperrlisten </p>
+                <p> <%= t('explain_corruption_sanctions') %> </p>
             </div>
         </div>
 
@@ -231,7 +217,7 @@
     <div class="row" style="display: <%= @insurance.does_corruption_declaration_apply? ? 'none' : 'block' %>">
         <div class="col-md-8 col-md-offset-1">
             <p class="text-babu">
-                Trifft nicht zu
+                <%= t('doesnt_apply') %>
             </p>
         </div>
     </div>
@@ -239,8 +225,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
             <div class="<%= @insurance.is_all_information_provided_with_best_of_knowledge? ? 'text-babu' : 'text-red' %>">
-                Die vorstehenden Angaben wurden von uns nach bestem Wissen und Gewissen und in Kenntnisnahme der Erläuterungen
-                gemacht.
+                <%= t('is_all_information_provided_with_best_of_knowledge') %>
             </div>
             <hr>
         </div>
@@ -251,7 +236,7 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
-            <p> Abschlusserklärungen </p>
+            <p> <%= t('submit_final_statement') %> </p>
             <hr>
         </div>
     </div>

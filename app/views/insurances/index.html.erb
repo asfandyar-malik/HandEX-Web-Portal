@@ -8,7 +8,7 @@
                 <br> <br>
 
                 <div class="wizard-header">
-                    <h4 class="wizard-title"><b>Please choose your desired product to finance your trade </b></h4>
+                    <h4 class="wizard-title"><b> <%= t('desired_product') %> </b></h4>
                     <br><br>
                 </div>
 
@@ -16,12 +16,12 @@
 
                     <div class="form-group">
 
-                        <div class="col-sm-2 col-sm-offset-2">
+                        <div class="col-sm-2 col-sm-offset-3">
                             <div class="choice" id="export-financing" data-toggle="wizard-checkbox" onclick="noCustomerCountsInterest()">
                                 <div class="card card-checkboxes card-hover-effect">
                                     <p><br></p>
                                     <i class="ti-home"></i>
-                                    <p>Export Financing <br><br><br></p>
+                                    <p> <%= t('export_credit_financing') %> <br><br><br></p>
                                 </div>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                                 <div class="card card-checkboxes card-hover-effect">
                                     <p><br></p>
                                     <i class="ti-package"></i>
-                                    <p>Import Financing <br><br><br></p>
+                                    <p> <%= t('buyers_financing') %><br><br><br><br></p>
                                 </div>
                             </div>
                         </div>
@@ -41,17 +41,7 @@
                                 <div class="card card-checkboxes card-hover-effect">
                                     <p><br></p>
                                     <i class="ti-control-stop"></i>
-                                    <p>Forfaiting<br><br><br></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-2">
-                            <div class="choice" id="bank-guarantee" data-toggle="wizard-checkbox">
-                                <div class="card card-checkboxes card-hover-effect">
-                                    <p><br></p>
-                                    <i class="ti-layout-grid4-alt"></i>
-                                    <p>Importer Bank Guarantee <br><br></p>
+                                    <p><%= t('export_credit_insurance') %><br><br><br></p>
                                 </div>
                             </div>
                         </div>

@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
-            <p> Bitte geben Sie die Adresse Ihres Kunden an </p>
+            <p> <%= t('importer_address') %></p>
         </div>
     </div>
     <br>
@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
 
-            <% address_keys = ["Firmenname", "Straße / Hausnummer", "PLZ", "Ort"] %>
+            <% address_keys = [t('importer_company_name'), t('importer_street_hno'), t('importer_plz'), t('importer_city')] %>
 
             <% address_values = [@insurance.importer_company_name, @insurance.importer_street_hno, @insurance.importer_plz, @insurance.importer_city] %>
 
@@ -38,7 +38,7 @@
 </div>
 
 <div id="deliveryAddressCheck">
-    <%= render qa_partial, question: "Liefern Sie an diese Adresse?", answer: @insurance.is_shipment_address? ? 'Ja' : 'Nein' %>
+    <%= render qa_partial, question: t('is_shipment_address'), answer: @insurance.is_shipment_address? ? 'Ja' : 'Nein' %>
 </div>
 
 <% if !@insurance.is_shipment_address? %>
@@ -46,7 +46,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
 
-            <% address_keys = ["Firmenname", "Land", "Straße / Hausnummer", "PLZ", "Ort"] %>
+            <% address_keys = [t('importer_shipment_company_name'), t('importer_shipment_country'), t('importer_shipment_street_hno'), t('importer_shipment_plz'), t('importer_shipment_city')] %>
 
             <% address_values = [@insurance.importer_shipment_company_name, @insurance.importer_shipment_country, @insurance.importer_shipment_street_hno, @insurance.importer_shipment_plz, @insurance.importer_shipment_city] %>
 
@@ -73,7 +73,7 @@
 <% end %>
 
 <div id="deliveryAddressCheck">
-    <%= render qa_partial, question: "Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder üben Sie maßgeblichen Einfluss auf die Geschäftsführung aus?", answer: @insurance.has_significant_influence_on_importer_management ? 'Ja' : 'Nein' %>
+    <%= render qa_partial, question: t('has_significant_influence_on_importer_management'), answer: @insurance.has_significant_influence_on_importer_management ? 'Ja' : 'Nein' %>
 </div>
 
 <% if @insurance.has_significant_influence_on_importer_management? %>
@@ -82,7 +82,7 @@
 
         <div class="row">
             <div class="col-md-8 col-md-offset-1">
-                <p> Bitte helfen Sie uns, die Beteiligung besser zu verstehen. </p>
+                <p> <%= t('explain_exporter_influence_on_importer_management')  %></p>
             </div>
         </div>
         <br>
@@ -99,7 +99,7 @@
 <% end %>
 
 <div id="deliveryAddressCheck">
-    <%= render qa_partial, question: "Haben Sie bereits Zahlungserfahrungen mit Ihrem Kunden?", answer: @insurance.has_payment_experience_with_importer? ? 'Ja' : 'Nein' %>
+    <%= render qa_partial, question: t('has_payment_experience_with_importer'), answer: @insurance.has_payment_experience_with_importer? ? 'Ja' : 'Nein' %>
 </div>
 
 <% if @insurance.has_payment_experience_with_importer? %>
@@ -108,7 +108,7 @@
 
         <div class="row">
             <div class="col-md-8 col-md-offset-1">
-                <p> Bitte beschreiben Sie diese näher. </p>
+                <p> <%= t('explain_previous_payment_experience_with_importer') %></p>
             </div>
         </div>
         <br>

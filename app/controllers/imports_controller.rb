@@ -49,24 +49,6 @@ class ImportsController < ApplicationController
     end
   end
   
-  # def submitted_applications
-  #   @submitted_applications = filer_application_by_status "submitted"
-  # end
-  #
-  # def approved_applications
-  #   @approved_applications = filer_application_by_status "approved"
-  # end
-  #
-  # def user_summary
-  #   render "imports/summary/user_summary"
-  # end
-  #
-  # def pdf_user_summary
-  #   configure_html_to_pdf output_file_name: 'imports/summary/pdf_generated_user_summary.html.erb',
-  #                         layout:           'application_pdf.html.erb',
-  #                         view:             'imports/summary/pdf_user_summary.html.erb'
-  # end
-  
   private
   
   def filer_application_by_status status
