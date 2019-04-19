@@ -102,6 +102,7 @@ de:
   lien_collateral_security: "Pfandrecht (dingliche Sicherheit)"
   proportion_of_good_covered_by_security: "Welchen Anteil des Auftragswertes wird die Sicherheit umfassen? (Zahlungsgarantie einer Bank-1)"
   when_security_received: "Wann werden Sie die Sicherheiten erhalten? (unbestätigtes Akkreditiv einer Bank-1)"
+  when_security_received_later_exact_date: "Genau Datum"
   before_manufacture: "Vor Fabrikationsbeginn"
   before_delivery: "Vor Liefer-/Leistungsbeginn"
   #customer information

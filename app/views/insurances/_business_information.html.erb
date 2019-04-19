@@ -913,11 +913,35 @@
 
             <div class="row">
                 <div class="col-md-4 col-md-offset-1">
-                    <%= form.select :when_security_received, options_for_select([t('please_select'), "Vor Fabrikationsbeginn", "Vor Liefer-/Leistungsbeginn", "Später",
-                                                                                 "Anderer Termin"]), {}, class: "form-control" %>
+                    <%= form.select :when_security_received, options_for_select([[t('please_select'),"0"], ["Vor Fabrikationsbeginn","1"], ["Vor Liefer-/Leistungsbeginn","2"], ["Später","3"],
+                                                                                 ["Anderer Termin","4"]]), {}, id: "when_security_received", class: "form-control" %>
                 </div>
             </div>
+
+            <div id='business' style='display:none;'>
+                <br><br>
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <p> <%= t('when_security_received_later_exact_date') %></p>
+                        <div> <%= form.text_field :when_security_received_later_exact_date, class: "form-control" %> </div>
+                    </div>
+                </div>
+            </div>
+
             <br><br>
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $('#when_security_received').on("change", function() {
+            if ( this.value == "3") {
+                $("#business").show();
+            }
+            else {
+                $("#business").hide();
+            }
+        });
+    });
+</script>

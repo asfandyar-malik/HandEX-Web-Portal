@@ -94,6 +94,7 @@ en:
   partly_rawgoods_supplier_country: "Please indicate the deliveries from abroad that are used in your goods"
   is_security_present_for_transaction: "Are there any securities (e.g letter of credit, payment guarantees, etc.) planned this transaction?"
   security_type: "What type of securities?"
+
   unconfirmed_loc_from_bank: "Unconfirmed letter of credit from a bank"
   confirmed_loc: "Confirmed letter of credit"
   payment_guarantee_from_bank: "Payment guarantee from a bank"
@@ -102,6 +103,7 @@ en:
   lien_collateral_security: "Lien (collateral security)"
   proportion_of_good_covered_by_security: "What proportion of the contract value is covered by a security? (Payment Guarantee of a Bank)"
   when_security_received: "When did you you receive the securities? (Unconfirmed letter of credit from a bank)"
+  when_security_received_later_exact_date: "Exact Date"
   before_manufacture: "Before manufacture"
   before_delivery: "Before delivery"
   #customer information
