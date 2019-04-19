@@ -4,8 +4,7 @@
         <div class="wizard-container">
             <div class="card wizard-card" data-color="blue" id="wizard">
 
-                <br>
-                <br> <br>
+                <br> <br> <br>
 
                 <div class="wizard-header">
                     <h4 class="wizard-title"><b> <%= t('desired_product') %> </b></h4>
@@ -13,11 +12,16 @@
                 </div>
 
                 <div class="row">
-
                     <div class="form-group">
-
                         <div class="col-sm-2 col-sm-offset-3">
-                            <div class="choice" id="export-financing" data-toggle="wizard-checkbox" onclick="noCustomerCountsInterest()">
+
+                            <% if params[:locale] %>
+                                <% @export_portal = 'insurances/new' %>
+                            <% else %>
+                                <% @export_portal = params[:locale].to_s + '/insurances/new' %>
+                            <% end %>
+
+                            <div class="choice" id="export-financing" data-toggle="wizard-checkbox" onclick="openExportPortal()">
                                 <div class="card card-checkboxes card-hover-effect">
                                     <p><br></p>
                                     <i class="ti-home"></i>
@@ -27,7 +31,14 @@
                         </div>
 
                         <div class="col-sm-2">
-                            <div class="choice" id="import-financing" data-toggle="wizard-checkbox">
+
+                            <% if params[:locale] %>
+                                <% @import_portal = 'imports/new' %>
+                            <% else %>
+                                <% @import_portal = params[:locale].to_s + '/imports/new' %>
+                            <% end %>
+
+                            <div class="choice" id="import-financing" data-toggle="wizard-checkbox" onclick="openImportPortal()">
                                 <div class="card card-checkboxes card-hover-effect">
                                     <p><br></p>
                                     <i class="ti-package"></i>
@@ -37,7 +48,7 @@
                         </div>
 
                         <div class="col-sm-2">
-                            <div class="choice" id="forfaiting" data-toggle="wizard-checkbox" >
+                            <div class="choice" id="forfaiting" data-toggle="wizard-checkbox" onclick="openExporterInsurancePortal()">
                                 <div class="card card-checkboxes card-hover-effect">
                                     <p><br></p>
                                     <i class="ti-control-stop"></i>
@@ -57,16 +68,20 @@
 </div>
 
 <script type="text/javascript">
-    document.getElementById("export-financing").onclick = function () {
-        location.href = "/insurances/new";
-    };
-    document.getElementById("import-financing").onclick = function () {
-        location.href = "/imports/new";
-    };
-    document.getElementById("forfaiting").onclick = function () {
-        location.href = "/insurances/new";
-    };
-    document.getElementById("bank-guarantee").onclick = function () {
-        location.href = "/insurances/new";
-    };
+
+    function openExportPortal() {
+        var export_portal = '<%= @export_portal %>';
+        window.open(export_portal);
+    }
+
+    function openImportPortal() {
+        var import_portal = '<%= @import_portal %>';
+        window.open(import_portal);
+    }
+
+    function openExporterInsurancePortal() {
+        var export_portal = '<%= @export_portal %>';
+        window.open(export_portal);
+    }
+
 </script>
