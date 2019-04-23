@@ -94,7 +94,6 @@ en:
   partly_rawgoods_supplier_country: "Please indicate the deliveries from abroad that are used in your goods"
   is_security_present_for_transaction: "Are there any securities (e.g letter of credit, payment guarantees, etc.) planned this transaction?"
   security_type: "What type of securities?"
-
   unconfirmed_loc_from_bank: "Unconfirmed letter of credit from a bank"
   confirmed_loc: "Confirmed letter of credit"
   payment_guarantee_from_bank: "Payment guarantee from a bank"
@@ -106,6 +105,11 @@ en:
   when_security_received_later_exact_date: "Exact Date"
   before_manufacture: "Before manufacture"
   before_delivery: "Before delivery"
+  has_significant_influence_on_security_provider: "Are you involved in any way with the collateral provider and / or are you exercising significant influence over the management? "
+  explain_exporter_influence_on_security_provider: "Please help us to better understand the involvement."
+  has_payment_experience_with_security_provider: "Do you already have payment experience with your collateral provider? "
+  explain_previous_payment_experience_with_security_provider: "Please describe these in more detail."
+  security_provider_address: "Please enter the address of the guarantor."
   #customer information
   your_importer: "Your customer"
   importer_address: "Please indicate the address of your customer"

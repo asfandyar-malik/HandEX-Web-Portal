@@ -885,9 +885,10 @@
 
             <div class="row">
                 <div class="col-md-4 col-md-offset-1">
-                    <%= form.select :security_type, options_for_select([t('please_select'), "Unbestätigtes Akkreditiv einer Bank", "Bestätigtes Akkreditiv", "Zahlungsgarantie einer Bank",
-                                                                        "Zahlungsgarantie eines Unternehmens", "(eingetragener) Eigentumsvorbehalt (dingliche Sicherheit)",
-                                                                        "Pfandrecht (dingliche Sicherheit)", "sonstige"]), {}, class: "form-control" %>
+                    <%= form.select :security_type, options_for_select([[t('please_select'),"0"], ["Unbestätigtes Akkreditiv einer Bank","1"], ["Bestätigtes Akkreditiv","2"],
+                                                                        ["Zahlungsgarantie einer Bank","3"], ["Zahlungsgarantie eines Unternehmens","4"],
+                                                                        ["(eingetragener) Eigentumsvorbehalt (dingliche Sicherheit)","5"],
+                                                                        ["Pfandrecht (dingliche Sicherheit)","6"], ["sonstige","7"]]), {}, id: "security_type", class: "form-control" %>
                 </div>
                 <div class="col-md-4">
                     <div> <%= form.text_field :security_type_name, class: "form-control", placeholder: "Bitte Name vergeben" %> </div>
@@ -898,8 +899,8 @@
 
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <p> <%= t('proportion_of_good_covered_by_security') %>  </p>
-                    <div> <%= form.text_area :proportion_of_good_covered_by_security, class: "form-control" %> </div>
+                    <p> <%= t('proportion_of_good_covered_by_security')  %>  </p>
+                    <div> <%= form.text_field :proportion_of_good_covered_by_security, class: "form-control" %> </div>
                 </div>
             </div>
 
@@ -928,6 +929,99 @@
                 </div>
             </div>
 
+            <div id='securityprovideradditionalinfo' style='display:none;'>
+                <br>
+
+                <div class="form-group">
+                    <div class="row">
+                        <br>
+                        <div class="col-md-10 col-md-offset-1">
+                            <p><b><%= t('has_significant_influence_on_security_provider') %> </b>
+                            <p>
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
+                                <div class="choice" name="yes_significantinfluencesecurityprovider" data-toggle="wizard-checkbox" onclick="explainSignificantInfluenceOnSecurityProvider()">
+                                    <%= check_box_tag "insurance[has_significant_influence_on_security_provider]", @insurance.has_significant_influence_on_security_provider ? @insurance.has_significant_influence_on_security_provider : nil %>
+                                    <div class="card circle card-hover-effect">
+                                        <i class="ti-check"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
+                                <div class="choice" name="no_significantinfluencesecurityprovider" data-toggle="wizard-checkbox" onclick="noSecurityBusinnesProvided()">
+                                    <%= check_box_tag "insurance[has_significant_influence_on_security_provider]", @insurance.has_significant_influence_on_security_provider ? nil : @insurance.has_significant_influence_on_security_provider %>
+                                    <div class="card circle card-hover-effect">
+                                        <i class="ti-close"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+
+                <div id='explainSignificantInfluenceOnSecurityProviderId' style='display:none;'>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <p> <%= t('explain_exporter_influence_on_security_provider') %></p>
+                            <div> <%= form.text_area :explain_exporter_influence_on_security_provider, class: "form-control" %> </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <div class="row">
+                        <br>
+                        <div class="col-md-10 col-md-offset-1">
+                            <p><b><%= t('has_payment_experience_with_security_provider') %> </b>
+                            <p>
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
+                                <div class="choice" name="yes_securitybusinnesprovided" data-toggle="wizard-checkbox" onclick="explainPaymentExperienceWithSecurityProvider()">
+                                    <%= check_box_tag "insurance[has_payment_experience_with_security_provider]", @insurance.has_payment_experience_with_security_provider ? @insurance.has_payment_experience_with_security_provider : nil %>
+                                    <div class="card circle card-hover-effect">
+                                        <i class="ti-check"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
+                                <div class="choice" name="no_securitybusinnesprovided" data-toggle="wizard-checkbox">
+                                    <%= check_box_tag "insurance[has_payment_experience_with_security_provider]", @insurance.has_payment_experience_with_security_provider ? nil : @insurance.has_payment_experience_with_security_provider %>
+                                    <div class="card circle card-hover-effect">
+                                        <i class="ti-close"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                <div id='explainPaymentExperienceSecurityProviderId' style='display:none;'>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <p> <%= t('explain_previous_payment_experience_with_security_provider') %></p>
+                            <div> <%= form.text_area :explain_previous_payment_experience_with_security_provider, class: "form-control" %> </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id='securityProviderAddress'>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <p> <%= t('security_provider_address') %></p>
+                            <div> <%= form.text_area :security_provider_address, class: "form-control" %> </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
             <br><br>
         </div>
     </div>
@@ -944,4 +1038,35 @@
             }
         });
     });
+
+    $(document).ready(function(){
+        $('#security_type').on("change", function() {
+            if ( this.value == "0" || "1" || "2" || "3" || "4") {
+                $("#securityprovideradditionalinfo").show();
+            }
+            else {
+                $("#securityprovideradditionalinfo").hide();
+            }
+        });
+    });
+
+    function explainSignificantInfluenceOnSecurityProvider() {
+        var x = document.getElementById("explainSignificantInfluenceOnSecurityProviderId");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function explainPaymentExperienceWithSecurityProvider() {
+        var x = document.getElementById("explainPaymentExperienceSecurityProviderId");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+
 </script>

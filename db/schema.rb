@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_19_143914) do
+ActiveRecord::Schema.define(version: 2019_04_23_081715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -201,6 +201,11 @@ ActiveRecord::Schema.define(version: 2019_04_19_143914) do
     t.integer "number_of_installments_payment_term_mid"
     t.float "contract_currency"
     t.datetime "when_security_received_later_exact_date"
+    t.boolean "has_significant_influence_on_security_provider"
+    t.string "explain_exporter_influence_on_security_provider"
+    t.boolean "has_payment_experience_with_security_provider"
+    t.string "explain_previous_payment_experience_with_security_provider"
+    t.string "security_provider_address"
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 
