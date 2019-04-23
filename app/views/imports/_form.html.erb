@@ -20,7 +20,6 @@
 
                         <div class="wizard-header">
                             <!--                            <h3 class="wizard-title">Versichern Sie Ihren Export</h3>-->
-                            <br><br>
                         </div>
 
                         <div class="wizard-navigation">
@@ -31,19 +30,43 @@
 
                             <ul>
                                 <li>
-                                    <a href="#facilities" data-toggle="tab">
+                                    <a href="#one" data-toggle="tab">
                                         <div class="icon-circle">
                                             <i class="ti-panel"></i>
                                         </div>
-                                        <p style="font-family: 'Handel Becker Light', 'Handel Becker Med', 'HandelGotDBol', sans-serif;"> Ihr Geschäft </p>
+                                        <p style="font-family: 'Handel Becker Light', 'Handel Becker Med', 'HandelGotDBol', sans-serif;"> Agreement on Terms</p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#description" data-toggle="tab">
+                                    <a href="#two" data-toggle="tab">
                                         <div class="icon-circle">
                                             <i class="ti-comments"></i>
                                         </div>
-                                        <p style="font-family: 'Handel Becker Light', 'Handel Becker Med', 'HandelGotDBol', sans-serif;"> Ihr Kunde </p>
+                                        <p style="font-family: 'Handel Becker Light', 'Handel Becker Med', 'HandelGotDBol', sans-serif;"> Transaction Booking </p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#three" data-toggle="tab">
+                                        <div class="icon-circle">
+                                            <i class="ti-comments"></i>
+                                        </div>
+                                        <p style="font-family: 'Handel Becker Light', 'Handel Becker Med', 'HandelGotDBol', sans-serif;"> Choice of Payment terms </p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#four" data-toggle="tab">
+                                        <div class="icon-circle">
+                                            <i class="ti-comments"></i>
+                                        </div>
+                                        <p style="font-family: 'Handel Becker Light', 'Handel Becker Med', 'HandelGotDBol', sans-serif;"> Document Upload</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#five" data-toggle="tab">
+                                        <div class="icon-circle">
+                                            <i class="ti-comments"></i>
+                                        </div>
+                                        <p style="font-family: 'Handel Becker Light', 'Handel Becker Med', 'HandelGotDBol', sans-serif;"> Acceptance & pay-out </p>
                                     </a>
                                 </li>
                             </ul>
@@ -54,18 +77,30 @@
 
                         <div class="tab-content">
 
-                            <div class="tab-pane" id="facilities">
-                                <%= render "import_information_one.html.erb", form: form %>
+                            <div class="tab-pane" id="one">
+                                <%= render "one_import.html.erb", form: form %>
                             </div>
 
-                            <div class="tab-pane" id="description">
-                                <%= render "import_information_two.html.erb", form: form %>
+                            <div class="tab-pane" id="two">
+                                <%= render "two_import.html.erb", form: form %>
+                            </div>
+
+                            <div class="tab-pane" id="three">
+                                <%= render "three_import.html.erb", form: form %>
+                            </div>
+
+                            <div class="tab-pane" id="four">
+                                <%= render "four_import.html.erb", form: form %>
+                            </div>
+
+                            <div class="tab-pane" id="five">
+                                <%= render "five_import.html.erb", form: form %>
                             </div>
                         </div>
 
                         <div class="wizard-footer">
                             <div class="pull-right">
-                                <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Weiter'/>
+                                <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Accept'/>
                                 <%= form.submit class: 'btn btn-finish btn-fill btn-danger btn-wd', value: 'Angaben prüfen', :onclick => "validateCheckbox();" %>
                             </div>
 
