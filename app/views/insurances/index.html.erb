@@ -33,7 +33,7 @@
                         <div class="col-sm-2">
 
                             <% if params[:locale] %>
-                                <% @import_portal = 'imports/new' %>
+                                <% @import_portal = '/' + params[:locale].to_s + '/imports/new' %>
                             <% else %>
                                 <% @import_portal = params[:locale].to_s + '/imports/new' %>
                             <% end %>
@@ -49,7 +49,7 @@
 
                         <div class="col-sm-2">
                             <div class="choice" id="forfaiting" data-toggle="wizard-checkbox" onclick="openExporterInsurancePortal()">
-                                <div class="card card-checkboxes card-hover-effect">
+                                <div class="card card-checkboxes">
                                     <p><br></p>
                                     <i class="ti-control-stop"></i>
                                     <p><%= t('export_credit_insurance') %><br> </p>

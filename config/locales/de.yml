@@ -220,8 +220,6 @@ de:
   read_all_instruction_html: "Wir haben die %{href} für den Antrag, Veröffentlichung von Projektdaten, OECD-Leitsätze für multinationale Unternehmen und UN-Leitprinzipien für Wirtschafts- und Menschenrechte zur Kenntnis genommen."
   read_all_instruction_text: "Hinweise zu Gebühren und Entgelten, Richtlinien, Verantwortlichkeiten"
   read_all_instruction_href: "/pages/guidelines"
-#  has_read_privacy_policy: "Wir haben die %{href} zur Kenntnis genommen und sind mit deren Geltung einverstanden."
-#  has_read_privacy_policy_link: "/pages/termsAndConditions"
   has_read_all_instructions: "Wir haben die %{href} für den Antrag, Veröffentlichung von Projektdaten, OECD-Leitsätze für multinationale Unternehmen und UN-Leitprinzipien für Wirtschafts- und Menschenrechte zur Kenntnis genommen."
   has_read_all_instructions_link: "/pages/guidelines"
   #summary

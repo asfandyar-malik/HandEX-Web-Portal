@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
     
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
     scope "(:locale)", locale: /en|es|de/ do
     
         get '/:locale' => 'insurances#index'
