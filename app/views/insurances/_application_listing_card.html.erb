@@ -60,7 +60,7 @@
                     <% if can_edit %>
                         <%= link_to "Update", edit_insurance_path(insurance.user_id), class: "btn btn-form pull-right" %>
                     <% else %>
-                        <%= link_to t('see_summary_of_application'), user_summary_insurance_path(insurance.id), target: :_blank, class: "btn btn-form pull-right" %>
+                        <%= link_to t('see_summary_of_application'), user_summary_insurance_path(insurance.id), target: :_blank, class: "btn btn-blue" %>
                     <% end %>
                 </div>
             </div>
