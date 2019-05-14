@@ -118,7 +118,7 @@
                     <div class="choice" name="yes_deliveredatthisaddress" data-toggle="wizard-checkbox" onclick="deliveredAtThisAddress()">
                         <%= check_box_tag "insurance[is_shipment_address]", @insurance.is_shipment_address ? @insurance.is_shipment_address : nil %>
                         <div class="card circle portal-hover-effect">
-                            <i>Yes</i>
+                            <p>Yes</p>
                         </div>
                     </div>
                 </div>
@@ -127,7 +127,7 @@
                     <div class="choice" name="no_deliveredatthisaddress" data-toggle="wizard-checkbox" onclick="notDeliveredAtThisAddress()">
                         <%= check_box_tag "insurance[is_shipment_address]", @insurance.is_shipment_address ? nil : @insurance.is_shipment_address %>
                         <div class="card portal-hover-effect">
-                            <i>No</i>
+                            <p>No</p>
                         </div>
                     </div>
                 </div>
@@ -193,7 +193,7 @@
                     <div class="choice" name="yes_relationtocustomer" data-toggle="wizard-checkbox" onclick="relationToCustomer()">
                         <%= check_box_tag "insurance[has_significant_influence_on_importer_management]", @insurance.has_significant_influence_on_importer_management ? @insurance.has_significant_influence_on_importer_management : nil %>
                         <div class="card circle portal-hover-effect">
-                            <i>Yes</i>
+                            <p>Yes</p>
                         </div>
                     </div>
                 </div>
@@ -203,7 +203,7 @@
                     <div class="choice" name="no_relationtocustomer" data-toggle="wizard-checkbox" onclick="noRelationToCustomer()">
                         <%= check_box_tag "insurance[has_significant_influence_on_importer_management]", @insurance.has_significant_influence_on_importer_management ? nil : @insurance.has_significant_influence_on_importer_management %>
                         <div class="card portal-hover-effect">
-                            <i>No</i>
+                            <p>No</p>
                         </div>
                     </div>
                 </div>
@@ -237,7 +237,7 @@
                     <div class="choice" name="yes_previouspaymentexperiencewithcustomer" data-toggle="wizard-checkbox" onclick="previousPaymentExperienceWithCustomer()">
                         <%= check_box_tag "insurance[has_payment_experience_with_importer]", @insurance.has_payment_experience_with_importer ? @insurance.has_payment_experience_with_importer : nil %>
                         <div class="card portal-hover-effect">
-                            <i>Yes</i>
+                            <p>Yes</p>
                         </div>
                     </div>
                 </div>
@@ -246,7 +246,7 @@
                     <div class="choice" name="no_previouspaymentexperiencewithcustomer" data-toggle="wizard-checkbox" onclick="noPreviousPaymentExperienceWithCustomer()">
                         <%= check_box_tag "insurance[has_payment_experience_with_importer]", @insurance.has_payment_experience_with_importer ? nil : @insurance.has_payment_experience_with_importer %>
                         <div class="card portal-hover-effect">
-                            <i>No</i>
+                            <p>No</p>
                         </div>
                     </div>
                 </div>
