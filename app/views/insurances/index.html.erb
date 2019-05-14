@@ -13,7 +13,8 @@
 
                 <div class="row">
                     <div class="form-group">
-                        <div class="col-sm-2 col-sm-offset-3">
+
+                        <div class="col-sm-3 col-sm-offset-3">
 
                             <% if params[:locale] %>
                                 <% @export_portal = 'insurances/new' %>
@@ -23,28 +24,26 @@
 
                             <div class="choice" id="export-financing" data-toggle="wizard-checkbox" onclick="openExportPortal()">
                                 <div class="card card-checkboxes card-hover-effect">
-                                    <p><br></p>
                                     <i class="ti-home"></i>
-                                    <p> <%= t('export_credit_financing') %> <br><br><br></p>
+                                    <p> Sie füllen den Antrag für Ihren Kunden aus <br></p>
                                 </div>
                             </div>
                         </div>
 
-<!--                        <div class="col-sm-2">-->
-                            <%# if params[:locale] %>
-                                <%# @import_portal = '/' + params[:locale].to_s + '/imports/new' %>
-                            <%# else %>
-                                <%# @import_portal = params[:locale].to_s + '/imports/new' %>
-                            <%# end %>
+                        <div class="col-sm-3">
+                            <% if params[:locale] %>
+                                <% @import_portal = '/' + params[:locale].to_s + '/imports/new' %>
+                            <% else %>
+                                <% @import_portal = params[:locale].to_s + '/imports/new' %>
+                            <% end %>
 
-<!--                            <div class="choice" id="import-financing" data-toggle="wizard-checkbox" onclick="openImportPortal()">-->
-<!--                                <div class="card card-checkboxes card-hover-effect">-->
-<!--                                    <p><br></p>-->
-<!--                                    <i class="ti-package"></i>-->
-<!--                                    <p> <%#= t('buyers_financing') %><br><br><br><br></p>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
+                            <div class="choice" id="import-financing" data-toggle="wizard-checkbox" onclick="openImportPortal()">
+                                <div class="card card-checkboxes card-hover-effect">
+                                    <i class="ti-package"></i>
+                                    <p> hr Kunde wird zu HandEX eingeladen und füllt den Antrag selbst aus <br></p>
+                                </div>
+                            </div>
+                        </div>
 
 <!--                        <div class="col-sm-2">-->
 <!--                            <div class="choice" id="forfaiting" data-toggle="wizard-checkbox" onclick="openExporterInsurancePortal()">-->
