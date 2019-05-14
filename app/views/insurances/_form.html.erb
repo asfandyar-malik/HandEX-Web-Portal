@@ -438,6 +438,22 @@
         }
     }
 
+    function externalRatingOfExporter() {
+            var x = document.getElementById("externalRatingExporterAvailable");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+    }
+
+    function noExternalRatingOfExporter() {
+             var x = document.getElementById("externalRatingExporterAvailable");
+             if (x.style.display === "block") {
+                x.style.display = "none";
+             }
+    }
+
     function externalRating() {
             var x = document.getElementById("externalRatingAvailable");
             if (x.style.display === "none") {
@@ -453,6 +469,7 @@
                 x.style.display = "none";
              }
     }
+
 
     function corruptionDeclarationApplies() {
         var x = document.getElementById("showHideDivCorruptionDeclarationApplies");
@@ -697,6 +714,13 @@
         $choice.filter('[name="yes_externalratingavailable"]').removeClass('active');
     });
 
+    $choice.filter('[name="yes_externalratingexporteravailable"]').click(function () {
+        $choice.filter('[name="no_externalratingexporteravailable"]').removeClass('active');
+    });
+
+    $choice.filter('[name="no_externalratingexporteravailable"]').click(function () {
+        $choice.filter('[name="yes_externalratingexporteravailable"]').removeClass('active');
+    });
 
     $choice.filter('[name="yes_reduceEconomicRisk"]').click(function () {
         $choice.filter('[name="dont_reduceEconomicRisk"]').removeClass('active');
