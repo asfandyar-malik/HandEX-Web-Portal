@@ -10,6 +10,8 @@ Rails.application.routes.draw do
         get 'pages/termsAndConditions' => 'pages#termsAndConditions'
         get 'pages/submitted' => 'pages#submitted'
         get 'pages/guidelines' => 'pages#guidelines'
+        get 'pages/guidelines' => 'pages#guidelines'
+        get 'pages/advice' => 'pages#advice'
         
         resources :insurances do
           member do
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
         end
 
         resources :imports
+        
         resources :documents do
             member do
                 get 'ocr'
