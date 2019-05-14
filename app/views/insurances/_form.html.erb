@@ -406,14 +406,30 @@
         }
     }
 
-     function externalRating() {
+    function daughterCompany() {
+        var x = document.getElementById("isDaughterCompany");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function noDaughterCompany() {
+        var x = document.getElementById("isDaughterCompany");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+    }
+
+    function externalRating() {
             var x = document.getElementById("externalRatingAvailable");
             if (x.style.display === "none") {
                 x.style.display = "block";
             } else {
                 x.style.display = "none";
             }
-     }
+    }
 
     function noExternalRating() {
              var x = document.getElementById("externalRatingAvailable");
@@ -639,6 +655,14 @@
 
     $choice.filter('[name="no_previouslyhermesinsuranceused"]').click(function () {
         $choice.filter('[name="yes_previouslyhermesinsuranceused"]').removeClass('active');
+    });
+
+    $choice.filter('[name="yes_daughtercompany"]').click(function () {
+        $choice.filter('[name="no_daughtercompany"]').removeClass('active');
+    });
+
+    $choice.filter('[name="no_daughtercompany"]').click(function () {
+        $choice.filter('[name="yes_daughtercompany"]').removeClass('active');
     });
 
     $choice.filter('[name="yes_externalratingavailable"]').click(function () {
