@@ -30,33 +30,33 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-2">
+<!--                        <div class="col-sm-2">-->
+                            <%# if params[:locale] %>
+                                <%# @import_portal = '/' + params[:locale].to_s + '/imports/new' %>
+                            <%# else %>
+                                <%# @import_portal = params[:locale].to_s + '/imports/new' %>
+                            <%# end %>
 
-                            <% if params[:locale] %>
-                                <% @import_portal = '/' + params[:locale].to_s + '/imports/new' %>
-                            <% else %>
-                                <% @import_portal = params[:locale].to_s + '/imports/new' %>
-                            <% end %>
+<!--                            <div class="choice" id="import-financing" data-toggle="wizard-checkbox" onclick="openImportPortal()">-->
+<!--                                <div class="card card-checkboxes card-hover-effect">-->
+<!--                                    <p><br></p>-->
+<!--                                    <i class="ti-package"></i>-->
+<!--                                    <p> <%#= t('buyers_financing') %><br><br><br><br></p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
 
-                            <div class="choice" id="import-financing" data-toggle="wizard-checkbox" onclick="openImportPortal()">
-                                <div class="card card-checkboxes card-hover-effect">
-                                    <p><br></p>
-                                    <i class="ti-package"></i>
-                                    <p> <%= t('buyers_financing') %><br><br><br><br></p>
-                                </div>
-                            </div>
-                        </div>
+<!--                        <div class="col-sm-2">-->
+<!--                            <div class="choice" id="forfaiting" data-toggle="wizard-checkbox" onclick="openExporterInsurancePortal()">-->
+<!--                                <div class="card card-checkboxes">-->
+<!--                                    <p><br></p>-->
+<!--                                    <i class="ti-control-stop"></i>-->
+<!--                                    <p><%#= t('export_credit_insurance') %><br> </p>-->
+<!--                                    <p style="color: red"> Coming Soon </p> <br>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
 
-                        <div class="col-sm-2">
-                            <div class="choice" id="forfaiting" data-toggle="wizard-checkbox" onclick="openExporterInsurancePortal()">
-                                <div class="card card-checkboxes">
-                                    <p><br></p>
-                                    <i class="ti-control-stop"></i>
-                                    <p><%= t('export_credit_insurance') %><br> </p>
-                                    <p style="color: red"> Coming Soon </p> <br>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -76,8 +76,8 @@
     }
 
     function openImportPortal() {
-        var import_portal = '<%= @import_portal %>';
-        window.open(import_portal);
+<!--        var import_portal = '<%= @import_portal %>';-->
+<!--        window.open(import_portal);-->
     }
 
     function openExporterInsurancePortal() {
