@@ -19,7 +19,7 @@
                 <div class="choice" name="investmentgoods_yes" data-toggle="wizard-checkbox">
                     <%= check_box_tag "insurance[is_investment_good]", @insurance.is_investment_good ? @insurance.is_investment_good : nil %>
                     <div class="card portal-hover-effect">
-                        <i>Yes</i>
+                        <p>Ja</p>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                 <div class="choice" name="investmentgoods_no" data-toggle="wizard-checkbox">
                     <%= check_box_tag "insurance[is_investment_good]", @insurance.is_investment_good ? nil : @insurance.is_investment_good %>
                     <div class="card portal-hover-effect">
-                        <i>No</i>
+                        <p>Nein</p>
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@
             <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                 <div class="choice" name="yes_incoterms" data-toggle="wizard-checkbox" onclick="incoTerms()">
                     <div class="card portal-hover-effect">
-                        <i>Yes</i>
+                        <p>Ja</p>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
             <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                 <div class="choice" name="no_incoterms" data-toggle="wizard-checkbox" onclick="noIncoTerms()">
                     <div class="card portal-hover-effect">
-                        <i>No</i>
+                        <p>Nein</p>
                     </div>
                 </div>
             </div>
@@ -730,7 +730,7 @@
                             <%= check_box_tag "insurance[has_german_certificate_of_origin_for_only_parts_of_good]", @insurance.has_german_certificate_of_origin_for_only_parts_of_good ? @insurance.has_german_certificate_of_origin_for_only_parts_of_good : nil %>
 
                             <div class="card portal-hover-effect">
-                                <i><%= t('part_of_goods') %></i>
+                                <p><%= t('part_of_goods') %></p>
                             </div>
                         </div>
                     </div>

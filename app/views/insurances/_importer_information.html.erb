@@ -110,16 +110,16 @@
                 <p>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_daughtercompany" data-toggle="wizard-checkbox" onclick="daughterCompany()">
-                        <div class="card circle card-hover-effect">
-                            <i class="ti-check"></i>
+                        <div class="card portal-hover-effect">
+                            <p>Ja</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="no_daughtercompany" data-toggle="wizard-checkbox" onclick="noDaughterCompany()">
-                        <div class="card circle card-hover-effect">
-                            <i class="ti-close"></i>
+                        <div class="card portal-hover-effect">
+                            <p>Nein</p>
                         </div>
                     </div>
                 </div>
@@ -196,16 +196,16 @@
                 <p>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_externalratingavailable" data-toggle="wizard-checkbox" onclick="externalRating()">
-                        <div class="card circle card-hover-effect">
-                            <i class="ti-check"></i>
+                        <div class="card portal-hover-effect">
+                            <p>Ja</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="no_externalratingavailable" data-toggle="wizard-checkbox" onclick="noExternalRating()">
-                        <div class="card circle card-hover-effect">
-                            <i class="ti-close"></i>
+                        <div class="card portal-hover-effect">
+                            <p>Nein</p>
                         </div>
                     </div>
                 </div>
@@ -283,7 +283,7 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_deliveredatthisaddress" data-toggle="wizard-checkbox" onclick="deliveredAtThisAddress()">
                         <%= check_box_tag "insurance[is_shipment_address]", @insurance.is_shipment_address ? @insurance.is_shipment_address : nil %>
-                        <div class="card circle portal-hover-effect">
+                        <div class="card portal-hover-effect">
                             <p>Ja</p>
                         </div>
                     </div>
@@ -358,7 +358,7 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_relationtocustomer" data-toggle="wizard-checkbox" onclick="relationToCustomer()">
                         <%= check_box_tag "insurance[has_significant_influence_on_importer_management]", @insurance.has_significant_influence_on_importer_management ? @insurance.has_significant_influence_on_importer_management : nil %>
-                        <div class="card circle portal-hover-effect">
+                        <div class="card portal-hover-effect">
                             <p>Ja</p>
                         </div>
                     </div>
