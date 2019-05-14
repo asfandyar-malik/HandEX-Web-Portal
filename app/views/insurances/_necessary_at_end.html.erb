@@ -13,7 +13,7 @@
                         <div class="choice" name="yes_previouslyhermesinsuranceused" data-toggle="wizard-checkbox" onclick="previouslyHermesInsuranceUsed()">
                             <%= check_box_tag "insurance[has_previously_used_hermes_cover]", @insurance.has_previously_used_hermes_cover ? @insurance.has_previously_used_hermes_cover : nil %>
                             <div class="card portal-hover-effect">
-                                <i>Yes</i>
+                                <p>Ja</p>
                             </div>
                         </div>
                     </div>
@@ -22,7 +22,7 @@
                         <div class="choice" name="no_previouslyhermesinsuranceused" data-toggle="wizard-checkbox" onclick="noPreviouslyHermesInsuranceUsed()">
                             <%= check_box_tag "insurance[has_previously_used_hermes_cover]", @insurance.has_previously_used_hermes_cover ? nil : @insurance.has_previously_used_hermes_cover %>
                             <div class="card portal-hover-effect">
-                                <i>No</i>
+                                <p>Nein</p>
                             </div>
                         </div>
                     </div>
@@ -420,7 +420,7 @@
                         <div class="choice" name="corruptionDeclarationApplies" data-toggle="wizard-checkbox" onclick="corruptionDeclarationApplies()">
                             <%= check_box_tag "insurance[does_corruption_declaration_apply]", @insurance.does_corruption_declaration_apply ? @insurance.does_corruption_declaration_apply : nil %>
                             <div class="card portal-hover-effect">
-                                <i>Yes</i>
+                                <p>Ja</p>
                                 <p><%= t('applies') %> </p>
                                 <!--                                (Nähere Angaben erforderlich. Lesen Sie hierzu auch die Hinweise)-->
                             </div>
@@ -431,7 +431,7 @@
                         <div class="choice" name="corruption_declaration_doesnt_apply" data-toggle="wizard-checkbox" onclick="noCorruptionDeclarationApplies()">
                             <%= check_box_tag "insurance[does_corruption_declaration_apply]", @insurance.does_corruption_declaration_apply ? nil : @insurance.does_corruption_declaration_apply %>
                             <div class="card portal-hover-effect">
-                                <i>No</i>
+                                <p>Nein</p>
                                 <p><%= t('doesnt_apply') %></p>
                             </div>
                         </div>
