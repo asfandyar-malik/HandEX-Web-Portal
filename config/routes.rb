@@ -12,6 +12,7 @@ Rails.application.routes.draw do
         get 'pages/guidelines' => 'pages#guidelines'
         get 'pages/guidelines' => 'pages#guidelines'
         get 'pages/advice' => 'pages#advice'
+        get 'pages/contactedExporter' => 'pages#contactedExporter'
         
         resources :insurances do
           member do

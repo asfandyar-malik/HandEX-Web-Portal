@@ -21,4 +21,6 @@ class PagesController < ApplicationController
     def advice
     end
 
+    def contactedExporter
+    end
 end
