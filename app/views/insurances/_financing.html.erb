@@ -10,8 +10,8 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_residualriskapetite" data-toggle="wizard-checkbox" onclick="residualRiskApetite()">
                         <%= check_box_tag "insurance[accept_partial_refinancing]", @insurance.accept_partial_refinancing ? @insurance.accept_partial_refinancing : nil %>
-                        <div class="card circle card-hover-effect">
-                            <i class="ti-check"></i>
+                        <div class="card portal-hover-effect">
+                            <i>Yes</i>
                         </div>
                     </div>
                 </div>
@@ -19,8 +19,8 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="no_residualriskapetite" data-toggle="wizard-checkbox" onclick="noResidualRiskApetite()">
                         <%= check_box_tag "insurance[accept_partial_refinancing]", @insurance.accept_partial_refinancing ? nil : @insurance.accept_partial_refinancing %>
-                        <div class="card circle card-hover-effect">
-                            <i class="ti-close"></i>
+                        <div class="card portal-hover-effect">
+                            <i>No</i>
                         </div>
                     </div>
                 </div>
@@ -65,8 +65,8 @@
             <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                 <div class="choice" name="paymentTermAgreed_yes" data-toggle="wizard-checkbox" onclick="paymentTermAgreed()">
                     <%= check_box_tag "insurance[has_agreed_payment_term_already]", @insurance.has_agreed_payment_term_already ? @insurance.has_agreed_payment_term_already : nil %>
-                    <div class="card circle card-hover-effect">
-                        <i class="ti-check"></i>
+                    <div class="card portal-hover-effect">
+                        <i>Yes</i>
                     </div>
                 </div>
             </div>
@@ -74,8 +74,8 @@
             <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                 <div class="choice" name="paymentTermAgreed_no" data-toggle="wizard-checkbox" onclick="noPaymentTermAgreed()">
                     <%= check_box_tag "insurance[has_agreed_payment_term_already]", @insurance.has_agreed_payment_term_already ? nil : @insurance.has_agreed_payment_term_already %>
-                    <div class="card circle card-hover-effect">
-                        <i class="ti-close"></i>
+                    <div class="card portal-hover-effect">
+                        <i>No</i>
                     </div>
                 </div>
             </div>
@@ -764,8 +764,8 @@
                         <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                             <div class="choice" name="yes_customercountsinterest" data-toggle="wizard-checkbox" onclick="customerCountsInterest()">
                                 <%= check_box_tag "insurance[is_interest_charged_to_importer]", @insurance.is_interest_charged_to_importer ? @insurance.is_interest_charged_to_importer : nil %>
-                                <div class="card circle card-hover-effect">
-                                    <i class="ti-check"></i>
+                                <div class="card portal-hover-effect">
+                                    <i>Yes</i>
                                 </div>
                             </div>
                         </div>
@@ -773,8 +773,8 @@
                         <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                             <div class="choice" name="no_customercountsinterest" data-toggle="wizard-checkbox" onclick="noCustomerCountsInterest()">
                                 <%= check_box_tag "insurance[is_interest_charged_to_importer]", @insurance.is_interest_charged_to_importer ? nil : @insurance.is_interest_charged_to_importer %>
-                                <div class="card circle card-hover-effect">
-                                    <i class="ti-close"></i>
+                                <div class="card portal-hover-effect">
+                                    <i>No</i>
                                 </div>
                             </div>
                         </div>
