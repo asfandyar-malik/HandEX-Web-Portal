@@ -1427,6 +1427,14 @@ input[type="button"]:focus {
     color: #04a6ee;
 }
 
+.wizard-card[data-color="blue"] .choice.active .card-checkboxes {
+    color: #04a6ee;
+}
+
+.wizard-card .choice.active .portal-hover-effect {
+    color: #04a6ee;
+}
+
 .wizard-card[data-color="blue"] .choice.active .circle {
     color: #04a6ee;
 }
