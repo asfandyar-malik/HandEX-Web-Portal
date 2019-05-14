@@ -18,15 +18,65 @@
             <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                 <div class="choice" name="investmentgoods_yes" data-toggle="wizard-checkbox">
                     <%= check_box_tag "insurance[is_investment_good]", @insurance.is_investment_good ? @insurance.is_investment_good : nil %>
+                    <div class="card portal-hover-effect">
+                        <i>Yes</i>
+                    </div>
                 </div>
             </div>
 
             <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                 <div class="choice" name="investmentgoods_no" data-toggle="wizard-checkbox">
                     <%= check_box_tag "insurance[is_investment_good]", @insurance.is_investment_good ? nil : @insurance.is_investment_good %>
+                    <div class="card portal-hover-effect">
+                        <i>No</i>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<br>
+
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <p><b> Haben Sie bereits Incoterms vereinbart?  </b>
+            <p>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
+                <div class="choice" name="yes_incoterms" data-toggle="wizard-checkbox" onclick="incoTerms()">
+                    <div class="card portal-hover-effect">
+                        <i>Yes</i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
+                <div class="choice" name="no_incoterms" data-toggle="wizard-checkbox" onclick="noIncoTerms()">
+                    <div class="card portal-hover-effect">
+                        <i>No</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+
+<div id="incotermsAgreed" style="display: none">
+    <div class="appear">
+        <div class="form-group">
+            <div class="row">
+                <br>
+                <div class="col-md-4 col-md-offset-1">
+                    <p> IncoTerms </p>
+                    <%= form.select :years_trading_without_hermes_insurance, options_for_select(["Bitte auswählen", "CIF(Cost, Insurance and Freight)", "CIP (Carriage and Insurance Paid to)",
+                                                                                                "CFR (Cost and Freight)","CPT (Carriage paid to)","DAT (Delivered at Terminal)","DAP (Delivered at Place)",
+                                                                                                "DDP (Delivery Duty Paid)", " EXW (Ex Works)", "FAS (Free Alongside Ship)", "FCA (Free Carrier)", "FOB (Free on Board)"]), {}, class: 'form-control' %>
+                </div>
+            </div>
+        </div>
+        <br>
     </div>
 </div>
 
