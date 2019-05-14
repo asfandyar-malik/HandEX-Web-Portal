@@ -50,8 +50,8 @@
             <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                 <div class="choice" name="exporteroffersservicingforgoods_yes" data-toggle="wizard-checkbox">
                     <%= check_box_tag "insurance[is_servicing_for_goods_offered]", @insurance.is_servicing_for_goods_offered ? @insurance.is_servicing_for_goods_offered : nil %>
-                    <div class="card circle card-hover-effect">
-                        <i class="ti-check"></i>
+                    <div class="card">
+                        <i>Yes</i>
                     </div>
                 </div>
             </div>
@@ -59,8 +59,8 @@
             <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                 <div class="choice" name="exporteroffersservicingforgoods_no" data-toggle="wizard-checkbox">
                     <%= check_box_tag "insurance[is_servicing_for_goods_offered]", @insurance.is_servicing_for_goods_offered ? nil: @insurance.is_servicing_for_goods_offered  %>
-                    <div class="card circle card-hover-effect">
-                        <i class="ti-close"></i>
+                    <div class="card portal-hover-effect">
+                        <i>No</i>
                     </div>
                 </div>
             </div>
@@ -111,8 +111,8 @@
 
                         <%= check_box_tag "insurance[is_delivered_part_of_consortium_with_other_companies]", @insurance.is_delivered_part_of_consortium_with_other_companies ? @insurance.is_delivered_part_of_consortium_with_other_companies : nil %>
 
-                        <div class="card circle card-hover-effect">
-                            <i class="ti-check"></i>
+                        <div class="card portal-hover-effect">
+                            <i>Yes</i>
                         </div>
                     </div>
                 </div>
@@ -120,8 +120,8 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="deliverwithothercompanies_no" data-toggle="wizard-checkbox"> <!-- onclick="notDeliverWithOtherCompanies()"> -->
                         <%= check_box_tag "insurance[is_delivered_part_of_consortium_with_other_companies]", @insurance.is_delivered_part_of_consortium_with_other_companies ? nil : @insurance.is_delivered_part_of_consortium_with_other_companies %>
-                        <div class="card circle card-hover-effect">
-                            <i class="ti-close"></i>
+                        <div class="card portal-hover-effect">
+                            <i>No</i>
                         </div>
                     </div>
                 </div>
@@ -247,8 +247,8 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="exportlicenserequired_yes" data-toggle="wizard-checkbox" onclick="exportLicenseRequired()">
                         <%= check_box_tag "insurance[is_export_licence_needed]", @insurance.is_export_licence_needed ? @insurance.is_export_licence_needed : nil %>
-                        <div class="card circle card-hover-effect">
-                            <i class="ti-check"></i>
+                        <div class="card portal-hover-effect">
+                            <i>Yes</i>
                         </div>
                     </div>
                 </div>
@@ -256,8 +256,8 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="exportlicenserequired_no" data-toggle="wizard-checkbox" onclick="noExportLicenseRequired()">
                         <%= check_box_tag "insurance[is_export_licence_needed]", @insurance.is_export_licence_needed ? nil : @insurance.is_export_licence_needed %>
-                        <div class="card circle card-hover-effect">
-                            <i class="ti-close"></i>
+                        <div class="card portal-hover-effect">
+                            <i>No</i>
                         </div>
                     </div>
                 </div>
@@ -311,8 +311,8 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_secondhandgoods" data-toggle="wizard-checkbox"> <!-- onclick="secondHandGoods()"> -->
                         <%= check_box_tag "insurance[are_secondhand_goods_delivered]", @insurance.are_secondhand_goods_delivered ? @insurance.are_secondhand_goods_delivered : nil %>
-                        <div class="card circle card-hover-effect">
-                            <i class="ti-check"></i>
+                        <div class="card portal-hover-effect">
+                            <i>Yes</i>
                         </div>
                     </div>
                 </div>
@@ -320,8 +320,8 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="no_secondhandgoods" data-toggle="wizard-checkbox"> <!-- onclick="noSecondHandGoods()"> -->
                         <%= check_box_tag "insurance[are_secondhand_goods_delivered]", @insurance.are_secondhand_goods_delivered ? nil : @insurance.are_secondhand_goods_delivered %>
-                        <div class="card circle card-hover-effect">
-                            <i class="ti-close"></i>
+                        <div class="card portal-hover-effect">
+                            <i>No</i>
                         </div>
                     </div>
                 </div>
@@ -341,8 +341,8 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_congractsignedallparties" data-toggle="wizard-checkbox" onclick="contractSignedAllParties()">
                         <%= check_box_tag "insurance[is_contract_already_signed_between_parties]", @insurance.is_contract_already_signed_between_parties ? @insurance.is_contract_already_signed_between_parties : nil %>
-                        <div class="card circle card-hover-effect">
-                            <i class="ti-check"></i>
+                        <div class="card portal-hover-effect">
+                            <i>Yes</i>
                         </div>
                     </div>
                 </div>
@@ -351,8 +351,8 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="no_congractsignedallparties" data-toggle="wizard-checkbox" onclick="noContractSignedAllParties()">
                         <%= check_box_tag "insurance[is_contract_already_signed_between_parties]", @insurance.is_contract_already_signed_between_parties ? nil : @insurance.is_contract_already_signed_between_parties %>
-                        <div class="card circle card-hover-effect">
-                            <i class="ti-close"></i>
+                        <div class="card portal-hover-effect">
+                            <i>No</i>
                         </div>
                     </div>
                 </div>
@@ -400,8 +400,8 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_specialcontractstructure" data-toggle="wizard-checkbox"> <!--onclick="specialContractStructure()"> -->
                         <%= check_box_tag "insurance[has_special_contract_structure]", @insurance.has_special_contract_structure ? @insurance.has_special_contract_structure : nil %>
-                        <div class="card circle card-hover-effect">
-                            <i class="ti-check"></i>
+                        <div class="card portal-hover-effect">
+                            <i>Yes</i>
                         </div>
                     </div>
                 </div>
@@ -409,8 +409,8 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="no_specialcontractstructure" data-toggle="wizard-checkbox"> <!-- onclick="noSpecialContractStructure()"> -->
                         <%= check_box_tag "insurance[has_special_contract_structure]", @insurance.has_special_contract_structure ? nil : @insurance.has_special_contract_structure %>
-                        <div class="card circle card-hover-effect">
-                            <i class="ti-close"></i>
+                        <div class="card portal-hover-effect">
+                            <i>No</i>
                         </div>
                     </div>
                 </div>
@@ -519,8 +519,8 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_priceadjustmentclause" data-toggle="wizard-checkbox" onclick="priceAdjustmentClause()">
                         <%= check_box_tag "insurance[is_price_adjustment_clause_with_importer]", @insurance.is_price_adjustment_clause_with_importer ? @insurance.is_price_adjustment_clause_with_importer : nil %>
-                        <div class="card circle card-hover-effect">
-                            <i class="ti-check"></i>
+                        <div class="card portal-hover-effect">
+                            <i>Yes</i>
                         </div>
                     </div>
                 </div>
@@ -529,8 +529,8 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="no_priceadjustmentclause" data-toggle="wizard-checkbox" onclick="noPriceAdjustmentClause()">
                         <%= check_box_tag "insurance[is_price_adjustment_clause_with_importer]", @insurance.is_price_adjustment_clause_with_importer ? nil : @insurance.is_price_adjustment_clause_with_importer  %>
-                        <div class="card circle card-hover-effect">
-                            <i class="ti-close"></i>
+                        <div class="card portal-hover-effect">
+                            <i>No</i>
                         </div>
                     </div>
                 </div>
@@ -572,8 +572,8 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_multipledeliveries" data-toggle="wizard-checkbox" onclick="multipleDeliveries()">
                         <%= check_box_tag "insurance[is_good_sent_in_multiple_deliveries]", @insurance.is_good_sent_in_multiple_deliveries ? @insurance.is_good_sent_in_multiple_deliveries : nil %>
-                        <div class="card circle card-hover-effect">
-                            <i class="ti-check"></i>
+                        <div class="card portal-hover-effect">
+                            <i>Yes</i>
                         </div>
                     </div>
                 </div>
@@ -582,8 +582,8 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="no_multipledeliveries" data-toggle="wizard-checkbox" onclick="noMultipleDeliveries()">
                         <%= check_box_tag "insurance[is_good_sent_in_multiple_deliveries]", @insurance.is_good_sent_in_multiple_deliveries ? nil : @insurance.is_good_sent_in_multiple_deliveries %>
-                        <div class="card circle card-hover-effect">
-                            <i class="ti-close"></i>
+                        <div class="card portal-hover-effect">
+                            <i>No</i>
                         </div>
                     </div>
                 </div>
@@ -660,8 +660,8 @@
 
                             <%= check_box_tag "insurance[has_german_certificate_of_origin]", @insurance.has_german_certificate_of_origin ? @insurance.has_german_certificate_of_origin : nil %>
 
-                            <div class="card circle card-hover-effect">
-                                <i class="ti-check"></i>
+                            <div class="card portal-hover-effect">
+                                <i>Yes</i>
                                 <p><%= t('yes') %></p>
                             </div>
                         </div>
@@ -670,8 +670,8 @@
                         <div class="choice" name="no_certificateoforigin" data-toggle="wizard-checkbox" onclick="noCertificateOfOrigin()">
 
                             <%= check_box_tag "insurance[has_german_certificate_of_origin]", @insurance.has_german_certificate_of_origin ? nil : @insurance.has_german_certificate_of_origin  %>
-                            <div class="card circle card-hover-effect">
-                                <i class="ti-close"></i>
+                            <div class="card portal-hover-effect">
+                                <i>No</i>
                                 <p><%= t('no') %></p>
                             </div>
                         </div>
@@ -681,7 +681,7 @@
 
                             <%= check_box_tag "insurance[has_german_certificate_of_origin_for_only_parts_of_good]", @insurance.has_german_certificate_of_origin_for_only_parts_of_good ? @insurance.has_german_certificate_of_origin_for_only_parts_of_good : nil %>
 
-                            <div class="card circle card-hover-effect">
+                            <div class="card portal-hover-effect">
                                 <i class="ti-star"></i>
                                 <p> <%= t('part_of_goods') %></p>
                             </div>
@@ -844,8 +844,8 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_securitybusinnesprovided" data-toggle="wizard-checkbox" onclick="securityBusinnesProvided()">
                         <%= check_box_tag "insurance[is_security_present_for_transaction]", @insurance.is_security_present_for_transaction ? @insurance.is_security_present_for_transaction : nil %>
-                        <div class="card circle card-hover-effect">
-                            <i class="ti-check"></i>
+                        <div class="card portal-hover-effect">
+                            <i>Yes</i>
                         </div>
                     </div>
                 </div>
@@ -853,8 +853,8 @@
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="no_securitybusinnesprovided" data-toggle="wizard-checkbox" onclick="noSecurityBusinnesProvided()">
                         <%= check_box_tag "insurance[is_security_present_for_transaction]", @insurance.is_security_present_for_transaction ? nil : @insurance.is_security_present_for_transaction %>
-                        <div class="card circle card-hover-effect">
-                            <i class="ti-close"></i>
+                        <div class="card portal-hover-effect">
+                            <i>No</i>
                         </div>
                     </div>
                 </div>
@@ -935,8 +935,8 @@
                             <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                 <div class="choice" name="yes_significantinfluencesecurityprovider" data-toggle="wizard-checkbox" onclick="explainSignificantInfluenceOnSecurityProvider()">
                                     <%= check_box_tag "insurance[has_significant_influence_on_security_provider]", @insurance.has_significant_influence_on_security_provider ? @insurance.has_significant_influence_on_security_provider : nil %>
-                                    <div class="card circle card-hover-effect">
-                                        <i class="ti-check"></i>
+                                    <div class="card portal-hover-effect">
+                                        <i>Yes</i>
                                     </div>
                                 </div>
                             </div>
@@ -944,8 +944,8 @@
                             <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                 <div class="choice" name="no_significantinfluencesecurityprovider" data-toggle="wizard-checkbox" onclick="noSecurityBusinnesProvided()">
                                     <%= check_box_tag "insurance[has_significant_influence_on_security_provider]", @insurance.has_significant_influence_on_security_provider ? nil : @insurance.has_significant_influence_on_security_provider %>
-                                    <div class="card circle card-hover-effect">
-                                        <i class="ti-close"></i>
+                                    <div class="card portal-hover-effect">
+                                        <i>No</i>
                                     </div>
                                 </div>
                             </div>
@@ -976,8 +976,8 @@
                             <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                 <div class="choice" name="yes_securitybusinnesprovided" data-toggle="wizard-checkbox" onclick="explainPaymentExperienceWithSecurityProvider()">
                                     <%= check_box_tag "insurance[has_payment_experience_with_security_provider]", @insurance.has_payment_experience_with_security_provider ? @insurance.has_payment_experience_with_security_provider : nil %>
-                                    <div class="card circle card-hover-effect">
-                                        <i class="ti-check"></i>
+                                    <div class="card portal-hover-effect">
+                                        <i>Yes</i>
                                     </div>
                                 </div>
                             </div>
@@ -985,8 +985,8 @@
                             <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                 <div class="choice" name="no_securitybusinnesprovided" data-toggle="wizard-checkbox">
                                     <%= check_box_tag "insurance[has_payment_experience_with_security_provider]", @insurance.has_payment_experience_with_security_provider ? nil : @insurance.has_payment_experience_with_security_provider %>
-                                    <div class="card circle card-hover-effect">
-                                        <i class="ti-close"></i>
+                                    <div class="card portal-hover-effect">
+                                        <i>No</i>
                                     </div>
                                 </div>
                             </div>
