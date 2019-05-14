@@ -1594,9 +1594,9 @@ input[type="button"]:focus {
 
 .wizard-card .choice input[type="radio"],
 .wizard-card .choice input[type="checkbox"] {
-    position: absolute;
-    left: -10000px;
-    z-index: -1;
+    /*position: absolute;*/
+    /*left: -10000px;*/
+    /*z-index: -1;*/
 }
 
 .wizard-card .description {
