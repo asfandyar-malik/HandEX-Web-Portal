@@ -406,6 +406,22 @@
         }
     }
 
+   function incoTerms() {
+        var x = document.getElementById("incotermsAgreed");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+   }
+
+   function noIncoTerms() {
+        var x = document.getElementById("incotermsAgreed");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+    }
+
     function daughterCompany() {
         var x = document.getElementById("isDaughterCompany");
         if (x.style.display === "none") {
@@ -655,6 +671,14 @@
 
     $choice.filter('[name="no_previouslyhermesinsuranceused"]').click(function () {
         $choice.filter('[name="yes_previouslyhermesinsuranceused"]').removeClass('active');
+    });
+
+    $choice.filter('[name="yes_incoterms"]').click(function () {
+        $choice.filter('[name="no_incoterms"]').removeClass('active');
+    });
+
+    $choice.filter('[name="no_incoterms"]').click(function () {
+        $choice.filter('[name="yes_incoterms"]').removeClass('active');
     });
 
     $choice.filter('[name="yes_daughtercompany"]').click(function () {
