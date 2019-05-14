@@ -18,4 +18,7 @@ class PagesController < ApplicationController
     def submitted
     end
 
+    def advice
+    end
+
 end

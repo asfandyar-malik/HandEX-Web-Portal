@@ -53,3 +53,27 @@ body {
   color: #333;
   white-space: nowrap
 }
+
+.btn {
+  color: #fff;
+  border-radius: 2px;
+  padding: 9px 15px;
+  border-color: #81cfdb;
+}
+
+// BUTTONS
+.btn-block {
+  display: block;
+  white-space: normal;
+  width: 100%;
+}
+
+.btn-blue{
+  background-color: #81cfdb;
+  font-size: 18px;
+
+}
+
+.btn-blue:active {
+  background-color: #81cfdb;
+}

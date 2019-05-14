@@ -7,7 +7,7 @@
                 <br> <br> <br>
 
                 <div class="wizard-header">
-                    <h4 class="wizard-title"><b> <%= t('desired_product') %> </b></h4>
+                    <h4 class="wizard-title"><b> Bitte wählen Sie aus, wie Sie vorgehen möchten </b></h4>
                     <br><br>
                 </div>
 
@@ -17,15 +17,16 @@
                         <div class="col-sm-3 col-sm-offset-3">
 
                             <% if params[:locale] %>
-                                <% @export_portal = 'insurances/new' %>
+                                <% @export_portal = 'pages/advice' %>
                             <% else %>
-                                <% @export_portal = params[:locale].to_s + '/insurances/new' %>
+                                <% @export_portal = params[:locale].to_s + '/pages/advice' %>
                             <% end %>
 
                             <div class="choice" id="export-financing" data-toggle="wizard-checkbox" onclick="openExportPortal()">
                                 <div class="card card-checkboxes card-hover-effect">
+                                    <p><br></p>
                                     <i class="ti-home"></i>
-                                    <p> Sie füllen den Antrag für Ihren Kunden aus <br></p>
+                                    <p> Sie füllen den Antrag für Ihren Kunden aus <br> <br></p>
                                 </div>
                             </div>
                         </div>
@@ -39,6 +40,7 @@
 
                             <div class="choice" id="import-financing" data-toggle="wizard-checkbox" onclick="openImportPortal()">
                                 <div class="card card-checkboxes card-hover-effect">
+                                    <p><br></p>
                                     <i class="ti-package"></i>
                                     <p> hr Kunde wird zu HandEX eingeladen und füllt den Antrag selbst aus <br></p>
                                 </div>
@@ -75,8 +77,8 @@
     }
 
     function openImportPortal() {
-<!--        var import_portal = '<%= @import_portal %>';-->
-<!--        window.open(import_portal);-->
+        var import_portal = '<%= @import_portal %>';
+        window.open(import_portal);
     }
 
     function openExporterInsurancePortal() {

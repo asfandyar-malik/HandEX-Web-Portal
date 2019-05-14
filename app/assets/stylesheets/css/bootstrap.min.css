@@ -2689,6 +2689,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
     margin-top: 5px
 }
 
+
 input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="button"].btn-block {
     width: 100%
 }
