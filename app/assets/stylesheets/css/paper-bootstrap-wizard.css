@@ -1435,6 +1435,11 @@ input[type="button"]:focus {
     color: #04a6ee;
 }
 
+.wizard-card .portal-hover-effect p {
+    line-height: 2.5em;
+    margin: 0 0 0;
+}
+
 .wizard-card[data-color="blue"] .choice.active .circle {
     color: #04a6ee;
 }
