@@ -83,13 +83,13 @@ h7, .h7 {
 
 p {
     font-size: 18px;
-    line-height: 5.5em;
+    line-height: 1.5em;
 }
 
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, .h7 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, h7 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
     color: #9A9A9A;
     font-weight: 300;
-    line-height: 5.5em;
+    line-height: 1.5em;
 }
 
 h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
