@@ -43,7 +43,7 @@ de:
   buyers_financing: "Einkaufs finanzierung"
   export_credit_insurance: "Exportkredit versicherung"
   #business information
-  business_heading: "Ihr Geschäft"
+  business_heading: "Geschäft"
   describe_export_business: "Bitte beschreiben Sie Ihre Produkte und Leistungen"
   is_investment_good: "Handelt es sich bei Ihrer Ware um Investitionsgüter?"
   explain_why_importer_buying_good: "Bitte helfen Sie uns nun, das Vorhaben gut zu verstehen"
@@ -111,7 +111,7 @@ de:
   explain_previous_payment_experience_with_security_provider: "Bitte beschreiben Sie diese näher."
   security_provider_address: "Bitte geben Sie die Adresse des Sicherheitengebers an."
   #customer information
-  your_importer: "Ihr Kunde"
+  your_importer: "Kunde"
   importer_address: "Bitte geben Sie die Adresse Ihres Kunden an"
   importer_company_name: "Firmenname"
   importer_street_hno: "Straße / Hausnummer"
@@ -132,7 +132,7 @@ de:
   has_payment_experience_with_importer: "Haben Sie bereits Zahlungserfahrungen mit Ihrem Kunden? "
   explain_previous_payment_experience_with_importer: "Bitte beschreiben Sie diese näher."
   #financing
-  your_financing: "Ihre Finanzierung"
+  your_financing: "Zahlung & Finanzierung"
   accept_partial_refinancing: "Sind Sie bereit eine (Re-)Finanzierung anzunehmen, die nicht dem vollständigen Auftragswert entspricht (85-95%)? "
   accepted_partial_refinancing_text: "In diesem Fall gibt es die Möglichkeit die Finanzierung im Rahmen einer Forfaitierung oder eines direkten Kredites von einer unserer Partnerbanken an Ihren Käufer zu realisieren. Im Laufe des Antrages ermitteln wir welche der beiden Finanzierungsformen wir Ihnen anbieten können."
   reject_partial_refinancing_text: "In diesem Fall gibt es die Möglichkeit die Finanzierung im Rahmen eines direkten Kredites von einer unserer Partnerbanken an Ihren Käufer zu realisieren. "
@@ -165,7 +165,7 @@ de:
   notice_interest_charged: "In diesem Fall gibt es die Möglichkeit, Ihre Forderungen gegenüber Ihrem Käufer mit einer Forfaitierung zu refinanzieren. Das bedeutet eine unserer Partnerbanken kauft Ihre Forderungen ab und refinanziert bis zu 95% des gesamten Forderungsbetrages."
   payment_goal: "Welches Zahlungsziel wünscht Ihr Kunde (in Monaten)? "
   #necessary at end
-  necessary_at_end: "Notwendiges zum Schluss"
+  necessary_at_end: "Deklarationen"
   has_previously_used_hermes_cover: "Haben Sie in der Vergangenheit schon einmal einen Antrag auf Hermesdeckung eingereicht?"
   new_to_hermes_cover: "Da Sie bisher keine Hermesdeckung beantragt haben, möchte HandEX und unser Partner Euler Hermes Sie besser kennenlernen. Bitte helfen Sie uns zu verstehen, inwieweit Sie bereits über Exporterfahrung und Erfahrungen mit säumigen Auslandskunden verfügen."
   years_trading_without_hermes_insurance: "Inwieweit bzw. seit wie vielen Jahren verfügen Sie über Exporterfahrung aus ungedeckten Geschäften, d.h. Exportgeschäfte ohne Hermesdeckung?"
