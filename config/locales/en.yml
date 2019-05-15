@@ -43,7 +43,7 @@ en:
   buyers_financing: "Buyers Financing"
   export_credit_insurance: "Export Credit Insurance"
   #business information
-  business_heading: "Your Business"
+  business_heading: "Business"
   describe_export_business: "Please describe your products and services"
   is_investment_good: "Are you exporting investment goods?"
   explain_why_importer_buying_good: "Please help us understand your project / transaction better"
@@ -111,7 +111,7 @@ en:
   explain_previous_payment_experience_with_security_provider: "Please describe these in more detail."
   security_provider_address: "Please enter the address of the guarantor."
   #customer information
-  your_importer: "Your customer"
+  your_importer: "Customer"
   importer_address: "Please indicate the address of your customer"
   importer_company_name: "Company Name"
   importer_street_hno: "Street/H.no"
@@ -132,7 +132,7 @@ en:
   has_payment_experience_with_importer: "Do you already have a payment history with your customer?"
   explain_previous_payment_experience_with_importer: "Please describe these in more detail"
   #financing
-  your_financing: "Your financing"
+  your_financing: "Financing"
   accept_partial_refinancing: "Are you prepared to accept a (re-) financing that does not correspond to the full order value (85-95%)?"
   accepted_partial_refinancing_text: "In this case, there is the possibility to realize the financing by means of a forfaiting or a direct loan from one of our partner banks to your buyer. In the course of the application we determine which of the two forms of financing we can offer you."
   reject_partial_refinancing_text: "In this case, there is the possibility to realize the financing by means of a direct loan from one of our partner banks to your buyer. "
@@ -163,7 +163,7 @@ en:
   notice_interest_charged: "In this case, there is the possibility to refinance your receivables against your buyer via forfaiting. This means that one of our partner banks buys your receivables and refinances up to 95% of the total claim amount."
   payment_goal: "What payment terms is your customer looking for? "
   #necessary at end
-  necessary_at_end: "Necessary at end"
+  necessary_at_end: "Declaration"
   has_previously_used_hermes_cover: "Have you ever applied for Hermes Cover in the past?"
   new_to_hermes_cover: "Since you have not applied for Hermes Covers in the past, HandEX and our partner Euler Hermes would like to get to know you better. Please help us to understand to what extent you already have export experience and experience with defaulting foreign customers."
   years_trading_without_hermes_insurance: "To what extent or for how many years do you have export experience with non-Hermes covered export transactions?"
