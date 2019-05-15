@@ -177,12 +177,19 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-3 col-md-offset-1">
+                    <br>
                     <p> Steuernummer </p>
                     <%= form.text_field :employees_count, class: "form-control", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %>
                 </div>
 
                 <div class="col-md-3">
-                    <p> Bilanzsumme </p>
+                    <p> Bilanzsumme im letzten vollen Geschäftsjahr </p>
+                    <div> <%= form.text_field :revenue_last_year, class: "form-control", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                </div>
+
+                <div class="col-md-3">
+                    <br>
+                    <p> Letztes volles Geschäftsjahr </p>
                     <div> <%= form.text_field :revenue_last_year, class: "form-control", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                 </div>
             </div>
