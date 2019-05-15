@@ -41,8 +41,7 @@
 <div class="form-group">
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
-            <p><b> Haben Sie bereits Incoterms vereinbart?  </b>
-            <p>
+            <p><b> Haben Sie bereits Incoterms vereinbart?  </b></p>
             <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                 <div class="choice" name="yes_incoterms" data-toggle="wizard-checkbox" onclick="incoTerms()">
                     <div class="card portal-hover-effect">
@@ -292,8 +291,7 @@
         <div class="col-sm-8 col-sm-offset-1">
             <div class="form-group">
                 <br>
-                <p><b><%= t('is_export_licence_needed') %></b>
-                <p>
+                <p><b><%= t('is_export_licence_needed') %></b></p>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="exportlicenserequired_yes" data-toggle="wizard-checkbox" onclick="exportLicenseRequired()">
                         <%= check_box_tag "insurance[is_export_licence_needed]", @insurance.is_export_licence_needed ? @insurance.is_export_licence_needed : nil %>
@@ -355,8 +353,7 @@
     <div class="row">
         <div class="col-sm-8 col-sm-offset-1">
             <div class="form-group">
-                <p><b> <%= t('are_secondhand_goods_delivered') %></b>
-                <p>
+                <p><b> <%= t('are_secondhand_goods_delivered') %></b></p>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_secondhandgoods" data-toggle="wizard-checkbox"> <!-- onclick="secondHandGoods()"> -->
@@ -386,8 +383,7 @@
         <div class="col-md-8 col-md-offset-1">
             <div class="form-group">
                 <br>
-                <p><b> <%= t('is_contract_already_signed_between_parties') %></b>
-                <p>
+                <p><b> <%= t('is_contract_already_signed_between_parties') %></b></p>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_congractsignedallparties" data-toggle="wizard-checkbox" onclick="contractSignedAllParties()">
                         <%= check_box_tag "insurance[is_contract_already_signed_between_parties]", @insurance.is_contract_already_signed_between_parties ? @insurance.is_contract_already_signed_between_parties : nil %>
@@ -444,8 +440,7 @@
         <div class="col-md-8 col-md-offset-1">
             <div class="form-group">
 
-                <p><b> <%= t('has_special_contract_structure') %> </b>
-                <p>
+                <p><b> <%= t('has_special_contract_structure') %> </b></p>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_specialcontractstructure" data-toggle="wizard-checkbox"> <!--onclick="specialContractStructure()"> -->
@@ -563,8 +558,7 @@
         <div class="col-md-8 col-md-offset-1">
             <div class="form-group">
                 <br>
-                <p><b><%= t('is_price_adjustment_clause_with_importer') %></b>
-                <p>
+                <p><b><%= t('is_price_adjustment_clause_with_importer') %></b></p>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_priceadjustmentclause" data-toggle="wizard-checkbox" onclick="priceAdjustmentClause()">
@@ -617,8 +611,7 @@
             <div class="form-group">
                 <br>
 
-                <p><b> <%= t('is_good_sent_in_multiple_deliveries') %> </b>
-                <p>
+                <p><b> <%= t('is_good_sent_in_multiple_deliveries') %> </b> </p>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_multipledeliveries" data-toggle="wizard-checkbox" onclick="multipleDeliveries()">
                         <%= check_box_tag "insurance[is_good_sent_in_multiple_deliveries]", @insurance.is_good_sent_in_multiple_deliveries ? @insurance.is_good_sent_in_multiple_deliveries : nil %>
@@ -886,8 +879,7 @@
         <div class="row">
             <br>
             <div class="col-md-10 col-md-offset-1">
-                <p><b><%= t('is_security_present_for_transaction') %> </b>
-                <p>
+                <p><b><%= t('is_security_present_for_transaction') %> </b></p>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                     <div class="choice" name="yes_securitybusinnesprovided" data-toggle="wizard-checkbox" onclick="securityBusinnesProvided()">
                         <%= check_box_tag "insurance[is_security_present_for_transaction]", @insurance.is_security_present_for_transaction ? @insurance.is_security_present_for_transaction : nil %>
@@ -977,8 +969,7 @@
                     <div class="row">
                         <br>
                         <div class="col-md-10 col-md-offset-1">
-                            <p><b><%= t('has_significant_influence_on_security_provider') %> </b>
-                            <p>
+                            <p><b><%= t('has_significant_influence_on_security_provider') %> </b></p>
                             <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                 <div class="choice" name="yes_significantinfluencesecurityprovider" data-toggle="wizard-checkbox" onclick="explainSignificantInfluenceOnSecurityProvider()">
                                     <%= check_box_tag "insurance[has_significant_influence_on_security_provider]", @insurance.has_significant_influence_on_security_provider ? @insurance.has_significant_influence_on_security_provider : nil %>
@@ -1018,8 +1009,7 @@
                     <div class="row">
                         <br>
                         <div class="col-md-10 col-md-offset-1">
-                            <p><b><%= t('has_payment_experience_with_security_provider') %> </b>
-                            <p>
+                            <p><b><%= t('has_payment_experience_with_security_provider') %> </b></p>
                             <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                                 <div class="choice" name="yes_securitybusinnesprovided" data-toggle="wizard-checkbox" onclick="explainPaymentExperienceWithSecurityProvider()">
                                     <%= check_box_tag "insurance[has_payment_experience_with_security_provider]", @insurance.has_payment_experience_with_security_provider ? @insurance.has_payment_experience_with_security_provider : nil %>
@@ -1061,7 +1051,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <br><br>
         </div>
@@ -1108,6 +1097,4 @@
             x.style.display = "none";
         }
     }
-
-
 </script>
