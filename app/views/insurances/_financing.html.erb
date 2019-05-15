@@ -1,35 +1,4 @@
 <h4 class="info-text" style="font-family: 'Handel Becker Light', 'Handel Becker Med', 'HandelGotDBol', sans-serif;"><%= t('your_financing')%></h4>
-
-<div id="residualRiskApetite">
-    <br>
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="form-group">
-                <p><b> <%= t('accept_partial_refinancing')%> </b>
-                <p>
-                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice" name="yes_residualriskapetite" data-toggle="wizard-checkbox" onclick="residualRiskApetite()">
-                        <%= check_box_tag "insurance[accept_partial_refinancing]", @insurance.accept_partial_refinancing ? @insurance.accept_partial_refinancing : nil %>
-                        <div class="card portal-hover-effect">
-                            <p>Ja</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
-                    <div class="choice" name="no_residualriskapetite" data-toggle="wizard-checkbox" onclick="noResidualRiskApetite()">
-                        <%= check_box_tag "insurance[accept_partial_refinancing]", @insurance.accept_partial_refinancing ? nil : @insurance.accept_partial_refinancing %>
-                        <div class="card portal-hover-effect">
-                            <p>Nein</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
-</div>
-
 <div id="yesResidualRiskApetite" style="display: none;">
     <div class="appear">
         <br>
