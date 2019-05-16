@@ -23,4 +23,7 @@ class PagesController < ApplicationController
 
     def contactedExporter
     end
+    
+    def broker_overview
+    end
 end
