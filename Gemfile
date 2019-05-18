@@ -60,7 +60,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'bootstrap-sass', '~> 3.3.7'
+gem 'materialize-sass'
+gem 'material_icons'
+# gem 'bootstrap-sass', '~> 3.3.7'
 gem 'devise', '~> 4.3'
 gem 'jquery-rails'
 gem 'sticky-rails'
@@ -70,7 +72,7 @@ gem 'omniauth-facebook', '~> 4.0'
 gem 'paperclip', '~> 5.1.0'
 gem 'geocoder', '~> 1.4'
 gem 'therubyracer'
-gem 'less-rails-bootstrap'
+# gem 'less-rails-bootstrap'
 gem "font-awesome-rails"
 gem 'owlcarousel-rails'
 gem 'mixitup_rails'

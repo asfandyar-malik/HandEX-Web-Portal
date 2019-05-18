@@ -21,9 +21,25 @@ class PagesController < ApplicationController
     def advice
     end
 
-    def contactedExporter
+    def contacted_exporter
     end
     
     def broker_overview
     end
+
+    def forgotten_password
+    end
+
+    def overview
+    end
+
+    def sign_in
+    end
+    
+    def welcome
+    end
+    
+    def register_account
+    end
+    
 end

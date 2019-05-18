@@ -1,0 +1,2 @@
+module ExportApplicationsHelper
+end
