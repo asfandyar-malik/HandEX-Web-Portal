@@ -32,12 +32,6 @@ class PagesController < ApplicationController
 
     def overview
     end
-
-    def einloggen
-    end
-    
-    def sign_in
-    end
     
     def welcome
     end

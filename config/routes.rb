@@ -17,8 +17,6 @@ Rails.application.routes.draw do
         get 'pages/forgotten_password' => 'pages#forgotten_password'
         get 'pages/overview' => 'pages#overview'
         get 'pages/register_account' => 'pages#register_account'
-        get 'pages/einloggen' => 'pages#einloggen'
-        get 'pages/sign_in' => 'pages#sign_in'
         get 'pages/welcome' => 'pages#welcome'
         
         resources :insurances do
