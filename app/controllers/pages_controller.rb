@@ -36,7 +36,4 @@ class PagesController < ApplicationController
     def welcome
     end
     
-    def register_account
-    end
-    
 end
