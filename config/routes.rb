@@ -23,15 +23,8 @@ Rails.application.routes.draw do
             get 'pdf_user_summary'
           end
         end
-
-        resources :imports
         
-        resources :documents do
-            member do
-                get 'ocr'
-                get 'extract'
-            end
-        end
+        resources :imports
     end
     
     devise_for :users,

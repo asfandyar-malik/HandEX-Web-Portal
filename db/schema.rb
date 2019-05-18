@@ -10,19 +10,162 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_23_081715) do
+ActiveRecord::Schema.define(version: 2019_05_18_111457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
 
-  create_table "documents", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "invoice_file_name"
-    t.string "invoice_content_type"
-    t.integer "invoice_file_size"
-    t.datetime "invoice_updated_at"
+  create_table "businessinformation", id: false, force: :cascade do |t|
+    t.bigint "id", default: -> { "nextval('users_id_seq'::regclass)" }, null: false
+    t.string "describe_export_business"
+    t.boolean "is_investment_good", default: false
+    t.string "explain_why_importer_buying_good"
+    t.boolean "is_servicing_for_goods_offered", default: false
+    t.string "exported_goods_type"
+    t.boolean "is_delivered_part_of_consortium_with_other_companies", default: false
+    t.boolean "delivery_doesnt_affects_sensitive_areas", default: false
+    t.boolean "delivery_affects_natural_reserves", default: false
+    t.boolean "delivery_affects_indigenous_people", default: false
+    t.boolean "delivery_affects_cultural_heritage", default: false
+    t.boolean "delivery_affects_other", default: false
+    t.string "explain_delivery_affects_other"
+    t.boolean "is_export_licence_needed", default: false
+    t.string "which_regulations_enforcing_exportlicense_requirement"
+    t.string "export_license_status"
+    t.boolean "are_secondhand_goods_delivered", default: false
+    t.boolean "is_contract_already_signed_between_parties", default: false
+    t.string "contract_signing_date"
+    t.float "exporter_internal_contract_id"
+    t.boolean "has_special_contract_structure", default: false
+    t.string "contract_currency"
+    t.float "contract_value"
+    t.string "total_delivery_value_excluding_servicing"
+    t.float "percentage_of_spareparts_in_whole_order"
+    t.string "other_billed_items_in_contract_currency"
+    t.float "other_billed_items_in_contract_amount"
+    t.string "describe_other_billed_items_in_contract"
+    t.boolean "is_price_adjustment_clause_with_importer", default: false
+    t.string "explain_accounting_methods"
+    t.boolean "is_good_sent_in_multiple_deliveries", default: false
+    t.string "delivery_start"
+    t.string "delivery_end"
+    t.string "other_important_delivery_information"
+    t.string "other_important_delivery_milestones"
+    t.boolean "has_german_certificate_of_origin", default: false
+    t.boolean "has_german_certificate_of_origin_for_only_parts_of_good", default: false
+    t.string "all_rawgoods_supplier_country"
+    t.string "all_rawgoods_supplier_currency"
+    t.string "all_rawgoods_supplier_text"
+    t.string "why_all_foreign_rawgoods_necessary"
+    t.string "partly_rawgoods_supplier_country"
+    t.string "partly_rawgoods_supplier_currency"
+    t.string "partly_rawgoods_supplier_text"
+    t.string "why_partly_foreign_rawgoods_necessary"
+    t.boolean "is_security_present_for_transaction", default: false
+    t.string "security_type"
+    t.string "security_type_name"
+    t.float "proportion_of_good_covered_by_security"
+    t.string "when_security_received"
+    t.string "when_security_received_later_exact_date"
+    t.boolean "has_significant_influence_on_security_provider", default: false
+    t.string "explain_exporter_influence_on_security_provider"
+    t.boolean "has_payment_experience_with_security_provider", default: false
+    t.string "explain_previous_payment_experience_with_security_provider"
+    t.string "security_provider_address"
+  end
+
+  create_table "exportcoverageinsurance", id: false, force: :cascade do |t|
+    t.boolean "does_corruption_declaration_apply", default: false
+    t.string "explain_corruption_sanctions"
+    t.boolean "is_all_information_provided_with_best_of_knowledge", default: false
+    t.boolean "has_accepted_terms_conditions", default: false
+    t.boolean "has_read_privacy_policy", default: false
+    t.boolean "has_read_all_instructions", default: false
+  end
+
+  create_table "exporterinformation", id: false, force: :cascade do |t|
+    t.boolean "has_previously_used_hermes_cover", default: false
+    t.string "years_trading_without_hermes_insurance"
+    t.string "experience_with_importer_country"
+    t.string "adequate_claims_management"
+    t.string "exporter_name"
+    t.integer "exporter_dn_no"
+    t.string "exporter_telephone"
+    t.integer "exporter_street_hno"
+    t.integer "exporter_plz"
+    t.string "exporter_country"
+    t.integer "employees_count"
+    t.float "revenue_last_year"
+    t.string "exporter_representative_firstname"
+    t.string "exporter_representative_lastname"
+    t.string "exporter_representative_email"
+    t.string "exporter_representative_function"
+    t.string "exporter_representative_department"
+  end
+
+  create_table "financialinformation", id: false, force: :cascade do |t|
+    t.boolean "accept_partial_refinancing", default: false
+    t.boolean "has_agreed_payment_term_already", default: false
+    t.boolean "payment_term_short", default: false
+    t.boolean "payment_term_mid", default: false
+    t.boolean "payment_term_both", default: false
+    t.string "downpayment_delivery_currency_payment_term_short"
+    t.float "downpayment_delivery_amount_payment_term_short"
+    t.string "downpayment_delivery_description_payment_term_short"
+    t.string "agreed_payments_currency_payment_term_short"
+    t.float "agreed_payments_amount_payment_term_short"
+    t.string "agreed_payments_output_payment_term_short"
+    t.string "agreed_payments_time_payment_term_short"
+    t.string "agreed_payments_some_output_payment_term_short"
+    t.string "payment_vehichle_payment_term_short"
+    t.string "agreed_payments_currency_payment_term_mid"
+    t.string "agreed_payments_output_payment_term_mid"
+    t.float "agreed_payments_amount_payment_term_mid"
+    t.string "receive_deposit_time_payment_term_mid"
+    t.string "repayment_profile_structure_payment_term_mid"
+    t.string "loan_term_start_payment_term_mid"
+    t.string "loan_term_other_description_payment_term_mid"
+    t.integer "number_of_installments_payment_term_mid"
+    t.string "downpayment_delivery_currency_payment_term_both"
+    t.float "downpayment_delivery_amount_payment_term_both"
+    t.string "downpayment_delivery_description_payemnt_term_both"
+    t.string "agreed_payments_currency_payment_term_both"
+    t.float "agreed_payments_amount_payment_term_both"
+    t.string "agreed_payments_output_payment_term_both"
+    t.string "agreed_payments_time_payment_term_both"
+    t.string "agreed_payments_some_output_payment_term_both"
+    t.string "advance_payment_currency_payment_term_both"
+    t.float "advance_payment_amount_payment_term_both"
+    t.string "advance_payment_description_payment_term_both"
+    t.string "deposit_received_payment_term_both"
+    t.string "repayment_structure_payment_term_both"
+    t.string "credit_start_date_payment_term_both"
+    t.string "credit_start_special_description_payment_term_both"
+    t.integer "number_of_installments_payment_term_both"
+    t.string "payment_vehichle_explain_payment_term_both"
+    t.boolean "is_interest_charged_to_importer", default: false
+    t.integer "loan_duration"
+  end
+
+  create_table "importerinformation", id: false, force: :cascade do |t|
+    t.string "importer_company_name"
+    t.integer "importer_street_hno"
+    t.integer "importer_plz"
+    t.string "importer_city"
+    t.string "importer_country"
+    t.boolean "is_exporting_to_private_sctor", default: false
+    t.boolean "is_exporting_to_public_sector", default: false
+    t.boolean "is_shipment_address", default: false
+    t.string "importer_shipment_company_name"
+    t.string "importer_shipment_country"
+    t.integer "importer_shipment_street_hno"
+    t.integer "importer_shipment_plz"
+    t.string "importer_shipment_city"
+    t.boolean "has_significant_influence_on_importer_management", default: false
+    t.string "explain_exporter_influence_on_importer_management"
+    t.boolean "has_payment_experience_with_importer", default: false
+    t.string "explain_previous_payment_experience_with_importer"
   end
 
   create_table "imports", force: :cascade do |t|
@@ -164,6 +307,7 @@ ActiveRecord::Schema.define(version: 2019_04_23_081715) do
     t.string "is_all_information_provided_with_best_of_knowledge"
     t.string "exporter_street_hno"
     t.string "loan_term"
+    t.string "application_status", default: "new"
     t.boolean "accept_partial_refinancing", default: false
     t.boolean "is_investment_good", default: false
     t.boolean "is_servicing_for_goods_offered", default: false
@@ -206,6 +350,29 @@ ActiveRecord::Schema.define(version: 2019_04_23_081715) do
     t.string "explain_previous_payment_experience_with_security_provider"
     t.string "security_provider_address"
     t.index ["user_id"], name: "index_insurances_on_user_id"
+  end
+
+  create_table "testusers", id: :bigint, default: -> { "nextval('users_id_seq'::regclass)" }, force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "fullname"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "provider"
+    t.string "uid"
+    t.string "image"
+    t.string "phone_number"
   end
 
   create_table "users", force: :cascade do |t|
