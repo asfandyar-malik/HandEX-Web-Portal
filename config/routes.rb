@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
     
   resources :invite_exporters
-    scope "(:locale)", locale: /en|es|de/ do
+  resources :export_applications
+
+  scope "(:locale)", locale: /en|es|de/ do
     
         get '/:locale' => 'insurances#index'
         root to: 'pages#broker_option'
@@ -27,7 +29,6 @@ Rails.application.routes.draw do
           end
         end
 
-        resources :export_applications
     end
     
     devise_for :users,
