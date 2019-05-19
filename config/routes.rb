@@ -17,7 +17,8 @@ Rails.application.routes.draw do
         get 'pages/forgotten_password' => 'pages#forgotten_password'
         get 'pages/overview' => 'pages#overview'
         get 'pages/welcome' => 'pages#welcome'
-        
+        get 'pages/broker_default' => 'pages#broker_default'
+
         resources :insurances do
           member do
             get 'submitted_applications'
