@@ -10,13 +10,13 @@
                     <p class="light">Willkommen Zurück! <br>
                         Wir sind für Sie da, um Ihr Exportgeschäft zu unterstützen.<br>
                     </p>
-                    <a href="#">Noch kein Konto? Registrieren Sie sich jetzt</a>
+                    <a href="/registration">Noch kein Konto? Registrieren Sie sich jetzt</a>
                 </div>
             </div>
 
             <div class="col s12 m6">
                 <div class="row">
-                    <div class="col s12 custom-form">
+                      <div class="col s12 custom-form">
                         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                             <div class="row">
                                 <div class="input-field col s12">
@@ -35,14 +35,14 @@
                                         <%= f.check_box :remember_me %> <%= t('save_data') %>
                                     <% end %>
 
-                                    <span class="pull-right"></span>
-                                    <%= link_to t('password_forgotten'), new_user_password_path %>
+                                    <span class="pull-right">
+                                        <%= link_to t('password_forgotten'), new_user_password_path %>
                                     </span>
                                 </div>
                                 <br>
 
-                                <div class="input-field col s12">
-                                    <%= f.submit "Einloggen", id: "submit",  type: "button", class: "validate" %>
+                                <div class="actions">
+                                    <%= f.submit "Einloggen", id: "submit", class: "validate" %>
                                     <br><br>
                                 </div>
                             </div>
