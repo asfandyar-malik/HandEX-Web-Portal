@@ -27,9 +27,6 @@ class PagesController < ApplicationController
     def broker_overview
     end
 
-    def forgotten_password
-    end
-
     def overview
     end
     

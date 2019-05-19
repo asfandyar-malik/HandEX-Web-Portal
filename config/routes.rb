@@ -14,7 +14,6 @@ Rails.application.routes.draw do
         get 'pages/advice' => 'pages#advice'
         get 'pages/contactedExporter' => 'pages#contactedExporter'
         get 'pages/broker_overview' => 'pages#broker_overview'
-        get 'pages/forgotten_password' => 'pages#forgotten_password'
         get 'pages/overview' => 'pages#overview'
         get 'pages/welcome' => 'pages#welcome'
         
