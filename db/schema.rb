@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_18_142856) do
+ActiveRecord::Schema.define(version: 2019_05_19_172546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -194,6 +194,11 @@ ActiveRecord::Schema.define(version: 2019_05_18_142856) do
     t.string "explain_previous_payment_experience_with_security_provider"
     t.string "security_provider_address"
     t.index ["user_id"], name: "index_insurances_on_user_id"
+  end
+
+  create_table "invite_exporters", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

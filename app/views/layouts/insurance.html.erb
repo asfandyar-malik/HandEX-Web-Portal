@@ -14,14 +14,29 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'insurance', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'activestorage.js', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'turbolinks.js', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'js/jquery-2.2.4.min', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'js/jquery.validate.min', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag('jquery.sticky.js') %>
+    <%= javascript_include_tag('materialize.js') %>
+    <%= javascript_include_tag('init.js') %>
 
-  <!-- Google Tag Manager -->
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material\Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/nouislider.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+
+    <meta name="google-site-verification" content="W5f_acjB7RRBkTjQsgza4zJpdUCne6ll6Ztk5v4LwOg"/>
+
+    <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({
@@ -50,9 +65,9 @@
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <div class="image-container set-full-height" style="background-color: #f6f7fa">
-        <%= yield %>
-    </div>
+   <div class="container-fluid">
+       <%= yield %>
+   </div>
 
     <!-- Start of HubSpot Embed Code -->
     <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/5380143.js"></script>
