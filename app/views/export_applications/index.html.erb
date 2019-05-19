@@ -9,15 +9,6 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @export_applications.each do |export_application| %>
-      <tr>
-        <td><%= link_to 'Show', export_application %></td>
-        <td><%= link_to 'Edit', edit_export_application_path(export_application) %></td>
-        <td><%= link_to 'Destroy', export_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
 </table>
 
 <br>

@@ -21,7 +21,7 @@ class ExportApplicationsController < ApplicationController
   def create
       @export_application = current_user.export_applications.build(export_application_params)
       if @export_application.save
-          redirect_to pages_submitted_path, notice: 'Antrag wurde erfolgreich erstellt.'
+          redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich erstellt.'
       else
           flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
           render :new
@@ -30,7 +30,7 @@ class ExportApplicationsController < ApplicationController
   
   def update
       if @export_application.update(export_application_params)
-          redirect_to pages_submitted_path, notice: 'Antrag wurde erfolgreich aktualisiert.'
+          redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich aktualisiert.'
       else
           flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
       end
@@ -45,7 +45,7 @@ class ExportApplicationsController < ApplicationController
   private
 
   def filer_application_by_status status
-      current_user.insurances.where("application_status = ?", status)
+      current_user.export_applications.where("application_status = ?", status)
   end
 
   def set_export_application
@@ -53,11 +53,11 @@ class ExportApplicationsController < ApplicationController
   end
 
   def is_authorised
-      redirect_to root_path, alert: "You don't have permission" unless current_user.id = @insurance.user_id
+      redirect_to root_path, alert: "You don't have permission" unless current_user.id = @export_application.user_id
   end
 
   def export_application_params
-      params.require(:insurance).permit(
+      params.require(:export_application).permit(
           # Ihr Geschaft -------------------------------------
           :describe_export_business, :is_investment_good,:explain_why_importer_buying_good, :is_servicing_for_goods_offered,
           :exported_goods_type, :explain_good_industry_type, :is_delivered_part_of_consortium_with_other_companies,
