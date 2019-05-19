@@ -1,46 +1,63 @@
 <div class="container">
     <div class="section sign-in">
-        <!--   Icon Section   -->
-        <div class="row">
+        <div class="row valign-wrapper">
+            <div class="col s12 m6">
+                <div class="text-section black-text">
+                    <a class="smooth"><%= image_tag "HandEX_logo4.png", style: 'height:5em;width:auto;' %></a>
+
+                    <h4>Kontaktdaten Ihres Kunden</h4>
+                    <p class="light">Bitte füllen Sie hier die Kontaktdaten Ihres Kunden ein. Ihr Kunde erhält per Email eine Einladung zu unserem Portal und kann sich selbst registrieren und wird danach
+                        direkt in die Antragsstrecke des von Ihnen ausgewählten Produktes geleitet. Bitte stellen Sie sicher, dass Sie die Erlabunis haben die Kontaktdaten Ihres Kunden an HandEX
+                        weiterzugeben.
+                    </p>
+                </div>
+            </div>
 
             <div class="col s12 m6">
                 <div class="row">
                     <div class="col s12 custom-form">
-
                         <%= form_with(model: @invite_exporter, local: true, html: {multipart: true}, id: "invite-exporter") do |f| %>
+                            <div class="form-section z-depth-1">
+                                <div class="row">
 
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <label for="email"> Firmenname </label>
-                                    <%= f.text_field :exporter_name, autofocus: true, class: "validate" %>
-                                </div>
+                                    <div class="col s12">
+                                        <div class="form-content">
+                                            <div class="row">
 
-                                <div class="input-field col s12">
-                                    <label for="password">Kontaktperson</label>
-                                    <%= f.text_field :exporter_representative_firstname, autocomplete: "off", class: "validate" %>
-                                </div>
+                                                <div class="input-field col s12">
+                                                    <label for="email"> Firmenname </label>
+                                                    <%= f.text_field :exporter_name, autofocus: true, class: "validate" %>
+                                                </div>
 
-                                <div class="input-field col s12">
-                                    <label for="email"> Email </label>
-                                    <%= f.email_field :exporter_email, autofocus: true, class: "validate" %>
-                                </div>
+                                                <div class="input-field col s12">
+                                                    <label for="password">Kontaktperson</label>
+                                                    <%= f.text_field :exporter_representative_firstname, autocomplete: "off", class: "validate" %>
+                                                </div>
 
-                                <div class="input-field col s12">
-                                    <label for="email"> Telefonnummer </label>
-                                    <%= f.text_field :exporter_telephone, autofocus: true, class: "validate" %>
-                                </div>
+                                                <div class="input-field col s12">
+                                                    <label for="email"> Email </label>
+                                                    <%= f.email_field :exporter_email, autofocus: true, class: "validate" %>
+                                                </div>
 
-                                <div class="input-field col s12">
-                                    <label for="email"> Issued Broker Id </label>
-                                    <%= f.text_field :exporter_broker_id, autofocus: true, class: "validate" %>
-                                </div>
+                                                <div class="input-field col s12">
+                                                    <label for="email"> Telefonnummer </label>
+                                                    <%= f.text_field :exporter_telephone, autofocus: true, class: "validate" %>
+                                                </div>
 
-                                <div class="actions">
-                                    <%= f.submit "Submit", id: "submit", class: "validate" %>
-                                    <br><br>
+                                                <div class="input-field col s12">
+                                                    <label for="email"> Issued Broker Number </label>
+                                                    <%= f.text_field :exporter_broker_id, autofocus: true, class: "validate" %>
+                                                </div>
+
+                                                <div class="actions">
+                                                    <%= f.submit "Submit", id: "submit", class: "validate" %>
+                                                    <br><br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-
                         <% end %>
                     </div>
                 </div>
