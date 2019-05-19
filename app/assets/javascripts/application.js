@@ -19,6 +19,8 @@
 //= require activestorage
 //= require toastr
 //= require mixitup
+//= require init
+//= require materialize
 //= require_tree .
 //= require materialize/extras/nouislider
 //= stub 'js/jquery.validate.min'

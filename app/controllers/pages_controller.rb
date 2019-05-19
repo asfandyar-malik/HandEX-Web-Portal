@@ -15,19 +15,16 @@ class PagesController < ApplicationController
     def guidelines
     end
     
-    def submitted
+    def submitted_application
     end
-
+    
     def advice
     end
 
     def contacted_exporter
     end
     
-    def broker_overview
-    end
-
-    def forgotten_password
+    def broker_option
     end
 
     def overview

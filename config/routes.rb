@@ -1,20 +1,22 @@
 Rails.application.routes.draw do
     
-    scope "(:locale)", locale: /en|es|de/ do
+  resources :invite_exporters
+  resources :export_applications
+
+  scope "(:locale)", locale: /en|es|de/ do
     
         get '/:locale' => 'insurances#index'
-        root to: 'insurances#index'
+        root to: 'pages#broker_option'
         
         get 'pages/landing' => 'pages#landing'
         get 'pages/impressum' => 'pages#impressum'
         get 'pages/termsAndConditions' => 'pages#termsAndConditions'
-        get 'pages/submitted' => 'pages#submitted'
+        get 'pages/submitted_application' => 'pages#submitted_application'
         get 'pages/guidelines' => 'pages#guidelines'
         get 'pages/guidelines' => 'pages#guidelines'
         get 'pages/advice' => 'pages#advice'
-        get 'pages/contactedExporter' => 'pages#contactedExporter'
-        get 'pages/broker_overview' => 'pages#broker_overview'
-        get 'pages/forgotten_password' => 'pages#forgotten_password'
+        get 'pages/contacted_exporter' => 'pages#contacted_exporter'
+        get 'pages/broker_option' => 'pages#broker_option'
         get 'pages/overview' => 'pages#overview'
         get 'pages/welcome' => 'pages#welcome'
         get 'pages/broker_default' => 'pages#broker_default'
@@ -28,7 +30,6 @@ Rails.application.routes.draw do
           end
         end
 
-        resources :export_applications
     end
     
     devise_for :users,

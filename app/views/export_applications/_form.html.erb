@@ -15,7 +15,20 @@
 </div>
 <div class="container">
     <div class="section">
-        <form action="" method="post">
+        <%= form_with(model: export_application, local: true, html: {multipart: true}, id: "export-application-portal") do |form| %>
+
+            <% if export_application.errors.any? %>
+                <div id="error_explanation">
+                    <h2><%= pluralize(export_application.errors.count, "error") %> prohibited this export_application from
+                        being saved:</h2>
+                    <ul>
+                        <% export_application.errors.full_messages.each do |message| %>
+                            <li><%= message %></li>
+                        <% end %>
+                    </ul>
+                </div>
+            <% end %>
+
 
             <div class="form-section">
 
@@ -47,6 +60,12 @@
                                 <div class="col s12">
                                     <div class="form-content">
                                         <div class="row">
+
+                                            <div class="input-field col s12">
+                                                <label for="email"> Describe Export Business </label>
+                                                <%= form.text_field :describe_export_business, autofocus: true, class: "validate" %>
+                                            </div>
+
                                             <div class="input-field col s12 m6">
                                                 <label>Company Name</label>
                                                 <input type="text" class="validate">
@@ -1002,7 +1021,7 @@
                         <div class="col s12 m4">
                             <div class="form-nav right">
                                 <a href="#">Save As Draft</a>
-                                <span class="next">Submit Application</span>
+                                <%= form.submit class: 'btn', value: t('application_submit') %>
                             </div>
                         </div>
                     </div>
@@ -1109,13 +1128,13 @@
                 </div>
             </div>
 
-        </form>
+        <% end %>
     </div>
 </div>
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="js/materialize.js"></script>
-<script src="js/init.js"></script>
+<script src="materialize.js"></script>
+<script src="init.js"></script>
 <script type="text/javascript">
     var curremt_tab = 1;
 

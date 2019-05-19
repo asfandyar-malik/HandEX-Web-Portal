@@ -23,10 +23,10 @@ class InsurancesController < ApplicationController
     
     def create
         @insurance                    = current_user.insurances.build(insurance_params)
-        @insurance.application_status = "submitted"
+        @insurance.application_status = "submitted_application"
         if @insurance.save
             # UserMailer.with(user: current_user, insurance: @insurance).application_submit_email.deliver_now
-            redirect_to pages_submitted_path, notice: 'Antrag wurde erfolgreich erstellt.'
+            redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich erstellt.'
         else
             flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
             render :new
@@ -35,7 +35,7 @@ class InsurancesController < ApplicationController
     
     def update
         if @insurance.update(insurance_params)
-            redirect_to pages_submitted_path, notice: 'Antrag wurde erfolgreich aktualisiert.'
+            redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich aktualisiert.'
         else
             flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
         end
@@ -43,14 +43,12 @@ class InsurancesController < ApplicationController
     
     def destroy
         @insurance.destroy
-        respond_to do |format|
-            format.html {redirect_to insurances_url, notice: 'Antrag wurde erfolgreich zerstört'}
-            format.json {head :no_content}
-        end
+        redirect_to insurances_url, notice: 'Antrag wurde erfolgreich zerstört'
+        head :no_content
     end
     
     def submitted_applications
-        @submitted_applications = filer_application_by_status "submitted"
+        @submitted_applications = filer_application_by_status "submitted_application"
     end
     
     def approved_applications
