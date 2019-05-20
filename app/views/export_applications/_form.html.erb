@@ -327,7 +327,6 @@
                                             <div class="input-field col s12 m6">
                                                 <label>Name</label>
                                                 <%= form.text_field :importer_mother_company, autofocus: true, class: "validate", placeholder: "dd/mm/yyyy" %>
-                                                <input type="text" class="validate">
                                             </div>
                                             <div class="input-field col s12 m6">
                                                 <label>Ist dieses Unternehmen auch der globale Mutterkonzern?</label>
@@ -366,18 +365,18 @@
                     <div class="row form-nav-top">
                         <div class="col s12 m4">
                             <div class="form-nav">
-                                <p><span> 50% Complete </span></p>
+                                <p><span> 50% Fertig </span></p>
                             </div>
                         </div>
                         <div class="col s12 m4">
                             <div class="form-nav">
-                                <h2>Transaction</h2>
+                                <h2>Geschäft</h2>
                             </div>
                         </div>
                         <div class="col s12 m4">
                             <div class="form-nav right">
-                                <a href="#">Save As Draft</a>
-                                <span class="next" tab_index="4">Next Step</span>
+                                <a href="#">Entwurf speichern</a>
+                                <span class="next" tab_index="4">Weiter</span>
                             </div>
                         </div>
                     </div>
@@ -387,210 +386,214 @@
                             <div class="form-content">
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <label>Company Name</label>
-                                        <input type="text" class="validate">
+                                        <label>Bitte ordnen Sie die von ihnen zu liefernden Waren bzw. Diensleistungen Ihrer Branche zu.</label>
+                                        <%= form.text_field :exporter_name, autofocus: true, class: "validate" %>
                                     </div>
                                     <div class="input-field col s12">
-                                        <label>Please Describe Your Industry In More Detail.</label>
-                                        <textarea class="materialize-textarea custom-area" style="height: 120px;"></textarea>
+                                        <label>Bitte beschreiben Sie Ihre Industrie genauer</label>
+                                        <%= form.text_field :explain_good_industry_type, autofocus: true, class: "materialize-textarea custom-area", style: "height: 120px;" %>
                                     </div>
                                     <div class="input-field col s12">
-                                        <label>Describe Your Products And/Or Services</label>
-                                        <textarea class="materialize-textarea custom-area" style="height: 120px;"></textarea>
+                                        <label>Bitte beschreiben Sie Ihre Produkte und Ihre Leistungen </label>
+                                        <%= form.text_field :explain_product_service, autofocus: true, class: "materialize-textarea custom-area", style: "height: 120px;" %>
                                     </div>
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m6 nopadding">
-                                            <label>Are Your Goods, Capital Goods?</label>
+                                            <label>Handelt es sich bei Ihre Ware um Investitionsgüter?</label>
                                             <p><label for="Goods-yes"><input type="radio" id="Goods-yes" name="Goods-yes" value="No"/><span class="yes yes-no-btns">Yes</span></label><label for="Goods-no"><input type="radio" id="Goods-no" name="Goods-no" value="No"/><span class="no yes-no-btns">No</span></label></p>
                                         </div>
                                     </div>
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m6 nopadding">
-                                            <label>Do You Also Provide Services(Assembly, On-Site Training Etc.)?</label>
+                                            <label>Erbringen Sie auch Leistungen (Montage, Schulungen vor Ort etc.)?</label>
                                             <p><label for="pro-service"><input type="radio" id="pro-service" name="pro-service" value="No"/><span class="yes yes-no-btns">Yes</span></label><label for="pro-service-no"><input type="radio" id="pro-service-no" name="natural4" value="No"/><span class="no yes-no-btns">No</span></label></p>
                                         </div>
                                     </div>
                                     <div class="input-field col s12">
-                                        <label>How Would You Categorise The Type Of Goods Your Company Provides?</label>
+                                        <label>Bitte ordnen Sie die von Ihnen zu liefernden Waren bzw. Dienstleistungen Ihrer Branche zu.</label>
                                         <select>
-                                            <option>Please select</option>
+                                            <option>Bitte wählen</option>
                                         </select>
                                     </div>
+
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m6 nopadding">
-                                            <label>Do You Deliver As Part Of An Overall Project Together With Other Companies?</label>
+                                            <label>Liefern/Leisten Sie im Rahmen eines Gesamtprojekts zusammen mit anderen Unternehmen?</label>
                                             <p><label for="pro-com"><input type="radio" id="pro-com" name="pro-com" value="No"/><span class="yes yes-no-btns">Yes</span></label><label for="pro-com-no"><input type="radio" id="pro-com-no" name="pro-com-no" value="No"/><span class="no yes-no-btns">No</span></label></p>
                                         </div>
                                     </div>
                                     <div class="input-field col s12">
-                                        <label>Do Your Deliveries Or Services Affect A Sensitive Area?</label>
-                                        <p>Sensitive Areas Include National Parks And Other Areas Protected By National Or International Las, As Well As Sensitive Areas Of International, National Or Regional Importance.</p>
+                                        <label>Betreffen Ihre Lieferungen bzw. Leistungen ein sensibles Gebiet?</label>
+                                        <p> Als sensible Gebiete gelten Nationalparks und andere durch nationales oder internationales Recht geschützte Gebiete
+                                            sowie sensible Regionen von internationaler, nationaler oder regionaler Bedeutung.</p>
                                         <p><label for="your-del"><input type="radio" id="your-del" name="your-del" value="No"/><span class="yes yes-no-btns">Yes</span></label><label for="your-del-no"><input type="radio" id="your-del-no" name="your-del-no" value="No"/><span class="no yes-no-btns">No</span></label></p>
                                         <div class="row hide-section">
                                             <div class="input-field col s12">
-                                                <label>What Type Of Area Does It Affect?</label>
+                                                <label>Um welche Art von sensibelen Gebiet handelt sich?</label>
                                                 <select>
-                                                    <option>Please Select</option>
+                                                    <option>Bitte wählen </option>
                                                 </select>
                                             </div>
                                             <div class="input-field col s12 m12">
-                                                <label>Please Specify What Kind Of Sensitive Area It is</label>
+                                                <label>Bitte konkretisieren Sie, um was für ein sensibeles Gebiet es sich handelt.</label>
                                                 <input type="text" class="validate">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="input-field col s12">
-                                        <label>Is Your Export Subject To Export Authorization?</label>
+                                        <label>Ist Ihr Export ausfuhrgenehmigungspflichtig?</label>
                                         <p><label for="ex-auth"><input type="radio" id="ex-auth" name="ex-auth" value="No"/><span class="yes yes-no-btns">Yes</span></label><label for="ex-auth-no"><input type="radio" id="ex-auth-no" name="ex-auth-no" value="No"/><span class="no yes-no-btns">No</span></label></p>
                                         <div class="row hide-section">
                                             <div class="input-field col s12">
-                                                <label>From Which Regulations?</label>
-                                                <p>Or Which Part/Section Of The Export List Does The License Requirement Arise?</p>
+                                                <label>Aus welchen Vorschriften bzw. welchem Teil/Abschnitt der Ausfuhrliste ergibt sich die
+                                                    Genehmigungspflicht?</label>
                                                 <input type="text" class="validate">
                                             </div>
                                             <div class="input-field col s12 m12">
-                                                <label>Please Specify What Kind Of Sensitive Area It is</label>
+                                                <label>Die Ausfuhrgenehmigung...</label>
                                                 <select>
-                                                    <option>Please Select</option>
+                                                    <option>Bitte wählen </option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="input-field col s12">
-                                        <label>Do You Deliver Used Goods?</label>
+                                        <label>Liefern Sie gebrauchte Ware?</label>
                                         <p><label for="used-goods"><input type="radio" id="used-goods" name="used-goods" value="No"/><span class="yes yes-no-btns">Yes</span></label><label for="used-goods-no"><input type="radio" id="used-goods-no" name="used-goods-no" value="No"/><span class="no yes-no-btns">No</span></label></p>
                                         <div class="row hide-section">
                                             <div class="input-field col s12 m6">
-                                                <label>Year of initial production</label>
+                                                <label>Jahr der Fertigung</label>
                                                 <input type="text" class="validate">
                                             </div>
                                             <div class="input-field col s12 m6">
-                                                <label>Remaining lifetime of goods</label>
-                                                <select>
-                                                    <option>Please Select</option>
-                                                </select>
+                                                <label>Restlebensdauer in Jahren</label>
+                                                <input type="text" class="validate">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="input-field col s12">
                                         <div class="input-field col s12 m6">
-                                            <label>Will the goods get a makeover before reselling?</label>
+                                            <label>Wird die Ware vor dem Weiterverkauf überholt?</label>
                                             <p><label for="used-goods"><input type="radio" id="used-goods" name="used-goods" value="No"/><span class="yes yes-no-btns">Yes</span></label><label for="used-goods-no"><input type="radio" id="used-goods-no" name="used-goods-no" value="No"/><span class="no yes-no-btns">No</span></label></p>
-                                            <div class="row hide-section">
-                                                <div class="input-field col s12 m6">
-                                                    <label>Year of initial production</label>
-                                                    <input type="text" class="validate">
-                                                </div>
-                                                <div class="input-field col s12 m6">
-                                                    <label>Remaining lifetime of goods</label>
-                                                    <select>
-                                                        <option>Please Select</option>
-                                                    </select>
-                                                </div>
-                                            </div>
                                         </div>
+
                                         <div class="input-field col s12 m6">
-                                            <label>Where will the goods get a makeover?</label>
+                                            <label>Wo wird die Ware überholt?</label>
                                             <select>
-                                                <option>Please select</option>
+                                                <option>Bitte wählen...</option>
                                             </select>
                                         </div>
                                     </div>
+
                                     <div class="input-field col s12">
-                                        <label>Have All Parties Already Signed The Contract For The Export Business?</label>
+                                        <div class="input-field col s12 m6">
+                                            <label>Warum wird die Ware im Ausland überholt? </label>
+                                            <input type="text" class="validate">
+                                        </div>
+
+                                        <div class="input-field col s12 m6">
+                                            <label>Zu welchem Anteil wird die Ware im Ausland überholt? </label>
+                                            <input type="text" class="validate">
+                                        </div>
+                                    </div>
+
+                                    <div class="input-field col s12 m6">
+                                        <label>Bitte beschreiben Sie, weshalb die Überholung nicht in Deutschland erfolgte</label>
+                                        <input type="text" class="validate">
+                                    </div>
+
+                                    <div class="input-field col s12">
+                                        <label>Haben bereits alle Parteien den Vertrag für das Exportgeschäft unterzeichnet?</label>
                                         <p><label for="ex-business"><input type="radio" id="ex-business" name="ex-business" value="Yes"/><span class="yes yes-no-btns">Yes</span></label><label for="ex-business-no"><input type="radio" id="ex-business-no" name="ex-business-no" value="No"/><span class="no yes-no-btns">No</span></label></p>
                                         <div class="row hide-section">
                                             <div class="input-field col s12 m12">
-                                                <label>Please tell us more about the contract</label>
+                                                <label>Bitte geben Sie das Abschlussdatum des Vertrags und optional eine interne Referenz an.</label>
                                             </div>
                                             <div class="input-field col s12 m6">
-                                                <label>Date of Signature</label>
+                                                <label>Datum der Unterschrift</label>
                                                 <input type="text" class="datepicker" placeholder="dd/mm/yyyy">
                                             </div>
                                             <div class="input-field col s12 m6">
-                                                <label>Internal Reference ID</label>
+                                                <label>Interne Referenznummer</label>
                                                 <input type="text" class="validate">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="input-field col s12">
-                                        <label>Have you agreed a special contractual structure involving(i) other supplying parties and/or (ii) special price variation clauses?</label>
+                                        <label>Vereinbaren Sie mit Ihrem Vertragspartner eine besondere Vertragsstruktur
+                                            (Tochterunternehmen oder Preisgleitklausel?) </label>
                                         <p><label for="spl-pricecl"><input type="radio" id="spl-pricecl" name="spl-pricecl" value="yes"/><span class="yes yes-no-btns">Yes</span></label><label for="spl-pricecl-no"><input type="radio" id="spl-pricecl-no" name="spl-pricecl-no" value="No"/><span class="no yes-no-btns">No</span></label></p>
                                         <div class="row hide-section">
                                             <div class="input-field col s12 m12">
-                                                <label>Please explain the structure in more detail.</label>
+                                                <label>Bitte erklären Sie die Struktur im Detail.</label>
                                                 <textarea class="materialize-textarea custom-area" style="height: 120px;"></textarea>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="input-field col s12">
-                                        <label>Do you receive a certificate of origin for your goods?</label>
+                                        <label>Bekommen Sie für die zu liefernde Ware ein deutsches Warenursprungszeugnis?</label>
                                         <p><label for="certificate-goods"><input type="radio" id="certificate-goods" name="certificate-goods" value="yes"/><span class="no yes-no-btns">Yes</span></label><label for="certificate-goods-no"><input type="radio" id="certificate-goods-no" name="certificate-goods-no" value="No"/><span class="yes yes-no-btns">No</span></label><label for="spl-pricecl-no"><input type="radio" id="certificate-goods-part" name="certificate-goods-part" value="No"/><span class="yes yes-no-btns">Part</span></label></p>
                                         <div class="row hide-section">
                                             <div class="input-field col s12 m6">
-                                                <label>Currency</label>
+                                                <label>Währung</label>
                                                 <select>
-                                                    <option>Please select</option>
+                                                    <option>Bitte wählen...</option>
                                                 </select>
                                             </div>
                                             <div class="input-field col s12 m6">
-                                                <label>Amount</label>
+                                                <label>Betrag</label>
                                                 <input type="text" class="validate" placeholder="€">
                                             </div>
                                             <div class="input-field col s12 m8">
-                                                <label>Country</label>
+                                                <label>Land</label>
                                                 <select>
-                                                    <option>Please select</option>
+                                                    <option>Bitte wählen...</option>
                                                 </select>
                                             </div>
                                             <div class="input-field col s12 m12">
-                                                <label>Please Indicate why supplies from abroad are required</label>
+                                                <label>Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig sind.</label>
                                                 <input type="text" class="validate">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="input-field col s12">
-                                        <label>Do You Ship Your Goods/Equipment In Multiple Deliveries?</label>
+                                        <label>Versenden Sie Ihre Waren/Güter/Anlagen in mehreren Lieferungen?</label>
                                         <p><label for="certificate-origin"><input type="radio" id="certificate-origin" name="certificate-origin" value="yes"/><span class="yes yes-no-btns">Yes</span></label><label for="certificate-origin-no"><input type="radio" id="certificate-origin-no" name="certificate-origin-no" value="No"/><span class="no yes-no-btns">No</span></label></p>
                                         <div class="row hide-section">
                                             <div class="input-field col s12 m12">
-                                                <label>Please Inform Us About The Delivery.</label>
-                                                <p>If Applicable, Delivery Dates Of Your Export Business.</p>
+                                                <label>Bitte teilen Sie uns die Liefer- und ggf. Leistungstermine Ihres Exportgeschäftes mit..</label>
                                             </div>
                                             <div class="input-field col s12 m6">
-                                                <label>Start Of Delivery</label>
+                                                <label>Lieferbeginn</label>
                                                 <input type="text" class="datepicker" placeholder="dd/mm/yyyy">
                                             </div>
                                             <div class="input-field col s12 m6">
-                                                <label>Delivery End</label>
+                                                <label>Lieferende</label>
                                                 <input type="text" class="datepicker" placeholder="dd/mm/yyyy">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="input-field col s12 m6">
-                                        <label>Currency</label>
+                                        <label>Währung</label>
                                         <select>
-                                            <option>Please Select</option>
+                                            <option>Bitte wählen</option>
                                         </select>
                                     </div>
                                     <div class="input-field col s12 m6">
-                                        <label>Order Value</label>
+                                        <label>Auftragswert</label>
                                         <input type="text" class="validate" placeholder="€">
                                     </div>
                                     <div class="input-field col s12">
                                         <div class="input-field col s12 m6 nopadding">
-                                            <label>What Is The Delivery Value Of The Goods?</label>
-                                            <p>Excl. Other Services(Assembly, Etc.)</p>
+                                            <label>Lieferwert der Waren?</label>
+                                            <p>Ohne zusätzliche Dienstleistungen usw.</p>
                                             <input type="text" class="validate" placeholder="€">
                                         </div>
                                     </div>
                                     <div class="input-field col s12">
-                                        <label>What Is The Share Of Spare Parts In The Delivery Value?</label>
+                                        <label>Wie hoch ist der Anteil der Ersatzteile am Auftragswert?</label>
                                         <input type="text" class="validate">
                                     </div>
-
-
-
                                 </div>
                             </div>
                         </div>
@@ -603,18 +606,18 @@
                     <div class="row form-nav-top">
                         <div class="col s12 m4">
                             <div class="form-nav">
-                                <p><span> 75% Complete </span></p>
+                                <p><span> 75% Fertig </span></p>
                             </div>
                         </div>
                         <div class="col s12 m4">
                             <div class="form-nav">
-                                <h2>Payments and Financing</h2>
+                                <h2>Zahlung & Finanzierung</h2>
                             </div>
                         </div>
                         <div class="col s12 m4">
                             <div class="form-nav right">
-                                <a href="#">Save As Draft</a>
-                                <span class="next" tab_index="5">Next Step</span>
+                                <a href="#">Entwurf speichern</a>
+                                <span class="next" tab_index="5">Weiter</span>
                             </div>
                         </div>
                     </div>
@@ -623,61 +626,63 @@
                             <div class="form-content">
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <label>Are any Collateral to be used in this transaction?</label>
+                                        <label>Sind für Ihr Geschäft Sicherheiten vorgesehen?</label>
                                         <p><label for="tran-yes"><input type="radio" id="tran-yes" name="tran-yes" value="Yes"/><span class="yes yes-no-btns">Yes</span></label><label for="tran-no"><input type="radio" id="tran-no" name="tran-no" value="No"/><span class="no yes-no-btns">No</span></label></p>
                                         <div class="row hide-section">
                                             <div class="input-field col s12">
-                                                <label>What type of Collateral?</label>
+                                                <label>Welche Art von Sicherheiten?</label>
                                             </div>
                                             <div class="input-field col s12 m6">
                                                 <select>
-                                                    <option value="" selected>Please select</option>
+                                                    <option value="" selected>Bitte wählen...</option>
                                                 </select>
                                             </div>
                                             <div class="input-field col s12 m6">
                                                 <input type="text" class="validate">
                                             </div>
                                             <div class="input-field col s12 m12">
-                                                <label>How much of the order value does the collateral over?</label>
+                                                <label>Welchen Anteil des Auftragswertes wird die Sicherheit umfassen?</label>
                                                 <input type="text" class="validate">
                                             </div>
                                             <div class="input-field col s12 m12">
                                                 <div class="input-field col s12 m6 nopadding">
-                                                    <label>When will you receive the collateral?</label>
+                                                    <label>Wann werden Sie die Sicherheiten erhalten?</label>
                                                     <select>
-                                                        <option value="" selected>Please select</option>
+                                                        <option value="" selected>Bitte wählen...</option>
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="input-field col s12 m12">
-                                        <label>Have you already agreed a term of payment or your own financing with your customer?</label>
+                                        <label>Haben Sie bereits ein Zahlungsziel bzw. eine eigene Finanzierung mit Ihrem Kunden vereinbart?</label>
                                         <p><label for="fanance-yes"><input type="radio" id="fanance-yes" name="public" value="fanance-yes"/><span class="yes yes-no-btns">Yes</span></label><label for="fanance-no"><input type="radio" id="fanance-no" name="fanance-no" value="no"/><span class="no yes-no-btns">No</span></label></p>
                                     </div>
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m4 threecol">
-                                            <label>Short Teram</label>
-                                            <p>upto two year credit period</p>
+                                            <label>Kurzfristig</label>
+                                            <p>Bis zu 2 Jahre Kreditlaufzeit</p>
                                         </div>
                                         <div class="input-field col s12 m4 threecol">
-                                            <label>Mid to Long Term</label>
-                                            <p>Over two years</p>
+                                            <label>Mittel-/langfristig</label>
+                                            <p>über 2 Jahre Kreditlaufzeit</p>
                                         </div>
                                         <div class="input-field col s12 m4 threecol">
-                                            <label>Equally short and mid to Long Term</label>
+                                            <label>Sowohl kurzfristig als
+                                                auch mittel-/langfristig</label>
                                         </div>
                                     </div>
                                     <div class="input-field col s12">
-                                        <label>Are you charging your customers interest?</label>
+                                        <label> Berechnen Sie Ihrem Kunden Zinsen? </label>
                                         <p><label for="int-yes"><input type="radio" id="int-yes" name="int-yes" value="Yes"/><span class="yes yes-no-btns">Yes</span></label><label for="int-no"><input type="radio" id="int-no" name="int-no" value="No"/><span class="no yes-no-btns">No</span></label></p>
+
                                         <div class="row hide-section">
                                             <div class="input-field col s12 m6">
-                                                <label>In this scenario, you have the possibility to sell your receivables owed by your customer through a forfaiting transaction. This means that our partner bank buys your receivables and will refinance up to 95% of the total receivables amount.</label>
+                                                <label> In diesem Szenario haben Sie die Möglichkeit, Ihre von Ihrem Kunden geschuldeten Forderungen durch ein Forfaitierungsgeschäft zu verkaufen. Dies bedeutet, dass unsere Partnerbank Ihre Forderungen kauft und bis zu 95% des gesamten Forderungsbetrags refinanziert.</label>
                                             </div>
                                         </div>
-                                    </div>
 
+                                    </div>
 
                                 </div>
                             </div>
@@ -691,17 +696,17 @@
                     <div class="row form-nav-top">
                         <div class="col s12 m4">
                             <div class="form-nav">
-                                <p><span> 100% Complete </span></p>
+                                <p><span> 80% Fertig</span></p>
                             </div>
                         </div>
                         <div class="col s12 m4">
                             <div class="form-nav">
-                                <h2>Finalize</h2>
+                                <h2>Abschluss</h2>
                             </div>
                         </div>
                         <div class="col s12 m4">
                             <div class="form-nav right">
-                                <a href="#">Save As Draft</a>
+                                <a href="#">Entwurf speichern</a>
                                 <%= form.submit class: 'btn', value: t('application_submit') %>
                             </div>
                         </div>
