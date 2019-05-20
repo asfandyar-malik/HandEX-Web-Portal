@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_19_200139) do
+ActiveRecord::Schema.define(version: 2019_05_20_120726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -188,6 +188,16 @@ ActiveRecord::Schema.define(version: 2019_05_19_200139) do
     t.boolean "has_payment_experience_with_security_provider"
     t.string "explain_previous_payment_experience_with_security_provider"
     t.string "security_provider_address"
+    t.string "exporter_address_line1"
+    t.string "exporter_address_line2"
+    t.string "exporter_tax_id"
+    t.string "exporter_revenue"
+    t.string "exporter_total_assets"
+    t.string "exporter_last_fiscal_year"
+    t.boolean "external_rating_available"
+    t.string "exporter_rating"
+    t.string "rating_agency"
+    t.string "rating_issued_date"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
