@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_20_120726) do
+ActiveRecord::Schema.define(version: 2019_05_20_130247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -198,6 +198,15 @@ ActiveRecord::Schema.define(version: 2019_05_20_120726) do
     t.string "exporter_rating"
     t.string "rating_agency"
     t.string "rating_issued_date"
+    t.string "importer_address_line1"
+    t.string "importer_address_line2"
+    t.string "importer_company_registration_number"
+    t.string "importer_rating"
+    t.string "importer_rating_agency"
+    t.string "importer_rating_issued_date"
+    t.string "importer_mother_company"
+    t.string "importer_company_corporate_form"
+    t.string "importer_industry"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
