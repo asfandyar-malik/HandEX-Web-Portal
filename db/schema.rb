@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_20_130247) do
+ActiveRecord::Schema.define(version: 2019_05_20_162947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -207,6 +207,16 @@ ActiveRecord::Schema.define(version: 2019_05_20_130247) do
     t.string "importer_mother_company"
     t.string "importer_company_corporate_form"
     t.string "importer_industry"
+    t.string "explain_product_service"
+    t.string "sensitive_area_type"
+    t.string "remaining_life"
+    t.string "manufacture_year"
+    t.string "goods_overhaul_country"
+    t.string "why_good_overhauled_abroad"
+    t.string "proportion_of_goods_overhauled_aborad"
+    t.string "describe_why_overhault_didnot_take_in_germany"
+    t.string "all_rawgoods_supplier_amount"
+    t.string "partly_rawgoods_supplier_amount"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
@@ -340,6 +350,7 @@ ActiveRecord::Schema.define(version: 2019_05_20_130247) do
     t.string "is_all_information_provided_with_best_of_knowledge"
     t.string "exporter_street_hno"
     t.string "loan_term"
+    t.string "application_status", default: "new"
     t.boolean "accept_partial_refinancing", default: false
     t.boolean "is_investment_good", default: false
     t.boolean "is_servicing_for_goods_offered", default: false
