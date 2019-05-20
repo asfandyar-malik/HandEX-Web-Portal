@@ -276,6 +276,25 @@ form.col.s12.custom-form {
     padding-left: 24px;
     padding-top: 10px;
     padding-bottom: 10px;
+    height: 55px;
+    border-radius: 3px 3px 0px 0px;
+  }
+
+  .card-title.sent_financing_application {
+    background: rgb(129, 207, 219);
+
+  }
+
+  .card-title.approved_financing_application {
+    background: rgb(11, 215, 164);
+  }
+
+  .card-title.action_required_financing_application {
+    background: rgb(239, 131, 84)
+  }
+
+  .card-title.draft_financing_application {
+    background: rgb(220, 220, 222);
   }
 }
 
@@ -301,7 +320,9 @@ nav {
     width: 120px;
     float: right;
   }
+
   .btn.rounded.inactive {
     background-color: black;
   }
 }
+
