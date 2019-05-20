@@ -310,6 +310,7 @@ nav {
     float: right;
     margin-top: 14px;
     margin-right: 30px;
+    background: rgb(129, 207, 219);
   }
 }
 
@@ -319,10 +320,14 @@ nav {
     border-radius: 30px;
     width: 120px;
     float: right;
+    background-color: rgb(129, 207, 219);
   }
 
   .btn.rounded.inactive {
     background-color: black;
+  }
+  .top-navigation-icons {
+    color: #dcdcde;
   }
 }
 
