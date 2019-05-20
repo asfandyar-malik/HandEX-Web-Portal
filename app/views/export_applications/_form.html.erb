@@ -411,9 +411,11 @@
                                     </div>
                                     <div class="input-field col s12">
                                         <label>Bitte ordnen Sie die von Ihnen zu liefernden Waren bzw. Dienstleistungen Ihrer Branche zu.</label>
-                                        <select>
-                                            <option>Bitte wählen</option>
-                                        </select>
+                                        <%= form.select :exported_goods_type, options_for_select([t('please_select'), 'Bergbau, inkl. Verarbeitung', 'Erdöl- und Erdgasförderung inkl. Verarbeitung',
+                                                                                                  'Chemie', 'Energie', 'Infrastruktur', 'Papier- , Holz-, Leder- und Textilindustrie',
+                                                                                                  'Agrarsektor und Nahrungsmittelindustrie', 'Verarbeitende Industrie', 'Umwelttechnik',
+                                                                                                  'Dienstleistungen'], @export_application.exported_goods_type ? @export_application.exported_goods_type : nil) %>
+
                                     </div>
 
                                     <div class="input-field col s12 m12">
@@ -422,6 +424,7 @@
                                             <p><label for="pro-com"><input type="radio" id="pro-com" name="pro-com" value="No"/><span class="yes yes-no-btns">Yes</span></label><label for="pro-com-no"><input type="radio" id="pro-com-no" name="pro-com-no" value="No"/><span class="no yes-no-btns">No</span></label></p>
                                         </div>
                                     </div>
+
                                     <div class="input-field col s12">
                                         <label>Betreffen Ihre Lieferungen bzw. Leistungen ein sensibles Gebiet?</label>
                                         <p> Als sensible Gebiete gelten Nationalparks und andere durch nationales oder internationales Recht geschützte Gebiete
@@ -430,16 +433,18 @@
                                         <div class="row hide-section">
                                             <div class="input-field col s12">
                                                 <label>Um welche Art von sensibelen Gebiet handelt sich?</label>
-                                                <select>
-                                                    <option>Bitte wählen </option>
-                                                </select>
+                                                <%= form.select :sensitive_area_type, options_for_select([t('please_select'), "Naturschutzgebiet", "Bedeutung für indigene Völker", "Archäologische oder kulturelle", "Sonstige"],
+                                                                                                         @export_application.sensitive_area_type ? @export_application.sensitive_area_type : nil) %>
+
+
                                             </div>
                                             <div class="input-field col s12 m12">
                                                 <label>Bitte konkretisieren Sie, um was für ein sensibeles Gebiet es sich handelt.</label>
-                                                <input type="text" class="validate">
+                                                <%= form.text_field :explain_sensitive_area_type, autofocus: true, class: "materialize-textarea custom-area", style: "height: 120px;" %>
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="input-field col s12">
                                         <label>Ist Ihr Export ausfuhrgenehmigungspflichtig?</label>
                                         <p><label for="ex-auth"><input type="radio" id="ex-auth" name="ex-auth" value="No"/><span class="yes yes-no-btns">Yes</span></label><label for="ex-auth-no"><input type="radio" id="ex-auth-no" name="ex-auth-no" value="No"/><span class="no yes-no-btns">No</span></label></p>
@@ -447,30 +452,31 @@
                                             <div class="input-field col s12">
                                                 <label>Aus welchen Vorschriften bzw. welchem Teil/Abschnitt der Ausfuhrliste ergibt sich die
                                                     Genehmigungspflicht?</label>
-                                                <input type="text" class="validate">
+                                                <%= form.text_field :which_regulations_enforcing_exportlicense_requirement, autofocus: true, class: "materialize-textarea custom-area", style: "height: 120px;" %>
                                             </div>
                                             <div class="input-field col s12 m12">
                                                 <label>Die Ausfuhrgenehmigung...</label>
-                                                <select>
-                                                    <option>Bitte wählen </option>
-                                                </select>
+                                                    <%= form.select :export_license_status, options_for_select([t('please_select'), "... wurde erteilt.", "... ist beantragt.", "... ist noch zu beantragen."]), {}, class: 'form-control' %>
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="input-field col s12">
                                         <label>Liefern Sie gebrauchte Ware?</label>
                                         <p><label for="used-goods"><input type="radio" id="used-goods" name="used-goods" value="No"/><span class="yes yes-no-btns">Yes</span></label><label for="used-goods-no"><input type="radio" id="used-goods-no" name="used-goods-no" value="No"/><span class="no yes-no-btns">No</span></label></p>
+
                                         <div class="row hide-section">
                                             <div class="input-field col s12 m6">
                                                 <label>Jahr der Fertigung</label>
-                                                <input type="text" class="validate">
+                                                <%= form.text_field :manufacture_year, autofocus: true, class: "materialize-textarea custom-area", style: "height: 120px;" %>
                                             </div>
                                             <div class="input-field col s12 m6">
                                                 <label>Restlebensdauer in Jahren</label>
-                                                <input type="text" class="validate">
+                                                <%= form.text_field :remaining_life, autofocus: true, class: "materialize-textarea custom-area", style: "height: 120px;" %>
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="input-field col s12">
                                         <div class="input-field col s12 m6">
                                             <label>Wird die Ware vor dem Weiterverkauf überholt?</label>
@@ -479,31 +485,59 @@
 
                                         <div class="input-field col s12 m6">
                                             <label>Wo wird die Ware überholt?</label>
-                                            <select>
-                                                <option>Bitte wählen...</option>
-                                            </select>
+                                            <%= form.select :goods_overhaul_country,
+                                                            options_for_select([t('please_select'), 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
+                                                                                'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados',
+                                                                                'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana',
+                                                                                'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon',
+                                                                                'Canada', 'Central African Republic (CAR)', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros',
+                                                                                'Democratic Republic of the Congo', 'Republic of the Congo', 'Costa Rica', 'Cote d\'Ivoire',
+                                                                                'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic',
+                                                                                'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia',
+                                                                                'Eswatini (formerly Swaziland)', 'Ethiopia', 'Fiji', 'Finland', 'France', 'Gabon',
+                                                                                'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea',
+                                                                                'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia',
+                                                                                'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan',
+                                                                                'Kenya', 'Kiribati', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho',
+                                                                                'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macedonia (FYROM)', 'Madagascar',
+                                                                                'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius',
+                                                                                'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique',
+                                                                                'Myanmar (formerly Burma)', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua',
+                                                                                'Niger', 'Nigeria', 'North Korea', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestine', 'Panama',
+                                                                                'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania',
+                                                                                'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines',
+                                                                                'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles',
+                                                                                'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa',
+                                                                                'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname',
+                                                                                'Swaziland (renamed to Eswatini)', 'Sweden', 'Switzerland', 'Syria', 'Taiwan',
+                                                                                'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago',
+                                                                                'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates (UAE)',
+                                                                                'United Kingdom (UK)', 'United States of America (USA)', 'Uruguay', 'Uzbekistan', 'Vanuatu',
+                                                                                'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'],
+                                                                               @export_application.goods_overhaul_country ? @export_application.goods_overhaul_country : nil), {}, class: 'form-control' %>
                                         </div>
                                     </div>
 
                                     <div class="input-field col s12">
                                         <div class="input-field col s12 m6">
                                             <label>Warum wird die Ware im Ausland überholt? </label>
-                                            <input type="text" class="validate">
+                                            <%= form.text_field :why_good_overhauled_abroad, autofocus: true, class: "materialize-textarea custom-area", style: "height: 120px;" %>
                                         </div>
 
                                         <div class="input-field col s12 m6">
                                             <label>Zu welchem Anteil wird die Ware im Ausland überholt? </label>
-                                            <input type="text" class="validate">
+                                            <%= form.text_field :proportion_of_goods_overhauled_aborad, autofocus: true, class: "materialize-textarea custom-area", style: "height: 120px;" %>
                                         </div>
                                     </div>
 
                                     <div class="input-field col s12 m6">
-                                        <label>Bitte beschreiben Sie, weshalb die Überholung nicht in Deutschland erfolgte</label>
-                                        <input type="text" class="validate">
+                                        <label>Bitte beschreiben Sie, weshalb die Überholung nicht in Deutschland erfolgte </label>
+                                        <%= form.text_field :describe_why_overhault_didnot_take_in_germany, autofocus: true, class: "materialize-textarea custom-area", style: "height: 120px;" %>
                                     </div>
 
                                     <div class="input-field col s12">
                                         <label>Haben bereits alle Parteien den Vertrag für das Exportgeschäft unterzeichnet?</label>
+
                                         <p><label for="ex-business"><input type="radio" id="ex-business" name="ex-business" value="Yes"/><span class="yes yes-no-btns">Yes</span></label><label for="ex-business-no"><input type="radio" id="ex-business-no" name="ex-business-no" value="No"/><span class="no yes-no-btns">No</span></label></p>
                                         <div class="row hide-section">
                                             <div class="input-field col s12 m12">
@@ -511,14 +545,15 @@
                                             </div>
                                             <div class="input-field col s12 m6">
                                                 <label>Datum der Unterschrift</label>
-                                                <input type="text" class="datepicker" placeholder="dd/mm/yyyy">
+                                                <div> <%= form.date_field :contract_signing_date, id: "start_date", placeholder: "dd/mm/yyyy", type: "date", class: "datepicker" %> </div>
                                             </div>
                                             <div class="input-field col s12 m6">
                                                 <label>Interne Referenznummer</label>
-                                                <input type="text" class="validate">
+                                                <div> <%= form.text_field :exporter_internal_contract_id, class: "materialize-textarea custom-area" %> </div>
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="input-field col s12">
                                         <label>Vereinbaren Sie mit Ihrem Vertragspartner eine besondere Vertragsstruktur
                                             (Tochterunternehmen oder Preisgleitklausel?) </label>
@@ -526,73 +561,224 @@
                                         <div class="row hide-section">
                                             <div class="input-field col s12 m12">
                                                 <label>Bitte erklären Sie die Struktur im Detail.</label>
-                                                <textarea class="materialize-textarea custom-area" style="height: 120px;"></textarea>
+                                                <div> <%= form.text_field :explain_special_structure, class: "materialize-textarea custom-area" %> </div>
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="input-field col s12">
                                         <label>Bekommen Sie für die zu liefernde Ware ein deutsches Warenursprungszeugnis?</label>
                                         <p><label for="certificate-goods"><input type="radio" id="certificate-goods" name="certificate-goods" value="yes"/><span class="no yes-no-btns">Yes</span></label><label for="certificate-goods-no"><input type="radio" id="certificate-goods-no" name="certificate-goods-no" value="No"/><span class="yes yes-no-btns">No</span></label><label for="spl-pricecl-no"><input type="radio" id="certificate-goods-part" name="certificate-goods-part" value="No"/><span class="yes yes-no-btns">Part</span></label></p>
+
                                         <div class="row hide-section">
                                             <div class="input-field col s12 m6">
                                                 <label>Währung</label>
-                                                <select>
-                                                    <option>Bitte wählen...</option>
-                                                </select>
+                                                <%= form.select :all_rawgoods_supplier_currency, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: "form-control" %>
                                             </div>
+
                                             <div class="input-field col s12 m6">
                                                 <label>Betrag</label>
-                                                <input type="text" class="validate" placeholder="€">
+                                                <%= form.text_field :all_rawgoods_supplier_amount, class: "validate" %>
                                             </div>
+
                                             <div class="input-field col s12 m8">
                                                 <label>Land</label>
-                                                <select>
-                                                    <option>Bitte wählen...</option>
-                                                </select>
+                                                <%= form.select :all_rawgoods_supplier_country, options_for_select([t('please_select'), 'Mexico', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
+                                                                                                                    'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados',
+                                                                                                                    'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana',
+                                                                                                                    'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon',
+                                                                                                                    'Canada', 'Central African Republic (CAR)', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros',
+                                                                                                                    'Democratic Republic of the Congo', 'Republic of the Congo', 'Costa Rica', 'Cote d\'Ivoire',
+                                                                                                                    'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic',
+                                                                                                                    'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia',
+                                                                                                                    'Eswatini (formerly Swaziland)', 'Ethiopia', 'Fiji', 'Finland', 'France', 'Gabon',
+                                                                                                                    'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea',
+                                                                                                                    'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia',
+                                                                                                                    'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan',
+                                                                                                                    'Kenya', 'Kiribati', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho',
+                                                                                                                    'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macedonia (FYROM)', 'Madagascar',
+                                                                                                                    'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius',
+                                                                                                                    'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique',
+                                                                                                                    'Myanmar (formerly Burma)', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua',
+                                                                                                                    'Niger', 'Nigeria', 'North Korea', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestine', 'Panama',
+                                                                                                                    'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania',
+                                                                                                                    'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines',
+                                                                                                                    'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles',
+                                                                                                                    'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa',
+                                                                                                                    'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname',
+                                                                                                                    'Swaziland (renamed to Eswatini)', 'Sweden', 'Switzerland', 'Syria', 'Taiwan',
+                                                                                                                    'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago',
+                                                                                                                    'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates (UAE)',
+                                                                                                                    'United Kingdom (UK)', 'United States of America (USA)', 'Uruguay', 'Uzbekistan', 'Vanuatu',
+                                                                                                                    'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe']), {}, class: "validate" %>
+
                                             </div>
                                             <div class="input-field col s12 m12">
                                                 <label>Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig sind.</label>
-                                                <input type="text" class="validate">
+                                                <%= form.text_area :why_all_foreign_rawgoods_necessary, class: "validate" %>
+                                            </div>
+                                        </div>
+
+                                        <div class="row hide-section">
+                                            <div class="input-field col s12 m6">
+                                                <label>Währung</label>
+                                                <%= form.select :partly_rawgoods_supplier_currency, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: "form-control" %>
+                                            </div>
+
+                                            <div class="input-field col s12 m6">
+                                                <label>Betrag</label>
+                                                <%= form.text_field :partly_rawgoods_supplier_amount, class: "validate" %>
+                                            </div>
+
+                                            <div class="input-field col s12 m8">
+                                                <label>Land</label>
+                                                <%= form.select :partly_rawgoods_supplier_country, options_for_select([t('please_select'), 'Mexico', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
+                                                                                                                    'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados',
+                                                                                                                    'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana',
+                                                                                                                    'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon',
+                                                                                                                    'Canada', 'Central African Republic (CAR)', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros',
+                                                                                                                    'Democratic Republic of the Congo', 'Republic of the Congo', 'Costa Rica', 'Cote d\'Ivoire',
+                                                                                                                    'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic',
+                                                                                                                    'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia',
+                                                                                                                    'Eswatini (formerly Swaziland)', 'Ethiopia', 'Fiji', 'Finland', 'France', 'Gabon',
+                                                                                                                    'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea',
+                                                                                                                    'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia',
+                                                                                                                    'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan',
+                                                                                                                    'Kenya', 'Kiribati', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho',
+                                                                                                                    'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macedonia (FYROM)', 'Madagascar',
+                                                                                                                    'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius',
+                                                                                                                    'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique',
+                                                                                                                    'Myanmar (formerly Burma)', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua',
+                                                                                                                    'Niger', 'Nigeria', 'North Korea', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestine', 'Panama',
+                                                                                                                    'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania',
+                                                                                                                    'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines',
+                                                                                                                    'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles',
+                                                                                                                    'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa',
+                                                                                                                    'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname',
+                                                                                                                    'Swaziland (renamed to Eswatini)', 'Sweden', 'Switzerland', 'Syria', 'Taiwan',
+                                                                                                                    'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago',
+                                                                                                                    'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates (UAE)',
+                                                                                                                    'United Kingdom (UK)', 'United States of America (USA)', 'Uruguay', 'Uzbekistan', 'Vanuatu',
+                                                                                                                    'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe']), {}, class: "validate" %>
+
+                                            </div>
+                                            <div class="input-field col s12 m12">
+                                                <label>Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig sind.</label>
+                                                <%= form.text_area :why_partly_foreign_rawgoods_necessary, class: "validate" %>
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="input-field col s12">
                                         <label>Versenden Sie Ihre Waren/Güter/Anlagen in mehreren Lieferungen?</label>
                                         <p><label for="certificate-origin"><input type="radio" id="certificate-origin" name="certificate-origin" value="yes"/><span class="yes yes-no-btns">Yes</span></label><label for="certificate-origin-no"><input type="radio" id="certificate-origin-no" name="certificate-origin-no" value="No"/><span class="no yes-no-btns">No</span></label></p>
+
                                         <div class="row hide-section">
                                             <div class="input-field col s12 m12">
                                                 <label>Bitte teilen Sie uns die Liefer- und ggf. Leistungstermine Ihres Exportgeschäftes mit..</label>
                                             </div>
                                             <div class="input-field col s12 m6">
                                                 <label>Lieferbeginn</label>
-                                                <input type="text" class="datepicker" placeholder="dd/mm/yyyy">
+                                                <div> <%= form.date_field :delivery_start, id: "start_date", type: "date", placeholder: "dd/mm/yyyy",  class: "datepicker" %> </div>
                                             </div>
                                             <div class="input-field col s12 m6">
                                                 <label>Lieferende</label>
-                                                <input type="text" class="datepicker" placeholder="dd/mm/yyyy">
+                                                <div> <%= form.date_field :delivery_end, id: "start_date", type: "date", placeholder: "dd/mm/yyyy",  class: "datepicker" %> </div>
+                                            </div>
+
+                                            <div class="input-field col s12 m6">
+                                                <div> <%= form.text_field :other_important_delivery_information, class: "validate", placeholder: "Weiterer zahlungsrelevanter Termin" %> </div>
+                                            </div>
+                                            <div class="input-field col s12 m6">
+                                                <div> <%= form.text_field :other_important_delivery_milestones, placeholder: "z.B. Milestone xy", class: "textbox-n", onfocus: "(this.type='date')" %> </div>
+                                            </div>
+
+                                            <div class="input-field col s12 m6">
+                                                <div> <%= form.text_field :other_important_delivery_information, class: "validate", placeholder: "Weiterer zahlungsrelevanter Termin" %> </div>
+                                            </div>
+                                            <div class="input-field col s12 m6">
+                                                <div> <%= form.text_field :other_important_delivery_milestones, placeholder: "z.B. Milestone xy", class: "textbox-n", onfocus: "(this.type='date')" %> </div>
+                                            </div>
+
+                                            <div class="input-field col s12 m6">
+                                                <div> <%= form.text_field :other_important_delivery_information, class: "validate", placeholder: "Weiterer zahlungsrelevanter Termin" %> </div>
+                                            </div>
+                                            <div class="input-field col s12 m6">
+                                                <div> <%= form.text_field :other_important_delivery_milestones, placeholder: "z.B. Milestone xy", class: "textbox-n", onfocus: "(this.type='date')" %> </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="input-field col s12 m6">
-                                        <label>Währung</label>
-                                        <select>
-                                            <option>Bitte wählen</option>
-                                        </select>
-                                    </div>
-                                    <div class="input-field col s12 m6">
-                                        <label>Auftragswert</label>
-                                        <input type="text" class="validate" placeholder="€">
-                                    </div>
+
                                     <div class="input-field col s12">
-                                        <div class="input-field col s12 m6 nopadding">
-                                            <label>Lieferwert der Waren?</label>
-                                            <p>Ohne zusätzliche Dienstleistungen usw.</p>
-                                            <input type="text" class="validate" placeholder="€">
+
+                                        <label><%= t('give_contract_value') %></label>
+
+                                        <p><i><%= t('contract_currency')  %> </i></p>
+
+                                        <div class="row">
+                                            <div class="col m4 ">
+                                                <%= form.select :contract_currency, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: 'validate' %>
+                                            </div>
+                                            <div class="col m4 ">
+                                                <div> <%= form.text_field :contract_value, class: "validate", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="input-field col s12">
-                                        <label>Wie hoch ist der Anteil der Ersatzteile am Auftragswert?</label>
-                                        <input type="text" class="validate">
+
+                                        <div class="row">
+
+                                            <div class="input-field col s12 m12">
+                                                <label>Wie hoch ist der Lieferwert der Güter exkl. anderer Leistungen (Montagen, etc.)</label>
+                                                <div> <%= form.text_field :total_delivery_value_excluding_servicing, class: "validate", placeholder: "Lieferwert (Betrag)", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                            </div>
+
+                                            <div class="input-field col s12 m12">
+                                                <label>Wie hoch ist der Anteil der Ersatzteile am Lieferwert?</label>
+                                                <div> <%= form.text_field :percentage_of_spareparts_in_whole_order, class: "validate", placeholder: "Wert Ersatzteile in Prozent oder Betrag", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                            </div>
+
+                                            <div class="input-field col s12 m12">
+                                                <label> <%= t('other_billed_items_in_contract') %> </label>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="input-field col s12 m4">
+                                                    <%= form.select :other_billed_items_in_contract_currency, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: 'validate' %>
+                                                </div>
+                                                <div class="input-field col s12 m4">
+                                                    <div> <%= form.text_field :other_billed_items_in_contract_amount, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                </div>
+
+                                                <div class="input-field col s12 m4">
+                                                    <div> <%= form.text_field :describe_other_billed_items_in_contract, class: "form-control", placeholder: t('description') %> </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="input-field col s12 m4">
+                                                    <%= form.select :other_billed_items_in_contract_currency, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: 'validate' %>
+                                                </div>
+                                                <div class="input-field col s12 m4">
+                                                    <div> <%= form.text_field :other_billed_items_in_contract_amount, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                </div>
+
+                                                <div class="input-field col s12 m4">
+                                                    <div> <%= form.text_field :describe_other_billed_items_in_contract, class: "form-control", placeholder: t('description') %> </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="input-field col s12 m4">
+                                                    <%= form.select :other_billed_items_in_contract_currency, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: 'validate' %>
+                                                </div>
+                                                <div class="input-field col s12 m4">
+                                                    <div> <%= form.text_field :other_billed_items_in_contract_amount, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                </div>
+
+                                                <div class="input-field col s12 m4">
+                                                    <div> <%= form.text_field :describe_other_billed_items_in_contract, class: "form-control", placeholder: t('description') %> </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -726,32 +912,32 @@
                                             dein Kunde.</p>
                                     </div>
                                     <div class="input-field col s12 m12">
-                                        <div class="input-field col s12 m4 ">
+                                        <div class="input-field col s12 m6 ">
                                             <label>Selbstauskunft (bei Neukunden)</label>
                                             <input type="file" name="myFile">
                                         </div>
 
-                                        <div class="input-field col s12 m4 ">
+                                        <div class="input-field col s12 m6 ">
                                             <label>Jahresabschlüsse Ihres Kunden</label>
                                             <input type="file" name="myFile">
                                         </div>
 
-                                        <div class="input-field col s12 m4 ">
+                                        <div class="input-field col s12 m6 ">
                                             <label>Umwelt- und Sozialinformationen</label>
                                             <input type="file" name="myFile">
                                         </div>
 
-                                        <div class="input-field col s12 m4 ">
+                                        <div class="input-field col s12 m6 ">
                                             <label>Projektmemorandum</label>
                                             <input type="file" name="myFile">
                                         </div>
 
-                                        <div class="input-field col s12 m4 ">
+                                        <div class="input-field col s12 m6 ">
                                             <label>Auskünfte Ihres Kunden</label>
                                             <input type="file" name="myFile">
                                         </div>
 
-                                        <div class="input-field col s12 m4 ">
+                                        <div class="input-field col s12 m6 ">
                                             <label>Sonstiges</label>
                                             <input type="file" name="myFile">
                                         </div>
