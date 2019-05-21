@@ -1,5 +1,5 @@
 body {
-  background: #f6f7fa;
+    background: #f6f7fa;
 
   .sign-in {
     padding-top: 10%;
@@ -298,6 +298,12 @@ form.col.s12.custom-form {
   }
 }
 
+.top-info-card {
+  background-color: rgb(129, 207, 219);
+  width:130%;
+  margin-bottom: 5%;
+}
+
 nav {
   .nav-title {
     padding-top: 0;
@@ -314,7 +320,6 @@ nav {
   }
 }
 
-
 nav {
   .btn.rounded {
     border-radius: 30px;
@@ -330,4 +335,10 @@ nav {
     color: #dcdcde;
   }
 }
+.form-content .input-field input[type="submit"] {
+  background: rgb(129, 207, 219);
+}
 
+.handex-btn {
+  background-color: rgb(129, 207, 219);
+}

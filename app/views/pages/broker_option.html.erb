@@ -1,55 +1,88 @@
+<nav class="white z-depth-0">
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo"> <img style="height: 45px; vertical-align: middle;"
+                                          src="/assets/HandEX_logo4.png" alt=""></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a class="top-navigation-icons" href="badges.html"><i class="material-icons">account_circle</i></a></li>
+      <li><a class="top-navigation-icons" href="sass.html"><i class="material-icons">add_alert</i></a></li>
+      <li><a class="top-navigation-icons" href="collapsible.html"><i class="material-icons">settings</i></a></li>
+    </ul>
+  </div>
+</nav>
+
 <div class="container valign-wrapper">
-    <div class="section">
-        <div class="row valign">
-            <div class="col s12 offset-s2">
-                <div class="card teal">
-                    <div class="card-content white-text center-align">
-                        <span> Bitte wählen Sie aus, wie Sie vorgehen möchten </span>
-                    </div>
-                </div>
-
-                <div class="form-section z-depth-1 center-align">
-                    <div class="row">
-
-                        <div class="col s5 offset-s1">
-
-                            <% if params[:locale] %>
-                                <% @export_portal = 'pages/advice' %>
-                            <% else %>
-                                <% @export_portal = params[:locale].to_s + '/pages/advice' %>
-                            <% end %>
-
-                            <div class="card blue-grey darken-1">
-                                <div class="card-content white-text">
-                                    <span class="card-title"> Antrag für Ihren Kunden </span>
-                                    <p> Sie füllen den Antrag für Ihren Kunden aus</p>
-                                </div>
-                                <div class="card-action">
-                                    <a href="pages/advice"> This is a link</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col s5">
-                            <% if params[:locale] %>
-                                <% @import_portal = '/' + params[:locale].to_s + '/imports/new' %>
-                            <% else %>
-                                <% @import_portal = params[:locale].to_s + '/imports/new' %>
-                            <% end %>
-
-                            <div class="card blue-grey darken-1">
-                                <div class="card-content white-text">
-                                    <span class="card-title"> Exporteur fills </span>
-                                    <p> Ihr Kunde wird zu HandEX eingeladen und füllt den Antrag selbst aus </p>
-                                </div>
-                                <div class="card-action">
-                                    <a href="invite_exporters/new"> This is a link</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="section">
+    <div class="row">
+      <div class="col s12">
+        <div class="card top-info-card">
+          <div class="card-content white-text">
+            <span> Bitte wählen Sie aus, wie Sie vorgehen möchten.</span>
+          </div>
         </div>
+      </div>
     </div>
+    <div class="row">
+      <div class="col s12 offset-s2">
+        <div class="form-section z-depth-1">
+          <div class="row">
+
+            <div class="col s5 offset-s1">
+
+              <% if params[:locale] %>
+                <% @export_portal = 'pages/advice' %>
+              <% else %>
+                <% @export_portal = params[:locale].to_s + '/pages/advice' %>
+              <% end %>
+              <div class="card small">
+                <div class="card-title sent_financing_application white-text valign-wrapper">
+                  <div class="valign-wrapper">
+                    <div>
+                      <strong>Antrag für Ihren Kunden</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <div class="valign-wrapper">
+                    <div>
+                      <p>Sie füllen den Antrag für Ihren Kunden aus</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-action center">
+                  <a href="pages/advice" class="">Weiter</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s5">
+              <% if params[:locale] %>
+                <% @import_portal = '/' + params[:locale].to_s + '/imports/new' %>
+              <% else %>
+                <% @import_portal = params[:locale].to_s + '/imports/new' %>
+              <% end %>
+              <div class="card small">
+                <div class="card-title sent_financing_application white-text valign-wrapper">
+                  <div class="valign-wrapper">
+                    <div>
+                      <strong>Der Exporteur</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <div class="valign-wrapper">
+                    <div>
+                      <p>Ihr Kunde wird zu HandEX eingeladen und füllt den Antrag selbst aus</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-action center">
+                  <a href="invite_exporters/new">Weiter</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1531,7 +1531,7 @@
                         <div class="col s12 m4">
                             <div class="form-nav right">
                                 <a href="#">Entwurf speichern</a>
-                                <%= form.submit class: 'btn', value: t('application_submit') %>
+                                <%= form.submit class: 'btn handex-btn', value: t('application_submit') %>
                             </div>
                         </div>
                     </div>
@@ -1549,35 +1549,64 @@
                                         <p> Bitte legen Sie die erforderlichen Unterlagen vor, damit wir eine faire Einschätzung Ihres und des Geschäfts vornehmen können
                                             dein Kunde.</p>
                                     </div>
-                                    <div class="input-field col s12 m12">
-                                        <div class="input-field col s12 m6 ">
-                                            <label>Selbstauskunft (bei Neukunden)</label>
-                                            <input type="file" name="myFile">
-                                        </div>
-
-                                        <div class="input-field col s12 m6 ">
-                                            <label>Jahresabschlüsse Ihres Kunden</label>
-                                            <input type="file" name="myFile">
-                                        </div>
-
                                         <div class="input-field col s12 m6 ">
                                             <label>Umwelt- und Sozialinformationen</label>
-                                            <input type="file" name="myFile">
+                                          <div class = "file-field input-field">
+                                            <div class = "btn handex-btn">
+                                              <span>Browse</span>
+                                              <input type = "file" />77
+                                            </div>
+
+                                            <div class = "file-path-wrapper">
+                                              <input class = "file-path validate" type = "text"
+                                                     placeholder = "Upload file" />
+                                            </div>
+                                          </div>
                                         </div>
 
                                         <div class="input-field col s12 m6 ">
                                             <label>Projektmemorandum</label>
-                                            <input type="file" name="myFile">
+                                          <div class = "file-field input-field">
+                                            <div class = "btn handex-btn">
+                                              <span>Browse</span>
+                                              <input type = "file" />
+                                            </div>
+
+                                            <div class = "file-path-wrapper">
+                                              <input class = "file-path validate" type = "text"
+                                                     placeholder = "Upload file" />
+                                            </div>
+                                          </div>
                                         </div>
 
                                         <div class="input-field col s12 m6 ">
                                             <label>Auskünfte Ihres Kunden</label>
-                                            <input type="file" name="myFile">
+                                          <div class = "file-field input-field">
+                                            <div class = "btn handex-btn">
+                                              <span>Browse</span>
+                                              <input type = "file" />
+                                            </div>
+
+                                            <div class = "file-path-wrapper">
+                                              <input class = "file-path validate" type = "text"
+                                                     placeholder = "Upload file" />
+                                            </div>
+                                          </div>
                                         </div>
 
                                         <div class="input-field col s12 m6 ">
                                             <label>Sonstiges</label>
-                                            <input type="file" name="myFile">
+                                          <div class = "file-field input-field">
+                                            <div class = "btn handex-btn">
+                                              <span>Browse</span>
+                                              <input type = "file" />
+                                            </div>
+
+                                            <div class = "file-path-wrapper">
+                                              <input class = "file-path validate" type = "text"
+                                                     placeholder = "Upload file" />
+                                            </div>
+                                          </div>
                                         </div>
                                     </div>
 
@@ -1659,7 +1688,8 @@
                                         </label>
                                     </div>
                                     <div class="input-field col s12 m12">
-                                        <input type="submit" name="submit" value="Antrag Shicken">
+                                        <input class="handex-btn" type="submit" name="submit" value="Antrag Shicken">
+
                                     </div>
                                 </div>
                             </div>
