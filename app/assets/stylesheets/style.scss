@@ -234,8 +234,8 @@ form.col.s12.custom-form {
     li:before {
       content: counter(step);
       counter-increment: step;
-      width: 30px;
-      height: 30px;
+      width: 5px;
+      height: 5px;
       line-height: 30px;
       border: 1px solid #ddd;
       border-radius: 100%;
@@ -243,17 +243,6 @@ form.col.s12.custom-form {
       text-align: center;
       margin: 0 auto 10px auto;
       background-color: #fff;
-      z-index: -1;
-    }
-
-    li:after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 1px;
-      background-color: #ddd;
-      top: 15px;
-      left: -45%;
       z-index: -1;
     }
 
@@ -388,6 +377,5 @@ nav {
 }
 
 .container {
-  max-width: 1920px;
-  width:90%;
+  //width:80%;
 }
