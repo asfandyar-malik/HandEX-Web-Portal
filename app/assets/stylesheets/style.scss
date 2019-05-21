@@ -305,8 +305,13 @@ form.col.s12.custom-form {
 
 .top-info-card {
   background-color: rgb(129, 207, 219);
-  width:130%;
   margin-bottom: 5%;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 3px 3px 3px 3px;
+  border: 1px solid rgb(220, 220, 222);
+  width:80%;
 }
 
 nav {
@@ -361,4 +366,19 @@ nav {
 
 .handex-nav-logo {
   height: 27px;
+}
+
+.communication {
+  padding:25px;
+  padding-top:10px;
+  .communication-content {
+    padding:10%;
+    padding-top:10%;
+    .communication-title {
+      padding-bottom: 10%;
+    }
+    .card-action {
+      border-top: 0;
+    }
+  }
 }
