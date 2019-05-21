@@ -256,7 +256,6 @@
                                             <div class="input-field col s12">
                                                 <label>Rating</label>
                                                 <%= form.text_field :importer_rating, autofocus: true, class: "validate" %>
-                                                <input type="text" class="validate">
                                             </div>
                                             <div class="input-field col s12 m6">
                                                 <label>Rating Agency</label>
@@ -1357,8 +1356,8 @@
                                 <div class="row">
 
                                     <div class="input-field col s12 m12">
-                                        <div class="input-field col s12 m6 nopadding">
-                                            <label>Haben Sie bereits Zahlungserfahrungen mit Ihrem Kunden? </label>
+                                        <div class="input-field col s12 m12 nopadding">
+                                            <label>Haben Sie in der Vergangenheit schon einmal einen Antrag auf Hermesdeckung eingereicht? </label>
                                             <p>
                                                 <label onclick="previouslyHermesInsuranceUsed()">
                                                     <%= check_box_tag "export_application[has_previously_used_hermes_cover]", @export_application.has_previously_used_hermes_cover ? @export_application.has_previously_used_hermes_cover : nil, id: "export_application_has_previously_used_hermes_cover" %>
@@ -1366,8 +1365,7 @@
                                                 </label>
 
                                                 <label onclick="noPreviouslyHermesInsuranceUsed()">
-                                                    <input type="checkbox">
-                                                    <span class="no yes-no-btns">No</span>
+                                                    <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px", class="no yes-no-btns">No</span>
                                                 </label>
                                             </p>
                                         </div>
@@ -1409,10 +1407,10 @@
                                         <label> <%= t('environment_social_audit_document') %> </label>
                                         <div class="file-field input-field">
 
-                                                <div class="btn handex-btn z-depth-0">
-                                                    <span>Browse</span>
-                                                    <%= form.file_field :environment_social_audit %>
-                                                </div>
+                                            <div class="btn handex-btn z-depth-0">
+                                                <span>Browse</span>
+                                                <%= form.file_field :environment_social_audit %>
+                                            </div>
 
                                             <div class="file-path-wrapper">
                                                 <input class="file-path validate" type="text"
@@ -1421,13 +1419,13 @@
                                         </div>
                                     </div>
 
-                                        <div class="input-field col s12 m6 ">
-                                            <label><%= t('project_memorandum_exporter_business') %></label>
-                                            <div class="file-field input-field">
-                                                <div class="btn handex-btn z-depth-0">
-                                                    <span>Browse</span>
-                                                    <%= form.file_field :project_memorandum_exporter_business %>
-                                                </div>
+                                    <div class="input-field col s12 m6 ">
+                                        <label><%= t('project_memorandum_exporter_business') %></label>
+                                        <div class="file-field input-field">
+                                            <div class="btn handex-btn z-depth-0">
+                                                <span>Browse</span>
+                                                <%= form.file_field :project_memorandum_exporter_business %>
+                                            </div>
 
                                             <div class="file-path-wrapper">
                                                 <input class="file-path validate" type="text"
@@ -1436,11 +1434,11 @@
                                         </div>
                                     </div>
 
-                                        <div class="input-field col s12 m6 ">
-                                            <label>Auskünfte Ihres Kunden</label>
-                                          <div class = "file-field input-field">
-                                            <div class = "btn handex-btn z-depth-0">
-                                              <span>Browse</span>
+                                    <div class="input-field col s12 m6 ">
+                                        <label>Auskünfte Ihres Kunden</label>
+                                        <div class="file-field input-field">
+                                            <div class="btn handex-btn z-depth-0">
+                                                <span>Browse</span>
                                                 <%= form.file_field :credit_bureaus_importer %>
                                             </div>
 
@@ -1451,11 +1449,11 @@
                                         </div>
                                     </div>
 
-                                        <div class="input-field col s12 m6 ">
-                                            <label>Sonstiges</label>
-                                          <div class = "file-field input-field">
-                                            <div class = "btn z-depth-0 handex-btn">
-                                              <span>Browse</span>
+                                    <div class="input-field col s12 m6 ">
+                                        <label>Sonstiges</label>
+                                        <div class="file-field input-field">
+                                            <div class="btn z-depth-0 handex-btn">
+                                                <span>Browse</span>
                                                 <%= form.file_field :additional_document %>
                                             </div>
 
