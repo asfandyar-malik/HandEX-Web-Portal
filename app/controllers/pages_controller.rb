@@ -32,5 +32,11 @@ class PagesController < ApplicationController
     
     def welcome
     end
+
+    def products
+    end
+    
+    def advice_insurance
+    end
     
 end
