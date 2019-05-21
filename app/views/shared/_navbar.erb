@@ -1,80 +1,111 @@
 <!-- Fixed navbar -->
-<nav class="navbar navbar-default navbar-static-top">
+<!--<nav class="navbar navbar-default navbar-static-top">-->
 
-    <div class="col-xs-10 col-sm-10 hidden-md hidden-lg no-padding">
-        <div class="flex-container">
+<!--    <div class="col-xs-10 col-sm-10 hidden-md hidden-lg no-padding">-->
+<!--        <div class="flex-container">-->
 
-            <% if (!user_signed_in?) %>
-                <div class="navbar-header">
-                    <a href=/insurances class="smooth"><%= image_tag "HandEX_logo4.png", style: 'height:1.5em;width:auto; margin-left: 1em; margin-top: 1em; margin-bottom: 1em' %></a>
-                </div>
-                <ul class="nav navbar-nav navbar-right navbar-text">
-                    <li><%= link_to t('login'), new_user_session_path %></li>
-                    <li><%= link_to t('register'), new_user_registration_path %></li>
-                </ul>
+            <%# if (!user_signed_in?) %>
+<!--                <div class="navbar-header">-->
+<!--                    <a href=/insurances class="smooth"><%#= image_tag "HandEX_logo4.png", style: 'height:1.5em;width:auto; margin-left: 1em; margin-top: 1em; margin-bottom: 1em' %></a>-->
+<!--                </div>-->
 
-            <% else %>
-                <div class="navbar-header">
-                    <a href=/insurances class="smooth"><%= image_tag "HandEX_logo4.png", style: 'height:1.5em;width:auto; margin-left: 1em; margin-top: 1em; margin-bottom: 1em' %></a>
-                </div>
-                <ul class="nav navbar-nav navbar-right navbar-text">
+<!--                <ul class="nav navbar-nav navbar-right navbar-text">-->
+<!--                    <li><%#= link_to t('login'), new_user_session_path %></li>-->
+<!--                    <li><%#= link_to t('register'), new_user_registration_path %></li>-->
+<!--                </ul>-->
 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                           role="button" aria-haspopup="true" aria-expanded="false">
-                            <%= image_tag "user1.png", class: "img-circle", height: '18', width: '18' %>&nbsp;
-                            <%= current_user.fullname %>  <span class="caret"></span>
-                        </a>
+            <%# else %>
+<!--                <div class="navbar-header">-->
+<!--                    <a href=/insurances class="smooth"><%#= image_tag "HandEX_logo4.png", style: 'height:1.5em;width:auto; margin-left: 1em; margin-top: 1em; margin-bottom: 1em' %></a>-->
+<!--                </div>-->
 
-                        <ul class="dropdown-menu">
-                            <li><%= link_to t('submitted_application'), submitted_applications_insurance_path(current_user.id) %></li>
-                            <li><%= link_to t('approved_application'), approved_applications_insurance_path(current_user.id) %></li>
-                            <li><%= link_to t('your_profile'), edit_user_registration_path %></li>
-                            <li><%= link_to t('logout'), destroy_user_session_path, method: :destroy %></li>
-                        </ul>
-                    </li>
-                </ul>
-            <% end %>
-        </div>
-    </div>
+<!--                <ul class="nav navbar-nav navbar-right navbar-text">-->
 
-    <div class="col-lg-10 col-md-10 hidden-xs hidden-sm col-lg-offset-1 col-md-offset-1 no-padding">
-        <div class="container">
-            <% if (!user_signed_in?) %>
+<!--                    <li class="dropdown">-->
+<!--                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"-->
+<!--                           role="button" aria-haspopup="true" aria-expanded="false">-->
+<!--                            <%#= image_tag "user1.png", class: "img-circle", height: '18', width: '18' %>&nbsp;-->
+<!--                            <%#= current_user.fullname %>  <span class="caret"></span>-->
+<!--                        </a>-->
 
-                <div class="navbar-header">
-                    <a href="/insurances"> <%= image_tag "HandEX_logo4.png", style: 'height:2em;width:auto; margin-top: 1em; margin-bottom: 1em' %></a>
-                </div>
+<!--                        <ul class="dropdown-menu">-->
+<!--                            <li><%#= link_to t('submitted_application'), submitted_applications_insurance_path(current_user.id) %></li>-->
+<!--                            <li><%#= link_to t('approved_application'), approved_applications_insurance_path(current_user.id) %></li>-->
+<!--                            <li><%#= link_to t('your_profile'), edit_user_registration_path %></li>-->
+<!--                            <li><%#= link_to t('logout'), destroy_user_session_path, method: :destroy %></li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
+<!--                </ul>-->
+            <%# end %>
+<!--        </div>-->
+<!--    </div>-->
 
-                <ul class="nav navbar-nav navbar-right navbar-text">
+<!--    <div class="col-lg-10 col-md-10 hidden-xs hidden-sm col-lg-offset-1 col-md-offset-1 no-padding">-->
+<!--        <div class="container">-->
+            <%# if (!user_signed_in?) %>
 
-                    <li><%= link_to t('login'), new_user_session_path %></li>
-                    <li><%= link_to t('register'), new_user_registration_path %></li>
+<!--                <div class="navbar-header">-->
+<!--                    <a href="/insurances"> <%#= image_tag "HandEX_logo4.png", style: 'height:2em;width:auto; margin-top: 1em; margin-bottom: 1em' %></a>-->
+<!--                </div>-->
 
-                </ul>
+<!--                <ul class="nav navbar-nav navbar-right navbar-text">-->
 
-            <% else %>
-                <div class="navbar-header">
-                    <a href=/insurances > <%= image_tag "HandEX_logo4.png", style: 'height:2em;width:auto; margin-top: 1em; margin-bottom: 1em' %></a>
-                </div>
+<!--                    <li><%#= link_to t('login'), new_user_session_path %></li>-->
+<!--                    <li><%#= link_to t('register'), new_user_registration_path %></li>-->
 
-                <ul class="nav navbar-nav navbar-right navbar-text">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                           role="button" aria-haspopup="true" aria-expanded="false">
-                            <%= image_tag "user1.png", class: "img-circle", height: '22', width: '22' %>&nbsp;
-                            <%= current_user.fullname %>  <span class="caret"></span>
-                        </a>
+<!--                </ul>-->
 
-                        <ul class="dropdown-menu">
-                            <li><%= link_to t('submitted_application'), submitted_applications_insurance_path(current_user.id) %></li>
-                            <li><%= link_to t('approved_application'), approved_applications_insurance_path(current_user.id) %></li>
-                            <li><%= link_to t('your_profile'), edit_user_registration_path %></li>
-                            <li><%= link_to t('logout'), destroy_user_session_path, method: :destroy %></li>
-                        </ul>
-                    </li>
-                </ul>
-            <% end %>
-        </div>
+            <%# else %>
+<!--                <div class="navbar-header">-->
+<!--                    <a href=/insurances > <%#= image_tag "HandEX_logo4.png", style: 'height:2em;width:auto; margin-top: 1em; margin-bottom: 1em' %></a>-->
+<!--                </div>-->
+
+<!--                <ul class="nav navbar-nav navbar-right navbar-text">-->
+<!--                    <li class="dropdown">-->
+
+<!--                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"-->
+<!--                           role="button" aria-haspopup="true" aria-expanded="false">-->
+<!--                            <%#= image_tag "user1.png", class: "img-circle", height: '22', width: '22' %>&nbsp;-->
+<!--                            <%#= current_user.fullname %>  <span class="caret"></span>-->
+<!--                        </a>-->
+
+<!--                        <ul class="dropdown-menu">-->
+<!--                            <li><%#= link_to t('submitted_application'), submitted_applications_insurance_path(current_user.id) %></li>-->
+<!--                            <li><%#= link_to t('approved_application'), approved_applications_insurance_path(current_user.id) %></li>-->
+<!--                            <li><%#= link_to t('your_profile'), edit_user_registration_path %></li>-->
+<!--                            <li><%#= link_to t('logout'), destroy_user_session_path, method: :destroy %></li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
+<!--                </ul>-->
+
+
+            <%# end %>
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
+
+<nav class="white z-depth-0">
+    <div class="nav-wrapper">
+
+        <a href="/insurances" class="brand-logo"> <img class="handex-nav-logo" src="/assets/HandEX_logo4.png" alt=""></a>
+
+        <ul class="right hide-on-med-and-down handex-nav-icon">
+
+            <li><a class="top-navigation-icons" href="#"><i class="material-icons">account_circle</i></a></li>
+
+            <li><a class="top-navigation-icons" href="#"><i class="material-icons">add_alert</i></a></li>
+
+            <li><a class="top-navigation-icons" href="#"><i class="material-icons">settings</i></a></li>
+
+            <!--            <li><a class="dropdown"><i class="material-icons">settings</i></a>-->
+<!--                <ul class="dropdown-menu">-->
+<!--                    <li><%#= link_to t('submitted_application'), submitted_applications_insurance_path(current_user.id) %></li>-->
+<!--                    <li><%#= link_to t('approved_application'), approved_applications_insurance_path(current_user.id) %></li>-->
+<!--                    <li><%#= link_to t('your_profile'), edit_user_registration_path %></li>-->
+<!--                    <li><%#= link_to t('logout'), destroy_user_session_path, method: :destroy %></li>-->
+<!--                </ul>-->
+<!--            </li>-->
+        </ul>
+
     </div>
 </nav>
