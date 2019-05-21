@@ -112,7 +112,7 @@
                                                                                     'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates (UAE)',
                                                                                     'United Kingdom (UK)', 'United States of America (USA)', 'Uruguay', 'Uzbekistan', 'Vanuatu',
                                                                                     'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'],
-                                                                                   @export_application.exporter_country ? @export_application.exporter_country : nil), {}, class: 'form-control' %>
+                                                                                   @export_application.exporter_country ? @export_application.exporter_country : nil), {}, class: 'validate' %>
 
                                             </div>
 
@@ -259,7 +259,7 @@
                                                                         'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates (UAE)',
                                                                         'United Kingdom (UK)', 'United States of America (USA)', 'Uruguay', 'Uzbekistan', 'Vanuatu',
                                                                         'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'],
-                                                                       @export_application.importer_country ? @export_application.importer_country : nil), {}, class: 'form-control' %>
+                                                                       @export_application.importer_country ? @export_application.importer_country : nil), {}, class: 'validate' %>
 
                                     </div>
 
@@ -456,7 +456,7 @@
                                             </div>
                                             <div class="input-field col s12 m12">
                                                 <label>Die Ausfuhrgenehmigung...</label>
-                                                    <%= form.select :export_license_status, options_for_select([t('please_select'), "... wurde erteilt.", "... ist beantragt.", "... ist noch zu beantragen."]), {}, class: 'form-control' %>
+                                                    <%= form.select :export_license_status, options_for_select([t('please_select'), "... wurde erteilt.", "... ist beantragt.", "... ist noch zu beantragen."]), {}, class: 'validate' %>
                                             </div>
                                         </div>
                                     </div>
@@ -514,7 +514,7 @@
                                                                                 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates (UAE)',
                                                                                 'United Kingdom (UK)', 'United States of America (USA)', 'Uruguay', 'Uzbekistan', 'Vanuatu',
                                                                                 'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'],
-                                                                               @export_application.goods_overhaul_country ? @export_application.goods_overhaul_country : nil), {}, class: 'form-control' %>
+                                                                               @export_application.goods_overhaul_country ? @export_application.goods_overhaul_country : nil), {}, class: 'validate' %>
                                         </div>
                                     </div>
 
@@ -573,7 +573,7 @@
                                         <div class="row hide-section">
                                             <div class="input-field col s12 m6">
                                                 <label>Währung</label>
-                                                <%= form.select :all_rawgoods_supplier_currency, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: "form-control" %>
+                                                <%= form.select :all_rawgoods_supplier_currency, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: "validate" %>
                                             </div>
 
                                             <div class="input-field col s12 m6">
@@ -622,7 +622,7 @@
                                         <div class="row hide-section">
                                             <div class="input-field col s12 m6">
                                                 <label>Währung</label>
-                                                <%= form.select :partly_rawgoods_supplier_currency, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: "form-control" %>
+                                                <%= form.select :partly_rawgoods_supplier_currency, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: "validate" %>
                                             </div>
 
                                             <div class="input-field col s12 m6">
@@ -749,7 +749,7 @@
                                                 </div>
 
                                                 <div class="input-field col s12 m4">
-                                                    <div> <%= form.text_field :describe_other_billed_items_in_contract, class: "form-control", placeholder: t('description') %> </div>
+                                                    <div> <%= form.text_field :describe_other_billed_items_in_contract, class: "validate", placeholder: t('description') %> </div>
                                                 </div>
                                             </div>
 
@@ -762,7 +762,7 @@
                                                 </div>
 
                                                 <div class="input-field col s12 m4">
-                                                    <div> <%= form.text_field :describe_other_billed_items_in_contract, class: "form-control", placeholder: t('description') %> </div>
+                                                    <div> <%= form.text_field :describe_other_billed_items_in_contract, class: "validate", placeholder: t('description') %> </div>
                                                 </div>
                                             </div>
 
@@ -775,10 +775,11 @@
                                                 </div>
 
                                                 <div class="input-field col s12 m4">
-                                                    <div> <%= form.text_field :describe_other_billed_items_in_contract, class: "form-control", placeholder: t('description') %> </div>
+                                                    <div> <%= form.text_field :describe_other_billed_items_in_contract, class: "validate", placeholder: t('description') %> </div>
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -811,63 +812,700 @@
                         <div class="col s12">
                             <div class="form-content">
                                 <div class="row">
+
                                     <div class="input-field col s12">
                                         <label>Sind für Ihr Geschäft Sicherheiten vorgesehen?</label>
-                                        <p><label for="tran-yes"><input type="radio" id="tran-yes" name="tran-yes" value="Yes"/><span class="yes yes-no-btns">Yes</span></label><label for="tran-no"><input type="radio" id="tran-no" name="tran-no" value="No"/><span class="no yes-no-btns">No</span></label></p>
+                                        <p>
+                                            <label for="tran-yes">
+                                                <input type="radio" id="tran-yes" name="tran-yes" value="Yes"/>
+                                                <span class="yes yes-no-btns">Yes</span>
+                                            </label>
+                                            <label for="tran-no">
+                                                <input type="radio" id="tran-no" name="tran-no" value="No"/>
+                                                <span class="no yes-no-btns">No</span>
+                                            </label></p>
+
                                         <div class="row hide-section">
+
                                             <div class="input-field col s12">
-                                                <label>Welche Art von Sicherheiten?</label>
+                                                <label> <%= t('security_type') %> </label>
                                             </div>
+
                                             <div class="input-field col s12 m6">
-                                                <select>
-                                                    <option value="" selected>Bitte wählen...</option>
-                                                </select>
+                                                <%= form.select :security_type, options_for_select([[t('please_select'),"0"], ["Unbestätigtes Akkreditiv einer Bank","1"], ["Bestätigtes Akkreditiv","2"],
+                                                                                                    ["Zahlungsgarantie einer Bank","3"], ["Zahlungsgarantie eines Unternehmens","4"],
+                                                                                                    ["(eingetragener) Eigentumsvorbehalt (dingliche Sicherheit)","5"],
+                                                                                                    ["Pfandrecht (dingliche Sicherheit)","6"], ["sonstige","7"]]), {}, id: "security_type", class: "validate" %>
                                             </div>
+
                                             <div class="input-field col s12 m6">
-                                                <input type="text" class="validate">
+                                                <div> <%= form.text_field :security_type_name, class: "validate", placeholder: "Bitte Name vergeben" %> </div>
                                             </div>
                                             <div class="input-field col s12 m12">
-                                                <label>Welchen Anteil des Auftragswertes wird die Sicherheit umfassen?</label>
-                                                <input type="text" class="validate">
+                                                <label> <%= t('proportion_of_good_covered_by_security') %> </label>
+                                                <div> <%= form.text_field :proportion_of_good_covered_by_security, class: "validate" %> </div>
                                             </div>
+
                                             <div class="input-field col s12 m12">
                                                 <div class="input-field col s12 m6 nopadding">
-                                                    <label>Wann werden Sie die Sicherheiten erhalten?</label>
-                                                    <select>
-                                                        <option value="" selected>Bitte wählen...</option>
-                                                    </select>
+                                                    <label> <%= t('when_security_received') %> </label>
+                                                    <%= form.select :when_security_received, options_for_select([[t('please_select'),"0"], ["Vor Fabrikationsbeginn","1"], ["Vor Liefer-/Leistungsbeginn","2"], ["Später","3"],
+                                                                                                                 ["Anderer Termin","4"]]), {}, id: "when_security_received", class: "validate" %>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="input-field col s12 m12">
-                                        <label>Haben Sie bereits ein Zahlungsziel bzw. eine eigene Finanzierung mit Ihrem Kunden vereinbart?</label>
-                                        <p><label for="fanance-yes"><input type="radio" id="fanance-yes" name="public" value="fanance-yes"/><span class="yes yes-no-btns">Yes</span></label><label for="fanance-no"><input type="radio" id="fanance-no" name="fanance-no" value="no"/><span class="no yes-no-btns">No</span></label></p>
-                                    </div>
-                                    <div class="input-field col s12 m12">
-                                        <div class="input-field col s12 m4 threecol">
-                                            <label>Kurzfristig</label>
-                                            <p>Bis zu 2 Jahre Kreditlaufzeit</p>
-                                        </div>
-                                        <div class="input-field col s12 m4 threecol">
-                                            <label>Mittel-/langfristig</label>
-                                            <p>über 2 Jahre Kreditlaufzeit</p>
-                                        </div>
-                                        <div class="input-field col s12 m4 threecol">
-                                            <label>Sowohl kurzfristig als
-                                                auch mittel-/langfristig</label>
-                                        </div>
-                                    </div>
-                                    <div class="input-field col s12">
-                                        <label> Berechnen Sie Ihrem Kunden Zinsen? </label>
-                                        <p><label for="int-yes"><input type="radio" id="int-yes" name="int-yes" value="Yes"/><span class="yes yes-no-btns">Yes</span></label><label for="int-no"><input type="radio" id="int-no" name="int-no" value="No"/><span class="no yes-no-btns">No</span></label></p>
+                                        <label><%= t('has_agreed_payment_term_already')%></label>
+                                        <p>
+                                            <label for="fanance-yes">
+                                                <input type="radio" id="fanance-yes" name="fanance-yes" value="fanance-yes"/>
+                                            <span class="yes yes-no-btns">Yes</span>
+                                        </label>
+                                            <label for="fanance-no">
+                                                <input type="radio" id="fanance-no" name="fanance-no" value="no"/>
+                                                <span class="no yes-no-btns">No</span>
+                                            </label>
+                                        </p>
 
                                         <div class="row hide-section">
-                                            <div class="input-field col s12 m6">
-                                                <label> In diesem Szenario haben Sie die Möglichkeit, Ihre von Ihrem Kunden geschuldeten Forderungen durch ein Forfaitierungsgeschäft zu verkaufen. Dies bedeutet, dass unsere Partnerbank Ihre Forderungen kauft und bis zu 95% des gesamten Forderungsbetrags refinanziert.</label>
+
+                                            <div class="input-field col s12 m12">
+
+                                                <div class="input-field col s12 m4 threecol" name="kurzfristigtermofpayment" onclick="kurzFristigTermOfPayment()">
+                                                    <label>Kurzfristig</label>
+                                                    <p>Bis zu 2 Jahre Kreditlaufzeit</p>
+                                                </div>
+
+                                                <div class="input-field col s12 m4 threecol" name="mitteltermofpayment" onclick="mittelTermOfPayment()">
+                                                    <label>Mittel-/langfristig</label>
+                                                    <p>über 2 Jahre Kreditlaufzeit</p>
+                                                </div>
+
+                                                <div class="input-field col s12 m4 threecol" name="sonstigekurzfristigtermofpayment" onclick="sonstigeKurzFristigTermOfPayment()">
+                                                    <label>Sowohl kurzfristig als
+                                                        auch mittel-/langfristig</label>
+                                                </div>
+                                            </div>
+
+                                            <div id="ShortTermOfPayment" style="  display: none;">
+
+                                                <div class="row">
+                                                    <div class="col m10 offset-m1">
+                                                        <p> <%= t('downpayment_before_delivery')%></p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <br>
+                                                    <div class="col m2 offset-m1">
+                                                        <%= form.select :downpayment_delivery_currency_payment_term_short, options_for_select(["Euro", "Dollar"]), {}, class: "validate" %>
+                                                    </div>
+                                                    <div class="col m4">
+                                                        <div> <%= form.text_field :downpayment_delivery_amount_payment_term_short, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                    </div>
+                                                    <div class="col m4">
+                                                        <div> <%= form.text_field :downpayment_delivery_description_payment_term_short, class: "validate", placeholder: t('description') %> </div>
+                                                    </div>
+                                                </div>
+
+                                                <br><br>
+
+                                                <div class="row">
+                                                    <div class="col m8 offset-m1">
+                                                        <p> <%= t('agreed_payments')%>/p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col m2 offset-m1">
+                                                        <p>1. Rate</p>
+                                                    </div>
+                                                    <div class="col m2">
+                                                        <%= form.select :agreed_payments_currency_payment_term_short, options_for_select(["Euro", "Dollar"]), {}, class: "validate" %>
+                                                    </div>
+                                                    <div class="col m1">
+                                                        <div> <%= form.text_field :agreed_payments_amount_payment_term_short, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                        %> </div>
+                                                    </div>
+                                                    <div class="col m1">
+                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_short, class: "validate" %> </div>
+                                                    </div>
+                                                    <div class="col m2">
+                                                        <%= form.select :agreed_payments_time_payment_term_short, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                                                      "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                                                      "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                                                      "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                                                      "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                                                      "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
+                                                    </div>
+
+                                                    <div class="col m2">
+                                                        <div> <%= form.text_field :agreed_payments_some_output_payment_term_short, class: "validate", placeholder: "Referenztermin/Milestone   " %> </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col m2 offset-m1">
+                                                        <p>2. Rate</p>
+                                                    </div>
+                                                    <div class="col m2">
+                                                        <%= form.select :agreed_payments_currency_payment_term_short, options_for_select(["Euro", "Dollar"]), {}, class: "validate" %>
+                                                    </div>
+                                                    <div class="col m1">
+                                                        <div> <%= form.text_field :agreed_payments_amount_payment_term_short, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                        %> </div>
+                                                    </div>
+                                                    <div class="col m1">
+                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_short, class: "validate" %> </div>
+                                                    </div>
+                                                    <div class="col m2">
+                                                        <%= form.select :agreed_payments_time_payment_term_short, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                                                      "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                                                      "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                                                      "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                                                      "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                                                      "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
+                                                    </div>
+
+                                                    <div class="col m2">
+                                                        <div> <%= form.text_field :agreed_payments_some_output_payment_term_short, class: "validate" %> </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col m2 offset-m1">
+                                                        <p>3. Rate</p>
+                                                    </div>
+                                                    <div class="col m2">
+                                                        <%= form.select :agreed_payments_currency_payment_term_short, options_for_select(["Euro", "Dollar"]), {}, class: "validate" %>
+                                                    </div>
+                                                    <div class="col m1">
+                                                        <div> <%= form.text_field :agreed_payments_amount_payment_term_short, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                        %> </div>
+                                                    </div>
+                                                    <div class="col m1">
+                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_short, class: "validate" %> </div>
+                                                    </div>
+                                                    <div class="col m2">
+                                                        <%= form.select :agreed_payments_time_payment_term_short, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                                                      "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                                                      "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                                                      "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                                                      "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                                                      "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
+                                                    </div>
+
+                                                    <div class="col m2">
+                                                        <div> <%= form.text_field :agreed_payments_some_output_payment_term_short, class: "validate" %> </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col m2 offset-m1">
+                                                        <p>4. Rate</p>
+                                                    </div>
+                                                    <div class="col m2">
+                                                        <%= form.select :agreed_payments_currency_payment_term_short, options_for_select(["Euro", "Dollar"]), {}, class: "validate" %>
+                                                    </div>
+                                                    <div class="col m1">
+                                                        <div> <%= form.text_field :agreed_payments_amount_payment_term_short, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                        %> </div>
+                                                    </div>
+                                                    <div class="col m1">
+                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_short, class: "validate" %> </div>
+                                                    </div>
+                                                    <div class="col m2">
+                                                        <%= form.select :agreed_payments_time_payment_term_short, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                                                      "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                                                      "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                                                      "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                                                      "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                                                      "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
+                                                    </div>
+
+                                                    <div class="col m2">
+                                                        <div> <%= form.text_field :agreed_payments_some_output_payment_term_short, class: "validate" %> </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col m2 offset-m1">
+                                                        <p>5. Rate</p>
+                                                    </div>
+                                                    <div class="col m2">
+                                                        <%= form.select :agreed_payments_currency_payment_term_short, options_for_select(["Euro", "Dollar"]), {}, class: "validate" %>
+                                                    </div>
+                                                    <div class="col m1">
+                                                        <div> <%= form.text_field :agreed_payments_amount_payment_term_short, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                        %> </div>
+                                                    </div>
+                                                    <div class="col m1">
+                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_short, class: "validate" %> </div>
+                                                    </div>
+                                                    <div class="col m2">
+                                                        <%= form.select :agreed_payments_time_payment_term_short, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                                                      "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                                                      "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                                                      "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                                                      "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                                                      "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
+                                                    </div>
+
+                                                    <div class="col m2">
+                                                        <div> <%= form.text_field :agreed_payments_some_output_payment_term_short, class: "validate" %> </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div id="workwithothercompanies">
+                                                    <div class="row">
+                                                        <div class="col m10 offset-m1">
+                                                            <br><br>
+                                                            <p> <%= t('payment_vehichle_payment_term_short')%>
+                                                            </p>
+                                                            <div> <%= form.text_area :payment_vehichle_payment_term_short, class: "validate" %> </div>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                </div>
+                                            </div>
+
+                                            <div id="MidTermOfPayment" style="display: none;">
+                                                <div class="row">
+                                                    <div class="col m10 offset-m1">
+                                                        <p><b> <%= t('amount_advance_interim_payment')%> </b></p>
+                                                        <br>
+                                                        <p><%= t('notice_prepayment')%></p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col m2 offset-m1">
+                                                        <%= form.select :agreed_payments_currency_payment_term_mid, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: "validate" %>
+                                                    </div>
+
+                                                    <div class="col m3">
+                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_mid, placeholder: "höhe der zwischenzahlung", class: "validate" %> </div>
+                                                    </div>
+
+                                                    <div class="col m3">
+                                                        <div> <%= form.text_field :agreed_payments_amount_payment_term_mid, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col m2 offset-m1">
+                                                        <%= form.select :agreed_payments_currency_payment_term_mid, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: "validate" %>
+                                                    </div>
+
+                                                    <div class="col m3">
+                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_mid, placeholder: "höhe der zwischenzahlung", class: "validate" %> </div>
+                                                    </div>
+
+                                                    <div class="col m3">
+                                                        <div> <%= form.text_field :agreed_payments_amount_payment_term_mid, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col m2 offset-m1">
+                                                        <%= form.select :agreed_payments_currency_payment_term_mid, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: "validate" %>
+                                                    </div>
+
+                                                    <div class="col m3">
+                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_mid, placeholder: "höhe der zwischenzahlung", class: "validate" %> </div>
+                                                    </div>
+
+                                                    <div class="col m3">
+                                                        <div> <%= form.text_field :agreed_payments_amount_payment_term_mid, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                    </div>
+                                                </div>
+
+                                                <br><br>
+
+                                                <div class="row">
+                                                    <div class="col m10 offset-m1">
+                                                        <p>
+                                                            <%= t('receive_deposit_time_payment_term_mid') %>
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col m4 offset-m1">
+                                                        <%= form.select :receive_deposit_time_payment_term_mid, options_for_select(["vor Fabrikationsbeginn", "vor Liefer /- Leistungbeginn", "bei Betriebsbereitschaft",
+                                                                                                                                    "anderer Termin"]), {}, class: "validate" %>
+                                                    </div>
+                                                </div>
+
+                                                <br>
+
+                                                <div class="row">
+                                                    <div class="col m10 offset-m1">
+                                                        <p> <%= t('repayment_profile_structure') %>
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col m4 offset-m1">
+                                                        <%= form.select :repayment_profile_structure_payment_term_mid, options_for_select([t('please_select'), "Monatliche Tilgungsraten", "Vierteljährliche Tilgungsprofil",
+                                                                                                                                           "Halbjährige Tilgungsprofil", "Unregelmäßig"]), {}, class: "validate" %>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col m8 offset-m1">
+                                                        <p> <%= t('loan_term_start') %>
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col m4 offset-m1">
+                                                        <%= form.select :loan_term_start_payment_term_mid, options_for_select([t('please_select'), "mit Lieferung", "mit erster Lieferung (bei mehreren Lieferungen)",
+                                                                                                                               "mit jeweiliger Lieferung (bei mehreren Lieferungen)",
+                                                                                                                               "mittlerer gewogener Liefertermin (bei mehreren Lieferungen)",
+                                                                                                                               "mit Betriebsbereitschaft", "sonstige"]), {}, class: "validate" %>
+
+
+                                                    </div>
+                                                    <div class="col m10 offset-m1">
+                                                        <br>
+                                                        <%= form.text_area :loan_term_other_description_payment_term_mid, class: "validate", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
+                                                    </div>
+                                                </div>
+
+                                                <div id="workwithothercompanies">
+                                                    <div class="row">
+                                                        <div class="col m10 offset-m1">
+                                                            <p> <%= t('number_of_installments') %></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col m4 offset-m1">
+                                                            <%= form.text_field :number_of_installments_payment_term_mid, class: "validate", placeholder: "Anzahl der Raten", :onkeypress => "return onlyAllowNumericalValue(event)" %>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="BothTermOfPayment" style="display: none;">
+
+                                                <div class="row">
+                                                    <div class="col m10 offset-m1">
+                                                        <p><b> <%= t('payment_term_both_info1') %></b></p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col m10 offset-m1">
+                                                        <p> <%= t('downpayment_before_delivery') %></p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <br>
+
+                                                    <div class="col m2 offset-m1">
+                                                        <%= form.select :downpayment_delivery_currency_payment_term_both, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: "validate" %>
+                                                    </div>
+                                                    <div class="col m4">
+                                                        <div> <%= form.text_field :downpayment_delivery_amount_payment_term_both, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                    </div>
+                                                    <div class="col m4">
+                                                        <div> <%= form.text_field :downpayment_delivery_description_payemnt_term_both, class: "validate", placeholder: t('description') %> </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col m8 offset-m1">
+                                                        <p> <%= t('agreed_payments') %></p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col m2 offset-m1">
+                                                        <p>1. Rate</p>
+                                                    </div>
+                                                    <div class="col m2">
+                                                        <%= form.select :agreed_payments_currency_payment_term_both, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: "validate" %>
+                                                    </div>
+                                                    <div class="col m1">
+                                                        <div> <%= form.text_field :agreed_payments_amount_payment_term_both, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                        %> </div>
+                                                    </div>
+                                                    <div class="col m1">
+                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_both, class: "validate" %> </div>
+                                                    </div>
+                                                    <div class="col m2">
+                                                        <%= form.select :agreed_payments_time_payment_term_both, options_for_select([t('please_select'), "bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                                                     "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                                                     "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                                                     "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                                                     "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                                                     "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
+                                                    </div>
+
+                                                    <div class="col m2">
+                                                        <div> <%= form.text_field :agreed_payments_some_output_payment_term_both, class: "validate" %> </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col m2 offset-m1">
+                                                        <p>2. Rate</p>
+                                                    </div>
+                                                    <div class="col m2">
+                                                        <%= form.select :agreed_payments_currency_payment_term_both, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: "validate" %>
+                                                    </div>
+                                                    <div class="col m1">
+                                                        <div> <%= form.text_field :agreed_payments_amount_payment_term_both, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                        %> </div>
+                                                    </div>
+                                                    <div class="col m1">
+                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_both, class: "validate" %> </div>
+                                                    </div>
+                                                    <div class="col m2">
+                                                        <%= form.select :agreed_payments_time_payment_term_both, options_for_select([t('please_select'), "bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                                                     "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                                                     "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                                                     "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                                                     "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                                                     "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
+                                                    </div>
+
+                                                    <div class="col m2">
+                                                        <div> <%= form.text_field :agreed_payments_some_output_payment_term_both, class: "validate" %> </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col m2 offset-m1">
+                                                        <p>3. Rate</p>
+                                                    </div>
+                                                    <div class="col m2">
+                                                        <%= form.select :agreed_payments_currency_payment_term_both, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: "validate" %>
+                                                    </div>
+                                                    <div class="col m1">
+                                                        <div> <%= form.text_field :agreed_payments_amount_payment_term_both, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                        %> </div>
+                                                    </div>
+                                                    <div class="col m1">
+                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_both, class: "validate" %> </div>
+                                                    </div>
+                                                    <div class="col m2">
+                                                        <%= form.select :agreed_payments_time_payment_term_both, options_for_select([t('please_select'), "bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                                                     "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                                                     "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                                                     "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                                                     "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                                                     "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
+                                                    </div>
+
+                                                    <div class="col m2">
+                                                        <div> <%= form.text_field :agreed_payments_some_output_payment_term_both, class: "validate" %> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col m2 offset-m1">
+                                                        <p>4. Rate</p>
+                                                    </div>
+                                                    <div class="col m2">
+                                                        <%= form.select :agreed_payments_currency_payment_term_both, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: "validate" %>
+                                                    </div>
+                                                    <div class="col m1">
+                                                        <div> <%= form.text_field :agreed_payments_amount_payment_term_both, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                        %> </div>
+                                                    </div>
+                                                    <div class="col m1">
+                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_both, class: "validate" %> </div>
+                                                    </div>
+                                                    <div class="col m2">
+                                                        <%= form.select :agreed_payments_time_payment_term_both, options_for_select([t('please_select'), "bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                                                     "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                                                     "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                                                     "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                                                     "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                                                     "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
+                                                    </div>
+
+                                                    <div class="col m2">
+                                                        <div> <%= form.text_field :agreed_payments_some_output_payment_term_both, class: "validate" %> </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col m2 offset-m1">
+                                                        <p>5. Rate</p>
+                                                    </div>
+                                                    <div class="col m2">
+                                                        <%= form.select :agreed_payments_currency_payment_term_both, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: "validate" %>
+                                                    </div>
+                                                    <div class="col m1">
+                                                        <div> <%= form.text_field :agreed_payments_amount_payment_term_both, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)"
+                                                        %> </div>
+                                                    </div>
+                                                    <div class="col m1">
+                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_both, class: "validate" %> </div>
+                                                    </div>
+                                                    <div class="col m2">
+                                                        <%= form.select :agreed_payments_time_payment_term_both, options_for_select([t('please_select'), "bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate",
+                                                                                                                                     "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate",
+                                                                                                                                     "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate",
+                                                                                                                                     "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate",
+                                                                                                                                     "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate",
+                                                                                                                                     "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
+                                                    </div>
+
+                                                    <div class="col m2">
+                                                        <div> <%= form.text_field :agreed_payments_some_output_payment_term_both, class: "validate" %> </div>
+                                                    </div>
+                                                </div>
+
+                                                <br><br>
+
+                                                <div class="row">
+                                                    <div class="col m10 offset-m1">
+                                                        <p><b> <%= t('payment_term_both_info2') %></b></p>
+                                                        <br>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col m10 offset-m1">
+                                                        <p> <%= t('amount_advance_interim_payment') %></p>
+                                                        <br>
+
+                                                        <p><i> <%= t('notice_prepayment') %></i></p>
+                                                        <br>
+
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+
+                                                    <div class="col m2 offset-m1">
+                                                        <%= form.select :advance_payment_currency_payment_term_both, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: "validate" %>
+                                                    </div>
+                                                    <div class="col m4">
+                                                        <div> <%= form.text_field :advance_payment_amount_payment_term_both, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                    </div>
+                                                    <div class="col m4">
+                                                        <div> <%= form.text_field :advance_payment_description_payment_term_both, class: "validate" %> </div>
+                                                    </div>
+                                                    <div class="col m1">
+                                                        <p>%</p>
+                                                    </div>
+
+                                                </div>
+
+                                                <br><br>
+                                                <div class="row">
+                                                    <div class="col m10 offset-m1">
+                                                        <p> <%= t('receive_deposit_time_payment_term_mid') %>
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col m4 offset-m1">
+                                                        <%= form.select :deposit_received_payment_term_both, options_for_select([t('please_select'), "vor Fabrikationsbeginn", "vor Liefer /- Leistungbeginn",
+                                                                                                                                 "bei Betriebsbereitschaft", "anderer Termin",]), {}, class: "validate" %>
+                                                    </div>
+                                                </div>
+                                                <br>
+
+                                                <div class="row">
+                                                    <div class="col m10 offset-m1">
+                                                        <p> <%= t('repayment_profile_structure') %>
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col m4 offset-m1">
+                                                        <%= form.select :repayment_structure_payment_term_both, options_for_select([t('please_select'), "Monatliche Tilgungsraten", "Vierteljährliche Tilgungsprofil",
+                                                                                                                                    "Halbjährige Tilgungsprofil", "Unregelmäßig"]), {}, class: "validate" %>
+                                                    </div>
+                                                </div>
+                                                <br>
+
+                                                <div class="row">
+                                                    <div class="col m10 offset-m1">
+                                                        <p> <%= t('loan_term_start') %>
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col m6 offset-m1">
+                                                        <%= form.select :credit_start_date_payment_term_both, options_for_select([t('please_select'), "mit Lieferung", "mit erster Lieferung (bei mehreren Lieferungen)",
+                                                                                                                                  "mit jeweiliger Lieferung (bei mehreren Lieferungen)",
+                                                                                                                                  "mittlerer gewogener Liefertermin (bei mehreren Lieferungen)",
+                                                                                                                                  "mit Betriebsbereitschaft", "sonstige"]), {}, class: "validate" %>
+
+
+                                                    </div>
+                                                    <div class="col m8 offset-m1">
+                                                        <br>
+                                                        <%= form.text_area :credit_start_special_description_payment_term_both, class: "validate", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
+                                                    </div>
+
+                                                </div>
+
+                                                <div id="workwithothercompanies">
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col m10 offset-m1">
+                                                                <p> <%= t('number_of_installments') %>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col m6 offset-m1">
+                                                                <%= form.text_field :number_of_installments_payment_term_both, class: "validate", placeholder: "Anzahl der Raten", :onkeypress => "return onlyAllowNumericalValue(event)" %>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div id="workwithothercompanies">
+                                                    <div class="row">
+                                                        <div class="col m10 offset-m1">
+
+                                                            <p> <%= t('payment_vehichle_payment_term_short') %>
+                                                            </p>
+                                                            <div> <%= form.text_field :payment_vehichle_explain_payment_term_both, class: "validate" %> </div>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="input-field col s12">
+                                                <label> Berechnen Sie Ihrem Kunden Zinsen? </label>
+                                                <p>
+                                                    <label>
+                                                        <input type="radio" name="yes_customercountsinterest" value="Yes" onclick="customerCountsInterest()"/>
+                                                        <span class="yes yes-no-btns">Yes</span>
+                                                    </label>
+                                                    <label for="int-no">
+                                                        <input type="radio" id="int-no" name="no_customercountsinterest"  value="No" onclick="customerCountsInterest()"/>
+                                                        <span class="no yes-no-btns">No</span>
+                                                    </label>
+                                                </p>
+
+                                                <div id="yesCustomerCountInterest" style="display: none;">
+                                                    <div class="input-field col s12 m12">
+                                                        <p> <%= t('notice_interest_charged') %> </p>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
-
                                     </div>
 
                                 </div>
@@ -903,7 +1541,43 @@
                                 <div class="row">
                                     <div class="input-field col s12 m12">
                                         <label>Haben Sie schon einmal Hermesdeckungen genutzt?</label>
-                                        <p><label for="Hermes-y"><input type="checkbox" id="Hermes-y" name="yes" value="Yes"/><span class="yes yes-no-btns">Yes</span></label><label for="Hermes-n"><input type="checkbox" id="Hermes-n" name="no" value="No"/><span class="no yes-no-btns">No</span></label></p>
+                                        <p>
+                                            <label for="Hermes-y">
+                                                <input type="checkbox" id="Hermes-y" name="yes_previouslyhermesinsuranceused" value="Yes" onclick="previouslyHermesInsuranceUsed()"/>
+                                                <span class="yes yes-no-btns">Ja</span>
+                                            </label>
+                                            <label for="Hermes-n">
+                                                <input type="checkbox" id="Hermes-n" name="no_previouslyhermesinsuranceused" value="No" onclick="noPreviouslyHermesInsuranceUsed()"/>
+                                                <span class="no yes-no-btns">Nein</span>
+                                            </label>
+                                        </p>
+                                    </div>
+
+                                    <div id="newAtHermesDeckung" style="display: none">
+                                        <div class="row">
+                                            <br>
+                                            <div class="col m10 offset-m1">
+                                                <p> <%= t('new_to_hermes_cover') %></p>
+                                                <br><br>
+                                            </div>
+
+                                            <div class="col m10 offset-m1">
+                                                <p><i><%= t('years_trading_without_hermes_insurance') %></i></p>
+                                                <div> <%= form.text_field :years_trading_without_hermes_insurance, class: "form-control" %> </div>
+                                            </div>
+
+                                            <div class="col m10 offset-m1">
+                                                <br><br>
+                                                <p><i><%= t('experience_with_importer_country') %></i></p>
+                                                <%= form.text_field :experience_with_importer_country, class: "form-control" %>
+                                            </div>
+
+                                            <div class="col m10 offset-m1 ">
+                                                <br><br>
+                                                <p><i> <%= t('adequate_claims_management') %></i></p>
+                                                <%= form.text_field :adequate_claims_management, class: "form-control" %>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="input-field col s12 m12">
@@ -912,41 +1586,42 @@
                                             dein Kunde.</p>
                                     </div>
                                         <div class="input-field col s12 m6 ">
-                                            <label>Umwelt- und Sozialinformationen</label>
-                                          <div class = "file-field input-field">
-                                            <div class = "btn z-depth-0 handex-btn">
-                                              <span>Browse</span>
-                                              <input type = "file" />77
-                                            </div>
+                                            <label> <%= t('environment_social_audit_document') %> </label>
+                                            <div class="file-field input-field">
 
-                                            <div class = "file-path-wrapper">
-                                              <input class = "file-path validate" type = "text"
-                                                     placeholder = "Upload file" />
+                                                <div class="btn handex-btn z-depth-0">
+                                                    <span>Browse</span>
+                                                    <%= form.file_field :environment_social_audit %>
+                                                </div>
+
+                                                <div class="file-path-wrapper">
+                                                    <input class="file-path validate" type="text"
+                                                           placeholder="Upload file"/>
+                                                </div>
                                             </div>
-                                          </div>
                                         </div>
 
                                         <div class="input-field col s12 m6 ">
-                                            <label>Projektmemorandum</label>
-                                          <div class = "file-field input-field">
-                                            <div class = "btn z-depth-0 handex-btn">
-                                              <span>Browse</span>
-                                              <input type = "file" />
-                                            </div>
+                                            <label><%= t('project_memorandum_exporter_business') %></label>
+                                            <div class="file-field input-field">
+                                                <div class="btn handex-btn z-depth-0">
+                                                    <span>Browse</span>
+                                                    <%= form.file_field :project_memorandum_exporter_business %>
+                                                </div>
 
-                                            <div class = "file-path-wrapper">
-                                              <input class = "file-path validate" type = "text"
-                                                     placeholder = "Upload file" />
+                                                <div class="file-path-wrapper">
+                                                    <input class="file-path validate" type="text"
+                                                           placeholder="Upload file"/>
+                                                </div>
                                             </div>
-                                          </div>
                                         </div>
 
                                         <div class="input-field col s12 m6 ">
                                             <label>Auskünfte Ihres Kunden</label>
                                           <div class = "file-field input-field">
-                                            <div class = "btn z-depth-0 handex-btn">
+                                            <div class = "btn handex-btn z-depth-0">
                                               <span>Browse</span>
-                                              <input type = "file" />
+                                                <%= form.file_field :credit_bureaus_importer %>
                                             </div>
 
                                             <div class = "file-path-wrapper">
@@ -961,7 +1636,7 @@
                                           <div class = "file-field input-field">
                                             <div class = "btn z-depth-0 handex-btn">
                                               <span>Browse</span>
-                                              <input type = "file" />
+                                                <%= form.file_field :additional_document %>
                                             </div>
 
                                             <div class = "file-path-wrapper">
@@ -1027,6 +1702,7 @@
                                                         Kenntnisnahme der Erläuterungen gemacht.</span>
                                         </label>
                                     </div>
+
                                     <div class="input-field col s12 m12">
                                         <label>
                                             <input type="checkbox"/>
@@ -1034,23 +1710,26 @@
                                                     in Zusammenhang mit  <a href="https://www.agaportal.de/_Resources/Persistent/3bfd6a43f17d04f9b34d523df323f0a44a9eaa17/ab_fab.pdf"> den Ergänzenden Bestimmungen für Forderungsabtretungen.</a></span>
                                         </label>
                                     </div>
+
                                     <div class="input-field col s12 m12">
+                                        <%#= form.check_box :has_read_privacy_policy, type: "checkbox"%>
                                         <label>
                                             <input type="checkbox"/>
-                                            <span class="terms">Wir haben die Datenschutzhinweise zur Kenntnis genommen und sind mit deren Geltung einverstanden.</span>
+                                            <span class="terms"> <%= t("has_read_privacy_policy_html", href: link_to(t('has_read_privacy_policy_text'), t("has_read_privacy_policy_href"))) %> </span>
                                         </label>
                                     </div>
+
                                     <div class="input-field col s12 m12">
+                                        <%#= form.check_box :has_read_all_instructions, :style => "width: 20px; height: 20px;" %>
                                         <label>
                                             <input type="checkbox"/>
-                                            <span class="terms"> Wir haben die Hinweise zu Gebühren und Entgelten, Richtlinien, Verantwortlichkeiten
-                                            für den Antrag, Veröffentlichung von Projektdaten, OECD-Leitsätze für multinationale
-                                            Unternehmen und UN-Leitprinzipien für Wirtschafts- und Menschenrechte zur Kenntnis
-                                            genommen.</span>
+                                            <span class="terms"> <%= t("read_all_instruction_html", href: link_to(t('read_all_instruction_text'), t("read_all_instruction_href"))) %> </span>
                                         </label>
                                     </div>
-                                    <div class="input-field col s12 m12">
+
+                                <div class="input-field col s12 m12">
                                         <input class="handex-btn" type="submit" name="submit" value="Antrag Shicken">
+
                                     </div>
                                 </div>
                             </div>
@@ -1117,7 +1796,115 @@
         changeTabs($(this).attr('tab_index'));
         $('.progressbar li').removeClass('active');
         $(this).addClass('active');
-
     });
+
+    function customerCountsInterest() {
+        var x = document.getElementById("yesCustomerCountInterest");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function noCustomerCountsInterest() {
+        var x = document.getElementById("yesCustomerCountInterest");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+    }
+
+    function kurzFristigTermOfPayment() {
+        var x = document.getElementById("ShortTermOfPayment");
+        var y = document.getElementById("MidTermOfPayment");
+        var z = document.getElementById("BothTermOfPayment");
+
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.display = "none";
+            z.style.display = "none";
+        } else {
+            x.style.display = "none"
+        }
+    }
+
+    function mittelTermOfPayment() {
+        var x = document.getElementById("ShortTermOfPayment");
+        var y = document.getElementById("MidTermOfPayment");
+        var z = document.getElementById("BothTermOfPayment");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+            z.style.display = "none";
+            x.style.display = "none";
+        } else {
+            y.style.display = "none"
+        }
+    }
+
+    function sonstigeKurzFristigTermOfPayment() {
+        var x = document.getElementById("ShortTermOfPayment");
+        var y = document.getElementById("MidTermOfPayment");
+        var z = document.getElementById("BothTermOfPayment");
+
+        if (z.style.display === "none") {
+            z.style.display = "block";
+            x.style.display = "none";
+            y.style.display = "none";
+        } else {
+            z.style.display = "none"
+        }
+    }
+
+    function previouslyHermesInsuranceUsed() {
+        var x = document.getElementById("newAtHermesDeckung");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+    }
+
+    function noPreviouslyHermesInsuranceUsed() {
+        var x = document.getElementById("newAtHermesDeckung");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+
+    var $choice = jQuery('.choice');
+
+    $choice.filter('[name="kurzfristigtermofpayment"]').click(function () {
+        $choice.filter('[name="mitteltermofpayment"]').removeClass('active');
+        $choice.filter('[name="sonstigekurzfristigtermofpayment"]').removeClass('active');
+    });
+
+    $choice.filter('[name="mitteltermofpayment"]').click(function () {
+        $choice.filter('[name="kurzfristigtermofpayment"]').removeClass('active');
+        $choice.filter('[name="sonstigekurzfristigtermofpayment"]').removeClass('active');
+    });
+
+    $choice.filter('[name="sonstigekurzfristigtermofpayment"]').click(function () {
+        $choice.filter('[name="mitteltermofpayment"]').removeClass('active');
+        $choice.filter('[name="kurzfristigtermofpayment"]').removeClass('active');
+    });
+
+    $choice.filter('[name="yes_customercountsinterest"]').click(function () {
+        $choice.filter('[name="no_customercountsinterest"]').removeClass('active');
+    });
+
+    $choice.filter('[name="no_customercountsinterest"]').click(function () {
+        $choice.filter('[name="yes_customercountsinterest"]').removeClass('active');
+    });
+
+    $choice.filter('[name="yes_previouslyhermesinsuranceused"]').click(function () {
+        $choice.filter('[name="no_previouslyhermesinsuranceused"]').removeClass('active');
+    });
+
+    $choice.filter('[name="no_previouslyhermesinsuranceused"]').click(function () {
+        $choice.filter('[name="yes_previouslyhermesinsuranceused"]').removeClass('active');
+    });
+
+
 
 </script>
