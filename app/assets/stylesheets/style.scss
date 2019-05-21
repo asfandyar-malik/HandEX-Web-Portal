@@ -232,7 +232,8 @@ form.col.s12.custom-form {
     }
 
     li:before {
-      content: counter(step);
+      content:" " ;
+      //content: icon;
       counter-increment: step;
       width: 5px;
       height: 5px;
