@@ -350,7 +350,6 @@ ActiveRecord::Schema.define(version: 2019_05_21_113813) do
     t.string "is_all_information_provided_with_best_of_knowledge"
     t.string "exporter_street_hno"
     t.string "loan_term"
-    t.string "application_status", default: "new"
     t.boolean "accept_partial_refinancing", default: false
     t.boolean "is_investment_good", default: false
     t.boolean "is_servicing_for_goods_offered", default: false
