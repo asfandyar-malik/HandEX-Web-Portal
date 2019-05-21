@@ -164,7 +164,7 @@ form.col.s12.custom-form {
 
 .form-nav {
   h2 {
-    color: #47e1bb;
+    color: rgb(129, 207, 219);
     font-size: 18px;
     font-weight: bold;
     height: 30px;
@@ -205,8 +205,8 @@ form.col.s12.custom-form {
   }
 
   .next {
-    background: #47e1bb;
-    border-color: #47e1bb;
+    background: rgb(129, 207, 219);
+    border-color: rgb(129, 207, 219);
     color: #fff;
     padding: 11px 15px;
     cursor: pointer;
@@ -251,7 +251,7 @@ form.col.s12.custom-form {
     }
 
     li.active {
-      color: #47e1bb;
+      color: rgb(129, 207, 219);
     }
 
     li.active:before {
@@ -277,7 +277,6 @@ form.col.s12.custom-form {
 
   .card-title.sent_financing_application {
     background: rgb(129, 207, 219);
-
   }
 
   .card-title.approved_financing_application {
