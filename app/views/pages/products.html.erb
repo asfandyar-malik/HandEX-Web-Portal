@@ -1,75 +1,179 @@
 <%= render 'shared/navbar' %>
 
 <div class="container">
-    <div class="communication row">
-        <div class="col s10 m10 l10 offset-s1 offset-l1">
-            <div class="form-section z-depth-1 communication-content">
-                <div class="text-section black-text center-align  communication-title">
-                    <h4>Which product would you like to select </h4>
-                </div>
-                <div class="row">
-
-                    <div class="col s4 m5 offset-s2 offset-m1">
-                        <% if params[:locale] %>
-                            <% @export_portal = 'pages/advice' %>
-                        <% else %>
-                            <% @export_portal = params[:locale].to_s + '/pages/advice' %>
-                        <% end %>
-                        <div class="card small">
-                            <div class="card-title sent_financing_application white-text valign-wrapper">
-                                <div class="valign-wrapper">
-                                    <div>
-                                        <strong> Insurance </strong>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <div class="valign-wrapper">
-                                    <div>
-                                        <p>Here you apply for complete Insurance product</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-action">
-                                <div class="input-field col s12 center-align">
-                                    <a href="/pages/advice_insurance" class="btn z-depth-0 handex-btn btn btn-large btn-flat z-depth-0 validate white-text" name="action">Los
-                                        Geht's</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col s4 m5">
-                        <% if params[:locale] %>
-                            <% @import_portal = '/' + params[:locale].to_s + '/imports/new' %>
-                        <% else %>
-                            <% @import_portal = params[:locale].to_s + '/imports/new' %>
-                        <% end %>
-                        <div class="card small">
-                            <div class="card-title sent_financing_application valign-wrapper white-text">
-                                <div class="valign-wrapper ">
-                                    <div>
-                                        <strong> Insurance and Credit </strong>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <div class="valign-wrapper">
-                                    <div>
-                                        <p> Here you apply for insurance and credit both</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-action white-text">
-                                <div class="input-field col s12 center-align">
-                                    <a href="/pages/advice" class="btn z-depth-0 handex-btn btn btn-large btn-flat z-depth-0 validate white-text" name="action">Los
-                                        Geht's</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="section sign-in">
+    <div class="row valign-wrapper">
+      <div class="col s12 m4">
+        <div class="text-section black-text">
+          <a class="smooth"><%= image_tag "HandEX_logo4.png", style: 'height:5em;width:auto;' %></a>
+          <h2>Produktauswahl</h2>
+          <p class="light">Which product would you like to select.<br>
+          </p>
         </div>
+      </div>
+
+      <div class="col s12 m7">
+        <div class="row">
+          <div class="col s4 m6">
+            <% if params[:locale] %>
+              <% @export_portal = 'pages/advice' %>
+            <% else %>
+              <% @export_portal = params[:locale].to_s + '/pages/advice' %>
+            <% end %>
+            <div class="card small choice-card">
+              <div class="card-title valign-wrapper">
+                <p style="font-size: 11px;">!!! replace by insurance icon !!!</p>
+                <%= image_tag "behalf_customer.png" %>
+                <div class="title-text">
+                  <strong>Insurance</strong>
+                </div>
+              </div>
+              <div class="card-content center-align light-hint">
+                <p>Here you apply for complete Insurance product</p>
+              </div>
+              <div class="card-action">
+                <div class="input-field col s12 center-align">
+                  <a href="/pages/advice_insurance" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
+                    Geht's</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col s4 m6">
+            <% if params[:locale] %>
+              <% @import_portal = '/' + params[:locale].to_s + '/imports/new' %>
+            <% else %>
+              <% @import_portal = params[:locale].to_s + '/imports/new' %>
+            <% end %>
+            <div class="card small choice-card">
+              <div class="card-title valign-wrapper">
+                <p style="font-size: 11px;">!!! replace by insurance+credit icon !!!</p>
+                <%= image_tag "invitecustomer.png" %>
+                <div class="title-text">
+                  <strong>Insurance and Credit</strong>
+                </div>
+              </div>
+              <div class="card-content center-align light-hint">
+                <p>Here you apply for insurance and credit both</p>
+              </div>
+              <div class="card-action">
+                <div class="input-field col s12 center-align">
+                  <a href="/pages/advice" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
+                    Geht's</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+  <br><br>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%= render 'shared/navbar' %>
+
+<div class="container">
+  <div class="communication row">
+    <div class="col s10 m10 l10 offset-s1 offset-l1">
+      <div class="form-section z-depth-1 communication-content">
+        <div class="text-section black-text center-align  communication-title">
+          <h4>Which product would you like to select </h4>
+        </div>
+        <div class="row">
+
+          <div class="col s4 m5 offset-s2 offset-m1">
+            <% if params[:locale] %>
+              <% @export_portal = 'pages/advice' %>
+            <% else %>
+              <% @export_portal = params[:locale].to_s + '/pages/advice' %>
+            <% end %>
+            <div class="card small">
+              <div class="card-title sent_financing_application white-text valign-wrapper">
+                <div class="valign-wrapper">
+                  <div>
+                    <strong> Insurance </strong>
+                  </div>
+                </div>
+              </div>
+              <div class="card-content">
+                <div class="valign-wrapper">
+                  <div>
+                    <p>Here you apply for complete Insurance product</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-action">
+                <div class="input-field col s12 center-align">
+                  <a href="/pages/advice_insurance" class="btn z-depth-0 handex-btn btn btn-large btn-flat z-depth-0 validate white-text" name="action">Los
+                    Geht's</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col s4 m5">
+            <% if params[:locale] %>
+              <% @import_portal = '/' + params[:locale].to_s + '/imports/new' %>
+            <% else %>
+              <% @import_portal = params[:locale].to_s + '/imports/new' %>
+            <% end %>
+            <div class="card small">
+              <div class="card-title sent_financing_application valign-wrapper white-text">
+                <div class="valign-wrapper ">
+                  <div>
+                    <strong> Insurance and Credit </strong>
+                  </div>
+                </div>
+              </div>
+              <div class="card-content">
+                <div class="valign-wrapper">
+                  <div>
+                    <p> Here you apply for insurance and credit both</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-action white-text">
+                <div class="input-field col s12 center-align">
+                  <a href="/pages/advice" class="btn z-depth-0 handex-btn btn btn-large btn-flat z-depth-0 validate white-text" name="action">Los
+                    Geht's</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
