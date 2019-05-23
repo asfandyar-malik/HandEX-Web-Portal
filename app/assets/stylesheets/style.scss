@@ -1,5 +1,5 @@
 body {
-    background: #f6f7fa;
+  background: #f6f7fa;
 
   .sign-in {
     padding-top: 10%;
@@ -232,7 +232,7 @@ form.col.s12.custom-form {
     }
 
     li:before {
-      content:" " ;
+      content: " ";
       //content: icon;
       counter-increment: step;
       width: 5px;
@@ -269,9 +269,6 @@ form.col.s12.custom-form {
 .card {
   .card-title {
     font-size: medium;
-    padding-left: 24px;
-    padding-top: 10px;
-    padding-bottom: 10px;
     height: 55px;
     border-radius: 3px 3px 0px 0px;
   }
@@ -291,6 +288,11 @@ form.col.s12.custom-form {
   .card-title.draft_financing_application {
     background: rgb(220, 220, 222);
   }
+
+  .card-title.choice-card {
+    font-size: 24px;
+
+  }
 }
 
 .top-info-card {
@@ -301,12 +303,13 @@ form.col.s12.custom-form {
   margin-right: auto;
   border-radius: 3px 3px 3px 3px;
   border: 1px solid rgb(220, 220, 222);
-  width:80%;
+  width: 80%;
 }
 
 nav {
   line-height: 75px;
-  height:75px;
+  height: 75px;
+
   .nav-title {
     padding-top: 0;
     padding-left: 20px;
@@ -315,7 +318,7 @@ nav {
 
 .handex-second-nav {
   line-height: 90px;
-  height:90px;
+  height: 90px;
 }
 
 nav {
@@ -338,10 +341,12 @@ nav {
   .btn.rounded.inactive {
     background-color: black;
   }
+
   .top-navigation-icons {
     color: #000000;
   }
 }
+
 .form-content .input-field input[type="submit"] {
   background: rgb(129, 207, 219);
 }
@@ -350,31 +355,70 @@ nav {
   background-color: rgb(129, 207, 219);
 }
 
+.handex-big-btn {
+  width: 100%;
+}
+
 .handex-nav-icon {
-    margin-top:5px;
+  margin-top: 5px;
 }
 
 .handex-nav-logo {
   height: 27px;
 }
 
-.communication {
-  padding:15px;
-  padding-top:5px;
-  .communication-content {
-    padding:3%;
-    .communication-title {
-      padding-bottom: 10%;
-    }
-    .card-title {
-      background-color: #009688;
-    }
-    .card-action {
-      border-top: 0;
-    }
+//.communication {
+//  padding:15px;
+//  padding-top:5px;
+//  .communication-content {
+//    padding:3%;
+//    .communication-title {
+//      padding-bottom: 10%;
+//    }
+//    .card-title {
+//      background-color: #009688;
+//    }
+//    .card-action {
+//      border-top: 0;
+//    }
+//  }
+//}
+
+.card-action {
+  border-top: 0;
+  padding:0;
+}
+
+.card-action:last-child {
+  border-top: 0;
+  padding:0;
+}
+
+.card-title {
+  padding-top: 10%;
+  display: inline-block;
+  width: 100%;
+  text-align: center  ;
+  .title-text {
+    font-size: 24px;
+    padding:5%;
+  }
+  img {
+    display: block;
+    height: auto;
+    margin: auto;
   }
 }
 
+.card-content {
+  min-height: 30%;
+  padding-bottom: 0;
+}
+
 .container {
-  width:65%;
+  width: 65%;
+}
+
+.light-hint {
+  color:grey;
 }
