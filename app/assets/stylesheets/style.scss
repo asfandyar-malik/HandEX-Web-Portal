@@ -271,6 +271,7 @@ form.col.s12.custom-form {
     font-size: medium;
     height: 55px;
     border-radius: 3px 3px 0px 0px;
+    padding: 24px;
   }
 
   .card-title.sent_financing_application {
@@ -287,11 +288,6 @@ form.col.s12.custom-form {
 
   .card-title.draft_financing_application {
     background: rgb(220, 220, 222);
-  }
-
-  .card-title.choice-card {
-    font-size: 24px;
-
   }
 }
 
@@ -368,35 +364,19 @@ nav {
   height: 27px;
 }
 
-//.communication {
-//  padding:15px;
-//  padding-top:5px;
-//  .communication-content {
-//    padding:3%;
-//    .communication-title {
-//      padding-bottom: 10%;
-//    }
-//    .card-title {
-//      background-color: #009688;
-//    }
-//    .card-action {
-//      border-top: 0;
-//    }
-//  }
-//}
-
 .card-action {
   border-top: 0;
   padding:0;
 }
 
-.card-action:last-child {
+.card.choice-card .card-action:last-child {
   border-top: 0;
   padding:0;
 }
 
-.card-title {
-  padding-top: 10%;
+.card.choice-card .card-title {
+  padding-left:0;
+  padding-top: 18px;
   display: inline-block;
   width: 100%;
   text-align: center  ;
@@ -417,7 +397,7 @@ nav {
 }
 
 .container {
-  width: 65%;
+  width: 90%;
 }
 
 .light-hint {
