@@ -334,13 +334,26 @@ nav {
     background-color: rgb(129, 207, 219);
   }
 
+  .btn.rounded:hover {
+    background-color: #2bbbad;
+  }
+
   .btn.rounded.inactive {
     background-color: black;
+  }
+
+  .btn.rounded.inactive:hover {
+    background-color: #2bbbad;
   }
 
   .top-navigation-icons {
     //color: #000000;
     color:grey;
+  }
+
+  .top-navigation-icons:hover {
+    //color: #000000;
+    color:#2bbbad;
   }
 }
 
@@ -366,6 +379,10 @@ nav {
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
   color:rgb(24, 28, 39);
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
+  color:#2bbbad;
 }
 
 .card.choice-card .card-action:last-child {
@@ -401,4 +418,8 @@ nav {
 
 .light-hint {
   color:grey;
+}
+
+nav ul a:hover {
+  background-color: white;
 }
