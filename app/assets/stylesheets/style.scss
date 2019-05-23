@@ -364,9 +364,8 @@ nav {
   height: 27px;
 }
 
-.card-action {
-  border-top: 0;
-  padding:0;
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+  color:rgb(24, 28, 39);
 }
 
 .card.choice-card .card-action:last-child {
