@@ -42,9 +42,9 @@
 
           <div class="col s4 m6">
             <% if params[:locale] %>
-              <% @export_portal = 'pages/advice' %>
+              <% @import_portal = '/' + params[:locale].to_s + '/imports/new' %>
             <% else %>
-              <% @export_portal = params[:locale].to_s + '/pages/advice' %>
+              <% @import_portal = params[:locale].to_s + '/imports/new' %>
             <% end %>
             <div class="card small choice-card">
               <div class="card-title valign-wrapper">
