@@ -425,15 +425,54 @@ nav ul a:hover {
 }
 
 .custom_icon {
-  height: 22px;
-  width: 18px;
+  height: 20px;
+  width: 20px;
   display: block;
   margin-right: 10px;
-  background-size:     cover;
   background-repeat:   no-repeat;
   background-position: center center;
 }
 
-.clock_icon {
+.clock-icon {
   background-image:    url("Clock-Icon.svg");
+}
+
+.import-icon {
+  background-image:    url("Import-Icon.svg");
+}
+
+.box-icon {
+  background-image:    url("Box-Icon.svg");
+}
+
+.money-icon {
+  background-image:    url("Money-Icon.svg");
+}
+
+.notification-icon {
+  background-image:    url("Notification-Icon.svg");
+}
+
+.reciept-icon {
+  background-image:    url("reciept-icon.svg");
+}
+
+.send-icon {
+  background-image:    url("Send-Icon.svg");
+}
+
+.settings-icon {
+  background-image:    url("Settings-Icon.svg");
+}
+
+.sports-01 {
+  background-image:    url("sports-01.svg");
+}
+
+.user-icon {
+  background-image:    url("User-Icon.svg");
+}
+
+.check-icon {
+  background-image:    url("Check-Icon.svg");
 }
