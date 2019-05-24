@@ -423,3 +423,17 @@ nav {
 nav ul a:hover {
   background-color: white;
 }
+
+.custom_icon {
+  height: 22px;
+  width: 18px;
+  display: block;
+  margin-right: 10px;
+  background-size:     cover;
+  background-repeat:   no-repeat;
+  background-position: center center;
+}
+
+.clock_icon {
+  background-image:    url("Clock-Icon.svg");
+}
