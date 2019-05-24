@@ -139,7 +139,7 @@ body {
 
   .threecol {
     padding: 10px !important;
-    border: 1px solid #eee;
+    border: 1px solid #eeeeee;
     min-height: 95px !important;
     margin: 10px;
     max-width: 30% !important;
@@ -482,4 +482,8 @@ nav ul a:hover {
 
 .check-icon {
   background-image:    url("Check-Icon.svg");
+}
+
+.reciept-icon-white {
+  background-image:    url("reciept-icon-white.svg");
 }
