@@ -21,6 +21,7 @@ class InviteExportersController < ApplicationController
     def create
         @invite_exporter = current_user.invite_exporters.build(invite_exporter_params)
             if @invite_exporter.save
+                UserMailer.with(user: current_user, invite_exporter: @invite_exporters).application_submit_email.deliver_now
                 redirect_to pages_contacted_exporter_path, notice: 'Antrag wurde erfolgreich erstellt.'
             else
                 flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
