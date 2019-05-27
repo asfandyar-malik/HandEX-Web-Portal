@@ -485,3 +485,14 @@ nav ul a:hover {
 .reciept-icon-white {
   background-image:    image-url("reciept-icon-white.svg");
 }
+
+.card.big-choice-card {
+  margin:auto;
+  width:70%;
+  .card-title {
+    padding-top:7%;
+  }
+  .card-action:last-child {
+    height:23%;
+  }
+}

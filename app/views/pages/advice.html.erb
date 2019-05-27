@@ -1,41 +1,27 @@
 <%= render 'shared/navbar' %>
 
 <div class="container valign-wrapper">
-    <div class="section">
-        <div class="row valign">
-            <div class="col s12">
-                <div class="card teal">
-                    <div class="card-content white-text left-align">
-<!--                        <a class="btn-small teal darken-2 right">HandEX</a>-->
-                        </div>
-                    </div>
-                    <div class="form-section z-depth-1 center-align">
-                        <div class="row">
-                            <div class="col s10 offset-s1">
-                                <div class="text-section black-text">
-                                    <p class="center-align"><br>
-                                        Auf den nächsten Seiten können Sie einen Antrag au Exportfinanzierung bzw. Exportkreditversicherung für einen Ihrer Kunden stellen. Die Antragsstrecke ist so
-                                        formuliert, als ob Sie den
-                                        Antrag aus Sicht Ihres exportierenden Kunden stellen. Bei Rückfragen können Sie uns jederzeit kontaktieren. Gerne begleiten wir Sie auch per Webinar bei
-                                        Antragstellung.</p>
-                                </div>
-                            </div>
-                            <div class="col s12">
-                                <div class="form-content">
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <button class="btn handex-btn btn btn-large z-depth-0 validate" type="submit"
-                                                    name="action">
-                                                <a class="white-text" href="/export_applications/new"> Weiter </a>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <div class="section">
+        <div class="card medium choice-card big-choice-card">
+          <div class="card-title valign-wrapper">
+            <%= image_tag "handex-logo.png" %>
+            <div class="title-text">
+              <strong>Nur Versicherung beantragen</strong>
             </div>
+          </div>
+          <div class="card-content center-align light-hint">
+            <p>Auf den nächsten Seiten können Sie einen Antrag au Exportfinanzierung bzw. Exportkreditversicherung
+              für einen Ihrer Kunden stellen. Die Antragsstrecke ist so
+              formuliert, als ob Sie den
+              Antrag aus Sicht Ihres exportierenden Kunden stellen. Bei Rückfragen können Sie uns jederzeit
+              kontaktieren. Gerne begleiten wir Sie auch per Webinar bei
+              Antragstellung.</p>
+          </div>
+          <div class="card-action">
+            <div class="input-field col s12 center-align">
+              <a href="/export_applications/new" class="btn-large z-depth-0 handex-btn btn-flat z-depth-0 validate white-text" name="action">Weiter</a>
+            </div>
+          </div>
         </div>
-    </div>
+  </div>
 </div>
