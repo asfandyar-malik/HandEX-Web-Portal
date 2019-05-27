@@ -21,6 +21,7 @@
 //= require mixitup
 //= require init
 //= require materialize
+//= require dropify
 //= require_tree .
 //= require materialize/extras/nouislider
 //= stub 'js/jquery.validate.min'
