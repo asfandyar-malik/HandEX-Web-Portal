@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|es|de/ do
     
         get '/:locale' => 'insurances#index'
-        root to: 'pages#broker_option'
+        root to: 'insurances#submitted_applications'
         
         get 'pages/landing' => 'pages#landing'
         get 'pages/impressum' => 'pages#impressum'
