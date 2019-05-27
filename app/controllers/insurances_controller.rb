@@ -49,9 +49,13 @@ class InsurancesController < ApplicationController
     def submitted_applications
         @submitted_applications = filer_application_by_status "submitted_application"
     end
+
+    def draft_applications
+        @draft_applications = filer_application_by_status "draft_application"
+    end
     
     def approved_applications
-        @approved_applications = filer_application_by_status "approved"
+        @approved_applications = filer_application_by_status "approved_application"
     end
     
     def user_summary
