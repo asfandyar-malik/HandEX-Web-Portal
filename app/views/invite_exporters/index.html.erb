@@ -13,9 +13,7 @@
     <% @invite_exporters.each do |invite_exporter| %>
       <tr>
         <td><%= link_to 'Show', invite_exporter %></td>
-        <td><%= link_to 'Edit', edit_invite_exporter_path(invite_exporter) %></td>
-        <td><%= link_to 'Destroy', invite_exporter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        </tr>
     <% end %>
   </tbody>
 </table>

@@ -39,4 +39,7 @@ class PagesController < ApplicationController
     def advice_insurance
     end
     
+    def invite_or_fill_yourself
+    end
+    
 end
