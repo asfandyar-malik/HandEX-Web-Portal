@@ -27,7 +27,6 @@ Rails.application.routes.draw do
             get 'submitted_applications'
             get 'approved_applications'
             get 'user_summary'
-            get 'pdf_user_summary'
           end
         end
 

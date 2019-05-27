@@ -1,23 +1,25 @@
-<!--<p id="notice"><%#= notice %></p>-->
-<div class="container">
+<%= render 'shared/navbar' %>
 
-<div class="col-md-3">
-    <div class="panel">
-        <ul class="sidebar-list">
-            <!--        <li class="sidebar-item"><%#= link_to "Anträge in Bearbeitung", insurances_path, class: "sidebar-link" %></li>-->
-            <li class="sidebar-item"><%= link_to t('submitted_application'), submitted_applications_insurance_path(current_user.id), class: "sidebar-link active" %></li>
-            <li class="sidebar-item"><%= link_to t('approved_application'), approved_applications_insurance_path(current_user.id), class: "sidebar-link" %></li>
-            <!--          <li class="sidebar-item"><%#= link_to "OCR", new_document_path, class: "sidebar-link" %></li>-->
-
-        </ul>
-        <br/>
-        <%= link_to t('new_application'), "/insurances", target: "_blank", class: 'text-center btn z-depth-0 handex-btn btn btn-blue' %>
+<nav class="black handex-second-nav z-depth-0">
+    <div class="nav-wrapper">
+        <span class="nav-title">ANTRÄGE</span>
+        <a class="z-depth-0 btn z-depth-0 handex-btn waves-" href="/insurances">Antrag starten</a>
+        <a class="z-depth-0 btn handex-btn rounded inactive">Entwürfe</a>
+<!--        <a class="z-depth-0 btn handex-btn rounded inactive">Aktion</a>-->
+        <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= submitted_applications_insurance_path(current_user.id) %>">Versendet</a>
+        <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= approved_applications_insurance_path(current_user.id) %>" >Genehmigt</a>
+        <a class="z-depth-0 btn handex-btn rounded">Alle</a>
     </div>
-</div>
+</nav>
 
-<div class="col-md-8">
-    <%= render partial: "insurances/listing",
-               locals: {applications: @submitted_applications,
-                        can_edit: false} %>
-</div>
+<div class="container">
+    <div class="section">
+
+        <div class="row">
+
+            <%= render partial: "insurances/submitted_listing",
+                       locals:  {applications: @submitted_applications,
+                                can_edit: false} %>
+        </div>
+    </div>
 </div>
