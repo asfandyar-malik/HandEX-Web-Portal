@@ -26,6 +26,8 @@ Rails.application.routes.draw do
           member do
             get 'submitted_applications'
             get 'approved_applications'
+            get 'draft_applications'
+            get 'all_applications'
             get 'user_summary'
           end
         end

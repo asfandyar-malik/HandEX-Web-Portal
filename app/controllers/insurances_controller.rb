@@ -34,6 +34,7 @@ class InsurancesController < ApplicationController
     
     def update
         if @insurance.update(insurance_params)
+            @insurance.application_status = "draft_application"
             redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich aktualisiert.'
         else
             flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
@@ -56,6 +57,10 @@ class InsurancesController < ApplicationController
     
     def approved_applications
         @approved_applications = filer_application_by_status "approved_application"
+    end
+
+    def all_applications
+        @all_applications = current_user.insurances
     end
     
     def user_summary
