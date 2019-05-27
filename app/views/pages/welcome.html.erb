@@ -1,50 +1,48 @@
 <%= render 'shared/navbar' %>
 
 <div class="container valign-wrapper">
-    <div class="section">
-        <div class="row valign">
-            <div class="col s12">
-                <div class="card teal">
-                    <div class="card-content white-text left-align">
-                        <span> <i class="material-icons">email</i> Bitte Checken Sie Ihre Verifizierungsmail. </span>
-                        <a class="btn-small teal darken-2 right">E-Mail nochmal versenden</a>
-                    </div>
-                </div>
-                <div class="form-section z-depth-1 center-align">
-                    <div class="row">
-                    </div>
-                    <div class="row">
-                        <div class="col s12">
-                            <div class="text-section black-text">
-                                <h4>Wilkommen bei HandEX </h4>
-                                <p class="light center-align"><br>
-                                    Um den Export Finanzierungsantrag zu vereinfachen haben Sie die Möglichkeit
-                                    weitere Informationen über Ihre Firma und über weitere Daten einzugeben.
-                                    <br>
-                                    Sie können diese Informationen jetzt eingeben oder während Sie die Antrag
-                                    ausfüllen.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col s12">
-                            <div class="form-content">
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <button class="btn z-depth-0 handex-btn btn-large z-depth-0 validate" type="submit"
-                                                name="action">Los geht's
-                                        </button>
-                                    </div>
-                                    <div class="input-field col s12">
-                                        <button class="btn z-depth-0 handex-btn btn-large btn-flat z-depth-0 validate white grey-text" type="submit"
-                                                name="action">Ich mache es später
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="section">
+    <div class="top-info-card">
+        <div class="row">
+          <div class="col s6">
+              <i class="material-icons">email</i>
+              <span>Bitte Checken Sie Ihre Verifizierungsmail. </span>
+          </div>
+          <div class="col s6">
+              <a class="btn-small right">E-Mail nochmal versenden</a>
+          </div>
         </div>
     </div>
+    <div class="card choice-card big-choice-card">
+      <div class="card-title valign-wrapper">
+        <%= image_tag "handex-logo.png" %>
+        <div class="title-text">
+          <h4>Wilkommen bei HandEX </h4>
+        </div>
+      </div>
+      <div class="card-content center-align light-hint">
+        <p>Um den Export Finanzierungsantrag zu vereinfachen haben Sie die Möglichkeit
+          weitere Informationen über Ihre Firma und über weitere Daten einzugeben.
+          <br>
+          Sie können diese Informationen jetzt eingeben oder während Sie die Antrag
+          ausfüllen.</p>
+      </div>
+      <div class="card-action big-card-action">
+        <div class="col s12">
+          <div class="form-content">
+            <div class="row">
+              <div class="input-field col s12 center-align">
+                <a href="/insurances/new" class="btn-large z-depth-0 handex-btn btn-flat z-depth-0 validate white-text" name="action">Los
+                  geht's</a>
+              </div>
+              <div class="input-field col s12 center-align">
+                <a href="/insurances/new" class="waves-effect z-depth-0 handex-btn btn-large z-depth-0 validate text-button" name="action">Ich
+                  mache es später</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
