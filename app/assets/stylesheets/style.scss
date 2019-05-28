@@ -221,6 +221,9 @@ form.col.s12.custom-form {
 
   .progressbar {
     counter-reset: step;
+    margin:0;
+    height:60px;
+    padding:15px;
 
     li {
       list-style: none;
@@ -328,11 +331,6 @@ nav {
   }
 }
 
-.handex-second-nav {
-  line-height: 90px;
-  height: 90px;
-}
-
 nav {
   .btn {
     float: right;
@@ -390,6 +388,9 @@ nav {
 .handex-nav-logo {
   height: 27px;
 }
+.card.handex-medium {
+  height:310px;
+}
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
   color:rgb(24, 28, 39);
@@ -416,8 +417,12 @@ nav {
   }
   img {
     display: block;
-    height: auto;
+    height: 70px;
     margin: auto;
+  }
+
+  img.multi_image {
+    height:75px;
   }
 }
 
@@ -498,11 +503,13 @@ nav ul a:hover {
 .card.big-choice-card {
   margin:auto;
   width:70%;
+  height: 460px;
+
   .card-title {
     padding-top:7%;
   }
   .card-action:last-child {
-    height:23%;
+    height:16%;
   }
 }
 
@@ -514,4 +521,8 @@ nav ul a:hover {
 .text-button:hover {
   background-color: white;
   color: #2bbbad;
+}
+
+.section {
+  padding-top:0.5em;
 }

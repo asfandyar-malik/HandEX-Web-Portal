@@ -21,6 +21,7 @@ Rails.application.routes.draw do
         get 'pages/broker_default' => 'pages#broker_default'
         get 'pages/products' => 'pages#products'
         get 'pages/advice_insurance' => 'pages#advice_insurance'
+        get 'pages/advice_only_insurance' => 'pages#advice_only_insurance'
         get 'pages/invite_or_fill_yourself' => 'pages#invite_or_fill_yourself'
 
         resources :insurances do
