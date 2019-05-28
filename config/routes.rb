@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-    
-  resources :invite_exporters
-  resources :export_applications
+  
 
   scope "(:locale)", locale: /en|es|de/ do
     
-        get '/:locale' => 'insurances#index'
+        get '/:locale' => 'insurances#submitted_applications'
+        
         root to: 'insurances#submitted_applications'
         
         get 'pages/landing' => 'pages#landing'
@@ -33,6 +32,8 @@ Rails.application.routes.draw do
           end
         end
 
+        resources :invite_exporters
+        resources :export_applications
     end
     
     devise_for :users,
