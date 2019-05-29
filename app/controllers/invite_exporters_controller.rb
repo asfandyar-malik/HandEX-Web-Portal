@@ -21,7 +21,7 @@ class InviteExportersController < ApplicationController
     def create
         @invite_exporter = current_user.invite_exporters.build(invite_exporter_params)
             if @invite_exporter.save
-                UserMailer.with(user: current_user, invite_exporter: @invite_exporters).application_submit_email.deliver_now
+                UserMailer.with(user: current_user, invite_exporter: @invite_exporter).invite_exporter_email.deliver_now
                 redirect_to pages_contacted_exporter_path, notice: 'Antrag wurde erfolgreich erstellt.'
             else
                 flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
@@ -53,7 +53,6 @@ class InviteExportersController < ApplicationController
     end
     
     def invite_exporter_params
-        params.require(:invite_exporter).permit(:exporter_broker_id, :exporter_email, :exporter_telephone, :exporter_representative_firstname
-        )
+        params.require(:invite_exporter).permit(:exporter_company_name, :exporter_broker_id, :exporter_email, :exporter_telephone, :exporter_representative_firstname)
     end
 end
