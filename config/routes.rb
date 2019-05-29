@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
     
+  resources :credits
   resources :invite_exporters
   resources :export_applications
 

@@ -10,11 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_27_161304) do
+ActiveRecord::Schema.define(version: 2019_05_28_134205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
+
+  create_table "credits", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "export_applications", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -432,7 +437,6 @@ ActiveRecord::Schema.define(version: 2019_05_27_161304) do
     t.string "exporter_email"
     t.string "exporter_telephone"
     t.string "exporter_broker_id"
-    t.string "firstname"
   end
 
   create_table "users", force: :cascade do |t|
