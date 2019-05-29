@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_28_173019) do
+ActiveRecord::Schema.define(version: 2019_05_29_150606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -188,6 +188,35 @@ ActiveRecord::Schema.define(version: 2019_05_28_173019) do
     t.boolean "has_payment_experience_with_security_provider"
     t.string "explain_previous_payment_experience_with_security_provider"
     t.string "security_provider_address"
+    t.string "proportion_of_goods_overhauled_aborad"
+    t.string "rating_agency"
+    t.string "rating_issued_date"
+    t.string "remaining_life"
+    t.string "sensitive_area_type"
+    t.string "why_good_overhauled_abroad"
+    t.string "manufacture_year"
+    t.string "partly_rawgoods_supplier_amount"
+    t.string "importer_address_line1"
+    t.string "importer_address_line2"
+    t.string "importer_company_corporate_form"
+    t.string "importer_company_registration_number"
+    t.string "importer_industry"
+    t.string "importer_mother_company"
+    t.string "importer_rating"
+    t.string "importer_rating_agency"
+    t.string "importer_rating_issued_date"
+    t.string "explain_product_service"
+    t.string "exporter_address_line1"
+    t.string "exporter_address_line2"
+    t.string "exporter_last_fiscal_year"
+    t.string "exporter_rating"
+    t.string "exporter_revenue"
+    t.string "exporter_tax_id"
+    t.string "exporter_total_assets"
+    t.string "external_rating_available"
+    t.string "goods_overhaul_country"
+    t.string "describe_why_overhault_didnot_take_in_germany"
+    t.string "all_rawgoods_supplier_amount"
   end
 
   create_table "export_applications", force: :cascade do |t|

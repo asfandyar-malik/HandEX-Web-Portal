@@ -1,26 +1,27 @@
 class CreditsController < ApplicationController
-  before_action :set_export_application, only: [:show, :edit, :update, :destroy]
+
+  before_action :set_credit, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :is_authorised, only: [:update]
 
   def index
-    @new_applications = filer_application_by_status "new"
-    @credits = ExportApplication.all
+    @new_credits = filer_credit_by_status "new"
+    @credits = Credit.all
   end
 
   def show
   end
 
   def new
-    @export_application = current_user.credits.build
+    @credit= current_user.credits.build
   end
 
   def edit
   end
 
   def create
-    @export_application = current_user.credits.build(export_application_params)
-    if @export_application.save
+    @credit= current_user.credits.build(credit_params)
+    if @credit.save
       redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich erstellt.'
     else
       flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
@@ -29,7 +30,7 @@ class CreditsController < ApplicationController
   end
 
   def update
-    if @export_application.update(export_application_params)
+    if @credit.update(credit_params)
       redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich aktualisiert.'
     else
       flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
@@ -37,27 +38,27 @@ class CreditsController < ApplicationController
   end
 
   def destroy
-    @export_application.destroy
-    redirect_to credits_url, notice: 'Antrag wurde erfolgreich zerstört'
+    @credit.destroy
+    redirect_to export_applications_url, notice: 'Antrag wurde erfolgreich zerstört'
     head :no_content
   end
 
   private
 
-  def filer_application_by_status status
+  def filer_credit_by_status status
     current_user.credits.where("application_status = ?", status)
   end
 
-  def set_export_application
-    @export_application = ExportApplication.find(params[:id])
+  def set_credit
+    @credit= Credit.find(params[:id])
   end
 
   def is_authorised
-    redirect_to root_path, alert: "You don't have permission" unless current_user.id = @export_application.user_id
+    redirect_to root_path, alert: "You don't have permission" unless current_user.id = @credit.user_id
   end
 
-  def export_application_params
-    params.require(:export_application).permit(
+  def credit_params
+    params.require(:credit).permit(
         # Ihr Geschaft -------------------------------------
         :describe_export_business, :is_investment_good,:explain_why_importer_buying_good, :is_servicing_for_goods_offered,
         :exported_goods_type, :explain_good_industry_type, :is_delivered_part_of_consortium_with_other_companies,
