@@ -20,7 +20,7 @@
             <% else %>
               <% @export_portal = params[:locale].to_s + '/pages/advice' %>
             <% end %>
-            <div class="card small choice-card">
+            <div class="card medium handex-medium choice-card">
               <div class="card-title valign-wrapper">
                 <%= image_tag "insurance.png" %>
                 <div class="title-text">
@@ -46,9 +46,9 @@
             <% else %>
               <% @import_portal = params[:locale].to_s + '/imports/new' %>
             <% end %>
-            <div class="card small choice-card">
+            <div class="card medium handex-medium choice-card">
               <div class="card-title valign-wrapper">
-                <%= image_tag "financing.png" %>
+                <%= image_tag "versicherung_finanzierung.png", :class => "multi_image"%>
                 <div class="title-text">
                   <strong>Exportkredit</strong>
                 </div>
@@ -65,6 +65,30 @@
             </div>
           </div>
 
+          <div class="col s4 m6">
+            <% if params[:locale] %>
+              <% @import_portal = '/' + params[:locale].to_s + '/imports/new' %>
+            <% else %>
+              <% @import_portal = params[:locale].to_s + '/imports/new' %>
+            <% end %>
+            <div class="card medium handex-medium choice-card">
+              <div class="card-title valign-wrapper">
+                <%= image_tag "financing.png" %>
+                <div class="title-text">
+                  <strong>Finanzierung</strong>
+                </div>
+              </div>
+              <div class="card-content center-align light-hint">
+                <p>Hier beantragen Sie eine Finanzierung für eine bereits vorhandene Euler Hermes Versicherung</p>
+              </div>
+              <div class="card-action">
+                <div class="input-field col s12 center-align">
+                  <a href="/pages/advice_credit" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
+                    Geht's</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

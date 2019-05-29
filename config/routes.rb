@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  
+
 
   scope "(:locale)", locale: /en|es|de/ do
     
         get '/:locale' => 'insurances#submitted_applications'
-        
+
         root to: 'insurances#submitted_applications'
         
         get 'pages/landing' => 'pages#landing'
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
         get 'pages/broker_default' => 'pages#broker_default'
         get 'pages/products' => 'pages#products'
         get 'pages/advice_insurance' => 'pages#advice_insurance'
+        get 'pages/advice_credit' => 'pages#advice_credit'
         get 'pages/invite_or_fill_yourself' => 'pages#invite_or_fill_yourself'
 
         resources :insurances do
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
           end
         end
 
+        resources :credits
         resources :invite_exporters
         resources :export_applications
     end
