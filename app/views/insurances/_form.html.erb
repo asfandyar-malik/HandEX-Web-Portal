@@ -1560,6 +1560,14 @@
         </div>
 <!--  Scripts-->
 <script type="text/javascript">
+
+    //disabling ENTER key (AscII: 13) on our form because enter was submitting application
+    $("form").on("keypress", function (e) {
+        if (e.keyCode == 13) {
+            return false;
+        }
+    });
+
     var curremt_tab = 1;
 
     $(document).ready(function () {
