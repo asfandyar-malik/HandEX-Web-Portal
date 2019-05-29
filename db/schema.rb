@@ -16,6 +16,11 @@ ActiveRecord::Schema.define(version: 2019_05_28_173019) do
   enable_extension "citext"
   enable_extension "plpgsql"
 
+  create_table "credits", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "export_applications", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
