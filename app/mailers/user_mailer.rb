@@ -11,7 +11,7 @@ class UserMailer < ApplicationMailer
   def invite_exporter_email
     @user = params[:user]
     @invite_exporter = params[:invite_exporter]
-    emails = [@user.email]
+    emails = [@invite_exporter.exporter_email]
     mail(to: emails, subject: 'Welcome to HandEX', bcc: ["Asfandyar <asfandyar@handex.co>", "Hamid <hamid@handex.co>"])
   end
 
