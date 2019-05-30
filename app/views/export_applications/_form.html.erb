@@ -1544,7 +1544,7 @@
 
                 <div class="input-field col s12 m12">
                   <label>
-                    <input type="checkbox" required class="validate"  oninvalid="this.setCustomValidity('Bitte akzeptieren Sie um fortzufahren')"/>
+                    <input type="checkbox"  required/>
                     <span class="terms"> Die vorstehenden Angaben wurden von uns nach bestem Wissen und Gewissen und in
                                                         Kenntnisnahme der Erläuterungen gemacht.</span>
                   </label>
@@ -1552,7 +1552,7 @@
 
                 <div class="input-field col s12 m12">
                   <label>
-                    <input type="checkbox" required class="validate" oninvalid="this.setCustomValidity('Bitte akzeptieren Sie um fortzufahren')"/>
+                    <input type="checkbox" required/>
                     <span class="terms"> Wir akzeptieren die<a href="https://www.agaportal.de/_Resources/Persistent/3bfd6a43f17d04f9b34d523df323f0a44a9eaa17/ab_fab.pdf"> Allgemeinen Bedingungen für Lieferantenkreditdeckung(G) </a>
                                                     in Zusammenhang mit  <a href="https://www.agaportal.de/_Resources/Persistent/3bfd6a43f17d04f9b34d523df323f0a44a9eaa17/ab_fab.pdf"> den Ergänzenden Bestimmungen für Forderungsabtretungen.</a></span>
                   </label>
@@ -1561,7 +1561,7 @@
                 <div class="input-field col s12 m12">
                   <%#= form.check_box :has_read_privacy_policy, type: "checkbox"%>
                   <label>
-                    <input type="checkbox" required class="validate" oninvalid="this.setCustomValidity('Bitte akzeptieren Sie um fortzufahren')"/>
+                    <input type="checkbox" required/>
                     <span class="terms"> <%= t("has_read_privacy_policy_html", href: link_to(t('has_read_privacy_policy_text'), t("has_read_privacy_policy_href"))) %> </span>
                   </label>
                 </div>
@@ -1569,7 +1569,7 @@
                 <div class="input-field col s12 m12">
                   <%#= form.check_box :has_read_all_instructions, :style => "width: 20px; height: 20px;" %>
                   <label>
-                    <input type="checkbox" required class="validate" oninvalid="this.setCustomValidity('Bitte akzeptieren Sie um fortzufahren')"/>
+                    <input type="checkbox" required/>
                     <span class="terms"> <%= t("read_all_instruction_html", href: link_to(t('read_all_instruction_text'), t("read_all_instruction_href"))) %> </span>
                   </label>
                 </div>
