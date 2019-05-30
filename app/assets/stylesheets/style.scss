@@ -109,6 +109,11 @@ body {
   }
 
   span.active-btn {
+    background-color: #47e1bb;
+    color: white;
+  }
+  span.active-btn:hover {
+    background-color: white;
     color: #47e1bb;
   }
 
