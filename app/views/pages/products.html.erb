@@ -1,97 +1,104 @@
 <%= render 'shared/navbar' %>
 
 <div class="container">
-  <div class="section sign-in">
-    <div class="row valign-wrapper">
-      <div class="col s12 m4">
-        <div class="text-section black-text">
-          <a class="smooth"><%= image_tag "HandEX_logo4.png", style: 'height:5em;width:auto;' %></a>
-          <h2>Produktauswahl</h2>
-          <p class="light">Bitte wählen Sie das Produkt für Ihren Kunden aus.<br>
-          </p>
+    <div class="section sign-in">
+        <div class="row valign-wrapper">
+            <div class="col s12 m4">
+                <div class="text-section black-text">
+                    <a class="smooth"><%= image_tag "HandEX_logo4.png", style: 'height:5em;width:auto;' %></a>
+                    <h2>Produktauswahl</h2>
+                    <p class="light">Bitte wählen Sie das Produkt für Ihren Kunden aus.<br>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col s12 m7">
+                <div class="row">
+
+                    <div class="col s4 m6">
+                        <div class="card medium handex-medium choice-card">
+                            <div class="card-title valign-wrapper">
+                                <%= image_tag "insurance.png" %>
+                                <div class="title-text">
+                                    <strong>Exportkreditversicherung</strong>
+                                </div>
+                            </div>
+                            <div class="card-content center-align light-hint">
+                                <p>Beantragen Sie eine Lieferantenkreditdeckung (Hermesdeckung)</p>
+                            </div>
+                            <div class="card-action">
+                                <div class="input-field col s12 center-align">
+
+                                    <% if current_user.is_broker? %>
+                                        <a href="/pages/advice_insurance" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
+                                            Geht's</a>
+                                    <% else %>
+                                        <a href="/insurances/new" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
+                                            Geht's</a>
+                                    <% end %>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s4 m6">
+                        <div class="card medium handex-medium choice-card">
+                            <div class="card-title valign-wrapper">
+                                <%= image_tag "versicherung_finanzierung.png", :class => "multi_image" %>
+                                <div class="title-text">
+                                    <strong>Exportkredit</strong>
+                                </div>
+                            </div>
+                            <div class="card-content center-align light-hint">
+                                <p>Beantragen Sie eine hermesgedeckte Forfaitierung</p>
+                            </div>
+                            <div class="card-action">
+                                <div class="input-field col s12 center-align">
+
+                                    <% if current_user.is_broker? %>
+                                        <a href="/pages/advice" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
+                                        Geht's</a>
+                                    <% else %>
+                                        <a href="/export_applications/new" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
+                                            Geht's</a>
+                                    <% end %>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s4 m6">
+                        <div class="card medium handex-medium choice-card">
+                            <div class="card-title valign-wrapper">
+                                <%= image_tag "financing.png" %>
+                                <div class="title-text">
+                                    <strong>Finanzierung</strong>
+                                </div>
+                            </div>
+                            <div class="card-content center-align light-hint">
+                                <p>Hier beantragen Sie eine Finanzierung für eine bereits vorhandene Euler Hermes Versicherung</p>
+                            </div>
+                            <div class="card-action">
+                                <div class="input-field col s12 center-align">
+
+                                    <% if current_user.is_broker? %>
+                                        <a href="/pages/advice_credit" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
+                                        Geht's</a>
+                                    <% else %>
+                                        <a href="/credits/new" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
+                                            Geht's</a>
+                                    <% end %>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="col s12 m7">
-        <div class="row">
-          <div class="col s4 m6">
-            <% if params[:locale] %>
-              <% @export_portal = 'pages/advice' %>
-            <% else %>
-              <% @export_portal = params[:locale].to_s + '/pages/advice' %>
-            <% end %>
-            <div class="card medium handex-medium choice-card">
-              <div class="card-title valign-wrapper">
-                <%= image_tag "insurance.png" %>
-                <div class="title-text">
-                  <strong>Exportkreditversicherung</strong>
-                </div>
-              </div>
-              <div class="card-content center-align light-hint">
-                <p>Beantragen Sie eine Lieferantenkreditdeckung (Hermesdeckung)</p>
-              </div>
-              <div class="card-action">
-                <div class="input-field col s12 center-align">
-                  <a href="/pages/advice_insurance" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
-                    Geht's</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col s4 m6">
-            <% if params[:locale] %>
-              <% @import_portal = '/' + params[:locale].to_s + '/imports/new' %>
-            <% else %>
-              <% @import_portal = params[:locale].to_s + '/imports/new' %>
-            <% end %>
-            <div class="card medium handex-medium choice-card">
-              <div class="card-title valign-wrapper">
-                <%= image_tag "versicherung_finanzierung.png", :class => "multi_image"%>
-                <div class="title-text">
-                  <strong>Exportkredit</strong>
-                </div>
-              </div>
-              <div class="card-content center-align light-hint">
-                <p>Beantragen Sie eine hermesgedeckte Forfaitierung</p>
-              </div>
-              <div class="card-action">
-                <div class="input-field col s12 center-align">
-                  <a href="/pages/advice" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
-                    Geht's</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s4 m6">
-            <% if params[:locale] %>
-              <% @import_portal = '/' + params[:locale].to_s + '/imports/new' %>
-            <% else %>
-              <% @import_portal = params[:locale].to_s + '/imports/new' %>
-            <% end %>
-            <div class="card medium handex-medium choice-card">
-              <div class="card-title valign-wrapper">
-                <%= image_tag "financing.png" %>
-                <div class="title-text">
-                  <strong>Finanzierung</strong>
-                </div>
-              </div>
-              <div class="card-content center-align light-hint">
-                <p>Hier beantragen Sie eine Finanzierung für eine bereits vorhandene Euler Hermes Versicherung</p>
-              </div>
-              <div class="card-action">
-                <div class="input-field col s12 center-align">
-                  <a href="/pages/advice_credit" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
-                    Geht's</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-  <br><br>
+    <br><br>
 </div>
