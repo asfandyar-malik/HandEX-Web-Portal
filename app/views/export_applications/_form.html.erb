@@ -1369,7 +1369,7 @@
                         eingereicht? </label>
                       <p>
                         <label onclick="previouslyHermesInsuranceUsed()">
-                          <%= check_box_tag "export_application[has_previously_used_hermes_cover]", @export_application.has_previously_used_hermes_cover ? @export_application.has_previously_used_hermes_cover : nil, id: "export_application_has_previously_used_hermes_cover" %>
+                          <%= check_box_tag "export_application[has_previously_used_hermes_cover]", @export_application.has_previously_used_hermes_cover ? @export_application.has_previously_used_hermes_cover : nil, false, id: "export_application_has_previously_used_hermes_cover" %>
                           <span class="yes yes-no-btns">Yes</span>
                         </label>
 

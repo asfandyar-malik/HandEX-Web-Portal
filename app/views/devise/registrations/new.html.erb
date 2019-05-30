@@ -48,11 +48,11 @@
                                                 <%= f.text_field :phone_number, autofocus: true, class: "validate" %>
                                             </div>
 
-                                            <div class="input-field col s12 m12 nopadding">
+                                            <div class="input-field col s12 m12">
                                                 <label>Ich bin ein Makler oder möchte nicht selbst Exportfinanzierung erhalten. </label>
                                                 <p>
                                                     <label onclick="isBroker()">
-                                                        <%= check_box_tag "user[is_broker]", @user.is_broker ? @user.is_broker : nil, id: "user_is_broker" %>
+                                                        <%= check_box_tag "user[is_broker]", @user.is_broker ? @user.is_broker : nil, false, id: "user_is_broker" %>
                                                         <span class="yes yes-no-btns">Yes</span>
                                                     </label>
 
