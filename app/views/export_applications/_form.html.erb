@@ -274,7 +274,7 @@
                                         <div class="row hide-section">
                                             <div class="input-field col s12 m6">
                                                 <label>Name</label>
-                                                <%= form.text_field :importer_mother_company, autofocus: true, class: "validate", placeholder: "dd/mm/yyyy" %>
+                                                <%= form.text_field :importer_mother_company, autofocus: true, class: "validate" %>
                                             </div>
                                             <div class="input-field col s12 m6">
                                                 <label>Ist dieses Unternehmen auch der globale Mutterkonzern?</label>
@@ -284,11 +284,11 @@
                                             </div>
                                             <div class="input-field col s12 m6">
                                                 <label>Gesellschaftsform</label>
-                                                <%= form.text_field :importer_company_corporate_form, autofocus: true, class: "validate", placeholder: "dd/mm/yyyy" %>
+                                                <%= form.text_field :importer_company_corporate_form, autofocus: true, class: "validate" %>
                                             </div>
                                             <div class="input-field col s12 m6">
                                                 <label>Industrie</label>
-                                                <%= form.text_field :importer_industry, autofocus: true, class: "validate", placeholder: "dd/mm/yyyy" %>
+                                                <%= form.text_field :importer_industry, autofocus: true, class: "validate" %>
                                             </div>
                                         </div>
                                     </div>
@@ -302,7 +302,7 @@
                                         <div class="row hide-section">
                                             <div class="input-field col s12 m6">
                                                 <label>Bitte helfen sie uns, die Beteiligung besser zu verstehen </label>
-                                                <%= form.text_field :explain_exporter_influence_on_importer_management, autofocus: true, class: "validate", placeholder: "dd/mm/yyyy" %>
+                                                <%= form.text_field :explain_exporter_influence_on_importer_management, autofocus: true, class: "validate" %>
                                             </div>
                                         </div>
                                     </div>
@@ -1820,75 +1820,75 @@
         $choice.filter('[name="yes_incoterms"]').removeClass('active');
     });
 
-    document.addEventListener('DOMContentLoaded', function(e) {
-        FormValidation.formValidation(
-            document.getElementById('demoForm'),
-            {
-                fields: {
-                    // name: {
-                    //     validators: {
-                    //         notEmpty: {
-                    //             message: 'The name is required'
-                    //         },
-                    //         stringLength: {
-                    //             min: 6,
-                    //             max: 30,
-                    //             message: 'The name must be more than 6 and less than 30 characters long'
-                    //         },
-                    //         regexp: {
-                    //             regexp: /^[a-zA-Z0-9_]+$/,
-                    //             message: 'The name can only consist of alphabetical, number and underscore'
-                    //         }
-                    //     }
-                    // },
-                    // price: {
-                    //     validators: {
-                    //         notEmpty: {
-                    //             message: 'The price is required'
-                    //         },
-                    //         numeric: {
-                    //             message: 'The price must be a number'
-                    //         }
-                    //     }
-                    // },
-                    terms_and_conditions: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The price is required'
-                            },
-                            numeric: {
-                                message: 'The price must be a number'
-                            }
-                        }
-                    },
-                    'size[]': {
-                        validators: {
-                            notEmpty: {
-                                message: 'The size is required'
-                            }
-                        }
-                    },
-                    availability: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The availability option is required'
-                            }
-                        }
-                    },
-                },
-                plugins: {
-                    trigger: new FormValidation.plugins.Trigger(),
-                    materialize: new FormValidation.plugins.Materialize(),
-                    submitButton: new FormValidation.plugins.SubmitButton(),
-                    icon: new FormValidation.plugins.Icon({
-                        valid: 'fa fa-check',
-                        invalid: 'fa fa-times',
-                        validating: 'fa fa-refresh',
-                    }),
-                },
-            }
-        );
-    });
+    // document.addEventListener('DOMContentLoaded', function(e) {
+    //     FormValidation.formValidation(
+    //         document.getElementById('demoForm'),
+    //         {
+    //             fields: {
+    //                 // name: {
+    //                 //     validators: {
+    //                 //         notEmpty: {
+    //                 //             message: 'The name is required'
+    //                 //         },
+    //                 //         stringLength: {
+    //                 //             min: 6,
+    //                 //             max: 30,
+    //                 //             message: 'The name must be more than 6 and less than 30 characters long'
+    //                 //         },
+    //                 //         regexp: {
+    //                 //             regexp: /^[a-zA-Z0-9_]+$/,
+    //                 //             message: 'The name can only consist of alphabetical, number and underscore'
+    //                 //         }
+    //                 //     }
+    //                 // },
+    //                 // price: {
+    //                 //     validators: {
+    //                 //         notEmpty: {
+    //                 //             message: 'The price is required'
+    //                 //         },
+    //                 //         numeric: {
+    //                 //             message: 'The price must be a number'
+    //                 //         }
+    //                 //     }
+    //                 // },
+    //                 terms_and_conditions: {
+    //                     validators: {
+    //                         notEmpty: {
+    //                             message: 'The price is required'
+    //                         },
+    //                         numeric: {
+    //                             message: 'The price must be a number'
+    //                         }
+    //                     }
+    //                 },
+    //                 'size[]': {
+    //                     validators: {
+    //                         notEmpty: {
+    //                             message: 'The size is required'
+    //                         }
+    //                     }
+    //                 },
+    //                 availability: {
+    //                     validators: {
+    //                         notEmpty: {
+    //                             message: 'The availability option is required'
+    //                         }
+    //                     }
+    //                 },
+    //             },
+    //             plugins: {
+    //                 trigger: new FormValidation.plugins.Trigger(),
+    //                 materialize: new FormValidation.plugins.Materialize(),
+    //                 submitButton: new FormValidation.plugins.SubmitButton(),
+    //                 icon: new FormValidation.plugins.Icon({
+    //                     valid: 'fa fa-check',
+    //                     invalid: 'fa fa-times',
+    //                     validating: 'fa fa-refresh',
+    //                 }),
+    //             },
+    //         }
+    //     );
+    // });
 
 
 </script>
