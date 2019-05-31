@@ -81,7 +81,7 @@ class ExportApplicationsController < ApplicationController
           :importer_shipment_company_name, :importer_shipment_country, :importer_shipment_street_hno,
           :importer_shipment_plz, :importer_shipment_city, :has_significant_influence_on_importer_management,
           :explain_exporter_influence_on_importer_management, :has_payment_experience_with_importer,
-          :explain_previous_payment_experience_with_importer,
+          :explain_previous_payment_experience_with_importer, :exporter_offers_servicing_for_goods,
 
           # # Ihre Finanzierung --------------------------------
           :loan_duration, :accept_partial_refinancing, :has_agreed_payment_term_already,
@@ -123,7 +123,7 @@ class ExportApplicationsController < ApplicationController
           :exporter_address_line1, :exporter_address_line2, :exporter_tax_id, :exporter_revenue, :exporter_total_assets, :exporter_last_fiscal_year,
           :external_rating_available, :exporter_rating, :rating_agency, :rating_issued_date, :exporter_external_rating_available,
           :exporter_rating_agency, :exporter_rating_issued_date, :importer_external_rating_available, :is_company_controlled_by_mother_company,
-          :importer_mother_company_industry, :importer_mother_company_corporate_form
+          :importer_mother_company_industry, :importer_mother_company_corporate_form, :export_application_are_goods_overhauled
       )
       
   end
