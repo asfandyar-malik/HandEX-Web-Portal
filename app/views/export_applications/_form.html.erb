@@ -711,32 +711,32 @@
                                             </div>
                                             <div class="input-field col s12 m6">
                                                 <label>Lieferbeginn</label>
-                                                <div> <%= form.date_field :delivery_start, id: "start_date", type: "date", placeholder: "dd/mm/yyyy", class: "datepicker" %> </div>
+                                                <div> <%= form.date_field :delivery_start, id: "start_date", type: "date" %> </div>
                                             </div>
                                             <div class="input-field col s12 m6">
                                                 <label>Lieferende</label>
-                                                <div> <%= form.date_field :delivery_end, id: "start_date", type: "date", placeholder: "dd/mm/yyyy", class: "datepicker" %> </div>
+                                                <div> <%= form.date_field :delivery_end, id: "start_date", type: "date" %> </div>
                                             </div>
 
                                             <div class="input-field col s12 m6">
-                                                <div> <%= form.text_field :other_important_delivery_information, class: "validate", placeholder: "Weiterer zahlungsrelevanter Termin" %> </div>
+                                                <div> <%= form.text_field :other_important_delivery_information, class: "validate", placeholder: "Weiterer zahlungsrelevanter Termin", type: "date" %> </div>
                                             </div>
                                             <div class="input-field col s12 m6">
-                                                <div> <%= form.text_field :other_important_delivery_milestones, placeholder: "z.B. Milestone xy", class: "textbox-n", onfocus: "(this.type='date')" %> </div>
-                                            </div>
-
-                                            <div class="input-field col s12 m6">
-                                                <div> <%= form.text_field :other_important_delivery_information, class: "validate", placeholder: "Weiterer zahlungsrelevanter Termin" %> </div>
-                                            </div>
-                                            <div class="input-field col s12 m6">
-                                                <div> <%= form.text_field :other_important_delivery_milestones, placeholder: "z.B. Milestone xy", class: "textbox-n", onfocus: "(this.type='date')" %> </div>
+                                                <div> <%= form.text_field :other_important_delivery_milestones, placeholder: "z.B. Milestone xy", class: "textbox-n", type: "date" %> </div>
                                             </div>
 
                                             <div class="input-field col s12 m6">
-                                                <div> <%= form.text_field :other_important_delivery_information, class: "validate", placeholder: "Weiterer zahlungsrelevanter Termin" %> </div>
+                                                <div> <%= form.text_field :other_important_delivery_information, class: "validate", placeholder: "Weiterer zahlungsrelevanter Termin", type: "date" %> </div>
                                             </div>
                                             <div class="input-field col s12 m6">
-                                                <div> <%= form.text_field :other_important_delivery_milestones, placeholder: "z.B. Milestone xy", class: "textbox-n", onfocus: "(this.type='date')" %> </div>
+                                                <div> <%= form.text_field :other_important_delivery_milestones, placeholder: "z.B. Milestone xy", class: "textbox-n", type: "date" %> </div>
+                                            </div>
+
+                                            <div class="input-field col s12 m6">
+                                                <div> <%= form.text_field :other_important_delivery_information, class: "validate", placeholder: "Weiterer zahlungsrelevanter Termin", type: "date" %> </div>
+                                            </div>
+                                            <div class="input-field col s12 m6">
+                                                <div> <%= form.text_field :other_important_delivery_milestones, placeholder: "z.B. Milestone xy", class: "textbox-n", type: "date" %> </div>
                                             </div>
                                         </div>
                                     </div>
