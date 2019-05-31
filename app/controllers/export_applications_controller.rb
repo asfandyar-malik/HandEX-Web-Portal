@@ -17,24 +17,44 @@ class ExportApplicationsController < ApplicationController
   end
 
   def edit
+
   end
   
   def create
       @export_application = current_user.export_applications.build(export_application_params)
-      if @export_application.save
-          redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich erstellt.'
-      else
+      if params[:draft] == 'Entwurf speichern'
+        if @export_application.save
+          redirect_to "/export_applications/" + @export_application.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert.'        else
           flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
           render :new
+        end
+      else
+        if @export_application.save
+          redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich erstellt.'
+        else
+          flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+          render :new
+        end
+        # save as published
       end
+
   end
   
   def update
+    if params[:draft] == 'Entwurf speichern'
       if @export_application.update(export_application_params)
-          redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich aktualisiert.'
+        redirect_to "/export_applications/" + @export_application.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert.'
       else
-          flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+        flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
       end
+    else
+      if @export_application.update(export_application_params)
+        redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich aktualisiert.'
+      else
+        flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+      end
+      # save as published
+    end
   end
   
   def destroy
