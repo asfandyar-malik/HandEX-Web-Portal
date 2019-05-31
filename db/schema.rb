@@ -423,6 +423,14 @@ ActiveRecord::Schema.define(version: 2019_05_31_113704) do
     t.boolean "is_exporting_to_private_sector", default: false
     t.boolean "is_company_controlled_by_mother_company", default: false
     t.string "importer_mother_company_industry"
+    t.boolean "exporter_offers_servicing_for_goods", default: false
+    t.string "does_delivery_affect_sensitive_areas"
+    t.boolean "are_goods_overhauled", default: false
+    t.boolean "does_corruption_declaration_appy", default: false
+    t.string "importer_tax_id"
+    t.string "explain_sensitive_area_type"
+    t.string "explain_special_structure"
+    t.string "exporter_date_founded"
     t.string "agreed_payments_amount_payment_term_short_2"
     t.string "agreed_payments_output_payment_term_short_2"
     t.string "agreed_payments_time_payment_term_short_2"
@@ -443,14 +451,6 @@ ActiveRecord::Schema.define(version: 2019_05_31_113704) do
     t.string "agreed_payments_currency_payment_term_short_3"
     t.string "agreed_payments_currency_payment_term_short_4"
     t.string "agreed_payments_currency_payment_term_short_5"
-    t.boolean "exporter_offers_servicing_for_goods", default: false
-    t.string "does_delivery_affect_sensitive_areas"
-    t.boolean "are_goods_overhauled", default: false
-    t.boolean "does_corruption_declaration_appy", default: false
-    t.string "importer_tax_id"
-    t.string "explain_sensitive_area_type"
-    t.string "explain_special_structure"
-    t.string "exporter_date_founded"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
