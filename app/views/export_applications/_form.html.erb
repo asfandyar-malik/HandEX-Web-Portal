@@ -316,39 +316,28 @@
                                         </div>
                                     </div>
 
-                                    <div id="motherCompanyControl" style="display: none">
-                                        <div class="row">
-                                            <div class="input-field col s12 m6">
-                                                <label>Name</label>
-                                                <%= form.text_field :importer_mother_company, autofocus: true, class: "validate", placeholder: "dd/mm/yyyy" %>
-                                            </div>
-                                            <div class="input-field col s12 m6">
-                                                <label>Ist dieses Unternehmen auch der globale Mutterkonzern?</label>
-                                                <p>
-                                                    <label for="ul-yes"><input type="radio" id="ul-yes" name="ul-yes" value="yes"/><span class="yes">Ja</span></label><label for="ul-no"><input type="radio" id="ul-no" name="ul-no" value="no"/><span class="no">Nein</span></label>
-                                                </p>
-                                            </div>
-                                            <div class="input-field col s12 m6">
-                                                <label>Gesellschaftsform</label>
-                                                <%= form.text_field :importer_mother_company_corporate_form, autofocus: true, class: "validate", placeholder: "dd/mm/yyyy" %>
-                                            </div>
-                                            <div class="input-field col s12 m6">
-                                                <label>Industrie</label>
-                                                <%= form.text_field :importer_mother_company_industry, autofocus: true, class: "validate", placeholder: "dd/mm/yyyy" %>
-                                            </div>
+                                    <div class="input-field col s12 m12">
+                                        <div class="input-field col s12 m12 nopadding">
+                                            <label> Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder üben Sie maßgeblichen
+                                                Einfluss auf die Geschäftsführung aus? </label>
+                                            <p>
+                                                <label>
+                                                    <%= check_box_tag "export_application[has_significant_influence_on_importer_management]", @export_application.has_significant_influence_on_importer_management ? @export_application.has_significant_influence_on_importer_management : nil, false, :onclick=>"significantInfluenceOnImporter();", id: "export_application_has_significant_influence_on_importer_management" %>
+                                                    <span class="yes yes-no-btns">Ja</span>
+                                                </label>
+
+                                                <label onclick="noSignificantInfluenceOnImporter()">
+                                                    <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px" class="no yes-no-btns">Nein</span>
+                                                </label>
+                                            </p>
                                         </div>
                                     </div>
 
-                                    <div class="input-field col s12">
-                                        <label>Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder üben Sie maßgeblichen
-                                            Einfluss auf die Geschäftsführung aus?</label>
-                                        <p>
-                                            <label for="pa-yes"><input type="radio" id="pa-yes" name="pa-yes" value="Yes"/><span class="yes yes-no-btns">Ja</span></label><label for="pa-no"><input type="radio" id="pa-no" name="pa-no" value="No"/><span class="no yes-no-btns">Nein</span></label>
-                                        </p>
-                                        <div class="row hide-section">
+                                    <div id="significantInfluenceImporter" style="display: none">
+                                        <div class="row">
                                             <div class="input-field col s12 m6">
                                                 <label>Bitte helfen sie uns, die Beteiligung besser zu verstehen </label>
-                                                <%= form.text_field :explain_exporter_influence_on_importer_management, autofocus: true, class: "validate", placeholder: "dd/mm/yyyy" %>
+                                                <%= form.text_field :explain_exporter_influence_on_importer_management, autofocus: true, class: "validate" %>
                                             </div>
                                         </div>
                                     </div>
@@ -1871,6 +1860,24 @@
             x.style.display = "none";
         }
         $('#export_application_is_company_controlled_by_mother_company').prop('checked', false);
+    }
+
+    function significantInfluenceOnImporter() {
+        var y = document.getElementById("significantInfluenceImporter");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#export_application_has_significant_influence_on_importer_management').prop('checked', true);
+    }
+
+    function noSignificantInfluenceOnImporter() {
+        var x = document.getElementById("significantInfluenceImporter");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#export_application_has_significant_influence_on_importer_management').prop('checked', false);
     }
 
     function noDeliveredAtThisAddress() {
