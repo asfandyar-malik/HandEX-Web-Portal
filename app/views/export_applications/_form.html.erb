@@ -381,11 +381,11 @@
                                     </div>
                                     <div class="input-field col s12">
                                         <label>Bitte beschreiben Sie Ihre Industrie genauer</label>
-                                        <%= form.text_field :explain_good_industry_type, autofocus: true, class: "materialize-textarea custom-area", style: "height: 120px;" %>
+                                        <%= form.text_field :explain_good_industry_type, autofocus: true, class: "validate" %>
                                     </div>
                                     <div class="input-field col s12">
                                         <label>Bitte beschreiben Sie Ihre Produkte und Ihre Leistungen </label>
-                                        <%= form.text_field :explain_product_service, autofocus: true, class: "materialize-textarea custom-area", style: "height: 120px;" %>
+                                        <%= form.text_field :explain_product_service, autofocus: true, class: "validate" %>
                                     </div>
 
                                     <div class="input-field col s12 m12">
@@ -473,7 +473,7 @@
                                             </div>
                                             <div class="input-field col s12 m12">
                                                 <label>Bitte konkretisieren Sie, um was für ein sensibeles Gebiet es sich handelt.</label>
-                                                <%= form.text_field :explain_sensitive_area_type, autofocus: true, class: "materialize-textarea custom-area", style: "height: 120px;" %>
+                                                <%= form.text_area :explain_sensitive_area_type, autofocus: true, class: "validate" %>
                                             </div>
                                         </div>
                                     </div>
@@ -500,7 +500,7 @@
                                             <div class="input-field col s12">
                                                 <label>Aus welchen Vorschriften bzw. welchem Teil/Abschnitt der Ausfuhrliste ergibt sich die
                                                     Genehmigungspflicht?</label>
-                                                <%= form.text_field :which_regulations_enforcing_exportlicense_requirement, autofocus: true, class: "materialize-textarea custom-area", style: "height: 120px;" %>
+                                                <%= form.text_field :which_regulations_enforcing_exportlicense_requirement, autofocus: true, class: "validate" %>
                                             </div>
                                             <div class="input-field col s12 m12">
                                                 <label>Die Ausfuhrgenehmigung...</label>
@@ -562,20 +562,20 @@
                                     </div>
 
                                     <div class="input-field col s12">
-                                        <div class="input-field col s12 m6">
+                                        <div class="input-field col s12 ">
                                             <label>Warum wird die Ware im Ausland überholt? </label>
-                                            <%= form.text_field :why_good_overhauled_abroad, autofocus: true, class: "materialize-textarea custom-area", style: "height: 120px;" %>
+                                            <%= form.text_area :why_good_overhauled_abroad, autofocus: true, class: "validate"%>
                                         </div>
 
-                                        <div class="input-field col s12 m6">
+                                        <div class="input-field col s12 ">
                                             <label>Zu welchem Anteil wird die Ware im Ausland überholt? </label>
-                                            <%= form.text_field :proportion_of_goods_overhauled_aborad, autofocus: true, class: "materialize-textarea custom-area", style: "height: 120px;" %>
+                                            <%= form.text_field :proportion_of_goods_overhauled_aborad, autofocus: true, class: "validate" %>
                                         </div>
                                     </div>
 
-                                    <div class="input-field col s12 m6">
+                                    <div class="input-field col s12">
                                         <label>Bitte beschreiben Sie, weshalb die Überholung nicht in Deutschland erfolgte </label>
-                                        <%= form.text_field :describe_why_overhault_didnot_take_in_germany, autofocus: true, class: "materialize-textarea custom-area", style: "height: 120px;" %>
+                                        <%= form.text_area :describe_why_overhault_didnot_take_in_germany, autofocus: true, class: "validate"%>
                                     </div>
 
                                     <div class="input-field col s12 m12">
@@ -606,7 +606,7 @@
                                             </div>
                                             <div class="input-field col s12 m6">
                                                 <label>Interne Referenznummer</label>
-                                                <div> <%= form.text_field :exporter_internal_contract_id, class: "materialize-textarea custom-area" %> </div>
+                                                <div> <%= form.text_field :exporter_internal_contract_id, class: "validate" %> </div>
                                             </div>
                                         </div>
                                     </div>
@@ -630,9 +630,9 @@
 
                                     <div id="explainStructure" style="display: none">
                                         <div class="row">
-                                            <div class="input-field col s12 m12">
+                                            <div class="input-field col s12 m12 nopadding">
                                                 <label>Bitte erklären Sie die Struktur im Detail.</label>
-                                                <div> <%= form.text_field :explain_special_structure, class: "materialize-textarea custom-area" %> </div>
+                                                <div> <%= form.text_area :explain_special_structure, class: "validate" %> </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1730,11 +1730,11 @@
 
                                     <div id="corruptionDeclaration" style="display: none">
                                         <div class="row">
-                                            <div class="input-field col s12 m6">
+                                            <div class="input-field col s12">
                                                 <label>Bitte machen Sie Angaben zu den oben genannten Punkten in Bezug auf Anklage,
                                                     strafrechtliche oder nicht strafrechtliche Sanktionen sowie
                                                     Vorbereitungs- und Sperrverfahren. </label>
-                                                <%= form.text_field :explain_corruption_sanctions, autofocus: true, class: "validate" %>
+                                                <%= form.text_area :explain_corruption_sanctions, autofocus: true, class: "validate" %>
                                             </div>
                                         </div>
                                     </div>
