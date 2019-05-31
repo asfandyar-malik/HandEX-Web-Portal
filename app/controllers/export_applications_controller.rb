@@ -106,12 +106,41 @@ class ExportApplicationsController < ApplicationController
           :additional_document,
 
           # # Orphan ----------------------------------------
-          :application_status, :agreed_payments_output_payment_term_short, :agreed_payments_time_payment_term_short, :agreed_payments_some_output_payment_term_short, :payment_vehichle_payment_term_short,
+          :application_status,
+
+          :agreed_payments_output_payment_term_short,
+          :agreed_payments_output_payment_term_short_2,
+          :agreed_payments_output_payment_term_short_3,
+          :agreed_payments_output_payment_term_short_4,
+          :agreed_payments_output_payment_term_short_5,
+
+          :advance_payment_amount_payment_term_both,
+          :advance_payment_amount_payment_term_both_2,
+          :advance_payment_amount_payment_term_both_3,
+          :advance_payment_amount_payment_term_both_4,
+          :advance_payment_amount_payment_term_both_5,
+
+          :agreed_payments_time_payment_term_short,
+          :agreed_payments_time_payment_term_short_2,
+          :agreed_payments_time_payment_term_short_3,
+          :agreed_payments_time_payment_term_short_4,
+          :agreed_payments_time_payment_term_short_5,
+
+          :agreed_payments_some_output_payment_term_short,
+          :agreed_payments_some_output_payment_term_short_2,
+          :agreed_payments_some_output_payment_term_short_3,
+          :agreed_payments_some_output_payment_term_short_4,
+          :agreed_payments_some_output_payment_term_short_5,
+
+          :advance_payment_description_payment_term_both,
+          :payment_vehichle_payment_term_short,
           :receive_deposit_time_payment_term_mid, :repayment_profile_structure_payment_term_mid, :loan_term_start_payment_term_mid, :loan_term_other_description_payment_term_mid,
-          :number_of_installments_payment_term_short, :advance_payment_currency_payment_term_both, :advance_payment_amount_payment_term_both,
-          :advance_payment_description_payment_term_both, :deposit_received_payment_term_both, :repayment_structure_payment_term_both, :credit_start_date_payment_term_both,
+          :number_of_installments_payment_term_short, :advance_payment_currency_payment_term_both,
+
+          :deposit_received_payment_term_both, :repayment_structure_payment_term_both, :credit_start_date_payment_term_both,
           :credit_start_special_description_payment_term_both, :number_of_installments_payment_term_both, :payment_vehichle_explain_payment_term_both,
-          :agreed_payments_currency_payment_term_short, :agreed_payments_amount_payment_term_short, :source_of_fund_amount, :goods_overhauled_location,
+
+          :source_of_fund_amount, :goods_overhauled_location,
           :explain_special_contract_structure, :graphic_representation_project_participants, :contract_currency, :risk_shipment_risk_cover,
           :risk_supplier_credit_cover, :further_lower_economic_risk, :loan_term, :is_delivered_at_this_address, :is_exporting_to_private_sector,
 

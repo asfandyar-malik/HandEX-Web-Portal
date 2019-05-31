@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_31_093149) do
+ActiveRecord::Schema.define(version: 2019_05_31_111454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -423,6 +423,26 @@ ActiveRecord::Schema.define(version: 2019_05_31_093149) do
     t.boolean "is_exporting_to_private_sector", default: false
     t.boolean "is_company_controlled_by_mother_company", default: false
     t.string "importer_mother_company_industry"
+    t.string "agreed_payments_amount_payment_term_short_2"
+    t.string "agreed_payments_output_payment_term_short_2"
+    t.string "agreed_payments_time_payment_term_short_2"
+    t.string "agreed_payments_some_output_payment_term_short_2"
+    t.string "agreed_payments_amount_payment_term_short_3"
+    t.string "agreed_payments_output_payment_term_short_3"
+    t.string "agreed_payments_time_payment_term_short_3"
+    t.string "agreed_payments_some_output_payment_term_short_3"
+    t.string "agreed_payments_amount_payment_term_short_4"
+    t.string "agreed_payments_output_payment_term_short_4"
+    t.string "agreed_payments_time_payment_term_short_4"
+    t.string "agreed_payments_some_output_payment_term_short_4"
+    t.string "agreed_payments_amount_payment_term_short_5"
+    t.string "agreed_payments_output_payment_term_short_5"
+    t.string "agreed_payments_time_payment_term_short_5"
+    t.string "agreed_payments_some_output_payment_term_short_5"
+    t.string "agreed_payments_currency_payment_term_short_2"
+    t.string "agreed_payments_currency_payment_term_short_3"
+    t.string "agreed_payments_currency_payment_term_short_4"
+    t.string "agreed_payments_currency_payment_term_short_5"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
