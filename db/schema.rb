@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_29_150606) do
+ActiveRecord::Schema.define(version: 2019_05_30_184152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -659,7 +659,7 @@ ActiveRecord::Schema.define(version: 2019_05_29_150606) do
     t.string "firstname"
     t.string "lastname"
     t.string "company_name"
-    t.boolean "is_broker"
+    t.boolean "is_broker", default: false
     t.boolean "has_accepted_terms_conditions"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true

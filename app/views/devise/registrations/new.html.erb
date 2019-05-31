@@ -16,11 +16,13 @@
                 <div class="col s12 custom-form">
                     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-                        <div class="form-section z-depth-1">
+                        <div class="form-section z-depth-2">
+
                             <div class="row">
                                 <div class="col s12">
                                     <div class="form-content">
                                         <div class="row">
+
                                             <div class="input-field col s12">
                                                 <label>Firmenname</label>
                                                 <%= f.text_field :company_name, id: "company_name", autofocus: true, class: "validate" %>
@@ -46,11 +48,18 @@
                                                 <%= f.text_field :phone_number, autofocus: true, class: "validate" %>
                                             </div>
 
-                                            <div class="col s12">
-                                                <label>
-                                                    <input type="checkbox"/>
-                                                    <span class="black-text text-bold"><strong>Ich bin ein Makler oder möchte nicht selbst Exportfinanzierung erhalten.</strong> </span>
-                                                </label>
+                                            <div class="input-field col s12 m12">
+                                                <label>Ich bin ein Makler oder möchte nicht selbst Exportfinanzierung erhalten. </label>
+                                                <p>
+                                                    <label onclick="isBroker()">
+                                                        <%= check_box_tag "user[is_broker]", @user.is_broker ? @user.is_broker : nil, false, id: "user_is_broker" %>
+                                                        <span class="yes yes-no-btns">Yes</span>
+                                                    </label>
+
+                                                    <label onclick="noIsBroker()">
+                                                        <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px" class="no yes-no-btns">No</span>
+                                                    </label>
+                                                </p>
                                             </div>
 
                                             <div class="input-field col s12">
@@ -63,14 +72,13 @@
 
                                             <div class="col s12">
                                                 <label>
-                                                    <input type="checkbox"/>
+                                                    <input type="checkbox" required/>
 
                                                     <span class="black-text text-bold"><strong>Wir akzeptieren die
                                                     <span> <a target="_blank" rel="noopener noreferrer" href="https://www.agaportal.de/_Resources/Persistent/3bfd6a43f17d04f9b34d523df323f0a44a9eaa17/ab_fab.pdf">
                                                             Allgemeinen Bedingungen für Lieferantenkreditdeckung(G) </a> </span> in Zusammenhang mit den
                                                     <span>  <a target="_blank" rel="noopener noreferrer" href="https://www.agaportal.de/_Resources/Persistent/b751b874fd137e5f8b22b25d2bd8a15995b09eb2/ab_g.pdf">
                                                             Ergänzenden Bestimmungen für Forderungsabtretungen </a> </span></strong> </span>
-                                                </p>
                                                 </label>
                                             </div>
 
@@ -91,3 +99,26 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(".yes-no-btns").click(function (e) {
+        $(this).toggleClass("active-btn");
+        if ($(this).hasClass("yes")) {
+            $(this).closest(".input-field").find(".hide-section").toggle();
+            $(this).closest('p').find('.no.yes-no-btns').removeClass("active-btn");
+        } else {
+            $(this).closest(".input-field").find(".hide-section").hide();
+            $(this).closest('p').find('.yes.yes-no-btns').removeClass("active-btn");
+        }
+    });
+
+    function isBroker() {
+        $('#user_is_broker').prop('checked', true);
+    }
+
+    function noIsBroker() {
+        $('#user_is_broker').prop('checked', false);
+    }
+
+
+</script>
