@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_31_111454) do
+ActiveRecord::Schema.define(version: 2019_05_31_113704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -447,6 +447,10 @@ ActiveRecord::Schema.define(version: 2019_05_31_111454) do
     t.string "does_delivery_affect_sensitive_areas"
     t.boolean "are_goods_overhauled", default: false
     t.boolean "does_corruption_declaration_appy", default: false
+    t.string "importer_tax_id"
+    t.string "explain_sensitive_area_type"
+    t.string "explain_special_structure"
+    t.string "exporter_date_founded"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
