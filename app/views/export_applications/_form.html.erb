@@ -82,7 +82,7 @@
 
                                             <div class="input-field col s12 m8">
                                                 <label>Land</label>
-                                                <%= form.select :exporter_country, options_for_select([t('please_select'), 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon', 'Canada', 'Central African Republic (CAR)', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros', 'Democratic Republic of the Congo', 'Republic of the Congo', 'Costa Rica', 'Cote d\'Ivoire', 'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Eswatini (formerly Swaziland)', 'Ethiopia', 'Fiji', 'Finland', 'France', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macedonia (FYROM)', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius', 'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'Myanmar (formerly Burma)', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Korea', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestine', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Swaziland (renamed to Eswatini)', 'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates (UAE)', 'United Kingdom (UK)', 'United States of America (USA)', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'], @export_application.exporter_country ? @export_application.exporter_country : nil), {}, class: 'validate' %>
+                                                <%= form.select :exporter_country, options_for_select([t('please_select'), "Afghanistan", "Ägypten", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Äquatorialguinea", "Argentinien", "Armenien", "Aserbaidschan", "Äthiopien", "Australien", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belgien", "Belize", "Benin", "Bergkarabach", "Bhutan", "Bolivien", "Bosnien und Herzegowina", "Botswana", "Brasilien", "Brunei", "Bulgarien", "Burkina Faso", "Burundi", "Chile", "Republik China", "Volksrepublik China", "mit Hongkong (HK) und Macao (MO)", "Cookinseln", "Costa Rica", "Dänemark", "mit Färöer (FO) und Grönland (GL)", "Deutschland", "Dominica", "Dominikanische Republik", "Dschibuti", "Ecuador", "El Salvador", "Elfenbeinküste", "Eritrea", "Estland", "Fidschi", "Finnland", "Frankreich", "(ohne Französische Überseegebiete)", "Gabun", "Gambia", "Georgien", "(mit Abchasien und Südossetien)", "Ghana", "Grenada", "Griechenland", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Indien", "(mit Kaschmir)", "Indonesien", "Irak", "Iran", "Irland", "Island", "Israel", "(ohne Gazastreifen, Golanhöhen und Westjordanland)", "Italien", "Jamaika", "Japan", "Jemen", "Jordanien", "Kambodscha", "Kamerun", "Kanada", "Kap Verde", "Kasachstan", "Katar", "Kenia", "Kirgisistan", "Kiribati", "Kolumbien", "Komoren", "Kongo, Demokratische Republik", "Kongo, Republik", "Korea, Nord", "Korea, Süd", "Kosovo", "Kroatien", "Kuba", "Kuwait", "Laos", "Lesotho", "Lettland", "Libanon", "Liberia", "Libyen", "Liechtenstein", "Litauen", "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marokko", "(ohne Westsahara)", "Marshallinseln", "Mauretanien", "Mauritius", "Mazedonien", "Mexiko", "Mikronesien", "Moldawien", "(mit Transnistrien)", "Monaco", "Mongolei", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nepal", "Neuseeland", "Nicaragua", "Königreich der Niederlande", "(ohne Curaçao, Sint Maarten und Aruba)", "Niger", "Nigeria", "Niue", "Nordzypern", "Norwegen", "(ohne Svalbard)", "Oman", "Österreich", "Osttimor / Timor-Leste", "Pakistan", "(ohne Kaschmir)", "Palästina", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal", "Ruanda", "Rumänien", "Russland", "Salomonen", "Sambia", "Samoa", "San Marino", "São Tomé und Príncipe", "Saudi-Arabien", "Schweden", "Schweiz", "Senegal", "Serbien", "(ohne Kosovo)", "Seychellen", "Sierra Leone", "Simbabwe", "Singapur", "Slowakei", "Slowenien", "Somalia", "(mit Somaliland)", "Somaliland", "Spanien", "Sri Lanka", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Südafrika", "Sudan", "Südossetien", "Südsudan", "Suriname", "Swasiland", "Syrien", "(mit Golanhöhen)", "Tadschikistan", "Tansania", "Thailand", "Togo", "Tonga", "Transnistrien", "Trinidad und Tobago", "Tschad", "Tschechien", "Tunesien", "Türkei", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstadt", "Venezuela", "Vereinigte Arabische Emirate", "Vereinigte Staaten", "(ohne Außengebiete)", "Vereinigtes Königreich", "Vietnam", "Weißrussland", "Westsahara", "Zentralafrikanische Republik", "Zypern"], @export_application.exporter_country ? @export_application.exporter_country : nil), {}, class: 'validate' %>
                                             </div>
 
                                             <div class="input-field col s12 m6">
@@ -114,37 +114,39 @@
                                                 </div>
                                             </div>
 
-                                            <div class="input-field col s12">
-                                                <label>External Rating?</label>
+                                            <div class="input-field col s12 m12">
+                                                <div class="input-field col s12 m12 nopadding">
+                                                    <label> Externes Rating? </label>
+                                                    <p>
+                                                        <label>
+                                                            <%= check_box_tag "export_application[exporter_external_rating_available]", @export_application.exporter_external_rating_available ? @export_application.exporter_external_rating_available : nil, false, :onclick=>"exporterExternalRatingFunction();", id: "export_application_exporter_external_rating_available" %>
+                                                            <span class="yes yes-no-btns">Ja</span>
+                                                        </label>
 
-                                                <p>
-                                                    <label for="no4">
-                                                        <input type="radio" id="no4" name="yes" value="No"/>
-                                                        <span class="yes yes-no-btns">Ja</span>
-                                                    </label>
+                                                        <label onclick="noExporterExternalRatingFunction()">
+                                                            <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px" class="no yes-no-btns">Nein</span>
+                                                        </label>
+                                                    </p>
+                                                </div>
+                                            </div>
 
-                                                    <label for="natural4">
-                                                        <input type="radio" id="natural4" name="natural4" value="Natural reserve"/>
-                                                        <span class="no yes-no-btns">Nein</span>
-                                                    </label>
-                                                </p>
-
-                                                <div class="row hide-section">
+                                            <div id="exporterExternalRating" style="display: none">
+                                                <div class="row">
                                                     <div class="input-field col s12">
                                                         <label>Rating</label>
                                                         <%= form.text_field :exporter_rating, autofocus: true, class: "validate" %>
                                                     </div>
                                                     <div class="input-field col s12 m6">
                                                         <label>Ratingagentur</label>
-                                                        <%= form.text_field :rating_agency, autofocus: true, class: "validate" %>
+                                                        <%= form.text_field :exporter_rating_agency, autofocus: true, class: "validate" %>
                                                     </div>
                                                     <div class="input-field col s12 m6">
                                                         <label>Datum des Ratings </label>
-                                                        <%= form.text_field :rating_issued_date, autofocus: true, class: "validate", placeholder: "dd/mm/yyyy" %>
+                                                        <%= form.text_field :exporter_rating_issued_date, autofocus: true, class: "validate", placeholder: "dd/mm/yyyy" %>
                                                     </div>
                                                 </div>
-
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -197,24 +199,37 @@
 
                                     <div class="input-field col s12 m8">
                                         <label>Land</label>
-
-                                        <%= form.select :importer_country, options_for_select([t('please_select'), 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon', 'Canada', 'Central African Republic (CAR)', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros', 'Democratic Republic of the Congo', 'Republic of the Congo', 'Costa Rica', 'Cote d\'Ivoire', 'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Eswatini (formerly Swaziland)', 'Ethiopia', 'Fiji', 'Finland', 'France', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macedonia (FYROM)', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius', 'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'Myanmar (formerly Burma)', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Korea', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestine', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Swaziland (renamed to Eswatini)', 'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates (UAE)', 'United Kingdom (UK)', 'United States of America (USA)', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'], @export_application.importer_country ? @export_application.importer_country : nil), {}, class: 'validate' %>
-
+                                        <%= form.select :importer_country, options_for_select([t('please_select'), "Afghanistan", "Ägypten", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Äquatorialguinea", "Argentinien", "Armenien", "Aserbaidschan", "Äthiopien", "Australien", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belgien", "Belize", "Benin", "Bergkarabach", "Bhutan", "Bolivien", "Bosnien und Herzegowina", "Botswana", "Brasilien", "Brunei", "Bulgarien", "Burkina Faso", "Burundi", "Chile", "Republik China", "Volksrepublik China", "mit Hongkong (HK) und Macao (MO)", "Cookinseln", "Costa Rica", "Dänemark", "mit Färöer (FO) und Grönland (GL)", "Deutschland", "Dominica", "Dominikanische Republik", "Dschibuti", "Ecuador", "El Salvador", "Elfenbeinküste", "Eritrea", "Estland", "Fidschi", "Finnland", "Frankreich", "(ohne Französische Überseegebiete)", "Gabun", "Gambia", "Georgien", "(mit Abchasien und Südossetien)", "Ghana", "Grenada", "Griechenland", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Indien", "(mit Kaschmir)", "Indonesien", "Irak", "Iran", "Irland", "Island", "Israel", "(ohne Gazastreifen, Golanhöhen und Westjordanland)", "Italien", "Jamaika", "Japan", "Jemen", "Jordanien", "Kambodscha", "Kamerun", "Kanada", "Kap Verde", "Kasachstan", "Katar", "Kenia", "Kirgisistan", "Kiribati", "Kolumbien", "Komoren", "Kongo, Demokratische Republik", "Kongo, Republik", "Korea, Nord", "Korea, Süd", "Kosovo", "Kroatien", "Kuba", "Kuwait", "Laos", "Lesotho", "Lettland", "Libanon", "Liberia", "Libyen", "Liechtenstein", "Litauen", "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marokko", "(ohne Westsahara)", "Marshallinseln", "Mauretanien", "Mauritius", "Mazedonien", "Mexiko", "Mikronesien", "Moldawien", "(mit Transnistrien)", "Monaco", "Mongolei", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nepal", "Neuseeland", "Nicaragua", "Königreich der Niederlande", "(ohne Curaçao, Sint Maarten und Aruba)", "Niger", "Nigeria", "Niue", "Nordzypern", "Norwegen", "(ohne Svalbard)", "Oman", "Österreich", "Osttimor / Timor-Leste", "Pakistan", "(ohne Kaschmir)", "Palästina", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal", "Ruanda", "Rumänien", "Russland", "Salomonen", "Sambia", "Samoa", "San Marino", "São Tomé und Príncipe", "Saudi-Arabien", "Schweden", "Schweiz", "Senegal", "Serbien", "(ohne Kosovo)", "Seychellen", "Sierra Leone", "Simbabwe", "Singapur", "Slowakei", "Slowenien", "Somalia", "(mit Somaliland)", "Somaliland", "Spanien", "Sri Lanka", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Südafrika", "Sudan", "Südossetien", "Südsudan", "Suriname", "Swasiland", "Syrien", "(mit Golanhöhen)", "Tadschikistan", "Tansania", "Thailand", "Togo", "Tonga", "Transnistrien", "Trinidad und Tobago", "Tschad", "Tschechien", "Tunesien", "Türkei", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstadt", "Venezuela", "Vereinigte Arabische Emirate", "Vereinigte Staaten", "(ohne Außengebiete)", "Vereinigtes Königreich", "Vietnam", "Weißrussland", "Westsahara", "Zentralafrikanische Republik", "Zypern"], @export_application.importer_country ? @export_application.importer_country : nil), {}, class: 'validate' %>
                                     </div>
 
                                     <div class="input-field col s12 m12">
-                                        <div class="input-field col s12 m6 nopadding">
-                                            <label>Liefern Sie an diese Adresse?</label>
+                                        <div class="input-field col s12 m12 nopadding">
+                                            <label>Liefern Sie an diese Adresse? </label>
                                             <p>
-                                                <label for="no4"><input type="radio" id="no4" name="yes" value="No"/><span class="yes yes-no-btns">Ja</span></label><label for="natural4"><input type="radio" id="natural4" name="natural4" value="No"/><span class="no yes-no-btns">No</span></label>
+                                                <label>
+                                                    <%= check_box_tag "export_application[is_delivered_at_this_address]", @export_application.is_delivered_at_this_address ? @export_application.is_delivered_at_this_address : nil, false, id: "export_application_is_delivered_at_this_address" %>
+                                                    <span class="yes yes-no-btns">Ja</span>
+                                                </label>
+
+                                                <label onclick="noDeliveredAtThisAddress()">
+                                                    <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px" class="no yes-no-btns">Nein</span>
+                                                </label>
                                             </p>
                                         </div>
                                     </div>
+
                                     <div class="input-field col s12 m12">
-                                        <div class="input-field col s12 m6 nopadding">
-                                            <label>Ist Ihr Kunde ein öffentliches oder privates Unternehmen?</label>
+                                        <div class="input-field col s12 m12 nopadding">
+                                            <label>Ist Ihr Kunde ein öffentliches oder privates Unternehmen? </label>
                                             <p>
-                                                <label for="pp1"><input type="radio" id="pp1" name="public" value="public"/><span class="yes yes-no-btns">Public Sector</span></label><label for="pp2"><input type="radio" id="pp2" name="natural4" value="Private"/><span class="no yes-no-btns">Private Sector</span></label>
+                                                <label>
+                                                    <%= check_box_tag "export_application[is_exporting_to_private_sector]", @export_application.is_exporting_to_private_sector ? @export_application.is_exporting_to_private_sector : nil, false, id: "export_application_is_exporting_to_private_sector" %>
+                                                    <span class="yes yes-no-btns">Privates Sektor</span>
+                                                </label>
+
+                                                <label onclick="noPrivate_sector()">
+                                                    <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px" class="no yes-no-btns">Öffentliches Sektor</span>
+                                                </label>
                                             </p>
                                         </div>
                                     </div>
@@ -225,10 +240,17 @@
                                     </div>
 
                                     <div class="input-field col s12 m12">
-                                        <div class="input-field col s12 m6 nopadding">
+                                        <div class="input-field col s12 m12 nopadding">
                                             <label>Haben Sie bereits Zahlungserfahrungen mit Ihrem Kunden? </label>
                                             <p>
-                                                <label for="yes12"><input type="radio" id="yes12" name="public" value="yes"/><span class="yes yes-no-btns">Nein</span></label><label for="no12"><input type="radio" id="no12" name="no12" value="no"/><span class="no yes-no-btns">No</span></label>
+                                                <label>
+                                                    <%= check_box_tag "export_application[has_payment_experience_with_importer]", @export_application.has_payment_experience_with_importer ? @export_application.has_payment_experience_with_importer : nil, false, id: "export_application_has_payment_experience_with_importer" %>
+                                                    <span class="yes yes-no-btns">Ja</span>
+                                                </label>
+
+                                                <label onclick="noPaymentExperience()">
+                                                    <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px" class="no yes-no-btns">Nein</span>
+                                                </label>
                                             </p>
                                         </div>
                                     </div>
@@ -245,61 +267,74 @@
                                         <%= form.text_field :importer_company_registration_number, autofocus: true, class: "validate" %>
                                     </div>
 
-                                    <div class="input-field col s12">
-                                        <label>Externes Rating?</label>
-                                        <p>
-                                            <label for="ex-yes"><input type="radio" id="ex-yes" name="ex-no" value="Yes"/><span class="yes yes-no-btns">Ja</span></label><label for="ex-no"><input type="radio" id="ex-no" name="ex-no" value="No"/><span class="no yes-no-btns">Nein</span></label>
-                                        </p>
-                                        <div class="row hide-section">
+                                    <div class="input-field col s12 m12">
+                                        <div class="input-field col s12 m12 nopadding">
+                                            <label> Externes Rating? </label>
+                                            <p>
+                                                <label>
+                                                    <%= check_box_tag "export_application[importer_external_rating_available]", @export_application.importer_external_rating_available ? @export_application.importer_external_rating_available : nil, false, :onclick=>"importerExternalRatingFunction();", id: "export_application_importer_external_rating_available" %>
+                                                    <span class="yes yes-no-btns">Ja</span>
+                                                </label>
+
+                                                <label onclick="noImporterExternalRatingFunction()">
+                                                    <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px" class="no yes-no-btns">Nein</span>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div id="importerExternalRating" style="display: none">
+                                        <div class="row">
                                             <div class="input-field col s12">
                                                 <label>Rating</label>
                                                 <%= form.text_field :importer_rating, autofocus: true, class: "validate" %>
                                             </div>
                                             <div class="input-field col s12 m6">
-                                                <label>Rating Agency</label>
+                                                <label>Ratingagentur</label>
                                                 <%= form.text_field :importer_rating_agency, autofocus: true, class: "validate" %>
                                             </div>
                                             <div class="input-field col s12 m6">
-                                                <label>Datum des Ratings</label>
+                                                <label>Datum des Ratings </label>
                                                 <%= form.text_field :importer_rating_issued_date, autofocus: true, class: "validate", placeholder: "dd/mm/yyyy" %>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="input-field col s12">
-                                        <label>Firma durch ein direktes Mutterunternehmen kontrolliert?</label>
-                                        <p>
-                                            <label for="pa-yes"><input type="radio" id="pa-yes" name="pa-yes" value="Yes"/><span class="yes yes-no-btns">Ja</span></label><label for="pa-no"><input type="radio" id="pa-no" name="pa-no" value="No"/><span class="no yes-no-btns">Nein</span></label>
-                                        </p>
-                                        <div class="row hide-section">
-                                            <div class="input-field col s12 m6">
-                                                <label>Name</label>
-                                                <%= form.text_field :importer_mother_company, autofocus: true, class: "validate" %>
-                                            </div>
-                                            <div class="input-field col s12 m6">
-                                                <label>Ist dieses Unternehmen auch der globale Mutterkonzern?</label>
-                                                <p>
-                                                    <label for="ul-yes"><input type="radio" id="ul-yes" name="ul-yes" value="yes"/><span class="yes">Ja</span></label><label for="ul-no"><input type="radio" id="ul-no" name="ul-no" value="no"/><span class="no">Nein</span></label>
-                                                </p>
-                                            </div>
-                                            <div class="input-field col s12 m6">
-                                                <label>Gesellschaftsform</label>
-                                                <%= form.text_field :importer_company_corporate_form, autofocus: true, class: "validate" %>
-                                            </div>
-                                            <div class="input-field col s12 m6">
-                                                <label>Industrie</label>
-                                                <%= form.text_field :importer_industry, autofocus: true, class: "validate" %>
-                                            </div>
+                                    <div class="input-field col s12 m12">
+                                        <div class="input-field col s12 m12 nopadding">
+                                            <label> Firma durch ein direktes Mutterunternehmen kontrolliert? </label>
+                                            <p>
+                                                <label>
+                                                    <%= check_box_tag "export_application[is_company_controlled_by_mother_company]", @export_application.is_company_controlled_by_mother_company ? @export_application.is_company_controlled_by_mother_company : nil, false, :onclick=>"controlledByMotherCompany();", id: "export_application_is_company_controlled_by_mother_company" %>
+                                                    <span class="yes yes-no-btns">Ja</span>
+                                                </label>
+
+                                                <label onclick="notControlledByMotherCompany()">
+                                                    <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px" class="no yes-no-btns">Nein</span>
+                                                </label>
+                                            </p>
                                         </div>
                                     </div>
 
-                                    <div class="input-field col s12">
-                                        <label>Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder üben Sie maßgeblichen
-                                            Einfluss auf die Geschäftsführung aus?</label>
-                                        <p>
-                                            <label for="pa-yes"><input type="radio" id="pa-yes" name="pa-yes" value="Yes"/><span class="yes yes-no-btns">Ja</span></label><label for="pa-no"><input type="radio" id="pa-no" name="pa-no" value="No"/><span class="no yes-no-btns">Nein</span></label>
-                                        </p>
-                                        <div class="row hide-section">
+                                    <div class="input-field col s12 m12">
+                                        <div class="input-field col s12 m12 nopadding">
+                                            <label> Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder üben Sie maßgeblichen
+                                                Einfluss auf die Geschäftsführung aus? </label>
+                                            <p>
+                                                <label>
+                                                    <%= check_box_tag "export_application[has_significant_influence_on_importer_management]", @export_application.has_significant_influence_on_importer_management ? @export_application.has_significant_influence_on_importer_management : nil, false, :onclick=>"significantInfluenceOnImporter();", id: "export_application_has_significant_influence_on_importer_management" %>
+                                                    <span class="yes yes-no-btns">Ja</span>
+                                                </label>
+
+                                                <label onclick="noSignificantInfluenceOnImporter()">
+                                                    <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px" class="no yes-no-btns">Nein</span>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div id="significantInfluenceImporter" style="display: none">
+                                        <div class="row">
                                             <div class="input-field col s12 m6">
                                                 <label>Bitte helfen sie uns, die Beteiligung besser zu verstehen </label>
                                                 <%= form.text_field :explain_exporter_influence_on_importer_management, autofocus: true, class: "validate" %>
@@ -385,6 +420,9 @@
                                         </div>
                                     </div>
 
+
+
+
                                     <div class="input-field col s12">
                                         <label>Betreffen Ihre Lieferungen bzw. Leistungen ein sensibles Gebiet?</label>
                                         <p> Als sensible Gebiete gelten Nationalparks und andere durch nationales oder internationales Recht
@@ -397,8 +435,6 @@
                                             <div class="input-field col s12">
                                                 <label>Um welche Art von sensibelen Gebiet handelt sich?</label>
                                                 <%= form.select :sensitive_area_type, options_for_select([t('please_select'), "Naturschutzgebiet", "Bedeutung für indigene Völker", "Archäologische oder kulturelle", "Sonstige"], @export_application.sensitive_area_type ? @export_application.sensitive_area_type : nil) %>
-
-
                                             </div>
                                             <div class="input-field col s12 m12">
                                                 <label>Bitte konkretisieren Sie, um was für ein sensibeles Gebiet es sich handelt.</label>
@@ -453,7 +489,7 @@
 
                                         <div class="input-field col s12 m6">
                                             <label>Wo wird die Ware überholt?</label>
-                                            <%= form.select :goods_overhaul_country, options_for_select([t('please_select'), 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon', 'Canada', 'Central African Republic (CAR)', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros', 'Democratic Republic of the Congo', 'Republic of the Congo', 'Costa Rica', 'Cote d\'Ivoire', 'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Eswatini (formerly Swaziland)', 'Ethiopia', 'Fiji', 'Finland', 'France', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macedonia (FYROM)', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius', 'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'Myanmar (formerly Burma)', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Korea', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestine', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Swaziland (renamed to Eswatini)', 'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates (UAE)', 'United Kingdom (UK)', 'United States of America (USA)', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'], @export_application.goods_overhaul_country ? @export_application.goods_overhaul_country : nil), {}, class: 'validate' %>
+                                            <%= form.select :goods_overhaul_country, options_for_select([t('please_select'), "Afghanistan", "Ägypten", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Äquatorialguinea", "Argentinien", "Armenien", "Aserbaidschan", "Äthiopien", "Australien", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belgien", "Belize", "Benin", "Bergkarabach", "Bhutan", "Bolivien", "Bosnien und Herzegowina", "Botswana", "Brasilien", "Brunei", "Bulgarien", "Burkina Faso", "Burundi", "Chile", "Republik China", "Volksrepublik China", "mit Hongkong (HK) und Macao (MO)", "Cookinseln", "Costa Rica", "Dänemark", "mit Färöer (FO) und Grönland (GL)", "Deutschland", "Dominica", "Dominikanische Republik", "Dschibuti", "Ecuador", "El Salvador", "Elfenbeinküste", "Eritrea", "Estland", "Fidschi", "Finnland", "Frankreich", "(ohne Französische Überseegebiete)", "Gabun", "Gambia", "Georgien", "(mit Abchasien und Südossetien)", "Ghana", "Grenada", "Griechenland", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Indien", "(mit Kaschmir)", "Indonesien", "Irak", "Iran", "Irland", "Island", "Israel", "(ohne Gazastreifen, Golanhöhen und Westjordanland)", "Italien", "Jamaika", "Japan", "Jemen", "Jordanien", "Kambodscha", "Kamerun", "Kanada", "Kap Verde", "Kasachstan", "Katar", "Kenia", "Kirgisistan", "Kiribati", "Kolumbien", "Komoren", "Kongo, Demokratische Republik", "Kongo, Republik", "Korea, Nord", "Korea, Süd", "Kosovo", "Kroatien", "Kuba", "Kuwait", "Laos", "Lesotho", "Lettland", "Libanon", "Liberia", "Libyen", "Liechtenstein", "Litauen", "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marokko", "(ohne Westsahara)", "Marshallinseln", "Mauretanien", "Mauritius", "Mazedonien", "Mexiko", "Mikronesien", "Moldawien", "(mit Transnistrien)", "Monaco", "Mongolei", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nepal", "Neuseeland", "Nicaragua", "Königreich der Niederlande", "(ohne Curaçao, Sint Maarten und Aruba)", "Niger", "Nigeria", "Niue", "Nordzypern", "Norwegen", "(ohne Svalbard)", "Oman", "Österreich", "Osttimor / Timor-Leste", "Pakistan", "(ohne Kaschmir)", "Palästina", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal", "Ruanda", "Rumänien", "Russland", "Salomonen", "Sambia", "Samoa", "San Marino", "São Tomé und Príncipe", "Saudi-Arabien", "Schweden", "Schweiz", "Senegal", "Serbien", "(ohne Kosovo)", "Seychellen", "Sierra Leone", "Simbabwe", "Singapur", "Slowakei", "Slowenien", "Somalia", "(mit Somaliland)", "Somaliland", "Spanien", "Sri Lanka", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Südafrika", "Sudan", "Südossetien", "Südsudan", "Suriname", "Swasiland", "Syrien", "(mit Golanhöhen)", "Tadschikistan", "Tansania", "Thailand", "Togo", "Tonga", "Transnistrien", "Trinidad und Tobago", "Tschad", "Tschechien", "Tunesien", "Türkei", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstadt", "Venezuela", "Vereinigte Arabische Emirate", "Vereinigte Staaten", "(ohne Außengebiete)", "Vereinigtes Königreich", "Vietnam", "Weißrussland", "Westsahara", "Zentralafrikanische Republik", "Zypern"], @export_application.goods_overhaul_country ? @export_application.goods_overhaul_country : nil), {}, class: 'validate' %>
                                         </div>
                                     </div>
 
@@ -529,8 +565,7 @@
 
                                             <div class="input-field col s12 m8">
                                                 <label>Land</label>
-                                                <%= form.select :all_rawgoods_supplier_country, options_for_select([t('please_select'), 'Mexico', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon', 'Canada', 'Central African Republic (CAR)', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros', 'Democratic Republic of the Congo', 'Republic of the Congo', 'Costa Rica', 'Cote d\'Ivoire', 'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Eswatini (formerly Swaziland)', 'Ethiopia', 'Fiji', 'Finland', 'France', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macedonia (FYROM)', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius', 'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'Myanmar (formerly Burma)', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Korea', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestine', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Swaziland (renamed to Eswatini)', 'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates (UAE)', 'United Kingdom (UK)', 'United States of America (USA)', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe']), {}, class: "validate" %>
-
+                                                <%= form.select :all_rawgoods_supplier_country, options_for_select([t('please_select'), "Afghanistan", "Ägypten", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Äquatorialguinea", "Argentinien", "Armenien", "Aserbaidschan", "Äthiopien", "Australien", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belgien", "Belize", "Benin", "Bergkarabach", "Bhutan", "Bolivien", "Bosnien und Herzegowina", "Botswana", "Brasilien", "Brunei", "Bulgarien", "Burkina Faso", "Burundi", "Chile", "Republik China", "Volksrepublik China", "mit Hongkong (HK) und Macao (MO)", "Cookinseln", "Costa Rica", "Dänemark", "mit Färöer (FO) und Grönland (GL)", "Deutschland", "Dominica", "Dominikanische Republik", "Dschibuti", "Ecuador", "El Salvador", "Elfenbeinküste", "Eritrea", "Estland", "Fidschi", "Finnland", "Frankreich", "(ohne Französische Überseegebiete)", "Gabun", "Gambia", "Georgien", "(mit Abchasien und Südossetien)", "Ghana", "Grenada", "Griechenland", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Indien", "(mit Kaschmir)", "Indonesien", "Irak", "Iran", "Irland", "Island", "Israel", "(ohne Gazastreifen, Golanhöhen und Westjordanland)", "Italien", "Jamaika", "Japan", "Jemen", "Jordanien", "Kambodscha", "Kamerun", "Kanada", "Kap Verde", "Kasachstan", "Katar", "Kenia", "Kirgisistan", "Kiribati", "Kolumbien", "Komoren", "Kongo, Demokratische Republik", "Kongo, Republik", "Korea, Nord", "Korea, Süd", "Kosovo", "Kroatien", "Kuba", "Kuwait", "Laos", "Lesotho", "Lettland", "Libanon", "Liberia", "Libyen", "Liechtenstein", "Litauen", "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marokko", "(ohne Westsahara)", "Marshallinseln", "Mauretanien", "Mauritius", "Mazedonien", "Mexiko", "Mikronesien", "Moldawien", "(mit Transnistrien)", "Monaco", "Mongolei", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nepal", "Neuseeland", "Nicaragua", "Königreich der Niederlande", "(ohne Curaçao, Sint Maarten und Aruba)", "Niger", "Nigeria", "Niue", "Nordzypern", "Norwegen", "(ohne Svalbard)", "Oman", "Österreich", "Osttimor / Timor-Leste", "Pakistan", "(ohne Kaschmir)", "Palästina", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal", "Ruanda", "Rumänien", "Russland", "Salomonen", "Sambia", "Samoa", "San Marino", "São Tomé und Príncipe", "Saudi-Arabien", "Schweden", "Schweiz", "Senegal", "Serbien", "(ohne Kosovo)", "Seychellen", "Sierra Leone", "Simbabwe", "Singapur", "Slowakei", "Slowenien", "Somalia", "(mit Somaliland)", "Somaliland", "Spanien", "Sri Lanka", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Südafrika", "Sudan", "Südossetien", "Südsudan", "Suriname", "Swasiland", "Syrien", "(mit Golanhöhen)", "Tadschikistan", "Tansania", "Thailand", "Togo", "Tonga", "Transnistrien", "Trinidad und Tobago", "Tschad", "Tschechien", "Tunesien", "Türkei", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstadt", "Venezuela", "Vereinigte Arabische Emirate", "Vereinigte Staaten", "(ohne Außengebiete)", "Vereinigtes Königreich", "Vietnam", "Weißrussland", "Westsahara", "Zentralafrikanische Republik", "Zypern"], @export_application.all_rawgoods_supplier_country ? @export_application.all_rawgoods_supplier_country : nil), {}, class: 'validate' %>
                                             </div>
                                             <div class="input-field col s12 m12">
                                                 <label>Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig sind.</label>
@@ -551,8 +586,7 @@
 
                                             <div class="input-field col s12 m8">
                                                 <label>Land</label>
-                                                <%= form.select :partly_rawgoods_supplier_country, options_for_select([t('please_select'), 'Mexico', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon', 'Canada', 'Central African Republic (CAR)', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros', 'Democratic Republic of the Congo', 'Republic of the Congo', 'Costa Rica', 'Cote d\'Ivoire', 'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Eswatini (formerly Swaziland)', 'Ethiopia', 'Fiji', 'Finland', 'France', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macedonia (FYROM)', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius', 'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'Myanmar (formerly Burma)', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Korea', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestine', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Swaziland (renamed to Eswatini)', 'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates (UAE)', 'United Kingdom (UK)', 'United States of America (USA)', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe']), {}, class: "validate" %>
-
+                                                <%= form.select :partly_rawgoods_supplier_country, options_for_select([t('please_select'), "Afghanistan", "Ägypten", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Äquatorialguinea", "Argentinien", "Armenien", "Aserbaidschan", "Äthiopien", "Australien", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belgien", "Belize", "Benin", "Bergkarabach", "Bhutan", "Bolivien", "Bosnien und Herzegowina", "Botswana", "Brasilien", "Brunei", "Bulgarien", "Burkina Faso", "Burundi", "Chile", "Republik China", "Volksrepublik China", "mit Hongkong (HK) und Macao (MO)", "Cookinseln", "Costa Rica", "Dänemark", "mit Färöer (FO) und Grönland (GL)", "Deutschland", "Dominica", "Dominikanische Republik", "Dschibuti", "Ecuador", "El Salvador", "Elfenbeinküste", "Eritrea", "Estland", "Fidschi", "Finnland", "Frankreich", "(ohne Französische Überseegebiete)", "Gabun", "Gambia", "Georgien", "(mit Abchasien und Südossetien)", "Ghana", "Grenada", "Griechenland", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Indien", "(mit Kaschmir)", "Indonesien", "Irak", "Iran", "Irland", "Island", "Israel", "(ohne Gazastreifen, Golanhöhen und Westjordanland)", "Italien", "Jamaika", "Japan", "Jemen", "Jordanien", "Kambodscha", "Kamerun", "Kanada", "Kap Verde", "Kasachstan", "Katar", "Kenia", "Kirgisistan", "Kiribati", "Kolumbien", "Komoren", "Kongo, Demokratische Republik", "Kongo, Republik", "Korea, Nord", "Korea, Süd", "Kosovo", "Kroatien", "Kuba", "Kuwait", "Laos", "Lesotho", "Lettland", "Libanon", "Liberia", "Libyen", "Liechtenstein", "Litauen", "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marokko", "(ohne Westsahara)", "Marshallinseln", "Mauretanien", "Mauritius", "Mazedonien", "Mexiko", "Mikronesien", "Moldawien", "(mit Transnistrien)", "Monaco", "Mongolei", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nepal", "Neuseeland", "Nicaragua", "Königreich der Niederlande", "(ohne Curaçao, Sint Maarten und Aruba)", "Niger", "Nigeria", "Niue", "Nordzypern", "Norwegen", "(ohne Svalbard)", "Oman", "Österreich", "Osttimor / Timor-Leste", "Pakistan", "(ohne Kaschmir)", "Palästina", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal", "Ruanda", "Rumänien", "Russland", "Salomonen", "Sambia", "Samoa", "San Marino", "São Tomé und Príncipe", "Saudi-Arabien", "Schweden", "Schweiz", "Senegal", "Serbien", "(ohne Kosovo)", "Seychellen", "Sierra Leone", "Simbabwe", "Singapur", "Slowakei", "Slowenien", "Somalia", "(mit Somaliland)", "Somaliland", "Spanien", "Sri Lanka", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Südafrika", "Sudan", "Südossetien", "Südsudan", "Suriname", "Swasiland", "Syrien", "(mit Golanhöhen)", "Tadschikistan", "Tansania", "Thailand", "Togo", "Tonga", "Transnistrien", "Trinidad und Tobago", "Tschad", "Tschechien", "Tunesien", "Türkei", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstadt", "Venezuela", "Vereinigte Arabische Emirate", "Vereinigte Staaten", "(ohne Außengebiete)", "Vereinigtes Königreich", "Vietnam", "Weißrussland", "Westsahara", "Zentralafrikanische Republik", "Zypern"], @export_application.partly_rawgoods_supplier_country ? @export_application.partly_rawgoods_supplier_country : nil), {}, class: 'validate' %>
                                             </div>
                                             <div class="input-field col s12 m12">
                                                 <label>Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig sind.</label>
@@ -1367,8 +1401,8 @@
                                             <label>Haben Sie in der Vergangenheit schon einmal einen Antrag auf Hermesdeckung
                                                 eingereicht? </label>
                                             <p>
-                                                <label onclick="previouslyHermesInsuranceUsed()">
-                                                    <%= check_box_tag "export_application[has_previously_used_hermes_cover]", @export_application.has_previously_used_hermes_cover ? @export_application.has_previously_used_hermes_cover : nil, false, id: "export_application_has_previously_used_hermes_cover" %>
+                                                <label>
+                                                    <%= check_box_tag "export_application[has_previously_used_hermes_cover]", @export_application.has_previously_used_hermes_cover ? @export_application.has_previously_used_hermes_cover : nil, false, :onclick=>"previouslyHermesInsuranceUsed();", id: "export_application_has_previously_used_hermes_cover" %>
                                                     <span class="yes yes-no-btns">Ja</span>
                                                 </label>
 
@@ -1580,7 +1614,7 @@
 
                                 <div class="input-field col s12 m12">
                                     <label>
-                                        <input type="checkbox" required/>
+                                        <input type="checkbox"/>
                                         <span class="terms"> Die vorstehenden Angaben wurden von uns nach bestem Wissen und Gewissen und in
                                                         Kenntnisnahme der Erläuterungen gemacht.</span>
                                     </label>
@@ -1588,7 +1622,7 @@
 
                                 <div class="input-field col s12 m12">
                                     <label>
-                                        <input type="checkbox" required/>
+                                        <input type="checkbox"/>
                                         <span class="terms"> Wir akzeptieren die<a href="https://www.agaportal.de/_Resources/Persistent/3bfd6a43f17d04f9b34d523df323f0a44a9eaa17/ab_fab.pdf"> Allgemeinen Bedingungen für Lieferantenkreditdeckung(G) </a>
                                                     in Zusammenhang mit  <a href="https://www.agaportal.de/_Resources/Persistent/3bfd6a43f17d04f9b34d523df323f0a44a9eaa17/ab_fab.pdf"> den Ergänzenden Bestimmungen für Forderungsabtretungen.</a></span>
                                     </label>
@@ -1597,7 +1631,7 @@
                                 <div class="input-field col s12 m12">
                                     <%#= form.check_box :has_read_privacy_policy, type: "checkbox"%>
                                     <label>
-                                        <input type="checkbox" required/>
+                                        <input type="checkbox"/>
                                         <span class="terms"> <%= t("has_read_privacy_policy_html", href: link_to(t('has_read_privacy_policy_text'), t("has_read_privacy_policy_href"))) %> </span>
                                     </label>
                                 </div>
@@ -1605,7 +1639,7 @@
                                 <div class="input-field col s12 m12">
                                     <%#= form.check_box :has_read_all_instructions, :style => "width: 20px; height: 20px;" %>
                                     <label>
-                                        <input type="checkbox" required/>
+                                        <input type="checkbox"  />
                                         <span class="terms"> <%= t("read_all_instruction_html", href: link_to(t('read_all_instruction_text'), t("read_all_instruction_href"))) %> </span>
                                     </label>
                                 </div>
@@ -1642,8 +1676,6 @@
         $(this).toggleClass("active-btn");
         if ($(this).hasClass("yes")) {
             $(this).closest(".input-field").find(".hide-section").toggle();
-            $(".business-cert-no").show();
-            $(".business-cert-goods").hide();
             $(this).closest('p').find('.no.yes-no-btns').removeClass("active-btn");
         } else {
             $(this).closest(".input-field").find(".hide-section").hide();
@@ -1652,8 +1684,6 @@
     });
 
     $('.parts-goods').click(function (e) {
-        $(".business-cert-no").hide();
-        $(".business-cert-goods").show();
     });
 
     $(".financing-yes-no-btns").click(function (e) {
@@ -1673,7 +1703,7 @@
                 $(this).closest('.input-field').find('.main-content-' + i).hide();
             }
         }
-    })
+    });
 
     function changeTabs(curremt_tab_index) {
         $('.tab').hide();
@@ -1778,6 +1808,89 @@
         }
     }
 
+    function exporterExternalRatingFunction() {
+        var y = document.getElementById("exporterExternalRating");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#export_application_exporter_external_rating_available').prop('checked', true);
+    }
+
+    function noExporterExternalRatingFunction() {
+        var x = document.getElementById("exporterExternalRating");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#export_application_exporter_external_rating_available').prop('checked', false);
+    }
+
+    function importerExternalRatingFunction() {
+        var y = document.getElementById("importerExternalRating");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#export_application_importer_external_rating_available').prop('checked', true);
+    }
+
+    function noImporterExternalRatingFunction() {
+        var x = document.getElementById("importerExternalRating");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#export_application_importer_external_rating_available').prop('checked', false);
+    }
+
+    function controlledByMotherCompany() {
+        var y = document.getElementById("motherCompanyControl");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#export_application_is_company_controlled_by_mother_company').prop('checked', true);
+    }
+
+    function notControlledByMotherCompany() {
+        var x = document.getElementById("motherCompanyControl");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#export_application_is_company_controlled_by_mother_company').prop('checked', false);
+    }
+
+    function significantInfluenceOnImporter() {
+        var y = document.getElementById("significantInfluenceImporter");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#export_application_has_significant_influence_on_importer_management').prop('checked', true);
+    }
+
+    function noSignificantInfluenceOnImporter() {
+        var x = document.getElementById("significantInfluenceImporter");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#export_application_has_significant_influence_on_importer_management').prop('checked', false);
+    }
+
+    function noDeliveredAtThisAddress() {
+        $('#export_application_is_delivered_at_this_address').prop('checked', false);
+    }
+
+    function noPrivate_sector() {
+        $('#export_application_is_exporting_to_private_sector').prop('checked', false);
+    }
+
+    function noPaymentExperience() {
+        $('#export_application_has_payment_experience_with_importer').prop('checked', false);
+    }
 
     var $choice = jQuery('.choice');
 

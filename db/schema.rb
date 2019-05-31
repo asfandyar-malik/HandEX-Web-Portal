@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_30_184152) do
+ActiveRecord::Schema.define(version: 2019_05_31_093149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -282,8 +282,6 @@ ActiveRecord::Schema.define(version: 2019_05_30_184152) do
     t.string "exported_goods_type"
     t.string "explain_good_industry_type"
     t.boolean "is_delivered_part_of_consortium_with_other_companies", default: false
-    t.boolean "is_exporting_to_private_sctor", default: false
-    t.boolean "is_exporting_to_public_sector", default: false
     t.bigint "user_id"
     t.string "all_rawgoods_supplier_country"
     t.string "all_rawgoods_supplier_currency"
@@ -397,10 +395,10 @@ ActiveRecord::Schema.define(version: 2019_05_30_184152) do
     t.string "exporter_revenue"
     t.string "exporter_total_assets"
     t.string "exporter_last_fiscal_year"
-    t.boolean "external_rating_available"
+    t.boolean "exporter_external_rating_available", default: false
     t.string "exporter_rating"
-    t.string "rating_agency"
-    t.string "rating_issued_date"
+    t.string "exporter_rating_agency"
+    t.string "exporter_rating_issued_date"
     t.string "importer_address_line1"
     t.string "importer_address_line2"
     t.string "importer_company_registration_number"
@@ -408,7 +406,7 @@ ActiveRecord::Schema.define(version: 2019_05_30_184152) do
     t.string "importer_rating_agency"
     t.string "importer_rating_issued_date"
     t.string "importer_mother_company"
-    t.string "importer_company_corporate_form"
+    t.string "importer_mother_company_corporate_form"
     t.string "importer_industry"
     t.string "explain_product_service"
     t.string "sensitive_area_type"
@@ -420,6 +418,11 @@ ActiveRecord::Schema.define(version: 2019_05_30_184152) do
     t.string "describe_why_overhault_didnot_take_in_germany"
     t.string "all_rawgoods_supplier_amount"
     t.string "partly_rawgoods_supplier_amount"
+    t.boolean "importer_external_rating_available", default: false
+    t.boolean "is_delivered_at_this_address", default: false
+    t.boolean "is_exporting_to_private_sector", default: false
+    t.boolean "is_company_controlled_by_mother_company", default: false
+    t.string "importer_mother_company_industry"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
@@ -624,6 +627,7 @@ ActiveRecord::Schema.define(version: 2019_05_30_184152) do
     t.string "rating_agency"
     t.string "rating_issued_date"
     t.string "application_status"
+    t.boolean "is_delivered_at_this_address", default: false
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 
