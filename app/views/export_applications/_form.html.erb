@@ -387,22 +387,39 @@
                                         <label>Bitte beschreiben Sie Ihre Produkte und Ihre Leistungen </label>
                                         <%= form.text_field :explain_product_service, autofocus: true, class: "materialize-textarea custom-area", style: "height: 120px;" %>
                                     </div>
+
                                     <div class="input-field col s12 m12">
-                                        <div class="input-field col s12 m6 nopadding">
-                                            <label>Handelt es sich bei Ihre Ware um Investitionsgüter?</label>
+                                        <div class="input-field col s12 m12 nopadding">
+                                            <label> Handelt es sich bei Ihre Ware um Investitionsgüter? </label>
                                             <p>
-                                                <label for="Goods-yes"><input type="radio" id="Goods-yes" name="Goods-yes" value="No"/><span class="yes yes-no-btns">Ja</span></label><label for="Goods-no"><input type="radio" id="Goods-no" name="Goods-no" value="No"/><span class="no yes-no-btns">Nein</span></label>
+                                                <label>
+                                                    <%= check_box_tag "export_application[is_investment_good]", @export_application.is_investment_good ? @export_application.is_investment_good : nil, false, :onclick => "investmentGoods();", id: "export_application_is_investment_good" %>
+                                                    <span class="yes yes-no-btns">Ja</span>
+                                                </label>
+
+                                                <label onclick="noInvestmentGoods()">
+                                                    <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px" class="no yes-no-btns">Nein</span>
+                                                </label>
                                             </p>
                                         </div>
                                     </div>
+
                                     <div class="input-field col s12 m12">
-                                        <div class="input-field col s12 m6 nopadding">
-                                            <label>Erbringen Sie auch Leistungen (Montage, Schulungen vor Ort etc.)?</label>
+                                        <div class="input-field col s12 m12 nopadding">
+                                            <label> Erbringen Sie auch Leistungen (Montage, Schulungen vor Ort etc.)? </label>
                                             <p>
-                                                <label for="pro-service"><input type="radio" id="pro-service" name="pro-service" value="No"/><span class="yes yes-no-btns">Ja</span></label><label for="pro-service-no"><input type="radio" id="pro-service-no" name="natural4" value="No"/><span class="no yes-no-btns">Nein</span></label>
+                                                <label>
+                                                    <%= check_box_tag "export_application[exporter_offers_servicing_for_goods]", @export_application.exporter_offers_servicing_for_goods ? @export_application.exporter_offers_servicing_for_goods : nil, false, :onclick => "servicingForGoods();", id: "export_application_exporter_offers_servicing_for_goods" %>
+                                                    <span class="yes yes-no-btns">Ja</span>
+                                                </label>
+
+                                                <label onclick="noServicingForGoods()">
+                                                    <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px" class="no yes-no-btns">Nein</span>
+                                                </label>
                                             </p>
                                         </div>
                                     </div>
+
                                     <div class="input-field col s12">
                                         <label>Bitte ordnen Sie die von Ihnen zu liefernden Waren bzw. Dienstleistungen Ihrer Branche
                                             zu.</label>
@@ -410,28 +427,46 @@
 
                                     </div>
 
+
                                     <div class="input-field col s12 m12">
-                                        <div class="input-field col s12 m6 nopadding">
-                                            <label>Liefern/Leisten Sie im Rahmen eines Gesamtprojekts zusammen mit anderen
-                                                Unternehmen?</label>
+                                        <div class="input-field col s12 m12 nopadding">
+                                            <label> Liefern/Leisten Sie im Rahmen eines Gesamtprojekts zusammen mit anderen
+                                                Unternehmen? </label>
                                             <p>
-                                                <label for="pro-com"><input type="radio" id="pro-com" name="pro-com" value="No"/><span class="yes yes-no-btns">Ja</span></label><label for="pro-com-no"><input type="radio" id="pro-com-no" name="pro-com-no" value="No"/><span class="no yes-no-btns">Nein</span></label>
+                                                <label>
+                                                    <%= check_box_tag "export_application[is_delivered_part_of_consortium_with_other_companies]", @export_application.is_delivered_part_of_consortium_with_other_companies ? @export_application.is_delivered_part_of_consortium_with_other_companies : nil, false, :onclick => "deliveredPartOfConsortiumWithOtherCompanies();", id: "export_application_is_delivered_part_of_consortium_with_other_companies" %>
+                                                    <span class="yes yes-no-btns">Ja</span>
+                                                </label>
+
+                                                <label onclick="NoDeliveredPartOfConsortiumWithOtherCompanies()">
+                                                    <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px" class="no yes-no-btns">Nein</span>
+                                                </label>
                                             </p>
                                         </div>
                                     </div>
 
+                                    <div class="input-field col s12 m12">
+                                        <div class="input-field col s12 m12 nopadding">
+                                            <label>Betreffen Ihre Lieferungen bzw. Leistungen ein sensibles Gebiet?</label>
+                                            <p> Als sensible Gebiete gelten Nationalparks und andere durch nationales oder internationales Recht
+                                                geschützte Gebiete
+                                                sowie sensible Regionen von internationaler, nationaler oder regionaler Bedeutung.</p>
+                                            <p>
+                                            <p>
+                                                <label>
+                                                    <%= check_box_tag "export_application[does_delivery_affect_sensitive_areas]", @export_application.does_delivery_affect_sensitive_areas ? @export_application.does_delivery_affect_sensitive_areas : nil, false, :onclick => "deliveryAffectsSensitiveArea();", id: "export_application_does_delivery_affect_sensitive_areas" %>
+                                                    <span class="yes yes-no-btns">Ja</span>
+                                                </label>
 
+                                                <label onclick="NoDeliveryAffectsSensitiveArea()">
+                                                    <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px" class="no yes-no-btns">Nein</span>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </div>
 
-
-                                    <div class="input-field col s12">
-                                        <label>Betreffen Ihre Lieferungen bzw. Leistungen ein sensibles Gebiet?</label>
-                                        <p> Als sensible Gebiete gelten Nationalparks und andere durch nationales oder internationales Recht
-                                            geschützte Gebiete
-                                            sowie sensible Regionen von internationaler, nationaler oder regionaler Bedeutung.</p>
-                                        <p>
-                                            <label for="your-del"><input type="radio" id="your-del" name="your-del" value="No"/><span class="yes yes-no-btns">Ja</span></label><label for="your-del-no"><input type="radio" id="your-del-no" name="your-del-no" value="No"/><span class="no yes-no-btns">Nein</span></label>
-                                        </p>
-                                        <div class="row hide-section">
+                                    <div id="deliveryAffectsSensitiveArea" style="display: none">
+                                        <div class="row">
                                             <div class="input-field col s12">
                                                 <label>Um welche Art von sensibelen Gebiet handelt sich?</label>
                                                 <%= form.select :sensitive_area_type, options_for_select([t('please_select'), "Naturschutzgebiet", "Bedeutung für indigene Völker", "Archäologische oder kulturelle", "Sonstige"], @export_application.sensitive_area_type ? @export_application.sensitive_area_type : nil) %>
@@ -443,12 +478,25 @@
                                         </div>
                                     </div>
 
-                                    <div class="input-field col s12">
-                                        <label>Ist Ihr Export ausfuhrgenehmigungspflichtig?</label>
-                                        <p>
-                                            <label for="ex-auth"><input type="radio" id="ex-auth" name="ex-auth" value="No"/><span class="yes yes-no-btns">Ja</span></label><label for="ex-auth-no"><input type="radio" id="ex-auth-no" name="ex-auth-no" value="No"/><span class="no yes-no-btns">Nein</span></label>
-                                        </p>
-                                        <div class="row hide-section">
+                                    <div class="input-field col s12 m12">
+                                        <div class="input-field col s12 m12 nopadding">
+                                            <label>Ist Ihr Export ausfuhrgenehmigungspflichtig?</label>
+                                            <p>
+                                            <p>
+                                                <label>
+                                                    <%= check_box_tag "export_application[is_export_licence_needed]", @export_application.is_export_licence_needed ? @export_application.is_export_licence_needed : nil, false, :onclick => "exportLicenceNeeded();", id: "export_application_is_export_licence_needed" %>
+                                                    <span class="yes yes-no-btns">Ja</span>
+                                                </label>
+
+                                                <label onclick="noExportLicenceNeeded()">
+                                                    <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px" class="no yes-no-btns">Nein</span>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div id="originLicense" style="display: none">
+                                        <div class="row">
                                             <div class="input-field col s12">
                                                 <label>Aus welchen Vorschriften bzw. welchem Teil/Abschnitt der Ausfuhrliste ergibt sich die
                                                     Genehmigungspflicht?</label>
@@ -461,32 +509,52 @@
                                         </div>
                                     </div>
 
-                                    <div class="input-field col s12">
-                                        <label>Liefern Sie gebrauchte Ware?</label>
-                                        <p>
-                                            <label for="used-goods"><input type="radio" id="used-goods" name="used-goods" value="No"/><span class="yes yes-no-btns">Ja</span></label><label for="used-goods-no"><input type="radio" id="used-goods-no" name="used-goods-no" value="No"/><span class="no yes-no-btns">Nein</span></label>
-                                        </p>
+                                    <div class="input-field col s12 m12">
+                                        <div class="input-field col s12 m12 nopadding">
+                                            <label> Liefern Sie gebrauchte Ware?</label>
+                                            <p>
+                                                <label>
+                                                    <%= check_box_tag "export_application[are_secondhand_goods_delivered]", @export_application.are_secondhand_goods_delivered ? @export_application.are_secondhand_goods_delivered : nil, false, :onclick=>"deliverySecondHandGoods();", id: "export_application_are_secondhand_goods_delivered" %>
+                                                    <span class="yes yes-no-btns">Ja</span>
+                                                </label>
 
-                                        <div class="row hide-section">
-                                            <div class="input-field col s12 m6">
-                                                <label>Jahr der Fertigung</label>
-                                                <%= form.text_field :manufacture_year, autofocus: true, class: "materialize-textarea custom-area", style: "height: 120px;" %>
-                                            </div>
-                                            <div class="input-field col s12 m6">
-                                                <label>Restlebensdauer in Jahren</label>
-                                                <%= form.text_field :remaining_life, autofocus: true, class: "materialize-textarea custom-area", style: "height: 120px;" %>
-                                            </div>
+                                                <label onclick="noDeliverySecondHandGoods()">
+                                                    <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px" class="no yes-no-btns">Nein</span>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div id="deliverySecondHandGoods" style="display: none">
+                                        <div class="input-field col s12">
+                                            <label>Jahr der Fertigung</label>
+                                            <%= form.text_field :manufacture_year, autofocus: true, class: "materialize-textarea custom-area", style: "height: 120px;" %>
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <label>Restlebensdauer in Jahren</label>
+                                            <%= form.text_field :remaining_life, autofocus: true, class: "materialize-textarea custom-area", style: "height: 120px;" %>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="input-field col s12 m12">
+                                        <div class="input-field col s12 m12 nopadding">
+                                            <label>Wird die Ware vor dem Weiterverkauf überholt? </label>
+                                            <p>
+                                                <label>
+                                                    <%= check_box_tag "export_application[are_goods_overhauled]", @export_application.are_goods_overhauled ? @export_application.are_goods_overhauled : nil, false, :onclick=>"goodOverhauled();", id: "export_application_are_goods_overhauled" %>
+                                                    <span class="yes yes-no-btns">Ja</span>
+                                                </label>
+
+                                                <label onclick="NoGoodsOverhauled()">
+                                                    <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px" class="no yes-no-btns">Nein</span>
+                                                </label>
+                                            </p>
                                         </div>
                                     </div>
 
                                     <div class="input-field col s12">
-                                        <div class="input-field col s12 m6">
-                                            <label>Wird die Ware vor dem Weiterverkauf überholt?</label>
-                                            <p>
-                                                <label for="used-goods"><input type="radio" id="used-goods" name="used-goods" value="No"/><span class="yes yes-no-btns">Ja</span></label><label for="used-goods-no"><input type="radio" id="used-goods-no" name="used-goods-no" value="No"/><span class="no yes-no-btns">Nein</span></label>
-                                            </p>
-                                        </div>
-
                                         <div class="input-field col s12 m6">
                                             <label>Wo wird die Ware überholt?</label>
                                             <%= form.select :goods_overhaul_country, options_for_select([t('please_select'), "Afghanistan", "Ägypten", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Äquatorialguinea", "Argentinien", "Armenien", "Aserbaidschan", "Äthiopien", "Australien", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belgien", "Belize", "Benin", "Bergkarabach", "Bhutan", "Bolivien", "Bosnien und Herzegowina", "Botswana", "Brasilien", "Brunei", "Bulgarien", "Burkina Faso", "Burundi", "Chile", "Republik China", "Volksrepublik China", "mit Hongkong (HK) und Macao (MO)", "Cookinseln", "Costa Rica", "Dänemark", "mit Färöer (FO) und Grönland (GL)", "Deutschland", "Dominica", "Dominikanische Republik", "Dschibuti", "Ecuador", "El Salvador", "Elfenbeinküste", "Eritrea", "Estland", "Fidschi", "Finnland", "Frankreich", "(ohne Französische Überseegebiete)", "Gabun", "Gambia", "Georgien", "(mit Abchasien und Südossetien)", "Ghana", "Grenada", "Griechenland", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Indien", "(mit Kaschmir)", "Indonesien", "Irak", "Iran", "Irland", "Island", "Israel", "(ohne Gazastreifen, Golanhöhen und Westjordanland)", "Italien", "Jamaika", "Japan", "Jemen", "Jordanien", "Kambodscha", "Kamerun", "Kanada", "Kap Verde", "Kasachstan", "Katar", "Kenia", "Kirgisistan", "Kiribati", "Kolumbien", "Komoren", "Kongo, Demokratische Republik", "Kongo, Republik", "Korea, Nord", "Korea, Süd", "Kosovo", "Kroatien", "Kuba", "Kuwait", "Laos", "Lesotho", "Lettland", "Libanon", "Liberia", "Libyen", "Liechtenstein", "Litauen", "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marokko", "(ohne Westsahara)", "Marshallinseln", "Mauretanien", "Mauritius", "Mazedonien", "Mexiko", "Mikronesien", "Moldawien", "(mit Transnistrien)", "Monaco", "Mongolei", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nepal", "Neuseeland", "Nicaragua", "Königreich der Niederlande", "(ohne Curaçao, Sint Maarten und Aruba)", "Niger", "Nigeria", "Niue", "Nordzypern", "Norwegen", "(ohne Svalbard)", "Oman", "Österreich", "Osttimor / Timor-Leste", "Pakistan", "(ohne Kaschmir)", "Palästina", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal", "Ruanda", "Rumänien", "Russland", "Salomonen", "Sambia", "Samoa", "San Marino", "São Tomé und Príncipe", "Saudi-Arabien", "Schweden", "Schweiz", "Senegal", "Serbien", "(ohne Kosovo)", "Seychellen", "Sierra Leone", "Simbabwe", "Singapur", "Slowakei", "Slowenien", "Somalia", "(mit Somaliland)", "Somaliland", "Spanien", "Sri Lanka", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Südafrika", "Sudan", "Südossetien", "Südsudan", "Suriname", "Swasiland", "Syrien", "(mit Golanhöhen)", "Tadschikistan", "Tansania", "Thailand", "Togo", "Tonga", "Transnistrien", "Trinidad und Tobago", "Tschad", "Tschechien", "Tunesien", "Türkei", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstadt", "Venezuela", "Vereinigte Arabische Emirate", "Vereinigte Staaten", "(ohne Außengebiete)", "Vereinigtes Königreich", "Vietnam", "Weißrussland", "Westsahara", "Zentralafrikanische Republik", "Zypern"], @export_application.goods_overhaul_country ? @export_application.goods_overhaul_country : nil), {}, class: 'validate' %>
@@ -510,13 +578,24 @@
                                         <%= form.text_field :describe_why_overhault_didnot_take_in_germany, autofocus: true, class: "materialize-textarea custom-area", style: "height: 120px;" %>
                                     </div>
 
-                                    <div class="input-field col s12">
-                                        <label>Haben bereits alle Parteien den Vertrag für das Exportgeschäft unterzeichnet?</label>
+                                    <div class="input-field col s12 m12">
+                                        <div class="input-field col s12 m12 nopadding">
+                                            <label> Haben bereits alle Parteien den Vertrag für das Exportgeschäft unterzeichnet? </label>
+                                            <p>
+                                                <label>
+                                                    <%= check_box_tag "export_application[is_contract_already_signed_between_parties]", @export_application.is_contract_already_signed_between_parties ? @export_application.is_contract_already_signed_between_parties : nil, false, :onclick => "contractAlreadySignedBetweenParties();", id: "export_application_is_contract_already_signed_between_parties" %>
+                                                    <span class="yes yes-no-btns">Ja</span>
+                                                </label>
 
-                                        <p>
-                                            <label for="ex-business"><input type="radio" id="ex-business" name="ex-business" value="Yes"/><span class="yes yes-no-btns">Ja</span></label><label for="ex-business-no"><input type="radio" id="ex-business-no" name="ex-business-no" value="No"/><span class="no yes-no-btns">Nein</span></label>
-                                        </p>
-                                        <div class="row hide-section">
+                                                <label onclick="noContractAlreadySignedBetweenParties()">
+                                                    <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px" class="no yes-no-btns">Nein</span>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div id="contractSignedBetweenParties" style="display: none">
+                                        <div class="row">
                                             <div class="input-field col s12 m12">
                                                 <label>Bitte geben Sie das Abschlussdatum des Vertrags und optional eine interne Referenz
                                                     an.</label>
@@ -532,13 +611,25 @@
                                         </div>
                                     </div>
 
-                                    <div class="input-field col s12">
-                                        <label>Vereinbaren Sie mit Ihrem Vertragspartner eine besondere Vertragsstruktur
-                                            (Tochterunternehmen oder Preisgleitklausel?) </label>
-                                        <p>
-                                            <label for="spl-pricecl"><input type="radio" id="spl-pricecl" name="spl-pricecl" value="yes"/><span class="yes yes-no-btns">Ja</span></label><label for="spl-pricecl-no"><input type="radio" id="spl-pricecl-no" name="spl-pricecl-no" value="No"/><span class="no yes-no-btns">Nein</span></label>
-                                        </p>
-                                        <div class="row hide-section">
+                                    <div class="input-field col s12 m12">
+                                        <div class="input-field col s12 m12 nopadding">
+                                            <label> Vereinbaren Sie mit Ihrem Vertragspartner eine besondere Vertragsstruktur
+                                                (Tochterunternehmen oder Preisgleitklausel?) </label>
+                                            <p>
+                                                <label>
+                                                    <%= check_box_tag "export_application[has_special_contract_structure]", @export_application.has_special_contract_structure ? @export_application.has_special_contract_structure : nil, false, :onclick=>"specialContractStructure();", id: "export_application_has_special_contract_structure" %>
+                                                    <span class="yes yes-no-btns">Ja</span>
+                                                </label>
+
+                                                <label onclick="noSpecialContractStructure()">
+                                                    <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px" class="no yes-no-btns">Nein</span>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div id="explainStructure" style="display: none">
+                                        <div class="row">
                                             <div class="input-field col s12 m12">
                                                 <label>Bitte erklären Sie die Struktur im Detail.</label>
                                                 <div> <%= form.text_field :explain_special_structure, class: "materialize-textarea custom-area" %> </div>
@@ -595,13 +686,25 @@
                                         </div>
                                     </div>
 
-                                    <div class="input-field col s12">
-                                        <label>Versenden Sie Ihre Waren/Güter/Anlagen in mehreren Lieferungen?</label>
-                                        <p>
-                                            <label for="certificate-origin"><input type="radio" id="certificate-origin" name="certificate-origin" value="yes"/><span class="yes yes-no-btns">Ja</span></label><label for="certificate-origin-no"><input type="radio" id="certificate-origin-no" name="certificate-origin-no" value="No"/><span class="no yes-no-btns">Nein</span></label>
-                                        </p>
 
-                                        <div class="row hide-section">
+                                    <div class="input-field col s12 m12">
+                                        <div class="input-field col s12 m12 nopadding">
+                                            <label> Versenden Sie Ihre Waren/Güter/Anlagen in mehreren Lieferungen? </label>
+                                            <p>
+                                                <label>
+                                                    <%= check_box_tag "export_application[is_good_sent_in_multiple_deliveries]", @export_application.is_good_sent_in_multiple_deliveries ? @export_application.is_good_sent_in_multiple_deliveries : nil, false, :onclick=>"goodsSentMultipleDeliveries();", id: "export_application_is_good_sent_in_multiple_deliveries" %>
+                                                    <span class="yes yes-no-btns">Ja</span>
+                                                </label>
+
+                                                <label onclick="noGoodsSentMultipleDeliveries()">
+                                                    <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px" class="no yes-no-btns">Nein</span>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div id="GoodsSentMultipleDeliveries" style="display: none">
+                                        <div class="row">
                                             <div class="input-field col s12 m12">
                                                 <label>Bitte teilen Sie uns die Liefer- und ggf. Leistungstermine Ihres Exportgeschäftes
                                                     mit..</label>
@@ -742,20 +845,24 @@
                             <div class="form-content">
                                 <div class="row">
 
-                                    <div class="input-field col s12">
-                                        <label>Sind für Ihr Geschäft Sicherheiten vorgesehen?</label>
-                                        <p>
-                                            <label for="tran-yes">
-                                                <input type="radio" id="tran-yes" name="tran-yes" value="Yes"/>
-                                                <span class="yes yes-no-btns">Ja</span>
-                                            </label>
-                                            <label for="tran-no">
-                                                <input type="radio" id="tran-no" name="tran-no" value="No"/>
-                                                <span class="no yes-no-btns">Nein</span>
-                                            </label></p>
+                                    <div class="input-field col s12 m12">
+                                        <div class="input-field col s12 m12 nopadding">
+                                            <label> Sind für Ihr Geschäft Sicherheiten vorgesehen? </label>
+                                            <p>
+                                                <label>
+                                                    <%= check_box_tag "export_application[is_security_present_for_transaction]", @export_application.is_security_present_for_transaction ? @export_application.is_security_present_for_transaction : nil, false, :onclick=>"securityPresent();", id: "export_application_is_security_present_for_transaction" %>
+                                                    <span class="yes yes-no-btns">Ja</span>
+                                                </label>
 
-                                        <div class="row hide-section">
+                                                <label onclick="noSecurityPresent()">
+                                                    <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px" class="no yes-no-btns">Nein</span>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </div>
 
+                                    <div id="securityPresent" style="display: none">
+                                        <div class="row">
                                             <div class="input-field col s12">
                                                 <label> <%= t('security_type') %> </label>
                                             </div>
@@ -782,20 +889,23 @@
                                     </div>
 
                                     <div class="input-field col s12 m12">
-                                        <label><%= t('has_agreed_payment_term_already') %></label>
-                                        <p>
-                                            <label for="fanance-yes">
-                                                <input type="radio" id="fanance-yes" name="fanance-yes" value="fanance-yes"/>
-                                                <span class="yes yes-no-btns">Ja</span>
-                                            </label>
-                                            <label for="fanance-no">
-                                                <input type="radio" id="fanance-no" name="fanance-no" value="no"/>
-                                                <span class="no yes-no-btns">Nein</span>
-                                            </label>
-                                        </p>
+                                        <div class="input-field col s12 m12 nopadding">
+                                            <label> <%= t('has_agreed_payment_term_already') %> </label>
+                                            <p>
+                                                <label>
+                                                    <%= check_box_tag "export_application[has_agreed_payment_term_already]", @export_application.has_agreed_payment_term_already ? @export_application.has_agreed_payment_term_already : nil, false, :onclick=>"agreedTermOfPayments();", id: "export_application_has_agreed_payment_term_already" %>
+                                                    <span class="yes yes-no-btns">Ja</span>
+                                                </label>
 
-                                        <div class="row hide-section">
+                                                <label onclick="noAgreedTermOfPayments()">
+                                                    <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px" class="no yes-no-btns">Nein</span>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </div>
 
+                                    <div id="agreedTermsOfPayments" style="display: none">
+                                        <div class="row">
                                             <div class="input-field col s12 m12">
 
                                                 <div class="input-field col s12 m4 threecol" name="kurzfristigtermofpayment" onclick="kurzFristigTermOfPayment()">
@@ -1362,6 +1472,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    </div>
 
                                 </div>
                             </div>
@@ -1551,6 +1662,7 @@
                                     <label>Bitte geben Sie die Erklärung zur Korruptionsprävention ab.</label>
                                 </div>
                                 <div class="input-field col s12 greybox">
+
                                     <div class="input-field col s12 m12">
                                         <label>Beachtung gesetzlicher Vorschriften.</label>
                                         <p>Wir erklären, dass der Abschluss des Liefer- bzw. Leistungsgeschäfts nicht durch eine strafbare
@@ -1561,6 +1673,7 @@
                                             herbeigeführt
                                             werden wird.</p>
                                     </div>
+
                                     <div class="input-field col s12 m12">
                                         <label>Auskunftspflicht</label>
                                         <p>Uns ist bekannt, dass wir im Antragsverfahren und nach Übernahme der jeweils beantragten
@@ -1577,6 +1690,7 @@
                                             Grund und Höhe
                                             etwaiger Zahlungen an diese Personen.</p>
                                     </div>
+
                                     <div class="input-field col s12 m12">
                                         <label>Angaben zu Anklagen, strafrechtlichen und nicht-strafrechtlichen.</label>
                                         <p>Sanktionen sowie Ermittlungsverfahren und Sperrlisten
@@ -1586,6 +1700,7 @@
                                             eines
                                             Korruptionsdelikts</p>
                                     </div>
+
                                     <div class="input-field col s12 m12">
                                         <ul>
                                             <li>gegenwärtig vor einem staatlichen Gericht angeklagt oder</li>
@@ -1597,19 +1712,33 @@
                                             <li>auf einer Sperrliste einer internationalen Finanzorganisation aufgeführt.</li>
                                         </ul>
                                     </div>
+
                                     <div class="input-field col s12 m12">
-                                        <p>
-                                            <label for="yes20"><input type="checkbox" id="yes20" name="yes" value="Applies "/><span class="yes yes-no-btns">Trifft zu </span></label><label for="no20"><input type="checkbox" id="no20" name="no" value="Not apply"/><span class="no yes-no-btns">Trifft nicht zu</span></label>
-                                        </p>
-                                        <div class="row hide-section">
-                                            <div class="input-field col s12 m12">
+                                        <div class="input-field col s12 m12 nopadding">
+                                            <p>
+                                                <label>
+                                                    <%= check_box_tag "export_application[does_corruption_declaration_apply]", @export_application.does_corruption_declaration_apply ? @export_application.does_corruption_declaration_apply : nil, false, :onclick=>"corruptionDeclaration();", id: "export_application_does_corruption_declaration_apply" %>
+                                                    <span class="yes yes-no-btns">Trifft zu</span>
+                                                </label>
+
+                                                <label onclick="noCorruptionDeclaration()">
+                                                    <span style="font-size: 16px; padding-bottom: 11px; padding-top: 10px" class="no yes-no-btns">Trifft nicht zu</span>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div id="corruptionDeclaration" style="display: none">
+                                        <div class="row">
+                                            <div class="input-field col s12 m6">
                                                 <label>Bitte machen Sie Angaben zu den oben genannten Punkten in Bezug auf Anklage,
                                                     strafrechtliche oder nicht strafrechtliche Sanktionen sowie
-                                                    Vorbereitungs- und Sperrverfahren.</label>
-                                                <input type="text" class="validate">
+                                                    Vorbereitungs- und Sperrverfahren. </label>
+                                                <%= form.text_field :explain_corruption_sanctions, autofocus: true, class: "validate" %>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
 
                                 <div class="input-field col s12 m12">
@@ -1880,6 +2009,14 @@
         $('#export_application_has_significant_influence_on_importer_management').prop('checked', false);
     }
 
+    function investmentGoods() {
+        $('#export_application_is_investment_good').prop('checked', true);
+    }
+
+    function noInvestmentGoods() {
+        $('#export_application_is_investment_good').prop('checked', false);
+    }
+
     function noDeliveredAtThisAddress() {
         $('#export_application_is_delivered_at_this_address').prop('checked', false);
     }
@@ -1890,6 +2027,192 @@
 
     function noPaymentExperience() {
         $('#export_application_has_payment_experience_with_importer').prop('checked', false);
+    }
+
+    function servicingForGoods() {
+        $('#export_application_exporter_offers_servicing_for_goods').prop('checked', true);
+    }
+
+    function noServicingForGoods() {
+        $('#export_application_exporter_offers_servicing_for_goods').prop('checked', false);
+    }
+
+    function deliveredPartOfConsortiumWithOtherCompanies() {
+        $('#export_application_is_delivered_part_of_consortium_with_other_companies').prop('checked', true);
+    }
+
+    function NoDeliveredPartOfConsortiumWithOtherCompanies() {
+        $('#export_application_is_delivered_part_of_consortium_with_other_companies').prop('checked', false);
+    }
+
+    function deliveryAffectsSensitiveArea() {
+        var y = document.getElementById("deliveryAffectsSensitiveArea");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#export_application_does_delivery_affect_sensitive_areas').prop('checked', true);
+    }
+
+    function NoDeliveryAffectsSensitiveArea() {
+        var x = document.getElementById("deliveryAffectsSensitiveArea");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#export_application_does_delivery_affect_sensitive_areas').prop('checked', false);
+    }
+
+    function exportLicenceNeeded() {
+        var y = document.getElementById("originLicense");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#export_application_is_export_licence_needed').prop('checked', true);
+    }
+
+    function noExportLicenceNeeded() {
+        var x = document.getElementById("originLicense");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#export_application_is_export_licence_needed').prop('checked', false);
+    }
+
+    function deliverySecondHandGoods() {
+        var y = document.getElementById("deliverySecondHandGoods");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#export_application_are_secondhand_goods_delivered').prop('checked', true);
+    }
+
+    function noDeliverySecondHandGoods() {
+        var x = document.getElementById("deliverySecondHandGoods");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#export_application_are_secondhand_goods_delivered').prop('checked', false);
+    }
+
+    function goodsOverhauled() {
+        $('#export_application_are_goods_overhauled').prop('checked', true);
+    }
+
+    function NoGoodsOverhauled() {
+        $('#export_application_are_goods_overhauled').prop('checked', false);
+    }
+
+    function contractAlreadySignedBetweenParties() {
+        var y = document.getElementById("contractSignedBetweenParties");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#export_application_is_contract_already_signed_between_parties').prop('checked', true);
+    }
+
+    function noContractAlreadySignedBetweenParties() {
+        var x = document.getElementById("contractSignedBetweenParties");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#export_application_is_contract_already_signed_between_parties').prop('checked', false);
+    }
+
+    function specialContractStructure() {
+        var y = document.getElementById("explainStructure");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#export_application_has_special_contract_structure').prop('checked', true);
+    }
+
+    function noSpecialContractStructure() {
+        var x = document.getElementById("explainStructure");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#export_application_has_special_contract_structure').prop('checked', false);
+    }
+
+    function goodsSentMultipleDeliveries() {
+        var y = document.getElementById("GoodsSentMultipleDeliveries");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#export_application_is_good_sent_in_multiple_deliveries').prop('checked', true);
+    }
+
+    function noGoodsSentMultipleDeliveries() {
+        var x = document.getElementById("GoodsSentMultipleDeliveries");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#export_application_is_good_sent_in_multiple_deliveries').prop('checked', false);
+    }
+
+    function securityPresent() {
+        var y = document.getElementById("securityPresent");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#export_application_is_security_present_for_transaction').prop('checked', true);
+    }
+
+    function noSecurityPresent() {
+        var x = document.getElementById("securityPresent");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#export_application_is_security_present_for_transaction').prop('checked', false);
+    }
+
+    function agreedTermOfPayments() {
+        var y = document.getElementById("agreedTermsOfPayments");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#export_application_has_agreed_payment_term_already').prop('checked', true);
+    }
+
+    function noAgreedTermOfPayments() {
+        var x = document.getElementById("agreedTermsOfPayments");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#export_application_has_agreed_payment_term_already').prop('checked', false);
+    }
+
+    function corruptionDeclaration() {
+        var y = document.getElementById("corruptionDeclaration");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#export_application_does_corruption_declaration_apply').prop('checked', true);
+    }
+
+    function noCorruptionDeclaration() {
+        var x = document.getElementById("corruptionDeclaration");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#export_application_does_corruption_declaration_apply').prop('checked', false);
     }
 
     var $choice = jQuery('.choice');
