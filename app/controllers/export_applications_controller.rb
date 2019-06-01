@@ -23,12 +23,14 @@ class ExportApplicationsController < ApplicationController
   def create
       @export_application = current_user.export_applications.build(export_application_params)
       if params[:draft] == 'Entwurf speichern'
+        @export_application.application_status = 'draft_application'
         if @export_application.save
           redirect_to "/export_applications/" + @export_application.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert.'        else
           flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
           render :new
         end
       else
+        @export_application.application_status = 'new'
         if @export_application.save
           redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich erstellt.'
         else
@@ -42,6 +44,7 @@ class ExportApplicationsController < ApplicationController
   
   def update
     if params[:draft] == 'Entwurf speichern'
+      @export_application.application_status = 'draft_application'
       if @export_application.update(export_application_params)
         redirect_to "/export_applications/" + @export_application.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert.'
       else
@@ -49,6 +52,7 @@ class ExportApplicationsController < ApplicationController
         render :update
       end
     else
+      @export_application.application_status = 'new'
       if @export_application.update(export_application_params)
         redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich gespeichert.'
       else
