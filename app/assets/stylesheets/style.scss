@@ -382,6 +382,19 @@ nav {
   background-color: rgb(129, 207, 219);
 }
 
+.active_selection_card {
+  background-color: rgb(129, 207, 219);
+  color: white;
+}
+
+.active_selection_card  > label.active_selection_card_label {
+  color: white;
+}
+
+.active_selection_card:hover {
+  background-color: #2bbbad;
+}
+
 .handex-big-btn {
   width: 100%;
 }
