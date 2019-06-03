@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   scope "(:locale)", locale: /en|es|de/ do
     
         get '/:locale' => 'insurances#submitted_applications'
@@ -21,6 +20,7 @@ Rails.application.routes.draw do
         get 'pages/products' => 'pages#products'
         get 'pages/advice_insurance' => 'pages#advice_insurance'
         get 'pages/advice_credit' => 'pages#advice_credit'
+        get 'pages/advice_refinance' => 'pages#advice_refinance'
         get 'pages/invite_or_fill_yourself' => 'pages#invite_or_fill_yourself'
 
         resources :insurances do
@@ -36,6 +36,7 @@ Rails.application.routes.draw do
         resources :credits
         resources :invite_exporters
         resources :export_applications
+        resources :refinances
     end
     
     devise_for :users,

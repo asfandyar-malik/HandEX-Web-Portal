@@ -19,25 +19,48 @@ class InsurancesController < ApplicationController
     
     def edit
     end
-    
+
+
     def create
-        @insurance                    = current_user.insurances.build(insurance_params)
-        @insurance.application_status = "submitted_application"
-        if @insurance.save
-            UserMailer.with(user: current_user, insurance: @insurance).application_submit_email.deliver_now
-            redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich erstellt.'
+        @insurance = current_user.insurances.build(insurance_params)
+        if params[:draft] == 'Entwurf speichern'
+            @insurance.application_status = 'draft_application'
+            if @insurance.save
+                redirect_to "/insurances/" + @insurance.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert.'        else
+                                                                                                                                                         flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+                                                                                                                                                         render :new
+            end
         else
-            flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
-            render :new
+            @insurance.application_status = 'new'
+            if @insurance.save
+                redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich erstellt.'
+            else
+                flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+                render :new
+            end
+            # save as published
         end
+
     end
-    
+
     def update
-        if @insurance.update(insurance_params)
-            @insurance.application_status = "draft_application"
-            redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich aktualisiert.'
+        if params[:draft] == 'Entwurf speichern'
+            @insurance.application_status = 'draft_application'
+            if @insurance.update(insurance_params)
+                redirect_to "/insurances/" + @insurance.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert.'
+            else
+                flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+                render :update
+            end
         else
-            flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+            @insurance.application_status = 'new'
+            if @insurance.update(insurance_params)
+                redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich gespeichert.'
+            else
+                flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+                render :update
+            end
+            # save as published
         end
     end
     

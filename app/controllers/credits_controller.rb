@@ -19,27 +19,71 @@ class CreditsController < ApplicationController
   def edit
   end
 
+  # def create
+  #   @credit= current_user.credits.build(credit_params)
+  #   if @credit.save
+  #     redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich erstellt.'
+  #   else
+  #     flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+  #     render :new
+  #   end
+  # end
+  #
   def create
-    @credit= current_user.credits.build(credit_params)
-    if @credit.save
-      redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich erstellt.'
+    @credit = current_user.credits.build(credit_params)
+    if params[:draft] == 'Entwurf speichern'
+      @credit.application_status = 'draft_application'
+      if @credit.save
+        redirect_to "/credits/" + @credit.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert.'        else
+                                                                                                                                               flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+                                                                                                                                               render :new
+      end
     else
-      flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
-      render :new
+      @credit.application_status = 'new'
+      if @credit.save
+        redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich erstellt.'
+      else
+        flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+        render :new
+      end
+      # save as published
     end
+
   end
+
+  # def update
+  #   if @credit.update(credit_params)
+  #     redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich aktualisiert.'
+  #   else
+  #     flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+  #   end
+  # end
 
   def update
-    if @credit.update(credit_params)
-      redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich aktualisiert.'
+    if params[:draft] == 'Entwurf speichern'
+      @credit.application_status = 'draft_application'
+      if @credit.update(credit_params)
+        redirect_to "/credits/" + @credit.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert.'
+      else
+        flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+        render :update
+      end
     else
-      flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+      @credit.application_status = 'new'
+      if @credit.update(credit_params)
+        redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich gespeichert.'
+      else
+        flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+        render :update
+      end
+      # save as published
     end
   end
 
+  
   def destroy
     @credit.destroy
-    redirect_to export_applications_url, notice: 'Antrag wurde erfolgreich zerstört'
+    redirect_to credits_url, notice: 'Antrag wurde erfolgreich zerstört'
     head :no_content
   end
 

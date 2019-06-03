@@ -913,17 +913,17 @@
                                             <div class="input-field col s12 m12">
 
                                                 <div class="input-field col s12 m4 threecol" name="kurzfristigtermofpayment" onclick="kurzFristigTermOfPayment()">
-                                                    <label>Kurzfristig</label>
+                                                    <label class="active_selection_card_label">Kurzfristig</label>
                                                     <p>Bis zu 2 Jahre Kreditlaufzeit</p>
                                                 </div>
 
                                                 <div class="input-field col s12 m4 threecol" name="mitteltermofpayment" onclick="mittelTermOfPayment()">
-                                                    <label>Mittel-/langfristig</label>
+                                                    <label class="active_selection_card_label">Mittel-/langfristig</label>
                                                     <p>über 2 Jahre Kreditlaufzeit</p>
                                                 </div>
 
                                                 <div class="input-field col s12 m4 threecol" name="sonstigekurzfristigtermofpayment" onclick="sonstigeKurzFristigTermOfPayment()">
-                                                    <label>Sowohl kurzfristig als
+                                                    <label class="active_selection_card_label">Sowohl kurzfristig als
                                                         auch mittel-/langfristig</label>
                                                 </div>
                                             </div>
@@ -1873,6 +1873,10 @@
         var z = document.getElementById("BothTermOfPayment");
 
         if (x.style.display === "none") {
+            $("[name='kurzfristigtermofpayment']").addClass("active_selection_card");
+            $("[name='mitteltermofpayment']").removeClass("active_selection_card");
+            $("[name='sonstigekurzfristigtermofpayment']").removeClass("active_selection_card");
+
             x.style.display = "block";
             y.style.display = "none";
             z.style.display = "none";
@@ -1886,6 +1890,10 @@
         var y = document.getElementById("MidTermOfPayment");
         var z = document.getElementById("BothTermOfPayment");
         if (y.style.display === "none") {
+            $("[name='kurzfristigtermofpayment']").removeClass("active_selection_card");
+            $("[name='mitteltermofpayment']").addClass("active_selection_card");
+            $("[name='sonstigekurzfristigtermofpayment']").removeClass("active_selection_card");
+            y.class = "active";
             y.style.display = "block";
             z.style.display = "none";
             x.style.display = "none";
@@ -1900,6 +1908,9 @@
         var z = document.getElementById("BothTermOfPayment");
 
         if (z.style.display === "none") {
+            $("[name='kurzfristigtermofpayment']").removeClass("active_selection_card");
+            $("[name='mitteltermofpayment']").removeClass("active_selection_card");
+            $("[name='sonstigekurzfristigtermofpayment']").addClass("active_selection_card");
             z.style.display = "block";
             x.style.display = "none";
             y.style.display = "none";
