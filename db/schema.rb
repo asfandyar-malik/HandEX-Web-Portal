@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_093646) do
+ActiveRecord::Schema.define(version: 2019_06_04_154739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -414,7 +414,7 @@ ActiveRecord::Schema.define(version: 2019_06_03_093646) do
     t.string "manufacture_year"
     t.string "goods_overhaul_country"
     t.string "why_good_overhauled_abroad"
-    t.string "proportion_of_goods_overhauled_aborad"
+    t.string "proportion_of_goods_overhauled_abroad"
     t.string "describe_why_overhault_didnot_take_in_germany"
     t.string "all_rawgoods_supplier_amount"
     t.string "partly_rawgoods_supplier_amount"
@@ -423,6 +423,14 @@ ActiveRecord::Schema.define(version: 2019_06_03_093646) do
     t.boolean "is_exporting_to_private_sector", default: false
     t.boolean "is_company_controlled_by_mother_company", default: false
     t.string "importer_mother_company_industry"
+    t.boolean "exporter_offers_servicing_for_goods", default: false
+    t.string "does_delivery_affect_sensitive_areas"
+    t.boolean "are_goods_overhauled", default: false
+    t.boolean "does_corruption_declaration_appy", default: false
+    t.string "importer_tax_id"
+    t.string "explain_sensitive_area_type"
+    t.string "explain_special_structure"
+    t.string "exporter_date_founded"
     t.string "agreed_payments_amount_payment_term_short_2"
     t.string "agreed_payments_output_payment_term_short_2"
     t.string "agreed_payments_time_payment_term_short_2"
@@ -443,14 +451,6 @@ ActiveRecord::Schema.define(version: 2019_06_03_093646) do
     t.string "agreed_payments_currency_payment_term_short_3"
     t.string "agreed_payments_currency_payment_term_short_4"
     t.string "agreed_payments_currency_payment_term_short_5"
-    t.boolean "exporter_offers_servicing_for_goods", default: false
-    t.string "does_delivery_affect_sensitive_areas"
-    t.boolean "are_goods_overhauled", default: false
-    t.boolean "does_corruption_declaration_appy", default: false
-    t.string "importer_tax_id"
-    t.string "explain_sensitive_area_type"
-    t.string "explain_special_structure"
-    t.string "exporter_date_founded"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
