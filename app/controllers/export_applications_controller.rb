@@ -100,7 +100,7 @@ class ExportApplicationsController < ApplicationController
           :has_german_certificate_of_origin_for_only_parts_of_good, :all_rawgoods_supplier_country, :all_rawgoods_supplier_currency,
           :all_rawgoods_supplier_text, :why_all_foreign_rawgoods_necessary, :partly_rawgoods_supplier_country, :partly_rawgoods_supplier_currency, :partly_rawgoods_supplier_text,
           :why_partly_foreign_rawgoods_necessary, :is_security_present_for_transaction, :security_type, :security_type_name,
-          :proportion_of_good_covered_by_security, :when_security_received,
+          :proportion_of_good_covered_by_security, :when_security_received,:project_detailed_description,
 
           # # Ihr Kunde ----------------------------------------
           :importer_company_name, :importer_street_hno, :importer_plz, :importer_city, :importer_country, :is_shipment_address,

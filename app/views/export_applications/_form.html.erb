@@ -398,7 +398,7 @@
 
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m12 nopadding">
-                                            <label> Handelt es sich bei Ihre Ware um Investitionsgüter? </label>
+                                            <label> Handelt es sich bei Ihrer Ware um Investitionsgüter? </label>
                                             <p>
                                                 <label>
                                                     <%= check_box_tag "export_application[is_investment_good]", @export_application.is_investment_good ? @export_application.is_investment_good : nil, false, :onclick => "investmentGoods();", id: "export_application_is_investment_good" %>
@@ -436,22 +436,39 @@
                                     </div>
 
 
-                                    <div class="input-field col s12 m12">
-                                        <div class="input-field col s12 m12 nopadding">
-                                            <label> Liefern/Leisten Sie im Rahmen eines Gesamtprojekts zusammen mit anderen
-                                                Unternehmen? </label>
-                                            <p>
-                                                <label>
-                                                    <%= check_box_tag "export_application[is_delivered_part_of_consortium_with_other_companies]", @export_application.is_delivered_part_of_consortium_with_other_companies ? @export_application.is_delivered_part_of_consortium_with_other_companies : nil, false, :onclick => "deliveredPartOfConsortiumWithOtherCompanies();", id: "export_application_is_delivered_part_of_consortium_with_other_companies" %>
-                                                    <span class="yes yes-no-btns">Ja</span>
-                                                </label>
+                                  <div class="input-field col s12 m12">
+                                      <div class="input-field col s12 m12 nopadding">
+                                          <label> Liefern/Leisten Sie im Rahmen eines Gesamtprojekts zusammen mit anderen
+                                              Unternehmen? </label>
+                                          <p>
+                                              <label>
+                                                  <%= check_box_tag "export_application[is_delivered_part_of_consortium_with_other_companies]", @export_application.is_delivered_part_of_consortium_with_other_companies ? @export_application.is_delivered_part_of_consortium_with_other_companies : nil, false, :onclick => "deliveredPartOfConsortiumWithOtherCompanies();", id: "export_application_is_delivered_part_of_consortium_with_other_companies" %>
+                                                  <span class="yes yes-no-btns">Ja</span>
+                                              </label>
 
-                                                <label onclick="NoDeliveredPartOfConsortiumWithOtherCompanies()">
-                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns">Nein</span>
-                                                </label>
-                                            </p>
-                                        </div>
+                                              <label onclick="NoDeliveredPartOfConsortiumWithOtherCompanies()">
+                                                  <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns">Nein</span>
+                                              </label>
+                                          </p>
+                                      </div>
+                                  </div>
+
+                                  <div id="deliveredPartOfConsortiumWithOtherCompanies" style="display: none">
+                                    <div class="row">
+                                      <div class="input-field col s12 m12">
+                                        <label><%=t('project_detailed_description') %></label>
+                                        <%= form.text_area :project_detailed_description, autofocus: true, class: "validate", placeholder:"Bitte geben Sie hier eine detaillierte Beschreibung des Gesamtprojekts ein. Wichtig sind auch Informationen zur Struktur der Zusammenarbeit und ob Sie die Gesamtverantwortung tragen."%>
+                                      </div>
+<!--                                      <div class="input-field col s12">-->
+<!--                                        <label><%#=t('') %></label>-->
+                                        <%#= form.select :sensitive_area_type, options_for_select([t('please_select'), "Naturschutzgebiet", "Bedeutung für indigene Völker", "Archäologische oder kulturelle", "Sonstige"], @export_application.sensitive_area_type ? @export_application.sensitive_area_type : nil) %>
+<!--                                      </div>-->
+<!--                                      <div class="input-field col s12 m12">-->
+<!--                                        <label>Bitte konkretisieren Sie, um was für ein sensibeles Gebiet es sich handelt.</label>-->
+                                        <%#= form.text_area :explain_sensitive_area_type, autofocus: true, class: "validate" %>
+<!--                                      </div>-->
                                     </div>
+                                  </div>
 
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m12 nopadding">
@@ -2078,10 +2095,21 @@
     }
 
     function deliveredPartOfConsortiumWithOtherCompanies() {
+        var y = document.getElementById("deliveredPartOfConsortiumWithOtherCompanies");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
         $('#export_application_is_delivered_part_of_consortium_with_other_companies').prop('checked', true);
     }
 
     function NoDeliveredPartOfConsortiumWithOtherCompanies() {
+        // deliveredPartOfConsortiumWithOtherCompanies
+        var x = document.getElementById("deliveredPartOfConsortiumWithOtherCompanies");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
         $('#export_application_is_delivered_part_of_consortium_with_other_companies').prop('checked', false);
     }
 
