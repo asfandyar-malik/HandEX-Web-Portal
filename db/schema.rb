@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_093646) do
+ActiveRecord::Schema.define(version: 2019_06_04_191916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -451,6 +451,7 @@ ActiveRecord::Schema.define(version: 2019_06_03_093646) do
     t.string "explain_sensitive_area_type"
     t.string "explain_special_structure"
     t.string "exporter_date_founded"
+    t.string "project_detailed_description"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
