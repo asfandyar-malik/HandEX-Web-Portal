@@ -3,7 +3,11 @@
 <nav class="black z-depth-0">
     <div class="nav-wrapper">
         <span class="nav-title">ANTRÄGE</span>
-        <a class="z-depth-0 btn z-depth-0 handex-btn waves-" href="/pages/invite_or_fill_yourself">Antrag starten</a>
+        <% if current_user.is_broker? %>
+            <a class="z-depth-0 btn z-depth-0 handex-btn waves-" href="/pages/invite_or_fill_yourself">Antrag starten</a>
+        <% else %>
+            <a class="z-depth-0 btn z-depth-0 handex-btn waves-" href="/pages/products">Antrag starten</a>
+        <% end %>
         <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= draft_applications_insurance_path(current_user.id) %>" >Entwürfe</a>
 <!--        <a class="z-depth-0 btn handex-btn rounded inactive">Aktion</a>-->
         <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= submitted_applications_insurance_path(current_user.id) %>">Versendet</a>
