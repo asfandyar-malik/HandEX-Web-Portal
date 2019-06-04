@@ -399,6 +399,14 @@ nav {
   width: 100%;
 }
 
+.handex-nav-button {
+  width:30%;
+}
+
+.handex-nav-button:hover {
+  background-color: #2bbbad;
+}
+
 .handex-nav-icon {
   margin-top: 5px;
 }
@@ -543,4 +551,8 @@ nav ul a:hover {
 
 .section {
   padding-top:0.5em;
+}
+
+input.file-path {
+  border:red;
 }

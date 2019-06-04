@@ -49,7 +49,8 @@
                             <div class="form-nav right">
 <!--                                <a href="#">Entwurf speichern</a>-->
                                 <input class="btn handex-btn z-depth-0" type="submit" name="draft" value="Entwurf speichern">
-                                <span class="next" tab_index="2">Weiter</span>
+                                <input class="btn handex-btn z-depth-0 next handex-nav-button" tab_index="2" type="navigator" value="Weiter">
+<!--                                <span class="next" tab_index="2">Weiter</span>-->
                             </div>
                         </div>
                     </div>
@@ -174,7 +175,8 @@
                             <div class="form-nav right">
 <!--                                <a href="#">Entwurf speichern</a>-->
                                 <input class="btn handex-btn z-depth-0" type="submit" name="draft" value="Entwurf speichern">
-                                <span class="next" tab_index="3">Weiter</span>
+                              <input class="btn handex-btn z-depth-0 next handex-nav-button" tab_index="3" type="navigator" value="Weiter">
+<!--                                <span class="next" tab_index="3">Weiter</span>-->
                             </div>
                         </div>
                     </div>
@@ -367,7 +369,8 @@
                             <div class="form-nav right">
 <!--                                <a href="#">Entwurf speichern</a>-->
                               <input class="btn handex-btn z-depth-0" type="submit" name="draft" value="Entwurf speichern">
-                              <span class="next" tab_index="4">Weiter</span>
+                              <input class="btn handex-btn z-depth-0 next handex-nav-button" tab_index="4" type="navigator" value="Weiter">
+<!--                              <span class="next" tab_index="4">Weiter</span>-->
                             </div>
                         </div>
                     </div>
@@ -840,7 +843,8 @@
                             <div class="form-nav right">
 <!--                                <a href="#">Entwurf speichern</a>-->
                                 <input class="btn handex-btn z-depth-0" type="submit" name="draft" value="Entwurf speichern">
-                                <span class="next" tab_index="5">Weiter</span>
+                              <input class="btn handex-btn z-depth-0 next handex-nav-button" tab_index="5" type="navigator" value="Weiter">
+<!--                                <span class="next" tab_index="5">Weiter</span>-->
                             </div>
                         </div>
                     </div>
@@ -1570,12 +1574,12 @@
                                             <div class="btn handex-btn z-depth-0">
                                                 <span>Browse</span>
                                                 <%= form.file_field :self_disclosure %>
-                                                <input type="file" class="dropify" data-height="300"/>
+                                                <input type="file" data-height="300"/>
                                             </div>
 
                                             <div class="file-path-wrapper">
-                                                <input class="file-path validate" type="text"
-                                                       placeholder="Upload file"/>
+                                                <input class="file-path validate" placeholder="Upload file"
+                                                       type="text"/>
                                             </div>
                                         </div>
                                     </div>
@@ -1587,7 +1591,7 @@
                                             <div class="btn handex-btn z-depth-0">
                                                 <span>Browse</span>
                                                 <%= form.file_field :annual_financial_statement_importer %>
-                                                <input type="file" class="dropify" data-height="300"/>
+                                                <input type="file" data-height="300"/>
                                             </div>
 
                                             <div class="file-path-wrapper">
@@ -1604,7 +1608,7 @@
                                             <div class="btn handex-btn z-depth-0">
                                                 <span>Browse</span>
                                                 <%= form.file_field :environment_social_audit %>
-                                                <input type="file" class="dropify" data-height="300"/>
+                                                <input type="file" data-height="300"/>
                                             </div>
 
                                             <div class="file-path-wrapper">
@@ -1620,7 +1624,7 @@
                                             <div class="btn handex-btn z-depth-0">
                                                 <span>Browse</span>
                                                 <%= form.file_field :project_memorandum_exporter_business %>
-                                                <input type="file" class="dropify" data-height="300"/>
+                                                <input type="file" data-height="300"/>
                                             </div>
 
                                             <div class="file-path-wrapper">
