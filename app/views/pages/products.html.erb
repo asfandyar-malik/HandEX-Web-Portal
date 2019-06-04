@@ -58,7 +58,7 @@
 
                                     <% if current_user.is_broker? %>
                                         <a href="/pages/advice" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
-                                        Geht's</a>
+                                            Geht's</a>
                                     <% else %>
                                         <a href="/export_applications/new" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
                                             Geht's</a>
@@ -78,50 +78,55 @@
                                 </div>
                             </div>
                             <div class="card-content center-align light-hint">
-                                <p>Hier beantragen Sie eine Finanzierung für eine bereits vorhandene Euler Hermes Versicherung</p>
+                                <p style="color: red"> In kürze verfügbar </p>
                             </div>
                             <div class="card-action">
                                 <div class="input-field col s12 center-align">
 
-                                    <% if current_user.is_broker? %>
-                                        <a href="/pages/advice_credit" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
-                                        Geht's</a>
-                                    <% else %>
-                                        <a href="/credits/new" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
-                                            Geht's</a>
-                                    <% end %>
+                                    <%# if current_user.is_broker? %>
+<!--                                        <a href="/pages/advice_credit" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los-->
+<!--                                            Geht's</a>-->
+                                    <%# else %>
+<!--                                        <a href="/credits/new" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los-->
+<!--                                            Geht's</a>-->
+                                    <%# end %>
 
+                                    <a href="#" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
+                                        Geht's</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                  <div class="col s4 m6">
-                    <div class="card medium handex-medium choice-card">
-                      <div class="card-title valign-wrapper">
-                        <%= image_tag "financing.png" %>
-                        <div class="title-text">
-                          <strong><%= t('refinancing_receivables') %></strong>
-                        </div>
-                      </div>
-                      <div class="card-content center-align light-hint">
-                        <p>Hier beantragen Sie eine Finanzierung für eine bereits vorsendete Lieferung</p>
-                      </div>
-                      <div class="card-action">
-                        <div class="input-field col s12 center-align">
+                    <div class="col s4 m6">
+                        <div class="card medium handex-medium choice-card">
+                            <div class="card-title valign-wrapper">
+                                <%= image_tag "financing.png" %>
+                                <div class="title-text">
+                                    <strong><%= t('refinancing_receivables') %></strong>
+                                </div>
+                            </div>
+                            <div class="card-content center-align light-hint">
+                                <p style="color: red"> In kürze verfügbar </p>
+                            </div>
+                            <div class="card-action">
+                                <div class="input-field col s12 center-align">
 
-                          <% if current_user.is_broker? %>
-                            <a href="/pages/advice_credit" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
-                              Geht's</a>
-                          <% else %>
-                            <a href="/credits/new" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
-                              Geht's</a>
-                          <% end %>
+                                    <%# if current_user.is_broker? %>
+<!--                                        <a href="/pages/advice_credit" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los-->
+<!--                                            Geht's</a>-->
+                                    <%# else %>
+<!--                                        <a href="/credits/new" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los-->
+<!--                                            Geht's</a>-->
+                                    <%# end %>
 
+                                    <a href="#" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
+                                        Geht's</a>
+
+                                </div>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
 
                 </div>
             </div>
