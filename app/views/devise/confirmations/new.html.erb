@@ -4,7 +4,8 @@
             <div class="col s12 m6">
                 <div class="text-section black-text">
                     <a class="smooth"><%= image_tag "HandEX_logo4.png", style: 'height:5em;width:auto;' %></a>
-                    <h4>Bestätigungsanweisungen erneut senden</h4>
+                    <h4>Registrierungsemail erneut senden</h4>
+                    <p>Sollten Sie keine Email erhalten haben, geben Sie ihre Email erneut ein.</p>
                 </div>
             </div>
             <div class="col s12 m6">
@@ -18,7 +19,7 @@
                         </div>
 
                         <div class="actions">
-                            <%= f.submit "Bestätigungsanweisungen erneut senden", id: "submit", class: "btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" %>
+                            <%= f.submit "Registrierungsemail erneut senden", id: "submit", class: "btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" %>
                         </div>
                     <% end %>
                     <%= render "devise/shared/links" %>
