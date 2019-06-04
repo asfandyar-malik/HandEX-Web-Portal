@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_200447) do
+ActiveRecord::Schema.define(version: 2019_06_04_210019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -452,7 +452,7 @@ ActiveRecord::Schema.define(version: 2019_06_04_200447) do
     t.string "explain_special_structure"
     t.string "exporter_date_founded"
     t.string "project_detailed_description"
-    t.string "is_fully_responsible_for_project"
+    t.boolean "is_fully_responsible_for_project"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 

@@ -402,11 +402,11 @@
                                             <p>
                                                 <label>
                                                     <%= check_box_tag "export_application[is_investment_good]", @export_application.is_investment_good ? @export_application.is_investment_good : nil, false, :onclick => "investmentGoods();", id: "export_application_is_investment_good" %>
-                                                    <span class="yes yes-no-btns">Ja</span>
+                                                    <span class="yes yes-no-btns <%= 'active-btn' if @export_application.is_investment_good %>">Ja</span>
                                                 </label>
 
                                                 <label onclick="noInvestmentGoods()">
-                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns">Nein</span>
+                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if not @export_application.is_investment_good %>">Nein</span>
                                                 </label>
                                             </p>
                                         </div>
@@ -418,11 +418,11 @@
                                             <p>
                                                 <label>
                                                     <%= check_box_tag "export_application[exporter_offers_servicing_for_goods]", @export_application.exporter_offers_servicing_for_goods ? @export_application.exporter_offers_servicing_for_goods : nil, false, :onclick => "servicingForGoods();", id: "export_application_exporter_offers_servicing_for_goods" %>
-                                                    <span class="yes yes-no-btns">Ja</span>
+                                                    <span class="yes yes-no-btns <%= 'active-btn' if @export_application.exporter_offers_servicing_for_goods %>">Ja</span>
                                                 </label>
 
                                                 <label onclick="noServicingForGoods()">
-                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns">Nein</span>
+                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if not @export_application.exporter_offers_servicing_for_goods %>">Nein</span>
                                                 </label>
                                             </p>
                                         </div>
@@ -443,11 +443,11 @@
                                           <p>
                                               <label>
                                                   <%= check_box_tag "export_application[is_delivered_part_of_consortium_with_other_companies]", @export_application.is_delivered_part_of_consortium_with_other_companies ? @export_application.is_delivered_part_of_consortium_with_other_companies : nil, false, :onclick => "deliveredPartOfConsortiumWithOtherCompanies();", id: "export_application_is_delivered_part_of_consortium_with_other_companies" %>
-                                                  <span class="yes yes-no-btns">Ja</span>
+                                                  <span class="yes yes-no-btns <%= 'active-btn' if @export_application.is_delivered_part_of_consortium_with_other_companies %>">Ja</span>
                                               </label>
 
                                               <label onclick="NoDeliveredPartOfConsortiumWithOtherCompanies()">
-                                                  <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns">Nein</span>
+                                                  <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns  <%= 'active-btn' if not @export_application.is_delivered_part_of_consortium_with_other_companies %>">Nein</span>
                                               </label>
                                           </p>
                                       </div>
@@ -458,6 +458,21 @@
                                       <div class="input-field col s12 m12">
                                         <label><%=t('project_detailed_description') %></label>
                                         <%= form.text_area :project_detailed_description, autofocus: true, class: "validate", placeholder:"Bitte geben Sie hier eine detaillierte Beschreibung des Gesamtprojekts ein. Wichtig sind auch Informationen zur Struktur der Zusammenarbeit und ob Sie die Gesamtverantwortung tragen."%>
+                                      </div>
+                                      <div class="input-field col s12 m12">
+                                        <div class="input-field col s12 m12 nopadding">
+                                          <label><%= t('is_fully_responsible_for_project') %></label>
+                                          <p>
+                                            <label>
+                                              <%= check_box_tag "export_application[is_fully_responsible_for_project]", @export_application.is_fully_responsible_for_project ? @export_application.is_fully_responsible_for_project : nil, false, :onclick => "isFullyResponsibleForProject();", id: "is_fully_responsible_for_project" %>
+                                              <span class="yes yes-no-btns <%= 'active-btn' if @export_application.is_fully_responsible_for_project %>">Ja</span>
+                                            </label>
+
+                                            <label onclick="isNotFullyResponsibleForProject()">
+                                              <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if not @export_application.is_fully_responsible_for_project %>">Nein</span>
+                                            </label>
+                                          </p>
+                                        </div>
                                       </div>
 <!--                                      <div class="input-field col s12">-->
 <!--                                        <label><%#=t('') %></label>-->
@@ -480,11 +495,11 @@
                                             <p>
                                                 <label>
                                                     <%= check_box_tag "export_application[does_delivery_affect_sensitive_areas]", @export_application.does_delivery_affect_sensitive_areas ? @export_application.does_delivery_affect_sensitive_areas : nil, false, :onclick => "deliveryAffectsSensitiveArea();", id: "export_application_does_delivery_affect_sensitive_areas" %>
-                                                    <span class="yes yes-no-btns">Ja</span>
+                                                    <span class="yes yes-no-btns <%= 'active-btn' if @export_application.does_delivery_affect_sensitive_areas %>">Ja</span>
                                                 </label>
 
                                                 <label onclick="NoDeliveryAffectsSensitiveArea()">
-                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns">Nein</span>
+                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if not @export_application.does_delivery_affect_sensitive_areas %>">Nein</span>
                                                 </label>
                                             </p>
                                         </div>
@@ -510,11 +525,11 @@
                                             <p>
                                                 <label>
                                                     <%= check_box_tag "export_application[is_export_licence_needed]", @export_application.is_export_licence_needed ? @export_application.is_export_licence_needed : nil, false, :onclick => "exportLicenceNeeded();", id: "export_application_is_export_licence_needed" %>
-                                                    <span class="yes yes-no-btns">Ja</span>
+                                                    <span class="yes yes-no-btns  <%= 'active-btn' if @export_application.is_export_licence_needed %>">Ja</span>
                                                 </label>
 
                                                 <label onclick="noExportLicenceNeeded()">
-                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns">Nein</span>
+                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if not @export_application.is_export_licence_needed %>">Nein</span>
                                                 </label>
                                             </p>
                                         </div>
@@ -540,11 +555,11 @@
                                             <p>
                                                 <label>
                                                     <%= check_box_tag "export_application[are_secondhand_goods_delivered]", @export_application.are_secondhand_goods_delivered ? @export_application.are_secondhand_goods_delivered : nil, false, :onclick => "deliverySecondHandGoods();", id: "export_application_are_secondhand_goods_delivered" %>
-                                                    <span class="yes yes-no-btns">Ja</span>
+                                                    <span class="yes yes-no-btns <%= 'active-btn' if @export_application.are_secondhand_goods_delivered %>">Ja</span>
                                                 </label>
 
                                                 <label onclick="noDeliverySecondHandGoods()">
-                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns">Nein</span>
+                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if not @export_application.are_secondhand_goods_delivered %>">Nein</span>
                                                 </label>
                                             </p>
                                         </div>
@@ -568,12 +583,11 @@
                                             <p>
                                                 <label>
                                                     <%= check_box_tag "export_application[are_goods_overhauled]", @export_application.are_goods_overhauled ? @export_application.are_goods_overhauled : nil, false, :onclick => "goodOverhauled();", id: "export_application_are_goods_overhauled" %>
-                                                    <span class="yes yes-no-btns">Ja</span>
+                                                    <span class="yes yes-no-btns <%= 'active-btn' if @export_application.are_goods_overhauled %>">Ja</span>
                                                 </label>
 
                                                 <label onclick="NoGoodsOverhauled()">
-                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns">Nein</span>
-                                                </label>
+                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if not @export_application.are_goods_overhauled %>">Nein</span>
                                             </p>
                                         </div>
                                     </div>
@@ -2148,6 +2162,15 @@
         }
         $('#export_application_is_export_licence_needed').prop('checked', false);
     }
+
+    function isFullyResponsibleForProject() {
+        $('#is_fully_responsible_for_project').prop('checked', true);
+    }
+
+    function isNotFullyResponsibleForProject() {
+        $('#is_fully_responsible_for_project').prop('checked', false);
+    }
+
 
     function deliverySecondHandGoods() {
         var y = document.getElementById("deliverySecondHandGoods");
