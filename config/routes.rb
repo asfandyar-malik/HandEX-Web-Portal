@@ -8,7 +8,8 @@ Rails.application.routes.draw do
         
         get 'pages/landing' => 'pages#landing'
         get 'pages/impressum' => 'pages#impressum'
-        get 'pages/termsAndConditions' => 'pages#termsAndConditions'
+        get 'pages/terms_and_conditions' => 'pages#terms_and_conditions'
+        get 'pages/registration_terms_and_conditions' => 'pages#registration_terms_and_conditions'
         get 'pages/submitted_application' => 'pages#submitted_application'
         get 'pages/guidelines' => 'pages#guidelines'
         get 'pages/advice' => 'pages#advice'
