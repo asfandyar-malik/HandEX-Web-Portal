@@ -20,15 +20,15 @@
                         <div class="card medium handex-medium choice-card">
 
                             <div class="card-title valign-wrapper">
-                                <%= image_tag "insurance.png" %>
+                                <%= image_tag "insurance.png", class: "activator" %>
                             </div>
 
                             <% if current_user.is_broker? %>
 
                                 <div class="card-content">
                                     <span class="card-title activator grey-text text-darken-4">
-                                        <strong>Exportkreditversicherung</strong>
-                                        <i class="material-icons right">more_vert</i>
+                                        <strong>Exportkreditversicherung</strong><br>
+                                        <span class="activator" style="font-size: 15px"> Lieferantenkreditdeckung (Hermesdeckung) für eine zukünftige ... </span>
                                     </span>
                                     <div class="input-field col s12 center-align">
                                         <a href="/pages/advice_insurance" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
@@ -49,9 +49,10 @@
 
                                 <div class="card-content">
                                     <span class="card-title activator grey-text text-darken-4">
-                                        <strong>Exportkreditversicherung</strong>
-                                        <i class="material-icons right">more_vert</i>
+                                        <strong>Exportkreditversicherung</strong><br>
+                                        <span class="activator" style="font-size: 15px"> Sie möchten sich gegen Zahlungsausfall Ihres internationalen Kunden absichern? ...</span>
                                     </span>
+
                                     <div class="input-field col s12 center-align">
                                         <a href="/insurances/new" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
                                             Geht's</a>
@@ -75,16 +76,17 @@
                         <div class="card medium handex-medium choice-card">
 
                             <div class="card-title valign-wrapper">
-                                <%= image_tag "versicherung_finanzierung.png", :class => "multi_image" %>
+                                <%= image_tag "versicherung_finanzierung.png", :class => "activator multi_image" %>
                             </div>
 
                             <% if current_user.is_broker? %>
 
                                 <div class="card-content">
                                     <span class="card-title activator grey-text text-darken-4">
-                                        <strong>Gedeckter Exportkredit</strong>
-                                        <i class="material-icons right">more_vert</i>
+                                        <strong>Gedeckter Exportkredit</strong><br>
+                                        <span class="activator" style="font-size: 15px"> Hermesgedeckte Forfaitierung für zukünftige Exportlieferungen Ihres Kunden... </span>
                                     </span>
+
                                     <div class="input-field col s12 center-align">
                                         <a href="/pages/advice" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
                                             Geht's</a>
@@ -105,9 +107,10 @@
 
                                 <div class="card-content">
                                     <span class="card-title activator grey-text text-darken-4">
-                                        <strong>Gedeckter Exportkredit</strong>
-                                        <i class="material-icons right">more_vert</i>
+                                        <strong>Gedeckter Exportkredit</strong><br>
+                                        <span class="activator" style="font-size: 15px">Sie möchten Ihrem Kunden ein langes Zahlungsziel (>120 Tage) einräumen ... </span>
                                     </span>
+
                                     <div class="input-field col s12 center-align">
                                         <a href="/export_applications/new" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
                                             Geht's</a>
@@ -131,16 +134,17 @@
                         <div class="card medium handex-medium choice-card">
 
                             <div class="card-title valign-wrapper">
-                                <%= image_tag "financing.png" %>
+                                <%= image_tag "financing.png", class: "activator" %>
                             </div>
 
                             <% if current_user.is_broker? %>
 
                                 <div class="card-content">
                                     <span class="card-title activator grey-text text-darken-4">
-                                        <strong>Exportkredit</strong>
-                                        <i class="material-icons right">more_vert</i>
+                                        <strong>Exportkredit</strong><br>
+                                        <span class="activator" style="font-size: 15px"> Kunde hat bereits eine Euler Hermes Deckung oder andere ... </span>
                                     </span>
+
                                     <p style="color: red; text-align: center"> In Kürze verfügbar </p>
 
                                     <div class="input-field col s12 center-align">
@@ -162,9 +166,10 @@
 
                                 <div class="card-content">
                                     <span class="card-title activator grey-text text-darken-4">
-                                        <strong>Exportkredit</strong>
-                                        <i class="material-icons right">more_vert</i>
+                                        <strong>Exportkredit</strong><br>
+                                        <span class="activator" style="font-size: 15px"> Sie haben bereits eine Hermesdeckung für noch zu exportierende Ware und möchten ... </span>
                                     </span>
+
                                     <p style="color: red; text-align: center"> In Kürze verfügbar </p>
 
                                     <div class="input-field col s12 center-align">
@@ -191,15 +196,15 @@
                         <div class="card medium handex-medium choice-card">
 
                             <div class="card-title valign-wrapper">
-                                <%= image_tag "financing.png" %>
+                                <%= image_tag "financing.png", class: "activator" %>
                             </div>
 
                             <% if current_user.is_broker? %>
 
                                 <div class="card-content">
                                     <span class="card-title activator grey-text text-darken-4">
-                                            <strong><%= t('refinancing_receivables') %></strong>
-                                        <i class="material-icons right">more_vert</i>
+                                        <strong><%= t('refinancing_receivables') %></strong>
+                                        <span class="activator" style="font-size: 15px"> Refinanzierung bestehender Forderungen aus Exportgeschäften Ihrer Kunden ... </span>
                                     </span>
                                     <p style="color: red; text-align: center"> In Kürze verfügbar </p>
 
@@ -222,9 +227,10 @@
 
                                 <div class="card-content">
                                     <span class="card-title activator grey-text text-darken-4">
-                                            <strong><%= t('refinancing_receivables') %></strong>
-                                        <i class="material-icons right">more_vert</i>
+                                        <strong><%= t('refinancing_receivables') %></strong>
+                                        <span class="activator" style="font-size: 15px"> Sie haben bereits an Ihren Kunden geliefert und möchten nicht mehrauf Zahlungen ... </span>
                                     </span>
+
                                     <p style="color: red; text-align: center"> In Kürze verfügbar </p>
                                     <div class="input-field col s12 center-align">
                                         <a href="#" class="btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" name="action">Los
