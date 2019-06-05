@@ -78,7 +78,7 @@ class ExportApplicationsController < ApplicationController
     end
 
     def all_applications
-        @all_applications = current_user.insurances
+        @all_applications = current_user.export_applications
     end
     
     private
