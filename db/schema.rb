@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_210019) do
+ActiveRecord::Schema.define(version: 2019_06_05_115350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -519,8 +519,6 @@ ActiveRecord::Schema.define(version: 2019_06_04_210019) do
     t.string "exported_goods_type"
     t.string "explain_good_industry_type"
     t.boolean "is_delivered_part_of_consortium_with_other_companies", default: false
-    t.boolean "is_exporting_to_private_sctor", default: false
-    t.boolean "is_exporting_to_public_sector", default: false
     t.bigint "user_id"
     t.string "all_rawgoods_supplier_country"
     t.string "all_rawgoods_supplier_currency"
@@ -633,7 +631,7 @@ ActiveRecord::Schema.define(version: 2019_06_04_210019) do
     t.string "manufacture_year"
     t.string "goods_overhaul_country"
     t.string "why_good_overhauled_abroad"
-    t.string "proportion_of_goods_overhauled_aborad"
+    t.string "proportion_of_goods_overhauled_abroad"
     t.string "describe_why_overhault_didnot_take_in_germany"
     t.string "all_rawgoods_supplier_amount"
     t.string "partly_rawgoods_supplier_amount"
@@ -644,7 +642,7 @@ ActiveRecord::Schema.define(version: 2019_06_04_210019) do
     t.string "importer_rating_agency"
     t.string "importer_rating_issued_date"
     t.string "importer_mother_company"
-    t.string "importer_company_corporate_form"
+    t.string "importer_mother_company_corporate_form"
     t.string "importer_industry"
     t.string "exporter_address_line1"
     t.string "exporter_address_line2"
@@ -654,10 +652,45 @@ ActiveRecord::Schema.define(version: 2019_06_04_210019) do
     t.string "exporter_last_fiscal_year"
     t.boolean "external_rating_available"
     t.string "exporter_rating"
-    t.string "rating_agency"
-    t.string "rating_issued_date"
+    t.string "exporter_rating_agency"
+    t.string "exporter_rating_issued_date"
     t.string "application_status"
     t.boolean "is_delivered_at_this_address", default: false
+    t.boolean "exporter_external_rating_available", default: false
+    t.boolean "is_fully_responsible_for_project"
+    t.string "project_detailed_description"
+    t.string "importer_tax_id"
+    t.string "explain_sensitive_area_type"
+    t.string "explain_special_structure"
+    t.string "exporter_date_founded"
+    t.string "agreed_payments_currency_payment_term_short_2"
+    t.string "agreed_payments_currency_payment_term_short_3"
+    t.string "agreed_payments_currency_payment_term_short_4"
+    t.string "agreed_payments_currency_payment_term_short_5"
+    t.boolean "does_corruption_declaration_appy", default: false
+    t.boolean "are_goods_overhauled", default: false
+    t.string "agreed_payments_amount_payment_term_short_2"
+    t.string "agreed_payments_output_payment_term_short_2"
+    t.string "agreed_payments_time_payment_term_short_2"
+    t.string "agreed_payments_some_output_payment_term_short_2"
+    t.string "agreed_payments_amount_payment_term_short_3"
+    t.string "agreed_payments_output_payment_term_short_3"
+    t.string "agreed_payments_time_payment_term_short_3"
+    t.string "agreed_payments_some_output_payment_term_short_3"
+    t.string "agreed_payments_amount_payment_term_short_4"
+    t.string "agreed_payments_output_payment_term_short_4"
+    t.string "agreed_payments_time_payment_term_short_4"
+    t.string "agreed_payments_some_output_payment_term_short_4"
+    t.string "agreed_payments_amount_payment_term_short_5"
+    t.string "agreed_payments_output_payment_term_short_5"
+    t.string "agreed_payments_time_payment_term_short_5"
+    t.string "agreed_payments_some_output_payment_term_short_5"
+    t.string "does_delivery_affect_sensitive_areas"
+    t.boolean "exporter_offers_servicing_for_goods", default: false
+    t.string "importer_mother_company_industry"
+    t.boolean "is_company_controlled_by_mother_company", default: false
+    t.boolean "is_exporting_to_private_sector", default: false
+    t.boolean "importer_external_rating_available", default: false
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 
