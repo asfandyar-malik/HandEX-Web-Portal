@@ -1898,39 +1898,19 @@
     $(".yes-no-btns").click(function (e) {
         $(this).toggleClass("active-btn");
         if ($(this).hasClass("yes")) {
-            $(this).closest(".input-field").find(".hide-section").toggle();
-            $(".business-cert-no").show();
-            $(".business-cert-goods").hide();
+            // $(this).closest(".input-field").find(".hide-section").toggle();
             $(this).closest('p').find('.no.yes-no-btns').removeClass("active-btn");
-        } else {
-            $(this).closest(".input-field").find(".hide-section").hide();
+            $(this).closest('p').find('.part.yes-no-btns').removeClass("active-btn");
+        } else if ($(this).hasClass("part")) {
+            $(this).closest('p').find('.no.yes-no-btns').removeClass("active-btn");
             $(this).closest('p').find('.yes.yes-no-btns').removeClass("active-btn");
         }
-    });
-
-    $('.parts-goods').click(function (e) {
-        $(".business-cert-no").hide();
-        $(".business-cert-goods").show();
-    });
-
-    $(".financing-yes-no-btns").click(function (e) {
-        $(this).closest(".input-field").find(".hide-section").hide();
-        if ($(this).hasClass("yes")) {
-            $(this).closest(".input-field").find(".financing-agreed-yes").show();
-        } else {
-            $(this).closest(".input-field").find(".financing-agreed-no").show();
+        else {
+            // $(this).closest(".input-field").find(".hide-section").hide();
+            $(this).closest('p').find('.yes.yes-no-btns').removeClass("active-btn");
+            $(this).closest('p').find('.part.yes-no-btns').removeClass("active-btn");
         }
     });
-
-    $(".financing-agreed .financing-payment-structure").click(function (e) {
-        var agreed_index = $(this).attr('agreed-index');
-        $(this).closest('.input-field').find('.main-content-' + agreed_index).toggle();
-        for (var i = 1; i <= 3; i++) {
-            if (agreed_index != i) {
-                $(this).closest('.input-field').find('.main-content-' + i).hide();
-            }
-        }
-    })
 
     function changeTabs(curremt_tab_index) {
         $('.tab').hide();
@@ -1966,6 +1946,10 @@
         var z = document.getElementById("BothTermOfPayment");
 
         if (x.style.display === "none") {
+            $("[name='kurzfristigtermofpayment']").addClass("active_selection_card");
+            $("[name='mitteltermofpayment']").removeClass("active_selection_card");
+            $("[name='sonstigekurzfristigtermofpayment']").removeClass("active_selection_card");
+
             x.style.display = "block";
             y.style.display = "none";
             z.style.display = "none";
@@ -1979,6 +1963,10 @@
         var y = document.getElementById("MidTermOfPayment");
         var z = document.getElementById("BothTermOfPayment");
         if (y.style.display === "none") {
+            $("[name='kurzfristigtermofpayment']").removeClass("active_selection_card");
+            $("[name='mitteltermofpayment']").addClass("active_selection_card");
+            $("[name='sonstigekurzfristigtermofpayment']").removeClass("active_selection_card");
+            y.class = "active";
             y.style.display = "block";
             z.style.display = "none";
             x.style.display = "none";
@@ -1993,6 +1981,9 @@
         var z = document.getElementById("BothTermOfPayment");
 
         if (z.style.display === "none") {
+            $("[name='kurzfristigtermofpayment']").removeClass("active_selection_card");
+            $("[name='mitteltermofpayment']").removeClass("active_selection_card");
+            $("[name='sonstigekurzfristigtermofpayment']").addClass("active_selection_card");
             z.style.display = "block";
             x.style.display = "none";
             y.style.display = "none";
@@ -2019,6 +2010,69 @@
         $('#insurance_has_previously_used_hermes_cover').prop('checked', false);
     }
 
+    function germanCertificateOfOrigin() {
+        var x = document.getElementById("noGermanCertificateOfOriginId");
+        var y = document.getElementById("partlyGermanCertificateOfOrigin");
+
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        if (y.style.display === "block") {
+            y.style.display = "none";
+        }
+
+        $('#insurance_has_german_certificate_of_origin').prop('checked', true);
+        $('#insurance_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', false);
+    }
+
+    function noGermanCertificateOfOrigin() {
+        var x = document.getElementById("noGermanCertificateOfOriginId");
+        var y = document.getElementById("partlyGermanCertificateOfOrigin");
+
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.display = "none";
+        } else {
+            x.style.display = "none";
+            y.style.display = "none";
+        }
+        $('#insurance_has_german_certificate_of_origin').prop('checked', false);
+        $('#insurance_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', false);
+    }
+
+    function partlyGermanCertificateOfOrigin() {
+        var y = document.getElementById("partlyGermanCertificateOfOrigin");
+        var x = document.getElementById("noGermanCertificateOfOriginId");
+
+        if (y.style.display === "none") {
+            y.style.display = "block";
+            x.style.display = "none";
+        } else {
+            y.style.display = "none";
+            x.style.display = "none";
+        }
+        $('#insurance_has_german_certificate_of_origin').prop('checked', false);
+        $('#insurance_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', true);
+    }
+
+    function goodOverhauled() {
+        var x = document.getElementById("goodsOverhauled");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        $('#insurance_are_goods_overhauled').prop('checked', true);
+    }
+
+    function NoGoodsOverhauled() {
+        var x = document.getElementById("goodsOverhauled");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#insurance_are_goods_overhauled').prop('checked', false);
+    }
+
     function incoTerms() {
         var x = document.getElementById("incotermsAgreed");
         if (x.style.display === "none") {
@@ -2035,6 +2089,310 @@
         }
     }
 
+    function exporterExternalRatingFunction() {
+        var y = document.getElementById("exporterExternalRating");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#insurance_exporter_external_rating_available').prop('checked', true);
+    }
+
+    function noExporterExternalRatingFunction() {
+        var x = document.getElementById("exporterExternalRating");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#insurance_exporter_external_rating_available').prop('checked', false);
+    }
+
+    function importerExternalRatingFunction() {
+        var y = document.getElementById("importerExternalRating");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#insurance_importer_external_rating_available').prop('checked', true);
+    }
+
+    function noImporterExternalRatingFunction() {
+        var x = document.getElementById("importerExternalRating");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#insurance_importer_external_rating_available').prop('checked', false);
+    }
+
+    function controlledByMotherCompany() {
+        var y = document.getElementById("motherCompanyControl");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#insurance_is_company_controlled_by_mother_company').prop('checked', true);
+    }
+
+    function notControlledByMotherCompany() {
+        var x = document.getElementById("motherCompanyControl");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#insurance_is_company_controlled_by_mother_company').prop('checked', false);
+    }
+
+    function significantInfluenceOnImporter() {
+        var y = document.getElementById("significantInfluenceImporter");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#insurance_has_significant_influence_on_importer_management').prop('checked', true);
+    }
+
+    function noSignificantInfluenceOnImporter() {
+        var x = document.getElementById("significantInfluenceImporter");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#insurance_has_significant_influence_on_importer_management').prop('checked', false);
+    }
+
+    function investmentGoods() {
+        $('#insurance_is_investment_good').prop('checked', true);
+    }
+
+    function noInvestmentGoods() {
+        $('#insurance_is_investment_good').prop('checked', false);
+    }
+
+
+    function deliveredAtThisAddress() {
+        var x = document.getElementById("deliveryAddress");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#insurance_is_delivered_at_this_address').prop('checked', true);
+    }
+
+    function noDeliveredAtThisAddress() {
+        var x = document.getElementById("deliveryAddress");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        $('#insurance_is_delivered_at_this_address').prop('checked', false);
+    }
+
+    function noPrivate_sector() {
+        $('#insurance_is_exporting_to_private_sector').prop('checked', false);
+    }
+
+    function noPaymentExperience() {
+        $('#insurance_has_payment_experience_with_importer').prop('checked', false);
+    }
+
+    function servicingForGoods() {
+        $('#insurance_exporter_offers_servicing_for_goods').prop('checked', true);
+    }
+
+    function noServicingForGoods() {
+        $('#insurance_exporter_offers_servicing_for_goods').prop('checked', false);
+    }
+
+    function deliveredPartOfConsortiumWithOtherCompanies() {
+        var y = document.getElementById("deliveredPartOfConsortiumWithOtherCompanies");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#insurance_is_delivered_part_of_consortium_with_other_companies').prop('checked', true);
+    }
+
+    function NoDeliveredPartOfConsortiumWithOtherCompanies() {
+        // deliveredPartOfConsortiumWithOtherCompanies
+        var x = document.getElementById("deliveredPartOfConsortiumWithOtherCompanies");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#insurance_is_delivered_part_of_consortium_with_other_companies').prop('checked', false);
+    }
+
+    function deliveryAffectsSensitiveArea() {
+        var y = document.getElementById("deliveryAffectsSensitiveArea");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#insurance_does_delivery_affect_sensitive_areas').prop('checked', true);
+    }
+
+    function NoDeliveryAffectsSensitiveArea() {
+        var x = document.getElementById("deliveryAffectsSensitiveArea");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#insurance_does_delivery_affect_sensitive_areas').prop('checked', false);
+    }
+
+    function exportLicenceNeeded() {
+        var y = document.getElementById("originLicense");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#insurance_is_export_licence_needed').prop('checked', true);
+    }
+
+    function noExportLicenceNeeded() {
+        var x = document.getElementById("originLicense");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#insurance_is_export_licence_needed').prop('checked', false);
+    }
+
+    function isFullyResponsibleForProject() {
+        $('#is_fully_responsible_for_project').prop('checked', true);
+    }
+
+    function isNotFullyResponsibleForProject() {
+        $('#is_fully_responsible_for_project').prop('checked', false);
+    }
+
+
+    function deliverySecondHandGoods() {
+        var y = document.getElementById("deliverySecondHandGoods");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#insurance_are_secondhand_goods_delivered').prop('checked', true);
+    }
+
+    function noDeliverySecondHandGoods() {
+        var x = document.getElementById("deliverySecondHandGoods");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#insurance_are_secondhand_goods_delivered').prop('checked', false);
+    }
+
+    function contractAlreadySignedBetweenParties() {
+        var y = document.getElementById("contractSignedBetweenParties");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#insurance_is_contract_already_signed_between_parties').prop('checked', true);
+    }
+
+    function noContractAlreadySignedBetweenParties() {
+        var x = document.getElementById("contractSignedBetweenParties");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#insurance_is_contract_already_signed_between_parties').prop('checked', false);
+    }
+
+    function specialContractStructure() {
+        var y = document.getElementById("explainStructure");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#insurance_has_special_contract_structure').prop('checked', true);
+    }
+
+    function noSpecialContractStructure() {
+        var x = document.getElementById("explainStructure");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#insurance_has_special_contract_structure').prop('checked', false);
+    }
+
+    function goodsSentMultipleDeliveries() {
+        var y = document.getElementById("GoodsSentMultipleDeliveries");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#insurance_is_good_sent_in_multiple_deliveries').prop('checked', true);
+    }
+
+    function noGoodsSentMultipleDeliveries() {
+        var x = document.getElementById("GoodsSentMultipleDeliveries");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#insurance_is_good_sent_in_multiple_deliveries').prop('checked', false);
+    }
+
+    function securityPresent() {
+        var y = document.getElementById("securityPresent");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#insurance_is_security_present_for_transaction').prop('checked', true);
+    }
+
+    function noSecurityPresent() {
+        var x = document.getElementById("securityPresent");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#insurance_is_security_present_for_transaction').prop('checked', false);
+    }
+
+    function agreedTermOfPayments() {
+        var y = document.getElementById("agreedTermsOfPayments");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#insurance_has_agreed_payment_term_already').prop('checked', true);
+    }
+
+    function noAgreedTermOfPayments() {
+        var x = document.getElementById("agreedTermsOfPayments");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#insurance_has_agreed_payment_term_already').prop('checked', false);
+    }
+
+    function corruptionDeclaration() {
+        var y = document.getElementById("corruptionDeclaration");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#insurance_does_corruption_declaration_apply').prop('checked', true);
+    }
+
+    function noCorruptionDeclaration() {
+        var x = document.getElementById("corruptionDeclaration");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#insurance_does_corruption_declaration_apply').prop('checked', false);
+    }
 
     var $choice = jQuery('.choice');
 
@@ -2076,6 +2434,76 @@
     $choice.filter('[name="no_incoterms"]').click(function () {
         $choice.filter('[name="yes_incoterms"]').removeClass('active');
     });
+
+    // document.addEventListener('DOMContentLoaded', function(e) {
+    //     FormValidation.formValidation(
+    //         document.getElementById('demoForm'),
+    //         {
+    //             fields: {
+    //                 // name: {
+    //                 //     validators: {
+    //                 //         notEmpty: {
+    //                 //             message: 'The name is required'
+    //                 //         },
+    //                 //         stringLength: {
+    //                 //             min: 6,
+    //                 //             max: 30,
+    //                 //             message: 'The name must be more than 6 and less than 30 characters long'
+    //                 //         },
+    //                 //         regexp: {
+    //                 //             regexp: /^[a-zA-Z0-9_]+$/,
+    //                 //             message: 'The name can only consist of alphabetical, number and underscore'
+    //                 //         }
+    //                 //     }
+    //                 // },
+    //                 // price: {
+    //                 //     validators: {
+    //                 //         notEmpty: {
+    //                 //             message: 'The price is required'
+    //                 //         },
+    //                 //         numeric: {
+    //                 //             message: 'The price must be a number'
+    //                 //         }
+    //                 //     }
+    //                 // },
+    //                 terms_and_conditions: {
+    //                     validators: {
+    //                         notEmpty: {
+    //                             message: 'The price is required'
+    //                         },
+    //                         numeric: {
+    //                             message: 'The price must be a number'
+    //                         }
+    //                     }
+    //                 },
+    //                 'size[]': {
+    //                     validators: {
+    //                         notEmpty: {
+    //                             message: 'The size is required'
+    //                         }
+    //                     }
+    //                 },
+    //                 availability: {
+    //                     validators: {
+    //                         notEmpty: {
+    //                             message: 'The availability option is required'
+    //                         }
+    //                     }
+    //                 },
+    //             },
+    //             plugins: {
+    //                 trigger: new FormValidation.plugins.Trigger(),
+    //                 materialize: new FormValidation.plugins.Materialize(),
+    //                 submitButton: new FormValidation.plugins.SubmitButton(),
+    //                 icon: new FormValidation.plugins.Icon({
+    //                     valid: 'fa fa-check',
+    //                     invalid: 'fa fa-times',
+    //                     validating: 'fa fa-refresh',
+    //                 }),
+    //             },
+    //         }
+    //     );
+    // });
 
 
 </script>
