@@ -8,22 +8,21 @@
         <% else %>
             <a class="z-depth-0 btn z-depth-0 handex-btn waves-" href="/pages/products">Antrag starten</a>
         <% end %>
-        <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= draft_applications_insurance_path(current_user.id) %>">Entwürfe</a>
+        <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= draft_applications_export_application_path(current_user.id) %>">Entwürfe</a>
 <!--        <a class="z-depth-0 btn handex-btn rounded inactive">Aktion</a>-->
-        <a class="z-depth-0 btn handex-btn rounded" href="<%= submitted_applications_insurance_path(current_user.id) %>">Versendet</a>
-        <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= approved_applications_insurance_path(current_user.id) %>" >Genehmigt</a>
-        <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= all_applications_insurance_path(current_user.id) %>">Alle</a>
+        <a class="z-depth-0 btn handex-btn rounded" href="<%= submitted_applications_export_application_path(current_user.id) %>">Versendet</a>
+        <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= approved_applications_export_application_path(current_user.id) %>" >Genehmigt</a>
+        <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= all_applications_export_application_path(current_user.id) %>">Alle</a>
     </div>
 </nav>
 
 <div class="container">
     <div class="section">
-
         <div class="row">
 
-            <%= render partial: "insurances/submitted_listing",
+            <%= render partial: "export_applications/submitted_listing",
                        locals:  {applications: @submitted_applications,
-                                can_edit: false} %>
+                                 can_edit: false} %>
 
         </div>
     </div>

@@ -1,0 +1,75 @@
+<div class="col s12 m3">
+    <div class="card">
+        <div class="card-title sent_financing_application white-text valign-wrapper">
+            <div class="valign-wrapper">
+                <i class="custom_icon clock-icon"></i>
+                <div>
+                    <strong>Antrag versendet</strong>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-content">
+            <div class="valign-wrapper">
+                <div>
+                    <i class="custom_icon import-icon"></i>
+                </div>
+                <div>
+                    <label for="output_importer"><%= t('importer') %></label>
+                    <p id="output_importer"><%= export_application.importer_company_name %></p>
+                </div>
+            </div>
+
+            <div class="valign-wrapper">
+                <div>
+                    <i class="custom_icon import-icon"></i>
+                </div>
+                <div>
+                    <label for="output_importer"><%= t('destination_country') %></label>
+                    <p id="output_importer"> <%= export_application.importer_country %></p>
+                </div>
+            </div>
+
+            <div class="valign-wrapper">
+                <i class="custom_icon box-icon"></i>
+                <div>
+                    <label for="output_product"><%= t('product') %></label>
+                    <p id="output_product"><%= export_application.exported_goods_type %></p>
+                </div>
+            </div>
+            <div class="valign-wrapper">
+                <i class="custom_icon money-icon"></i>
+                <div>
+                    <label for="output_value"><%= t('contract_value') %></label>
+                    <p id="output_value">
+                        <% if export_application.contract_value %>
+                            <div class="col s6">
+                                &euro; <%= export_application.contract_value %>
+                            </div>
+                        <% else %>
+                            <div class="col s6 text-red">
+                                MISSING
+                            </div>
+                        <% end %>
+                    </p>
+                </div>
+            </div>
+
+            <div class="valign-wrapper">
+                <i class="custom_icon send-icon"></i>
+                <div>
+                    <label for="output_application_date"><%= t('application_sent_at') %></label>
+                    <p id="output_application_date"> <%= export_application.updated_at.strftime('%d %b %Y') %> </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-action center">
+            <% if can_edit %>
+                <%= link_to "Update", edit_export_application_path(export_application.user_id) %>
+            <% else %>
+                <%= link_to t('see_summary_of_application'), "/", target: :_blank %>
+            <% end %>
+        </div>
+    </div>
+</div>

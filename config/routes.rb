@@ -34,13 +34,22 @@ Rails.application.routes.draw do
           end
         end
 
+        resources :export_applications do
+            member do
+                get 'submitted_applications'
+                get 'approved_applications'
+                get 'draft_applications'
+                get 'all_applications'
+                get 'user_summary'
+            end
+        end
+
         resources :credits
         resources :invite_exporters
-        resources :export_applications
         resources :refinances
-    end
-    
-    devise_for :users,
+  end
+
+  devise_for :users,
                path:        '',
                path_names:  {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'},
                controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
