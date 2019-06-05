@@ -213,7 +213,7 @@
                                             <label>Liefern Sie an diese Adresse? </label>
                                             <p>
                                                 <label>
-                                                    <%= check_box_tag "export_application[is_delivered_at_this_address]", @export_application.is_delivered_at_this_address ? @export_application.is_delivered_at_this_address : nil, false, id: "export_application_is_delivered_at_this_address" %>
+                                                    <%= check_box_tag "export_application[is_delivered_at_this_address]", @export_application.is_delivered_at_this_address ? @export_application.is_delivered_at_this_address : nil, false, :onclick => "deliveredAtThisAddress();", id: "export_application_is_delivered_at_this_address" %>
                                                     <span class="yes yes-no-btns">Ja</span>
                                                 </label>
 
@@ -221,6 +221,37 @@
                                                     <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns">Nein</span>
                                                 </label>
                                             </p>
+                                        </div>
+                                    </div>
+
+                                    <div id="deliveryAddress" style="display: none;">
+                                        <br>
+                                        <div class="row">
+                                            <br>
+                                            <div class="input-field col s6 m4">
+                                                <label>Firmenname</label>
+                                                <%= form.text_field :importer_shipment_company_name, autofocus: true, class: "validate" %>
+                                            </div>
+
+                                            <div class="input-field col s6 m4">
+                                                <label>Land</label>
+                                                <%= form.text_field :importer_shipment_country, autofocus: true, class: "validate" %>
+                                            </div>
+
+                                            <div class="input-field col s6 m4">
+                                                <label>Straße / Hausnummer </label>
+                                                <%= form.text_field :importer_shipment_street_hno, autofocus: true, class: "validate" %>
+                                            </div>
+
+                                            <div class="input-field col s6 m4">
+                                                <label>PLZ</label>
+                                                <%= form.text_field :importer_shipment_plz, :onkeypress => "return onlyAllowNumericalValue(event)", autofocus: true, class: "validate" %>
+                                            </div>
+
+                                            <div class="input-field col s6 m4">
+                                                <label>Ort</label>
+                                                <%= form.text_field :importer_shipment_city, autofocus: true, class: "validate" %>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -588,6 +619,7 @@
 
                                                 <label onclick="NoGoodsOverhauled()">
                                                     <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if not @export_application.are_goods_overhauled %>">Nein</span>
+                                                </label>
                                             </p>
                                         </div>
                                     </div>
@@ -1974,6 +2006,7 @@
         $('#export_application_has_previously_used_hermes_cover').prop('checked', false);
     }
 
+
     function goodOverhauled() {
         var x = document.getElementById("goodsOverhauled");
         if (x.style.display === "none") {
@@ -2088,7 +2121,22 @@
         $('#export_application_is_investment_good').prop('checked', false);
     }
 
+
+    function deliveredAtThisAddress() {
+        var x = document.getElementById("deliveryAddress");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#export_application_is_delivered_at_this_address').prop('checked', true);
+    }
+
     function noDeliveredAtThisAddress() {
+        var x = document.getElementById("deliveryAddress");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
         $('#export_application_is_delivered_at_this_address').prop('checked', false);
     }
 
