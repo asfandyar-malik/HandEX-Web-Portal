@@ -997,38 +997,32 @@
                                         <div class="row">
                                             <div class="input-field col s12 m12">
 
-<!--                                                <div class="input-field col s12 m4 threecol" name="kurzfristigtermofpayment" onclick="kurzFristigTermOfPayment()">-->
-<!--                                                    <label class="active_selection_card_label">-->
-<!--                                                        Kurzfristig</label>-->
-<!--                                                    <p>Bis zu 2 Jahre Kreditlaufzeit</p>-->
-<!--                                                </div>-->
-
-                                                <div class="input-field col s12 m4 threecol" name="kurzfristigtermofpayment" onclick="kurzFristigTermOfPayment()">
-                                                    <label class="active_selection_card_label">
-                                                        <%= check_box_tag "export_application[payment_term_short]", @export_application.payment_term_short ? @export_application.payment_term_short : nil, false, :onclick => "kurzFristigTermOfPayment();", id: "export_application_payment_term_short" %>
+                                                <label class="active_selection_card_label">
+                                                    <span class="input-field col s12 m4 threecol" name="kurzfristigtermofpayment">
+                                                            <%= check_box_tag "export_application[payment_term_short]", @export_application.payment_term_short ? @export_application.payment_term_short : nil, false, :onclick => "kurzFristigTermOfPayment();", id: "export_application_payment_term_short" %>
                                                         Kurzfristig
-                                                    </label>
-                                                    <p>Bis zu 2 Jahre Kreditlaufzeit</p>
-                                                </div>
+                                                        <p>Bis zu 2 Jahre Kreditlaufzeit</p>
+                                                    </span>
+                                                </label>
 
-                                                <div class="input-field col s12 m4 threecol" name="mitteltermofpayment" onclick="mittelTermOfPayment()">
-                                                    <label class="active_selection_card_label">
+                                                <label class="active_selection_card_label">
+                                                    <span class="input-field col s12 m4 threecol" name="mitteltermofpayment">
                                                         <%= check_box_tag "export_application[payment_term_mid]", @export_application.payment_term_mid ? @export_application.payment_term_mid : nil, false, :onclick => "mittelTermOfPayment();", id: "export_application_payment_term_mid" %>
                                                         Mittel-/langfristig
-                                                    </label>
-                                                    <p>über 2 Jahre Kreditlaufzeit</p>
-                                                </div>
+                                                        <p>über 2 Jahre Kreditlaufzeit</p>
+                                                    </span>
+                                                </label>
 
-                                                <div class="input-field col s12 m4 threecol" name="sonstigekurzfristigtermofpayment" onclick="sonstigeKurzFristigTermOfPayment()">
-                                                    <label class="active_selection_card_label">
+                                                <label class="active_selection_card_label">
+                                                    <span class="input-field col s12 m4 threecol" name="sonstigekurzfristigtermofpayment">
                                                         <%= check_box_tag "export_application[payment_term_both]", @export_application.payment_term_both ? @export_application.payment_term_both : nil, false, :onclick => "sonstigeKurzFristigTermOfPayment();", id: "export_application_payment_term_both" %>
                                                         Sowohl kurzfristig als
                                                         auch mittel-/langfristig
-                                                    </label>
-                                                </div>
+                                                    </span>
+                                                </label>
                                             </div>
 
-                                            <div id="ShortTermOfPayment" style="  display: none;">
+                                            <div id="ShortTermOfPayment" style="display: none;">
 
                                                 <div class="row">
                                                     <div class="col m10 offset-m1">
