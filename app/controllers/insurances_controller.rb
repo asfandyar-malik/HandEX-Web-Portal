@@ -30,7 +30,6 @@ class InsurancesController < ApplicationController
             render :new
             end
         else
-            @insurance.application_status = 'NEW'
             if @insurance.save
                 @insurance.application_status = 'SUBMITTED'
                 redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich erstellt.'
@@ -50,7 +49,6 @@ class InsurancesController < ApplicationController
             render :update
             end
         else
-            @insurance.application_status = 'NEW'
             if @insurance.update(insurance_params)
                 @insurance.application_status = 'SUBMITTED'
                 redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich gespeichert.'

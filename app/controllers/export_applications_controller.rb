@@ -30,7 +30,6 @@ class ExportApplicationsController < ApplicationController
             render :new
             end
         else
-            @export_application.application_status = 'NEW'
             if @export_application.save
                 @export_application.application_status = 'SUBMITTED'
                 redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich erstellt.'
@@ -51,7 +50,6 @@ class ExportApplicationsController < ApplicationController
             render :update
             end
         else
-            @export_application.application_status = 'NEW'
             if @export_application.update(export_application_params)
                 @export_application.application_status = 'SUBMITTED'
                 redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich gespeichert.'
