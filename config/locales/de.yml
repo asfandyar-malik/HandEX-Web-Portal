@@ -292,3 +292,6 @@ de:
   project_detailed_description: "Bitte beschreiben Sie das Gesamtprojekt detaillierter"
   is_fully_responsible_for_project: "Wir tragen die Gesamtverantwortung für das Projekt"
   entire_project_amount: "Gesamtprojektvolumen"
+  fictive_example_machine_x: "fictives Beispiel: Machine 'x'"
+  subject: "Mittelverwendung"
+  how_much_entire_project_amount: "Wie hoch ist das Gesamtprojektvolumen?"
