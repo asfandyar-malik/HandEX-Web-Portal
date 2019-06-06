@@ -514,15 +514,39 @@
                                         <div class="input-field col s12 m6">
                                           <%= form.text_field :entire_project_amount, class: "validate", placeholder: t('entire_project_amount')  %>
                                         </div>
-<!--                                        <div class="input-field col s12 m12">-->
-<!--                                          <div class="input-field col m12 nopadding">-->
-                                            <%#= form.select :entire_project_amount_currency, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: "validate" %>
-<!--                                          </div>-->
 
-<!--                                          <div class="input-field col s12 m6">-->
-                                            <%#= form.text_field :entire_project_amount, class: "validate", placeholder: t('entire_project_amount') %>
-<!--                                          </div>-->
-<!--                                        </div>-->
+                                        <div class="input-field col s12 m12">
+                                          <label> <%= t('entire_project_financing_detail') %> </label>
+                                        </div>
+
+                                        <div class="row">
+                                          <div class="input-field col s12 m4">
+                                            <%= form.select :subject, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: 'validate' %>
+                                          </div>
+                                          <div class="input-field col s12 m4">
+                                            <div> <%= form.text_field :currency, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                          </div>
+
+                                          <div class="input-field col s12 m4">
+                                            <div> <%= form.text_field :amount, class: "validate", placeholder: t('description') %> </div>
+                                          </div>
+                                          <div class="input-field"> <%= form.text_field :amount, class: "validate", placeholder: t('sum') %> </div>
+                                        </div>
+
+                                        <div class="row">
+                                          <div class="input-field col s12 m4">
+                                            <%= form.select :subject, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: 'validate' %>
+                                          </div>
+                                          <div class="input-field col s12 m4">
+                                            <div> <%= form.text_field :currency, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                          </div>
+
+                                          <div class="input-field col s12 m4">
+                                            <div> <%= form.text_field :amount, class: "validate", placeholder: t('description') %> </div>
+                                          </div>
+                                          <div class="input-field"> <%= form.text_field :amount, class: "validate", placeholder: t('sum') %> </div>
+                                        </div>
+
                                       </div>
                                     </div>
                                   </div>

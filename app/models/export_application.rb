@@ -25,6 +25,4 @@ class ExportApplication < ApplicationRecord
     has_attached_file :additional_document, :storage => :cloudinary, :cloudinary_resource_type => :image,  :path => "export_applications/:attachment/:id/:style/:filename",
                       styles: { medium: "300x300>", thumb: "100x100>" }
     validates_attachment_content_type :additional_document, content_type: ['image/jpeg', 'image/png', 'image/gif', 'application/pdf']
-
-
 end
