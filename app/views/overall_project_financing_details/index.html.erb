@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Overall Project Financing Details</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subject</th>
+      <th>Currency</th>
+      <th>Amount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @overall_project_financing_details.each do |overall_project_financing_detail| %>
+      <tr>
+        <td><%= overall_project_financing_detail.subject %></td>
+        <td><%= overall_project_financing_detail.currency %></td>
+        <td><%= overall_project_financing_detail.amount %></td>
+        <td><%= link_to 'Show', overall_project_financing_detail %></td>
+        <td><%= link_to 'Edit', edit_overall_project_financing_detail_path(overall_project_financing_detail) %></td>
+        <td><%= link_to 'Destroy', overall_project_financing_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Overall Project Financing Detail', new_overall_project_financing_detail_path %>

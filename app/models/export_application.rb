@@ -1,5 +1,6 @@
 class ExportApplication < ApplicationRecord
     belongs_to :user
+    has_many :overall_project_financing_details
 
     has_attached_file :self_disclosure, :storage => :cloudinary,  :cloudinary_resource_type => :image, :path => "export_applications/:attachment/:id/:style/:filename",
                       styles: { medium: "300x300>", thumb: "100x100>" }

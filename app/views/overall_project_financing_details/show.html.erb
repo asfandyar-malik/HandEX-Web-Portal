@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @overall_project_financing_detail.subject %>
+</p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @overall_project_financing_detail.currency %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @overall_project_financing_detail.amount %>
+</p>
+
+<%= link_to 'Edit', edit_overall_project_financing_detail_path(@overall_project_financing_detail) %> |
+<%= link_to 'Back', overall_project_financing_details_path %>

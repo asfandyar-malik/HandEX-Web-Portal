@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_06_074631) do
+ActiveRecord::Schema.define(version: 2019_06_06_095047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -705,6 +705,14 @@ ActiveRecord::Schema.define(version: 2019_06_06_074631) do
     t.string "exporter_broker_id"
     t.string "exporter_company_name"
     t.string "exporter_representative_name"
+  end
+
+  create_table "overall_project_financing_details", force: :cascade do |t|
+    t.string "subject"
+    t.integer "currency"
+    t.string "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "refinances", force: :cascade do |t|
