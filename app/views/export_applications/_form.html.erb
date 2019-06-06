@@ -505,6 +505,30 @@
                                           </p>
                                         </div>
                                       </div>
+                                      <div class="input-field col s12 m12">
+<!--                                        <div class="input-field col s12 m12 nopadding">-->
+<!--                                          <label><%#= t('is_fully_responsible_for_project') %></label>-->
+<!--                                          <p>-->
+<!--                                            <label>-->
+                                              <%#= check_box_tag "export_application[is_fully_responsible_for_project]", @export_application.is_fully_responsible_for_project ? @export_application.is_fully_responsible_for_project : nil, false, :onclick => "isFullyResponsibleForProject();", id: "is_fully_responsible_for_project" %>
+<!--                                              <span class="yes yes-no-btns <%#= 'active-btn' if (@export_application.is_fully_responsible_for_project.present? && @export_application.is_fully_responsible_for_project)%>">Ja</span>-->
+<!--                                            </label>-->
+
+<!--                                            <label onclick="isNotFullyResponsibleForProject()">-->
+<!--                                              <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%#= 'active-btn' if (@export_application.is_fully_responsible_for_project.present? && !@export_application.is_fully_responsible_for_project)%>">Nein</span>-->
+<!--                                            </label>-->
+<!--                                          </p>-->
+<!--                                        </div>-->
+                                        <div class="input-field col s12 m6">
+                                          <label><%= t('currency') %></label>
+                                          <%= form.select :entire_project_amount_currency, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: "validate" %>
+                                        </div>
+
+                                        <div class="input-field col s12 m6">
+                                          <label><%= t('amount') %></label>
+                                          <%= form.text_field :entire_project_amount, class: "validate", placeholder: t('entire_project_amount') %>
+                                        </div>
+                                      </div>
 <!--                                      <div class="input-field col s12">-->
 <!--                                        <label><%#=t('') %></label>-->
                                         <%#= form.select :sensitive_area_type, options_for_select([t('please_select'), "Naturschutzgebiet", "Bedeutung für indigene Völker", "Archäologische oder kulturelle", "Sonstige"], @export_application.sensitive_area_type ? @export_application.sensitive_area_type : nil) %>
