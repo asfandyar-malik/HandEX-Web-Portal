@@ -521,7 +521,7 @@
 
                                         <div class="row">
                                           <div class="input-field col s12 m4">
-                                            <%= form.select :, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: 'validate' %>
+                                            <%= form.select :subject, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: 'validate' %>
                                           </div>
                                           <div class="input-field col s12 m4">
                                             <div> <%= form.text_field :currency, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
