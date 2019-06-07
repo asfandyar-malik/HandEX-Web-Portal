@@ -4,9 +4,9 @@
             <div class="col s12 m6">
                 <div class="text-section black-text">
                     <a class="smooth"><%= image_tag "HandEX_logo4.png", style: 'height:5em;width:auto;' %></a>
-                    <h4>Account Registrieren.</h4>
-                    <p class="light">Wir freuen uns, dass Sie sich entschieden haben HandEX Portal zu nutzen.<br>
-                        Wir brauchen nur noch ein Paar Informationen um zu starten.<br>
+                    <h4>Konto registrieren.</h4>
+                    <p class="light">Wir freuen uns, dass Sie sich entschieden haben HandEX zu nutzen.<br>
+                        Wir brauchen nur noch folgende Informationen, um zu starten.<br>
 
                     </p>
                     <a href="/login" class="un"><u>Haben Sie bereits ein Account ? Bitte loggen Sie sich ein.</u></a>
@@ -40,7 +40,7 @@
 
                                             <div class="input-field col s12 m6">
                                                 <label>E-Mail</label>
-                                                <%= f.email_field :email, autofocus: true, class: "validate" %>
+                                                <%= f.email_field :email, autofocus: true, required: true, class: "validate" %>
                                             </div>
 
                                             <div class="input-field col s12 m6">
@@ -67,7 +67,7 @@
                                                     <p>Passwort (Mindestens <%= @minimum_password_length %>  Zeichen)</p>
                                                 <% end %>
 
-                                                <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+                                                <%= f.password_field :password, required: true,  minlength: 6 , autocomplete: "off", class: "form-control" %>
                                             </div>
 
                                             <div class="col s12">
