@@ -483,7 +483,6 @@
                                           </p>
                                       </div>
                                     <div id="deliveredPartOfConsortiumWithOtherCompanies" style="display: none">
-                                      <div class="row">
                                         <div class="input-field col s12 m12">
                                           <label><%=t('project_detailed_description') %></label>
                                           <%= form.text_area :project_detailed_description, autofocus: true, class: "validate", placeholder:"Bitte geben Sie hier eine detaillierte Beschreibung des Gesamtprojekts ein. Wichtig sind auch Informationen zur Struktur der Zusammenarbeit und ob Sie die Gesamtverantwortung tragen."%>
@@ -519,6 +518,7 @@
                                           <label> <%= t('entire_project_financing_detail') %> </label>
                                         </div>
 
+
                                         <div class="row">
                                           <div class="input-field col s12 m4">
                                             <%= form.select :subject, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: 'validate' %>
@@ -530,7 +530,6 @@
                                           <div class="input-field col s12 m4">
                                             <div> <%= form.text_field :amount, class: "validate", placeholder: t('description') %> </div>
                                           </div>
-                                          <div class="input-field"> <%= form.text_field :amount, class: "validate", placeholder: t('sum') %> </div>
                                         </div>
 
                                         <div class="row">
@@ -544,10 +543,19 @@
                                           <div class="input-field col s12 m4">
                                             <div> <%= form.text_field :amount, class: "validate", placeholder: t('description') %> </div>
                                           </div>
-                                          <div class="input-field"> <%= form.text_field :amount, class: "validate", placeholder: t('sum') %> </div>
                                         </div>
+                                        <div class="row">
+                                          <div class="input-field col s12 m4">
+                                            <%= form.select :subject, options_for_select([t('please_select'), "Euro", "Dollar"]), {}, class: 'validate' %>
+                                          </div>
+                                          <div class="input-field col s12 m4">
+                                            <div> <%= form.text_field :currency, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                          </div>
 
-                                      </div>
+                                          <div class="input-field col s12 m4">
+                                            <div> <%= form.text_field :amount, class: "validate", placeholder: t('description') %> </div>
+                                          </div>
+                                        </div>
                                     </div>
                                   </div>
                                     <div class="input-field col s12 m12">

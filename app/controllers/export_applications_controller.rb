@@ -14,12 +14,13 @@ class ExportApplicationsController < ApplicationController
     
     def new
         @export_application = current_user.export_applications.build
+        @overall_project_financin_detail_list = @export_application.overall_project_financing_details
     end
-    
+
     def edit
-    
+
     end
-    
+
     def create
         @export_application = current_user.export_applications.build(export_application_params)
         if params[:draft] == 'Entwurf speichern'
