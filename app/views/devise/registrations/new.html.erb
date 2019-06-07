@@ -67,7 +67,7 @@
                                                     <p>Passwort (Mindestens <%= @minimum_password_length %>  Zeichen)</p>
                                                 <% end %>
 
-                                                <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+                                                <%= f.password_field :password, required: true, autocomplete: "off", class: "form-control" %>
                                             </div>
 
                                             <div class="col s12">
