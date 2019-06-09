@@ -579,10 +579,10 @@
                                     <div id="deliveryAffectsSensitiveArea" style="display: none">
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <label>Um welche Art von sensibelen Gebiet handelt sich?</label>
-                                                <%= form.select :sensitive_area_type, options_for_select([t('please_select'), "Naturschutzgebiet", "Bedeutung für indigene Völker", "Archäologische oder kulturelle", "Sonstige"], @export_application.sensitive_area_type ? @export_application.sensitive_area_type : nil) %>
+                                                <label>Um welche Art vom sensibelen Gebiet handelt sich?</label>
+                                                <%= form.select :sensitive_area_type, options_for_select([t('please_select'), "Naturschutzgebiet", "Bedeutung für indigene Völker", "Archäologische oder kulturelle", "Sonstige"], @export_application.sensitive_area_type ? @export_application.sensitive_area_type : nil), {}, class: 'validate', id: "sensitive_area_type",:onchange => 'sensitiveAreaTypeChangeHandler()' %>
                                             </div>
-                                            <div class="input-field col s12 m12">
+                                            <div class="input-field col s12 m12" id="explain_sensitive_area_type">
                                                 <label>Bitte konkretisieren Sie, um was für ein sensibeles Gebiet es sich handelt.</label>
                                                 <%= form.text_area :explain_sensitive_area_type, autofocus: true, class: "validate" %>
                                             </div>
@@ -2446,6 +2446,14 @@
             $('#goods_overhaul_country_if_not_germany').hide();
         } else {
             $('#goods_overhaul_country_if_not_germany').show();
+        }
+    }
+
+    function sensitiveAreaTypeChangeHandler() {
+        if($('#sensitive_area_type option:selected').val() === 'Sonstige') {
+            $('#explain_sensitive_area_type').show();
+        } else {
+            $('#explain_sensitive_area_type').hide();
         }
     }
 
