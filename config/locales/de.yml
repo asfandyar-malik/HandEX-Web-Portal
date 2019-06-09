@@ -1,4 +1,14 @@
 de:
+  errors:
+    messages:
+      already_confirmed: "wurde bereits bestätigt"
+      confirmation_period_expired: "muss innerhalb %{period} bestätigt werden, bitte fordere einen neuen Link an"
+      expired: "ist abgelaufen, bitte neu anfordern"
+      not_found: "nicht gefunden"
+      not_locked: "ist nicht gesperrt"
+      not_saved:
+        one: "Konnte %{resource} nicht speichern: ein Fehler."
+        other: "Konnte %{resource} nicht speichern: %{count} Fehler."
   activerecord:
     errors:
       models:
@@ -7,7 +17,6 @@ de:
             email:
               taken: 'Für diese E-Mail existiert bereits ein Konto'
       messages:
-        not_saved: 'Datensatz konnte nicht gespeichert werden'
         record_invalid: 'Gültigkeitsprüfung ist fehlgeschlagen: %{errors}'
         restrict_dependent_destroy:
           has_one: 'Datensatz kann nicht gelöscht werden, da ein abhängiger %{record}-Datensatz
