@@ -99,6 +99,15 @@ class ExportApplicationsController < ApplicationController
     def export_application_params
         params.require(:export_application).permit(# Ihr Geschaft -------------------------------------
             :describe_export_business, :is_investment_good, :explain_why_importer_buying_good, :is_servicing_for_goods_offered, :exported_goods_type, :explain_good_industry_type, :is_delivered_part_of_consortium_with_other_companies, :delivery_doesnt_affects_sensitive_areas, :delivery_affects_natural_reserves, :delivery_affects_indigenous_people, :delivery_affects_cultural_heritage, :delivery_affects_other, :explain_delivery_affects_other, :is_export_licence_needed, :which_regulations_enforcing_exportlicense_requirement, :export_license_status, :does_deliver_secondhand_goods, :is_contract_already_signed_between_parties, :contract_signing_date, :exporter_internal_contract_id, :has_special_contract_structure, :total_delivery_value_excluding_servicing, :percentage_of_spareparts_in_whole_order, :other_billed_items_in_contract_currency, :other_billed_items_in_contract_amount, :describe_other_billed_items_in_contract, :is_price_adjustment_clause_with_importer, :explain_accounting_methods, :is_good_sent_in_multiple_deliveries, :delivery_start, :delivery_end, :other_important_delivery_information, :other_important_delivery_milestones, :has_german_certificate_of_origin, :has_german_certificate_of_origin_for_only_parts_of_good, :all_rawgoods_supplier_country, :all_rawgoods_supplier_currency, :all_rawgoods_supplier_text, :why_all_foreign_rawgoods_necessary, :partly_rawgoods_supplier_country, :partly_rawgoods_supplier_currency, :partly_rawgoods_supplier_text, :why_partly_foreign_rawgoods_necessary, :is_security_present_for_transaction, :security_type, :security_type_name, :proportion_of_good_covered_by_security, :when_security_received, :project_detailed_description, :is_fully_responsible_for_project, :entire_project_amount_currency, :entire_project_amount,
+            :overall_project_financing_details_subject_1,
+            :overall_project_financing_details_currency_1,
+            :overall_project_financing_details_amount_1,
+            :overall_project_financing_details_subject_2,
+            :overall_project_financing_details_currency_2,
+            :overall_project_financing_details_amount_2,
+            :overall_project_financing_details_subject_3,
+            :overall_project_financing_details_currency_3,
+            :overall_project_financing_details_amount_3,
             
             # # Ihr Kunde ----------------------------------------
             :importer_company_name, :importer_street_hno, :importer_plz, :importer_city, :importer_country, :is_shipment_address, :importer_shipment_company_name, :importer_shipment_country, :importer_shipment_street_hno, :importer_shipment_plz, :importer_shipment_city, :has_significant_influence_on_importer_management, :explain_exporter_influence_on_importer_management, :has_payment_experience_with_importer, :explain_previous_payment_experience_with_importer, :exporter_offers_servicing_for_goods,
