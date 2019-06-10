@@ -93,7 +93,7 @@
 
                                             <div class="input-field col s12 m6">
                                                 <label>Gründungsjahr</label>
-                                                <%= form.text_field :exporter_date_founded, autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
+                                                <%= form.text_field :exporter_date_founded, autofocus: true, class: "validate" %>
                                             </div>
 
                                             <div class="input-field col s12 m6">
@@ -258,11 +258,11 @@
                                             <p>
                                                 <label>
                                                     <%= check_box_tag "insurance[is_exporting_to_private_sector]", @insurance.is_exporting_to_private_sector ? @insurance.is_exporting_to_private_sector : nil, false, id: "insurance_is_exporting_to_private_sector" %>
-                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_exporting_to_private_sector.present? && @insurance.is_exporting_to_private_sector)%>">Privates Sektor</span>
+                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_exporting_to_private_sector.present? && @insurance.is_exporting_to_private_sector)%>">Privat Sektor</span>
                                                 </label>
 
                                                 <label onclick="noPrivate_sector()">
-                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.is_exporting_to_private_sector.present? && !@insurance.is_exporting_to_private_sector)%>">Öffentliches Sektor</span>
+                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.is_exporting_to_private_sector.present? && !@insurance.is_exporting_to_private_sector)%>">Öffentlich Sektor</span>
                                                 </label>
                                             </p>
                                         </div>
@@ -410,18 +410,16 @@
                             <div class="form-content">
 
                                 <div class="row">
+
                                     <div class="input-field col s12">
-                                        <label>Bitte ordnen Sie die von ihnen zu liefernden Waren bzw. Diensleistungen Ihrer Branche
+                                        <label>Bitte ordnen Sie die von Ihnen zu liefernden Waren bzw. Dienstleistungen Ihrer Branche
                                             zu.</label>
-                                        <%= form.text_field :exporter_name, autofocus: true, class: "validate" %>
+                                        <%= form.select :exported_goods_type, options_for_select([t('please_select'), 'Bergbau, inkl. Verarbeitung', 'Erdöl- und Erdgasförderung inkl. Verarbeitung', 'Chemie', 'Energie', 'Infrastruktur', 'Papier- , Holz-, Leder- und Textilindustrie', 'Agrarsektor und Nahrungsmittelindustrie', 'Verarbeitende Industrie', 'Umwelttechnik', 'Dienstleistungen'], @insurance.exported_goods_type ? @insurance.exported_goods_type : nil) %>
                                     </div>
+
                                     <div class="input-field col s12">
                                         <label>Bitte beschreiben Sie Ihre Industrie genauer</label>
                                         <%= form.text_field :explain_good_industry_type, autofocus: true, class: "validate" %>
-                                    </div>
-                                    <div class="input-field col s12">
-                                        <label>Bitte beschreiben Sie Ihre Produkte und Ihre Leistungen </label>
-                                        <%= form.text_field :explain_product_service, autofocus: true, class: "validate" %>
                                     </div>
 
                                     <div class="input-field col s12 m12">
@@ -429,15 +427,20 @@
                                             <label> Handelt es sich bei Ihrer Ware um Investitionsgüter? </label>
                                             <p>
                                                 <label>
-                                                    <%= check_box_tag "insurance[is_investment_good]", @insurance.is_investment_good ? @insurance.is_investment_good : nil, false, :onclick => "investmentGoods();", id: "insurance_is_investment_good" %>
-                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_investment_good.present? && @insurance.is_investment_good)%>">Ja</span>
+                                                    <%= check_box_tag "export_application[is_investment_good]", @insurance.is_investment_good ? @insurance.is_investment_good : nil, false, :onclick => "investmentGoods();", id: "export_application_is_investment_good" %>
+                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_investment_good.present? && @insurance.is_investment_good) %>">Ja</span>
                                                 </label>
 
                                                 <label onclick="noInvestmentGoods()">
-                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if(@insurance.is_investment_good.present? && !@insurance.is_investment_good) %>">Nein</span>
+                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.is_investment_good.present? && !@insurance.is_investment_good) %>">Nein</span>
                                                 </label>
                                             </p>
                                         </div>
+                                    </div>
+
+                                    <div class="input-field col s12">
+                                        <label>Bitte beschreiben Sie Ihre Produkte und Ihre Leistungen und wie Ihr Kunde diese einsetzt. </label>
+                                        <%= form.text_field :explain_product_service, autofocus: true, class: "validate" %>
                                     </div>
 
                                     <div class="input-field col s12 m12">
@@ -445,202 +448,192 @@
                                             <label> Erbringen Sie auch Leistungen (Montage, Schulungen vor Ort etc.)? </label>
                                             <p>
                                                 <label>
-                                                    <%= check_box_tag "insurance[exporter_offers_servicing_for_goods]", @insurance.exporter_offers_servicing_for_goods ? @insurance.exporter_offers_servicing_for_goods : nil, false, :onclick => "servicingForGoods();", id: "insurance_exporter_offers_servicing_for_goods" %>
-                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.exporter_offers_servicing_for_goods.present? && @insurance.exporter_offers_servicing_for_goods)%>">Ja</span>
+                                                    <%= check_box_tag "export_application[exporter_offers_servicing_for_goods]", @insurance.exporter_offers_servicing_for_goods ? @insurance.exporter_offers_servicing_for_goods : nil, false, :onclick => "servicingForGoods();", id: "export_application_exporter_offers_servicing_for_goods" %>
+                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.exporter_offers_servicing_for_goods.present? && @insurance.exporter_offers_servicing_for_goods) %>">Ja</span>
                                                 </label>
 
                                                 <label onclick="noServicingForGoods()">
-                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.exporter_offers_servicing_for_goods.present? && !@insurance.exporter_offers_servicing_for_goods)%>">Nein</span>
+                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.exporter_offers_servicing_for_goods.present? && !@insurance.exporter_offers_servicing_for_goods) %>">Nein</span>
                                                 </label>
                                             </p>
                                         </div>
                                     </div>
-
-                                    <div class="input-field col s12">
-                                        <label>Bitte ordnen Sie die von Ihnen zu liefernden Waren bzw. Dienstleistungen Ihrer Branche
-                                            zu.</label>
-                                        <%= form.select :exported_goods_type, options_for_select([t('please_select'), 'Bergbau, inkl. Verarbeitung', 'Erdöl- und Erdgasförderung inkl. Verarbeitung', 'Chemie', 'Energie', 'Infrastruktur', 'Papier- , Holz-, Leder- und Textilindustrie', 'Agrarsektor und Nahrungsmittelindustrie', 'Verarbeitende Industrie', 'Umwelttechnik', 'Dienstleistungen'], @insurance.exported_goods_type ? @insurance.exported_goods_type : nil) %>
-
-                                    </div>
-
 
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m12 nopadding">
-                                            <label> Liefern/Leisten Sie im Rahmen eines Gesamtprojekts zusammen mit anderen
-                                                Unternehmen? </label>
+                                            <label> Liefern/Leisten Sie im Rahmen eines Gesamtprojekts zusammen mit anderen Unternehmen? </label>
                                             <p>
                                                 <label>
-                                                    <%= check_box_tag "insurance[is_delivered_part_of_consortium_with_other_companies]", @insurance.is_delivered_part_of_consortium_with_other_companies ? @insurance.is_delivered_part_of_consortium_with_other_companies : nil, false, :onclick => "deliveredPartOfConsortiumWithOtherCompanies();", id: "insurance_is_delivered_part_of_consortium_with_other_companies" %>
-                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_delivered_part_of_consortium_with_other_companies.present? && @insurance.is_delivered_part_of_consortium_with_other_companies)%>">Ja</span>
+                                                    <%= check_box_tag "export_application[is_delivered_part_of_consortium_with_other_companies]", @insurance.is_delivered_part_of_consortium_with_other_companies ? @insurance.is_delivered_part_of_consortium_with_other_companies : nil, false, :onclick => "deliveredPartOfConsortiumWithOtherCompanies();", id: "export_application_is_delivered_part_of_consortium_with_other_companies" %>
+                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_delivered_part_of_consortium_with_other_companies.present? && @insurance.is_delivered_part_of_consortium_with_other_companies) %>">Ja</span>
                                                 </label>
 
                                                 <label onclick="NoDeliveredPartOfConsortiumWithOtherCompanies()">
-                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.is_delivered_part_of_consortium_with_other_companies.present? && !@insurance.is_delivered_part_of_consortium_with_other_companies)%>">Nein</span>
+                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.is_delivered_part_of_consortium_with_other_companies.present? && !@insurance.is_delivered_part_of_consortium_with_other_companies) %>">Nein</span>
                                                 </label>
                                             </p>
                                         </div>
-                                    </div>
-
-                                    <div id="deliveredPartOfConsortiumWithOtherCompanies" style="display: none">
-                                        <div class="row">
+                                        <div id="deliveredPartOfConsortiumWithOtherCompanies" style="display: <%=(@insurance.is_delivered_part_of_consortium_with_other_companies.present? && @insurance.is_delivered_part_of_consortium_with_other_companies)? 'block' : 'none'%> ">
                                             <div class="input-field col s12 m12">
-                                                <label><%=t('project_detailed_description') %></label>
-                                                <%= form.text_area :project_detailed_description, autofocus: true, class: "validate", placeholder:"Bitte geben Sie hier eine detaillierte Beschreibung des Gesamtprojekts ein. Wichtig sind auch Informationen zur Struktur der Zusammenarbeit und ob Sie die Gesamtverantwortung tragen."%>
+                                                <label><%= t('project_detailed_description') %></label>
+                                                <%= form.text_area :project_detailed_description, autofocus: true, class: "validate", placeholder: "Bitte geben Sie hier eine detaillierte Beschreibung des Gesamtprojekts ein. Wichtig sind auch Informationen zur Struktur der Zusammenarbeit und ob Sie die Gesamtverantwortung tragen." %>
                                             </div>
                                             <div class="input-field col s12 m12">
                                                 <div class="input-field col s12 m12 nopadding">
                                                     <label><%= t('is_fully_responsible_for_project') %></label>
                                                     <p>
                                                         <label>
-                                                            <%= check_box_tag "insurance[is_fully_responsible_for_project]", @insurance.is_fully_responsible_for_project ? @insurance.is_fully_responsible_for_project : nil, false, :onclick => "isFullyResponsibleForProject();", id: "is_fully_responsible_for_project" %>
-                                                            <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_fully_responsible_for_project.present? && @insurance.is_fully_responsible_for_project)%>">Ja</span>
+                                                            <%= check_box_tag "export_application[is_fully_responsible_for_project]", @insurance.is_fully_responsible_for_project ? @insurance.is_fully_responsible_for_project : nil, false, :onclick => "isFullyResponsibleForProject();", id: "is_fully_responsible_for_project" %>
+                                                            <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_fully_responsible_for_project.present? && @insurance.is_fully_responsible_for_project) %>">Ja</span>
                                                         </label>
 
                                                         <label onclick="isNotFullyResponsibleForProject()">
-                                                            <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.is_fully_responsible_for_project.present? && !@insurance.is_fully_responsible_for_project)%>">Nein</span>
+                                                            <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.is_fully_responsible_for_project.present? && !@insurance.is_fully_responsible_for_project) %>">Nein</span>
                                                         </label>
                                                     </p>
                                                 </div>
                                             </div>
-                                            <!--                                      <div class="input-field col s12">-->
-                                            <!--                                        <label><%#=t('') %></label>-->
-                                            <%#= form.select :sensitive_area_type, options_for_select([t('please_select'), "Naturschutzgebiet", "Bedeutung für indigene Völker", "Archäologische oder kulturelle", "Sonstige"], @insurance.sensitive_area_type ? @insurance.sensitive_area_type : nil) %>
-                                            <!--                                      </div>-->
-                                            <!--                                      <div class="input-field col s12 m12">-->
-                                            <!--                                        <label>Bitte konkretisieren Sie, um was für ein sensibeles Gebiet es sich handelt.</label>-->
-                                            <%#= form.text_area :explain_sensitive_area_type, autofocus: true, class: "validate" %>
-                                            <!--                                      </div>-->
-                                        </div>
-                                    </div>
-
-                                    <div class="input-field col s12 m12">
-                                        <div class="input-field col s12 m12 nopadding">
-                                            <label>Betreffen Ihre Lieferungen bzw. Leistungen ein sensibles Gebiet?</label>
-                                            <p> Als sensible Gebiete gelten Nationalparks und andere durch nationales oder internationales Recht
-                                                geschützte Gebiete
-                                                sowie sensible Regionen von internationaler, nationaler oder regionaler Bedeutung.</p>
-                                            <p>
-                                            <p>
-                                                <label>
-                                                    <%= check_box_tag "insurance[does_delivery_affect_sensitive_areas]", @insurance.does_delivery_affect_sensitive_areas ? @insurance.does_delivery_affect_sensitive_areas : nil, false, :onclick => "deliveryAffectsSensitiveArea();", id: "insurance_does_delivery_affect_sensitive_areas" %>
-                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.does_delivery_affect_sensitive_areas.present? && @insurance.does_delivery_affect_sensitive_areas)%>">Ja</span>
-                                                </label>
-
-                                                <label onclick="NoDeliveryAffectsSensitiveArea()">
-                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.does_delivery_affect_sensitive_areas.present? && !@insurance.does_delivery_affect_sensitive_areas)%>">Nein</span>
-                                                </label>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div id="deliveryAffectsSensitiveArea" style="display: none">
-                                        <div class="row">
                                             <div class="input-field col s12">
-                                                <label>Um welche Art von sensibelen Gebiet handelt sich?</label>
-                                                <%= form.select :sensitive_area_type, options_for_select([t('please_select'), "Naturschutzgebiet", "Bedeutung für indigene Völker", "Archäologische oder kulturelle", "Sonstige"], @insurance.sensitive_area_type ? @insurance.sensitive_area_type : nil) %>
+                                                <label> <%= t('entire_project_amount') %> </label>
                                             </div>
+
+                                            <div class="input-field col s12 m6">
+                                                <%= form.select :entire_project_amount_currency, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: "validate" %>
+                                            </div>
+
+                                            <div class="input-field col s12 m6">
+                                                <%= form.text_field :entire_project_amount, class: "validate", placeholder: t('entire_project_amount') %>
+                                            </div>
+
                                             <div class="input-field col s12 m12">
-                                                <label>Bitte konkretisieren Sie, um was für ein sensibeles Gebiet es sich handelt.</label>
-                                                <%= form.text_area :explain_sensitive_area_type, autofocus: true, class: "validate" %>
+                                                <label> <%= t('entire_project_financing_detail') %> </label>
+                                            </div>
+
+
+                                            <div class="row">
+                                                <div class="input-field col s12 m4">
+                                                    <%= form.select :overall_project_financing_details_subject_1, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: 'validate' %>
+                                                </div>
+                                                <div class="input-field col s12 m4">
+                                                    <div> <%= form.text_field :overall_project_financing_details_currency_1, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                </div>
+
+                                                <div class="input-field col s12 m4">
+                                                    <div> <%= form.text_field :overall_project_financing_details_amount_1, class: "validate", placeholder: t('description') %> </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12 m4">
+                                                    <%= form.select :overall_project_financing_details_subject_2, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: 'validate' %>
+                                                </div>
+                                                <div class="input-field col s12 m4">
+                                                    <div> <%= form.text_field :overall_project_financing_details_currency_2, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                </div>
+
+                                                <div class="input-field col s12 m4">
+                                                    <div> <%= form.text_field :overall_project_financing_details_amount_2, class: "validate", placeholder: t('description') %> </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12 m4">
+                                                    <%= form.select :overall_project_financing_details_subject_3, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: 'validate' %>
+                                                </div>
+                                                <div class="input-field col s12 m4">
+                                                    <div> <%= form.text_field :overall_project_financing_details_currency_3, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                </div>
+
+                                                <div class="input-field col s12 m4">
+                                                    <div> <%= form.text_field :overall_project_financing_details_amount_3, class: "validate", placeholder: t('description') %> </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m12 nopadding">
-                                            <label>Ist Ihr Export ausfuhrgenehmigungspflichtig?</label>
-                                            <p>
+                                            <label> Versenden Sie Ihre Waren/Güter/Anlagen in mehreren Lieferungen? </label>
                                             <p>
                                                 <label>
-                                                    <%= check_box_tag "insurance[is_export_licence_needed]", @insurance.is_export_licence_needed ? @insurance.is_export_licence_needed : nil, false, :onclick => "exportLicenceNeeded();", id: "insurance_is_export_licence_needed" %>
-                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_export_licence_needed.present? && @insurance.is_export_licence_needed)%>">Ja</span>
+                                                    <%= check_box_tag "export_application[is_good_sent_in_multiple_deliveries]", @insurance.is_good_sent_in_multiple_deliveries ? @insurance.is_good_sent_in_multiple_deliveries : nil, false, :onclick => "goodsSentMultipleDeliveries();", id: "export_application_is_good_sent_in_multiple_deliveries" %>
+                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_good_sent_in_multiple_deliveries.present? && @insurance.is_good_sent_in_multiple_deliveries) %>">Ja</span>
                                                 </label>
 
-                                                <label onclick="noExportLicenceNeeded()">
-                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.is_export_licence_needed.present? && !@insurance.is_export_licence_needed)%>">Nein</span>
+                                                <label onclick="noGoodsSentMultipleDeliveries()">
+                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.is_good_sent_in_multiple_deliveries.present? && !@insurance.is_good_sent_in_multiple_deliveries) %>">Nein</span>
                                                 </label>
                                             </p>
                                         </div>
                                     </div>
 
-                                    <div id="originLicense" style="display: none">
+                                    <div class="input-field col s12">
+
+                                        <label><%= t('give_contract_value') %></label>
+
+                                        <p><i><%= t('contract_currency') %> </i></p>
+
                                         <div class="row">
-                                            <div class="input-field col s12">
-                                                <label>Aus welchen Vorschriften bzw. welchem Teil/Abschnitt der Ausfuhrliste ergibt sich die
-                                                    Genehmigungspflicht?</label>
-                                                <%= form.text_field :which_regulations_enforcing_exportlicense_requirement, autofocus: true, class: "validate" %>
+                                            <div class="col m4 ">
+                                                <%= form.select :contract_currency, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: 'validate' %>
                                             </div>
+                                            <div class="col m4 ">
+                                                <div> <%= form.text_field :contract_value, class: "validate", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+
                                             <div class="input-field col s12 m12">
-                                                <label>Die Ausfuhrgenehmigung...</label>
-                                                <%= form.select :export_license_status, options_for_select([t('please_select'), "... wurde erteilt.", "... ist beantragt.", "... ist noch zu beantragen."]), {}, class: 'validate' %>
+                                                <label>Wie hoch ist der Lieferwert der Güter exkl. anderer Leistungen (Montagen, etc.)</label>
+                                                <div> <%= form.text_field :total_delivery_value_excluding_servicing, class: "validate", placeholder: "Lieferwert (Betrag)", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                             </div>
-                                        </div>
-                                    </div>
 
-                                    <div class="input-field col s12 m12">
-                                        <div class="input-field col s12 m12 nopadding">
-                                            <label> Liefern Sie gebrauchte Ware?</label>
-                                            <p>
-                                                <label>
-                                                    <%= check_box_tag "insurance[are_secondhand_goods_delivered]", @insurance.are_secondhand_goods_delivered ? @insurance.are_secondhand_goods_delivered : nil, false, :onclick => "deliverySecondHandGoods();", id: "insurance_are_secondhand_goods_delivered" %>
-                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.are_secondhand_goods_delivered.present? && @insurance.are_secondhand_goods_delivered)%>">Ja</span>
-                                                </label>
+                                            <div class="input-field col s12 m12">
+                                                <label>Wie hoch ist der Anteil der Ersatzteile am Lieferwert?</label>
+                                                <div> <%= form.text_field :percentage_of_spareparts_in_whole_order, class: "validate", placeholder: "Wert Ersatzteile in Prozent oder Betrag", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                            </div>
 
-                                                <label onclick="noDeliverySecondHandGoods()">
-                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.are_secondhand_goods_delivered.present? && !@insurance.are_secondhand_goods_delivered)%>">Nein</span>
-                                                </label>
-                                            </p>
-                                        </div>
-                                    </div>
+                                            <div class="input-field col s12 m12">
+                                                <label> <%= t('other_billed_items_in_contract') %> </label>
+                                            </div>
 
-                                    <div id="deliverySecondHandGoods" style="display: none">
-                                        <div class="input-field col s12">
-                                            <label>Jahr der Fertigung</label>
-                                            <%= form.text_area :manufacture_year, autofocus: true, class: "validate" %>
-                                        </div>
-                                        <div class="input-field col s12">
-                                            <label>Restlebensdauer in Jahren</label>
-                                            <%= form.text_field :remaining_life, autofocus: true, class: "validate" %>
-                                        </div>
-                                    </div>
+                                            <div class="row">
+                                                <div class="input-field col s12 m4">
+                                                    <%= form.select :other_billed_items_in_contract_currency, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: 'validate' %>
+                                                </div>
+                                                <div class="input-field col s12 m4">
+                                                    <div> <%= form.text_field :other_billed_items_in_contract_amount, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                </div>
 
+                                                <div class="input-field col s12 m4">
+                                                    <div> <%= form.text_field :describe_other_billed_items_in_contract, class: "validate", placeholder: t('description') %> </div>
+                                                </div>
+                                            </div>
 
-                                    <div class="input-field col s12 m12">
-                                        <div class="input-field col s12 m12 nopadding">
-                                            <label>Wird die Ware vor dem Weiterverkauf überholt? </label>
-                                            <p>
-                                                <label>
-                                                    <%= check_box_tag "insurance[are_goods_overhauled]", @insurance.are_goods_overhauled ? @insurance.are_goods_overhauled : nil, false, :onclick => "goodOverhauled();", id: "insurance_are_goods_overhauled" %>
-                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.are_goods_overhauled.present? && @insurance.are_goods_overhauled)%>">Ja</span>
-                                                </label>
+                                            <div class="row">
+                                                <div class="input-field col s12 m4">
+                                                    <%= form.select :other_billed_items_in_contract_currency, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: 'validate' %>
+                                                </div>
+                                                <div class="input-field col s12 m4">
+                                                    <div> <%= form.text_field :other_billed_items_in_contract_amount, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                </div>
 
-                                                <label onclick="NoGoodsOverhauled()">
-                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.are_goods_overhauled.present? && !@insurance.are_goods_overhauled)%>">Nein</span>
-                                                </label>
-                                            </p>
-                                        </div>
-                                    </div>
+                                                <div class="input-field col s12 m4">
+                                                    <div> <%= form.text_field :describe_other_billed_items_in_contract, class: "validate", placeholder: t('description') %> </div>
+                                                </div>
+                                            </div>
 
-                                    <div id="goodsOverhauled" style="display: none">
+                                            <div class="row">
+                                                <div class="input-field col s12 m4">
+                                                    <%= form.select :other_billed_items_in_contract_currency, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: 'validate' %>
+                                                </div>
+                                                <div class="input-field col s12 m4">
+                                                    <div> <%= form.text_field :other_billed_items_in_contract_amount, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                </div>
 
-                                        <div class="input-field col s12 m6">
-                                            <label>Wo wird die Ware überholt?</label>
-                                            <%= form.select :goods_overhaul_country, options_for_select([t('please_select'), "Afghanistan", "Ägypten", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Äquatorialguinea", "Argentinien", "Armenien", "Aserbaidschan", "Äthiopien", "Australien", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belgien", "Belize", "Benin", "Bergkarabach", "Bhutan", "Bolivien", "Bosnien und Herzegowina", "Botswana", "Brasilien", "Brunei", "Bulgarien", "Burkina Faso", "Burundi", "Chile", "Republik China", "Volksrepublik China", "mit Hongkong (HK) und Macao (MO)", "Cookinseln", "Costa Rica", "Dänemark", "mit Färöer (FO) und Grönland (GL)", "Deutschland", "Dominica", "Dominikanische Republik", "Dschibuti", "Ecuador", "El Salvador", "Elfenbeinküste", "Eritrea", "Estland", "Fidschi", "Finnland", "Frankreich", "(ohne Französische Überseegebiete)", "Gabun", "Gambia", "Georgien", "(mit Abchasien und Südossetien)", "Ghana", "Grenada", "Griechenland", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Indien", "(mit Kaschmir)", "Indonesien", "Irak", "Iran", "Irland", "Island", "Israel", "(ohne Gazastreifen, Golanhöhen und Westjordanland)", "Italien", "Jamaika", "Japan", "Jemen", "Jordanien", "Kambodscha", "Kamerun", "Kanada", "Kap Verde", "Kasachstan", "Katar", "Kenia", "Kirgisistan", "Kiribati", "Kolumbien", "Komoren", "Kongo, Demokratische Republik", "Kongo, Republik", "Korea, Nord", "Korea, Süd", "Kosovo", "Kroatien", "Kuba", "Kuwait", "Laos", "Lesotho", "Lettland", "Libanon", "Liberia", "Libyen", "Liechtenstein", "Litauen", "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marokko", "(ohne Westsahara)", "Marshallinseln", "Mauretanien", "Mauritius", "Mazedonien", "Mexiko", "Mikronesien", "Moldawien", "(mit Transnistrien)", "Monaco", "Mongolei", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nepal", "Neuseeland", "Nicaragua", "Königreich der Niederlande", "(ohne Curaçao, Sint Maarten und Aruba)", "Niger", "Nigeria", "Niue", "Nordzypern", "Norwegen", "(ohne Svalbard)", "Oman", "Österreich", "Osttimor / Timor-Leste", "Pakistan", "(ohne Kaschmir)", "Palästina", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal", "Ruanda", "Rumänien", "Russland", "Salomonen", "Sambia", "Samoa", "San Marino", "São Tomé und Príncipe", "Saudi-Arabien", "Schweden", "Schweiz", "Senegal", "Serbien", "(ohne Kosovo)", "Seychellen", "Sierra Leone", "Simbabwe", "Singapur", "Slowakei", "Slowenien", "Somalia", "(mit Somaliland)", "Somaliland", "Spanien", "Sri Lanka", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Südafrika", "Sudan", "Südossetien", "Südsudan", "Suriname", "Swasiland", "Syrien", "(mit Golanhöhen)", "Tadschikistan", "Tansania", "Thailand", "Togo", "Tonga", "Transnistrien", "Trinidad und Tobago", "Tschad", "Tschechien", "Tunesien", "Türkei", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstadt", "Venezuela", "Vereinigte Arabische Emirate", "Vereinigte Staaten", "(ohne Außengebiete)", "Vereinigtes Königreich", "Vietnam", "Weißrussland", "Westsahara", "Zentralafrikanische Republik", "Zypern"], @insurance.goods_overhaul_country ? @insurance.goods_overhaul_country : nil), {}, class: 'validate' %>
-                                        </div>
-
-                                        <div class="input-field col s12 ">
-                                            <label>Warum wird die Ware im Ausland überholt? </label>
-                                            <%= form.text_area :why_good_overhauled_abroad, autofocus: true, class: "validate" %>
-                                        </div>
-
-                                        <div class="input-field col s12 ">
-                                            <label>Zu welchem Anteil wird die Ware im Ausland überholt? </label>
-                                            <%= form.text_field :proportion_of_goods_overhauled_abroad, autofocus: true, class: "validate" %>
-                                        </div>
-
-                                        <div class="input-field col s12">
-                                            <label>Bitte beschreiben Sie, weshalb die Überholung nicht in Deutschland erfolgte </label>
-                                            <%= form.text_area :describe_why_overhault_didnot_take_in_germany, autofocus: true, class: "validate" %>
+                                                <div class="input-field col s12 m4">
+                                                    <div> <%= form.text_field :describe_other_billed_items_in_contract, class: "validate", placeholder: t('description') %> </div>
+                                                </div>
+                                            </div>
                                         </div>
 
                                     </div>
@@ -650,12 +643,12 @@
                                             <label> Haben bereits alle Parteien den Vertrag für das Exportgeschäft unterzeichnet? </label>
                                             <p>
                                                 <label>
-                                                    <%= check_box_tag "insurance[is_contract_already_signed_between_parties]", @insurance.is_contract_already_signed_between_parties ? @insurance.is_contract_already_signed_between_parties : nil, false, :onclick => "contractAlreadySignedBetweenParties();", id: "insurance_is_contract_already_signed_between_parties" %>
-                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_contract_already_signed_between_parties.present? && @insurance.is_contract_already_signed_between_parties)%>">Ja</span>
+                                                    <%= check_box_tag "export_application[is_contract_already_signed_between_parties]", @insurance.is_contract_already_signed_between_parties ? @insurance.is_contract_already_signed_between_parties : nil, false, :onclick => "contractAlreadySignedBetweenParties();", id: "export_application_is_contract_already_signed_between_parties" %>
+                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_contract_already_signed_between_parties.present? && @insurance.is_contract_already_signed_between_parties) %>">Ja</span>
                                                 </label>
 
                                                 <label onclick="noContractAlreadySignedBetweenParties()">
-                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.is_contract_already_signed_between_parties.present? && !@insurance.is_contract_already_signed_between_parties)%>">Nein</span>
+                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.is_contract_already_signed_between_parties.present? && !@insurance.is_contract_already_signed_between_parties) %>">Nein</span>
                                                 </label>
                                             </p>
                                         </div>
@@ -680,16 +673,149 @@
 
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m12 nopadding">
+                                            <label>Betreffen Ihre Lieferungen bzw. Leistungen ein sensibles Gebiet?</label>
+                                            <p> Als sensible Gebiete gelten Nationalparks und andere durch nationales oder internationales Recht
+                                                geschützte Gebiete
+                                                sowie sensible Regionen von internationaler, nationaler oder regionaler Bedeutung.</p>
+                                            <p>
+                                            <p>
+                                                <label>
+                                                    <%= check_box_tag "export_application[does_delivery_affect_sensitive_areas]", @insurance.does_delivery_affect_sensitive_areas ? @insurance.does_delivery_affect_sensitive_areas : nil, false, :onclick => "deliveryAffectsSensitiveArea();", id: "export_application_does_delivery_affect_sensitive_areas" %>
+                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.does_delivery_affect_sensitive_areas.present? && @insurance.does_delivery_affect_sensitive_areas) %>">Ja</span>
+                                                </label>
+
+                                                <label onclick="NoDeliveryAffectsSensitiveArea()">
+                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.does_delivery_affect_sensitive_areas.present? && !@insurance.does_delivery_affect_sensitive_areas) %>">Nein</span>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div id="deliveryAffectsSensitiveArea" style="display: none">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <label>Um welche Art vom sensibelen Gebiet handelt sich?</label>
+                                                <%= form.select :sensitive_area_type, options_for_select([t('please_select'), "Naturschutzgebiet", "Bedeutung für indigene Völker", "Archäologische oder kulturelle", "Sonstige"], @insurance.sensitive_area_type ? @insurance.sensitive_area_type : nil), {}, class: 'validate', id: "sensitive_area_type", :onchange => 'sensitiveAreaTypeChangeHandler()' %>
+                                            </div>
+                                            <div class="input-field col s12 m12" id="explain_sensitive_area_type">
+                                                <label>Bitte konkretisieren Sie, um was für ein sensibeles Gebiet es sich handelt.</label>
+                                                <%= form.text_area :explain_sensitive_area_type, autofocus: true, class: "validate" %>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-field col s12 m12">
+                                        <div class="input-field col s12 m12 nopadding">
+                                            <label>Ist Ihr Export ausfuhrgenehmigungspflichtig?</label>
+                                            <p>
+                                            <p>
+                                                <label>
+                                                    <%= check_box_tag "export_application[is_export_licence_needed]", @insurance.is_export_licence_needed ? @insurance.is_export_licence_needed : nil, false, :onclick => "exportLicenceNeeded();", id: "export_application_is_export_licence_needed" %>
+                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_export_licence_needed.present? && @insurance.is_export_licence_needed) %>">Ja</span>
+                                                </label>
+
+                                                <label onclick="noExportLicenceNeeded()">
+                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.is_export_licence_needed.present? && !@insurance.is_export_licence_needed) %>">Nein</span>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div id="originLicense" style="display: none">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <label>Aus welchen Vorschriften bzw. welchem Teil/Abschnitt der Ausfuhrliste ergibt sich die
+                                                    Genehmigungspflicht?</label>
+                                                <%= form.text_field :which_regulations_enforcing_exportlicense_requirement, autofocus: true, class: "validate" %>
+                                            </div>
+                                            <div class="input-field col s12 m12">
+                                                <label>Die Ausfuhrgenehmigung...</label>
+                                                <%= form.select :export_license_status, options_for_select([t('please_select'), "... wurde erteilt.", "... ist beantragt.", "... ist noch zu beantragen."]), {}, class: 'validate' %>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-field col s12 m12">
+                                        <div class="input-field col s12 m12 nopadding">
+                                            <label> Liefern Sie gebrauchte Ware?</label>
+                                            <p>
+                                                <label>
+                                                    <%= check_box_tag "export_application[are_secondhand_goods_delivered]", @insurance.are_secondhand_goods_delivered ? @insurance.are_secondhand_goods_delivered : nil, false, :onclick => "deliverySecondHandGoods();", id: "export_application_are_secondhand_goods_delivered" %>
+                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.are_secondhand_goods_delivered.present? && @insurance.are_secondhand_goods_delivered) %>">Ja</span>
+                                                </label>
+
+                                                <label onclick="noDeliverySecondHandGoods()">
+                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.are_secondhand_goods_delivered.present? && !@insurance.are_secondhand_goods_delivered) %>">Nein</span>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div id="deliverySecondHandGoods" style="display: none">
+                                        <div class="input-field col s12">
+                                            <label>Jahr der Fertigung</label>
+                                            <%= form.text_area :manufacture_year, autofocus: true, class: "validate" %>
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <label>Restlebensdauer in Jahren</label>
+                                            <%= form.text_field :remaining_life, autofocus: true, class: "validate" %>
+                                        </div>
+
+                                        <div class="input-field col s12 m12">
+                                            <div class="input-field col s12 m12 nopadding">
+                                                <label>Wird die Ware vor dem Weiterverkauf überholt? </label>
+                                                <p>
+                                                    <label>
+                                                        <%= check_box_tag "export_application[are_goods_overhauled]", @insurance.are_goods_overhauled ? @insurance.are_goods_overhauled : nil, false, :onclick => "goodOverhauled();", id: "export_application_are_goods_overhauled" %>
+                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.are_goods_overhauled.present? && @insurance.are_goods_overhauled) %>">Ja</span>
+                                                    </label>
+
+                                                    <label onclick="NoGoodsOverhauled()">
+                                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.are_goods_overhauled.present? && !@insurance.are_goods_overhauled) %>">Nein</span>
+                                                    </label>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div id="goodsOverhauled" style="display: none">
+
+                                            <div class="input-field col s12 m6">
+                                                <label>Wo wird die Ware überholt?</label>
+                                                <%= form.select :goods_overhaul_country, options_for_select([t('please_select'), "Deutschland", "im Ausland", "sowohl als auch"], @insurance.goods_overhaul_country ? @insurance.goods_overhaul_country : nil), {}, class: 'validate', id: "goods_overhaul_country", :onchange => 'goodsOverhaulCountryIfGermanyHandler()' %>
+                                            </div>
+
+                                            <div id="goods_overhaul_country_if_not_germany" style="display: none">
+                                                <div class="input-field col s12 ">
+                                                    <label>Warum wird die Ware im Ausland überholt? </label>
+                                                    <%= form.text_area :why_good_overhauled_abroad, autofocus: true, class: "validate" %>
+                                                </div>
+
+                                                <div class="input-field col s6 ">
+                                                    <label>Zu welchem Anteil wird die Ware im Ausland überholt? </label>
+                                                    <%= form.text_field :proportion_of_goods_overhauled_abroad, autofocus: true, class: "validate" %>
+                                                </div>
+
+                                                <div class="input-field col s12">
+                                                    <label>Bitte beschreiben Sie, weshalb die Überholung nicht in Deutschland erfolgte </label>
+                                                    <%= form.text_area :describe_why_overhault_didnot_take_in_germany, autofocus: true, class: "validate" %>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="input-field col s12 m12">
+                                        <div class="input-field col s12 m12 nopadding">
                                             <label> Vereinbaren Sie mit Ihrem Vertragspartner eine besondere Vertragsstruktur
                                                 (Tochterunternehmen oder Preisgleitklausel?) </label>
                                             <p>
                                                 <label>
-                                                    <%= check_box_tag "insurance[has_special_contract_structure]", @insurance.has_special_contract_structure ? @insurance.has_special_contract_structure : nil, false, :onclick => "specialContractStructure();", id: "insurance_has_special_contract_structure" %>
-                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.has_special_contract_structure.present? && @insurance.has_special_contract_structure)%>">Ja</span>
+                                                    <%= check_box_tag "export_application[has_special_contract_structure]", @insurance.has_special_contract_structure ? @insurance.has_special_contract_structure : nil, false, :onclick => "specialContractStructure();", id: "export_application_has_special_contract_structure" %>
+                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.has_special_contract_structure.present? && @insurance.has_special_contract_structure) %>">Ja</span>
                                                 </label>
 
                                                 <label onclick="noSpecialContractStructure()">
-                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.has_special_contract_structure.present? && !@insurance.has_special_contract_structure)%>">Nein</span>
+                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.has_special_contract_structure.present? && !@insurance.has_special_contract_structure) %>">Nein</span>
                                                 </label>
                                             </p>
                                         </div>
@@ -697,7 +823,7 @@
 
                                     <div id="explainStructure" style="display: none">
                                         <div class="row">
-                                            <div class="input-field col s12 m12 nopadding">
+                                            <div class="input-field col s12 m12">
                                                 <label>Bitte erklären Sie die Struktur im Detail.</label>
                                                 <div> <%= form.text_area :explain_special_structure, class: "validate" %> </div>
                                             </div>
@@ -708,16 +834,17 @@
                                         <label>Bekommen Sie für die zu liefernde Ware ein deutsches Warenursprungszeugnis?</label>
                                         <p>
                                             <label>
-                                                <%= check_box_tag "insurance[has_german_certificate_of_origin]", @insurance.has_german_certificate_of_origin ? @insurance.has_german_certificate_of_origin : nil, false, :onclick => "germanCertificateOfOrigin();", id: "insurance_has_german_certificate_of_origin" %>
-                                                <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.has_german_certificate_of_origin.present? && @insurance.has_german_certificate_of_origin)%>">Ja</span>
+                                                <%= check_box_tag "export_application[has_german_certificate_of_origin]", @insurance.has_german_certificate_of_origin ? @insurance.has_german_certificate_of_origin : nil, false, :onclick => "germanCertificateOfOrigin();", id: "export_application_has_german_certificate_of_origin" %>
+                                                <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.has_german_certificate_of_origin.present? && @insurance.has_german_certificate_of_origin) %>">Ja</span>
                                             </label>
 
                                             <label onclick="noGermanCertificateOfOrigin()">
-                                                <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.has_german_certificate_of_origin.present? && !@insurance.has_german_certificate_of_origin)%>">Nein</span>
+                                                <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.has_german_certificate_of_origin.present? && !@insurance.has_german_certificate_of_origin) %>">Nein</span>
                                             </label>
 
                                             <label>
-                                                <%= check_box_tag "insurance[has_german_certificate_of_origin_for_only_parts_of_good]", @insurance.has_german_certificate_of_origin_for_only_parts_of_good ? @insurance.has_german_certificate_of_origin_for_only_parts_of_good : nil, false, :onclick => "partlyGermanCertificateOfOrigin();", id: "insurance_has_german_certificate_of_origin_for_only_parts_of_good" %> <span class="part yes-no-btns">Part</span>
+                                                <%= check_box_tag "export_application[has_german_certificate_of_origin_for_only_parts_of_good]", @insurance.has_german_certificate_of_origin_for_only_parts_of_good ? @insurance.has_german_certificate_of_origin_for_only_parts_of_good : nil, false, :onclick => "partlyGermanCertificateOfOrigin();", id: "export_application_has_german_certificate_of_origin_for_only_parts_of_good" %>
+                                                <span class="part yes-no-btns">Part</span>
                                             </label>
                                         </p>
 
@@ -725,7 +852,7 @@
                                             <div class="row">
                                                 <div class="input-field col s12 m6">
                                                     <label>Währung</label>
-                                                    <%= form.select :all_rawgoods_supplier_currency, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)","AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)","FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)",  "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)","GBP (Pound Sterling)", "ILS (New Israeli Sheqel)",  "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)",  "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)",  "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: "validate" %>
+                                                    <%= form.select :all_rawgoods_supplier_currency, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: "validate" %>
                                                 </div>
 
                                                 <div class="input-field col s12 m6">
@@ -746,9 +873,12 @@
 
                                         <div id="partlyGermanCertificateOfOrigin" style="display: none">
                                             <div class="row">
+                                                <div class="input-field col s12">
+                                                    <label>Zulieferung 1</label>
+                                                </div>
                                                 <div class="input-field col s12 m6">
                                                     <label>Währung</label>
-                                                    <%= form.select :partly_rawgoods_supplier_currency, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)","AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)","FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)",  "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)","GBP (Pound Sterling)", "ILS (New Israeli Sheqel)",  "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)",  "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)",  "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: "validate" %>
+                                                    <%= form.select :partly_rawgoods_supplier_currency, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: "validate" %>
                                                 </div>
 
                                                 <div class="input-field col s12 m6">
@@ -770,21 +900,7 @@
                                     </div>
 
 
-                                    <div class="input-field col s12 m12">
-                                        <div class="input-field col s12 m12 nopadding">
-                                            <label> Versenden Sie Ihre Waren/Güter/Anlagen in mehreren Lieferungen? </label>
-                                            <p>
-                                                <label>
-                                                    <%= check_box_tag "insurance[is_good_sent_in_multiple_deliveries]", @insurance.is_good_sent_in_multiple_deliveries ? @insurance.is_good_sent_in_multiple_deliveries : nil, false, :onclick => "goodsSentMultipleDeliveries();", id: "insurance_is_good_sent_in_multiple_deliveries" %>
-                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_good_sent_in_multiple_deliveries.present? && @insurance.is_good_sent_in_multiple_deliveries)%>">Ja</span>
-                                                </label>
 
-                                                <label onclick="noGoodsSentMultipleDeliveries()">
-                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.is_good_sent_in_multiple_deliveries.present? && !@insurance.is_good_sent_in_multiple_deliveries)%>">Nein</span>
-                                                </label>
-                                            </p>
-                                        </div>
-                                    </div>
 
                                     <div id="GoodsSentMultipleDeliveries" style="display: none">
                                         <div class="row">
@@ -824,78 +940,8 @@
                                         </div>
                                     </div>
 
-                                    <div class="input-field col s12">
 
-                                        <label><%= t('give_contract_value') %></label>
 
-                                        <p><i><%= t('contract_currency') %> </i></p>
-
-                                        <div class="row">
-                                            <div class="col m4 ">
-                                                <%= form.select :contract_currency, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)","AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)","FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)",  "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)","GBP (Pound Sterling)", "ILS (New Israeli Sheqel)",  "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)",  "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)",  "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: 'validate' %>
-                                            </div>
-                                            <div class="col m4 ">
-                                                <div> <%= form.text_field :contract_value, class: "validate", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-
-                                            <div class="input-field col s12 m12">
-                                                <label>Wie hoch ist der Lieferwert der Güter exkl. anderer Leistungen (Montagen, etc.)</label>
-                                                <div> <%= form.text_field :total_delivery_value_excluding_servicing, class: "validate", placeholder: "Lieferwert (Betrag)", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
-                                            </div>
-
-                                            <div class="input-field col s12 m12">
-                                                <label>Wie hoch ist der Anteil der Ersatzteile am Lieferwert?</label>
-                                                <div> <%= form.text_field :percentage_of_spareparts_in_whole_order, class: "validate", placeholder: "Wert Ersatzteile in Prozent oder Betrag", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
-                                            </div>
-
-                                            <div class="input-field col s12 m12">
-                                                <label> <%= t('other_billed_items_in_contract') %> </label>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="input-field col s12 m4">
-                                                    <%= form.select :other_billed_items_in_contract_currency, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)","AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)","FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)",  "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)","GBP (Pound Sterling)", "ILS (New Israeli Sheqel)",  "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)",  "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)",  "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: 'validate' %>
-                                                </div>
-                                                <div class="input-field col s12 m4">
-                                                    <div> <%= form.text_field :other_billed_items_in_contract_amount, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
-                                                </div>
-
-                                                <div class="input-field col s12 m4">
-                                                    <div> <%= form.text_field :describe_other_billed_items_in_contract, class: "validate", placeholder: t('description') %> </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="input-field col s12 m4">
-                                                    <%= form.select :other_billed_items_in_contract_currency,options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)","AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)","FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)",  "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)","GBP (Pound Sterling)", "ILS (New Israeli Sheqel)",  "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)",  "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)",  "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: 'validate' %>
-                                                </div>
-                                                <div class="input-field col s12 m4">
-                                                    <div> <%= form.text_field :other_billed_items_in_contract_amount, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
-                                                </div>
-
-                                                <div class="input-field col s12 m4">
-                                                    <div> <%= form.text_field :describe_other_billed_items_in_contract, class: "validate", placeholder: t('description') %> </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="input-field col s12 m4">
-                                                    <%= form.select :other_billed_items_in_contract_currency, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)","AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)","FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)",  "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)","GBP (Pound Sterling)", "ILS (New Israeli Sheqel)",  "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)",  "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)",  "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: 'validate' %>
-                                                </div>
-                                                <div class="input-field col s12 m4">
-                                                    <div> <%= form.text_field :other_billed_items_in_contract_amount, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
-                                                </div>
-
-                                                <div class="input-field col s12 m4">
-                                                    <div> <%= form.text_field :describe_other_billed_items_in_contract, class: "validate", placeholder: t('description') %> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1997,7 +2043,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#insurance_has_previously_used_hermes_cover').prop('checked', true);
+        $('#export_application_has_previously_used_hermes_cover').prop('checked', true);
     }
 
     function noPreviouslyHermesInsuranceUsed() {
@@ -2007,7 +2053,7 @@
         } else {
             x.style.display = "none";
         }
-        $('#insurance_has_previously_used_hermes_cover').prop('checked', false);
+        $('#export_application_has_previously_used_hermes_cover').prop('checked', false);
     }
 
     function germanCertificateOfOrigin() {
@@ -2021,8 +2067,8 @@
             y.style.display = "none";
         }
 
-        $('#insurance_has_german_certificate_of_origin').prop('checked', true);
-        $('#insurance_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', false);
+        $('#export_application_has_german_certificate_of_origin').prop('checked', true);
+        $('#export_application_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', false);
     }
 
     function noGermanCertificateOfOrigin() {
@@ -2036,8 +2082,8 @@
             x.style.display = "none";
             y.style.display = "none";
         }
-        $('#insurance_has_german_certificate_of_origin').prop('checked', false);
-        $('#insurance_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', false);
+        $('#export_application_has_german_certificate_of_origin').prop('checked', false);
+        $('#export_application_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', false);
     }
 
     function partlyGermanCertificateOfOrigin() {
@@ -2051,8 +2097,8 @@
             y.style.display = "none";
             x.style.display = "none";
         }
-        $('#insurance_has_german_certificate_of_origin').prop('checked', false);
-        $('#insurance_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', true);
+        $('#export_application_has_german_certificate_of_origin').prop('checked', false);
+        $('#export_application_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', true);
     }
 
     function goodOverhauled() {
@@ -2062,7 +2108,7 @@
         } else {
             x.style.display = "none";
         }
-        $('#insurance_are_goods_overhauled').prop('checked', true);
+        $('#export_application_are_goods_overhauled').prop('checked', true);
     }
 
     function NoGoodsOverhauled() {
@@ -2070,7 +2116,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#insurance_are_goods_overhauled').prop('checked', false);
+        $('#export_application_are_goods_overhauled').prop('checked', false);
     }
 
     function incoTerms() {
@@ -2096,7 +2142,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#insurance_exporter_external_rating_available').prop('checked', true);
+        $('#export_application_exporter_external_rating_available').prop('checked', true);
     }
 
     function noExporterExternalRatingFunction() {
@@ -2104,7 +2150,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#insurance_exporter_external_rating_available').prop('checked', false);
+        $('#export_application_exporter_external_rating_available').prop('checked', false);
     }
 
     function importerExternalRatingFunction() {
@@ -2114,7 +2160,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#insurance_importer_external_rating_available').prop('checked', true);
+        $('#export_application_importer_external_rating_available').prop('checked', true);
     }
 
     function noImporterExternalRatingFunction() {
@@ -2122,7 +2168,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#insurance_importer_external_rating_available').prop('checked', false);
+        $('#export_application_importer_external_rating_available').prop('checked', false);
     }
 
     function controlledByMotherCompany() {
@@ -2132,7 +2178,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#insurance_is_company_controlled_by_mother_company').prop('checked', true);
+        $('#export_application_is_company_controlled_by_mother_company').prop('checked', true);
     }
 
     function notControlledByMotherCompany() {
@@ -2140,7 +2186,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#insurance_is_company_controlled_by_mother_company').prop('checked', false);
+        $('#export_application_is_company_controlled_by_mother_company').prop('checked', false);
     }
 
     function significantInfluenceOnImporter() {
@@ -2150,7 +2196,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#insurance_has_significant_influence_on_importer_management').prop('checked', true);
+        $('#export_application_has_significant_influence_on_importer_management').prop('checked', true);
     }
 
     function noSignificantInfluenceOnImporter() {
@@ -2158,15 +2204,15 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#insurance_has_significant_influence_on_importer_management').prop('checked', false);
+        $('#export_application_has_significant_influence_on_importer_management').prop('checked', false);
     }
 
     function investmentGoods() {
-        $('#insurance_is_investment_good').prop('checked', true);
+        $('#export_application_is_investment_good').prop('checked', true);
     }
 
     function noInvestmentGoods() {
-        $('#insurance_is_investment_good').prop('checked', false);
+        $('#export_application_is_investment_good').prop('checked', false);
     }
 
 
@@ -2175,7 +2221,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#insurance_is_delivered_at_this_address').prop('checked', true);
+        $('#export_application_is_delivered_at_this_address').prop('checked', true);
     }
 
     function noDeliveredAtThisAddress() {
@@ -2185,23 +2231,23 @@
         } else {
             x.style.display = "none";
         }
-        $('#insurance_is_delivered_at_this_address').prop('checked', false);
+        $('#export_application_is_delivered_at_this_address').prop('checked', false);
     }
 
     function noPrivate_sector() {
-        $('#insurance_is_exporting_to_private_sector').prop('checked', false);
+        $('#export_application_is_exporting_to_private_sector').prop('checked', false);
     }
 
     function noPaymentExperience() {
-        $('#insurance_has_payment_experience_with_importer').prop('checked', false);
+        $('#export_application_has_payment_experience_with_importer').prop('checked', false);
     }
 
     function servicingForGoods() {
-        $('#insurance_exporter_offers_servicing_for_goods').prop('checked', true);
+        $('#export_application_exporter_offers_servicing_for_goods').prop('checked', true);
     }
 
     function noServicingForGoods() {
-        $('#insurance_exporter_offers_servicing_for_goods').prop('checked', false);
+        $('#export_application_exporter_offers_servicing_for_goods').prop('checked', false);
     }
 
     function deliveredPartOfConsortiumWithOtherCompanies() {
@@ -2211,7 +2257,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#insurance_is_delivered_part_of_consortium_with_other_companies').prop('checked', true);
+        $('#export_application_is_delivered_part_of_consortium_with_other_companies').prop('checked', true);
     }
 
     function NoDeliveredPartOfConsortiumWithOtherCompanies() {
@@ -2220,7 +2266,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#insurance_is_delivered_part_of_consortium_with_other_companies').prop('checked', false);
+        $('#export_application_is_delivered_part_of_consortium_with_other_companies').prop('checked', false);
     }
 
     function deliveryAffectsSensitiveArea() {
@@ -2230,7 +2276,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#insurance_does_delivery_affect_sensitive_areas').prop('checked', true);
+        $('#export_application_does_delivery_affect_sensitive_areas').prop('checked', true);
     }
 
     function NoDeliveryAffectsSensitiveArea() {
@@ -2238,7 +2284,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#insurance_does_delivery_affect_sensitive_areas').prop('checked', false);
+        $('#export_application_does_delivery_affect_sensitive_areas').prop('checked', false);
     }
 
     function exportLicenceNeeded() {
@@ -2248,7 +2294,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#insurance_is_export_licence_needed').prop('checked', true);
+        $('#export_application_is_export_licence_needed').prop('checked', true);
     }
 
     function noExportLicenceNeeded() {
@@ -2256,7 +2302,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#insurance_is_export_licence_needed').prop('checked', false);
+        $('#export_application_is_export_licence_needed').prop('checked', false);
     }
 
     function isFullyResponsibleForProject() {
@@ -2275,7 +2321,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#insurance_are_secondhand_goods_delivered').prop('checked', true);
+        $('#export_application_are_secondhand_goods_delivered').prop('checked', true);
     }
 
     function noDeliverySecondHandGoods() {
@@ -2283,7 +2329,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#insurance_are_secondhand_goods_delivered').prop('checked', false);
+        $('#export_application_are_secondhand_goods_delivered').prop('checked', false);
     }
 
     function contractAlreadySignedBetweenParties() {
@@ -2293,7 +2339,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#insurance_is_contract_already_signed_between_parties').prop('checked', true);
+        $('#export_application_is_contract_already_signed_between_parties').prop('checked', true);
     }
 
     function noContractAlreadySignedBetweenParties() {
@@ -2301,7 +2347,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#insurance_is_contract_already_signed_between_parties').prop('checked', false);
+        $('#export_application_is_contract_already_signed_between_parties').prop('checked', false);
     }
 
     function specialContractStructure() {
@@ -2311,7 +2357,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#insurance_has_special_contract_structure').prop('checked', true);
+        $('#export_application_has_special_contract_structure').prop('checked', true);
     }
 
     function noSpecialContractStructure() {
@@ -2319,7 +2365,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#insurance_has_special_contract_structure').prop('checked', false);
+        $('#export_application_has_special_contract_structure').prop('checked', false);
     }
 
     function goodsSentMultipleDeliveries() {
@@ -2329,7 +2375,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#insurance_is_good_sent_in_multiple_deliveries').prop('checked', true);
+        $('#export_application_is_good_sent_in_multiple_deliveries').prop('checked', true);
     }
 
     function noGoodsSentMultipleDeliveries() {
@@ -2337,7 +2383,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#insurance_is_good_sent_in_multiple_deliveries').prop('checked', false);
+        $('#export_application_is_good_sent_in_multiple_deliveries').prop('checked', false);
     }
 
     function securityPresent() {
@@ -2347,7 +2393,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#insurance_is_security_present_for_transaction').prop('checked', true);
+        $('#export_application_is_security_present_for_transaction').prop('checked', true);
     }
 
     function noSecurityPresent() {
@@ -2355,7 +2401,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#insurance_is_security_present_for_transaction').prop('checked', false);
+        $('#export_application_is_security_present_for_transaction').prop('checked', false);
     }
 
     function agreedTermOfPayments() {
@@ -2365,7 +2411,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#insurance_has_agreed_payment_term_already').prop('checked', true);
+        $('#export_application_has_agreed_payment_term_already').prop('checked', true);
     }
 
     function noAgreedTermOfPayments() {
@@ -2373,7 +2419,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#insurance_has_agreed_payment_term_already').prop('checked', false);
+        $('#export_application_has_agreed_payment_term_already').prop('checked', false);
     }
 
     function corruptionDeclaration() {
@@ -2383,7 +2429,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#insurance_does_corruption_declaration_apply').prop('checked', true);
+        $('#export_application_does_corruption_declaration_apply').prop('checked', true);
     }
 
     function noCorruptionDeclaration() {
@@ -2391,7 +2437,23 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#insurance_does_corruption_declaration_apply').prop('checked', false);
+        $('#export_application_does_corruption_declaration_apply').prop('checked', false);
+    }
+
+    function goodsOverhaulCountryIfGermanyHandler() {
+        if ($('#goods_overhaul_country option:selected').val() === 'Deutschland') {
+            $('#goods_overhaul_country_if_not_germany').hide();
+        } else {
+            $('#goods_overhaul_country_if_not_germany').show();
+        }
+    }
+
+    function sensitiveAreaTypeChangeHandler() {
+        if ($('#sensitive_area_type option:selected').val() === 'Sonstige') {
+            $('#explain_sensitive_area_type').show();
+        } else {
+            $('#explain_sensitive_area_type').hide();
+        }
     }
 
     var $choice = jQuery('.choice');
