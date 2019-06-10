@@ -1307,7 +1307,7 @@
 
                                                 <div class="row">
                                                     <div class="input-field col m4">
-                                                        <%= form.select :receive_deposit_time_payment_term_mid, options_for_select(["vor Fabrikationsbeginn", "vor Liefer /- Leistungbeginn", "bei Betriebsbereitschaft", "anderer Termin"]), {}, class: "validate" %>
+                                                        <%= form.select :receive_deposit_time_payment_term_mid, options_for_select(["vor Fabrikationsbeginn", "vor Liefer /- Leistungbeginn", "bereits erhalten", "bei Betriebsbereitschaft", "anderer Termin"]), {}, class: "validate" %>
                                                     </div>
                                                 </div>
 
@@ -1559,7 +1559,7 @@
 
                                                 <div class="row">
                                                     <div class="input-field col m4">
-                                                        <%= form.select :deposit_received_payment_term_both, options_for_select([t('please_select'), "vor Fabrikationsbeginn", "vor Liefer /- Leistungbeginn", "bei Betriebsbereitschaft", "anderer Termin",]), {}, class: "validate" %>
+                                                        <%= form.select :deposit_received_payment_term_both, options_for_select([t('please_select'), "vor Fabrikationsbeginn", "bereits erhalten", "vor Liefer /- Leistungbeginn", "bei Betriebsbereitschaft", "anderer Termin",]), {}, class: "validate" %>
                                                     </div>
                                                 </div>
                                                 <br>

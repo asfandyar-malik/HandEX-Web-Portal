@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_10_165448) do
+ActiveRecord::Schema.define(version: 2019_06_10_180856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -226,7 +226,6 @@ ActiveRecord::Schema.define(version: 2019_06_10_165448) do
     t.string "revenue_last_year"
     t.string "experience_with_importer_country"
     t.string "adequate_claims_management"
-    t.string "agreed_payments_output_payment_term_short"
     t.string "agreed_payments_time_payment_term_short"
     t.string "agreed_payments_some_output_payment_term_short"
     t.string "payment_vehichle_payment_term_short"
@@ -376,7 +375,6 @@ ActiveRecord::Schema.define(version: 2019_06_10_165448) do
     t.string "downpayment_delivery_amount_payment_term_both"
     t.string "agreed_payments_currency_payment_term_both"
     t.string "agreed_payments_amount_payment_term_both"
-    t.string "agreed_payments_output_payment_term_both"
     t.string "agreed_payments_time_payment_term_both"
     t.string "agreed_payments_some_output_payment_term_both"
     t.integer "number_of_installments_payment_term_mid"
@@ -429,19 +427,15 @@ ActiveRecord::Schema.define(version: 2019_06_10_165448) do
     t.string "explain_special_structure"
     t.string "exporter_date_founded"
     t.string "agreed_payments_amount_payment_term_short_2"
-    t.string "agreed_payments_output_payment_term_short_2"
     t.string "agreed_payments_time_payment_term_short_2"
     t.string "agreed_payments_some_output_payment_term_short_2"
     t.string "agreed_payments_amount_payment_term_short_3"
-    t.string "agreed_payments_output_payment_term_short_3"
     t.string "agreed_payments_time_payment_term_short_3"
     t.string "agreed_payments_some_output_payment_term_short_3"
     t.string "agreed_payments_amount_payment_term_short_4"
-    t.string "agreed_payments_output_payment_term_short_4"
     t.string "agreed_payments_time_payment_term_short_4"
     t.string "agreed_payments_some_output_payment_term_short_4"
     t.string "agreed_payments_amount_payment_term_short_5"
-    t.string "agreed_payments_output_payment_term_short_5"
     t.string "agreed_payments_time_payment_term_short_5"
     t.string "agreed_payments_some_output_payment_term_short_5"
     t.string "agreed_payments_currency_payment_term_short_2"
@@ -474,7 +468,6 @@ ActiveRecord::Schema.define(version: 2019_06_10_165448) do
     t.string "revenue_last_year"
     t.string "experience_with_importer_country"
     t.string "adequate_claims_management"
-    t.string "agreed_payments_output_payment_term_short"
     t.string "agreed_payments_time_payment_term_short"
     t.string "agreed_payments_some_output_payment_term_short"
     t.string "payment_vehichle_payment_term_short"
@@ -623,7 +616,6 @@ ActiveRecord::Schema.define(version: 2019_06_10_165448) do
     t.string "downpayment_delivery_amount_payment_term_both"
     t.string "agreed_payments_currency_payment_term_both"
     t.string "agreed_payments_amount_payment_term_both"
-    t.string "agreed_payments_output_payment_term_both"
     t.string "agreed_payments_time_payment_term_both"
     t.string "agreed_payments_some_output_payment_term_both"
     t.integer "number_of_installments_payment_term_mid"
@@ -678,19 +670,15 @@ ActiveRecord::Schema.define(version: 2019_06_10_165448) do
     t.boolean "does_corruption_declaration_appy", default: false
     t.boolean "are_goods_overhauled", default: false
     t.string "agreed_payments_amount_payment_term_short_2"
-    t.string "agreed_payments_output_payment_term_short_2"
     t.string "agreed_payments_time_payment_term_short_2"
     t.string "agreed_payments_some_output_payment_term_short_2"
     t.string "agreed_payments_amount_payment_term_short_3"
-    t.string "agreed_payments_output_payment_term_short_3"
     t.string "agreed_payments_time_payment_term_short_3"
     t.string "agreed_payments_some_output_payment_term_short_3"
     t.string "agreed_payments_amount_payment_term_short_4"
-    t.string "agreed_payments_output_payment_term_short_4"
     t.string "agreed_payments_time_payment_term_short_4"
     t.string "agreed_payments_some_output_payment_term_short_4"
     t.string "agreed_payments_amount_payment_term_short_5"
-    t.string "agreed_payments_output_payment_term_short_5"
     t.string "agreed_payments_time_payment_term_short_5"
     t.string "agreed_payments_some_output_payment_term_short_5"
     t.string "does_delivery_affect_sensitive_areas"
