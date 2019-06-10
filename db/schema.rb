@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_10_162236) do
+ActiveRecord::Schema.define(version: 2019_06_10_165448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -276,7 +276,6 @@ ActiveRecord::Schema.define(version: 2019_06_10_162236) do
     t.string "other_important_delivery_milestones"
     t.string "downpayment_delivery_currency_payment_term_short"
     t.string "downpayment_delivery_amount_payment_term_short"
-    t.string "downpayment_delivery_description_payment_term_short"
     t.string "describe_export_business"
     t.string "explain_why_importer_buying_good"
     t.string "exported_goods_type"
@@ -375,7 +374,6 @@ ActiveRecord::Schema.define(version: 2019_06_10_162236) do
     t.string "agreed_payments_amount_payment_term_mid"
     t.string "downpayment_delivery_currency_payment_term_both"
     t.string "downpayment_delivery_amount_payment_term_both"
-    t.string "downpayment_delivery_description_payemnt_term_both"
     t.string "agreed_payments_currency_payment_term_both"
     t.string "agreed_payments_amount_payment_term_both"
     t.string "agreed_payments_output_payment_term_both"
@@ -526,7 +524,6 @@ ActiveRecord::Schema.define(version: 2019_06_10_162236) do
     t.string "other_important_delivery_milestones"
     t.string "downpayment_delivery_currency_payment_term_short"
     t.string "downpayment_delivery_amount_payment_term_short"
-    t.string "downpayment_delivery_description_payment_term_short"
     t.string "describe_export_business"
     t.string "explain_why_importer_buying_good"
     t.string "exported_goods_type"
@@ -624,7 +621,6 @@ ActiveRecord::Schema.define(version: 2019_06_10_162236) do
     t.string "agreed_payments_amount_payment_term_mid"
     t.string "downpayment_delivery_currency_payment_term_both"
     t.string "downpayment_delivery_amount_payment_term_both"
-    t.string "downpayment_delivery_description_payemnt_term_both"
     t.string "agreed_payments_currency_payment_term_both"
     t.string "agreed_payments_amount_payment_term_both"
     t.string "agreed_payments_output_payment_term_both"

@@ -1041,7 +1041,7 @@
                                             <div class="input-field col s12 m12">
                                                 <div class="input-field col s12 m6 nopadding">
                                                     <label> <%= t('when_security_received') %> </label>
-                                                    <%= form.select :when_security_received, options_for_select([[t('please_select'), "0"], ["Vor Fabrikationsbeginn", "1"], ["Vor Liefer-/Leistungsbeginn", "2"], ["Später", "3"], ["Anderer Termin", "4"]]), {}, id: "when_security_received", class: "validate" %>
+                                                    <%= form.select :when_security_received, options_for_select([[t('please_select'), "0"], ["Vor Fabrikationsbeginn", "1"], ["bereits erhalten", "2"],  ["Vor Liefer-/Leistungsbeginn", "3"], ["Später", "4"], ["Anderer Termin", "5"]]), {}, id: "when_security_received", class: "validate" %>
                                                 </div>
                                             </div>
                                         </div>
@@ -1095,34 +1095,31 @@
                                             <div id="ShortTermOfPayment" style="display: none;">
 
                                                 <div class="row">
-                                                    <div class="col m10 offset-m1">
+                                                    <div class="col m10">
                                                         <p> <%= t('downpayment_before_delivery') %></p>
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
                                                     <br>
-                                                    <div class="input-field col m2 offset-m1">
+                                                    <div class="input-field col m2">
                                                         <%= form.select :downpayment_delivery_currency_payment_term_short, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: "validate" %>
                                                     </div>
                                                     <div class="input-field col m4">
                                                         <div> <%= form.text_field :downpayment_delivery_amount_payment_term_short, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
-                                                    </div>
-                                                    <div class="input-field col m4">
-                                                        <div> <%= form.text_field :downpayment_delivery_description_payment_term_short, class: "validate", placeholder: t('description') %> </div>
                                                     </div>
                                                 </div>
 
                                                 <br><br>
 
                                                 <div class="row">
-                                                    <div class="col m8 offset-m1">
+                                                    <div class="col m8">
                                                         <p> <%= t('agreed_payments') %>
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col m2 offset-m1">
+                                                    <div class="input-field col m2">
                                                         <p>1. Rate</p>
                                                     </div>
                                                     <div class="input-field col m2">
@@ -1131,20 +1128,21 @@
                                                     <div class="input-field col m1">
                                                         <div> <%= form.text_field :agreed_payments_amount_payment_term_short, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                     </div>
-                                                    <div class="input-field col m1">
-                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_short, class: "validate" %> </div>
-                                                    </div>
-                                                    <div class="input-field col m2">
-                                                        <%= form.select :agreed_payments_time_payment_term_short, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate", "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate", "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate", "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate", "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate", "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
+                                                    <div class="input-field col m3">
+                                                        <%= form.select :agreed_payments_time_payment_term_short, options_for_select(["Fälligkeit in Monaten", "bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate", "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate", "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate", "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate", "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate", "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
                                                     </div>
 
-                                                    <div class="input-field col m2">
+                                                    <div class="input-field col m1">
+                                                        <p> zu </p>
+                                                    </div>
+
+                                                    <div class="input-field col m3">
                                                         <div> <%= form.text_field :agreed_payments_some_output_payment_term_short, class: "validate", placeholder: "Referenztermin/Milestone" %> </div>
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col m2 offset-m1">
+                                                    <div class="input-field col m2">
                                                         <p>2. Rate</p>
                                                     </div>
                                                     <div class="input-field col m2">
@@ -1153,20 +1151,21 @@
                                                     <div class="input-field col m1">
                                                         <div> <%= form.text_field :agreed_payments_amount_payment_term_short_2, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                     </div>
-                                                    <div class="input-field col m1">
-                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_short_2, class: "validate" %> </div>
-                                                    </div>
-                                                    <div class="input-field col m2">
-                                                        <%= form.select :agreed_payments_time_payment_term_short_2, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate", "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate", "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate", "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate", "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate", "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
+                                                    <div class="input-field col m3">
+                                                        <%= form.select :agreed_payments_time_payment_term_short_2, options_for_select(["Fälligkeit in Monaten", "bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate", "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate", "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate", "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate", "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate", "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
                                                     </div>
 
-                                                    <div class="input-field col m2">
+                                                    <div class="input-field col m1">
+                                                        <p> zu </p>
+                                                    </div>
+
+                                                    <div class="input-field col m3">
                                                         <div> <%= form.text_field :agreed_payments_some_output_payment_term_short_2, class: "validate", placeholder: "Referenztermin/Milestone" %> </div>
                                                     </div>
 
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col m2 offset-m1">
+                                                    <div class="input-field col m2">
                                                         <p>3. Rate</p>
                                                     </div>
                                                     <div class="input-field col m2">
@@ -1175,20 +1174,21 @@
                                                     <div class="input-field col m1">
                                                         <div> <%= form.text_field :agreed_payments_amount_payment_term_short_3, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                     </div>
-                                                    <div class="input-field col m1">
-                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_short_3, class: "validate" %> </div>
-                                                    </div>
-                                                    <div class="input-field col m2">
-                                                        <%= form.select :agreed_payments_time_payment_term_short_3, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate", "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate", "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate", "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate", "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate", "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
+                                                    <div class="input-field col m3">
+                                                        <%= form.select :agreed_payments_time_payment_term_short_3, options_for_select(["Fälligkeit in Monaten", "bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate", "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate", "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate", "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate", "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate", "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
                                                     </div>
 
-                                                    <div class="input-field col m2">
+                                                    <div class="input-field col m1">
+                                                        <p> zu </p>
+                                                    </div>
+
+                                                    <div class="input-field col m3">
                                                         <div> <%= form.text_field :agreed_payments_some_output_payment_term_short_3, class: "validate", placeholder: "Referenztermin/Milestone" %> </div>
                                                     </div>
 
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col m2 offset-m1">
+                                                    <div class="input-field col m2">
                                                         <p>4. Rate</p>
                                                     </div>
                                                     <div class="input-field col m2">
@@ -1197,20 +1197,21 @@
                                                     <div class="input-field col m1">
                                                         <div> <%= form.text_field :agreed_payments_amount_payment_term_short_4, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                     </div>
-                                                    <div class="input-field col m1">
-                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_short_4, class: "validate" %> </div>
-                                                    </div>
-                                                    <div class="input-field col m2">
-                                                        <%= form.select :agreed_payments_time_payment_term_short_4, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate", "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate", "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate", "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate", "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate", "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
+                                                    <div class="input-field col m3">
+                                                        <%= form.select :agreed_payments_time_payment_term_short_4, options_for_select(["Fälligkeit in Monaten", "bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate", "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate", "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate", "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate", "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate", "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
                                                     </div>
 
-                                                    <div class="input-field col m2">
+                                                    <div class="input-field col m1">
+                                                        <p> zu </p>
+                                                    </div>
+
+                                                    <div class="input-field col m3">
                                                         <div> <%= form.text_field :agreed_payments_some_output_payment_term_short_4, class: "validate", placeholder: "Referenztermin/Milestone" %> </div>
                                                     </div>
 
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col m2 offset-m1">
+                                                    <div class="input-field col m2">
                                                         <p>5. Rate</p>
                                                     </div>
                                                     <div class="input-field col m2">
@@ -1219,14 +1220,15 @@
                                                     <div class="input-field col m1">
                                                         <div> <%= form.text_field :agreed_payments_amount_payment_term_short_5, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                     </div>
-                                                    <div class="input-field col m1">
-                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_short_5, class: "validate" %> </div>
-                                                    </div>
-                                                    <div class="input-field col m2">
-                                                        <%= form.select :agreed_payments_time_payment_term_short_5, options_for_select(["bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate", "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate", "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate", "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate", "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate", "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
+                                                    <div class="input-field col m3">
+                                                        <%= form.select :agreed_payments_time_payment_term_short_5, options_for_select(["Fälligkeit in Monaten", "bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate", "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate", "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate", "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate", "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate", "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
                                                     </div>
 
-                                                    <div class="input-field col m2">
+                                                    <div class="input-field col m1">
+                                                        <p> zu </p>
+                                                    </div>
+
+                                                    <div class="input-field col m3">
                                                         <div> <%= form.text_field :agreed_payments_some_output_payment_term_short_5, class: "validate", placeholder: "Referenztermin/Milestone" %> </div>
                                                     </div>
 
@@ -1234,7 +1236,7 @@
 
                                                 <div id="workwithothercompanies">
                                                     <div class="row">
-                                                        <div class="col m10 offset-m1">
+                                                        <div class="col m10">
                                                             <br><br>
                                                             <p> <%= t('payment_vehichle_payment_term_short') %>
                                                             </p>
@@ -1247,7 +1249,7 @@
 
                                             <div id="MidTermOfPayment" style="display: none;">
                                                 <div class="row">
-                                                    <div class="col m10 offset-m1">
+                                                    <div class="col m10">
                                                         <p><b> <%= t('amount_advance_interim_payment') %> </b></p>
                                                         <br>
                                                         <p><%= t('notice_prepayment') %></p>
@@ -1255,7 +1257,7 @@
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="input-field col m2 offset-m1">
+                                                    <div class="input-field col m2">
                                                         <%= form.select :agreed_payments_currency_payment_term_mid, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: "validate" %>
                                                     </div>
 
@@ -1269,7 +1271,7 @@
                                                 </div>
                                                 <br>
                                                 <div class="row">
-                                                    <div class="input-field col m2 offset-m1">
+                                                    <div class="input-field col m2">
                                                         <%= form.select :agreed_payments_currency_payment_term_mid, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: "validate" %>
                                                     </div>
 
@@ -1283,7 +1285,7 @@
                                                 </div>
                                                 <br>
                                                 <div class="row">
-                                                    <div class="input-field col m2 offset-m1">
+                                                    <div class="input-field col m2">
                                                         <%= form.select :agreed_payments_currency_payment_term_mid, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: "validate" %>
                                                     </div>
 
@@ -1299,7 +1301,7 @@
                                                 <br><br>
 
                                                 <div class="row">
-                                                    <div class="col m10 offset-m1">
+                                                    <div class="col m10">
                                                         <p>
                                                             <%= t('receive_deposit_time_payment_term_mid') %>
                                                         </p>
@@ -1307,40 +1309,40 @@
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="input-field col m4 offset-m1">
-                                                        <%= form.select :receive_deposit_time_payment_term_mid, options_for_select(["vor Fabrikationsbeginn", "vor Liefer /- Leistungbeginn", "bei Betriebsbereitschaft", "anderer Termin"]), {}, class: "validate" %>
+                                                    <div class="input-field col m4">
+                                                        <%= form.select :receive_deposit_time_payment_term_mid, options_for_select(["vor Fabrikationsbeginn", "vor Liefer /- Leistungbeginn","bereits erhalten", "bei Betriebsbereitschaft", "anderer Termin"]), {}, class: "validate" %>
                                                     </div>
                                                 </div>
 
                                                 <br>
 
                                                 <div class="row">
-                                                    <div class="col m10 offset-m1">
+                                                    <div class="col m10">
                                                         <p> <%= t('repayment_profile_structure') %>
                                                         </p>
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="input-field col m4 offset-m1">
+                                                    <div class="input-field col m4">
                                                         <%= form.select :repayment_profile_structure_payment_term_mid, options_for_select([t('please_select'), "Monatliche Tilgungsraten", "Vierteljährliche Tilgungsprofil", "Halbjährige Tilgungsprofil", "Unregelmäßig"]), {}, class: "validate" %>
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class="row">
-                                                    <div class="col m8 offset-m1">
+                                                    <div class="col m8">
                                                         <p> <%= t('loan_term_start') %>
                                                         </p>
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="input-field col m4 offset-m1">
+                                                    <div class="input-field col m4">
                                                         <%= form.select :loan_term_start_payment_term_mid, options_for_select([t('please_select'), "mit Lieferung", "mit erster Lieferung (bei mehreren Lieferungen)", "mit jeweiliger Lieferung (bei mehreren Lieferungen)", "mittlerer gewogener Liefertermin (bei mehreren Lieferungen)", "mit Betriebsbereitschaft", "sonstige"]), {}, class: "validate" %>
 
 
                                                     </div>
-                                                    <div class="input-field col m10 offset-m1">
+                                                    <div class="input-field col m10">
                                                         <br>
                                                         <%= form.text_area :loan_term_other_description_payment_term_mid, class: "validate", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
                                                     </div>
@@ -1348,12 +1350,12 @@
 
                                                 <div id="workwithothercompanies">
                                                     <div class="row">
-                                                        <div class="col m10 offset-m1">
+                                                        <div class="col m10">
                                                             <p> <%= t('number_of_installments') %></p>
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="input-field col m4 offset-m1">
+                                                        <div class="input-field col m4">
                                                             <%= form.text_field :number_of_installments_payment_term_mid, class: "validate", placeholder: "Anzahl der Raten", :onkeypress => "return onlyAllowNumericalValue(event)" %>
                                                         </div>
                                                     </div>
@@ -1363,13 +1365,13 @@
                                             <div id="BothTermOfPayment" style="display: none;">
 
                                                 <div class="row">
-                                                    <div class="col m10 offset-m1">
+                                                    <div class="col m10">
                                                         <p><b> <%= t('payment_term_both_info1') %></b></p>
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col m10 offset-m1">
+                                                    <div class="col m10">
                                                         <p> <%= t('downpayment_before_delivery') %></p>
                                                     </div>
                                                 </div>
@@ -1377,7 +1379,7 @@
                                                 <div class="row">
                                                     <br>
 
-                                                    <div class="input-field col m2 offset-m1">
+                                                    <div class="input-field col m2">
                                                         <%= form.select :downpayment_delivery_currency_payment_term_both, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: "validate" %>
                                                     </div>
                                                     <div class="input-field col m4">
@@ -1389,13 +1391,13 @@
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col m8 offset-m1">
+                                                    <div class="col m8">
                                                         <p> <%= t('agreed_payments') %></p>
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col m2 offset-m1">
+                                                    <div class="input-field col m2">
                                                         <p>1. Rate</p>
                                                     </div>
                                                     <div class="input-field col m2">
@@ -1404,20 +1406,22 @@
                                                     <div class="input-field col m1">
                                                         <div> <%= form.text_field :agreed_payments_amount_payment_term_both, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                     </div>
-                                                    <div class="input-field col m1">
-                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_both, class: "validate" %> </div>
-                                                    </div>
-                                                    <div class="input-field col m2">
-                                                        <%= form.select :agreed_payments_time_payment_term_both, options_for_select([t('please_select'), "bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate", "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate", "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate", "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate", "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate", "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
+
+                                                    <div class="input-field col m3">
+                                                        <%= form.select :agreed_payments_time_payment_term_both, options_for_select(["Fälligkeit in Monaten", "bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate", "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate", "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate", "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate", "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate", "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
                                                     </div>
 
-                                                    <div class="input-field col m2">
-                                                        <div> <%= form.text_field :agreed_payments_some_output_payment_term_both, class: "validate" %> </div>
+                                                    <div class="input-field col m1">
+                                                        <p> zu </p>
+                                                    </div>
+
+                                                    <div class="input-field col m3">
+                                                        <div> <%= form.text_field :agreed_payments_some_output_payment_term_both, class: "validate", placeholder: "Referenztermin/Milestone"%> </div>
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col m2 offset-m1">
+                                                    <div class="input-field col m2">
                                                         <p>2. Rate</p>
                                                     </div>
                                                     <div class="input-field col m2">
@@ -1426,20 +1430,22 @@
                                                     <div class="input-field col m1">
                                                         <div> <%= form.text_field :agreed_payments_amount_payment_term_both_2, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                     </div>
-                                                    <div class="input-field col m1">
-                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_both_2, class: "validate" %> </div>
-                                                    </div>
-                                                    <div class="input-field col m2">
-                                                        <%= form.select :agreed_payments_time_payment_term_both_2, options_for_select([t('please_select'), "bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate", "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate", "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate", "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate", "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate", "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
+
+                                                    <div class="input-field col m3">
+                                                        <%= form.select :agreed_payments_time_payment_term_both_2, options_for_select(["Fälligkeit in Monaten", "bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate", "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate", "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate", "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate", "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate", "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
                                                     </div>
 
-                                                    <div class="input-field col m2">
-                                                        <div> <%= form.text_field :agreed_payments_some_output_payment_term_both_2, class: "validate" %> </div>
+                                                    <div class="input-field col m1">
+                                                        <p> zu </p>
+                                                    </div>
+
+                                                    <div class="input-field col m3">
+                                                        <div> <%= form.text_field :agreed_payments_some_output_payment_term_both_2, class: "validate", placeholder: "Referenztermin/Milestone" %> </div>
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col m2 offset-m1">
+                                                    <div class="input-field col m2">
                                                         <p>3. Rate</p>
                                                     </div>
                                                     <div class="input-field col m2">
@@ -1448,19 +1454,22 @@
                                                     <div class="input-field col m1">
                                                         <div> <%= form.text_field :agreed_payments_amount_payment_term_both_3, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                     </div>
-                                                    <div class="input-field col m1">
-                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_both_3, class: "validate" %> </div>
-                                                    </div>
-                                                    <div class="input-field col m2">
-                                                        <%= form.select :agreed_payments_time_payment_term_both_3, options_for_select([t('please_select'), "bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate", "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate", "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate", "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate", "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate", "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
+
+                                                    <div class="input-field col m3">
+                                                        <%= form.select :agreed_payments_time_payment_term_both_3, options_for_select(["Fälligkeit in Monaten", "bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate", "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate", "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate", "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate", "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate", "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
                                                     </div>
 
-                                                    <div class="input-field col m2">
-                                                        <div> <%= form.text_field :agreed_payments_some_output_payment_term_both_3, class: "validate" %> </div>
+                                                    <div class="input-field col m1">
+                                                        <p> zu </p>
+                                                    </div>
+
+                                                    <div class="input-field col m3">
+                                                        <div> <%= form.text_field :agreed_payments_some_output_payment_term_both_3, class: "validate", placeholder: "Referenztermin/Milestone" %> </div>
                                                     </div>
                                                 </div>
+
                                                 <div class="row">
-                                                    <div class="col m2 offset-m1">
+                                                    <div class="col m2">
                                                         <p>4. Rate</p>
                                                     </div>
                                                     <div class="input-field col m2">
@@ -1469,20 +1478,22 @@
                                                     <div class="input-field col m1">
                                                         <div> <%= form.text_field :agreed_payments_amount_payment_term_both_4, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                     </div>
-                                                    <div class="input-field col m1">
-                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_both_4, class: "validate" %> </div>
-                                                    </div>
-                                                    <div class="input-field col m2">
-                                                        <%= form.select :agreed_payments_time_payment_term_both_4, options_for_select([t('please_select'), "bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate", "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate", "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate", "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate", "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate", "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
+
+                                                    <div class="input-field col m3">
+                                                        <%= form.select :agreed_payments_time_payment_term_both_4, options_for_select(["Fälligkeit in Monaten", "bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate", "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate", "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate", "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate", "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate", "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
                                                     </div>
 
-                                                    <div class="input-field col m2">
-                                                        <div> <%= form.text_field :agreed_payments_some_output_payment_term_both_4, class: "validate" %> </div>
+                                                    <div class="input-field col m1">
+                                                        <p> zu </p>
+                                                    </div>
+
+                                                    <div class="input-field col m3">
+                                                        <div> <%= form.text_field :agreed_payments_some_output_payment_term_both_4, class: "validate", placeholder: "Referenztermin/Milestone" %> </div>
                                                     </div>
 
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col m2 offset-m1">
+                                                    <div class="col m2">
                                                         <p>5. Rate</p>
                                                     </div>
                                                     <div class="input-field col m2">
@@ -1491,29 +1502,31 @@
                                                     <div class="input-field col m1">
                                                         <div> <%= form.text_field :agreed_payments_amount_payment_term_both_5, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                     </div>
-                                                    <div class="input-field col m1">
-                                                        <div> <%= form.text_field :agreed_payments_output_payment_term_both_5, class: "validate" %> </div>
-                                                    </div>
-                                                    <div class="input-field col m2">
-                                                        <%= form.select :agreed_payments_time_payment_term_both_5, options_for_select([t('please_select'), "bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate", "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate", "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate", "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate", "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate", "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
+
+                                                    <div class="input-field col m3">
+                                                        <%= form.select :agreed_payments_time_payment_term_both_5, options_for_select(["Fälligkeit in Monaten", "bis zu 1 Monate", "bis zu 2 Monate", "bis zu 3 Monate", "bis zu 4 Monate", "bis zu 5 Monate", "bis zu 6 Monate", "bis zu 7 Monate", "bis zu 8 Monate", "bis zu 9 Monate", "bis zu 10 Monate", "bis zu 11 Monate", "bis zu 12 Monate", "bis zu 13 Monate", "bis zu 14 Monate", "bis zu 15 Monate", "bis zu 16 Monate", "bis zu 17 Monate", "bis zu 18 Monate", "bis zu 19 Monate", "bis zu 20 Monate", "bis zu 21 Monate", "bis zu 22 Monate", "bis zu 23 Monate", "bis zu 24 Monate"]), {}, class: "validate" %>
                                                     </div>
 
-                                                    <div class="input-field col m2">
-                                                        <div> <%= form.text_field :agreed_payments_some_output_payment_term_both_5, class: "validate" %> </div>
+                                                    <div class="input-field col m1">
+                                                        <p> zu </p>
+                                                    </div>
+
+                                                    <div class="input-field col m3">
+                                                        <div> <%= form.text_field :agreed_payments_some_output_payment_term_both_5, class: "validate", placeholder: "Referenztermin/Milestone" %> </div>
                                                     </div>
                                                 </div>
 
                                                 <br><br>
 
                                                 <div class="row">
-                                                    <div class="col m10 offset-m1">
+                                                    <div class="col m10">
                                                         <p><b> <%= t('payment_term_both_info2') %></b></p>
                                                         <br>
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col m10 offset-m1">
+                                                    <div class="col m10">
                                                         <p> <%= t('amount_advance_interim_payment') %></p>
                                                         <br>
 
@@ -1524,7 +1537,7 @@
                                                 </div>
                                                 <div class="row">
 
-                                                    <div class="input-field col m2 offset-m1">
+                                                    <div class="input-field col m2">
                                                         <%= form.select :advance_payment_currency_payment_term_both, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: "validate" %>
                                                     </div>
                                                     <div class="input-field col m4">
@@ -1541,47 +1554,47 @@
 
                                                 <br><br>
                                                 <div class="row">
-                                                    <div class="col m10 offset-m1">
+                                                    <div class="col m10">
                                                         <p> <%= t('receive_deposit_time_payment_term_mid') %>
                                                         </p>
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="input-field col m4 offset-m1">
-                                                        <%= form.select :deposit_received_payment_term_both, options_for_select([t('please_select'), "vor Fabrikationsbeginn", "vor Liefer /- Leistungbeginn", "bei Betriebsbereitschaft", "anderer Termin",]), {}, class: "validate" %>
+                                                    <div class="input-field col m4">
+                                                        <%= form.select :deposit_received_payment_term_both, options_for_select([t('please_select'), "vor Fabrikationsbeginn", "bereits erhalten", "vor Liefer /- Leistungbeginn", "bei Betriebsbereitschaft", "anderer Termin",]), {}, class: "validate" %>
                                                     </div>
                                                 </div>
                                                 <br>
 
                                                 <div class="row">
-                                                    <div class="col m10 offset-m1">
+                                                    <div class="col m10">
                                                         <p> <%= t('repayment_profile_structure') %>
                                                         </p>
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="input-field col m4 offset-m1">
+                                                    <div class="input-field col m4">
                                                         <%= form.select :repayment_structure_payment_term_both, options_for_select([t('please_select'), "Monatliche Tilgungsraten", "Vierteljährliche Tilgungsprofil", "Halbjährige Tilgungsprofil", "Unregelmäßig"]), {}, class: "validate" %>
                                                     </div>
                                                 </div>
                                                 <br>
 
                                                 <div class="row">
-                                                    <div class="col m10 offset-m1">
+                                                    <div class="col m10">
                                                         <p> <%= t('loan_term_start') %>
                                                         </p>
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="input-field col m6 offset-m1">
+                                                    <div class="input-field col m6">
                                                         <%= form.select :credit_start_date_payment_term_both, options_for_select([t('please_select'), "mit Lieferung", "mit erster Lieferung (bei mehreren Lieferungen)", "mit jeweiliger Lieferung (bei mehreren Lieferungen)", "mittlerer gewogener Liefertermin (bei mehreren Lieferungen)", "mit Betriebsbereitschaft", "sonstige"]), {}, class: "validate" %>
 
 
                                                     </div>
-                                                    <div class="input-field col m8 offset-m1">
+                                                    <div class="input-field col m8">
                                                         <br>
                                                         <%= form.text_area :credit_start_special_description_payment_term_both, class: "validate", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
                                                     </div>
@@ -1591,13 +1604,13 @@
                                                 <div id="workwithothercompanies">
                                                     <div class="form-group">
                                                         <div class="row">
-                                                            <div class="col m10 offset-m1">
+                                                            <div class="col m10">
                                                                 <p> <%= t('number_of_installments') %>
                                                                 </p>
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <div class="input-field col m6 offset-m1">
+                                                            <div class="input-field col m6">
                                                                 <%= form.text_field :number_of_installments_payment_term_both, class: "validate", placeholder: "Anzahl der Raten", :onkeypress => "return onlyAllowNumericalValue(event)" %>
                                                             </div>
                                                         </div>
@@ -1606,7 +1619,7 @@
 
                                                 <div id="workwithothercompanies">
                                                     <div class="row">
-                                                        <div class="input-field col m10 offset-m1">
+                                                        <div class="input-field col m10">
 
                                                             <p> <%= t('payment_vehichle_payment_term_short') %>
                                                             </p>
