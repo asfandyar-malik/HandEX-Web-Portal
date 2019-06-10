@@ -709,6 +709,34 @@
                                         </div>
                                     </div>
 
+                                    <div id="noContractSignedBetweenParties" style="display: none">
+
+                                        <div class="input-field col s12 m12">
+                                            <div class="input-field col s12 m12 nopadding">
+                                                <label> Nehmen Sie an einer Ausschreibung teil?</label>
+                                                <p>
+                                                    <label>
+                                                        <%= check_box_tag "export_application[taking_part_in_tender]", @export_application.taking_part_in_tender ? @export_application.taking_part_in_tender : nil, false, :onclick => "partInTender();", id: "export_application_taking_part_in_tender" %>
+                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.taking_part_in_tender.present? && @export_application.taking_part_in_tender) %>">Ja</span>
+                                                    </label>
+
+                                                    <label onclick="noPartInTender()">
+                                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.taking_part_in_tender.present? && !@export_application.taking_part_in_tender) %>">Nein</span>
+                                                    </label>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div id="partInTender" style="display: none">
+
+                                            <div class="input-field col s12 m6">
+                                                <label>Datum Submissionstermin</label>
+                                                <div> <%= form.text_field :tender_submission_date, id: "start_date", type: "date", class: "datepicker" %> </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m12 nopadding">
                                             <label>Betreffen Ihre Lieferungen bzw. Leistungen ein sensibles Gebiet?</label>
@@ -2330,10 +2358,14 @@
     }
 
     function contractAlreadySignedBetweenParties() {
-        var y = document.getElementById("contractSignedBetweenParties");
-        if (y.style.display === "none") {
-            y.style.display = "block";
+        var x = document.getElementById("contractSignedBetweenParties");
+        var y = document.getElementById("noContractSignedBetweenParties");
+
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.display = "none";
         } else {
+            x.style.display = "none";
             y.style.display = "none";
         }
         $('#export_application_is_contract_already_signed_between_parties').prop('checked', true);
@@ -2341,12 +2373,35 @@
 
     function noContractAlreadySignedBetweenParties() {
         var x = document.getElementById("contractSignedBetweenParties");
-        if (x.style.display === "block") {
+        var y = document.getElementById("noContractSignedBetweenParties");
+
+        if (y.style.display === "none") {
+            y.style.display = "block";
+            x.style.display = "none";
+        } else {
+            y.style.display = "none";
             x.style.display = "none";
         }
         $('#export_application_is_contract_already_signed_between_parties').prop('checked', false);
     }
 
+    function partInTender() {
+        var y = document.getElementById("partInTender");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
+        }
+        $('#export_application_taking_part_in_tender').prop('checked', true);
+    }
+
+    function noPartInTender() {
+        var x = document.getElementById("partInTender");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('#export_application_taking_part_in_tender').prop('checked', false);
+    }
     function specialContractStructure() {
         var y = document.getElementById("explainStructure");
         if (y.style.display === "none") {
