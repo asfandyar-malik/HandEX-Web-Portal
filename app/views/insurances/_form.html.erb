@@ -427,7 +427,7 @@
                                             <label> Handelt es sich bei Ihrer Ware um Investitionsgüter? </label>
                                             <p>
                                                 <label>
-                                                    <%= check_box_tag "export_application[is_investment_good]", @insurance.is_investment_good ? @insurance.is_investment_good : nil, false, :onclick => "investmentGoods();", id: "export_application_is_investment_good" %>
+                                                    <%= check_box_tag "insurance[is_investment_good]", @insurance.is_investment_good ? @insurance.is_investment_good : nil, false, :onclick => "investmentGoods();", id: "insurance_is_investment_good" %>
                                                     <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_investment_good.present? && @insurance.is_investment_good) %>">Ja</span>
                                                 </label>
 
@@ -448,7 +448,7 @@
                                             <label> Erbringen Sie auch Leistungen (Montage, Schulungen vor Ort etc.)? </label>
                                             <p>
                                                 <label>
-                                                    <%= check_box_tag "export_application[exporter_offers_servicing_for_goods]", @insurance.exporter_offers_servicing_for_goods ? @insurance.exporter_offers_servicing_for_goods : nil, false, :onclick => "servicingForGoods();", id: "export_application_exporter_offers_servicing_for_goods" %>
+                                                    <%= check_box_tag "insurance[exporter_offers_servicing_for_goods]", @insurance.exporter_offers_servicing_for_goods ? @insurance.exporter_offers_servicing_for_goods : nil, false, :onclick => "servicingForGoods();", id: "insurance_exporter_offers_servicing_for_goods" %>
                                                     <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.exporter_offers_servicing_for_goods.present? && @insurance.exporter_offers_servicing_for_goods) %>">Ja</span>
                                                 </label>
 
@@ -464,7 +464,7 @@
                                             <label> Liefern/Leisten Sie im Rahmen eines Gesamtprojekts zusammen mit anderen Unternehmen? </label>
                                             <p>
                                                 <label>
-                                                    <%= check_box_tag "export_application[is_delivered_part_of_consortium_with_other_companies]", @insurance.is_delivered_part_of_consortium_with_other_companies ? @insurance.is_delivered_part_of_consortium_with_other_companies : nil, false, :onclick => "deliveredPartOfConsortiumWithOtherCompanies();", id: "export_application_is_delivered_part_of_consortium_with_other_companies" %>
+                                                    <%= check_box_tag "insurance[is_delivered_part_of_consortium_with_other_companies]", @insurance.is_delivered_part_of_consortium_with_other_companies ? @insurance.is_delivered_part_of_consortium_with_other_companies : nil, false, :onclick => "deliveredPartOfConsortiumWithOtherCompanies();", id: "insurance_is_delivered_part_of_consortium_with_other_companies" %>
                                                     <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_delivered_part_of_consortium_with_other_companies.present? && @insurance.is_delivered_part_of_consortium_with_other_companies) %>">Ja</span>
                                                 </label>
 
@@ -483,7 +483,7 @@
                                                     <label><%= t('is_fully_responsible_for_project') %></label>
                                                     <p>
                                                         <label>
-                                                            <%= check_box_tag "export_application[is_fully_responsible_for_project]", @insurance.is_fully_responsible_for_project ? @insurance.is_fully_responsible_for_project : nil, false, :onclick => "isFullyResponsibleForProject();", id: "is_fully_responsible_for_project" %>
+                                                            <%= check_box_tag "insurance[is_fully_responsible_for_project]", @insurance.is_fully_responsible_for_project ? @insurance.is_fully_responsible_for_project : nil, false, :onclick => "isFullyResponsibleForProject();", id: "is_fully_responsible_for_project" %>
                                                             <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_fully_responsible_for_project.present? && @insurance.is_fully_responsible_for_project) %>">Ja</span>
                                                         </label>
 
@@ -554,7 +554,7 @@
                                             <label> Versenden Sie Ihre Waren/Güter/Anlagen in mehreren Lieferungen? </label>
                                             <p>
                                                 <label>
-                                                    <%= check_box_tag "export_application[is_good_sent_in_multiple_deliveries]", @insurance.is_good_sent_in_multiple_deliveries ? @insurance.is_good_sent_in_multiple_deliveries : nil, false, :onclick => "goodsSentMultipleDeliveries();", id: "export_application_is_good_sent_in_multiple_deliveries" %>
+                                                    <%= check_box_tag "insurance[is_good_sent_in_multiple_deliveries]", @insurance.is_good_sent_in_multiple_deliveries ? @insurance.is_good_sent_in_multiple_deliveries : nil, false, :onclick => "goodsSentMultipleDeliveries();", id: "insurance_is_good_sent_in_multiple_deliveries" %>
                                                     <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_good_sent_in_multiple_deliveries.present? && @insurance.is_good_sent_in_multiple_deliveries) %>">Ja</span>
                                                 </label>
 
@@ -681,7 +681,7 @@
                                             <label> Haben bereits alle Parteien den Vertrag für das Exportgeschäft unterzeichnet? </label>
                                             <p>
                                                 <label>
-                                                    <%= check_box_tag "export_application[is_contract_already_signed_between_parties]", @insurance.is_contract_already_signed_between_parties ? @insurance.is_contract_already_signed_between_parties : nil, false, :onclick => "contractAlreadySignedBetweenParties();", id: "export_application_is_contract_already_signed_between_parties" %>
+                                                    <%= check_box_tag "insurance[is_contract_already_signed_between_parties]", @insurance.is_contract_already_signed_between_parties ? @insurance.is_contract_already_signed_between_parties : nil, false, :onclick => "contractAlreadySignedBetweenParties();", id: "insurance_is_contract_already_signed_between_parties" %>
                                                     <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_contract_already_signed_between_parties.present? && @insurance.is_contract_already_signed_between_parties) %>">Ja</span>
                                                 </label>
 
@@ -716,12 +716,12 @@
                                                 <label> Nehmen Sie an einer Ausschreibung teil?</label>
                                                 <p>
                                                     <label>
-                                                        <%= check_box_tag "export_application[taking_part_in_tender]", @export_application.taking_part_in_tender ? @export_application.taking_part_in_tender : nil, false, :onclick => "partInTender();", id: "export_application_taking_part_in_tender" %>
-                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.taking_part_in_tender.present? && @export_application.taking_part_in_tender) %>">Ja</span>
+                                                        <%= check_box_tag "insurance[taking_part_in_tender]", @insurance.taking_part_in_tender ? @insurance.taking_part_in_tender : nil, false, :onclick => "partInTender();", id: "insurance_taking_part_in_tender" %>
+                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.taking_part_in_tender.present? && @insurance.taking_part_in_tender) %>">Ja</span>
                                                     </label>
 
                                                     <label onclick="noPartInTender()">
-                                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.taking_part_in_tender.present? && !@export_application.taking_part_in_tender) %>">Nein</span>
+                                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.taking_part_in_tender.present? && !@insurance.taking_part_in_tender) %>">Nein</span>
                                                     </label>
                                                 </p>
                                             </div>
@@ -746,7 +746,7 @@
                                             <p>
                                             <p>
                                                 <label>
-                                                    <%= check_box_tag "export_application[does_delivery_affect_sensitive_areas]", @insurance.does_delivery_affect_sensitive_areas ? @insurance.does_delivery_affect_sensitive_areas : nil, false, :onclick => "deliveryAffectsSensitiveArea();", id: "export_application_does_delivery_affect_sensitive_areas" %>
+                                                    <%= check_box_tag "insurance[does_delivery_affect_sensitive_areas]", @insurance.does_delivery_affect_sensitive_areas ? @insurance.does_delivery_affect_sensitive_areas : nil, false, :onclick => "deliveryAffectsSensitiveArea();", id: "insurance_does_delivery_affect_sensitive_areas" %>
                                                     <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.does_delivery_affect_sensitive_areas.present? && @insurance.does_delivery_affect_sensitive_areas) %>">Ja</span>
                                                 </label>
 
@@ -776,7 +776,7 @@
                                             <p>
                                             <p>
                                                 <label>
-                                                    <%= check_box_tag "export_application[is_export_licence_needed]", @insurance.is_export_licence_needed ? @insurance.is_export_licence_needed : nil, false, :onclick => "exportLicenceNeeded();", id: "export_application_is_export_licence_needed" %>
+                                                    <%= check_box_tag "insurance[is_export_licence_needed]", @insurance.is_export_licence_needed ? @insurance.is_export_licence_needed : nil, false, :onclick => "exportLicenceNeeded();", id: "insurance_is_export_licence_needed" %>
                                                     <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_export_licence_needed.present? && @insurance.is_export_licence_needed) %>">Ja</span>
                                                 </label>
 
@@ -806,7 +806,7 @@
                                             <label> Liefern Sie gebrauchte Ware?</label>
                                             <p>
                                                 <label>
-                                                    <%= check_box_tag "export_application[are_secondhand_goods_delivered]", @insurance.are_secondhand_goods_delivered ? @insurance.are_secondhand_goods_delivered : nil, false, :onclick => "deliverySecondHandGoods();", id: "export_application_are_secondhand_goods_delivered" %>
+                                                    <%= check_box_tag "insurance[are_secondhand_goods_delivered]", @insurance.are_secondhand_goods_delivered ? @insurance.are_secondhand_goods_delivered : nil, false, :onclick => "deliverySecondHandGoods();", id: "insurance_are_secondhand_goods_delivered" %>
                                                     <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.are_secondhand_goods_delivered.present? && @insurance.are_secondhand_goods_delivered) %>">Ja</span>
                                                 </label>
 
@@ -832,7 +832,7 @@
                                                 <label>Wird die Ware vor dem Weiterverkauf überholt? </label>
                                                 <p>
                                                     <label>
-                                                        <%= check_box_tag "export_application[are_goods_overhauled]", @insurance.are_goods_overhauled ? @insurance.are_goods_overhauled : nil, false, :onclick => "goodOverhauled();", id: "export_application_are_goods_overhauled" %>
+                                                        <%= check_box_tag "insurance[are_goods_overhauled]", @insurance.are_goods_overhauled ? @insurance.are_goods_overhauled : nil, false, :onclick => "goodOverhauled();", id: "insurance_are_goods_overhauled" %>
                                                         <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.are_goods_overhauled.present? && @insurance.are_goods_overhauled) %>">Ja</span>
                                                     </label>
 
@@ -876,7 +876,7 @@
                                                 (Tochterunternehmen oder Preisgleitklausel?) </label>
                                             <p>
                                                 <label>
-                                                    <%= check_box_tag "export_application[has_special_contract_structure]", @insurance.has_special_contract_structure ? @insurance.has_special_contract_structure : nil, false, :onclick => "specialContractStructure();", id: "export_application_has_special_contract_structure" %>
+                                                    <%= check_box_tag "insurance[has_special_contract_structure]", @insurance.has_special_contract_structure ? @insurance.has_special_contract_structure : nil, false, :onclick => "specialContractStructure();", id: "insurance_has_special_contract_structure" %>
                                                     <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.has_special_contract_structure.present? && @insurance.has_special_contract_structure) %>">Ja</span>
                                                 </label>
 
@@ -900,7 +900,7 @@
                                         <label>Bekommen Sie für die zu liefernde Ware ein deutsches Warenursprungszeugnis?</label>
                                         <p>
                                             <label>
-                                                <%= check_box_tag "export_application[has_german_certificate_of_origin]", @insurance.has_german_certificate_of_origin ? @insurance.has_german_certificate_of_origin : nil, false, :onclick => "germanCertificateOfOrigin();", id: "export_application_has_german_certificate_of_origin" %>
+                                                <%= check_box_tag "insurance[has_german_certificate_of_origin]", @insurance.has_german_certificate_of_origin ? @insurance.has_german_certificate_of_origin : nil, false, :onclick => "germanCertificateOfOrigin();", id: "insurance_has_german_certificate_of_origin" %>
                                                 <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.has_german_certificate_of_origin.present? && @insurance.has_german_certificate_of_origin) %>">Ja</span>
                                             </label>
 
@@ -909,7 +909,7 @@
                                             </label>
 
                                             <label>
-                                                <%= check_box_tag "export_application[has_german_certificate_of_origin_for_only_parts_of_good]", @insurance.has_german_certificate_of_origin_for_only_parts_of_good ? @insurance.has_german_certificate_of_origin_for_only_parts_of_good : nil, false, :onclick => "partlyGermanCertificateOfOrigin();", id: "export_application_has_german_certificate_of_origin_for_only_parts_of_good" %>
+                                                <%= check_box_tag "insurance[has_german_certificate_of_origin_for_only_parts_of_good]", @insurance.has_german_certificate_of_origin_for_only_parts_of_good ? @insurance.has_german_certificate_of_origin_for_only_parts_of_good : nil, false, :onclick => "partlyGermanCertificateOfOrigin();", id: "insurance_has_german_certificate_of_origin_for_only_parts_of_good" %>
                                                 <span class="part yes-no-btns">Teilweise</span>
                                             </label>
                                         </p>
@@ -2081,7 +2081,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_has_previously_used_hermes_cover').prop('checked', true);
+        $('#insurance_has_previously_used_hermes_cover').prop('checked', true);
     }
 
     function noPreviouslyHermesInsuranceUsed() {
@@ -2091,7 +2091,7 @@
         } else {
             x.style.display = "none";
         }
-        $('#export_application_has_previously_used_hermes_cover').prop('checked', false);
+        $('#insurance_has_previously_used_hermes_cover').prop('checked', false);
     }
 
     function germanCertificateOfOrigin() {
@@ -2105,8 +2105,8 @@
             y.style.display = "none";
         }
 
-        $('#export_application_has_german_certificate_of_origin').prop('checked', true);
-        $('#export_application_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', false);
+        $('#insurance_has_german_certificate_of_origin').prop('checked', true);
+        $('#insurance_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', false);
     }
 
     function noGermanCertificateOfOrigin() {
@@ -2120,8 +2120,8 @@
             x.style.display = "none";
             y.style.display = "none";
         }
-        $('#export_application_has_german_certificate_of_origin').prop('checked', false);
-        $('#export_application_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', false);
+        $('#insurance_has_german_certificate_of_origin').prop('checked', false);
+        $('#insurance_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', false);
     }
 
     function partlyGermanCertificateOfOrigin() {
@@ -2135,8 +2135,8 @@
             y.style.display = "none";
             x.style.display = "none";
         }
-        $('#export_application_has_german_certificate_of_origin').prop('checked', false);
-        $('#export_application_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', true);
+        $('#insurance_has_german_certificate_of_origin').prop('checked', false);
+        $('#insurance_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', true);
     }
 
     function goodOverhauled() {
@@ -2146,7 +2146,7 @@
         } else {
             x.style.display = "none";
         }
-        $('#export_application_are_goods_overhauled').prop('checked', true);
+        $('#insurance_are_goods_overhauled').prop('checked', true);
     }
 
     function NoGoodsOverhauled() {
@@ -2154,7 +2154,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_are_goods_overhauled').prop('checked', false);
+        $('#insurance_are_goods_overhauled').prop('checked', false);
     }
 
     function incoTerms() {
@@ -2180,7 +2180,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_exporter_external_rating_available').prop('checked', true);
+        $('#insurance_exporter_external_rating_available').prop('checked', true);
     }
 
     function noExporterExternalRatingFunction() {
@@ -2188,7 +2188,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_exporter_external_rating_available').prop('checked', false);
+        $('#insurance_exporter_external_rating_available').prop('checked', false);
     }
 
     function importerExternalRatingFunction() {
@@ -2198,7 +2198,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_importer_external_rating_available').prop('checked', true);
+        $('#insurance_importer_external_rating_available').prop('checked', true);
     }
 
     function noImporterExternalRatingFunction() {
@@ -2206,7 +2206,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_importer_external_rating_available').prop('checked', false);
+        $('#insurance_importer_external_rating_available').prop('checked', false);
     }
 
     function controlledByMotherCompany() {
@@ -2216,7 +2216,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_is_company_controlled_by_mother_company').prop('checked', true);
+        $('#insurance_is_company_controlled_by_mother_company').prop('checked', true);
     }
 
     function notControlledByMotherCompany() {
@@ -2224,7 +2224,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_is_company_controlled_by_mother_company').prop('checked', false);
+        $('#insurance_is_company_controlled_by_mother_company').prop('checked', false);
     }
 
     function significantInfluenceOnImporter() {
@@ -2234,7 +2234,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_has_significant_influence_on_importer_management').prop('checked', true);
+        $('#insurance_has_significant_influence_on_importer_management').prop('checked', true);
     }
 
     function noSignificantInfluenceOnImporter() {
@@ -2242,15 +2242,15 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_has_significant_influence_on_importer_management').prop('checked', false);
+        $('#insurance_has_significant_influence_on_importer_management').prop('checked', false);
     }
 
     function investmentGoods() {
-        $('#export_application_is_investment_good').prop('checked', true);
+        $('#insurance_is_investment_good').prop('checked', true);
     }
 
     function noInvestmentGoods() {
-        $('#export_application_is_investment_good').prop('checked', false);
+        $('#insurance_is_investment_good').prop('checked', false);
     }
 
 
@@ -2259,7 +2259,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_is_delivered_at_this_address').prop('checked', true);
+        $('#insurance_is_delivered_at_this_address').prop('checked', true);
     }
 
     function noDeliveredAtThisAddress() {
@@ -2269,23 +2269,23 @@
         } else {
             x.style.display = "none";
         }
-        $('#export_application_is_delivered_at_this_address').prop('checked', false);
+        $('#insurance_is_delivered_at_this_address').prop('checked', false);
     }
 
     function noPrivate_sector() {
-        $('#export_application_is_exporting_to_private_sector').prop('checked', false);
+        $('#insurance_is_exporting_to_private_sector').prop('checked', false);
     }
 
     function noPaymentExperience() {
-        $('#export_application_has_payment_experience_with_importer').prop('checked', false);
+        $('#insurance_has_payment_experience_with_importer').prop('checked', false);
     }
 
     function servicingForGoods() {
-        $('#export_application_exporter_offers_servicing_for_goods').prop('checked', true);
+        $('#insurance_exporter_offers_servicing_for_goods').prop('checked', true);
     }
 
     function noServicingForGoods() {
-        $('#export_application_exporter_offers_servicing_for_goods').prop('checked', false);
+        $('#insurance_exporter_offers_servicing_for_goods').prop('checked', false);
     }
 
     function deliveredPartOfConsortiumWithOtherCompanies() {
@@ -2295,7 +2295,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_is_delivered_part_of_consortium_with_other_companies').prop('checked', true);
+        $('#insurance_is_delivered_part_of_consortium_with_other_companies').prop('checked', true);
     }
 
     function NoDeliveredPartOfConsortiumWithOtherCompanies() {
@@ -2304,7 +2304,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_is_delivered_part_of_consortium_with_other_companies').prop('checked', false);
+        $('#insurance_is_delivered_part_of_consortium_with_other_companies').prop('checked', false);
     }
 
     function deliveryAffectsSensitiveArea() {
@@ -2314,7 +2314,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_does_delivery_affect_sensitive_areas').prop('checked', true);
+        $('#insurance_does_delivery_affect_sensitive_areas').prop('checked', true);
     }
 
     function NoDeliveryAffectsSensitiveArea() {
@@ -2322,7 +2322,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_does_delivery_affect_sensitive_areas').prop('checked', false);
+        $('#insurance_does_delivery_affect_sensitive_areas').prop('checked', false);
     }
 
     function exportLicenceNeeded() {
@@ -2332,7 +2332,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_is_export_licence_needed').prop('checked', true);
+        $('#insurance_is_export_licence_needed').prop('checked', true);
     }
 
     function noExportLicenceNeeded() {
@@ -2340,7 +2340,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_is_export_licence_needed').prop('checked', false);
+        $('#insurance_is_export_licence_needed').prop('checked', false);
     }
 
     function isFullyResponsibleForProject() {
@@ -2359,7 +2359,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_are_secondhand_goods_delivered').prop('checked', true);
+        $('#insurance_are_secondhand_goods_delivered').prop('checked', true);
     }
 
     function noDeliverySecondHandGoods() {
@@ -2367,7 +2367,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_are_secondhand_goods_delivered').prop('checked', false);
+        $('#insurance_are_secondhand_goods_delivered').prop('checked', false);
     }
 
     function contractAlreadySignedBetweenParties() {
@@ -2381,7 +2381,7 @@
             x.style.display = "none";
             y.style.display = "none";
         }
-        $('#export_application_is_contract_already_signed_between_parties').prop('checked', true);
+        $('#insurance_is_contract_already_signed_between_parties').prop('checked', true);
     }
 
     function noContractAlreadySignedBetweenParties() {
@@ -2395,7 +2395,7 @@
             y.style.display = "none";
             x.style.display = "none";
         }
-        $('#export_application_is_contract_already_signed_between_parties').prop('checked', false);
+        $('#insurance_is_contract_already_signed_between_parties').prop('checked', false);
     }
 
     function partInTender() {
@@ -2405,7 +2405,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_taking_part_in_tender').prop('checked', true);
+        $('#insurance_taking_part_in_tender').prop('checked', true);
     }
 
     function noPartInTender() {
@@ -2413,7 +2413,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_taking_part_in_tender').prop('checked', false);
+        $('#insurance_taking_part_in_tender').prop('checked', false);
     }
     function specialContractStructure() {
         var y = document.getElementById("explainStructure");
@@ -2422,7 +2422,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_has_special_contract_structure').prop('checked', true);
+        $('#insurance_has_special_contract_structure').prop('checked', true);
     }
 
     function noSpecialContractStructure() {
@@ -2430,7 +2430,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_has_special_contract_structure').prop('checked', false);
+        $('#insurance_has_special_contract_structure').prop('checked', false);
     }
 
     function goodsSentMultipleDeliveries() {
@@ -2440,7 +2440,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_is_good_sent_in_multiple_deliveries').prop('checked', true);
+        $('#insurance_is_good_sent_in_multiple_deliveries').prop('checked', true);
     }
 
     function noGoodsSentMultipleDeliveries() {
@@ -2448,7 +2448,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_is_good_sent_in_multiple_deliveries').prop('checked', false);
+        $('#insurance_is_good_sent_in_multiple_deliveries').prop('checked', false);
     }
 
     function securityPresent() {
@@ -2458,7 +2458,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_is_security_present_for_transaction').prop('checked', true);
+        $('#insurance_is_security_present_for_transaction').prop('checked', true);
     }
 
     function noSecurityPresent() {
@@ -2466,7 +2466,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_is_security_present_for_transaction').prop('checked', false);
+        $('#insurance_is_security_present_for_transaction').prop('checked', false);
     }
 
     function agreedTermOfPayments() {
@@ -2476,7 +2476,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_has_agreed_payment_term_already').prop('checked', true);
+        $('#insurance_has_agreed_payment_term_already').prop('checked', true);
     }
 
     function noAgreedTermOfPayments() {
@@ -2484,7 +2484,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_has_agreed_payment_term_already').prop('checked', false);
+        $('#insurance_has_agreed_payment_term_already').prop('checked', false);
     }
 
     function corruptionDeclaration() {
@@ -2494,7 +2494,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_does_corruption_declaration_apply').prop('checked', true);
+        $('#insurance_does_corruption_declaration_apply').prop('checked', true);
     }
 
     function noCorruptionDeclaration() {
@@ -2502,7 +2502,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_does_corruption_declaration_apply').prop('checked', false);
+        $('#insurance_does_corruption_declaration_apply').prop('checked', false);
     }
 
     function goodsOverhaulCountryIfGermanyHandler() {
