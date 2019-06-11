@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_094807) do
+ActiveRecord::Schema.define(version: 2019_06_11_101235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -466,6 +466,15 @@ ActiveRecord::Schema.define(version: 2019_06_11_094807) do
     t.string "downpayment_delivery_description_payment_term_both"
     t.string "degressive_interest_rate"
     t.string "interest_calculation_description"
+    t.string "subject_origin_overall_project_financing_details_subject_1"
+    t.string "subject_origin_overall_project_financing_details_currency_1"
+    t.string "subject_origin_overall_project_financing_details_amount_1"
+    t.string "subject_origin_overall_project_financing_details_subject_2"
+    t.string "subject_origin_overall_project_financing_details_currency_2"
+    t.string "subject_origin_overall_project_financing_details_amount_2"
+    t.string "subject_origin_overall_project_financing_details_subject_3"
+    t.string "subject_origin_overall_project_financing_details_currency_3"
+    t.string "subject_origin_overall_project_financing_details_amount_3"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
