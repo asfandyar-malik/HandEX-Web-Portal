@@ -797,7 +797,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                  <div class="col background_toggle does_delivery_affect_sensitive_areas">
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m12 nopadding">
                                             <label>Betreffen Ihre Lieferungen bzw. Leistungen ein sensibles Gebiet?</label>
@@ -830,6 +830,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m12 nopadding">
@@ -2479,6 +2480,7 @@
             y.style.display = "none";
         }
         $('#export_application_does_delivery_affect_sensitive_areas').prop('checked', true);
+        $('.does_delivery_affect_sensitive_areas').toggleClass('dialog_background');
     }
 
     function NoDeliveryAffectsSensitiveArea() {
@@ -2487,6 +2489,7 @@
             x.style.display = "none";
         }
         $('#export_application_does_delivery_affect_sensitive_areas').prop('checked', false);
+        $('.does_delivery_affect_sensitive_areas').removeClass('dialog_background');
     }
 
     function exportLicenceNeeded() {
