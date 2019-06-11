@@ -475,6 +475,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_101235) do
     t.string "subject_origin_overall_project_financing_details_subject_3"
     t.string "subject_origin_overall_project_financing_details_currency_3"
     t.string "subject_origin_overall_project_financing_details_amount_3"
+    t.string "downpayment_delivery_description_payment_term_both"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
