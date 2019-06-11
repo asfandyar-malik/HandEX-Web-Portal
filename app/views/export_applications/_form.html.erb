@@ -830,6 +830,7 @@
                                     </div>
                                 </div>
 
+                                  <div class="col background_toggle is_export_licence_needed">
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m12 nopadding">
                                             <label>Ist Ihr Export ausfuhrgenehmigungspflichtig?</label>
@@ -860,6 +861,8 @@
                                             </div>
                                         </div>
                                     </div>
+                                  </div>
+
 
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m12 nopadding">
@@ -2510,6 +2513,7 @@
             y.style.display = "none";
         }
         $('#export_application_is_export_licence_needed').prop('checked', true);
+        $('.is_export_licence_needed').toggleClass('dialog_background');
     }
 
     function noExportLicenceNeeded() {
@@ -2518,6 +2522,7 @@
             x.style.display = "none";
         }
         $('#export_application_is_export_licence_needed').prop('checked', false);
+        $('.is_export_licence_needed').removeClass('dialog_background');
     }
 
     function isFullyResponsibleForProject() {
