@@ -1683,17 +1683,43 @@
                                                         </div>
                                                       </div>
                                                     </div>
-                                                  <div id="noFixedInterestRate" style="display: none;">
-                                                    <div class="input-field col s12 m12">
-                                                      <div class="input-field col s12 m12 nopadding">
-                                                        <p>
-                                                        <div class="input-field col s12 m12">
-                                                          <label> <%= t('variable_interest_rate') %> </label>
-                                                          <div> <%= form.text_area :variable_interest_rate %> </div>
+                                                    <div id="noFixedInterestRate" style="display: none;">
+                                                      <div class="input-field col s12 m12">
+                                                        <div class="input-field col s12 m12 nopadding">
+                                                          <p>
+                                                          <div class="input-field col s12 m12">
+                                                            <label> <%= t('variable_interest_rate') %> </label>
+                                                            <div> <%= form.text_area :variable_interest_rate %> </div>
+                                                          </div>
                                                         </div>
                                                       </div>
                                                     </div>
-                                                  </div>
+                                                    <div class="input-field col s12 m12">
+                                                      <div class="input-field col s12 m12 nopadding">
+                                                        <label><%= t('degressive_interest_rate') %></label>
+                                                        <p>
+                                                          <label>
+                                                            <%= check_box_tag "export_application[degressive_interest_rate]", @export_application.degressive_interest_rate ? @export_application.degressive_interest_rate : nil, false, :onclick => "degressiveInterestRate();", id: "degressive_interest_rate" %>
+                                                            <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.degressive_interest_rate.present? && @export_application.degressive_interest_rate) %>">Ja</span>
+                                                          </label>
+
+                                                          <label onclick="noDegressiveInterestRate()">
+                                                            <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.degressive_interest_rate.present? && !@export_application.degressive_interest_rate) %>">Nein</span>
+                                                          </label>
+                                                        </p>
+                                                      </div>
+                                                    </div>
+                                                    <div id="noDegressiveInterestRate" style="display: none;">
+                                                      <div class="input-field col s12 m12">
+                                                        <div class="input-field col s12 m12 nopadding">
+                                                          <p>
+                                                          <div class="input-field col s12 m12">
+                                                            <label> <%= t('interest_calculation_description') %> </label>
+                                                            <div> <%= form.text_area :interest_calculation_description %> </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
                                                   </div>
                                             </div>
                                         </div>
@@ -2330,6 +2356,16 @@
         $('#yesFixedInterestRate').hide();
         $('#noFixedInterestRate').show();
         $('#fixed_interest_rate').prop('checked', false);
+    }
+
+    function degressiveInterestRate() {
+        $('#noDegressiveInterestRate').hide();
+        $('#fixed_interest_rate').prop('checked', true);
+    }
+
+    function noDegressiveInterestRate() {
+        $('#noDegressiveInterestRate').show();
+        $('#degressiveInterestRate').prop('checked', false);
     }
 
     function noPrivate_sector() {

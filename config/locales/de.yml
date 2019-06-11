@@ -251,6 +251,8 @@ de:
   fixed_interest_rate: "Wird der zu Grunde liegende Zinssatz fest berechnet?"
   fixed_interest_rate_value: "Bitte geben Sie Ihren Zinssatz an."
   variable_interest_rate: "Ihr Zinssatz wird variabel berechnet. Bitte stellen Sie Ihre Berechnungsvariante dar."
+  degressive_interest_rate: "Werden die vertraglichen Zinsen degressiv berechnet und fällig gestellt?"
+  interest_calculation_description: "Bitte erläutern Sie die Zinsberechnung."
   new_to_hermes_cover: "Da Sie bisher keine Hermesdeckung beantragt haben, möchte HandEX und unser Partner Euler Hermes Sie besser kennenlernen. Bitte helfen Sie uns zu verstehen, inwieweit Sie bereits über Exporterfahrung und Erfahrungen mit säumigen Auslandskunden verfügen."
   years_trading_without_hermes_insurance: "Inwieweit bzw. seit wie vielen Jahren verfügen Sie über Exporterfahrung aus ungedeckten Geschäften, d.h. Exportgeschäfte ohne Hermesdeckung?"
   experience_with_importer_country: "Besteht eine langjährige Exporterfahrung sowie Marktkenntnis mit dem Empfängerland?"
