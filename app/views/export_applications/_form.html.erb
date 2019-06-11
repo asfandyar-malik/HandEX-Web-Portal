@@ -733,7 +733,7 @@
                                         </div>
 
                                     </div>
-
+                                  <div class="col background_toggle is_contract_already_signed_between_parties">
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m12 nopadding">
                                             <label> Haben bereits alle Parteien den Vertrag für das Exportgeschäft unterzeichnet? </label>
@@ -794,6 +794,7 @@
 
                                         </div>
                                     </div>
+                                </div>
 
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m12 nopadding">
@@ -2546,6 +2547,7 @@
     function contractAlreadySignedBetweenParties() {
         var x = document.getElementById("contractSignedBetweenParties");
         var y = document.getElementById("noContractSignedBetweenParties");
+        var z = $('.is_contract_already_signed_between_parties');
 
         if (x.style.display === "none") {
             x.style.display = "block";
@@ -2555,11 +2557,22 @@
             y.style.display = "none";
         }
         $('#export_application_is_contract_already_signed_between_parties').prop('checked', true);
+        if(z.hasClass('yes')) {
+            z.removeClass('dialog_background');
+            z.removeClass('yes');
+        } else if(z.hasClass('no')) {
+            z.removeClass('no');
+            z.addClass('yes');
+        } else {
+            z.addClass('yes');
+            z.addClass('dialog_background');
+        }
     }
 
     function noContractAlreadySignedBetweenParties() {
         var x = document.getElementById("contractSignedBetweenParties");
         var y = document.getElementById("noContractSignedBetweenParties");
+        var z = $('.is_contract_already_signed_between_parties');
 
         if (y.style.display === "none") {
             y.style.display = "block";
@@ -2569,6 +2582,16 @@
             x.style.display = "none";
         }
         $('#export_application_is_contract_already_signed_between_parties').prop('checked', false);
+        if(z.hasClass('no')) {
+            z.removeClass('dialog_background');
+            z.removeClass('no');
+        } else if(z.hasClass('yes')){
+            z.removeClass('yes');
+            z.addClass('no');
+        } else {
+            z.addClass('no');
+            z.addClass('dialog_background');
+        }
     }
 
     function partInTender() {
