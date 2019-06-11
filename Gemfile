@@ -14,7 +14,7 @@ gem 'sass-rails', '>= 5.0.6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'mini_racer', platforms: :ruby
+gem 'mini_racer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -71,7 +71,7 @@ gem 'omniauth', '~> 1.6'
 gem 'omniauth-facebook', '~> 4.0'
 gem 'paperclip', '~> 5.1.0'
 gem 'geocoder', '~> 1.4'
-gem 'therubyracer'
+# gem 'therubyracer'
 # gem 'less-rails-bootstrap'
 gem "font-awesome-rails"
 gem 'owlcarousel-rails'
@@ -81,3 +81,5 @@ gem "sprockets", '3.6.3'
 
 gem 'cloudinary', '~> 1.11', '>= 1.11.1'
 gem 'paperclip-cloudinary', '~> 1.3', '>= 1.3.2'
+gem 'simple_form'
+gem 'cocoon'

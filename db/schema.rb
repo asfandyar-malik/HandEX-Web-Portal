@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_101235) do
+ActiveRecord::Schema.define(version: 2019_06_11_124903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -418,6 +418,14 @@ ActiveRecord::Schema.define(version: 2019_06_11_101235) do
     t.boolean "is_exporting_to_private_sector", default: false
     t.boolean "is_company_controlled_by_mother_company", default: false
     t.string "importer_mother_company_industry"
+    t.boolean "exporter_offers_servicing_for_goods", default: false
+    t.string "does_delivery_affect_sensitive_areas"
+    t.boolean "are_goods_overhauled", default: false
+    t.boolean "does_corruption_declaration_appy", default: false
+    t.string "importer_tax_id"
+    t.string "explain_sensitive_area_type"
+    t.string "explain_special_structure"
+    t.string "exporter_date_founded"
     t.string "agreed_payments_amount_payment_term_short_2"
     t.string "agreed_payments_time_payment_term_short_2"
     t.string "agreed_payments_some_output_payment_term_short_2"
@@ -434,19 +442,11 @@ ActiveRecord::Schema.define(version: 2019_06_11_101235) do
     t.string "agreed_payments_currency_payment_term_short_3"
     t.string "agreed_payments_currency_payment_term_short_4"
     t.string "agreed_payments_currency_payment_term_short_5"
-    t.boolean "exporter_offers_servicing_for_goods", default: false
-    t.string "does_delivery_affect_sensitive_areas"
-    t.boolean "are_goods_overhauled", default: false
-    t.boolean "does_corruption_declaration_appy", default: false
-    t.string "importer_tax_id"
-    t.string "explain_sensitive_area_type"
-    t.string "explain_special_structure"
-    t.string "exporter_date_founded"
     t.string "project_detailed_description"
     t.boolean "is_fully_responsible_for_project"
+    t.string "contract_currency"
     t.string "entire_project_amount_currency"
     t.string "entire_project_amount"
-    t.string "contract_currency"
     t.string "overall_project_financing_details_subject_1"
     t.string "overall_project_financing_details_currency_1"
     t.string "overall_project_financing_details_amount_1"
@@ -458,12 +458,12 @@ ActiveRecord::Schema.define(version: 2019_06_11_101235) do
     t.string "overall_project_financing_details_amount_3"
     t.boolean "taking_part_in_tender"
     t.string "tender_submission_date"
+    t.string "downpayment_delivery_description_payment_term_both"
     t.string "interest_currency"
     t.string "interest_value"
     t.string "fixed_interest_rate"
     t.string "fixed_interest_rate_value"
     t.string "variable_interest_rate"
-    t.string "downpayment_delivery_description_payment_term_both"
     t.string "degressive_interest_rate"
     t.string "interest_calculation_description"
     t.string "subject_origin_overall_project_financing_details_subject_1"
@@ -475,7 +475,6 @@ ActiveRecord::Schema.define(version: 2019_06_11_101235) do
     t.string "subject_origin_overall_project_financing_details_subject_3"
     t.string "subject_origin_overall_project_financing_details_currency_3"
     t.string "subject_origin_overall_project_financing_details_amount_3"
-    t.string "downpayment_delivery_description_payment_term_both"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
@@ -723,14 +722,6 @@ ActiveRecord::Schema.define(version: 2019_06_11_101235) do
     t.string "exporter_representative_name"
   end
 
-  create_table "overall_project_financing_details", force: :cascade do |t|
-    t.string "subject"
-    t.integer "currency"
-    t.string "amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "refinances", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -905,6 +896,16 @@ ActiveRecord::Schema.define(version: 2019_06_11_101235) do
     t.string "security_provider_address"
   end
 
+  create_table "supplies_from_foreign_origins", force: :cascade do |t|
+    t.string "all_rawgoods_supplier_currency"
+    t.string "all_rawgoods_supplier_amount"
+    t.string "all_rawgoods_supplier_country"
+    t.bigint "export_application_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["export_application_id"], name: "index_supplies_from_foreign_origins_on_export_application_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -934,4 +935,5 @@ ActiveRecord::Schema.define(version: 2019_06_11_101235) do
   end
 
   add_foreign_key "insurances", "users"
+  add_foreign_key "supplies_from_foreign_origins", "export_applications"
 end

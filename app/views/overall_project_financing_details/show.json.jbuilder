@@ -1,1 +1,0 @@
-json.partial! "overall_project_financing_details/overall_project_financing_detail", overall_project_financing_detail: @overall_project_financing_detail
