@@ -607,7 +607,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                  <div class="col background_toggle is_good_sent_in_multiple_deliveries">
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m12 nopadding">
                                             <label> Versenden Sie Ihre Waren/Güter/Anlagen in mehreren Lieferungen? </label>
@@ -661,6 +661,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
                                     <div class="input-field col s12">
 
@@ -2604,6 +2605,7 @@
             y.style.display = "none";
         }
         $('#export_application_is_good_sent_in_multiple_deliveries').prop('checked', true);
+        $('.is_good_sent_in_multiple_deliveries').toggleClass('dialog_background');
     }
 
     function noGoodsSentMultipleDeliveries() {
@@ -2611,7 +2613,8 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_is_good_sent_in_multiple_deliveries').prop('checked', false);
+        $('#is_good_sent_in_multiple_deliveries').prop('checked', false);
+        $('.is_good_sent_in_multiple_deliveries').removeClass('dialog_background');
     }
 
     function securityPresent() {
