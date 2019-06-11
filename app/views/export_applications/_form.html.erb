@@ -117,40 +117,41 @@
                                                     <%= form.text_field :exporter_last_fiscal_year, autofocus: true, class: "validate" %>
                                                 </div>
                                             </div>
+                                            <div class="col background_toggle exporter_external_rating_available">
+                                              <div class="input-field col s12 m12">
+                                                  <div class="input-field col s12 m12 nopadding">
+                                                      <label> Externes Rating? </label>
+                                                      <p>
+                                                          <label>
+                                                              <%= check_box_tag "export_application[exporter_external_rating_available]", @export_application.exporter_external_rating_available ? @export_application.exporter_external_rating_available : nil, false, :onclick => "exporterExternalRatingFunction();", id: "export_application_exporter_external_rating_available" %>
+                                                              <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.exporter_external_rating_available.present? && @export_application.exporter_external_rating_available) %>">Ja</span>
+                                                          </label>
 
-                                            <div class="input-field col s12 m12">
-                                                <div class="input-field col s12 m12 nopadding">
-                                                    <label> Externes Rating? </label>
-                                                    <p>
-                                                        <label>
-                                                            <%= check_box_tag "export_application[exporter_external_rating_available]", @export_application.exporter_external_rating_available ? @export_application.exporter_external_rating_available : nil, false, :onclick => "exporterExternalRatingFunction();", id: "export_application_exporter_external_rating_available" %>
-                                                            <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.exporter_external_rating_available.present? && @export_application.exporter_external_rating_available) %>">Ja</span>
-                                                        </label>
+                                                          <label onclick="noExporterExternalRatingFunction()">
+                                                              <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.exporter_external_rating_available.present? && !@export_application.exporter_external_rating_available) %>">Nein</span>
+                                                          </label>
+                                                      </p>
+                                                  </div>
 
-                                                        <label onclick="noExporterExternalRatingFunction()">
-                                                            <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.exporter_external_rating_available.present? && !@export_application.exporter_external_rating_available) %>">Nein</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                            </div>
 
-                                            <div id="exporterExternalRating" style="display: none">
-                                                <div class="row">
-                                                    <div class="input-field col s12">
-                                                        <label>Rating</label>
-                                                        <%= form.text_field :exporter_rating, autofocus: true, class: "validate" %>
-                                                    </div>
-                                                    <div class="input-field col s12 m6">
-                                                        <label>Ratingagentur</label>
-                                                        <%= form.text_field :exporter_rating_agency, autofocus: true, class: "validate" %>
-                                                    </div>
-                                                    <div class="input-field col s12 m6">
-                                                        <label>Datum des Ratings </label>
-                                                        <%= form.text_field :exporter_rating_issued_date, autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
-                                                    </div>
-                                                </div>
-                                            </div>
-
+                                                  <div id="exporterExternalRating" style="display: none">
+                                                      <div class="row">
+                                                          <div class="input-field col s12">
+                                                              <label>Rating</label>
+                                                              <%= form.text_field :exporter_rating, autofocus: true, class: "validate" %>
+                                                          </div>
+                                                          <div class="input-field col s12 m6">
+                                                              <label>Ratingagentur</label>
+                                                              <%= form.text_field :exporter_rating_agency, autofocus: true, class: "validate" %>
+                                                          </div>
+                                                          <div class="input-field col s12 m6">
+                                                              <label>Datum des Ratings </label>
+                                                              <%= form.text_field :exporter_rating_issued_date, autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
                                         </div>
                                     </div>
                                 </div>
@@ -299,11 +300,13 @@
                                         </div>
                                     </div>
 
-                                    <div class="input-field col s12 m6">
+                                    <div class="input-field col s12 m12">
+                                      <div class="input-field col s12 m6 nopadding">
                                         <label>Handelsregisternummer</label>
                                         <%= form.text_field :importer_company_registration_number, autofocus: true, class: "validate" %>
+                                      </div>
                                     </div>
-
+                                  <div class="col background_toggle importer_external_rating_available">
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m12 nopadding">
                                             <label> Externes Rating? </label>
@@ -319,23 +322,23 @@
                                             </p>
                                         </div>
                                     </div>
-
                                     <div id="importerExternalRating" style="display: none">
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <label>Rating</label>
-                                                <%= form.text_field :importer_rating, autofocus: true, class: "validate" %>
-                                            </div>
-                                            <div class="input-field col s12 m6">
-                                                <label>Ratingagentur</label>
-                                                <%= form.text_field :importer_rating_agency, autofocus: true, class: "validate" %>
-                                            </div>
-                                            <div class="input-field col s12 m6">
-                                                <label>Datum des Ratings </label>
-                                                <%= form.text_field :importer_rating_issued_date, autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
-                                            </div>
+                                      <div class="row">
+                                        <div class="input-field col s12">
+                                          <label>Rating</label>
+                                          <%= form.text_field :importer_rating, autofocus: true, class: "validate" %>
                                         </div>
+                                        <div class="input-field col s12 m6">
+                                          <label>Ratingagentur</label>
+                                          <%= form.text_field :importer_rating_agency, autofocus: true, class: "validate" %>
+                                        </div>
+                                        <div class="input-field col s12 m6">
+                                          <label>Datum des Ratings </label>
+                                          <%= form.text_field :importer_rating_issued_date, autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
+                                        </div>
+                                      </div>
                                     </div>
+                                </div>
 
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m12 nopadding">
@@ -352,7 +355,7 @@
                                             </p>
                                         </div>
                                     </div>
-
+                                  <div class="col background_toggle has_significant_influence_on_importer_management">
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m12 nopadding">
                                             <label> Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder üben Sie maßgeblichen
@@ -378,6 +381,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -2303,6 +2307,7 @@
             y.style.display = "none";
         }
         $('#export_application_exporter_external_rating_available').prop('checked', true);
+        $('.exporter_external_rating_available').toggleClass('dialog_background');
     }
 
     function noExporterExternalRatingFunction() {
@@ -2311,6 +2316,7 @@
             x.style.display = "none";
         }
         $('#export_application_exporter_external_rating_available').prop('checked', false);
+        $('.exporter_external_rating_available').removeClass('dialog_background');
     }
 
     function importerExternalRatingFunction() {
@@ -2321,6 +2327,7 @@
             y.style.display = "none";
         }
         $('#export_application_importer_external_rating_available').prop('checked', true);
+        $('.importer_external_rating_available').toggleClass('dialog_background');
     }
 
     function noImporterExternalRatingFunction() {
@@ -2329,6 +2336,7 @@
             x.style.display = "none";
         }
         $('#export_application_importer_external_rating_available').prop('checked', false);
+        $('.importer_external_rating_available').removeClass('dialog_background');
     }
 
     function controlledByMotherCompany() {
@@ -2357,6 +2365,7 @@
             y.style.display = "none";
         }
         $('#export_application_has_significant_influence_on_importer_management').prop('checked', true);
+        $('.has_significant_influence_on_importer_management').toggleClass('dialog_background');
     }
 
     function noSignificantInfluenceOnImporter() {
@@ -2365,6 +2374,7 @@
             x.style.display = "none";
         }
         $('#export_application_has_significant_influence_on_importer_management').prop('checked', false);
+        $('.has_significant_influence_on_importer_management').removeClass('dialog_background');
     }
 
     function investmentGoods() {
