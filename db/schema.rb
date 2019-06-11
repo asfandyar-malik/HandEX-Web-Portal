@@ -463,6 +463,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_085634) do
     t.string "fixed_interest_rate"
     t.string "fixed_interest_rate_value"
     t.string "variable_interest_rate"
+    t.string "downpayment_delivery_description_payment_term_both"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
@@ -695,6 +696,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_085634) do
     t.string "contract_currency"
     t.boolean "taking_part_in_tender"
     t.string "tender_submission_date"
+    t.string "downpayment_delivery_description_payment_term_both"
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 
