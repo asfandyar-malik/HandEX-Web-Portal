@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_10_180856) do
+ActiveRecord::Schema.define(version: 2019_06_11_085634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -418,14 +418,6 @@ ActiveRecord::Schema.define(version: 2019_06_10_180856) do
     t.boolean "is_exporting_to_private_sector", default: false
     t.boolean "is_company_controlled_by_mother_company", default: false
     t.string "importer_mother_company_industry"
-    t.boolean "exporter_offers_servicing_for_goods", default: false
-    t.string "does_delivery_affect_sensitive_areas"
-    t.boolean "are_goods_overhauled", default: false
-    t.boolean "does_corruption_declaration_appy", default: false
-    t.string "importer_tax_id"
-    t.string "explain_sensitive_area_type"
-    t.string "explain_special_structure"
-    t.string "exporter_date_founded"
     t.string "agreed_payments_amount_payment_term_short_2"
     t.string "agreed_payments_time_payment_term_short_2"
     t.string "agreed_payments_some_output_payment_term_short_2"
@@ -442,11 +434,19 @@ ActiveRecord::Schema.define(version: 2019_06_10_180856) do
     t.string "agreed_payments_currency_payment_term_short_3"
     t.string "agreed_payments_currency_payment_term_short_4"
     t.string "agreed_payments_currency_payment_term_short_5"
+    t.boolean "exporter_offers_servicing_for_goods", default: false
+    t.string "does_delivery_affect_sensitive_areas"
+    t.boolean "are_goods_overhauled", default: false
+    t.boolean "does_corruption_declaration_appy", default: false
+    t.string "importer_tax_id"
+    t.string "explain_sensitive_area_type"
+    t.string "explain_special_structure"
+    t.string "exporter_date_founded"
     t.string "project_detailed_description"
     t.boolean "is_fully_responsible_for_project"
-    t.string "contract_currency"
     t.string "entire_project_amount_currency"
     t.string "entire_project_amount"
+    t.string "contract_currency"
     t.string "overall_project_financing_details_subject_1"
     t.string "overall_project_financing_details_currency_1"
     t.string "overall_project_financing_details_amount_1"
@@ -458,6 +458,11 @@ ActiveRecord::Schema.define(version: 2019_06_10_180856) do
     t.string "overall_project_financing_details_amount_3"
     t.boolean "taking_part_in_tender"
     t.string "tender_submission_date"
+    t.string "interest_currency"
+    t.string "interest_value"
+    t.string "fixed_interest_rate"
+    t.string "fixed_interest_rate_value"
+    t.string "variable_interest_rate"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
