@@ -596,3 +596,15 @@ nav ul a:hover {
 .handex-color-1 {
  background-color: black;
 }
+
+li .dot {
+  height: 7px;
+  width: 7px;
+  background-color: 003872;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.hidden {
+  display: none;
+}
