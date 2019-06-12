@@ -253,18 +253,31 @@ form.col.s12.custom-form {
 
     li:before {
       content: " ";
-      //content: icon;
       counter-increment: step;
-      width: 5px;
-      height: 5px;
+      width: 15px;
+      height: 15px;
       line-height: 30px;
       border: 1px solid #ddd;
       border-radius: 100%;
       display: block;
       text-align: center;
       margin: 0 auto 10px auto;
+      //margin-left: 0;
       background-color: #fff;
-      z-index: -1;
+      //z-index: -1;
+    }
+
+    li:after {
+      content: '';
+      width: 96%;
+      border-top: solid 1px #ddd;
+      border-bottom: solid 1px #ddd;
+      position: absolute;
+      left: -49%;
+      z-index: 0;
+      height: 5px;
+      top:10%;
+      background-color: white;
     }
 
     li:before:hover {
@@ -285,15 +298,6 @@ form.col.s12.custom-form {
 
     li.inactive:hover {
       color: black;
-    }
-
-    li.active:before {
-      border-color: #003872;
-      background-color: #003872;
-    }
-
-    li.active + li:after {
-      background-color: #003872;
     }
   }
 }
