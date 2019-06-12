@@ -1079,7 +1079,7 @@
                         <div class="col s12">
                             <div class="form-content">
                                 <div class="row">
-
+                                  <div class="col background_toggle is_security_present_for_transaction">
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m12 nopadding">
                                             <label> Sind für Ihr Geschäft Sicherheiten vorgesehen? </label>
@@ -1122,7 +1122,8 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                  </div>
+                                  <div class="col background_toggle has_agreed_payment_term_already">
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m12 nopadding">
                                             <label> <%= t('has_agreed_payment_term_already') %> </label>
@@ -1799,7 +1800,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                  </div>
+                                  </div>
 
                             </div>
                         </div>
@@ -2691,6 +2693,7 @@
             y.style.display = "none";
         }
         $('#export_application_is_security_present_for_transaction').prop('checked', true);
+        $('.is_security_present_for_transaction').toggleClass('dialog_background');
     }
 
     function noSecurityPresent() {
@@ -2699,6 +2702,7 @@
             x.style.display = "none";
         }
         $('#export_application_is_security_present_for_transaction').prop('checked', false);
+        $('.is_security_present_for_transaction').removeClass('dialog_background');
     }
 
     function agreedTermOfPayments() {
@@ -2709,6 +2713,7 @@
             y.style.display = "none";
         }
         $('#export_application_has_agreed_payment_term_already').prop('checked', true);
+        $('.has_agreed_payment_term_already').toggleClass('dialog_background');
     }
 
     function noAgreedTermOfPayments() {
@@ -2717,6 +2722,7 @@
             x.style.display = "none";
         }
         $('#export_application_has_agreed_payment_term_already').prop('checked', false);
+        $('.has_agreed_payment_term_already').removeClass('dialog_background');
     }
 
     function corruptionDeclaration() {
