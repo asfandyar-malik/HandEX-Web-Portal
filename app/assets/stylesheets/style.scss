@@ -30,7 +30,7 @@ body {
 
   #submit {
     width: 100%;
-    background: #81cfdb;
+    //background: #81cfdb;
     color: #fff;
     font-weight: 600;
   }
@@ -114,7 +114,7 @@ body {
   }
   span.active-btn:hover {
     background-color: white;
-    color: #47e1bb;
+    color: #4261a1;
   }
 
   select {
@@ -135,7 +135,7 @@ body {
   }
 
   .yes-no-btns:hover {
-    color: #47e1bb;
+    color: #4261a1;
   }
 
   .no-btn {
@@ -172,7 +172,7 @@ form.col.s12.custom-form {
 
 .form-nav {
   h2 {
-    color: rgb(129, 207, 219);
+    color: #4261a1;
     font-size: 18px;
     font-weight: bold;
     height: 30px;
@@ -213,12 +213,17 @@ form.col.s12.custom-form {
   }
 
   .next {
-    background: rgb(129, 207, 219);
-    border-color: rgb(129, 207, 219);
+    background: #003872;
+    border-color: #003872;
     color: #fff;
     padding: 11px 15px;
     cursor: pointer;
     border-radius: 3px;
+  }
+
+  .next:hover {
+    background: #4261a1;
+    border-color: #4261a1;
   }
 }
 
@@ -243,8 +248,7 @@ form.col.s12.custom-form {
     }
 
     li:hover {
-      color: #47e1bb;
-      //background-color: #47e1bb;
+      color: #4261a1;
     }
 
     li:before {
@@ -263,21 +267,33 @@ form.col.s12.custom-form {
       z-index: -1;
     }
 
+    li:before:hover {
+      background: #4261a1;
+    }
+
     li:first-child:after {
       content: none;
     }
 
     li.active {
-      color: rgb(129, 207, 219);
+      color: white;
+    }
+
+    li.inactive {
+      color: grey;
+    }
+
+    li.inactive:hover {
+      color: white;
     }
 
     li.active:before {
-      border-color: #47e1bb;
-      background-color: #47e1bb;
+      border-color: #003872;
+      background-color: #003872;
     }
 
     li.active + li:after {
-      background-color: #47e1bb;
+      background-color: #003872;
     }
   }
 }
@@ -342,7 +358,6 @@ nav {
     float: right;
     margin-top: 25px;
     margin-right: 30px;
-    background: rgb(129, 207, 219);
   }
 }
 
@@ -351,11 +366,11 @@ nav {
     border-radius: 30px;
     width: 120px;
     float: right;
-    background-color: rgb(129, 207, 219);
+    //background-color: rgb(129, 207, 219);
   }
 
   .btn.rounded:hover {
-    background-color: #2bbbad;
+    background-color: #4261a1;
   }
 
   .btn.rounded.inactive {
@@ -363,7 +378,7 @@ nav {
   }
 
   .btn.rounded.inactive:hover {
-    background-color: #2bbbad;
+    background-color: #003872;
   }
 
   .top-navigation-icons {
@@ -371,16 +386,23 @@ nav {
   }
 
   .top-navigation-icons:hover {
-    color:#2bbbad;
+    color:#4261a1;
   }
 }
 
 .form-content .input-field input[type="submit"] {
-  background: rgb(129, 207, 219);
+  background: #003872;
 }
 
 .handex-btn {
-  background-color: rgb(129, 207, 219);
+  background-color: #003872;
+}
+.handex-btn:hover {
+  background-color: #4261a1; // rgb(37, 65, 178);
+}
+
+.handex-btn-positiv {
+  background-color: #41bf93;
 }
 
 .active_selection_card {
@@ -393,7 +415,7 @@ nav {
 }
 
 .active_selection_card:hover {
-  background-color: #2bbbad;
+  background-color: #4261a1;
 }
 
 .handex-big-btn {
@@ -405,7 +427,7 @@ nav {
 }
 
 .handex-nav-button:hover {
-  background-color: #2bbbad;
+  background-color: #41bf93;
 }
 
 .handex-nav-icon {
@@ -428,7 +450,7 @@ nav {
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
-  color:#2bbbad;
+  color:#4261a1;
 }
 
 .card.choice-card .card-action:last-child {
@@ -551,7 +573,7 @@ nav ul a:hover {
 
 .text-button:hover {
   background-color: white;
-  color: #2bbbad;
+  color: #4261a1;
 }
 
 .section {
@@ -565,4 +587,8 @@ nav ul a:hover {
 .background_toggle.dialog_background {
   margin-top:5px;
   background: #eeeeee;
+}
+
+.handex-color-1 {
+ background-color: black;
 }
