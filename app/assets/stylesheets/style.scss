@@ -1,5 +1,5 @@
 body {
-  background: #f6f7fa;
+  background: white;
 
   .sign-in {
     padding-top: 10%;
@@ -269,7 +269,7 @@ form.col.s12.custom-form {
 
     li:after {
       content: '';
-      width: 96%;
+      width: 96.5%;
       border-top: solid 1px #ddd;
       border-bottom: solid 1px #ddd;
       position: absolute;
@@ -600,7 +600,7 @@ nav ul a:hover {
 li .dot {
   height: 7px;
   width: 7px;
-  background-color: 003872;
+  background-color: #003872;
   border-radius: 50%;
   display: inline-block;
 }
