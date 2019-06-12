@@ -26,15 +26,17 @@ class ExportApplicationsController < ApplicationController
             @export_application.application_status = 'DRAFT'
             if @export_application.save
                 redirect_to "/export_applications/" + @export_application.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert.'
-            else flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
-            render :new
+            else
+                flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+                render :new
             end
         else
             @export_application.application_status = 'SUBMITTED'
             if @export_application.save
                 redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich erstellt.'
-            else flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
-            render :new
+            else
+                flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+                render :new
             end
             # save as published
         end
@@ -46,15 +48,17 @@ class ExportApplicationsController < ApplicationController
             @export_application.application_status = 'DRAFT'
             if @export_application.update(export_application_params)
                 redirect_to "/export_applications/" + @export_application.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert.'
-            else flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
-            render :update
+            else
+                flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+                render :update
             end
         else
             @export_application.application_status = 'SUBMITTED'
             if @export_application.update(export_application_params)
                 redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich gespeichert.'
-            else flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
-            render :update
+            else
+                flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+                render :update
             end
         end
     end
@@ -96,8 +100,10 @@ class ExportApplicationsController < ApplicationController
     end
     
     def export_application_params
-        params.require(:export_application).permit(# Ihr Geschaft -------------------------------------
-            :describe_export_business, :is_investment_good, :explain_why_importer_buying_good, :is_servicing_for_goods_offered, :exported_goods_type, :explain_good_industry_type, :is_delivered_part_of_consortium_with_other_companies, :delivery_doesnt_affects_sensitive_areas, :delivery_affects_natural_reserves, :delivery_affects_indigenous_people, :delivery_affects_cultural_heritage, :delivery_affects_other, :explain_delivery_affects_other, :is_export_licence_needed, :which_regulations_enforcing_exportlicense_requirement, :export_license_status, :does_deliver_secondhand_goods, :is_contract_already_signed_between_parties, :contract_signing_date, :exporter_internal_contract_id, :has_special_contract_structure, :total_delivery_value_excluding_servicing, :percentage_of_spareparts_in_whole_order, :other_billed_items_in_contract_currency, :other_billed_items_in_contract_amount, :describe_other_billed_items_in_contract, :is_price_adjustment_clause_with_importer, :explain_accounting_methods, :is_good_sent_in_multiple_deliveries, :delivery_start, :delivery_end, :other_important_delivery_information, :other_important_delivery_milestones, :has_german_certificate_of_origin, :has_german_certificate_of_origin_for_only_parts_of_good, :all_rawgoods_supplier_country, :all_rawgoods_supplier_currency, :all_rawgoods_supplier_text, :why_all_foreign_rawgoods_necessary, :partly_rawgoods_supplier_country, :partly_rawgoods_supplier_currency, :partly_rawgoods_supplier_text, :why_partly_foreign_rawgoods_necessary, :is_security_present_for_transaction, :security_type, :security_type_name, :proportion_of_good_covered_by_security, :when_security_received, :project_detailed_description, :is_fully_responsible_for_project, :entire_project_amount_currency, :entire_project_amount,
+        params
+            .require(:export_application)
+            .permit(
+                :describe_export_business, :is_investment_good, :explain_why_importer_buying_good, :is_servicing_for_goods_offered, :exported_goods_type, :explain_good_industry_type, :is_delivered_part_of_consortium_with_other_companies, :delivery_doesnt_affects_sensitive_areas, :delivery_affects_natural_reserves, :delivery_affects_indigenous_people, :delivery_affects_cultural_heritage, :delivery_affects_other, :explain_delivery_affects_other, :is_export_licence_needed, :which_regulations_enforcing_exportlicense_requirement, :export_license_status, :does_deliver_secondhand_goods, :is_contract_already_signed_between_parties, :contract_signing_date, :exporter_internal_contract_id, :has_special_contract_structure, :total_delivery_value_excluding_servicing, :percentage_of_spareparts_in_whole_order, :other_billed_items_in_contract_currency, :other_billed_items_in_contract_amount, :describe_other_billed_items_in_contract, :is_price_adjustment_clause_with_importer, :explain_accounting_methods, :is_good_sent_in_multiple_deliveries, :delivery_start, :delivery_end, :other_important_delivery_information, :other_important_delivery_milestones, :has_german_certificate_of_origin, :has_german_certificate_of_origin_for_only_parts_of_good, :all_rawgoods_supplier_country, :all_rawgoods_supplier_currency, :all_rawgoods_supplier_text, :why_all_foreign_rawgoods_necessary, :partly_rawgoods_supplier_country, :partly_rawgoods_supplier_currency, :partly_rawgoods_supplier_text, :why_partly_foreign_rawgoods_necessary, :is_security_present_for_transaction, :security_type, :security_type_name, :proportion_of_good_covered_by_security, :when_security_received, :project_detailed_description, :is_fully_responsible_for_project, :entire_project_amount_currency, :entire_project_amount,
 
             :overall_project_financing_details_subject_1,
             :overall_project_financing_details_currency_1,
@@ -150,8 +156,8 @@ class ExportApplicationsController < ApplicationController
             
             # # Varengold Datapoints ----------------------------------------
             :explain_product_service, :sensitive_area_type, :remaining_life, :manufacture_year, :why_good_overhauled_abroad, :goods_overhaul_country, :proportion_of_goods_overhauled_abroad, :describe_why_overhault_didnot_take_in_germany, :all_rawgoods_supplier_amount, :partly_rawgoods_supplier_amount, :importer_address_line1, :importer_address_line2, :importer_company_registration_number, :importer_rating, :importer_rating_agency, :importer_rating_issued_date, :importer_mother_company, :importer_company_corporate_form, :importer_industry, :exporter_address_line1, :exporter_address_line2, :exporter_tax_id, :exporter_revenue, :exporter_total_assets, :exporter_last_fiscal_year, :external_rating_available, :exporter_rating, :rating_agency, :rating_issued_date, :exporter_external_rating_available, :exporter_rating_agency, :exporter_rating_issued_date, :importer_external_rating_available, :is_company_controlled_by_mother_company, :importer_mother_company_industry, :importer_mother_company_corporate_form, :are_goods_overhauled,
-
-            supplies_from_foreign_origin_attributes: SuppliesFromForeignOrigin.attribute_names.map(&:to_sym).push(:_destroy)
+              
+              supplies_from_foreign_origins_attributes: SuppliesFromForeignOrigin.attribute_names.map(&:to_sym).push(:_destroy)
         )
     
     end
