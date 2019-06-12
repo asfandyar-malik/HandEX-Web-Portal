@@ -228,7 +228,7 @@ form.col.s12.custom-form {
 }
 
 .form-progress {
-  background: #000;
+  background: #f6f7fa;
 
   .progressbar {
     counter-reset: step;
@@ -243,8 +243,8 @@ form.col.s12.custom-form {
       position: relative;
       text-align: center;
       cursor: pointer;
-      color: #fff;
       z-index: 99;
+      color:grey;
     }
 
     li:hover {
@@ -276,7 +276,7 @@ form.col.s12.custom-form {
     }
 
     li.active {
-      color: white;
+      color: black;
     }
 
     li.inactive {
@@ -284,7 +284,7 @@ form.col.s12.custom-form {
     }
 
     li.inactive:hover {
-      color: white;
+      color: black;
     }
 
     li.active:before {
