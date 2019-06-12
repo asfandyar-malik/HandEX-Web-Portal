@@ -995,7 +995,7 @@
                                                     </thead>
                                                     <tbody class='supplies_from_foreign_origins'>
 
-                                                        <%= form.simple_fields_for :supplies_from_foreign_origins do |builder| %>
+                                                        <%= form.fields_for :supplies_from_foreign_origins do |builder| %>
                                                             <%= render 'supplies_from_foreign_origin_fields', f: builder %>
                                                         <% end %>
 
@@ -1028,7 +1028,7 @@
                                                     </thead>
                                                     <tbody class='supplies_from_foreign_origins_partly'>
 
-                                                    <%= form.simple_fields_for :supplies_from_foreign_origins do |builder| %>
+                                                    <%= form.fields_for :supplies_from_foreign_origins do |builder| %>
                                                         <%= render 'supplies_from_foreign_origin_fields', f: builder %>
                                                     <% end %>
 
