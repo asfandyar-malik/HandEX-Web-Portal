@@ -1099,18 +1099,27 @@
                                     </div>
 
                                     <div id="securityPresent" style="display: none">
-                                        <div class="row">
                                             <div class="input-field col s12">
                                                 <label> <%= t('security_type') %> </label>
                                             </div>
 
-                                            <div class="input-field col s12 m6">
-                                                <%= form.select :security_type, options_for_select([[t('please_select'), "0"], ["Unbestätigtes Akkreditiv einer Bank", "1"], ["Bestätigtes Akkreditiv", "2"], ["Zahlungsgarantie einer Bank", "3"], ["Zahlungsgarantie eines Unternehmens", "4"], ["(eingetragener) Eigentumsvorbehalt (dingliche Sicherheit)", "5"], ["Pfandrecht (dingliche Sicherheit)", "6"], ["sonstige", "7"]]), {}, id: "security_type", class: "validate" %>
+                                            <table class='table'>
+
+                                                <tbody class='guarantees'>
+
+                                                    <%= form.fields_for :guarantees do |builder| %>
+                                                        <%= render 'guarantee_fields', f: builder %>
+                                                    <% end %>
+
+                                                </tbody>
+
+                                            </table>
+
+                                            <div class="form-actions">
+                                                <%= link_to_add_association 'Add', form, :guarantees, class: 'btn btn-primary', data: {association_insertion_node: '.guarantees', association_insertion_method: :append} %>
                                             </div>
 
-                                            <div class="input-field col s12 m6">
-                                                <div> <%= form.text_field :security_type_name, class: "validate", placeholder: "Bitte Name vergeben" %> </div>
-                                            </div>
+
                                             <div class="input-field col s12 m12">
                                                 <label> <%= t('proportion_of_good_covered_by_security') %> </label>
                                                 <div> <%= form.text_field :proportion_of_good_covered_by_security, class: "validate" %> </div>
@@ -1122,7 +1131,6 @@
                                                     <%= form.select :when_security_received, options_for_select([[t('please_select'), "0"], ["Vor Fabrikationsbeginn", "1"], ["bereits erhalten", "2"],  ["Vor Liefer-/Leistungsbeginn", "3"], ["Später", "4"], ["Anderer Termin", "5"]]), {}, id: "when_security_received", class: "validate" %>
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
                                   </div>
                                   <div class="col background_toggle has_agreed_payment_term_already">

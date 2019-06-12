@@ -1,10 +1,13 @@
 class ExportApplication < ApplicationRecord
     belongs_to :user
     has_many :supplies_from_foreign_origins, dependent: :destroy
+    has_many :guarantees, dependent: :destroy
+
+    accepts_nested_attributes_for :guarantees,
+                                  allow_destroy: true
     
     accepts_nested_attributes_for :supplies_from_foreign_origins,
                                   allow_destroy: true
-                                  # reject_if: proc { |att| att['all_rawgoods_supplier_amount'].blank? }
 
     has_attached_file :self_disclosure, :storage => :cloudinary,  :cloudinary_resource_type => :image, :path => "export_applications/:attachment/:id/:style/:filename",
                       styles: { medium: "300x300>", thumb: "100x100>" }
