@@ -828,42 +828,42 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                  <div class="col background_toggle is_export_licence_needed">
-                                    <div class="input-field col s12 m12">
-                                        <div class="input-field col s12 m12 nopadding">
-                                            <label>Ist Ihr Export ausfuhrgenehmigungspflichtig?</label>
-                                            <p>
-                                            <p>
-                                                <label>
-                                                    <%= check_box_tag "export_application[is_export_licence_needed]", @export_application.is_export_licence_needed ? @export_application.is_export_licence_needed : nil, false, :onclick => "exportLicenceNeeded();", id: "export_application_is_export_licence_needed" %>
-                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_export_licence_needed.present? && @export_application.is_export_licence_needed) %>">Ja</span>
-                                                </label>
-
-                                                <label onclick="noExportLicenceNeeded()">
-                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.is_export_licence_needed.present? && !@export_application.is_export_licence_needed) %>">Nein</span>
-                                                </label>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div id="originLicense" style="display: none">
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <label>Aus welchen Vorschriften bzw. welchem Teil/Abschnitt der Ausfuhrliste ergibt sich die
-                                                    Genehmigungspflicht?</label>
-                                                <%= form.text_field :which_regulations_enforcing_exportlicense_requirement, autofocus: true, class: "validate" %>
-                                            </div>
-                                            <div class="input-field col s12 m12">
-                                                <label>Die Ausfuhrgenehmigung...</label>
-                                                <%= form.select :export_license_status, options_for_select([t('please_select'), "... wurde erteilt.", "... ist beantragt.", "... ist noch zu beantragen."]), {}, class: 'validate' %>
-                                            </div>
-                                        </div>
-                                    </div>
                                   </div>
 
+                                <div class="col background_toggle is_export_licence_needed">
+                                  <div class="input-field col s12 m12">
+                                      <div class="input-field col s12 m12 nopadding">
+                                          <label>Ist Ihr Export ausfuhrgenehmigungspflichtig?</label>
+                                          <p>
+                                          <p>
+                                              <label>
+                                                  <%= check_box_tag "export_application[is_export_licence_needed]", @export_application.is_export_licence_needed ? @export_application.is_export_licence_needed : nil, false, :onclick => "exportLicenceNeeded();", id: "export_application_is_export_licence_needed" %>
+                                                  <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_export_licence_needed.present? && @export_application.is_export_licence_needed) %>">Ja</span>
+                                              </label>
 
+                                              <label onclick="noExportLicenceNeeded()">
+                                                  <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.is_export_licence_needed.present? && !@export_application.is_export_licence_needed) %>">Nein</span>
+                                              </label>
+                                          </p>
+                                      </div>
+                                  </div>
+
+                                  <div id="originLicense" style="display: none">
+                                      <div class="row">
+                                          <div class="input-field col s12">
+                                              <label>Aus welchen Vorschriften bzw. welchem Teil/Abschnitt der Ausfuhrliste ergibt sich die
+                                                  Genehmigungspflicht?</label>
+                                              <%= form.text_field :which_regulations_enforcing_exportlicense_requirement, autofocus: true, class: "validate" %>
+                                          </div>
+                                          <div class="input-field col s12 m12">
+                                              <label>Die Ausfuhrgenehmigung...</label>
+                                              <%= form.select :export_license_status, options_for_select([t('please_select'), "... wurde erteilt.", "... ist beantragt.", "... ist noch zu beantragen."]), {}, class: 'validate' %>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+
+                                  <div class="col background_toggle are_secondhand_goods_delivered">
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m12 nopadding">
                                             <label> Liefern Sie gebrauchte Ware?</label>
@@ -931,6 +931,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m12 nopadding">
@@ -2542,6 +2543,7 @@
             y.style.display = "none";
         }
         $('#export_application_are_secondhand_goods_delivered').prop('checked', true);
+        $('.are_secondhand_goods_delivered').toggleClass('dialog_background');
     }
 
     function noDeliverySecondHandGoods() {
@@ -2550,6 +2552,7 @@
             x.style.display = "none";
         }
         $('#export_application_are_secondhand_goods_delivered').prop('checked', false);
+        $('.are_secondhand_goods_delivered').removeClass('dialog_background');
     }
 
     function contractAlreadySignedBetweenParties() {
