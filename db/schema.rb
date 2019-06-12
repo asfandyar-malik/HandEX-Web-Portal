@@ -10,11 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_12_161613) do
+ActiveRecord::Schema.define(version: 2019_06_12_182249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
+
+  create_table "agreed_payment_mid_longs", force: :cascade do |t|
+    t.string "currency"
+    t.string "output"
+    t.string "amount"
+    t.bigint "export_application_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["export_application_id"], name: "index_agreed_payment_mid_longs_on_export_application_id"
+  end
 
   create_table "agreed_payments", force: :cascade do |t|
     t.string "currency"
@@ -375,9 +385,6 @@ ActiveRecord::Schema.define(version: 2019_06_12_161613) do
     t.string "downpayment_delivery_currency_payment_term_mid"
     t.string "downpayment_delivery_amount_payment_term_mid"
     t.string "downpayment_delivery_description_payment_term_mid"
-    t.string "agreed_payments_currency_payment_term_mid"
-    t.string "agreed_payments_output_payment_term_mid"
-    t.string "agreed_payments_amount_payment_term_mid"
     t.string "downpayment_delivery_currency_payment_term_both"
     t.string "downpayment_delivery_amount_payment_term_both"
     t.integer "number_of_installments_payment_term_mid"
@@ -930,6 +937,7 @@ ActiveRecord::Schema.define(version: 2019_06_12_161613) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "agreed_payment_mid_longs", "export_applications"
   add_foreign_key "agreed_payments", "export_applications"
   add_foreign_key "guarantees", "export_applications"
   add_foreign_key "insurances", "users"

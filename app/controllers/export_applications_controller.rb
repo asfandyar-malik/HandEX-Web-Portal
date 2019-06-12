@@ -159,8 +159,9 @@ class ExportApplicationsController < ApplicationController
               
               supplies_from_foreign_origins_attributes: SuppliesFromForeignOrigin.attribute_names.map(&:to_sym).push(:_destroy),
               
-              guarantees_attributes: Guarantee.attribute_names.map(&:to_sym).push(:_destroy)
-
+              guarantees_attributes: Guarantee.attribute_names.map(&:to_sym).push(:_destroy),
+              agreed_payment_attributes: AgreedPayment.attribute_names.map(&:to_sym).push(:_destroy),
+              agreed_payment_mid_long_attributes: AgreedPaymentMidLong.attribute_names.map(&:to_sym).push(:_destroy)
         )
     
     end
