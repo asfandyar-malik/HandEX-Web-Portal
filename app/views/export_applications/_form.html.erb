@@ -995,7 +995,7 @@
                                                     </thead>
                                                     <tbody class='supplies_from_foreign_origins'>
 
-                                                        <%= form.simple_fields_for :supplies_from_foreign_origins do |builder| %>
+                                                        <%= form.fields_for :supplies_from_foreign_origins do |builder| %>
                                                             <%= render 'supplies_from_foreign_origin_fields', f: builder %>
                                                         <% end %>
 
@@ -1017,30 +1017,30 @@
                                                     <label>Bitte geben Sie die Zulieferungen aus dem Ausland an.</label>
                                                 </div>
 
-                                                <table class='table'>
-                                                    <thead>
-                                                    <tr>
-                                                        <th>Währung</th>
-                                                        <th>Betrag</th>
-                                                        <th>Land</th>
-                                                        <th></th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody class='supplies_from_foreign_origins_partly'>
+<!--                                                <table class='table'>-->
+<!--                                                    <thead>-->
+<!--                                                    <tr>-->
+<!--                                                        <th>Währung</th>-->
+<!--                                                        <th>Betrag</th>-->
+<!--                                                        <th>Land</th>-->
+<!--                                                        <th></th>-->
+<!--                                                    </tr>-->
+<!--                                                    </thead>-->
+<!--                                                    <tbody class='supplies_from_foreign_origins_partly'>-->
 
-                                                    <%= form.simple_fields_for :supplies_from_foreign_origins do |builder| %>
-                                                        <%= render 'supplies_from_foreign_origin_fields', f: builder %>
-                                                    <% end %>
+                                                    <%#= form.fields_for :supplies_from_foreign_origins do |builder| %>
+                                                        <%#= render 'supplies_from_foreign_origin_fields', f: builder %>
+                                                    <%# end %>
 
-                                                    </tbody>
-                                                </table>
+<!--                                                    </tbody>-->
+<!--                                                </table>-->
 
-                                                <%= link_to_add_association 'Add', form, :supplies_from_foreign_origins, class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins_partly', association_insertion_method: :append} %>
+                                                <%#= link_to_add_association 'Add', form, :supplies_from_foreign_origins, class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins_partly', association_insertion_method: :append} %>
 
-                                                <div class="input-field col s12 m12">
-                                                    <label>Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig sind.</label>
-                                                    <%= form.text_area :why_partly_foreign_rawgoods_necessary, class: "validate" %>
-                                                </div>
+<!--                                                <div class="input-field col s12 m12">-->
+<!--                                                    <label>Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig sind.</label>-->
+                                                    <%#= form.text_area :why_partly_foreign_rawgoods_necessary, class: "validate" %>
+<!--                                                </div>-->
                                             </div>
                                         </div>
 
