@@ -2556,18 +2556,18 @@
     }
 
     function contractAlreadySignedBetweenParties() {
-        var x = $('#contractSignedBetweenParties');
-        var y = $('#noContractSignedBetweenParties');
+        var x = document.getElementById("contractSignedBetweenParties");
+        var y = document.getElementById("noContractSignedBetweenParties");
         var z = $('.is_contract_already_signed_between_parties');
 
         if (x.style.display === "none") {
-            // x.style.display = "block";
-            x.slideDown();
-            y.slideUp();
+            x.style.display = "block";
+            y.style.display = "none";
         } else {
-            x.slideUp();
-            y.slideUp();
+            x.style.display = "none";
+            y.style.display = "none";
         }
+
         $('#export_application_is_contract_already_signed_between_parties').prop('checked', true);
         if(z.hasClass('yes')) {
             z.removeClass('dialog_background');
