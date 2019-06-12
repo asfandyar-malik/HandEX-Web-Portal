@@ -10,11 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_124903) do
+ActiveRecord::Schema.define(version: 2019_06_12_161613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
+
+  create_table "agreed_payments", force: :cascade do |t|
+    t.string "currency"
+    t.string "amount"
+    t.string "time"
+    t.string "some_output"
+    t.bigint "export_application_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["export_application_id"], name: "index_agreed_payments_on_export_application_id"
+  end
 
   create_table "credits", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -226,8 +237,6 @@ ActiveRecord::Schema.define(version: 2019_06_11_124903) do
     t.string "revenue_last_year"
     t.string "experience_with_importer_country"
     t.string "adequate_claims_management"
-    t.string "agreed_payments_time_payment_term_short"
-    t.string "agreed_payments_some_output_payment_term_short"
     t.string "payment_vehichle_payment_term_short"
     t.string "receive_deposit_time_payment_term_mid"
     t.string "repayment_profile_structure_payment_term_mid"
@@ -244,8 +253,6 @@ ActiveRecord::Schema.define(version: 2019_06_11_124903) do
     t.string "number_of_installments_payment_term_both"
     t.string "payment_vehichle_explain_payment_term_both"
     t.string "has_german_certificate_of_origin_for_only_parts_of_good"
-    t.string "agreed_payments_currency_payment_term_short"
-    t.string "agreed_payments_amount_payment_term_short"
     t.boolean "delivery_doesnt_affects_sensitive_areas", default: false
     t.boolean "delivery_affects_natural_reserves", default: false
     t.boolean "delivery_affects_indigenous_people", default: false
@@ -373,10 +380,6 @@ ActiveRecord::Schema.define(version: 2019_06_11_124903) do
     t.string "agreed_payments_amount_payment_term_mid"
     t.string "downpayment_delivery_currency_payment_term_both"
     t.string "downpayment_delivery_amount_payment_term_both"
-    t.string "agreed_payments_currency_payment_term_both"
-    t.string "agreed_payments_amount_payment_term_both"
-    t.string "agreed_payments_time_payment_term_both"
-    t.string "agreed_payments_some_output_payment_term_both"
     t.integer "number_of_installments_payment_term_mid"
     t.datetime "when_security_received_later_exact_date"
     t.boolean "has_significant_influence_on_security_provider"
@@ -418,22 +421,6 @@ ActiveRecord::Schema.define(version: 2019_06_11_124903) do
     t.boolean "is_exporting_to_private_sector", default: false
     t.boolean "is_company_controlled_by_mother_company", default: false
     t.string "importer_mother_company_industry"
-    t.string "agreed_payments_amount_payment_term_short_2"
-    t.string "agreed_payments_time_payment_term_short_2"
-    t.string "agreed_payments_some_output_payment_term_short_2"
-    t.string "agreed_payments_amount_payment_term_short_3"
-    t.string "agreed_payments_time_payment_term_short_3"
-    t.string "agreed_payments_some_output_payment_term_short_3"
-    t.string "agreed_payments_amount_payment_term_short_4"
-    t.string "agreed_payments_time_payment_term_short_4"
-    t.string "agreed_payments_some_output_payment_term_short_4"
-    t.string "agreed_payments_amount_payment_term_short_5"
-    t.string "agreed_payments_time_payment_term_short_5"
-    t.string "agreed_payments_some_output_payment_term_short_5"
-    t.string "agreed_payments_currency_payment_term_short_2"
-    t.string "agreed_payments_currency_payment_term_short_3"
-    t.string "agreed_payments_currency_payment_term_short_4"
-    t.string "agreed_payments_currency_payment_term_short_5"
     t.boolean "exporter_offers_servicing_for_goods", default: false
     t.string "does_delivery_affect_sensitive_areas"
     t.boolean "are_goods_overhauled", default: false
@@ -444,9 +431,9 @@ ActiveRecord::Schema.define(version: 2019_06_11_124903) do
     t.string "exporter_date_founded"
     t.string "project_detailed_description"
     t.boolean "is_fully_responsible_for_project"
+    t.string "contract_currency"
     t.string "entire_project_amount_currency"
     t.string "entire_project_amount"
-    t.string "contract_currency"
     t.string "overall_project_financing_details_subject_1"
     t.string "overall_project_financing_details_currency_1"
     t.string "overall_project_financing_details_amount_1"
@@ -458,12 +445,12 @@ ActiveRecord::Schema.define(version: 2019_06_11_124903) do
     t.string "overall_project_financing_details_amount_3"
     t.boolean "taking_part_in_tender"
     t.string "tender_submission_date"
+    t.string "downpayment_delivery_description_payment_term_both"
     t.string "interest_currency"
     t.string "interest_value"
     t.string "fixed_interest_rate"
     t.string "fixed_interest_rate_value"
     t.string "variable_interest_rate"
-    t.string "downpayment_delivery_description_payment_term_both"
     t.string "degressive_interest_rate"
     t.string "interest_calculation_description"
     t.string "subject_origin_overall_project_financing_details_subject_1"
@@ -476,6 +463,15 @@ ActiveRecord::Schema.define(version: 2019_06_11_124903) do
     t.string "subject_origin_overall_project_financing_details_currency_3"
     t.string "subject_origin_overall_project_financing_details_amount_3"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
+  end
+
+  create_table "guarantees", force: :cascade do |t|
+    t.string "security_type"
+    t.string "security_type_name"
+    t.bigint "export_application_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["export_application_id"], name: "index_guarantees_on_export_application_id"
   end
 
   create_table "insurances", force: :cascade do |t|
@@ -934,6 +930,8 @@ ActiveRecord::Schema.define(version: 2019_06_11_124903) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "agreed_payments", "export_applications"
+  add_foreign_key "guarantees", "export_applications"
   add_foreign_key "insurances", "users"
   add_foreign_key "supplies_from_foreign_origins", "export_applications"
 end

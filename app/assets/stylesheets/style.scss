@@ -89,7 +89,7 @@ body {
 
     .active-btn {
       span {
-        color: #003872;
+        color: #4261a1;
       }
     }
 
@@ -109,7 +109,7 @@ body {
   }
 
   span.active-btn {
-    background-color: #003872;
+    background-color: #4261a1;
     color: white;
   }
   span.active-btn:hover {
@@ -213,8 +213,8 @@ form.col.s12.custom-form {
   }
 
   .next {
-    background: #003872;
-    border-color: #003872;
+    background: #4261a1;
+    border-color: #4261a1;
     color: #fff;
     padding: 11px 15px;
     cursor: pointer;
@@ -382,7 +382,7 @@ nav {
   }
 
   .btn.rounded.inactive:hover {
-    background-color: #003872;
+    background-color: #4261a1;
   }
 
   .top-navigation-icons {
@@ -395,14 +395,14 @@ nav {
 }
 
 .form-content .input-field input[type="submit"] {
-  background: #003872;
+  background: #4261a1;
 }
 
 .handex-btn {
-  background-color: #003872;
+  background-color: #4261a1;
 }
 .handex-btn:hover {
-  background-color: #4261a1; // rgb(37, 65, 178);
+  background-color: #518fde; // rgb(37, 65, 178);
 }
 
 .handex-btn-positiv {
@@ -607,4 +607,13 @@ li .dot {
 
 .dot.hidden {
   display: none;
+}
+
+.btn, .btn-large, .btn-small {
+  color: #fff;
+  background-color: #4261a1;
+  }
+
+.btn:hover, .btn-large:hover, .btn-small:hover {
+  background-color: #598fe6;
 }

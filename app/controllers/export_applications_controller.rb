@@ -157,7 +157,10 @@ class ExportApplicationsController < ApplicationController
             # # Varengold Datapoints ----------------------------------------
             :explain_product_service, :sensitive_area_type, :remaining_life, :manufacture_year, :why_good_overhauled_abroad, :goods_overhaul_country, :proportion_of_goods_overhauled_abroad, :describe_why_overhault_didnot_take_in_germany, :all_rawgoods_supplier_amount, :partly_rawgoods_supplier_amount, :importer_address_line1, :importer_address_line2, :importer_company_registration_number, :importer_rating, :importer_rating_agency, :importer_rating_issued_date, :importer_mother_company, :importer_company_corporate_form, :importer_industry, :exporter_address_line1, :exporter_address_line2, :exporter_tax_id, :exporter_revenue, :exporter_total_assets, :exporter_last_fiscal_year, :external_rating_available, :exporter_rating, :rating_agency, :rating_issued_date, :exporter_external_rating_available, :exporter_rating_agency, :exporter_rating_issued_date, :importer_external_rating_available, :is_company_controlled_by_mother_company, :importer_mother_company_industry, :importer_mother_company_corporate_form, :are_goods_overhauled,
               
-              supplies_from_foreign_origins_attributes: SuppliesFromForeignOrigin.attribute_names.map(&:to_sym).push(:_destroy)
+              supplies_from_foreign_origins_attributes: SuppliesFromForeignOrigin.attribute_names.map(&:to_sym).push(:_destroy),
+              
+              guarantees_attributes: Guarantee.attribute_names.map(&:to_sym).push(:_destroy)
+
         )
     
     end
