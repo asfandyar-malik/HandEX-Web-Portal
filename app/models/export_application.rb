@@ -2,11 +2,15 @@ class ExportApplication < ApplicationRecord
     belongs_to :user
     has_many :supplies_from_foreign_origins, dependent: :destroy
     has_many :guarantees, dependent: :destroy
+    has_many :agreed_payments, dependent: :destroy
+    
+    accepts_nested_attributes_for :supplies_from_foreign_origins,
+                                  allow_destroy: true
 
     accepts_nested_attributes_for :guarantees,
                                   allow_destroy: true
-    
-    accepts_nested_attributes_for :supplies_from_foreign_origins,
+
+    accepts_nested_attributes_for :agreed_payments,
                                   allow_destroy: true
 
     has_attached_file :self_disclosure, :storage => :cloudinary,  :cloudinary_resource_type => :image, :path => "export_applications/:attachment/:id/:style/:filename",
@@ -32,4 +36,5 @@ class ExportApplication < ApplicationRecord
     has_attached_file :additional_document, :storage => :cloudinary, :cloudinary_resource_type => :image,  :path => "export_applications/:attachment/:id/:style/:filename",
                       styles: { medium: "300x300>", thumb: "100x100>" }
     validates_attachment_content_type :additional_document, content_type: ['image/jpeg', 'image/png', 'image/gif', 'application/pdf']
+    
 end
