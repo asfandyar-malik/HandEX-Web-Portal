@@ -112,7 +112,7 @@ de:
   currency: "Währung"
   back: "Zurück"
   next_step: "Weiter"
-  application_submit: "Angaben prüfen"
+  application_submit: "Antrag Shicken"
   #navbar
   submitted_application: "Versendete Anträge"
   approved_application: "Abgeschlossene Transaktionen"

@@ -45,10 +45,8 @@
                         </div>
                         <div class="col s12 m4">
                             <div class="form-nav right">
-                                <!--                                <a href="#">Entwurf speichern</a>-->
                                 <input class="btn handex-btn z-depth-0" type="submit" name="draft" value="Entwurf speichern">
                                 <input class="btn handex-btn z-depth-0 next handex-nav-button" tab_index="2" type="navigator" value="Weiter">
-                                <!--                                <span class="next" tab_index="2">Weiter</span>-->
                             </div>
                         </div>
                     </div>
@@ -1002,9 +1000,12 @@
 
                                                 </table>
 
-                                                <%= link_to_add_association 'Add', form, :supplies_from_foreign_origins, class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins', association_insertion_method: :append} %>
+                                                <div class="form-actions">
+                                                    <%= link_to_add_association 'Add', form, :supplies_from_foreign_origins, class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins', association_insertion_method: :append} %>
+                                                </div>
 
                                                 <div class="input-field col s12 m12">
+                                                    <br>
                                                     <label>Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig sind.</label>
                                                     <%= form.text_area :why_all_foreign_rawgoods_necessary, class: "validate" %>
                                                 </div>
@@ -1013,37 +1014,38 @@
 
                                         <div id="partlyGermanCertificateOfOrigin" style="display: none">
                                             <div class="row">
+
                                                 <div class="input-field col s12">
                                                     <label>Bitte geben Sie die Zulieferungen aus dem Ausland an.</label>
                                                 </div>
 
-<!--                                                <table class='table'>-->
-<!--                                                    <thead>-->
-<!--                                                    <tr>-->
-<!--                                                        <th>Währung</th>-->
-<!--                                                        <th>Betrag</th>-->
-<!--                                                        <th>Land</th>-->
-<!--                                                        <th></th>-->
-<!--                                                    </tr>-->
-<!--                                                    </thead>-->
-<!--                                                    <tbody class='supplies_from_foreign_origins_partly'>-->
+                                                <table class='table'>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Währung</th>
+                                                            <th>Betrag</th>
+                                                            <th>Land</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
 
-                                                    <%#= form.fields_for :supplies_from_foreign_origins do |builder| %>
-                                                        <%#= render 'supplies_from_foreign_origin_fields', f: builder %>
-                                                    <%# end %>
+                                                    <tbody class='supplies_from_foreign_origins_partly'>
+                                                        <%= form.fields_for :supplies_from_foreign_origins do |builder| %>
+                                                            <%= render 'supplies_from_foreign_origin_fields', f: builder %>
+                                                        <% end %>
+                                                    </tbody>
+                                                </table>
 
-<!--                                                    </tbody>-->
-<!--                                                </table>-->
+                                                <%= link_to_add_association 'Add', form, :supplies_from_foreign_origins, class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins_partly', association_insertion_method: :append} %>
 
-                                                <%#= link_to_add_association 'Add', form, :supplies_from_foreign_origins, class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins_partly', association_insertion_method: :append} %>
+                                                <div class="input-field col s12 m12">
+                                                    <br>
+                                                    <label>Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig sind.</label>
+                                                    <%= form.text_area :why_partly_foreign_rawgoods_necessary, class: "validate" %>
+                                                </div>
 
-<!--                                                <div class="input-field col s12 m12">-->
-<!--                                                    <label>Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig sind.</label>-->
-                                                    <%#= form.text_area :why_partly_foreign_rawgoods_necessary, class: "validate" %>
-<!--                                                </div>-->
                                             </div>
                                         </div>
-
                                     </div>
                                   </div>
                                 </div>
@@ -2104,9 +2106,9 @@
 
                                 <div class="input-field col s12 m12">
                                     <input class="btn handex-btn z-depth-0" type="submit" name="submit" value="Antrag Shicken">
+                                    <%#= form.button :submit, name: "submit", value: "Antrag Shicken", class: "btn handex-btn z-depth-0" %>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -2801,76 +2803,5 @@
     $choice.filter('[name="no_incoterms"]').click(function () {
         $choice.filter('[name="yes_incoterms"]').removeClass('active');
     });
-
-    // document.addEventListener('DOMContentLoaded', function(e) {
-    //     FormValidation.formValidation(
-    //         document.getElementById('demoForm'),
-    //         {
-    //             fields: {
-    //                 // name: {
-    //                 //     validators: {
-    //                 //         notEmpty: {
-    //                 //             message: 'The name is required'
-    //                 //         },
-    //                 //         stringLength: {
-    //                 //             min: 6,
-    //                 //             max: 30,
-    //                 //             message: 'The name must be more than 6 and less than 30 characters long'
-    //                 //         },
-    //                 //         regexp: {
-    //                 //             regexp: /^[a-zA-Z0-9_]+$/,
-    //                 //             message: 'The name can only consist of alphabetical, number and underscore'
-    //                 //         }
-    //                 //     }
-    //                 // },
-    //                 // price: {
-    //                 //     validators: {
-    //                 //         notEmpty: {
-    //                 //             message: 'The price is required'
-    //                 //         },
-    //                 //         numeric: {
-    //                 //             message: 'The price must be a number'
-    //                 //         }
-    //                 //     }
-    //                 // },
-    //                 terms_and_conditions: {
-    //                     validators: {
-    //                         notEmpty: {
-    //                             message: 'The price is required'
-    //                         },
-    //                         numeric: {
-    //                             message: 'The price must be a number'
-    //                         }
-    //                     }
-    //                 },
-    //                 'size[]': {
-    //                     validators: {
-    //                         notEmpty: {
-    //                             message: 'The size is required'
-    //                         }
-    //                     }
-    //                 },
-    //                 availability: {
-    //                     validators: {
-    //                         notEmpty: {
-    //                             message: 'The availability option is required'
-    //                         }
-    //                     }
-    //                 },
-    //             },
-    //             plugins: {
-    //                 trigger: new FormValidation.plugins.Trigger(),
-    //                 materialize: new FormValidation.plugins.Materialize(),
-    //                 submitButton: new FormValidation.plugins.SubmitButton(),
-    //                 icon: new FormValidation.plugins.Icon({
-    //                     valid: 'fa fa-check',
-    //                     invalid: 'fa fa-times',
-    //                     validating: 'fa fa-refresh',
-    //                 }),
-    //             },
-    //         }
-    //     );
-    // });
-
 
 </script>
