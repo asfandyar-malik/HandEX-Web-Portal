@@ -932,33 +932,34 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col background_toggle has_special_contract_structure">
+                                  <div class="input-field col s12 m12">
+                                      <div class="input-field col s12 m12 nopadding">
+                                          <label> Vereinbaren Sie mit Ihrem Vertragspartner eine besondere Vertragsstruktur
+                                              (Tochterunternehmen oder Preisgleitklausel?) </label>
+                                          <p>
+                                              <label>
+                                                  <%= check_box_tag "export_application[has_special_contract_structure]", @export_application.has_special_contract_structure ? @export_application.has_special_contract_structure : nil, false, :onclick => "specialContractStructure();", id: "export_application_has_special_contract_structure" %>
+                                                  <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.has_special_contract_structure.present? && @export_application.has_special_contract_structure) %>">Ja</span>
+                                              </label>
 
-                                    <div class="input-field col s12 m12">
-                                        <div class="input-field col s12 m12 nopadding">
-                                            <label> Vereinbaren Sie mit Ihrem Vertragspartner eine besondere Vertragsstruktur
-                                                (Tochterunternehmen oder Preisgleitklausel?) </label>
-                                            <p>
-                                                <label>
-                                                    <%= check_box_tag "export_application[has_special_contract_structure]", @export_application.has_special_contract_structure ? @export_application.has_special_contract_structure : nil, false, :onclick => "specialContractStructure();", id: "export_application_has_special_contract_structure" %>
-                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.has_special_contract_structure.present? && @export_application.has_special_contract_structure) %>">Ja</span>
-                                                </label>
+                                              <label onclick="noSpecialContractStructure()">
+                                                  <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.has_special_contract_structure.present? && !@export_application.has_special_contract_structure) %>">Nein</span>
+                                              </label>
+                                          </p>
+                                      </div>
+                                  </div>
 
-                                                <label onclick="noSpecialContractStructure()">
-                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.has_special_contract_structure.present? && !@export_application.has_special_contract_structure) %>">Nein</span>
-                                                </label>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div id="explainStructure" style="display: none">
-                                        <div class="row">
-                                            <div class="input-field col s12 m12">
-                                                <label>Bitte erklären Sie die Struktur im Detail.</label>
-                                                <div> <%= form.text_area :explain_special_structure, class: "validate" %> </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                  <div id="explainStructure" style="display: none">
+                                      <div class="row">
+                                          <div class="input-field col s12 m12">
+                                              <label>Bitte erklären Sie die Struktur im Detail.</label>
+                                              <div> <%= form.text_area :explain_special_structure, class: "validate" %> </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+                                  <div class="col background_toggle has_german_certificate_of_origin">
                                     <div class="input-field col s12">
                                         <label>Bekommen Sie für die zu liefernde Ware ein deutsches Warenursprungszeugnis?</label>
                                         <p>
@@ -1044,6 +1045,7 @@
                                         </div>
 
                                     </div>
+                                  </div>
                                 </div>
                             </div>
                         </div>
@@ -2255,11 +2257,13 @@
 
         $('#export_application_has_german_certificate_of_origin').prop('checked', true);
         $('#export_application_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', false);
+        $('.has_german_certificate_of_origin').removeClass('dialog_background');
     }
 
     function noGermanCertificateOfOrigin() {
         var x = document.getElementById("noGermanCertificateOfOriginId");
         var y = document.getElementById("partlyGermanCertificateOfOrigin");
+        var z = $('.has_german_certificate_of_origin');
 
         if (x.style.display === "none") {
             x.style.display = "block";
@@ -2270,11 +2274,19 @@
         }
         $('#export_application_has_german_certificate_of_origin').prop('checked', false);
         $('#export_application_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', false);
+        if(z.hasClass('no')) {
+            z.toggleClass('dialog_background');
+        } else {
+            z.addClass('dialog_background');
+        }
+        z.removeClass('partly');
+        z.addClass('no');
     }
 
     function partlyGermanCertificateOfOrigin() {
         var y = document.getElementById("partlyGermanCertificateOfOrigin");
         var x = document.getElementById("noGermanCertificateOfOriginId");
+        var z = $('.has_german_certificate_of_origin');
 
         if (y.style.display === "none") {
             y.style.display = "block";
@@ -2285,6 +2297,13 @@
         }
         $('#export_application_has_german_certificate_of_origin').prop('checked', false);
         $('#export_application_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', true);
+        if(z.hasClass('partly')) {
+            z.toggleClass('dialog_background');
+        } else {
+            z.addClass('dialog_background');
+        }
+        z.removeClass('no');
+        z.addClass('partly');
     }
 
     function goodOverhauled() {
@@ -2582,7 +2601,7 @@
     }
 
     function noContractAlreadySignedBetweenParties() {
-        var x = document.getElementById("contractSignedBetweenParties");
+        var x = document.getElementById(" contractSignedBetweenParties");
         var y = document.getElementById("noContractSignedBetweenParties");
         var z = $('.is_contract_already_signed_between_parties');
 
@@ -2632,6 +2651,7 @@
             y.style.display = "none";
         }
         $('#export_application_has_special_contract_structure').prop('checked', true);
+        $('.has_special_contract_structure').toggleClass('dialog_background');
     }
 
     function noSpecialContractStructure() {
@@ -2640,6 +2660,7 @@
             x.style.display = "none";
         }
         $('#export_application_has_special_contract_structure').prop('checked', false);
+        $('.has_special_contract_structure').removeClass('dialog_background');
     }
 
     function goodsSentMultipleDeliveries() {
