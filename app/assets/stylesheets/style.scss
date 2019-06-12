@@ -600,11 +600,20 @@ nav ul a:hover {
 li .dot {
   height: 7px;
   width: 7px;
-  background-color: 003872;
+  background-color: #003872;
   border-radius: 50%;
   display: inline-block;
 }
 
 .dot.hidden {
   display: none;
+}
+
+.btn, .btn-large, .btn-small {
+  color: #fff;
+  background-color: #4261a1;
+  }
+
+.btn:hover, .btn-large:hover, .btn-small:hover {
+  background-color: #598fe6;
 }
