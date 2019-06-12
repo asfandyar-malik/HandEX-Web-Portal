@@ -1835,11 +1835,10 @@
 
                             <div class="form-content">
                                 <div class="row">
-
+                                  <div class="col background_toggle has_previously_used_hermes_cover">
                                     <div class="input-field col s12 m12">
                                         <div class="input-field col s12 m12 nopadding">
-                                            <label>Haben Sie in der Vergangenheit schon einmal einen Antrag auf Hermesdeckung
-                                                eingereicht? </label>
+                                            <label>Haben Sie in der Vergangenheit schon einmal einen Antrag auf Hermesdeckung eingereicht? </label>
                                             <p>
                                                 <label>
                                                     <%= check_box_tag "export_application[has_previously_used_hermes_cover]", @export_application.has_previously_used_hermes_cover ? @export_application.has_previously_used_hermes_cover : nil, false, :onclick => "previouslyHermesInsuranceUsed();", id: "export_application_has_previously_used_hermes_cover" %>
@@ -1879,6 +1878,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                  </div>
 
                                     <div class="input-field col s12 m12">
                                         <label> Diese Anlagen benötigen wir für die Prüfung Ihres Geschäftes. </label>
@@ -2234,6 +2234,7 @@
             x.style.display = "none";
         }
         $('#export_application_has_previously_used_hermes_cover').prop('checked', true);
+        $('.has_previously_used_hermes_cover').removeClass('dialog_background');
     }
 
     function noPreviouslyHermesInsuranceUsed() {
@@ -2244,6 +2245,7 @@
             x.style.display = "none";
         }
         $('#export_application_has_previously_used_hermes_cover').prop('checked', false);
+        $('.has_previously_used_hermes_cover').toggleClass('dialog_background');
     }
 
     function germanCertificateOfOrigin() {
