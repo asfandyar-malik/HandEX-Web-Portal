@@ -635,16 +635,19 @@
                                                         <%= form.text_field :delivery_end, id: "start_date", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
                                                     </div>
 
-                                                    <table class='table'>
-                                                        <tbody class='multiple_shipments'>
-                                                        <%= form.fields_for :multiple_shipments do |builder| %>
-                                                            <%= render 'multiple_shipment_fields', f: builder %>
-                                                        <% end %>
-                                                        </tbody>
-                                                    </table>
 
-                                                    <div class="form-actions">
-                                                        <%= link_to_add_association 'Hinzufügen', form, :multiple_shipments, class: 'btn btn-primary', data: {association_insertion_node: '.multiple_shipments', association_insertion_method: :append} %>
+                                                    <div class="input-field col s12 m6">
+                                                        <table class='table'>
+                                                            <tbody class='multiple_shipments'>
+                                                            <%= form.fields_for :multiple_shipments do |builder| %>
+                                                                <%= render 'multiple_shipment_fields', f: builder %>
+                                                            <% end %>
+                                                            </tbody>
+                                                        </table>
+
+                                                        <div class="form-actions">
+                                                            <%= link_to_add_association 'Hinzufügen', form, :multiple_shipments, class: 'btn btn-primary', data: {association_insertion_node: '.multiple_shipments', association_insertion_method: :append} %>
+                                                        </div>
                                                     </div>
 
                                                 </div>
