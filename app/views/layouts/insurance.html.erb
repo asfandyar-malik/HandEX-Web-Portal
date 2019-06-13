@@ -9,23 +9,20 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
     <meta name="viewport" content="width=device-width"/>
 
-    <!-- Favicon-->
     <%= favicon_link_tag 'fav_6.png' %>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'activestorage.js', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'turbolinks.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'js/jquery-2.2.4.min', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'js/jquery.validate.min', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag('materialize.js') %>
 
     <!--  Scripts-->
-<!--    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>-->
-<!--    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>-->
-<!--    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 
     <link href="https://fonts.googleapis.com/icon?family=Material\Icons" rel="stylesheet">
     <link rel="stylesheet" href="/assets/nouislider.min.css">
@@ -35,21 +32,6 @@
 
     <meta name="google-site-verification" content="W5f_acjB7RRBkTjQsgza4zJpdUCne6ll6Ztk5v4LwOg"/>
 
-    <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-            'gtm.start':
-                new Date().getTime(), event: 'gtm.js'
-        });
-        var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src =x
-            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');</script>
-    <!-- End Google Tag Manager -->
 </head>
 
 <body>

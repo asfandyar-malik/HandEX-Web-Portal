@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_13_175829) do
+ActiveRecord::Schema.define(version: 2019_06_13_192559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -444,7 +444,7 @@ ActiveRecord::Schema.define(version: 2019_06_13_175829) do
     t.string "project_detailed_description"
     t.boolean "is_fully_responsible_for_project"
     t.string "contract_currency"
-    t.string "entire_project_amount_currency"
+    t.string "entire_project_currency"
     t.string "entire_project_amount"
     t.boolean "taking_part_in_tender"
     t.string "tender_submission_date"
@@ -478,6 +478,85 @@ ActiveRecord::Schema.define(version: 2019_06_13_175829) do
     t.index ["export_application_id"], name: "index_guarantees_on_export_application_id"
   end
 
+  create_table "insurance_agreed_payment_mid_longs", force: :cascade do |t|
+    t.string "currency"
+    t.string "output"
+    t.string "amount"
+    t.bigint "insurance_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["insurance_id"], name: "index_insurance_agreed_payment_mid_longs_on_insurance_id"
+  end
+
+  create_table "insurance_agreed_payments", force: :cascade do |t|
+    t.string "currency"
+    t.string "amount"
+    t.string "time"
+    t.string "some_output"
+    t.bigint "insurance_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["insurance_id"], name: "index_insurance_agreed_payments_on_insurance_id"
+  end
+
+  create_table "insurance_application_of_funds", force: :cascade do |t|
+    t.string "description"
+    t.string "currency"
+    t.integer "amount"
+    t.bigint "insurance_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["insurance_id"], name: "index_insurance_application_of_funds_on_insurance_id"
+  end
+
+  create_table "insurance_extra_billed_items", force: :cascade do |t|
+    t.string "description"
+    t.string "currency"
+    t.integer "amount"
+    t.bigint "insurance_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["insurance_id"], name: "index_insurance_extra_billed_items_on_insurance_id"
+  end
+
+  create_table "insurance_guarantees", force: :cascade do |t|
+    t.string "security_type"
+    t.string "security_type_name"
+    t.bigint "insurance_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["insurance_id"], name: "index_insurance_guarantees_on_insurance_id"
+  end
+
+  create_table "insurance_multiple_shipments", force: :cascade do |t|
+    t.string "payment_relevant_information"
+    t.datetime "payment_relevant_milestone"
+    t.bigint "insurance_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["insurance_id"], name: "index_insurance_multiple_shipments_on_insurance_id"
+  end
+
+  create_table "insurance_source_of_funds", force: :cascade do |t|
+    t.string "description"
+    t.string "currency"
+    t.integer "amount"
+    t.bigint "insurance_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["insurance_id"], name: "index_insurance_source_of_funds_on_insurance_id"
+  end
+
+  create_table "insurance_supplies_from_foreign_origins", force: :cascade do |t|
+    t.string "all_rawgoods_supplier_currency"
+    t.string "all_rawgoods_supplier_amount"
+    t.string "all_rawgoods_supplier_country"
+    t.bigint "insurance_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["insurance_id"], name: "index_insurance_supplies_from_foreign_origins_on_insurance_id"
+  end
+
   create_table "insurances", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -485,8 +564,6 @@ ActiveRecord::Schema.define(version: 2019_06_13_175829) do
     t.string "revenue_last_year"
     t.string "experience_with_importer_country"
     t.string "adequate_claims_management"
-    t.string "agreed_payments_time_payment_term_short"
-    t.string "agreed_payments_some_output_payment_term_short"
     t.string "payment_vehichle_payment_term_short"
     t.string "receive_deposit_time_payment_term_mid"
     t.string "repayment_profile_structure_payment_term_mid"
@@ -503,8 +580,6 @@ ActiveRecord::Schema.define(version: 2019_06_13_175829) do
     t.string "number_of_installments_payment_term_both"
     t.string "payment_vehichle_explain_payment_term_both"
     t.string "has_german_certificate_of_origin_for_only_parts_of_good"
-    t.string "agreed_payments_currency_payment_term_short"
-    t.string "agreed_payments_amount_payment_term_short"
     t.boolean "delivery_doesnt_affects_sensitive_areas", default: false
     t.boolean "delivery_affects_natural_reserves", default: false
     t.boolean "delivery_affects_indigenous_people", default: false
@@ -521,17 +596,12 @@ ActiveRecord::Schema.define(version: 2019_06_13_175829) do
     t.boolean "has_special_contract_structure", default: false
     t.string "total_delivery_value_excluding_servicing"
     t.string "percentage_of_spareparts_in_whole_order"
-    t.string "other_billed_items_in_contract_currency"
-    t.string "other_billed_items_in_contract_amount"
-    t.string "describe_other_billed_items_in_contract"
     t.boolean "is_interest_charged_to_importer", default: false
     t.boolean "is_price_adjustment_clause_with_importer", default: false
     t.string "explain_accounting_methods"
     t.boolean "is_good_sent_in_multiple_deliveries", default: false
     t.string "delivery_start"
     t.string "delivery_end"
-    t.string "other_important_delivery_information"
-    t.string "other_important_delivery_milestones"
     t.string "downpayment_delivery_currency_payment_term_short"
     t.string "downpayment_delivery_amount_payment_term_short"
     t.string "describe_export_business"
@@ -626,15 +696,8 @@ ActiveRecord::Schema.define(version: 2019_06_13_175829) do
     t.string "downpayment_delivery_currency_payment_term_mid"
     t.string "downpayment_delivery_amount_payment_term_mid"
     t.string "downpayment_delivery_description_payment_term_mid"
-    t.string "agreed_payments_currency_payment_term_mid"
-    t.string "agreed_payments_output_payment_term_mid"
-    t.string "agreed_payments_amount_payment_term_mid"
     t.string "downpayment_delivery_currency_payment_term_both"
     t.string "downpayment_delivery_amount_payment_term_both"
-    t.string "agreed_payments_currency_payment_term_both"
-    t.string "agreed_payments_amount_payment_term_both"
-    t.string "agreed_payments_time_payment_term_both"
-    t.string "agreed_payments_some_output_payment_term_both"
     t.integer "number_of_installments_payment_term_mid"
     t.datetime "when_security_received_later_exact_date"
     t.boolean "has_significant_influence_on_security_provider"
@@ -680,24 +743,8 @@ ActiveRecord::Schema.define(version: 2019_06_13_175829) do
     t.string "explain_sensitive_area_type"
     t.string "explain_special_structure"
     t.string "exporter_date_founded"
-    t.string "agreed_payments_currency_payment_term_short_2"
-    t.string "agreed_payments_currency_payment_term_short_3"
-    t.string "agreed_payments_currency_payment_term_short_4"
-    t.string "agreed_payments_currency_payment_term_short_5"
     t.boolean "does_corruption_declaration_appy", default: false
     t.boolean "are_goods_overhauled", default: false
-    t.string "agreed_payments_amount_payment_term_short_2"
-    t.string "agreed_payments_time_payment_term_short_2"
-    t.string "agreed_payments_some_output_payment_term_short_2"
-    t.string "agreed_payments_amount_payment_term_short_3"
-    t.string "agreed_payments_time_payment_term_short_3"
-    t.string "agreed_payments_some_output_payment_term_short_3"
-    t.string "agreed_payments_amount_payment_term_short_4"
-    t.string "agreed_payments_time_payment_term_short_4"
-    t.string "agreed_payments_some_output_payment_term_short_4"
-    t.string "agreed_payments_amount_payment_term_short_5"
-    t.string "agreed_payments_time_payment_term_short_5"
-    t.string "agreed_payments_some_output_payment_term_short_5"
     t.string "does_delivery_affect_sensitive_areas"
     t.boolean "exporter_offers_servicing_for_goods", default: false
     t.string "importer_mother_company_industry"
@@ -708,6 +755,15 @@ ActiveRecord::Schema.define(version: 2019_06_13_175829) do
     t.boolean "taking_part_in_tender"
     t.string "tender_submission_date"
     t.string "downpayment_delivery_description_payment_term_both"
+    t.string "entire_project_amount"
+    t.string "entire_project_currency"
+    t.string "interest_currency"
+    t.string "interest_value"
+    t.string "fixed_interest_rate"
+    t.string "fixed_interest_rate_value"
+    t.string "variable_interest_rate"
+    t.string "degressive_interest_rate"
+    t.string "interest_calculation_description"
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 
@@ -958,6 +1014,14 @@ ActiveRecord::Schema.define(version: 2019_06_13_175829) do
   add_foreign_key "application_of_funds", "export_applications"
   add_foreign_key "extra_billed_items", "export_applications"
   add_foreign_key "guarantees", "export_applications"
+  add_foreign_key "insurance_agreed_payment_mid_longs", "insurances"
+  add_foreign_key "insurance_agreed_payments", "insurances"
+  add_foreign_key "insurance_application_of_funds", "insurances"
+  add_foreign_key "insurance_extra_billed_items", "insurances"
+  add_foreign_key "insurance_guarantees", "insurances"
+  add_foreign_key "insurance_multiple_shipments", "insurances"
+  add_foreign_key "insurance_source_of_funds", "insurances"
+  add_foreign_key "insurance_supplies_from_foreign_origins", "insurances"
   add_foreign_key "insurances", "users"
   add_foreign_key "multiple_shipments", "export_applications"
   add_foreign_key "source_of_funds", "export_applications"
