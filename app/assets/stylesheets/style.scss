@@ -602,6 +602,9 @@ nav ul a:hover {
 }
 
 li .dot {
+  position: absolute;
+  left: 48.5%;
+  top: 9%;
   height: 7px;
   width: 7px;
   background-color: #003872;

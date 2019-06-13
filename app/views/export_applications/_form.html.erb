@@ -1866,6 +1866,8 @@
         changeTabs($(this).attr('tab_index'));
         $('.progressbar li').removeClass('active');
         $(this).addClass('active');
+        $('.dot').addClass('hidden');
+        $( this ).children( '.dot').removeClass('hidden');
     });
 
     function customerCountsInterest() {
