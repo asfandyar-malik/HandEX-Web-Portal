@@ -1,5 +1,5 @@
 body {
-  background: white;
+  background: #f6f7fa;
 
   .sign-in {
     padding-top: 10%;
@@ -232,8 +232,11 @@ form.col.s12.custom-form {
 
   .progressbar {
     counter-reset: step;
-    margin:0;
-    height:60px;
+    margin-left:0;
+    margin-right:0;
+    margin-bottom:0;
+    margin-top:25px;
+    height:75px;
     padding:15px;
 
     li {
@@ -245,6 +248,7 @@ form.col.s12.custom-form {
       cursor: pointer;
       z-index: 99;
       color:grey;
+      font-weight: bold;
     }
 
     li:hover {
@@ -616,4 +620,8 @@ li .dot {
 
 .btn:hover, .btn-large:hover, .btn-small:hover {
   background-color: #598fe6;
+}
+
+.handex-form-container {
+  background-color: white;
 }
