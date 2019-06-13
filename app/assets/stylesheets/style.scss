@@ -332,7 +332,7 @@ form.col.s12.custom-form {
 }
 
 .top-info-card {
-  background-color: rgb(129, 207, 219);
+  background-color: #4261a1;
   margin-bottom: 5%;
   margin-top: 15px;
   margin-left: auto;
@@ -414,7 +414,7 @@ nav {
 }
 
 .active_selection_card {
-  background-color: rgb(129, 207, 219);
+  background-color: #4261a1;
   color: white;
 }
 
@@ -627,4 +627,16 @@ li .dot {
 
 .handex-form-container {
   background-color: white;
+}
+
+.input-field {
+  margin-top: 0.7rem;
+  margin-bottom: 0.1rem;
+}
+
+.input-field.inline {
+  margin-left: 5px;
+}
+.input-field.inline input, .input-field.inline .select-dropdown {
+  margin-bottom: 0.1rem;
 }
