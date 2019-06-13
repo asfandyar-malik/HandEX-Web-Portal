@@ -640,3 +640,7 @@ li .dot {
 .input-field.inline input, .input-field.inline .select-dropdown {
   margin-bottom: 0.1rem;
 }
+
+.card.small .card-action, .card.medium .card-action, .card.large .card-action {
+  bottom:8px;
+}
