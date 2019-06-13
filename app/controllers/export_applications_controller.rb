@@ -161,8 +161,10 @@ class ExportApplicationsController < ApplicationController
               guarantees_attributes:                    Guarantee.attribute_names.map(&:to_sym).push(:_destroy),
               agreed_payments_attributes:                AgreedPayment.attribute_names.map(&:to_sym).push(:_destroy),
               agreed_payment_mid_longs_attributes:       AgreedPaymentMidLong.attribute_names.map(&:to_sym).push(:_destroy),
-              multiple_shipments_attributes:             MultipleShipment.attribute_names.map(&:to_sym).push(:_destroy)
-              
+              multiple_shipments_attributes:             MultipleShipment.attribute_names.map(&:to_sym).push(:_destroy),
+              source_of_funds_attributes:                SourceOfFund.attribute_names.map(&:to_sym).push(:_destroy),
+              application_of_funds_attributes:           ApplicationOfFund.attribute_names.map(&:to_sym).push(:_destroy)
+
             )
     
     end

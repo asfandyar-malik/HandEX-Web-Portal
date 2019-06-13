@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_13_135238) do
+ActiveRecord::Schema.define(version: 2019_06_13_172446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(version: 2019_06_13_135238) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["export_application_id"], name: "index_agreed_payments_on_export_application_id"
+  end
+
+  create_table "application_of_funds", force: :cascade do |t|
+    t.string "description"
+    t.string "currency"
+    t.integer "amount"
+    t.bigint "export_application_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["export_application_id"], name: "index_application_of_funds_on_export_application_id"
   end
 
   create_table "credits", force: :cascade do |t|
@@ -439,15 +449,6 @@ ActiveRecord::Schema.define(version: 2019_06_13_135238) do
     t.string "contract_currency"
     t.string "entire_project_amount_currency"
     t.string "entire_project_amount"
-    t.string "overall_project_financing_details_subject_1"
-    t.string "overall_project_financing_details_currency_1"
-    t.string "overall_project_financing_details_amount_1"
-    t.string "overall_project_financing_details_subject_2"
-    t.string "overall_project_financing_details_currency_2"
-    t.string "overall_project_financing_details_amount_2"
-    t.string "overall_project_financing_details_subject_3"
-    t.string "overall_project_financing_details_currency_3"
-    t.string "overall_project_financing_details_amount_3"
     t.boolean "taking_part_in_tender"
     t.string "tender_submission_date"
     t.string "downpayment_delivery_description_payment_term_both"
@@ -458,15 +459,6 @@ ActiveRecord::Schema.define(version: 2019_06_13_135238) do
     t.string "variable_interest_rate"
     t.string "degressive_interest_rate"
     t.string "interest_calculation_description"
-    t.string "subject_origin_overall_project_financing_details_subject_1"
-    t.string "subject_origin_overall_project_financing_details_currency_1"
-    t.string "subject_origin_overall_project_financing_details_amount_1"
-    t.string "subject_origin_overall_project_financing_details_subject_2"
-    t.string "subject_origin_overall_project_financing_details_currency_2"
-    t.string "subject_origin_overall_project_financing_details_amount_2"
-    t.string "subject_origin_overall_project_financing_details_subject_3"
-    t.string "subject_origin_overall_project_financing_details_currency_3"
-    t.string "subject_origin_overall_project_financing_details_amount_3"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
@@ -906,6 +898,16 @@ ActiveRecord::Schema.define(version: 2019_06_13_135238) do
     t.string "security_provider_address"
   end
 
+  create_table "source_of_funds", force: :cascade do |t|
+    t.string "description"
+    t.string "currency"
+    t.integer "amount"
+    t.bigint "export_application_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["export_application_id"], name: "index_source_of_funds_on_export_application_id"
+  end
+
   create_table "supplies_from_foreign_origins", force: :cascade do |t|
     t.string "all_rawgoods_supplier_currency"
     t.string "all_rawgoods_supplier_amount"
@@ -946,8 +948,10 @@ ActiveRecord::Schema.define(version: 2019_06_13_135238) do
 
   add_foreign_key "agreed_payment_mid_longs", "export_applications"
   add_foreign_key "agreed_payments", "export_applications"
+  add_foreign_key "application_of_funds", "export_applications"
   add_foreign_key "guarantees", "export_applications"
   add_foreign_key "insurances", "users"
   add_foreign_key "multiple_shipments", "export_applications"
+  add_foreign_key "source_of_funds", "export_applications"
   add_foreign_key "supplies_from_foreign_origins", "export_applications"
 end
