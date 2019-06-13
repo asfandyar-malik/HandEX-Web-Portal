@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_12_182249) do
+ActiveRecord::Schema.define(version: 2019_06_13_135238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -288,8 +288,6 @@ ActiveRecord::Schema.define(version: 2019_06_12_182249) do
     t.boolean "is_good_sent_in_multiple_deliveries", default: false
     t.string "delivery_start"
     t.string "delivery_end"
-    t.string "other_important_delivery_information"
-    t.string "other_important_delivery_milestones"
     t.string "downpayment_delivery_currency_payment_term_short"
     t.string "downpayment_delivery_amount_payment_term_short"
     t.string "describe_export_business"
@@ -438,9 +436,9 @@ ActiveRecord::Schema.define(version: 2019_06_12_182249) do
     t.string "exporter_date_founded"
     t.string "project_detailed_description"
     t.boolean "is_fully_responsible_for_project"
+    t.string "contract_currency"
     t.string "entire_project_amount_currency"
     t.string "entire_project_amount"
-    t.string "contract_currency"
     t.string "overall_project_financing_details_subject_1"
     t.string "overall_project_financing_details_currency_1"
     t.string "overall_project_financing_details_amount_1"
@@ -452,12 +450,12 @@ ActiveRecord::Schema.define(version: 2019_06_12_182249) do
     t.string "overall_project_financing_details_amount_3"
     t.boolean "taking_part_in_tender"
     t.string "tender_submission_date"
+    t.string "downpayment_delivery_description_payment_term_both"
     t.string "interest_currency"
     t.string "interest_value"
     t.string "fixed_interest_rate"
     t.string "fixed_interest_rate_value"
     t.string "variable_interest_rate"
-    t.string "downpayment_delivery_description_payment_term_both"
     t.string "degressive_interest_rate"
     t.string "interest_calculation_description"
     t.string "subject_origin_overall_project_financing_details_subject_1"
@@ -725,6 +723,15 @@ ActiveRecord::Schema.define(version: 2019_06_12_182249) do
     t.string "exporter_representative_name"
   end
 
+  create_table "multiple_shipments", force: :cascade do |t|
+    t.string "payment_relevant_information"
+    t.bigint "export_application_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "payment_relevant_milestone"
+    t.index ["export_application_id"], name: "index_multiple_shipments_on_export_application_id"
+  end
+
   create_table "refinances", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -941,5 +948,6 @@ ActiveRecord::Schema.define(version: 2019_06_12_182249) do
   add_foreign_key "agreed_payments", "export_applications"
   add_foreign_key "guarantees", "export_applications"
   add_foreign_key "insurances", "users"
+  add_foreign_key "multiple_shipments", "export_applications"
   add_foreign_key "supplies_from_foreign_origins", "export_applications"
 end

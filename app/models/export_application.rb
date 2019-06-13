@@ -4,6 +4,7 @@ class ExportApplication < ApplicationRecord
     has_many :guarantees, dependent: :destroy
     has_many :agreed_payments, dependent: :destroy
     has_many :agreed_payment_mid_longs, dependent: :destroy
+    has_many :multiple_shipments, dependent: :destroy
 
     accepts_nested_attributes_for :supplies_from_foreign_origins,
                                   allow_destroy: true
@@ -15,6 +16,9 @@ class ExportApplication < ApplicationRecord
                                   allow_destroy: true
 
     accepts_nested_attributes_for :agreed_payment_mid_longs,
+                                  allow_destroy: true
+
+    accepts_nested_attributes_for :multiple_shipments,
                                   allow_destroy: true
     
     has_attached_file :self_disclosure, :storage => :cloudinary,  :cloudinary_resource_type => :image, :path => "export_applications/:attachment/:id/:style/:filename",
