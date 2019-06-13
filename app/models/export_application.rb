@@ -7,6 +7,7 @@ class ExportApplication < ApplicationRecord
     has_many :multiple_shipments, dependent: :destroy
     has_many :source_of_funds, dependent: :destroy
     has_many :application_of_funds, dependent: :destroy
+    has_many :extra_billed_items, dependent: :destroy
 
     accepts_nested_attributes_for :supplies_from_foreign_origins,
                                   allow_destroy: true
@@ -27,6 +28,9 @@ class ExportApplication < ApplicationRecord
                                   allow_destroy: true
 
     accepts_nested_attributes_for :application_of_funds,
+                                  allow_destroy: true
+
+    accepts_nested_attributes_for :extra_billed_items,
                                   allow_destroy: true
     
     has_attached_file :self_disclosure, :storage => :cloudinary,  :cloudinary_resource_type => :image, :path => "export_applications/:attachment/:id/:style/:filename",

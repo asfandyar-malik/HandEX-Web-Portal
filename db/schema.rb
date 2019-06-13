@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_13_172446) do
+ActiveRecord::Schema.define(version: 2019_06_13_175829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -289,9 +289,6 @@ ActiveRecord::Schema.define(version: 2019_06_13_172446) do
     t.boolean "has_special_contract_structure", default: false
     t.string "total_delivery_value_excluding_servicing"
     t.string "percentage_of_spareparts_in_whole_order"
-    t.string "other_billed_items_in_contract_currency"
-    t.string "other_billed_items_in_contract_amount"
-    t.string "describe_other_billed_items_in_contract"
     t.boolean "is_interest_charged_to_importer", default: false
     t.boolean "is_price_adjustment_clause_with_importer", default: false
     t.string "explain_accounting_methods"
@@ -460,6 +457,16 @@ ActiveRecord::Schema.define(version: 2019_06_13_172446) do
     t.string "degressive_interest_rate"
     t.string "interest_calculation_description"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
+  end
+
+  create_table "extra_billed_items", force: :cascade do |t|
+    t.string "description"
+    t.string "currency"
+    t.integer "amount"
+    t.bigint "export_application_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["export_application_id"], name: "index_extra_billed_items_on_export_application_id"
   end
 
   create_table "guarantees", force: :cascade do |t|
@@ -949,6 +956,7 @@ ActiveRecord::Schema.define(version: 2019_06_13_172446) do
   add_foreign_key "agreed_payment_mid_longs", "export_applications"
   add_foreign_key "agreed_payments", "export_applications"
   add_foreign_key "application_of_funds", "export_applications"
+  add_foreign_key "extra_billed_items", "export_applications"
   add_foreign_key "guarantees", "export_applications"
   add_foreign_key "insurances", "users"
   add_foreign_key "multiple_shipments", "export_applications"
