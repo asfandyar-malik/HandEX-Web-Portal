@@ -24,7 +24,10 @@ class UsersController < ApplicationController
     end
     
     def all_applications
-        @all_applications = current_user.insurances
+        @all_insurance = current_user.insurances
+        @all_export_application = current_user.export_applications
+        @all_applications = @all_export_application + @all_insurance
+
     end
     
     private
