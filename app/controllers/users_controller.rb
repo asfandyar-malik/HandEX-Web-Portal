@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     
-    before_action :set_user
+    # before_action :set_user
     
     def show
     end
@@ -36,19 +36,19 @@ class UsersController < ApplicationController
     private
     
     def filter_insurance status
-        @user.insurances.where("application_status = ?", status)
+        current_user.insurances.where("application_status = ?", status)
     end
 
     def filter_export_application status
-        @user.export_applications.where("application_status = ?", status)
+        current_user.export_applications.where("application_status = ?", status)
     end
 
     def filter_invite_exporter status
-        @user.invite_exporter.where("application_status = ?", status)
+        current_user.invite_exporter.where("application_status = ?", status)
     end
     
-    def set_user
-        @user = User.find(params[:id])
-    end
+    # def set_user
+    #     current_user = User.find(params[:id])
+    # end
 
 end

@@ -21,7 +21,8 @@
     <li><%= link_to t('submitted_application'), submitted_applications_user_path(current_user.id) %></li>
     <li><%= link_to t('your_profile'), edit_user_registration_path %></li>
     <li class="divider"></li>
-    <li><%= link_to t('logout'), destroy_user_session_path, method: :destroy %></li>
+    <li><%= button_to t('logout'), destroy_user_session_path, method: :get %></li>
+
 </ul>
 
 <script>

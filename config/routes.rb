@@ -3,9 +3,9 @@ Rails.application.routes.draw do
     resources :overall_project_financing_details
     scope "(:locale)", locale: /en|es|de/ do
         
-        get '/:locale' => 'insurances#submitted_applications'
+        get '/:locale' => 'users#submitted_applications'
         
-        root to: 'insurances#submitted_applications'
+        root to: 'users#submitted_applications'
         
         get 'pages/landing' => 'pages#landing'
         get 'pages/impressum' => 'pages#impressum'
