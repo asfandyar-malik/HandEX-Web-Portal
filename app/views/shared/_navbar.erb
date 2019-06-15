@@ -8,7 +8,7 @@
 
             <li><a class="top-navigation-icons waves-effect" href="/profile"><i class="material-icons">account_circle</i></a></li>
 
-            <li><a class="top-navigation-icons waves-effect" href=<%= submitted_applications_insurance_path(current_user.id) %> ><i class="material-icons">add_alert</i></a></li>
+            <li><a class="top-navigation-icons waves-effect" href=<%= submitted_applications_user_path(current_user.id) %> ><i class="material-icons">add_alert</i></a></li>
 
             <li><a class="top-navigation-icons waves-effect dropdown-trigger" data-target="dropdown1"><i class="material-icons">settings</i></a></li>
 
@@ -18,7 +18,7 @@
 </nav>
 
 <ul id="dropdown1" class="dropdown-content">
-    <li><%= link_to t('submitted_application'), submitted_applications_insurance_path(current_user.id) %></li>
+    <li><%= link_to t('submitted_application'), submitted_applications_user_path(current_user.id) %></li>
     <li><%= link_to t('your_profile'), edit_user_registration_path %></li>
     <li class="divider"></li>
     <li><%= link_to t('logout'), destroy_user_session_path, method: :destroy %></li>

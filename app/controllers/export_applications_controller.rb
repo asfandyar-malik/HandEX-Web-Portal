@@ -6,7 +6,7 @@ class ExportApplicationsController < ApplicationController
     
     def index
         @new_applications    = filer_application_by_status "NEW"
-        @export_applications = ExportApplication.all
+        # @export_applications = ExportApplication.all
     end
     
     def show

@@ -19,8 +19,8 @@
     <div class="section">
 
         <div class="row">
-            <% @approved_applications.each do |application| %>
-                <%= render partial: "users/approved_application_listing_card", locals:  {application: application,
+            <% @all_applications.each do |application| %>
+                <%= render partial: "users/submitted_application_listing_card", locals:  {application: application,
                                                                                                can_edit: false} %>
             <% end %>
         </div>

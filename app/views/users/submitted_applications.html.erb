@@ -8,21 +8,22 @@
         <% else %>
             <a class="z-depth-0 btn z-depth-0 handex-btn-positiv" href="/pages/products">Antrag starten</a>
         <% end %>
-        <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= draft_applications_export_application_path(current_user.id) %>">Entwürfe</a>
-        <a class="z-depth-0 btn handex-btn rounded" href="<%= submitted_applications_export_application_path(current_user.id) %>">Versendet</a>
-        <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= approved_applications_export_application_path(current_user.id) %>" >Genehmigt</a>
-        <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= all_applications_export_application_path(current_user.id) %>">Alle</a>
+        <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= draft_applications_user_path(current_user.id) %>" >Entwürfe</a>
+        <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= submitted_applications_user_path(current_user.id) %>">Versendet</a>
+        <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= approved_applications_user_path(current_user.id) %>" >Genehmigt</a>
+        <a class="z-depth-0 btn handex-btn rounded" href="<%= all_applications_user_path(current_user.id) %>" >Alle</a>
     </div>
 </nav>
 
 <div class="container">
     <div class="section">
+
         <div class="row">
-
-            <%= render partial: "users/submitted_listing",
-                       locals:  {applications: @submitted_applications,
-                                 can_edit: false} %>
-
+            <% @submitted_applications.each do |application| %>
+                <%= render partial: "users/submitted_application_listing_card", locals:  {application: application,
+                                                                                               can_edit: false} %>
+            <% end %>
         </div>
+
     </div>
 </div>

@@ -1,7 +1,0 @@
-<div class="row">
-  <% applications.each do |export_application| %>
-    <%= render partial: "users/draft_application_listing_card",
-               locals:  {export_application: export_application,
-                        can_edit: can_edit} %>
-  <% end %>
-</div>

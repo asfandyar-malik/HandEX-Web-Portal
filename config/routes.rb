@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-
-  resources :overall_project_financing_details
-  scope "(:locale)", locale: /en|es|de/ do
     
+    resources :overall_project_financing_details
+    scope "(:locale)", locale: /en|es|de/ do
+        
         get '/:locale' => 'insurances#submitted_applications'
-
+        
         root to: 'insurances#submitted_applications'
         
         get 'pages/landing' => 'pages#landing'
@@ -24,34 +24,25 @@ Rails.application.routes.draw do
         get 'pages/advice_credit' => 'pages#advice_credit'
         get 'pages/advice_refinance' => 'pages#advice_refinance'
         get 'pages/invite_or_fill_yourself' => 'pages#invite_or_fill_yourself'
-
-        resources :insurances do
-          member do
+        
+        resources :insurances
+        resources :export_applications
+        resources :credits
+        resources :invite_exporters
+        resources :refinances
+    end
+    
+    devise_for :users,
+               path:        '',
+               path_names:  {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'},
+               controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
+    
+    resources :users, only: [:show] do
+        member do
             get 'submitted_applications'
             get 'approved_applications'
             get 'draft_applications'
             get 'all_applications'
-          end
         end
-
-        resources :export_applications do
-            member do
-                get 'submitted_applications'
-                get 'approved_applications'
-                get 'draft_applications'
-                get 'all_applications'
-            end
-        end
-
-        resources :credits
-        resources :invite_exporters
-        resources :refinances
-  end
-
-  devise_for :users,
-               path:        '',
-               path_names:  {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'},
-               controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
-
-    resources :users, only: [:show]
+    end
 end
