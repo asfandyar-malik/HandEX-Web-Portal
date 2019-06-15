@@ -26,11 +26,12 @@ class UsersController < ApplicationController
     def all_applications
         @all_insurance = current_user.insurances
         @all_export_application = current_user.export_applications
+        @invited_exporters = current_user.invite_exporters
         @all_applications = @all_export_application + @all_insurance
     end
 
     def invited_exporter
-        @invited_expoters = filter_invite_exporter "INVITED"
+        @invited_exporters = filter_invite_exporter "INVITED"
     end
     
     private
@@ -44,7 +45,7 @@ class UsersController < ApplicationController
     end
 
     def filter_invite_exporter status
-        current_user.invite_exporter.where("application_status = ?", status)
+        current_user.invite_exporters.where("application_status = ?", status)
     end
     
     # def set_user

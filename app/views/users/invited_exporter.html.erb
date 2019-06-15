@@ -21,11 +21,12 @@
     <div class="section">
 
         <div class="row">
-            <% if @invited_expoters.empty? %>
+            <% if @invited_exporters.empty? %>
                 <%= render "users/no_exporter_invited" %>
             <% else %>
-                <% @invited_expoters.each do |insurance| %>
-                    <%= render partial: "users/invited_exporter_listing_card", locals:  {application: application,                       can_edit: false} %>
+                <% @invited_exporters.each do |application| %>
+                    <%= render partial: "users/invited_exporter_listing_card", locals:  {application: application,
+                                                                                         can_edit: false} %>
                 <% end %>
             <% end %>
 

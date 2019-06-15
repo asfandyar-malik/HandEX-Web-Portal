@@ -20,13 +20,19 @@
 <div class="container">
     <div class="section">
         <div class="row">
-            <% if @all_applications.empty? %>
-                <%= render "users/_no_application" %>
+            <% if @all_applications.empty? && @invited_exporters.empty? %>
+                <%= render "users/no_application" %>
             <% else %>
                 <% @all_applications.each do |application| %>
                     <%= render partial: "users/submitted_application_listing_card", locals:  {application: application,
                                                                                                    can_edit: false} %>
                 <% end %>
+
+                <% @invited_exporters.each do |application| %>
+                    <%= render partial: "users/invited_exporter_listing_card", locals:  {application: application,
+                                                                                         can_edit: false} %>
+                <% end %>
+
             <% end %>
 
         </div>
