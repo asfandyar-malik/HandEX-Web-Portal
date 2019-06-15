@@ -42,7 +42,7 @@ body {
   }
 
   .greybox {
-    background: #f9f9fa;
+    background: #ebebeb;
   }
 
   .input-field {
@@ -135,7 +135,8 @@ body {
   }
 
   .yes-no-btns:hover {
-    color: #4261a1;
+    color: #ffff;
+    background-color: #4261a1;
   }
 
   .no-btn {
@@ -150,7 +151,6 @@ body {
     margin: 10px;
     max-width: 30% !important;
   }
-
 }
 
 form.col.s12.custom-form {
@@ -414,16 +414,23 @@ nav {
 }
 
 .active_selection_card {
-  background-color: #4261a1;
+  background-color: #41bf93;
   color: white;
 }
 
 .active_selection_card  > label.active_selection_card_label {
+  background-color: #41bf93;
   color: white;
 }
 
 .active_selection_card:hover {
-  background-color: #4261a1;
+  background-color: #41bf93;
+  color: white;
+}
+
+.active_selection_card:active {
+  background-color: #41bf93;
+  color: white;
 }
 
 .handex-big-btn {
@@ -594,7 +601,7 @@ nav ul a:hover {
 
 .background_toggle.dialog_background {
   margin-top:5px;
-  background: #f9f9f9;
+  background: #ebebeb;
 }
 
 .handex-color-1 {
