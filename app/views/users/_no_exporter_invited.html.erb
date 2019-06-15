@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="section">
+        <div class="card medium choice-card big-choice-card">
+            <div class="card-title valign-wrapper">
+                <%= image_tag "handex-logo.png" %>
+                <div class="title-text">
+                    <strong>Keine Einladungen Geschickt </strong>
+                </div>
+            </div>
+            <div class="card-content center-align light-hint">
+                <p>Sie haben keine Finanzierung beantragen.</p>
+            </div>
+            <div class="card-action">
+                <div class="col s12 center-align">
+                    <% if current_user.is_broker? %>
+                        <a class="btn-large z-depth-0 handex-btn btn-flat z-depth-0 validate white-text" href="/pages/invite_or_fill_yourself">Antrag starten</a>
+                    <% else %>
+                        <a class="btn-large z-depth-0 handex-btn btn-flat z-depth-0 validate white-text" href="/pages/products">Antrag starten</a>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
