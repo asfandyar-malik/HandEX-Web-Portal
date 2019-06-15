@@ -64,6 +64,6 @@ class InviteExportersController < ApplicationController
     end
     
     def invite_exporter_params
-        params.require(:invite_exporter).permit(:exporter_name, :exporter_broker_id, :exporter_email, :exporter_telephone, :exporter_representative_name)
+        params.require(:invite_exporter).permit(:exporter_company_name, :exporter_broker_id, :exporter_email, :exporter_telephone, :exporter_representative_name)
     end
 end
