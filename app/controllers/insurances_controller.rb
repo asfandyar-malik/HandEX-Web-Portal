@@ -2,7 +2,7 @@ class InsurancesController < ApplicationController
     
     layout "insurance", only: [:new, :edit, :index]
     
-    before_action :set_insurance, only: [:show, :edit, :update, :destroy, :user_summary]
+    before_action :set_insurance, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!
     before_action :is_authorised, only: [:update]
     
@@ -82,10 +82,6 @@ class InsurancesController < ApplicationController
     
     def all_applications
         @all_applications = current_user.insurances
-    end
-    
-    def user_summary
-        render "insurances/summary/user_summary"
     end
     
     private

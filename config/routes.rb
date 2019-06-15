@@ -31,7 +31,6 @@ Rails.application.routes.draw do
             get 'approved_applications'
             get 'draft_applications'
             get 'all_applications'
-            get 'user_summary'
           end
         end
 
@@ -41,7 +40,6 @@ Rails.application.routes.draw do
                 get 'approved_applications'
                 get 'draft_applications'
                 get 'all_applications'
-                get 'user_summary'
             end
         end
 
