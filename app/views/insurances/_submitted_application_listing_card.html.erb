@@ -68,7 +68,7 @@
             <% if can_edit %>
                 <%= link_to "Update", edit_insurance_path(insurance.user_id) %>
             <% else %>
-                <%= link_to t('see_summary_of_application'), user_summary_insurance_path(insurance.id), target: :_blank %>
+                <%= link_to t('see_summary_of_application'), "/", target: :_blank %>
             <% end %>
         </div>
     </div>

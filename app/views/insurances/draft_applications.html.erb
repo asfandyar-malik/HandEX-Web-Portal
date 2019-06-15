@@ -20,8 +20,11 @@
     <div class="section">
 
         <div class="row">
-
-            <%= render partial: "insurances/draft_listing", locals:  {applications: @draft_applications, can_edit: false} %>
+            <% @draft_applications.each do |insurance| %>
+                <%= render partial: "insurances/draft_application_listing_card", locals:  {insurance: insurance,
+                                                                                               can_edit: false} %>
+            <% end %>
         </div>
+
     </div>
 </div>

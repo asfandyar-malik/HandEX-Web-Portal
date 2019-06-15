@@ -1,6 +1,6 @@
 <div class="row">
   <% applications.each do |export_application| %>
-    <%= render partial: "export_applications/draft_application_listing_card",
+    <%= render partial: "users/draft_application_listing_card",
                locals:  {export_application: export_application,
                         can_edit: can_edit} %>
   <% end %>
