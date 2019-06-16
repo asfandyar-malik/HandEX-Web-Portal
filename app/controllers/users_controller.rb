@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
     
     # before_action :set_user
+    before_action :authenticate_user!
+    before_action :is_authorised, only: [:update]
     
     def show
     end
