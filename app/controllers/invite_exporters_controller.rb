@@ -5,7 +5,6 @@ class InviteExportersController < ApplicationController
     before_action :is_authorised, only: [:update]
     
     def index
-        # @invite_exporters = InviteExporter.all
     end
     
     def show
