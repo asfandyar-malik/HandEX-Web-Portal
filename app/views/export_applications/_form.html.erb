@@ -98,11 +98,11 @@
                                                     <%= form.text_field :employees_count, autofocus: true, class: "validate" %>
                                                 </div>
                                                 <div class="input-field col s12 m6">
-                                                    <label>Umsatz (EURm)</label>
+                                                    <label>Umsatz (in Mio EUR)</label>
                                                     <%= form.text_field :exporter_revenue, autofocus: true, class: "validate" %>
                                                 </div>
                                                 <div class="input-field col s12 m6">
-                                                    <label>Bilanzsumme (in EURm)</label>
+                                                    <label>Bilanzsumme (in Mio EUR)</label>
                                                     <%= form.text_field :exporter_total_assets, autofocus: true, class: "validate" %>
                                                 </div>
                                                 <div class="input-field col s12 m12">
@@ -114,7 +114,7 @@
                                                 <div class="col background_toggle exporter_external_rating_available">
                                                     <div class="input-field col s12 m12">
                                                         <div class="input-field col s12 m12 nopadding">
-                                                            <label> Externes Rating? </label>
+                                                            <label> Wurde Ihr Unternehmen von einer externen Rating Agentur bewertet? </label>
                                                             <p>
                                                                 <label>
                                                                     <%= check_box_tag "export_application[exporter_external_rating_available]", @export_application.exporter_external_rating_available ? @export_application.exporter_external_rating_available : nil, false, :onclick => "exporterExternalRatingFunction();", id: "export_application_exporter_external_rating_available" %>
@@ -130,7 +130,7 @@
                                                         <div id="exporterExternalRating" style="display: none">
                                                             <div class="row">
                                                                 <div class="input-field col s12">
-                                                                    <label>Rating</label>
+                                                                    <label>Rating Ergebnis</label>
                                                                     <%= form.text_field :exporter_rating, autofocus: true, class: "validate" %>
                                                                 </div>
                                                                 <div class="input-field col s12 m6">
@@ -320,7 +320,7 @@
                                             <div id="importerExternalRating" style="display: none">
                                                 <div class="row">
                                                     <div class="input-field col s12">
-                                                        <label>Rating</label>
+                                                        <label>Rating Ergebnis</label>
                                                         <%= form.text_field :importer_rating, autofocus: true, class: "validate" %>
                                                     </div>
                                                     <div class="input-field col s12 m6">
@@ -337,7 +337,7 @@
 
                                         <div class="input-field col s12 m12">
                                             <div class="input-field col s12 m12 nopadding">
-                                                <label> Firma durch ein direktes Mutterunternehmen kontrolliert? </label>
+                                                <label> Wird die Firma durch ein direktes Mutterunternehmen kontrolliert? </label>
                                                 <p>
                                                     <label>
                                                         <%= check_box_tag "export_application[is_company_controlled_by_mother_company]", @export_application.is_company_controlled_by_mother_company ? @export_application.is_company_controlled_by_mother_company : nil, false, :onclick => "controlledByMotherCompany();", id: "export_application_is_company_controlled_by_mother_company" %>
@@ -441,7 +441,7 @@
                                         </div>
 
                                         <div class="input-field col s12">
-                                            <label>Bitte beschreiben Sie Ihre Produkte und Ihre Leistungen und wie Ihr Kunde diese einsetzt. </label>
+                                            <label>Bitte beschreiben Sie Ihre Produkte sowie Leistungen und wie Ihr Kunde diese einsetzt. </label>
                                             <%= form.text_field :explain_product_service, autofocus: true, class: "validate" %>
                                         </div>
 
@@ -1647,23 +1647,18 @@
 
                                         <div class="input-field col s12 m12">
                                             <label>Angaben zu Anklagen, strafrechtlichen und nicht-strafrechtlichen.</label>
-                                            <p>Sanktionen sowie Ermittlungsverfahren und Sperrlisten
-                                                Mitarbeiter, die Geschäftsleitung oder Inhaber unseres Unternehmens oder andere an diesem
-                                                Vertragsabschluss
-                                                beteiligte und in unserem Auftrag handelnde Personen oder unser Unternehmen selbst sind/ist wegen
-                                                eines
-                                                Korruptionsdelikts</p>
+                                            <p>Sanktionen sowie Ermittlungsverfahren und Sperrlisten Mitarbeiter, die Geschäftsleitung oder Inhaber unseres Unternehmens oder andere an diesem  Vertragsabschluss beteiligte und in unserem Auftrag handelnde Personen oder unser Unternehmen selbst sind/ist wegen eines Korruptionsdelikts: </p>
                                         </div>
 
                                         <div class="input-field col s12 m12">
                                             <ul>
-                                                <li>gegenwärtig vor einem staatlichen Gericht angeklagt oder</li>
-                                                <li>innerhalb der letzten 5 Jahre von einem staatlichen Gericht verurteilt oder</li>
-                                                <li>mit einer mit einem Gerichtsurteil vergleichbaren nicht-strafrechtlichen Sanktion belegt
+                                                <li> * gegenwärtig vor einem staatlichen Gericht angeklagt oder</li>
+                                                <li> * innerhalb der letzten 5 Jahre von einem staatlichen Gericht verurteilt oder</li>
+                                                <li> * mit einer mit einem Gerichtsurteil vergleichbaren nicht-strafrechtlichen Sanktion belegt
                                                     worden oder
                                                 </li>
-                                                <li>einem staatsanwaltschaftlichen Ermittlungsverfahren unterworfen worden oder</li>
-                                                <li>auf einer Sperrliste einer internationalen Finanzorganisation aufgeführt.</li>
+                                                <li> * einem staatsanwaltschaftlichen Ermittlungsverfahren unterworfen worden oder</li>
+                                                <li> * auf einer Sperrliste einer internationalen Finanzorganisation aufgeführt.</li>
                                             </ul>
                                         </div>
 
