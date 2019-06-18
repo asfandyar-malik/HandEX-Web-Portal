@@ -523,7 +523,7 @@
                                                         </table>
 
                                                         <div class="form-actions">
-                                                            <%= link_to_add_association t('add_more'), form, :application_of_funds, class: 'btn btn-primary', data: {association_insertion_node: '.application_of_funds', association_insertion_method: :append} %>
+                                                            <%= link_to_add_association t('add'), form, :application_of_funds, class: 'btn btn-primary', data: {association_insertion_node: '.application_of_funds', association_insertion_method: :append} %>
                                                         </div>
                                                     </div>
 
@@ -539,7 +539,7 @@
                                                         </table>
 
                                                         <div class="form-actions">
-                                                            <%= link_to_add_association t('add_more'), form, :source_of_funds, class: 'btn btn-primary', data: {association_insertion_node: '.source_of_funds', association_insertion_method: :append} %>
+                                                            <%= link_to_add_association t('add'), form, :source_of_funds, class: 'btn btn-primary', data: {association_insertion_node: '.source_of_funds', association_insertion_method: :append} %>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -589,7 +589,7 @@
                                                             </table>
 
                                                             <div class="form-actions">
-                                                                <%= link_to_add_association t('add_more'), form, :multiple_shipments, class: 'btn btn-primary', data: {association_insertion_node: '.multiple_shipments', association_insertion_method: :append} %>
+                                                                <%= link_to_add_association t('add'), form, :multiple_shipments, class: 'btn btn-primary', data: {association_insertion_node: '.multiple_shipments', association_insertion_method: :append} %>
                                                             </div>
                                                         </div>
 
@@ -637,7 +637,7 @@
                                                     </table>
 
                                                     <div class="form-actions">
-                                                        <%= link_to_add_association t('add_more'), form, :extra_billed_items, class: 'btn btn-primary', data: {association_insertion_node: '.extra_billed_items', association_insertion_method: :append} %>
+                                                        <%= link_to_add_association t('add'), form, :extra_billed_items, class: 'btn btn-primary', data: {association_insertion_node: '.extra_billed_items', association_insertion_method: :append} %>
                                                     </div>
                                                 </div>
 
@@ -975,15 +975,13 @@
                             </div>
                             <div class="col s12 m4">
                                 <div class="form-nav">
-                                    <h2>Zahlung & Finanzierung</h2>
+                                    <h2> <%= t :finance_and_payment %> </h2>
                                 </div>
                             </div>
                             <div class="col s12 m4">
                                 <div class="form-nav right">
-                                    <!--                                <a href="#">Entwurf speichern</a>-->
                                     <input class="btn handex-btn z-depth-0" type="submit" name="draft" value="Entwurf speichern">
                                     <input class="btn handex-btn z-depth-0 next handex-nav-button" tab_index="5" type="navigator" value="Weiter">
-                                    <!--                                <span class="next" tab_index="5">Weiter</span>-->
                                 </div>
                             </div>
                         </div>
@@ -995,7 +993,7 @@
 
                                             <div class="input-field col s12 m12">
                                                 <div class="input-field col s12 m12 nopadding">
-                                                    <label> Sind für Ihr Geschäft Sicherheiten vorgesehen? </label>
+                                                    <%= form.label :is_security_present_for_transaction, t('is_security_present_for_transaction') %>
                                                     <p>
                                                         <label>
                                                             <%= check_box_tag "export_application[is_security_present_for_transaction]", @export_application.is_security_present_for_transaction ? @export_application.is_security_present_for_transaction : nil, false, :onclick => "securityPresent();", id: "export_application_is_security_present_for_transaction" %>
@@ -1014,15 +1012,11 @@
                                                     <label> <%= t('security_type') %> </label>
 
                                                     <table class='table'>
-
                                                         <tbody class='guarantees'>
-
-                                                        <%= form.fields_for :guarantees do |builder| %>
-                                                            <%= render 'guarantee_fields', f: builder %>
-                                                        <% end %>
-
+                                                            <%= form.fields_for :guarantees do |builder| %>
+                                                                <%= render 'guarantee_fields', f: builder %>
+                                                            <% end %>
                                                         </tbody>
-
                                                     </table>
 
                                                     <div class="form-actions">
@@ -1032,16 +1026,17 @@
 
                                                 <div class="input-field col s12 m12">
                                                     <br>
-                                                    <label> <%= t('proportion_of_good_covered_by_security') %> </label>
+                                                    <%= form.label :proportion_of_good_covered_by_security, t('proportion_of_good_covered_by_security') %>
                                                     <div> <%= form.text_field :proportion_of_good_covered_by_security, class: "validate" %> </div>
                                                 </div>
 
                                                 <div class="input-field col s12 m12">
                                                     <div class="input-field col s12 m6 nopadding">
-                                                        <label> <%= t('when_security_received') %> </label>
+                                                        <%= form.label :when_security_received, t('when_security_received') %>
                                                         <%= form.select :when_security_received, options_for_select([[t('please_select'), "0"], ["Vor Fabrikationsbeginn", "1"], ["bereits erhalten", "2"], ["Vor Liefer-/Leistungsbeginn", "3"], ["Später", "4"], ["Anderer Termin", "5"]]), {}, id: "when_security_received", class: "validate" %>
                                                     </div>
                                                 </div>
+
                                             </div>
                                         </div>
                                         <div class="col background_toggle has_agreed_payment_term_already">
@@ -1064,28 +1059,24 @@
                                             <div id="agreedTermsOfPayments" style="display: <%= (@export_application.has_agreed_payment_term_already.present? && @export_application.has_agreed_payment_term_already) ? 'block' : 'none' %>">
                                                 <div class="row">
                                                     <div class="input-field col s12 m12">
-
                                                     <label class="active_selection_card_label">
                                                     <span class="input-field col s12 m4 threecol" name="kurzfristigtermofpayment">
                                                             <%= check_box_tag "export_application[payment_term_short]", @export_application.payment_term_short ? @export_application.payment_term_short : nil, false, :onclick => "kurzFristigTermOfPayment();", id: "export_application_payment_term_short" %>
-                                                        Kurzfristig
-                                                        <p>Bis zu 2 Jahre Kreditlaufzeit</p>
+                                                        <%= form.label :payment_term_short, t('payment_term_short') %>
                                                     </span>
                                                         </label>
 
                                                     <label class="active_selection_card_label">
                                                     <span class="input-field col s12 m4 threecol" name="mitteltermofpayment">
                                                         <%= check_box_tag "export_application[payment_term_mid]", @export_application.payment_term_mid ? @export_application.payment_term_mid : nil, false, :onclick => "mittelTermOfPayment();", id: "export_application_payment_term_mid" %>
-                                                        Mittel-/langfristig
-                                                        <p>über 2 Jahre Kreditlaufzeit</p>
+                                                        <%= form.label :payment_term_short, t('payment_term_mid') %>
                                                     </span>
                                                         </label>
 
                                                         <label class="active_selection_card_label">
                                                     <span class="input-field col s12 m4 threecol" name="sonstigekurzfristigtermofpayment">
                                                         <%= check_box_tag "export_application[payment_term_both]", @export_application.payment_term_both ? @export_application.payment_term_both : nil, false, :onclick => "sonstigeKurzFristigTermOfPayment();", id: "export_application_payment_term_both" %>
-                                                        Sowohl kurzfristig
-                                                        <p> als auch mittel oder langfristig </p>
+                                                        <%= form.label :payment_term_short, t('payment_term_both') %>
                                                     </span>
                                                         </label>
                                                     </div>
@@ -1094,7 +1085,7 @@
                                                         <br>
                                                         <div class="input-field col m12">
                                                             <div class="input-field col m10 no-padding">
-                                                                <label> <%= t('downpayment_before_delivery') %></label>
+                                                                <%= form.label :downpayment_delivery, t('downpayment_delivery') %>
                                                             </div>
 
                                                             <div class="row no-padding">
@@ -1109,9 +1100,9 @@
                                                             </div>
 
                                                             <div class="row no-padding">
-                                                                <div class="input-field col m8">
+                                                                <div class="input-field col m12">
 
-                                                                    <label> <%= t('agreed_payments') %> </label>
+                                                                    <%= form.label :agreed_payments, t('agreed_payments') %>
 
                                                                     <table class='table'>
 
@@ -1134,11 +1125,12 @@
                                                             <div id="workwithothercompanies">
                                                                 <div class="row no-padding">
                                                                     <div class="input-field col m10">
-                                                                        <label> <%= t('payment_vehichle_payment_term_short') %></label>
+                                                                        <%= form.label :payment_vehichle_payment_term_short, t('payment_vehichle_payment_term_short') %>
                                                                         <div> <%= form.text_area :payment_vehichle_payment_term_short, class: "validate" %> </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+
                                                         </div>
                                                     </div>
 
@@ -1163,12 +1155,12 @@
                                                             </table>
 
                                                             <div class="form-actions">
-                                                                <%= link_to_add_association 'Hinzufügen', form, :agreed_payment_mid_longs, class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payment_mid_longs', association_insertion_method: :append} %>
+                                                                <%= link_to_add_association t('add'), form, :agreed_payment_mid_longs, class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payment_mid_longs', association_insertion_method: :append} %>
                                                             </div>
 
                                                             <div class="row no-padding">
                                                                 <div class="input-field col m10 no-pad-bot">
-                                                                    <label> <%= t('receive_deposit_time_payment_term_mid') %> </label>
+                                                                    <%= form.label :receive_deposit_time_payment_term_mid, t('receive_deposit_time_payment_term_mid') %>
                                                                 </div>
                                                                 <div class="input-field col m4">
                                                                     <%= form.select :receive_deposit_time_payment_term_mid, options_for_select(["vor Fabrikationsbeginn", "vor Liefer /- Leistungbeginn", "bereits erhalten", "bei Betriebsbereitschaft", "anderer Termin"]), {}, class: "validate" %>
@@ -1177,24 +1169,23 @@
 
                                                             <div class="row no-padding">
                                                                 <div class="input-field col m10 no-pad-botrem">
-                                                                    <label><%= t('repayment_profile_structure') %></label>
+                                                                    <%= form.label :repayment_structure_payment_term_mid, t('repayment_structure_payment_term_mid') %>
                                                                 </div>
                                                                 <div class="input-field col m4">
-                                                                    <%= form.select :repayment_profile_structure_payment_term_mid, options_for_select([t('please_select'), "Monatliche Tilgungsraten", "Vierteljährliche Tilgungsprofil", "Halbjährige Tilgungsprofil", "Unregelmäßig"]), {}, class: "validate" %>
+                                                                    <%= form.select :repayment_structure_payment_term_mid, options_for_select([t('please_select'), "Monatliche Tilgungsraten", "Vierteljährliche Tilgungsprofil", "Halbjährige Tilgungsprofil", "Unregelmäßig"]), {}, class: "validate" %>
                                                                 </div>
                                                             </div>
 
                                                             <div class="row no-padding">
                                                                 <div class="input-field col m10 no-pad-bot">
-                                                                    <label> <%= t('loan_term_start') %> </label>
+                                                                    <%= form.label :loan_term_start_payment_term_mid, t('loan_term_start_payment_term_mid') %>
                                                                 </div>
                                                                 <div class="input-field col m4">
-
                                                                     <%= form.select :loan_term_start_payment_term_mid, options_for_select([t('please_select'), "mit Lieferung", "mit erster Lieferung (bei mehreren Lieferungen)", "mit jeweiliger Lieferung (bei mehreren Lieferungen)", "mittlerer gewogener Liefertermin (bei mehreren Lieferungen)", "mit Betriebsbereitschaft", "sonstige"]), {}, class: "validate" %>
                                                                 </div>
 
                                                                 <div class="input-field col m10">
-                                                                    <%= form.text_area :loan_term_other_description_payment_term_mid, class: "validate", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
+                                                                    <%= form.text_area :loan_term_start_description_payment_term_mid, class: "validate", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
                                                                 </div>
                                                             </div>
 
@@ -1293,19 +1284,19 @@
 
                                                             <div class="row no-padding">
                                                                 <div class="input-field col m4">
-                                                                    <label> <%= t('repayment_profile_structure') %> </label>
+                                                                    <%= form.label :repayment_structure_payment_term_both, t('repayment_structure_payment_term_both') %>
                                                                     <%= form.select :repayment_structure_payment_term_both, options_for_select([t('please_select'), "Monatliche Tilgungsraten", "Vierteljährliche Tilgungsprofil", "Halbjährige Tilgungsprofil", "Unregelmäßig"]), {}, class: "validate" %>
                                                                 </div>
                                                             </div>
 
                                                             <div class="row no-padding">
                                                                 <div class="input-field col m6">
-                                                                    <label> <%= t('loan_term_start') %> </label>
-                                                                    <%= form.select :credit_start_date_payment_term_both, options_for_select([t('please_select'), "mit Lieferung", "mit erster Lieferung (bei mehreren Lieferungen)", "mit jeweiliger Lieferung (bei mehreren Lieferungen)", "mittlerer gewogener Liefertermin (bei mehreren Lieferungen)", "mit Betriebsbereitschaft", "sonstige"]), {}, class: "validate" %>
+                                                                    <label> <%= t('loan_term_start_payment_term_both') %> </label>
+                                                                    <%= form.select :loan_term_start_payment_term_both, options_for_select([t('please_select'), "mit Lieferung", "mit erster Lieferung (bei mehreren Lieferungen)", "mit jeweiliger Lieferung (bei mehreren Lieferungen)", "mittlerer gewogener Liefertermin (bei mehreren Lieferungen)", "mit Betriebsbereitschaft", "sonstige"]), {}, class: "validate" %>
                                                                 </div>
                                                                 <div class="input-field col m8">
                                                                     <br>
-                                                                    <%= form.text_area :credit_start_special_description_payment_term_both, class: "validate", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
+                                                                    <%= form.text_area :loan_term_start_description_payment_term_both, class: "validate", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
                                                                 </div>
                                                             </div>
 
