@@ -477,13 +477,13 @@
                                                 <div id="deliveredPartOfConsortiumWithOtherCompanies" style="display: <%=(@export_application.is_delivered_part_of_consortium_with_other_companies.present? && @export_application.is_delivered_part_of_consortium_with_other_companies)? 'block' : 'none'%> ">
 
                                                     <div class="input-field col s12 m12">
-                                                        <label><%= t :describe_export_business %></label>
+                                                        <%= form.label :describe_export_business, t('describe_export_business') %>
                                                         <%= form.text_area :describe_export_business, autofocus: true, class: "validate", placeholder: t('describe_export_business')%>
                                                     </div>
 
                                                     <div class="input-field col s12 m12">
                                                         <div class="input-field col s12 m12 nopadding">
-                                                            <label><%= t('is_fully_responsible_for_project') %></label>
+                                                            <%= form.label :is_fully_responsible_for_project, t('is_fully_responsible_for_project') %>
                                                             <p>
                                                                 <label>
                                                                     <%= check_box_tag "export_application[is_fully_responsible_for_project]", @export_application.is_fully_responsible_for_project ? @export_application.is_fully_responsible_for_project : nil, false, :onclick => "isFullyResponsibleForProject();", id: "is_fully_responsible_for_project" %>
