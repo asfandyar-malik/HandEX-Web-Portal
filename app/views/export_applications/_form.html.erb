@@ -531,7 +531,7 @@
                                                     </div>
 
                                                     <div class="input-field col s12 m12">
-                                                        <label> <%= t('source_of_funds') %> </label>
+                                                        <%= form.label :source_of_funds, t('source_of_funds') %>
 
                                                         <table class='table'>
                                                             <tbody class='source_of_funds'>
@@ -551,7 +551,7 @@
 
                                         <div class="col background_toggle is_good_sent_in_multiple_deliveries">
                                             <div class="input-field col s12 m12 no-padding">
-                                                <label><%= t :is_good_sent_in_multiple_deliveries%> </label>
+                                                <%= form.label :is_good_sent_in_multiple_deliveries, t('is_good_sent_in_multiple_deliveries') %>
                                                 <p>
                                                     <label>
                                                         <%= check_box_tag "export_application[is_good_sent_in_multiple_deliveries]", @export_application.is_good_sent_in_multiple_deliveries ? @export_application.is_good_sent_in_multiple_deliveries : nil, false, :onclick => "goodsSentMultipleDeliveries();", id: "export_application_is_good_sent_in_multiple_deliveries" %>
