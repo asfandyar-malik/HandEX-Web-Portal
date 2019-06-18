@@ -5,7 +5,7 @@
     </td>
 
     <td class="input-field">
-        <div> <%= f.text_field :output, placeholder: "Höhe der Anzahlung”", class: "validate" %> </div>
+        <div> <%= f.text_field :output, placeholder: t("deposit_amount"), class: "validate" %> </div>
     </td>
 
     <td class="input-field">
@@ -13,7 +13,7 @@
     </td>
 
     <td>
-        <%= link_to_remove_association "Löschen", f, class: 'btn btn-primary btn-xs' %>
+        <%= link_to_remove_association t("delete"), f, class: 'btn btn-primary btn-xs' %>
     </td>
 
 </tr>

@@ -116,15 +116,18 @@ de:
   application_submit: "Antrag Shicken"
   save_draft: "Entwurf speichern"
   complete: "fertig"
+
   #navbar
   submitted_application: "Versendete Anträge"
   approved_application: "Abgeschlossene Transaktionen"
   your_profile: "Ihr Profil"
+
   #product
   desired_product: "Bitte wählen Sie Ihr gewünschtes Produkt aus, um Ihren Handel zu finanzieren"
   export_credit_financing: "Exportkredit finanzierung"
   buyers_financing: "Einkaufs finanzierung"
   export_credit_insurance: "Exportkredit versicherung"
+
   #compnay
   company: "Unternehmen"
   exporter_company_name: "Firmenname"
@@ -141,10 +144,12 @@ de:
   exporter_total_assets: "Bilanzsumme"
   exporter_last_fiscal_year: "Letztes Geschäftsjahr"
   external_rating: "Externes Rating"
-  exporter_external_rating_available: "Wurde Ihr Unternehmen von einer externen Rating Agentur bewertet?"
-  exporter_rating: "Rating Ergebnis"
-  exporter_rating_agency: "Ratingagentur"
-  exporter_rating_issued_date: "Datum des Ratings"
+  have_external_rating: "Wurde Ihr Unternehmen von einer externen Rating Agentur bewertet?"
+  rating_result: "Rating Ergebnis"
+  rating_agency: "Ratingagentur"
+  rating_date: "Datum des Ratings"
+
+
   #customer information
   your_importer: "Kunde"
   importer_shipment_city: "Ort"
@@ -160,6 +165,7 @@ de:
   influence_over_importer: "Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder üben Sie maßgeblichen Einfluss auf die Geschäftsführung aus?"
   understanding_influence: "Bitte helfen sie uns, die Beteiligung besser zu verstehen"
   explain_previous_payment_experience_with_importer: "Bitte beschreiben Sie diese näher."
+
   #business information
   business_heading: "Geschäft"
   exported_goods_type: "Bitte ordnen Sie die von Ihnen zu liefernden Waren bzw. Dienstleistungen Ihrer Branche zu."
@@ -254,7 +260,9 @@ de:
   has_payment_experience_with_security_provider: "Haben Sie bereits Zahlungserfahrungen mit Ihrem Sicherheitengeber?  "
   explain_previous_payment_experience_with_security_provider: "Bitte beschreiben Sie diese näher."
   security_provider_address: "Bitte geben Sie die Adresse des Sicherheitengebers an."
+
   #financing
+  finance_and_payment: "Zahlung & Finanzierung"
   is_security_present_for_transaction: "Sind für Ihr Geschäft Sicherheiten (bspw. Akkreditiv, Zahlungsgarantien, etc.) vorgesehen? "
   security_type: "Welche Art von Sicherheiten?"
   security_name: "Bitte Name vergeben"
@@ -266,9 +274,9 @@ de:
   security_received: "bereits erhalten"
   security_received_other_date: "Anderer Termin"
   has_agreed_payment_term_already: "Haben Sie bereits ein Zahlungsziel bzw. eine eigene Finanzierung mit Ihrem Kunden vereinbart?"
-  payment_term_short: "kurzfristig (bis zu 2 Jahre Kreditlaufzeit)"
-  downpayment_before_delivery: "Sofern Sie eine Anzahlung vereinbart haben, die vor Lieferbeginn geleistet wird, geben Sie bitte den entsprechenden Betrag an."
-  payment_term_mid: "mittel-/langfristig (über 2 Jahre Kreditlaufzeit)"
+  payment_term_short: "Kurzfristig (bis zu 2 Jahre Kreditlaufzeit)"
+  downpayment_delivery: "Sofern Sie eine Anzahlung vereinbart haben, die vor Lieferbeginn geleistet wird, geben Sie bitte den entsprechenden Betrag an."
+  payment_term_mid: "Mittel-/langfristig (über 2 Jahre Kreditlaufzeit)"
   amount_advance_interim_payment: "Bitte geben Sie die Höhe der An- und Zwischenzahlungen an"
   notice_prepayment: "Bitte beachten Sie, dass die Anzahlung stets vor Lieferung gezahlt werden und bei mittel- /langfristigen Zahlungsbediungungen mindestens 15 % des Auftragswerts betragen muss (auf Grund internationaler Bestimmungen)."
   payment_term_both: "sowohl kurzfristig als auch mittel-/langfristig"
@@ -300,23 +308,27 @@ de:
   up_to_23: "bis zu 23 Monate"
   up_to_24: "bis zu 24 Monate"
   payment_vehichle_payment_term_short: "Wenn Sie Zahlungsvehikel wie z.B. Wechsel, Sola-Wechsel oder Promissory Notes vereinbart haben, so geben Sie dies bitte hier an."
+  payment_vehichle_payment_term_both: "Wenn Sie Zahlungsvehikel wie z.B. Wechsel, Sola-Wechsel oder Promissory Notes vereinbart haben, so geben Sie dies bitte hier an."
   deposit_amount: "Höhe der Anzahlung"
   receive_deposit_time_payment_term_mid: "Wann werden Sie die Anzahlung erhalten?"
-  repayment_profile_structure: "Wie gestaltet sich das Tilgungsprofil?"
+  repayment_structure_payment_term_mid: "Wie gestaltet sich das Tilgungsprofil?"
+  repayment_structure_payment_term_both: "Wie gestaltet sich das Tilgungsprofil?"
   payment_term_both_info2: "Bitte geben Sie nun die mittel-/langfristigen Zahlungsbedingungen an."
   monthly_repayment: "Monatliche Tilgungsraten"
   quarterly_repayment: "Vierteljährliche Tilgungsprofil"
   half_year_repayment: "Halbjährige Tilgungsprofil"
   irregular_repayment: "Unregelmäßig"
-  loan_term_start: "Wann beginnt die Kreditlaufzeit (Starting Point)?"
+  loan_term_start_payment_term_mid: "Wann beginnt die Kreditlaufzeit (Starting Point)?"
+  loan_term_start_payment_term_both: "Wann beginnt die Kreditlaufzeit (Starting Point)?"
   with_delivery: "mit Lieferung"
   with_first_delivery: "mit erster Lieferung (bei mehreren Lieferungen)"
   with_respective_delivery: "mit jeweiliger Lieferung (bei mehreren Lieferungen)"
   medium_weighted_delivery: "mittlerer gewogener Liefertermin (bei mehreren Lieferungen)"
   with_operation_delivery: "mit Betriebsbereitschaft"
-  number_of_installments: "Bitte geben Sie hier die Anzahl der Raten ein"
+  number_of_installments_payment_term_mid: "Bitte geben Sie hier die Anzahl der Raten ein"
+  number_of_installments_payment_term_both: "Bitte geben Sie hier die Anzahl der Raten ein"
   is_interest_charged_to_importer: "Berechnen Sie Ihrem Kunden Zinsen?"
-  please_provide_interest_value: "Bitte geben Sie die Zinsen an:"
+  interest: "Bitte geben Sie die Zinsen an:"
   fixed_interest_rate: "Wird der zu Grunde liegende Zinssatz fest berechnet?"
   fixed_interest_rate_value: "Bitte geben Sie Ihren Zinssatz an."
   variable_interest_rate: "Ihr Zinssatz wird variabel berechnet. Bitte stellen Sie Ihre Berechnungsvariante dar."
@@ -328,7 +340,7 @@ de:
   payment_term: "Wie sind Ihre Zahlungsbedingungen gestaltet?"
   notice_interest_charged: "In diesem Fall gibt es die Möglichkeit, Ihre Forderungen gegenüber Ihrem Käufer mit einer Forfaitierung zu refinanzieren. Das bedeutet eine unserer Partnerbanken kauft Ihre Forderungen ab und refinanziert bis zu 95% des gesamten Forderungsbetrages."
   payment_goal: "Welches Zahlungsziel wünscht Ihr Kunde (in Monaten)? "
-  #necessary at end
+  #conclusion
   necessary_at_end: "Deklarationen"
   has_previously_used_hermes_cover: "Haben Sie in der Vergangenheit schon einmal einen Antrag auf Hermesdeckung eingereicht?"
   new_to_hermes_cover: "Da Sie bisher keine Hermesdeckung beantragt haben, möchte HandEX und unser Partner Euler Hermes Sie besser kennenlernen. Bitte helfen Sie uns zu verstehen, inwieweit Sie bereits über Exporterfahrung und Erfahrungen mit säumigen Auslandskunden verfügen."
@@ -396,12 +408,14 @@ de:
   read_all_instruction_href: "/pages/guidelines"
   has_read_all_instructions: "Wir haben die %{href} für den Antrag, Veröffentlichung von Projektdaten, OECD-Leitsätze für multinationale Unternehmen und UN-Leitprinzipien für Wirtschafts- und Menschenrechte zur Kenntnis genommen."
   has_read_all_instructions_link: "/pages/guidelines"
+
   #summary
   summary: "Zusammenfassung"
   where_should_it_go: "Wohin soll es gehen?"
   how_high_contract_value: "Wie hoch ist der Auftragswert in Euro?"
   exporting_to_private_sector: "Liefern Sie an Privatsektor?"
   corruption_delcaration: "Korruptionserklärung"
+
   #submit_application
   application_sent_successfully: "Ihr Antrag wurde erfolgreich versendet !"
   application_sent_successfully_text: "Ihr Antrag wurde erfolgreich versendet und wird nun von HandEX geprüft. Sie erhalten voraussichtlich in den nächsten zwei Wochen eine Antwort. Bei Rückfragen können Sie sich jederzeit an uns wenden, indem Sie uns eine Email senden an info@handex.co"
@@ -409,8 +423,11 @@ de:
   entire_project_financing_detail: "Bitte tragen Sie so detailiert wie möglich ein, wie das Gesamtprojekt finanziert ist"
   sum: "Summe"
   conclusion: "ABSCHLUSS"
-  clear: "Löschen"
-  add_more: "Hinzufügen"
+  delete: "Löschen"
+  add: "Hinzufügen"
+  rate: "Rate"
+  to: "zu"
+  reference_point: "Referenztermin/Milestone"
 
 
 
