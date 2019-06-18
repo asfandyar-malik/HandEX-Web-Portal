@@ -376,12 +376,6 @@ de:
   exporter_representative_email: "Email"
   exporter_representative_function: "Funktion"
   exporter_representative_department: "Bereich"
-  documents_for_examination: "Diese Anlagen benötigen wir für die Prüfung Ihres Geschäftes"
-  self_declaration_document: "Selbstauskunft (bei Neukunden)"
-  annual_financial_statement_importer_document: "Jahresabschlüsse Ihres Kunden"
-  credit_bureaus_importer_document: "Auskünfte über Ihren Kunden"
-  environment_social_audit_document: "Umwelt- und Sozialinformationen"
-  project_memorandum_exporter_business: "ggf. Projektmemorandum"
   corruption_prevention_statement: "Bitte geben Sie die Erklärung zur Korruptionsprävention ab."
   compliance_heading: "Beachtung gesetzlicher Vorschriften "
   compliance_statement: "Wir erklären, dass der Abschluss des Liefer- bzw. Leistungsgeschäfts nicht durch eine strafbare Handlung eines Mitarbeiters, der Geschäftsleitung oder eines Inhabers unseres Unternehmens oder einer anderen in unserem Auftrag handelnden Person herbeigeführt worden ist bzw. nicht durch eine derartige Handlung herbeigeführt werden wird."
@@ -400,13 +394,13 @@ de:
   submit_final_statement: "Bitte geben Sie zuletzt noch die Abschlusserklärungen ab."
   has_accepted_terms_conditions_one_html: "Wir akzeptieren die %{href} "
   has_accepted_terms_conditions_one_text: "Allgemeinen Bedingungen für Lieferantenkreditdeckung(G)"
-  has_accepted_terms_conditions_one_href: "https://www.agaportal.de/_Resources/Persistent/3bfd6a43f17d04f9b34d523df323f0a44a9eaa17/ab_fab.pdf"
+  has_accepted_terms_conditions_one_href: "https://www.agaportal.de/_Resources/Persistent/a0f7e9ca94469da3e10b1aba119b5614409ff906/ab_g.pdf"
   has_accepted_terms_conditions_two_html: "in Zusammenhang mit den %{href} "
-  has_accepted_terms_conditions_two_text: "Ergänzenden Bestimmungen für Forderungsabtretungen "
-  has_accepted_terms_conditions_two_href: "https://www.agaportal.de/_Resources/Persistent/b751b874fd137e5f8b22b25d2bd8a15995b09eb2/ab_g.pdf"
+  has_accepted_terms_conditions_two_text: "Ergänzenden Bestimmungen für Forderungsabtretungen."
+  has_accepted_terms_conditions_two_href: "https://www.agaportal.de/_Resources/Persistent/3bfd6a43f17d04f9b34d523df323f0a44a9eaa17/ab_fab.pdf"
   has_read_privacy_policy_html: "Wir haben die %{href} zur Kenntnis genommen und sind mit deren Geltung einverstanden."
   has_read_privacy_policy_text: "Datenschutzhinweise"
-  has_read_privacy_policy_href: "/pages/termsAndConditions"
+  has_read_privacy_policy_href: "/pages/impressum"
   read_all_instruction_html: "Wir haben die %{href} für den Antrag, Veröffentlichung von Projektdaten, OECD-Leitsätze für multinationale Unternehmen und UN-Leitprinzipien für Wirtschafts- und Menschenrechte zur Kenntnis genommen."
   read_all_instruction_text: "Hinweise zu Gebühren und Entgelten, Richtlinien, Verantwortlichkeiten"
   read_all_instruction_href: "/pages/guidelines"
@@ -432,22 +426,14 @@ de:
   rate: "Rate"
   to: "zu"
   reference_point: "Referenztermin/Milestone"
+  browse: "Browse"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  #documents
+  self_disclosure: "Selbsauskunft"
+  additional_document: "Sonstiges"
+  credit_bureaus_importer: "Auskünfte Ihres Kunden"
+  documents_for_examination: "Diese Anlagen benötigen wir für die Prüfung Ihres Geschäftes"
+  self_declaration: "Selbstauskunft (bei Neukunden)"
+  annual_financial_statement_importer: "Jahresabschlüsse Ihres Kunden"
+  environment_social_audit: "Umwelt- und Sozialinformationen"
+  project_memorandum_exporter_business: "ggf. Projektmemorandum"
