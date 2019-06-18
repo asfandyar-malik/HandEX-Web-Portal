@@ -1,4 +1,20 @@
 <p id="notice"><%= notice %></p>
 
+<%#=  my_array = ['exporter_name', 'exporter_dn_no', 'exporter_address_line1']  %>
+
+<div class='disable_input'>
+
+    <% @export_application.attributes.each do |attr_name, attr_value| %>
+        <div class="work_profile_attribute">
+            <%= attr_name.humanize %> : <%= attr_value %>
+        </div>
+    <% end %>
+
+</div>
+
 <%= link_to 'Edit', edit_export_application_path(@export_application) %> |
 <%= link_to 'Back', export_applications_path %>
+
+<script>
+    $('.disable_input :input').prop('disabled', true);
+</script>
