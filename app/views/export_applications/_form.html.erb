@@ -463,7 +463,7 @@
 
                                         <div class="col background_toggle is_delivered_part_of_consortium_with_other_companies">
                                             <div class="input-field col s12 m12 no-padding">
-                                                <label><%= t :is_delivered_part_of_consortium_with_other_companies%> </label>
+                                                <%= form.label :is_delivered_part_of_consortium_with_other_companies, t('is_delivered_part_of_consortium_with_other_companies') %>
                                                 <p>
                                                     <label>
                                                         <%= check_box_tag "export_application[is_delivered_part_of_consortium_with_other_companies]", @export_application.is_delivered_part_of_consortium_with_other_companies ? @export_application.is_delivered_part_of_consortium_with_other_companies : nil, false, :onclick => "deliveredPartOfConsortiumWithOtherCompanies();", id: "export_application_is_delivered_part_of_consortium_with_other_companies" %>
