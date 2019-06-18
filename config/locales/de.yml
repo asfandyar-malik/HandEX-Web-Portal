@@ -366,12 +366,6 @@ de:
   exporter_representative_email: "Email"
   exporter_representative_function: "Funktion"
   exporter_representative_department: "Bereich"
-  documents_for_examination: "Diese Anlagen benötigen wir für die Prüfung Ihres Geschäftes"
-  self_declaration_document: "Selbstauskunft (bei Neukunden)"
-  annual_financial_statement_importer_document: "Jahresabschlüsse Ihres Kunden"
-  credit_bureaus_importer_document: "Auskünfte über Ihren Kunden"
-  environment_social_audit_document: "Umwelt- und Sozialinformationen"
-  project_memorandum_exporter_business: "ggf. Projektmemorandum"
   corruption_prevention_statement: "Bitte geben Sie die Erklärung zur Korruptionsprävention ab."
   compliance_heading: "Beachtung gesetzlicher Vorschriften "
   compliance_statement: "Wir erklären, dass der Abschluss des Liefer- bzw. Leistungsgeschäfts nicht durch eine strafbare Handlung eines Mitarbeiters, der Geschäftsleitung oder eines Inhabers unseres Unternehmens oder einer anderen in unserem Auftrag handelnden Person herbeigeführt worden ist bzw. nicht durch eine derartige Handlung herbeigeführt werden wird."
@@ -422,22 +416,14 @@ de:
   rate: "Rate"
   to: "zu"
   reference_point: "Referenztermin/Milestone"
+  browse: "Browse"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  #documents
+  self_disclosure: "Selbsauskunft"
+  additional_document: "Sonstiges"
+  credit_bureaus_importer: "Auskünfte Ihres Kunden"
+  documents_for_examination: "Diese Anlagen benötigen wir für die Prüfung Ihres Geschäftes"
+  self_declaration: "Selbstauskunft (bei Neukunden)"
+  annual_financial_statement_importer: "Jahresabschlüsse Ihres Kunden"
+  environment_social_audit: "Umwelt- und Sozialinformationen"
+  project_memorandum_exporter_business: "ggf. Projektmemorandum"

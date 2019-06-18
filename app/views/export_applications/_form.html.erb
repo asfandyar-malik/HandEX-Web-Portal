@@ -1453,7 +1453,7 @@
                                         <div class="col background_toggle has_previously_used_hermes_cover">
                                             <div class="input-field col s12 m12">
                                                 <div class="input-field col s12 m12 nopadding">
-                                                    <label>Haben Sie in der Vergangenheit schon einmal einen Antrag auf Hermesdeckung eingereicht? </label>
+                                                    <%= form.label :has_previously_used_hermes_cover, t('has_previously_used_hermes_cover') %>
                                                     <p>
                                                         <label>
                                                             <%= check_box_tag "export_application[has_previously_used_hermes_cover]", @export_application.has_previously_used_hermes_cover ? @export_application.has_previously_used_hermes_cover : nil, false, :onclick => "previouslyHermesInsuranceUsed();", id: "export_application_has_previously_used_hermes_cover" %>
@@ -1472,7 +1472,6 @@
                                                     <br>
                                                     <div class="col m10 offset-m1">
                                                         <p> <%= t('new_to_hermes_cover') %></p>
-                                                        <br><br>
                                                     </div>
 
                                                     <div class="col m10 offset-m1">
@@ -1481,13 +1480,11 @@
                                                     </div>
 
                                                     <div class="col m10 offset-m1">
-                                                        <br><br>
                                                         <p><i><%= t('experience_with_importer_country') %></i></p>
                                                         <%= form.text_field :experience_with_importer_country, class: "form-control" %>
                                                     </div>
 
                                                     <div class="col m10 offset-m1 ">
-                                                        <br><br>
                                                         <p><i> <%= t('adequate_claims_management') %></i></p>
                                                         <%= form.text_field :adequate_claims_management, class: "form-control" %>
                                                     </div>
@@ -1496,16 +1493,16 @@
                                         </div>
 
                                         <div class="input-field col s12 m12">
-                                            <label> Diese Anlagen benötigen wir für die Prüfung Ihres Geschäftes. </label>
-                                            <p>Bitte legen Sie die erforderlichen Unterlagen vor, damit wir eine faire Einschätzung Ihres Geschäfts und des Geschäfts Ihres Kunden vornehmen können.</p>
+                                            <label> <%= t('information_for_business_examination') %> </label>
+                                            <p> <%= t('information_for_business_examination_description') %> </p>
                                         </div>
 
 
                                         <div class="input-field col s12 m6 ">
-                                            <label> Selbsauskunft </label>
+                                            <%= form.label :self_disclosure, t('self_disclosure') %>
                                             <div class="file-field input-field">
                                                 <div class="btn handex-btn z-depth-0">
-                                                    <span>Browse</span>
+                                                    <span> <%= t('browse') %></span>
                                                     <%= form.file_field :self_disclosure %>
                                                     <input type="file" data-height="300"/>
                                                 </div>
@@ -1517,12 +1514,11 @@
                                             </div>
                                         </div>
 
-
                                         <div class="input-field col s12 m6 ">
-                                            <label> Jahresabschlüsse Ihres Kunden </label>
+                                            <%= form.label :annual_financial_statement_importer, t('annual_financial_statement_importer') %>
                                             <div class="file-field input-field">
                                                 <div class="btn handex-btn z-depth-0">
-                                                    <span>Browse</span>
+                                                    <span><%= t('browse') %></span>
                                                     <%= form.file_field :annual_financial_statement_importer %>
                                                     <input type="file" data-height="300"/>
                                                 </div>
@@ -1535,11 +1531,11 @@
                                         </div>
 
                                         <div class="input-field col s12 m6 ">
-                                            <label> <%= t('environment_social_audit_document') %> </label>
+                                            <%= form.label :environment_social_audit, t('environment_social_audit_document') %>
                                             <div class="file-field input-field">
 
                                                 <div class="btn handex-btn z-depth-0">
-                                                    <span>Browse</span>
+                                                    <span><%= t('browse') %></span>
                                                     <%= form.file_field :environment_social_audit %>
                                                     <input type="file" data-height="300"/>
                                                 </div>
@@ -1552,10 +1548,10 @@
                                         </div>
 
                                         <div class="input-field col s12 m6 ">
-                                            <label><%= t('project_memorandum_exporter_business') %></label>
+                                            <%= form.label :project_memorandum_exporter_business, t('project_memorandum_exporter_business') %>
                                             <div class="file-field input-field">
                                                 <div class="btn handex-btn z-depth-0">
-                                                    <span>Browse</span>
+                                                    <span><%= t('browse') %></span>
                                                     <%= form.file_field :project_memorandum_exporter_business %>
                                                     <input type="file" data-height="300"/>
                                                 </div>
@@ -1569,10 +1565,10 @@
 
 
                                         <div class="input-field col s12 m6 ">
-                                            <label>Auskünfte Ihres Kunden</label>
+                                            <%= form.label :credit_bureaus_importer, t('credit_bureaus_importer') %>
                                             <div class="file-field input-field">
                                                 <div class="btn handex-btn z-depth-0">
-                                                    <span>Browse</span>
+                                                    <span><%= t('browse') %></span>
                                                     <%= form.file_field :credit_bureaus_importer %>
                                                 </div>
 
@@ -1584,10 +1580,10 @@
                                         </div>
 
                                         <div class="input-field col s12 m6 ">
-                                            <label>Sonstiges</label>
+                                            <%= form.label :additional_document, t('additional_document') %>
                                             <div class="file-field input-field">
                                                 <div class="btn z-depth-0 handex-btn">
-                                                    <span>Browse</span>
+                                                    <span><%= t('browse') %></span>
                                                     <%= form.file_field :additional_document %>
                                                 </div>
 
@@ -1601,52 +1597,32 @@
                                     </div>
 
                                     <div class="input-field col s12 m12">
-                                        <label>Bitte geben Sie die Erklärung zur Korruptionsprävention ab.</label>
+                                        <label> <%= t('corruption_prevention_statement') %></label>
                                     </div>
                                     <div class="input-field col s12 greybox">
 
                                         <div class="input-field col s12 m12">
-                                            <label>Beachtung gesetzlicher Vorschriften.</label>
-                                            <p>Wir erklären, dass der Abschluss des Liefer- bzw. Leistungsgeschäfts nicht durch eine strafbare
-                                                Handlung eines
-                                                Mitarbeiters, der Geschäftsleitung oder eines Inhabers unseres Unternehmens oder einer anderen in
-                                                unserem
-                                                Auftrag handelnden Person herbeigeführt worden ist bzw. nicht durch eine derartige Handlung
-                                                herbeigeführt
-                                                werden wird.</p>
+                                            <label> <%= t('compliance_heading') %> </label>
+                                            <p> <%= t('compliance_statement') %></p>
                                         </div>
 
                                         <div class="input-field col s12 m12">
-                                            <label>Auskunftspflicht</label>
-                                            <p>Uns ist bekannt, dass wir im Antragsverfahren und nach Übernahme der jeweils beantragten
-                                                Exportkreditgarantie
-                                                sowie gemäß der bei Beantragung einer Exportkreditgarantie für einen gebundenen Finanzkredit
-                                                abzugebenden
-                                                Verpflichtungserklärung über alle Umstände des zur Deckung beantragten Geschäfts, die für die
-                                                Übernahme der
-                                                Exportkreditgarantie erheblich sind, dem Bund vollständig und richtig Auskunft zu erteilen haben.
-                                                Dies umfasst
-                                                auch die Beantwortung von Fragen des Bundes hinsichtlich der Identität von Personen, die in
-                                                unserem Auftrag am
-                                                Abschluss des Liefer- bzw. Leistungsgeschäfts beteiligt sind oder waren, sowie von Fragen über
-                                                Grund und Höhe
-                                                etwaiger Zahlungen an diese Personen.</p>
+                                            <label><%= t('obligation_heading') %></label>
+                                            <p> <%= t('obligation_statement') %> </p>
                                         </div>
 
                                         <div class="input-field col s12 m12">
-                                            <label>Angaben zu Anklagen, strafrechtlichen und nicht-strafrechtlichen.</label>
-                                            <p>Sanktionen sowie Ermittlungsverfahren und Sperrlisten Mitarbeiter, die Geschäftsleitung oder Inhaber unseres Unternehmens oder andere an diesem  Vertragsabschluss beteiligte und in unserem Auftrag handelnde Personen oder unser Unternehmen selbst sind/ist wegen eines Korruptionsdelikts: </p>
+                                            <label><%= t('criminal_information_heading') %> </label>
+                                            <p> <%= t('criminal_information_statement') %> </p>
                                         </div>
 
                                         <div class="input-field col s12 m12">
                                             <ul>
-                                                <li> * gegenwärtig vor einem staatlichen Gericht angeklagt oder</li>
-                                                <li> * innerhalb der letzten 5 Jahre von einem staatlichen Gericht verurteilt oder</li>
-                                                <li> * mit einer mit einem Gerichtsurteil vergleichbaren nicht-strafrechtlichen Sanktion belegt
-                                                    worden oder
-                                                </li>
-                                                <li> * einem staatsanwaltschaftlichen Ermittlungsverfahren unterworfen worden oder</li>
-                                                <li> * auf einer Sperrliste einer internationalen Finanzorganisation aufgeführt.</li>
+                                                <li> * <%= state_court %></li>
+                                                <li> * <%= court_case_5_years %> </li>
+                                                <li> * <%= sanction_by_court %> </li>
+                                                <li> * <%= subjected_to_public_prosecutor %> </li>
+                                                <li> * <%= listed_on_blacklist %> </li>
                                             </ul>
                                         </div>
 
@@ -1668,9 +1644,7 @@
                                         <div id="corruptionDeclaration" style="display: none">
                                             <div class="row">
                                                 <div class="input-field col s12">
-                                                    <label>Bitte machen Sie Angaben zu den oben genannten Punkten in Bezug auf Anklage,
-                                                        strafrechtliche oder nicht strafrechtliche Sanktionen sowie
-                                                        Vorbereitungs- und Sperrverfahren. </label>
+                                                    <%= form.label :explain_corruption_sanctions, t('explain_corruption_sanctions') %>
                                                     <%= form.text_area :explain_corruption_sanctions, autofocus: true, class: "validate" %>
                                                 </div>
                                             </div>
