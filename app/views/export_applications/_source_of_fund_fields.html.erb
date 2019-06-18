@@ -1,7 +1,7 @@
 <tr class="nested-fields">
 
     <td>
-        <div> <%= f.text_field :description, class: "validate", placeholder: "z.B. \"ECA-Finanzierung\" " %> </div>
+        <div> <%= f.text_field :description, class: "validate", placeholder: t('fund_use_example') %> </div>
     </td>
 
     <td>
@@ -13,7 +13,7 @@
     </td>
 
     <td>
-        <%= link_to_remove_association "Löschen", f, class: 'btn btn-primary btn-xs' %>
+        <%= link_to_remove_association t('clear'), f, class: 'btn btn-primary btn-xs' %>
     </td>
 
 </tr>

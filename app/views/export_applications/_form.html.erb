@@ -35,12 +35,12 @@
                         <div class="row form-nav-top">
                             <div class="col s12 m4">
                                 <div class="form-nav">
-                                    <p><span> 10% Fertig </span></p>
+                                    <p><span> 10% <%= t :complete %></span></p>
                                 </div>
                             </div>
                             <div class="col s12 m4">
                                 <div class="form-nav">
-                                    <h2>Unternehmen</h2>
+                                    <h2><%= t :company %></h2>
                                 </div>
                             </div>
                             <div class="col s12 m4">
@@ -58,7 +58,7 @@
                                         <div class="form-content">
                                             <div class="row">
                                                 <div class="input-field col s12 m6">
-                                                    <label>Firmenname</label>
+                                                    <label><%= t :company_name%></label>
                                                     <%= form.text_field :exporter_name, autofocus: true, class: "validate" %>
                                                 </div>
                                                 <div class="input-field col s12 m6">
@@ -66,63 +66,63 @@
                                                     <%= form.text_field :exporter_dn_no, autofocus: true, class: "validate" %>
                                                 </div>
                                                 <div class="input-field col s12">
-                                                    <label>Adresszeile 1</label>
+                                                    <label><%= t :address_line_one%></label>
                                                     <%= form.text_field :exporter_address_line1, autofocus: true, class: "validate" %>
                                                 </div>
                                                 <div class="input-field col s12 m12">
-                                                    <label>Adresszeile 2</label>
+                                                    <label><%= t :address_line_two%></label>
                                                     <%= form.text_field :exporter_address_line2, autofocus: true, class: "validate" %>
                                                 </div>
                                                 <div class="input-field col s12 m6">
-                                                    <label>Postleitzahl</label>
+                                                    <label><%= t :post_code%></label>
                                                     <%= form.text_field :exporter_plz, class: "validate" %>
                                                 </div>
 
                                                 <div class="input-field col s12 m6">
-                                                    <label>Land</label>
+                                                    <label><%= t :country%></label>
                                                     <%= form.select :exporter_country, options_for_select([t('please_select'), "Afghanistan", "Ägypten", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Äquatorialguinea", "Argentinien", "Armenien", "Aserbaidschan", "Äthiopien", "Australien", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belgien", "Belize", "Benin", "Bergkarabach", "Bhutan", "Bolivien", "Bosnien und Herzegowina", "Botswana", "Brasilien", "Brunei", "Bulgarien", "Burkina Faso", "Burundi", "Chile", "Republik China", "Volksrepublik China", "mit Hongkong (HK) und Macao (MO)", "Cookinseln", "Costa Rica", "Dänemark", "mit Färöer (FO) und Grönland (GL)", "Deutschland", "Dominica", "Dominikanische Republik", "Dschibuti", "Ecuador", "El Salvador", "Elfenbeinküste", "Eritrea", "Estland", "Fidschi", "Finnland", "Frankreich", "(ohne Französische Überseegebiete)", "Gabun", "Gambia", "Georgien", "(mit Abchasien und Südossetien)", "Ghana", "Grenada", "Griechenland", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Indien", "(mit Kaschmir)", "Indonesien", "Irak", "Iran", "Irland", "Island", "Israel", "(ohne Gazastreifen, Golanhöhen und Westjordanland)", "Italien", "Jamaika", "Japan", "Jemen", "Jordanien", "Kambodscha", "Kamerun", "Kanada", "Kap Verde", "Kasachstan", "Katar", "Kenia", "Kirgisistan", "Kiribati", "Kolumbien", "Komoren", "Kongo, Demokratische Republik", "Kongo, Republik", "Korea, Nord", "Korea, Süd", "Kosovo", "Kroatien", "Kuba", "Kuwait", "Laos", "Lesotho", "Lettland", "Libanon", "Liberia", "Libyen", "Liechtenstein", "Litauen", "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marokko", "(ohne Westsahara)", "Marshallinseln", "Mauretanien", "Mauritius", "Mazedonien", "Mexiko", "Mikronesien", "Moldawien", "(mit Transnistrien)", "Monaco", "Mongolei", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nepal", "Neuseeland", "Nicaragua", "Königreich der Niederlande", "(ohne Curaçao, Sint Maarten und Aruba)", "Niger", "Nigeria", "Niue", "Nordzypern", "Norwegen", "(ohne Svalbard)", "Oman", "Österreich", "Osttimor / Timor-Leste", "Pakistan", "(ohne Kaschmir)", "Palästina", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal", "Ruanda", "Rumänien", "Russland", "Salomonen", "Sambia", "Samoa", "San Marino", "São Tomé und Príncipe", "Saudi-Arabien", "Schweden", "Schweiz", "Senegal", "Serbien", "(ohne Kosovo)", "Seychellen", "Sierra Leone", "Simbabwe", "Singapur", "Slowakei", "Slowenien", "Somalia", "(mit Somaliland)", "Somaliland", "Spanien", "Sri Lanka", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Südafrika", "Sudan", "Südossetien", "Südsudan", "Suriname", "Swasiland", "Syrien", "(mit Golanhöhen)", "Tadschikistan", "Tansania", "Thailand", "Togo", "Tonga", "Transnistrien", "Trinidad und Tobago", "Tschad", "Tschechien", "Tunesien", "Türkei", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstadt", "Venezuela", "Vereinigte Arabische Emirate", "Vereinigte Staaten", "(ohne Außengebiete)", "Vereinigtes Königreich", "Vietnam", "Weißrussland", "Westsahara", "Zentralafrikanische Republik", "Zypern"], @export_application.exporter_country ? @export_application.exporter_country : nil), {}, class: 'validate' %>
                                                 </div>
 
                                                 <div class="input-field col s12 m6">
-                                                    <label>Steuernummer</label>
+                                                    <label><%= t :tax_number%></label>
                                                     <%= form.text_field :exporter_tax_id, autofocus: true, class: "validate" %>
                                                 </div>
 
                                                 <div class="input-field col s12 m6">
-                                                    <label>Gründungsjahr</label>
+                                                    <label><%= t :founding_year%></label>
                                                     <%= form.text_field :exporter_date_founded, autofocus: true, class: "validate" %>
                                                 </div>
 
                                                 <div class="input-field col s12 m6">
-                                                    <label>Anzahl der Mitarbeiter</label>
+                                                    <label><%= t :number_of_employees%></label>
                                                     <%= form.text_field :employees_count, autofocus: true, class: "validate" %>
                                                 </div>
                                                 <div class="input-field col s12 m6">
-                                                    <label>Umsatz (in Mio EUR)</label>
+                                                    <label><%= t :sales%> (in Mio EUR)</label>
                                                     <%= form.text_field :exporter_revenue, autofocus: true, class: "validate" %>
                                                 </div>
                                                 <div class="input-field col s12 m6">
-                                                    <label>Bilanzsumme (in Mio EUR)</label>
+                                                    <label><%= t :total_assets%> (in Mio EUR)</label>
                                                     <%= form.text_field :exporter_total_assets, autofocus: true, class: "validate" %>
                                                 </div>
                                                 <div class="input-field col s12 m12">
                                                     <div class="input-field col s12 m6 nopadding">
-                                                        <label>Letztes Geschäftsjahr</label>
+                                                        <label><%= t :last_business_year%></label>
                                                         <%= form.text_field :exporter_last_fiscal_year, autofocus: true, class: "validate" %>
                                                     </div>
                                                 </div>
                                                 <div class="col background_toggle exporter_external_rating_available">
                                                     <div class="input-field col s12 m12">
                                                         <div class="input-field col s12 m12 nopadding">
-                                                            <label> Wurde Ihr Unternehmen von einer externen Rating Agentur bewertet? </label>
+                                                            <label> <%= t :have_external_rating%> </label>
                                                             <p>
                                                                 <label>
                                                                     <%= check_box_tag "export_application[exporter_external_rating_available]", @export_application.exporter_external_rating_available ? @export_application.exporter_external_rating_available : nil, false, :onclick => "exporterExternalRatingFunction();", id: "export_application_exporter_external_rating_available" %>
-                                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.exporter_external_rating_available.present? && @export_application.exporter_external_rating_available) %>">Ja</span>
+                                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.exporter_external_rating_available.present? && @export_application.exporter_external_rating_available) %>"><%= t :yes%></span>
                                                                 </label>
 
                                                                 <label onclick="noExporterExternalRatingFunction()">
-                                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.exporter_external_rating_available.present? && !@export_application.exporter_external_rating_available) %>">Nein</span>
+                                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.exporter_external_rating_available.present? && !@export_application.exporter_external_rating_available) %>"><%= t :no%></span>
                                                                 </label>
                                                             </p>
                                                         </div>
@@ -130,15 +130,15 @@
                                                         <div id="exporterExternalRating" style="display: none">
                                                             <div class="row">
                                                                 <div class="input-field col s12">
-                                                                    <label>Rating Ergebnis</label>
+                                                                    <label><%= t :rating_result%></label>
                                                                     <%= form.text_field :exporter_rating, autofocus: true, class: "validate" %>
                                                                 </div>
                                                                 <div class="input-field col s12 m6">
-                                                                    <label>Ratingagentur</label>
+                                                                    <label><%= t :rating_agency%></label>
                                                                     <%= form.text_field :exporter_rating_agency, autofocus: true, class: "validate" %>
                                                                 </div>
                                                                 <div class="input-field col s12 m6">
-                                                                    <label>Datum des Ratings </label>
+                                                                    <label><%= t :rating_date%></label>
                                                                     <%= form.text_field :exporter_rating_issued_date, autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
                                                                 </div>
                                                             </div>
@@ -159,12 +159,12 @@
                         <div class="row form-nav-top">
                             <div class="col s12 m4">
                                 <div class="form-nav">
-                                    <p><span> 25% Fertig </span></p>
+                                    <p><span> 25% <%= t :complete%> </span></p>
                                 </div>
                             </div>
                             <div class="col s12 m4">
                                 <div class="form-nav">
-                                    <h2>Kunde</h2>
+                                    <h2><%= t :your_importer%></h2>
                                 </div>
                             </div>
                             <div class="col s12 m4">
@@ -181,39 +181,39 @@
                                 <div class="form-content">
                                     <div class="row">
                                         <div class="input-field col s12 m12">
-                                            <label>Firmenname</label>
+                                            <label><%= t :company_name%></label>
                                             <%= form.text_field :importer_company_name, autofocus: true, class: "validate" %>
                                         </div>
                                         <div class="input-field col s12 m12">
-                                            <label>Adresszeile 1</label>
+                                            <label><%= t :address_line_one%></label>
                                             <%= form.text_field :importer_address_line1, autofocus: true, class: "validate" %>
                                         </div>
                                         <div class="input-field col s12 m12">
-                                            <label>Adresszeile 2</label>
+                                            <label><%= t :address_line_two%></label>
                                             <%= form.text_field :importer_address_line2, autofocus: true, class: "validate" %>
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <label>Postleitzahl</label>
+                                            <label><%= t :post_code%></label>
                                             <%= form.text_field :importer_plz, autofocus: true, class: "validate" %>
                                         </div>
 
                                         <div class="input-field col s12 m8">
-                                            <label>Land</label>
+                                            <label><%= t :country%></label>
                                             <%= form.select :importer_country, options_for_select([t('please_select'), "Afghanistan", "Ägypten", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Äquatorialguinea", "Argentinien", "Armenien", "Aserbaidschan", "Äthiopien", "Australien", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belgien", "Belize", "Benin", "Bergkarabach", "Bhutan", "Bolivien", "Bosnien und Herzegowina", "Botswana", "Brasilien", "Brunei", "Bulgarien", "Burkina Faso", "Burundi", "Chile", "Republik China", "Volksrepublik China", "mit Hongkong (HK) und Macao (MO)", "Cookinseln", "Costa Rica", "Dänemark", "mit Färöer (FO) und Grönland (GL)", "Deutschland", "Dominica", "Dominikanische Republik", "Dschibuti", "Ecuador", "El Salvador", "Elfenbeinküste", "Eritrea", "Estland", "Fidschi", "Finnland", "Frankreich", "(ohne Französische Überseegebiete)", "Gabun", "Gambia", "Georgien", "(mit Abchasien und Südossetien)", "Ghana", "Grenada", "Griechenland", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Indien", "(mit Kaschmir)", "Indonesien", "Irak", "Iran", "Irland", "Island", "Israel", "(ohne Gazastreifen, Golanhöhen und Westjordanland)", "Italien", "Jamaika", "Japan", "Jemen", "Jordanien", "Kambodscha", "Kamerun", "Kanada", "Kap Verde", "Kasachstan", "Katar", "Kenia", "Kirgisistan", "Kiribati", "Kolumbien", "Komoren", "Kongo, Demokratische Republik", "Kongo, Republik", "Korea, Nord", "Korea, Süd", "Kosovo", "Kroatien", "Kuba", "Kuwait", "Laos", "Lesotho", "Lettland", "Libanon", "Liberia", "Libyen", "Liechtenstein", "Litauen", "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marokko", "(ohne Westsahara)", "Marshallinseln", "Mauretanien", "Mauritius", "Mazedonien", "Mexiko", "Mikronesien", "Moldawien", "(mit Transnistrien)", "Monaco", "Mongolei", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nepal", "Neuseeland", "Nicaragua", "Königreich der Niederlande", "(ohne Curaçao, Sint Maarten und Aruba)", "Niger", "Nigeria", "Niue", "Nordzypern", "Norwegen", "(ohne Svalbard)", "Oman", "Österreich", "Osttimor / Timor-Leste", "Pakistan", "(ohne Kaschmir)", "Palästina", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal", "Ruanda", "Rumänien", "Russland", "Salomonen", "Sambia", "Samoa", "San Marino", "São Tomé und Príncipe", "Saudi-Arabien", "Schweden", "Schweiz", "Senegal", "Serbien", "(ohne Kosovo)", "Seychellen", "Sierra Leone", "Simbabwe", "Singapur", "Slowakei", "Slowenien", "Somalia", "(mit Somaliland)", "Somaliland", "Spanien", "Sri Lanka", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Südafrika", "Sudan", "Südossetien", "Südsudan", "Suriname", "Swasiland", "Syrien", "(mit Golanhöhen)", "Tadschikistan", "Tansania", "Thailand", "Togo", "Tonga", "Transnistrien", "Trinidad und Tobago", "Tschad", "Tschechien", "Tunesien", "Türkei", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstadt", "Venezuela", "Vereinigte Arabische Emirate", "Vereinigte Staaten", "(ohne Außengebiete)", "Vereinigtes Königreich", "Vietnam", "Weißrussland", "Westsahara", "Zentralafrikanische Republik", "Zypern"], @export_application.importer_country ? @export_application.importer_country : nil), {}, class: 'validate' %>
                                         </div>
 
                                         <div class="col background_toggle is_delivered_at_this_address">
                                             <div class="input-field col s12 m12">
                                                 <div class="input-field col s12 m12 nopadding">
-                                                    <label>Liefern Sie an diese Adresse? </label>
+                                                    <label><%= t :is_shipment_address%></label>
                                                     <p>
                                                         <label>
                                                             <%= check_box_tag "export_application[is_delivered_at_this_address]", @export_application.is_delivered_at_this_address ? @export_application.is_delivered_at_this_address : nil, false, :onclick => "deliveredAtThisAddress();", id: "export_application_is_delivered_at_this_address" %>
-                                                            <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_delivered_at_this_address.present? && @export_application.is_delivered_at_this_address) %>">Ja</span>
+                                                            <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_delivered_at_this_address.present? && @export_application.is_delivered_at_this_address) %>"><%= t :yes%></span>
                                                         </label>
 
                                                         <label onclick="noDeliveredAtThisAddress()">
-                                                            <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.is_delivered_at_this_address.present? && !@export_application.is_delivered_at_this_address) %>">Nein</span>
+                                                            <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.is_delivered_at_this_address.present? && !@export_application.is_delivered_at_this_address) %>"><%= t :no%></span>
                                                         </label>
                                                     </p>
                                                 </div>
@@ -224,27 +224,27 @@
                                                 <div class="row">
                                                     <br>
                                                     <div class="input-field col s6 m4">
-                                                        <label>Firmenname</label>
+                                                        <label><%= t :company_name%></label>
                                                         <%= form.text_field :importer_shipment_company_name, autofocus: true, class: "validate" %>
                                                     </div>
 
                                                     <div class="input-field col s6 m4">
-                                                        <label>Land</label>
+                                                        <label><%= t :country%></label>
                                                         <%= form.text_field :importer_shipment_country, autofocus: true, class: "validate" %>
                                                     </div>
 
                                                     <div class="input-field col s6 m4">
-                                                        <label>Straße / Hausnummer </label>
+                                                        <label><%= t :exporter_street_hno%></label>
                                                         <%= form.text_field :importer_shipment_street_hno, autofocus: true, class: "validate" %>
                                                     </div>
 
                                                     <div class="input-field col s6 m4">
-                                                        <label>PLZ</label>
+                                                        <label><%= t :post_code%></label>
                                                         <%= form.text_field :importer_shipment_plz, :onkeypress => "return onlyAllowNumericalValue(event)", autofocus: true, class: "validate" %>
                                                     </div>
 
                                                     <div class="input-field col s6 m4">
-                                                        <label>Ort</label>
+                                                        <label><%= t :importer_city%></label>
                                                         <%= form.text_field :importer_shipment_city, autofocus: true, class: "validate" %>
                                                     </div>
                                                 </div>
@@ -253,36 +253,36 @@
 
                                         <div class="input-field col s12 m12">
                                             <div class="input-field col s12 m12 nopadding">
-                                                <label>Ist Ihr Kunde ein öffentliches oder privates Unternehmen? </label>
+                                                <label><%= t :is_private_public_sector%></label>
                                                 <p>
                                                     <label>
                                                         <%= check_box_tag "export_application[is_exporting_to_private_sector]", @export_application.is_exporting_to_private_sector ? @export_application.is_exporting_to_private_sector : nil, false, id: "export_application_is_exporting_to_private_sector" %>
-                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_exporting_to_private_sector.present? && @export_application.is_exporting_to_private_sector) %>">Privat Sektor</span>
+                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_exporting_to_private_sector.present? && @export_application.is_exporting_to_private_sector) %>"><%= t :is_exporting_to_private_sctor%></span>
                                                     </label>
 
                                                     <label onclick="noPrivate_sector()">
-                                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.is_exporting_to_private_sector.present? && !@export_application.is_exporting_to_private_sector) %>"> Öffentlich Sektor</span>
+                                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.is_exporting_to_private_sector.present? && !@export_application.is_exporting_to_private_sector) %>"><%= t :is_exporting_to_public_sector%></span>
                                                     </label>
                                                 </p>
                                             </div>
                                         </div>
 
                                         <div class="input-field col s12 m6">
-                                            <label>Industrie</label>
+                                            <label><%= t :industry%></label>
                                             <%= form.text_field :importer_industry, autofocus: true, class: "validate" %>
                                         </div>
 
                                         <div class="input-field col s12 m12">
                                             <div class="input-field col s12 m12 nopadding">
-                                                <label>Haben Sie bereits Zahlungserfahrungen mit Ihrem Kunden? </label>
+                                                <label><%= t :have_payment_experience%></label>
                                                 <p>
                                                     <label>
                                                         <%= check_box_tag "export_application[has_payment_experience_with_importer]", @export_application.has_payment_experience_with_importer ? @export_application.has_payment_experience_with_importer : nil, false, id: "export_application_has_payment_experience_with_importer" %>
-                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.has_payment_experience_with_importer.present? && @export_application.has_payment_experience_with_importer) %>">Ja</span>
+                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.has_payment_experience_with_importer.present? && @export_application.has_payment_experience_with_importer) %>"><%= t :yes%></span>
                                                     </label>
 
                                                     <label onclick="noPaymentExperience()">
-                                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.has_payment_experience_with_importer.present? && !@export_application.has_payment_experience_with_importer) %>">Nein</span>
+                                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.has_payment_experience_with_importer.present? && !@export_application.has_payment_experience_with_importer) %>"><%= t :no%></span>
                                                     </label>
                                                 </p>
                                             </div>
@@ -290,29 +290,29 @@
 
                                         <div class="input-field col s12 m12">
                                             <div class="input-field col s12 m6 nopadding">
-                                                <label>Steuernummer</label>
+                                                <label><%= t :tax_number%></label>
                                                 <%= form.text_field :importer_tax_id, autofocus: true, class: "validate" %>
                                             </div>
                                         </div>
 
                                         <div class="input-field col s12 m12">
                                             <div class="input-field col s12 m6 nopadding">
-                                                <label>Handelsregisternummer</label>
+                                                <label><%= t :registration_number%></label>
                                                 <%= form.text_field :importer_company_registration_number, autofocus: true, class: "validate" %>
                                             </div>
                                         </div>
                                         <div class="col background_toggle importer_external_rating_available">
                                             <div class="input-field col s12 m12">
                                                 <div class="input-field col s12 m12 nopadding">
-                                                    <label> Externes Rating? </label>
+                                                    <label><%= t :external_rating%></label>
                                                     <p>
                                                         <label>
                                                             <%= check_box_tag "export_application[importer_external_rating_available]", @export_application.importer_external_rating_available ? @export_application.importer_external_rating_available : nil, false, :onclick => "importerExternalRatingFunction();", id: "export_application_importer_external_rating_available" %>
-                                                            <span class="yes yes-no-btns  <%= 'active-btn' if (@export_application.importer_external_rating_available.present? && @export_application.importer_external_rating_available) %>">Ja</span>
+                                                            <span class="yes yes-no-btns  <%= 'active-btn' if (@export_application.importer_external_rating_available.present? && @export_application.importer_external_rating_available) %>"><%= t :yes%></span>
                                                         </label>
 
                                                         <label onclick="noImporterExternalRatingFunction()">
-                                                            <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.importer_external_rating_available.present? && !@export_application.importer_external_rating_available) %>">Nein</span>
+                                                            <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.importer_external_rating_available.present? && !@export_application.importer_external_rating_available) %>"><%= t :no%></span>
                                                         </label>
                                                     </p>
                                                 </div>
@@ -320,15 +320,15 @@
                                             <div id="importerExternalRating" style="display: none">
                                                 <div class="row">
                                                     <div class="input-field col s12">
-                                                        <label>Rating Ergebnis</label>
+                                                        <label><%= t :rating_result%></label>
                                                         <%= form.text_field :importer_rating, autofocus: true, class: "validate" %>
                                                     </div>
                                                     <div class="input-field col s12 m6">
-                                                        <label>Ratingagentur</label>
+                                                        <label><%= t :rating_agency%></label>
                                                         <%= form.text_field :importer_rating_agency, autofocus: true, class: "validate" %>
                                                     </div>
                                                     <div class="input-field col s12 m6">
-                                                        <label>Datum des Ratings </label>
+                                                        <label><%= t :rating_date%></label>
                                                         <%= form.text_field :importer_rating_issued_date, autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
                                                     </div>
                                                 </div>
@@ -337,15 +337,15 @@
 
                                         <div class="input-field col s12 m12">
                                             <div class="input-field col s12 m12 nopadding">
-                                                <label> Wird die Firma durch ein direktes Mutterunternehmen kontrolliert? </label>
+                                                <label><%= t :importer_parent_company_exists%></label>
                                                 <p>
                                                     <label>
                                                         <%= check_box_tag "export_application[is_company_controlled_by_mother_company]", @export_application.is_company_controlled_by_mother_company ? @export_application.is_company_controlled_by_mother_company : nil, false, :onclick => "controlledByMotherCompany();", id: "export_application_is_company_controlled_by_mother_company" %>
-                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_company_controlled_by_mother_company.present? && @export_application.is_company_controlled_by_mother_company) %>">Ja</span>
+                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_company_controlled_by_mother_company.present? && @export_application.is_company_controlled_by_mother_company) %>"><%= t :yes%></span>
                                                     </label>
 
                                                     <label onclick="notControlledByMotherCompany()">
-                                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns  <%= 'active-btn' if (@export_application.is_company_controlled_by_mother_company.present? && !@export_application.is_company_controlled_by_mother_company) %>">Nein</span>
+                                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns  <%= 'active-btn' if (@export_application.is_company_controlled_by_mother_company.present? && !@export_application.is_company_controlled_by_mother_company) %>"><%= t :no%></span>
                                                     </label>
                                                 </p>
                                             </div>
@@ -353,15 +353,15 @@
                                         <div class="col background_toggle has_significant_influence_on_importer_management">
                                             <div class="input-field col s12 m12">
                                                 <div class="input-field col s12 m12 nopadding">
-                                                    <label> Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder üben maßgeblichen Einfluss auf die Geschäftsführung aus?</label>
+                                                    <label><%= t :influence_over_importer%></label>
                                                     <p>
                                                         <label>
                                                             <%= check_box_tag "export_application[has_significant_influence_on_importer_management]", @export_application.has_significant_influence_on_importer_management ? @export_application.has_significant_influence_on_importer_management : nil, false, :onclick => "significantInfluenceOnImporter();", id: "export_application_has_significant_influence_on_importer_management" %>
-                                                            <span class="yes yes-no-btns  <%= 'active-btn' if (@export_application.has_significant_influence_on_importer_management.present? && @export_application.has_significant_influence_on_importer_management) %>">Ja</span>
+                                                            <span class="yes yes-no-btns  <%= 'active-btn' if (@export_application.has_significant_influence_on_importer_management.present? && @export_application.has_significant_influence_on_importer_management) %>"><%= t :yes%></span>
                                                         </label>
 
                                                         <label onclick="noSignificantInfluenceOnImporter()">
-                                                            <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.has_significant_influence_on_importer_management.present? && !@export_application.has_significant_influence_on_importer_management) %>">Nein</span>
+                                                            <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.has_significant_influence_on_importer_management.present? && !@export_application.has_significant_influence_on_importer_management) %>"><%= t :no%></span>
                                                         </label>
                                                     </p>
                                                 </div>
@@ -370,7 +370,7 @@
                                             <div id="significantInfluenceImporter" style="display: none">
                                                 <div class="row">
                                                     <div class="input-field col s12 m6">
-                                                        <label>Bitte helfen sie uns, die Beteiligung besser zu verstehen </label>
+                                                        <label><%= t :understanding_influence%></label>
                                                         <%= form.text_field :explain_exporter_influence_on_importer_management, autofocus: true, class: "validate" %>
                                                     </div>
                                                 </div>
@@ -388,12 +388,12 @@
                         <div class="row form-nav-top">
                             <div class="col s12 m4">
                                 <div class="form-nav">
-                                    <p><span> 50% Fertig </span></p>
+                                    <p><span> 50% <%= t :complete%> </span></p>
                                 </div>
                             </div>
                             <div class="col s12 m4">
                                 <div class="form-nav">
-                                    <h2>Geschäft</h2>
+                                    <h2><%= t :business_heading%></h2>
                                 </div>
                             </div>
                             <div class="col s12 m4">
@@ -413,48 +413,47 @@
                                     <div class="row">
 
                                         <div class="input-field col s12">
-                                            <label>Bitte ordnen Sie die von Ihnen zu liefernden Waren bzw. Dienstleistungen Ihrer Branche
-                                                zu.</label>
-                                            <%= form.select :exported_goods_type, options_for_select([t('please_select'), 'Bergbau, inkl. Verarbeitung', 'Erdöl- und Erdgasförderung inkl. Verarbeitung', 'Chemie', 'Energie', 'Infrastruktur', 'Papier- , Holz-, Leder- und Textilindustrie', 'Agrarsektor und Nahrungsmittelindustrie', 'Verarbeitende Industrie', 'Umwelttechnik', 'Dienstleistungen'], @export_application.exported_goods_type ? @export_application.exported_goods_type : nil) %>
+                                            <label><%= t :exported_goods_type%></label>
+                                            <%= form.select :exported_goods_type, options_for_select([t('please_select'), t('mining'), t('oil_gas_extraction'), t('chemistry'), t('energy'), t('infrastructure'),  t('paper_wood_leather_tetile_industry'), t('agriculture_food_industry'),t('manifacturing_industry'),t('environmental_technology'),t('services')], @export_application.exported_goods_type ? @export_application.exported_goods_type : nil) %>
                                         </div>
 
                                         <div class="input-field col s12">
-                                            <label>Bitte beschreiben Sie Ihre Industrie genauer</label>
+                                            <label><%= t :explain_good_industry_type%></label>
                                             <%= form.text_field :explain_good_industry_type, autofocus: true, class: "validate" %>
                                         </div>
 
                                         <div class="input-field col s12 m12">
                                             <div class="input-field col s12 m12 nopadding">
-                                                <label> Handelt es sich bei Ihrer Ware um Investitionsgüter? </label>
+                                                <label><%= t :is_goods_capital%></label>
                                                 <p>
                                                     <label>
                                                         <%= check_box_tag "export_application[is_investment_good]", @export_application.is_investment_good ? @export_application.is_investment_good : nil, false, :onclick => "investmentGoods();", id: "export_application_is_investment_good" %>
-                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_investment_good.present? && @export_application.is_investment_good) %>">Ja</span>
+                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_investment_good.present? && @export_application.is_investment_good) %>"><%= t :yes%></span>
                                                     </label>
 
                                                     <label onclick="noInvestmentGoods()">
-                                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.is_investment_good.present? && !@export_application.is_investment_good) %>">Nein</span>
+                                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.is_investment_good.present? && !@export_application.is_investment_good) %>"><%= t :no%></span>
                                                     </label>
                                                 </p>
                                             </div>
                                         </div>
 
                                         <div class="input-field col s12">
-                                            <label>Bitte beschreiben Sie Ihre Produkte sowie Leistungen und wie Ihr Kunde diese einsetzt. </label>
+                                            <label><%= t :describe_export_and_how_its_used%></label>
                                             <%= form.text_field :explain_product_service, autofocus: true, class: "validate" %>
                                         </div>
 
                                         <div class="input-field col s12 m12">
                                             <div class="input-field col s12 m12 nopadding">
-                                                <label> Erbringen Sie auch Leistungen (Montage, Schulungen vor Ort etc.)? </label>
+                                                <label><%= t :is_service_provided%></label>
                                                 <p>
                                                     <label>
                                                         <%= check_box_tag "export_application[exporter_offers_servicing_for_goods]", @export_application.exporter_offers_servicing_for_goods ? @export_application.exporter_offers_servicing_for_goods : nil, false, :onclick => "servicingForGoods();", id: "export_application_exporter_offers_servicing_for_goods" %>
-                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.exporter_offers_servicing_for_goods.present? && @export_application.exporter_offers_servicing_for_goods) %>">Ja</span>
+                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.exporter_offers_servicing_for_goods.present? && @export_application.exporter_offers_servicing_for_goods) %>"><%= t :yes%></span>
                                                     </label>
 
                                                     <label onclick="noServicingForGoods()">
-                                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.exporter_offers_servicing_for_goods.present? && !@export_application.exporter_offers_servicing_for_goods) %>">Nein</span>
+                                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.exporter_offers_servicing_for_goods.present? && !@export_application.exporter_offers_servicing_for_goods) %>"><%= t :no%></span>
                                                     </label>
                                                 </p>
                                             </div>
@@ -462,21 +461,21 @@
 
                                         <div class="col background_toggle is_delivered_part_of_consortium_with_other_companies">
                                             <div class="input-field col s12 m12 no-padding">
-                                                <label> Liefern/Leisten Sie im Rahmen eines Gesamtprojekts zusammen mit anderen Unternehmen? </label>
+                                                <label><%= t :is_delivered_part_of_consortium_with_other_companies%> </label>
                                                 <p>
                                                     <label>
                                                         <%= check_box_tag "export_application[is_delivered_part_of_consortium_with_other_companies]", @export_application.is_delivered_part_of_consortium_with_other_companies ? @export_application.is_delivered_part_of_consortium_with_other_companies : nil, false, :onclick => "deliveredPartOfConsortiumWithOtherCompanies();", id: "export_application_is_delivered_part_of_consortium_with_other_companies" %>
-                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_delivered_part_of_consortium_with_other_companies.present? && @export_application.is_delivered_part_of_consortium_with_other_companies) %>">Ja</span>
+                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_delivered_part_of_consortium_with_other_companies.present? && @export_application.is_delivered_part_of_consortium_with_other_companies) %>"><%= t :yes%></span>
                                                     </label>
 
                                                     <label onclick="NoDeliveredPartOfConsortiumWithOtherCompanies()">
-                                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.is_delivered_part_of_consortium_with_other_companies.present? && !@export_application.is_delivered_part_of_consortium_with_other_companies) %>">Nein</span>
+                                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.is_delivered_part_of_consortium_with_other_companies.present? && !@export_application.is_delivered_part_of_consortium_with_other_companies) %>"><%= t :no%></span>
                                                     </label>
                                                 </p>
                                                 <div id="deliveredPartOfConsortiumWithOtherCompanies" style="display: <%=(@export_application.is_delivered_part_of_consortium_with_other_companies.present? && @export_application.is_delivered_part_of_consortium_with_other_companies)? 'block' : 'none'%> ">
                                                     <div class="input-field col s12 m12">
-                                                        <label><%= t('project_detailed_description') %></label>
-                                                        <%= form.text_area :project_detailed_description, autofocus: true, class: "validate", placeholder: "Bitte geben Sie hier eine detaillierte Beschreibung des Gesamtprojekts ein. Wichtig sind auch Informationen zur Struktur der Zusammenarbeit und ob Sie die Gesamtverantwortung tragen." %>
+                                                        <label><%= t :describe_project_in_detail %></label>
+                                                        <%= form.text_area :describe_project_in_detail, autofocus: true, class: "validate", placeholder: t('project_detail_placeholder')%>
                                                     </div>
                                                     <div class="input-field col s12 m12">
                                                         <div class="input-field col s12 m12 nopadding">
@@ -484,17 +483,17 @@
                                                             <p>
                                                                 <label>
                                                                     <%= check_box_tag "export_application[is_fully_responsible_for_project]", @export_application.is_fully_responsible_for_project ? @export_application.is_fully_responsible_for_project : nil, false, :onclick => "isFullyResponsibleForProject();", id: "is_fully_responsible_for_project" %>
-                                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_fully_responsible_for_project.present? && @export_application.is_fully_responsible_for_project) %>">Ja</span>
+                                                                    <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_fully_responsible_for_project.present? && @export_application.is_fully_responsible_for_project) %>"><%= t :yes%></span>
                                                                 </label>
 
                                                                 <label onclick="isNotFullyResponsibleForProject()">
-                                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.is_fully_responsible_for_project.present? && !@export_application.is_fully_responsible_for_project) %>">Nein</span>
+                                                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.is_fully_responsible_for_project.present? && !@export_application.is_fully_responsible_for_project) %>"><%= t :no%></span>
                                                                 </label>
                                                             </p>
                                                         </div>
                                                     </div>
                                                     <div class="input-field col s12">
-                                                        <label> Wie hoch ist das Gesamtprojektvolumen? </label>
+                                                        <label><%= t :give_total_project_volume%> </label>
                                                     </div>
 
                                                     <div class="input-field col s6 m4">
@@ -506,11 +505,11 @@
                                                     </div>
 
                                                     <div class="input-field col s12 m12">
-                                                        <label> <%= t('entire_project_financing_detail') %> </label>
+                                                        <label> <%= t('project_funding_detail') %> </label>
                                                     </div>
 
                                                     <div class="input-field col s12 m12">
-                                                        <label> <%= t('subject') %> </label>
+                                                        <label> <%= t('use_of_funds') %> </label>
 
                                                         <table class='table'>
                                                             <tbody class='application_of_funds'>
@@ -521,12 +520,12 @@
                                                         </table>
 
                                                         <div class="form-actions">
-                                                            <%= link_to_add_association 'Hinzufügen', form, :application_of_funds, class: 'btn btn-primary', data: {association_insertion_node: '.application_of_funds', association_insertion_method: :append} %>
+                                                            <%= link_to_add_association t('add_more'), form, :application_of_funds, class: 'btn btn-primary', data: {association_insertion_node: '.application_of_funds', association_insertion_method: :append} %>
                                                         </div>
                                                     </div>
 
                                                     <div class="input-field col s12 m12">
-                                                        <label> <%= t('subject_origin') %> </label>
+                                                        <label> <%= t('source_of_funds') %> </label>
 
                                                         <table class='table'>
                                                             <tbody class='source_of_funds'>
@@ -537,7 +536,7 @@
                                                         </table>
 
                                                         <div class="form-actions">
-                                                            <%= link_to_add_association 'Hinzufügen', form, :source_of_funds, class: 'btn btn-primary', data: {association_insertion_node: '.source_of_funds', association_insertion_method: :append} %>
+                                                            <%= link_to_add_association t('add_more'), form, :source_of_funds, class: 'btn btn-primary', data: {association_insertion_node: '.source_of_funds', association_insertion_method: :append} %>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -546,15 +545,15 @@
 
                                         <div class="col background_toggle is_good_sent_in_multiple_deliveries">
                                             <div class="input-field col s12 m12 no-padding">
-                                                <label> Versenden Sie Ihre Waren/Güter/Anlagen in mehreren Lieferungen? </label>
+                                                <label><%= t :is_good_sent_in_multiple_deliveries%> </label>
                                                 <p>
                                                     <label>
                                                         <%= check_box_tag "export_application[is_good_sent_in_multiple_deliveries]", @export_application.is_good_sent_in_multiple_deliveries ? @export_application.is_good_sent_in_multiple_deliveries : nil, false, :onclick => "goodsSentMultipleDeliveries();", id: "export_application_is_good_sent_in_multiple_deliveries" %>
-                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_good_sent_in_multiple_deliveries.present? && @export_application.is_good_sent_in_multiple_deliveries) %>">Ja</span>
+                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_good_sent_in_multiple_deliveries.present? && @export_application.is_good_sent_in_multiple_deliveries) %>"><%= t :yes%></span>
                                                     </label>
 
                                                     <label onclick="noGoodsSentMultipleDeliveries()">
-                                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.is_good_sent_in_multiple_deliveries.present? && !@export_application.is_good_sent_in_multiple_deliveries) %>">Nein</span>
+                                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.is_good_sent_in_multiple_deliveries.present? && !@export_application.is_good_sent_in_multiple_deliveries) %>"><%= t :no%></span>
                                                     </label>
                                                 </p>
                                             </div>
@@ -563,17 +562,16 @@
                                                 <div class="input-field col s12 m12">
                                                     <div class="row">
                                                         <div class="input-field col s12 m12">
-                                                            <label>Bitte teilen Sie uns die Liefer- und ggf. Leistungstermine Ihres Exportgeschäftes
-                                                                mit..</label>
+                                                            <label><%= t :delivery_or_performance_dates%></label>
                                                         </div>
 
                                                         <div class="input-field col s12 m6">
-                                                            <label>Lieferbeginn</label>
+                                                            <label><%= t :delivery_start%></label>
                                                             <%= form.text_field :delivery_start, id: "start_date", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
                                                         </div>
 
                                                         <div class="input-field col s12 m6">
-                                                            <label>Lieferende</label>
+                                                            <label><%= t :delivery_end%></label>
                                                             <%= form.text_field :delivery_end, id: "start_date", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
                                                         </div>
 
@@ -588,7 +586,7 @@
                                                             </table>
 
                                                             <div class="form-actions">
-                                                                <%= link_to_add_association 'Hinzufügen', form, :multiple_shipments, class: 'btn btn-primary', data: {association_insertion_node: '.multiple_shipments', association_insertion_method: :append} %>
+                                                                <%= link_to_add_association t('add_more'), form, :multiple_shipments, class: 'btn btn-primary', data: {association_insertion_node: '.multiple_shipments', association_insertion_method: :append} %>
                                                             </div>
                                                         </div>
 
@@ -615,13 +613,13 @@
                                             <div class="row greybox">
 
                                                 <div class="input-field col s12 m12">
-                                                    <label>Wie hoch ist der Lieferwert der Güter exkl. anderer Leistungen (Montagen, etc.)</label>
-                                                    <div> <%= form.text_field :total_delivery_value_excluding_servicing, class: "validate", placeholder: "Lieferwert (Betrag)", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                    <label><%= t :total_delivery_value_excluding_servicing%></label>
+                                                    <div> <%= form.text_field :total_delivery_value_excluding_servicing, class: "validate", placeholder: t('total_delivery_value_excluding_servicing_placeholder'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                 </div>
 
                                                 <div class="input-field col s12 m12">
-                                                    <label>Wie hoch ist der Anteil der Ersatzteile am Lieferwert?</label>
-                                                    <div> <%= form.text_field :percentage_of_spareparts_in_whole_order, class: "validate", placeholder: "Wert Ersatzteile in Prozent oder Betrag", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                    <label><%= t :percentage_of_spareparts_in_whole_order%></label>
+                                                    <div> <%= form.text_field :percentage_of_spareparts_in_whole_order, class: "validate", placeholder: t('percentage_of_spareparts_in_whole_order_placeholder'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                 </div>
 
                                                 <div class="input-field col s12 m12">
@@ -636,7 +634,7 @@
                                                     </table>
 
                                                     <div class="form-actions">
-                                                        <%= link_to_add_association 'Hinzufügen', form, :extra_billed_items, class: 'btn btn-primary', data: {association_insertion_node: '.extra_billed_items', association_insertion_method: :append} %>
+                                                        <%= link_to_add_association t('add_more'), form, :extra_billed_items, class: 'btn btn-primary', data: {association_insertion_node: '.extra_billed_items', association_insertion_method: :append} %>
                                                     </div>
                                                 </div>
 
@@ -646,15 +644,15 @@
                                         <div class="col background_toggle is_contract_already_signed_between_parties">
                                             <div class="input-field col s12 m12">
                                                 <div class="input-field col s12 m12 nopadding">
-                                                    <label> Haben bereits alle Parteien den Vertrag für das Exportgeschäft unterzeichnet? </label>
+                                                    <label><%= t :all_parties_signed_for_export%></label>
                                                     <p>
                                                         <label>
                                                             <%= check_box_tag "export_application[is_contract_already_signed_between_parties]", @export_application.is_contract_already_signed_between_parties ? @export_application.is_contract_already_signed_between_parties : nil, false, :onclick => "contractAlreadySignedBetweenParties();", id: "export_application_is_contract_already_signed_between_parties" %>
-                                                            <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_contract_already_signed_between_parties.present? && @export_application.is_contract_already_signed_between_parties) %>">Ja</span>
+                                                            <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_contract_already_signed_between_parties.present? && @export_application.is_contract_already_signed_between_parties) %>"><%= t :yes%></span>
                                                         </label>
 
                                                         <label onclick="noContractAlreadySignedBetweenParties()">
-                                                            <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.is_contract_already_signed_between_parties.present? && !@export_application.is_contract_already_signed_between_parties) %>">Nein</span>
+                                                            <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.is_contract_already_signed_between_parties.present? && !@export_application.is_contract_already_signed_between_parties) %>"><%= t :no%></span>
                                                         </label>
                                                     </p>
                                                 </div>
@@ -663,15 +661,14 @@
                                             <div id="contractSignedBetweenParties" style="display: none">
                                                 <div class="row">
                                                     <div class="input-field col s12 m12">
-                                                        <label>Bitte geben Sie das Abschlussdatum des Vertrags und optional eine interne Referenz
-                                                            an.</label>
+                                                        <label><%= t :contract_date_and_internal_reference%></label>
                                                     </div>
                                                     <div class="input-field col s12 m6">
-                                                        <label>Datum der Unterschrift</label>
+                                                        <label><%= t :signature_date%></label>
                                                         <div> <%= form.text_field :contract_signing_date, id: "start_date", class: "datepicker", placeholder: "dd/mm/yyyy" %> </div>
                                                     </div>
                                                     <div class="input-field col s12 m6">
-                                                        <label>Interne Referenznummer</label>
+                                                        <label><%= t :internal_reference_number%></label>
                                                         <div> <%= form.text_field :exporter_internal_contract_id, class: "validate" %> </div>
                                                     </div>
                                                 </div>
@@ -681,15 +678,15 @@
 
                                                 <div class="input-field col s12 m12">
                                                     <div class="input-field col s12 m12 nopadding">
-                                                        <label> Nehmen Sie an einer Ausschreibung teil?</label>
+                                                        <label><%= t :taking_part_in_tender%> </label>
                                                         <p>
                                                             <label>
                                                                 <%= check_box_tag "export_application[taking_part_in_tender]", @export_application.taking_part_in_tender ? @export_application.taking_part_in_tender : nil, false, :onclick => "partInTender();", id: "export_application_taking_part_in_tender" %>
-                                                                <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.taking_part_in_tender.present? && @export_application.taking_part_in_tender) %>">Ja</span>
+                                                                <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.taking_part_in_tender.present? && @export_application.taking_part_in_tender) %>"><%= t :yes%></span>
                                                             </label>
 
                                                             <label onclick="noPartInTender()">
-                                                                <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.taking_part_in_tender.present? && !@export_application.taking_part_in_tender) %>">Nein</span>
+                                                                <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.taking_part_in_tender.present? && !@export_application.taking_part_in_tender) %>"><%= t :no%></span>
                                                             </label>
                                                         </p>
                                                     </div>
@@ -698,7 +695,7 @@
                                                 <div id="partInTender" style="display: none">
 
                                                     <div class="input-field col s12 m6">
-                                                        <label>Datum Submissionstermin</label>
+                                                        <label><%= t :tender_submission_date%> </label>
                                                         <div> <%= form.text_field :tender_submission_date, id: "start_date", type: "date", class: "datepicker" %> </div>
                                                     </div>
 
@@ -708,19 +705,17 @@
                                         <div class="col background_toggle does_delivery_affect_sensitive_areas">
                                             <div class="input-field col s12 m12">
                                                 <div class="input-field col s12 m12 nopadding">
-                                                    <label>Betreffen Ihre Lieferungen bzw. Leistungen ein sensibles Gebiet?</label>
-                                                    <p> Als sensible Gebiete gelten Nationalparks und andere durch nationales oder internationales Recht
-                                                        geschützte Gebiete
-                                                        sowie sensible Regionen von internationaler, nationaler oder regionaler Bedeutung.</p>
+                                                    <label><%= t :sensitivearea%></label>
+                                                    <p> <%= t :sensitivearea_additional_information%></p>
                                                     <p>
                                                     <p>
                                                         <label>
                                                             <%= check_box_tag "export_application[does_delivery_affect_sensitive_areas]", @export_application.does_delivery_affect_sensitive_areas ? @export_application.does_delivery_affect_sensitive_areas : nil, false, :onclick => "deliveryAffectsSensitiveArea();", id: "export_application_does_delivery_affect_sensitive_areas" %>
-                                                            <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.does_delivery_affect_sensitive_areas.present? && @export_application.does_delivery_affect_sensitive_areas) %>">Ja</span>
+                                                            <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.does_delivery_affect_sensitive_areas.present? && @export_application.does_delivery_affect_sensitive_areas) %>"><%= t :yes%></span>
                                                         </label>
 
                                                         <label onclick="NoDeliveryAffectsSensitiveArea()">
-                                                            <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.does_delivery_affect_sensitive_areas.present? && !@export_application.does_delivery_affect_sensitive_areas) %>">Nein</span>
+                                                            <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.does_delivery_affect_sensitive_areas.present? && !@export_application.does_delivery_affect_sensitive_areas) %>"><%= t :no%></span>
                                                         </label>
                                                     </p>
                                                 </div>
@@ -729,11 +724,11 @@
                                             <div id="deliveryAffectsSensitiveArea" style="display: none">
                                                 <div class="row">
                                                     <div class="input-field col s12">
-                                                        <label>Um welche Art vom sensibelen Gebiet handelt sich?</label>
-                                                        <%= form.select :sensitive_area_type, options_for_select([t('please_select'), "Naturschutzgebiet", "Bedeutung für indigene Völker", "Archäologische oder kulturelle", "Sonstige"], @export_application.sensitive_area_type ? @export_application.sensitive_area_type : nil), {}, class: 'validate', id: "sensitive_area_type", :onchange => 'sensitiveAreaTypeChangeHandler()' %>
+                                                        <label><%= t :kind_of_sensitive_area%></label>
+                                                        <%= form.select :sensitive_area_type, options_for_select([t('please_select'),t('delivery_affects_natural_reserves'), t('delivery_affects_indigenous_people'),t('delivery_affects_cultural_heritage'),t('delivery_affects_other')], @export_application.sensitive_area_type ? @export_application.sensitive_area_type : nil), {}, class: 'validate', id: "sensitive_area_type", :onchange => 'sensitiveAreaTypeChangeHandler()' %>
                                                     </div>
                                                     <div class="input-field col s12 m12" id="explain_sensitive_area_type">
-                                                        <label>Bitte konkretisieren Sie, um was für ein sensibeles Gebiet es sich handelt.</label>
+                                                        <label><%= t :explain_delivery_affects_other%></label>
                                                         <%= form.text_area :explain_sensitive_area_type, autofocus: true, class: "validate" %>
                                                     </div>
                                                 </div>
@@ -744,16 +739,16 @@
                                         <div class="col background_toggle is_export_licence_needed">
                                             <div class="input-field col s12 m12">
                                                 <div class="input-field col s12 m12 nopadding">
-                                                    <label>Ist Ihr Export ausfuhrgenehmigungspflichtig?</label>
+                                                    <label><%= t :is_export_licence_needed%></label>
                                                     <p>
                                                     <p>
                                                         <label>
                                                             <%= check_box_tag "export_application[is_export_licence_needed]", @export_application.is_export_licence_needed ? @export_application.is_export_licence_needed : nil, false, :onclick => "exportLicenceNeeded();", id: "export_application_is_export_licence_needed" %>
-                                                            <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_export_licence_needed.present? && @export_application.is_export_licence_needed) %>">Ja</span>
+                                                            <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_export_licence_needed.present? && @export_application.is_export_licence_needed) %>"><%= t :yes%></span>
                                                         </label>
 
                                                         <label onclick="noExportLicenceNeeded()">
-                                                            <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.is_export_licence_needed.present? && !@export_application.is_export_licence_needed) %>">Nein</span>
+                                                            <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.is_export_licence_needed.present? && !@export_application.is_export_licence_needed) %>"><%= t :no%></span>
                                                         </label>
                                                     </p>
                                                 </div>
@@ -762,13 +757,12 @@
                                             <div id="originLicense" style="display: none">
                                                 <div class="row">
                                                     <div class="input-field col s12">
-                                                        <label>Aus welchen Vorschriften bzw. welchem Teil/Abschnitt der Ausfuhrliste ergibt sich die
-                                                            Genehmigungspflicht?</label>
+                                                        <label><%= t :which_regulations_enforcing_exportlicense_requirement%></label>
                                                         <%= form.text_field :which_regulations_enforcing_exportlicense_requirement, autofocus: true, class: "validate" %>
                                                     </div>
                                                     <div class="input-field col s12 m12">
-                                                        <label>Die Ausfuhrgenehmigung...</label>
-                                                        <%= form.select :export_license_status, options_for_select([t('please_select'), "... wurde erteilt.", "... ist beantragt.", "... ist noch zu beantragen."]), {}, class: 'validate' %>
+                                                        <label><%= t :export_license_status%></label>
+                                                        <%= form.select :export_license_status, options_for_select([t('please_select'),t('was_issued'),t('is_requested'),t('is_still_to_be_requested')]), {}, class: 'validate' %>
                                                     </div>
                                                 </div>
                                             </div>
@@ -777,15 +771,15 @@
                                         <div class="col background_toggle are_secondhand_goods_delivered">
                                             <div class="input-field col s12 m12">
                                                 <div class="input-field col s12 m12 nopadding">
-                                                    <label> Liefern Sie gebrauchte Ware?</label>
+                                                    <label><%= t :are_secondhand_goods_delivered%></label>
                                                     <p>
                                                         <label>
                                                             <%= check_box_tag "export_application[are_secondhand_goods_delivered]", @export_application.are_secondhand_goods_delivered ? @export_application.are_secondhand_goods_delivered : nil, false, :onclick => "deliverySecondHandGoods();", id: "export_application_are_secondhand_goods_delivered" %>
-                                                            <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.are_secondhand_goods_delivered.present? && @export_application.are_secondhand_goods_delivered) %>">Ja</span>
+                                                            <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.are_secondhand_goods_delivered.present? && @export_application.are_secondhand_goods_delivered) %>"><%= t :yes%></span>
                                                         </label>
 
                                                         <label onclick="noDeliverySecondHandGoods()">
-                                                            <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.are_secondhand_goods_delivered.present? && !@export_application.are_secondhand_goods_delivered) %>">Nein</span>
+                                                            <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.are_secondhand_goods_delivered.present? && !@export_application.are_secondhand_goods_delivered) %>"><%= t :no%></span>
                                                         </label>
                                                     </p>
                                                 </div>
@@ -793,25 +787,25 @@
 
                                             <div id="deliverySecondHandGoods" style="display: none">
                                                 <div class="input-field col s12">
-                                                    <label>Jahr der Fertigung</label>
+                                                    <label><%= t :manufacture_year%></label>
                                                     <%= form.text_area :manufacture_year, autofocus: true, class: "validate" %>
                                                 </div>
                                                 <div class="input-field col s12">
-                                                    <label>Restlebensdauer in Jahren</label>
+                                                    <label><%= t :remaining_years%></label>
                                                     <%= form.text_field :remaining_life, autofocus: true, class: "validate" %>
                                                 </div>
 
                                                 <div class="input-field col s12 m12">
                                                     <div class="input-field col s12 m12 nopadding">
-                                                        <label>Wird die Ware vor dem Weiterverkauf überholt? </label>
+                                                        <label><%= t :goods_overhaul%></label>
                                                         <p>
                                                             <label>
                                                                 <%= check_box_tag "export_application[are_goods_overhauled]", @export_application.are_goods_overhauled ? @export_application.are_goods_overhauled : nil, false, :onclick => "goodOverhauled();", id: "export_application_are_goods_overhauled" %>
-                                                                <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.are_goods_overhauled.present? && @export_application.are_goods_overhauled) %>">Ja</span>
+                                                                <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.are_goods_overhauled.present? && @export_application.are_goods_overhauled) %>"><%= t :yes%></span>
                                                             </label>
 
                                                             <label onclick="NoGoodsOverhauled()">
-                                                                <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.are_goods_overhauled.present? && !@export_application.are_goods_overhauled) %>">Nein</span>
+                                                                <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@export_application.are_goods_overhauled.present? && !@export_application.are_goods_overhauled) %>"><%= t :no%></span>
                                                             </label>
                                                         </p>
                                                     </div>
@@ -820,23 +814,23 @@
                                                 <div id="goodsOverhauled" style="display: none">
 
                                                     <div class="input-field col s12 m6">
-                                                        <label>Wo wird die Ware überholt?</label>
-                                                        <%= form.select :goods_overhaul_country, options_for_select([t('please_select'), "Deutschland", "im Ausland", "sowohl als auch"], @export_application.goods_overhaul_country ? @export_application.goods_overhaul_country : nil), {}, class: 'validate', id: "goods_overhaul_country", :onchange => 'goodsOverhaulCountryIfGermanyHandler()' %>
+                                                        <label><%= t :where_overhaul%></label>
+                                                        <%= form.select :goods_overhaul_country, options_for_select([t('please_select'),t('overhaul_germany'),t('overhaul_foreign'),t('overhaul_other')], @export_application.goods_overhaul_country ? @export_application.goods_overhaul_country : nil), {}, class: 'validate', id: "goods_overhaul_country", :onchange => 'goodsOverhaulCountryIfGermanyHandler()' %>
                                                     </div>
 
                                                     <div id="goods_overhaul_country_if_not_germany" style="display: none">
                                                         <div class="input-field col s12 ">
-                                                            <label>Warum wird die Ware im Ausland überholt? </label>
+                                                            <label><%= t :why_overhaul_abroad%></label>
                                                             <%= form.text_area :why_good_overhauled_abroad, autofocus: true %>
                                                         </div>
 
                                                         <div class="input-field col s6 ">
-                                                            <label>Zu welchem Anteil wird die Ware im Ausland überholt? </label>
+                                                            <label><%= t :what_percentage_overhaul_abroad%></label>
                                                             <%= form.text_field :proportion_of_goods_overhauled_abroad, autofocus: true, class: "validate" %>
                                                         </div>
 
                                                         <div class="input-field col s12">
-                                                            <label>Bitte beschreiben Sie, weshalb die Überholung nicht in Deutschland erfolgte </label>
+                                                            <label><%= t :why_overhaul_not_de%></label>
                                                             <%= form.text_area :describe_why_overhault_didnot_take_in_germany, autofocus: true, class: "validate" %>
                                                         </div>
                                                     </div>
@@ -847,8 +841,7 @@
                                         <div class="col background_toggle has_special_contract_structure">
                                             <div class="input-field col s12 m12">
                                                 <div class="input-field col s12 m12 nopadding">
-                                                    <label> Vereinbaren Sie mit Ihrem Vertragspartner eine besondere Vertragsstruktur
-                                                        (Tochterunternehmen oder Preisgleitklausel?) </label>
+                                                    <label><%= t :%></label>
                                                     <p>
                                                         <label>
                                                             <%= check_box_tag "export_application[has_special_contract_structure]", @export_application.has_special_contract_structure ? @export_application.has_special_contract_structure : nil, false, :onclick => "specialContractStructure();", id: "export_application_has_special_contract_structure" %>

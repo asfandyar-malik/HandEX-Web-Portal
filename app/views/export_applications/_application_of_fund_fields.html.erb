@@ -1,7 +1,7 @@
 <tr class="nested-fields">
 
     <td>
-        <%= f.text_field :description, class: "validate", placeholder: "fiktives Beispiel: Maschine \"x\" " %>
+        <%= f.text_field :description, class: "validate", placeholder: t('fictitious_example_machine') %>
     </td>
 
     <td>
@@ -13,7 +13,7 @@
     </td>
 
     <td>
-        <%= link_to_remove_association "Löschen", f, class: 'btn btn-primary btn-xs' %>
+        <%= link_to_remove_association t('clear'), f, class: 'btn btn-primary btn-xs' %>
     </td>
 
 </tr>
