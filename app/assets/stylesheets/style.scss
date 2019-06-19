@@ -66,6 +66,15 @@ body {
         height: auto !important;
       }
 
+      span span {
+        padding: 0;
+        border: 0;
+      }
+
+      span.active-btn span {
+        color:white;
+      }
+
       span:before {
         opacity: 0;
       }
