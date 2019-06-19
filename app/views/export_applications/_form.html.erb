@@ -604,6 +604,7 @@
                                         <div class="input-field col s12">
 
                                             <label><%= t('give_contract_value') %></label>
+                                            <%= form.label :give_contract_value, t('give_contract_value')%>
 
                                             <p><i><%= t('contract_currency') %> </i></p>
 
@@ -619,17 +620,17 @@
                                             <div class="row greybox">
 
                                                 <div class="input-field col s12 m12">
-                                                    <label><%= t :total_delivery_value_excluding_servicing%></label>
-                                                    <div> <%= form.text_field :total_delivery_value_excluding_servicing, class: "validate", placeholder: t('total_delivery_value_excluding_servicing_placeholder'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                  <%= form.label :total_delivery_value_excluding_servicing, t('total_delivery_value_excluding_servicing')%>
+                                                  <div> <%= form.text_field :total_delivery_value_excluding_servicing, class: "validate", placeholder: t('total_delivery_value_excluding_servicing_placeholder'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                 </div>
 
                                                 <div class="input-field col s12 m12">
-                                                    <label><%= t :percentage_of_spareparts_in_whole_order%></label>
-                                                    <div> <%= form.text_field :percentage_of_spareparts_in_whole_order, class: "validate", placeholder: t('percentage_of_spareparts_in_whole_order_placeholder'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                                  <%= form.label :percentage_of_spareparts_in_whole_order, t('percentage_of_spareparts_in_whole_order')%>
+                                                  <div> <%= form.text_field :percentage_of_spareparts_in_whole_order, class: "validate", placeholder: t('percentage_of_spareparts_in_whole_order_placeholder'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
                                                 </div>
 
                                                 <div class="input-field col s12 m12">
-                                                    <label> <%= t('other_billed_items_in_contract') %> </label>
+                                                    <%= form.label :other_billed_items_in_contract, t('other_billed_items_in_contract')%>
 
                                                     <table class='table'>
                                                         <tbody class='extra_billed_items'>
@@ -650,7 +651,7 @@
                                         <div class="col background_toggle is_contract_already_signed_between_parties">
                                             <div class="input-field col s12 m12">
                                                 <div class="input-field col s12 m12 nopadding">
-                                                    <label><%= t :all_parties_signed_for_export%></label>
+                                                    <%= form.label :all_parties_signed_for_export, t('all_parties_signed_for_export')%>
                                                     <p>
                                                         <label>
                                                             <%= check_box_tag "export_application[is_contract_already_signed_between_parties]", @export_application.is_contract_already_signed_between_parties ? @export_application.is_contract_already_signed_between_parties : nil, false, :onclick => "contractAlreadySignedBetweenParties();", id: "export_application_is_contract_already_signed_between_parties" %>
@@ -667,14 +668,14 @@
                                             <div id="contractSignedBetweenParties" style="display: none">
                                                 <div class="row">
                                                     <div class="input-field col s12 m12">
-                                                        <label><%= t :contract_date_and_internal_reference%></label>
+                                                      <%= form.label :contract_date_and_internal_reference, t('contract_date_and_internal_reference')%>
                                                     </div>
                                                     <div class="input-field col s12 m6">
-                                                        <label><%= t :signature_date%></label>
+                                                        <%= form.label :contract_signing_date, t('contract_signing_date')%>
                                                         <div> <%= form.text_field :contract_signing_date, id: "start_date", class: "datepicker", placeholder: "dd/mm/yyyy" %> </div>
                                                     </div>
                                                     <div class="input-field col s12 m6">
-                                                        <label><%= t :internal_reference_number%></label>
+                                                        <%= form.label :exporter_internal_contract_id, t('exporter_internal_contract_id')%>
                                                         <div> <%= form.text_field :exporter_internal_contract_id, class: "validate" %> </div>
                                                     </div>
                                                 </div>
@@ -684,7 +685,7 @@
 
                                                 <div class="input-field col s12 m12">
                                                     <div class="input-field col s12 m12 nopadding">
-                                                        <label><%= t :taking_part_in_tender%> </label>
+                                                        <%= form.label :taking_part_in_tender, t('taking_part_in_tender')%>
                                                         <p>
                                                             <label>
                                                                 <%= check_box_tag "export_application[taking_part_in_tender]", @export_application.taking_part_in_tender ? @export_application.taking_part_in_tender : nil, false, :onclick => "partInTender();", id: "export_application_taking_part_in_tender" %>
@@ -701,7 +702,7 @@
                                                 <div id="partInTender" style="display: none">
 
                                                     <div class="input-field col s12 m6">
-                                                        <label><%= t :tender_submission_date%> </label>
+                                                        <%= form.label :tender_submission_date, t('tender_submission_date')%>
                                                         <div> <%= form.text_field :tender_submission_date, id: "start_date", type: "date", class: "datepicker" %> </div>
                                                     </div>
 
@@ -711,7 +712,7 @@
                                         <div class="col background_toggle does_delivery_affect_sensitive_areas">
                                             <div class="input-field col s12 m12">
                                                 <div class="input-field col s12 m12 nopadding">
-                                                    <label><%= t :sensitivearea%></label>
+                                                    <%= form.label :does_delivery_affect_sensitive_areas, t('does_delivery_affect_sensitive_areas')%>
                                                     <p> <%= t :sensitivearea_additional_information%></p>
                                                     <p>
                                                     <p>
