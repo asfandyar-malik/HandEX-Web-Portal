@@ -24,7 +24,7 @@
             <% if @draft_applications.empty? %>
                 <%= render "users/no_application" %>
             <% else %>
-                <% @draft_applications.each do |insurance| %>
+                <% @draft_applications.each do |application| %>
                     <%= render partial: "users/draft_application_listing_card", locals:  {application: application,
                                                                                                    can_edit: false} %>
                 <% end %>

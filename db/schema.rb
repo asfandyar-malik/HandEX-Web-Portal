@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_15_192526) do
+ActiveRecord::Schema.define(version: 2019_06_18_175701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -259,19 +259,19 @@ ActiveRecord::Schema.define(version: 2019_06_15_192526) do
     t.string "adequate_claims_management"
     t.string "payment_vehichle_payment_term_short"
     t.string "receive_deposit_time_payment_term_mid"
-    t.string "repayment_profile_structure_payment_term_mid"
+    t.string "repayment_structure_payment_term_mid"
     t.string "loan_term_start_payment_term_mid"
-    t.string "loan_term_other_description_payment_term_mid"
+    t.string "loan_term_start_description_payment_term_mid"
     t.string "number_of_installments_payment_term_short"
     t.string "advance_payment_currency_payment_term_both"
     t.string "advance_payment_amount_payment_term_both"
     t.string "advance_payment_description_payment_term_both"
     t.string "deposit_received_payment_term_both"
     t.string "repayment_structure_payment_term_both"
-    t.string "credit_start_date_payment_term_both"
-    t.string "credit_start_special_description_payment_term_both"
+    t.string "loan_term_start_payment_term_both"
+    t.string "loan_term_start_description_payment_term_both"
     t.string "number_of_installments_payment_term_both"
-    t.string "payment_vehichle_explain_payment_term_both"
+    t.string "payment_vehichle_payment_term_both"
     t.string "has_german_certificate_of_origin_for_only_parts_of_good"
     t.boolean "delivery_doesnt_affects_sensitive_areas", default: false
     t.boolean "delivery_affects_natural_reserves", default: false

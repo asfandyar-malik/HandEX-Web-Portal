@@ -1,7 +1,7 @@
 <tr class="nested-fields">
 
     <td>
-        <%= f.text_field :description, class: "validate", placeholder: "fiktives Beispiel: Maschine \"x\" " %>
+        <div> <%= f.text_field :description, class: "validate", placeholder: t('source_of_fund_description_placeholder') %> </div>
     </td>
 
     <td>
@@ -9,11 +9,11 @@
     </td>
 
     <td>
-        <%= f.text_field :amount, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %>
+        <div> <%= f.text_field :amount, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
     </td>
 
     <td>
-        <%= link_to_remove_association "Löschen", f, class: 'btn btn-primary btn-xs' %>
+        <%= link_to_remove_association t('clear'), f, class: 'btn btn-primary btn-xs' %>
     </td>
 
 </tr>

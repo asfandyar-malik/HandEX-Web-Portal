@@ -1,4 +1,94 @@
+<%= render 'shared/navbar' %>
 <p id="notice"><%= notice %></p>
+<%#=  my_array = ['exporter_name', 'exporter_dn_no', 'exporter_address_line1']  %>
 
-<%= link_to 'Edit', edit_export_application_path(@export_application) %> |
-<%= link_to 'Back', export_applications_path %>
+
+<div class="form-progress">
+  <div class="container center">
+    <div class="col s12 m12">
+      <i class="material-icons">arrow_back</i>
+      <ul class="overview-header">
+        <li tab_index="2">
+          <i class="material-icons">timer</i>
+          Application Pending
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+<div class="form-progress">
+  <div class="container center">
+    <div class="col s12 m12">
+
+      <!--      <ul class="progressbar">-->
+      <ul class="overview-header">
+        <li tab_index="2">IMPORTER</li>
+        <li tab_index="3">PRODUCT</li>
+        <li tab_index="4">CONTRACT VALUE</li>
+        <li tab_index="5">SENT ON</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="form-progress">
+  <div class="container">
+    <div class="col s12 m12">
+<!--      <ul class="progressbar">-->
+      <ul class="overview-header">
+        <li>Unternehmen</li>
+        <li>Kunde</li>
+        <li>Geschäft</li>
+        <li>Zahlung & Finanzierung</li>
+        <li>Abschluss</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="handex-form-container">
+  <div class="container">
+    <div class="section">
+      <!--      <div class='disable_input'>-->
+
+      <%# @export_application.attributes.each do |attr_name, attr_value| %>
+      <!--          <div class="work_profile_attribute">-->
+      <!--            <%#= attr_name.humanize %> : <%#= attr_value %>-->
+      <!--          </div>-->
+      <%# end %>
+
+      <!--      </div>-->
+      <ul class="collection with-header">
+        <!--        <li class="collection-header"><h4>First Names</h4></li>-->
+        <% @export_application.attributes.each do |attr_name, attr_value| next if attr_name == "id" %>
+          <li class="collection-item">
+            <div><%= t(attr_name) %>
+              <div class="secondary-content">
+                <%= if attr_value == "Bitte auswählen"
+                      t('not_selected_yet')
+                  elsif !attr_value
+                         "Nein"
+                  # elsif attr_value == ""
+                  #     "kein Wert eingegeben!"
+                  elsif  attr_value
+                  end
+                %>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!--<%#= link_to 'Edit', edit_export_application_path(@export_application) %> |-->
+<%#= link_to 'Back', export_applications_path %>
+
+<script>
+    $('.disable_input :input').prop('disabled', true);
+</script>
