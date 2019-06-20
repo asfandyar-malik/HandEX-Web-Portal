@@ -185,7 +185,9 @@
                                     </table>
 
                                     <div class="form-actions">
-                                        <%= link_to_add_association t('add'), form, :application_of_funds, class: 'btn btn-primary', data: {association_insertion_node: '.application_of_funds', association_insertion_method: :append} %>
+                                        <%= link_to_add_association t('add'), form, :application_of_funds,
+                                                                    :partial => 'export_applications/dynamic/application_of_fund_fields',
+                                                                    class: 'btn btn-primary', data: {association_insertion_node: '.application_of_funds', association_insertion_method: :append} %>
                                     </div>
                                 </div>
 
@@ -195,13 +197,15 @@
                                     <table class='table'>
                                         <tbody class='source_of_funds'>
                                         <%= form.fields_for :source_of_funds do |builder| %>
-                                            <%= render 'export_applications/dynamic/source_of_funds_fields', f: builder %>
+                                            <%= render 'export_applications/dynamic/source_of_fund_fields', f: builder %>
                                         <% end %>
                                         </tbody>
                                     </table>
 
                                     <div class="form-actions">
-                                        <%= link_to_add_association t('add'), form, :source_of_funds, class: 'btn btn-primary', data: {association_insertion_node: '.source_of_funds', association_insertion_method: :append} %>
+                                        <%= link_to_add_association t('add'), form, :source_of_funds,
+                                                                    :partial => 'export_applications/dynamic/source_of_fund_fields',
+                                                                    class: 'btn btn-primary', data: {association_insertion_node: '.source_of_funds', association_insertion_method: :append} %>
                                     </div>
                                 </div>
                             </div>
@@ -251,7 +255,9 @@
                                         </table>
 
                                         <div class="form-actions">
-                                            <%= link_to_add_association t('add'), form, :multiple_shipments, class: 'btn btn-primary', data: {association_insertion_node: '.multiple_shipments', association_insertion_method: :append} %>
+                                            <%= link_to_add_association t('add'), form, :multiple_shipments,
+                                                                        :partial => 'export_applications/dynamic/multiple_shipment_fields',
+                                                                        class: 'btn btn-primary', data: {association_insertion_node: '.multiple_shipments', association_insertion_method: :append} %>
                                         </div>
                                     </div>
 
@@ -300,7 +306,9 @@
                                 </table>
 
                                 <div class="form-actions">
-                                    <%= link_to_add_association t('add'), form, :extra_billed_items, class: 'btn btn-primary', data: {association_insertion_node: '.extra_billed_items', association_insertion_method: :append} %>
+                                    <%= link_to_add_association t('add'), form, :extra_billed_items,
+                                                                :partial => 'export_applications/dynamic/extra_billed_item_fields',
+                                                                class: 'btn btn-primary', data: {association_insertion_node: '.extra_billed_items', association_insertion_method: :append} %>
                                 </div>
                             </div>
 
@@ -574,7 +582,9 @@
                                     </table>
 
                                     <div class="form-actions">
-                                        <%= link_to_add_association 'Hinzufügen', form, :supplies_from_foreign_origins, class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins', association_insertion_method: :append} %>
+                                        <%= link_to_add_association 'Hinzufügen', form, :supplies_from_foreign_origins,
+                                                                    :partial => 'export_applications/dynamic/supplies_from_foreign_origin_fields',
+                                                                    class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins', association_insertion_method: :append} %>
                                     </div>
 
                                     <div class="input-field col s12 m12">
@@ -610,7 +620,9 @@
                                         </tbody>
                                     </table>
 
-                                    <%= link_to_add_association 'Hinzufügen', form, :supplies_from_foreign_origins, class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins_partly', association_insertion_method: :append} %>
+                                    <%= link_to_add_association 'Hinzufügen', form, :supplies_from_foreign_origins,
+                                                                :partial => 'export_applications/dynamic/supplies_from_foreign_origin_fields',
+                                                                class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins_partly', association_insertion_method: :append} %>
 
                                     <div class="input-field col s12 m12">
                                         <br>

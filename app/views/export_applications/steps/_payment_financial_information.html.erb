@@ -54,7 +54,9 @@
                                 </table>
 
                                 <div class="form-actions">
-                                    <%= link_to_add_association 'Hinzufügen', form, :guarantees, class: 'btn btn-primary', data: {association_insertion_node: '.guarantees', association_insertion_method: :append} %>
+                                    <%= link_to_add_association 'Hinzufügen', form, :guarantees,
+                                                                :partial => 'export_applications/dynamic/guarantee_fields',
+                                                                class: 'btn btn-primary', data: {association_insertion_node: '.guarantees', association_insertion_method: :append} %>
                                 </div>
                             </div>
 
@@ -151,7 +153,9 @@
                                                 </table>
 
                                                 <div class="form-actions">
-                                                    <%= link_to_add_association 'Hinzufügen', form, :agreed_payments, class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payments', association_insertion_method: :append} %>
+                                                    <%= link_to_add_association 'Hinzufügen', form, :agreed_payments,
+                                                                                :partial => 'export_applications/dynamic/agreed_payment_fields',
+                                                                                class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payments', association_insertion_method: :append} %>
                                                 </div>
                                             </div>
                                         </div>
@@ -189,7 +193,9 @@
                                         </table>
 
                                         <div class="form-actions">
-                                            <%= link_to_add_association t('add'), form, :agreed_payment_mid_longs, class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payment_mid_longs', association_insertion_method: :append} %>
+                                            <%= link_to_add_association t('add'), form, :agreed_payment_mid_longs,
+                                                                        :partial => 'export_applications/dynamic/agreed_payment_mid_long_fields',
+                                                                        class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payment_mid_longs', association_insertion_method: :append} %>
                                         </div>
 
                                         <div class="row no-padding">
@@ -272,7 +278,9 @@
                                         </table>
 
                                         <div class="form-actions">
-                                            <%= link_to_add_association 'Hinzufügen', form, :agreed_payments, class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payments_both', association_insertion_method: :append} %>
+                                            <%= link_to_add_association 'Hinzufügen', form, :agreed_payments,
+                                                                        :partial => 'export_applications/dynamic/agreed_payment_fields',
+                                                                        class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payments_both', association_insertion_method: :append} %>
                                         </div>
 
                                         <br><br>
