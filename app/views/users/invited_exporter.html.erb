@@ -5,7 +5,7 @@
         <% if current_user.is_broker? %>
             <span class="nav-title">Makler Portal</span>
             <a class="z-depth-0 btn z-depth-0 handex-btn-positiv" href="/pages/invite_or_fill_yourself">Antrag starten</a>
-            <a class="z-depth-0 btn handex-btn rounded" href="<%= invited_exporter_user_path(current_user.id) %>" > Eingeladen </a>
+            <a class="z-depth-0 btn handex-btn rounded active" href="<%= invited_exporter_user_path(current_user.id) %>" > Eingeladen </a>
         <% else %>
             <span class="nav-title">Kunden Portal</span>
             <a class="z-depth-0 btn z-depth-0 handex-btn-positiv" href="/pages/products">Antrag starten</a>
