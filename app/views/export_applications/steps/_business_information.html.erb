@@ -299,7 +299,8 @@
                     <div class="col background_toggle is_contract_already_signed_between_parties">
                         <div class="input-field col s12 m12">
                             <div class="input-field col s12 m12 nopadding">
-                                <%= form.label :all_parties_signed_for_export, t('all_parties_signed_for_export') %>
+
+                                <%= form.label :is_contract_already_signed_between_parties, t('is_contract_already_signed_between_parties')%>
                                 <p>
                                     <label>
                                         <%= check_box_tag "export_application[is_contract_already_signed_between_parties]", @export_application.is_contract_already_signed_between_parties ? @export_application.is_contract_already_signed_between_parties : nil, false, :onclick => "contractAlreadySignedBetweenParties();", id: "export_application_is_contract_already_signed_between_parties" %>
