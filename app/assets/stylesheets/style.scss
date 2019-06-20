@@ -72,7 +72,7 @@ body {
       }
 
       span.active-btn span {
-        color:white;
+        color: white;
       }
 
       span:before {
@@ -121,6 +121,7 @@ body {
     background-color: #2541b2;
     color: white;
   }
+
   span.active-btn:hover {
     background-color: white;
     color: #2541b2;
@@ -241,12 +242,12 @@ form.col.s12.custom-form {
 
   .progressbar {
     counter-reset: step;
-    margin-left:0;
-    margin-right:0;
-    margin-bottom:0;
-    margin-top:25px;
-    height:75px;
-    padding:15px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-top: 25px;
+    height: 75px;
+    padding: 15px;
 
     li {
       list-style: none;
@@ -256,7 +257,7 @@ form.col.s12.custom-form {
       text-align: center;
       cursor: pointer;
       z-index: 99;
-      color:grey;
+      color: grey;
       font-weight: bold;
     }
 
@@ -289,7 +290,7 @@ form.col.s12.custom-form {
       left: -49%;
       z-index: 0;
       height: 5px;
-      top:11%;
+      top: 11%;
       background-color: white;
     }
 
@@ -312,6 +313,44 @@ form.col.s12.custom-form {
     li.inactive:hover {
       color: black;
     }
+  }
+}
+
+.overview-header {
+  counter-reset: step;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-top: 25px;
+  height: 75px;
+  padding: 15px;
+
+  li {
+    list-style: none;
+    display: inline-block;
+    width: 18.33%;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    z-index: 99;
+    color: grey;
+    font-weight: bold;
+  }
+
+  li:hover {
+    color: #2541b2;
+  }
+
+  li.active {
+    color: black;
+  }
+
+  li.inactive {
+    color: grey;
+  }
+
+  li.inactive:hover {
+    color: black;
   }
 }
 
@@ -349,13 +388,13 @@ form.col.s12.custom-form {
   border-radius: 3px 3px 3px 3px;
   border: 1px solid rgb(220, 220, 222);
   width: 80%;
+
   .row {
     margin-top: 12px;
     margin-bottom: 0;
     line-height: 44px;
     color: white;
   }
-
 
 
 }
@@ -399,11 +438,11 @@ nav {
   }
 
   .top-navigation-icons {
-    color:grey;
+    color: grey;
   }
 
   .top-navigation-icons:hover {
-    color:#2541b2;
+    color: #2541b2;
   }
 }
 
@@ -414,6 +453,7 @@ nav {
 .handex-btn {
   background-color: #2541b2;
 }
+
 .handex-btn:hover {
   background-color: #518fde; // rgb(37, 65, 178);
 }
@@ -427,7 +467,7 @@ nav {
   color: white;
 }
 
-.active_selection_card  > label.active_selection_card_label {
+.active_selection_card > label.active_selection_card_label {
   background-color: #41bf93;
   color: white;
 }
@@ -447,7 +487,7 @@ nav {
 }
 
 .handex-nav-button {
-  width:30%;
+  width: 30%;
 }
 
 .handex-nav-button:hover {
@@ -461,37 +501,40 @@ nav {
 .handex-nav-logo {
   height: 27px;
 }
+
 .card.handex-medium {
-  height:310px;
+  height: 310px;
 }
 
 .card.handex-huge {
-  height:410px;
+  height: 410px;
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
-  color:rgb(24, 28, 39);
+  color: rgb(24, 28, 39);
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
-  color:#2541b2;
+  color: #2541b2;
 }
 
 .card.choice-card .card-action:last-child {
   border-top: 0;
-  padding:0;
+  padding: 0;
 }
 
 .card.choice-card .card-title {
-  padding-left:0;
+  padding-left: 0;
   padding-top: 18px;
   display: inline-block;
   width: 100%;
-  text-align: center  ;
+  text-align: center;
+
   .title-text {
     font-size: 24px;
-    padding:5%;
+    padding: 5%;
   }
+
   img {
     display: block;
     height: 70px;
@@ -499,7 +542,7 @@ nav {
   }
 
   img.multi_image {
-    height:75px;
+    height: 75px;
   }
 }
 
@@ -513,7 +556,7 @@ nav {
 }
 
 .light-hint {
-  color:grey;
+  color: grey;
 }
 
 nav ul a:hover {
@@ -525,68 +568,69 @@ nav ul a:hover {
   width: 20px;
   display: block;
   margin-right: 10px;
-  background-repeat:   no-repeat;
+  background-repeat: no-repeat;
   background-position: center center;
 }
 
 .clock-icon {
-  background-image:    image-url("Clock-Icon.svg");
+  background-image: image-url("Clock-Icon.svg");
 }
 
 .import-icon {
-  background-image:    image-url("Import-Icon.svg");
+  background-image: image-url("Import-Icon.svg");
 }
 
 .box-icon {
-  background-image:    image-url("Box-Icon.svg");
+  background-image: image-url("Box-Icon.svg");
 }
 
 .money-icon {
-  background-image:    image-url("Money-Icon.svg");
+  background-image: image-url("Money-Icon.svg");
 }
 
 .notification-icon {
-  background-image:    image-url("Notification-Icon.svg");
+  background-image: image-url("Notification-Icon.svg");
 }
 
 .reciept-icon {
-  background-image:    image-url("reciept-icon.svg");
+  background-image: image-url("reciept-icon.svg");
 }
 
 .send-icon {
-  background-image:    image-url("Send-Icon.svg");
+  background-image: image-url("Send-Icon.svg");
 }
 
 .settings-icon {
-  background-image:    image-url("Settings-Icon.svg");
+  background-image: image-url("Settings-Icon.svg");
 }
 
 .sports-01 {
-  background-image:    image-url("sports-01.svg");
+  background-image: image-url("sports-01.svg");
 }
 
 .user-icon {
-  background-image:    image-url("User-Icon.svg");
+  background-image: image-url("User-Icon.svg");
 }
 
 .check-icon {
-  background-image:    image-url("Check-Icon.svg");
+  background-image: image-url("Check-Icon.svg");
 }
 
 .reciept-icon-white {
-  background-image:    image-url("reciept-icon-white.svg");
+  background-image: image-url("reciept-icon-white.svg");
 }
 
 .card.big-choice-card {
-  margin:auto;
-  width:70%;
+  margin: auto;
+  width: 70%;
   height: 460px;
 
   .card-title {
-    padding-top:7%;
+    padding-top: 7%;
   }
+
   .card-action:last-child {
-    height:16%;
+    height: 16%;
   }
 }
 
@@ -601,20 +645,20 @@ nav ul a:hover {
 }
 
 .section {
-  padding-top:0.5em;
+  padding-top: 0.5em;
 }
 
 .background_toggle {
-  width:100%;
+  width: 100%;
 }
 
 .background_toggle.dialog_background {
-  margin-top:5px;
+  margin-top: 5px;
   background: #ebebeb;
 }
 
 .handex-color-1 {
- background-color: black;
+  background-color: black;
 }
 
 li .dot {
@@ -632,14 +676,14 @@ li .dot {
   display: none;
 }
 
-.hidden{
+.hidden {
   display: none;
 }
 
 .btn, .btn-large, .btn-small {
   color: #fff;
   background-color: #2541b2;
-  }
+}
 
 .btn:hover, .btn-large:hover, .btn-small:hover {
   background-color: #598fe6;
@@ -657,12 +701,13 @@ li .dot {
 .input-field.inline {
   margin-left: 5px;
 }
+
 .input-field.inline input, .input-field.inline .select-dropdown {
   margin-bottom: 0.1rem;
 }
 
 .card.small .card-action, .card.medium .card-action, .card.large .card-action {
-  bottom:8px;
+  bottom: 8px;
 }
 
 .collection .collection-item {
