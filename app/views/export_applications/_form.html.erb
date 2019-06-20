@@ -358,10 +358,14 @@
 
     function investmentGoods() {
         $('#export_application_is_investment_good').prop('checked', true);
+        $("#firstdrop").hide();
+        $("#seconddrop").show();
+
     }
 
     function noInvestmentGoods() {
         $('#export_application_is_investment_good').prop('checked', false);
+        $("#firstdrop").show();
     }
 
 
@@ -812,7 +816,7 @@
 
     $.each(loans_custom_arr, function (index, value) {
         $("#seconddrop").append("<option disabled='disabled' selected hidden>Bitte wählen Sie im ersten Schritt Ihre Branche aus.</option>");
-        var option = "<option value='"+index+"'>"+index+"</option>";
+        var option = "<option value='"+index+"'>" + index + "</option>";
         $('#seconddrop').append(option);
     });
 
@@ -826,7 +830,6 @@
             var option = "<option value='"+index+"'>"+index+"</option>";
             $('#thirddrop').append(option);
         });
-
     });
 
     $('#thirddrop').change(function (){
@@ -839,22 +842,6 @@
             var option = "<option value='"+value+"'>"+value+"</option>";
             $('#fourthdrop').append(option);
         });
-
     });
-
-    $(".radio_btn input[type=radio]").click(function (e) {
-        if($(this).val() == "yes"){
-            $("#firstdrop").hide();
-            $("#seconddrop").show();
-        } else{
-            $("#firstdrop").show();
-        }
-    });
-
-    $(".radio_btn label i").click(function(){
-        $(".radio_btn label i").removeClass('active');
-        $(this).addClass('active');
-    });
-
 
 </script>
