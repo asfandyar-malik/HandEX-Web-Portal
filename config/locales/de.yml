@@ -350,6 +350,7 @@ de:
   payment_term: "Wie sind Ihre Zahlungsbedingungen gestaltet?"
   notice_interest_charged: "In diesem Fall gibt es die Möglichkeit, Ihre Forderungen gegenüber Ihrem Käufer mit einer Forfaitierung zu refinanzieren. Das bedeutet eine unserer Partnerbanken kauft Ihre Forderungen ab und refinanziert bis zu 95% des gesamten Forderungsbetrages."
   payment_goal: "Welches Zahlungsziel wünscht Ihr Kunde (in Monaten)? "
+
   #conclusion
   necessary_at_end: "Deklarationen"
   has_previously_used_hermes_cover: "Haben Sie in der Vergangenheit schon einmal einen Antrag auf Hermesdeckung eingereicht?"
@@ -443,3 +444,7 @@ de:
   annual_financial_statement_importer: "Jahresabschlüsse Ihres Kunden"
   environment_social_audit: "Umwelt- und Sozialinformationen"
   project_memorandum_exporter_business: "ggf. Projektmemorandum"
+
+
+  #Overview
+  not_selected_yet: "Nicht gewählt"

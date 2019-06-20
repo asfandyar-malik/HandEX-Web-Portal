@@ -38,7 +38,7 @@
             <div><%= t(attr_name) %>
               <div class="secondary-content">
                 <%= if attr_value == "Bitte auswählen"
-                      "Nicht gewählt"
+                      t('not_selected_yet')
                   elsif !attr_value
                          "Nein"
                   # elsif attr_value == ""
