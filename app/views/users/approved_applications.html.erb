@@ -12,7 +12,7 @@
         <% end %>
         <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= draft_applications_user_path(current_user.id) %>" >Entwürfe</a>
         <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= submitted_applications_user_path(current_user.id) %>">Versendet</a>
-        <a class="z-depth-0 btn handex-btn rounded" href="<%= approved_applications_user_path(current_user.id) %>" >Genehmigt</a>
+        <a class="z-depth-0 btn handex-btn rounded active" href="<%= approved_applications_user_path(current_user.id) %>" >Genehmigt</a>
         <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= all_applications_user_path(current_user.id) %>" >Alle</a>
     </div>
 </nav>
