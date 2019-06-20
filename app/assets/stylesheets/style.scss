@@ -354,6 +354,8 @@ form.col.s12.custom-form {
 nav {
   line-height: 70px;
   height: 75px;
+  color: #2541b2;
+  font-weight: bold;
 
   .nav-title {
     padding-top: 0;
@@ -374,6 +376,7 @@ nav {
     border-radius: 30px;
     width: 120px;
     float: right;
+    color:black;
     //background-color: rgb(129, 207, 219);
   }
 
@@ -381,12 +384,16 @@ nav {
     background-color: #2541b2;
   }
 
+  .btn.rounded.active {
+    color: white;
+  }
   .btn.rounded.inactive {
-    background-color: black;
+    background-color: white;
   }
 
   .btn.rounded.inactive:hover {
     background-color: #2541b2;
+    color:white;
   }
 
   .top-navigation-icons {
@@ -404,14 +411,26 @@ nav {
 
 .handex-btn {
   background-color: #2541b2;
+
 }
 .handex-btn:hover {
   background-color: #518fde; // rgb(37, 65, 178);
+  color:white;
 }
 
 .handex-btn-positiv {
   background-color: #41bf93;
 }
+
+.handex-btn-positiv.btn {
+  background-color: #41bf93;
+}
+
+
+
+
+
+
 
 .active_selection_card {
   background-color: #41bf93;
@@ -605,7 +624,7 @@ nav ul a:hover {
 }
 
 .handex-color-1 {
- background-color: black;
+ background-color: white;
 }
 
 li .dot {
