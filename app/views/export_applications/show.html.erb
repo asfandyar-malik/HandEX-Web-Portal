@@ -1,19 +1,63 @@
+<%= render 'shared/navbar' %>
 <p id="notice"><%= notice %></p>
-
 <%#=  my_array = ['exporter_name', 'exporter_dn_no', 'exporter_address_line1']  %>
 
-<div class='disable_input'>
-
-    <% @export_application.attributes.each do |attr_name, attr_value| %>
-        <div class="work_profile_attribute">
-            <%= attr_name.humanize %> : <%= attr_value %>
-        </div>
-    <% end %>
-
+<div class="form-progress">
+  <div class="container">
+    <div class="col s12 m12">
+      <ul class="progressbar">
+        <li tab_index="1" class="active"><span class="dot"></span>Unternehmen</li>
+        <li tab_index="2"><span class="dot hidden"></span>Kunde</li>
+        <li tab_index="3"><span class="dot hidden"></span>Geschäft</li>
+        <li tab_index="4"><span class="dot hidden"></span>Zahlung & Finanzierung</li>
+        <li tab_index="5"><span class="dot hidden"></span>Abschluss</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
-<%= link_to 'Edit', edit_export_application_path(@export_application) %> |
-<%= link_to 'Back', export_applications_path %>
+
+
+
+<div class="handex-form-container">
+  <div class="container">
+    <div class="section">
+      <!--      <div class='disable_input'>-->
+
+      <%# @export_application.attributes.each do |attr_name, attr_value| %>
+      <!--          <div class="work_profile_attribute">-->
+      <!--            <%#= attr_name.humanize %> : <%#= attr_value %>-->
+      <!--          </div>-->
+      <%# end %>
+
+      <!--      </div>-->
+      <ul class="collection with-header">
+        <!--        <li class="collection-header"><h4>First Names</h4></li>-->
+        <% @export_application.attributes.each do |attr_name, attr_value| next if attr_name == "id" %>
+          <li class="collection-item">
+            <div><%= t(attr_name) %>
+              <div class="secondary-content">
+                <%= if attr_value == "Bitte auswählen"
+                      "Nicht gewählt"
+                  elsif !attr_value
+                         "Nein"
+                  # elsif attr_value == ""
+                  #     "kein Wert eingegeben!"
+                  elsif  attr_value
+                  end
+                %>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!--<%#= link_to 'Edit', edit_export_application_path(@export_application) %> |-->
+<%#= link_to 'Back', export_applications_path %>
 
 <script>
     $('.disable_input :input').prop('disabled', true);
