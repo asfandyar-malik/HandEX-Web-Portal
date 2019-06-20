@@ -48,7 +48,7 @@
                                 <table class='table'>
                                     <tbody class='guarantees'>
                                     <%= form.fields_for :guarantees do |builder| %>
-                                        <%= render 'guarantee_fields', f: builder %>
+                                        <%= render 'export_applications/dynamic/guarantee_fields', f: builder %>
                                     <% end %>
                                     </tbody>
                                 </table>
@@ -143,7 +143,7 @@
                                                     <tbody class='agreed_payments'>
 
                                                     <%= form.fields_for :agreed_payments do |builder| %>
-                                                        <%= render 'agreed_payment_fields', f: builder %>
+                                                        <%= render 'export_applications/dynamic/agreed_payment_fields', f: builder %>
                                                     <% end %>
 
                                                     </tbody>
@@ -182,7 +182,7 @@
 
                                             <tbody class='agreed_payment_mid_longs'>
                                             <%= form.fields_for :agreed_payment_mid_longs do |builder| %>
-                                                <%= render 'agreed_payment_mid_long_fields', f: builder %>
+                                                <%= render 'export_applications/dynamic/agreed_payment_mid_long_fields', f: builder %>
                                             <% end %>
                                             </tbody>
 
@@ -266,7 +266,7 @@
                                         <table class='table'>
                                             <tbody class='agreed_payments_both'>
                                             <%= form.fields_for :agreed_payments do |builder| %>
-                                                <%= render 'agreed_payment_fields', f: builder %>
+                                                <%= render 'export_applications/dynamic/agreed_payment_fields', f: builder %>
                                             <% end %>
                                             </tbody>
                                         </table>

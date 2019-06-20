@@ -179,7 +179,7 @@
                                     <table class='table'>
                                         <tbody class='application_of_funds'>
                                         <%= form.fields_for :application_of_funds do |builder| %>
-                                            <%= render 'application_of_fund_fields', f: builder %>
+                                            <%= render 'export_applications/dynamic/application_of_fund_fields', f: builder %>
                                         <% end %>
                                         </tbody>
                                     </table>
@@ -195,7 +195,7 @@
                                     <table class='table'>
                                         <tbody class='source_of_funds'>
                                         <%= form.fields_for :source_of_funds do |builder| %>
-                                            <%= render 'source_of_funds_fields', f: builder %>
+                                            <%= render 'export_applications/dynamic/source_of_funds_fields', f: builder %>
                                         <% end %>
                                         </tbody>
                                     </table>
@@ -245,7 +245,7 @@
                                         <table class='table'>
                                             <tbody class='multiple_shipments'>
                                             <%= form.fields_for :multiple_shipments do |builder| %>
-                                                <%= render 'multiple_shipment_fields', f: builder %>
+                                                <%= render 'export_applications/dynamic/multiple_shipment_fields', f: builder %>
                                             <% end %>
                                             </tbody>
                                         </table>
@@ -294,7 +294,7 @@
                                 <table class='table'>
                                     <tbody class='extra_billed_items'>
                                     <%= form.fields_for :extra_billed_items do |builder| %>
-                                        <%= render 'extra_billed_item_fields', f: builder %>
+                                        <%= render 'export_applications/dynamic/extra_billed_item_fields', f: builder %>
                                     <% end %>
                                     </tbody>
                                 </table>
@@ -567,7 +567,7 @@
 
                                         <tbody class='supplies_from_foreign_origins'>
                                         <%= form.fields_for :supplies_from_foreign_origins do |builder| %>
-                                            <%= render 'supplies_from_foreign_origin_fields', f: builder %>
+                                            <%= render 'export_applications/dynamic/supplies_from_foreign_origin_fields', f: builder %>
                                         <% end %>
                                         </tbody>
 
@@ -605,7 +605,7 @@
 
                                         <tbody class='supplies_from_foreign_origins_partly'>
                                         <%= form.fields_for :supplies_from_foreign_origins do |builder| %>
-                                            <%= render 'supplies_from_foreign_origin_fields', f: builder %>
+                                            <%= render 'export_applications/dynamic/supplies_from_foreign_origin_fields', f: builder %>
                                         <% end %>
                                         </tbody>
                                     </table>
