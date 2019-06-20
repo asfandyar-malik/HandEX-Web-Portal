@@ -65,7 +65,10 @@
         </div>
 
         <div class="card-action center">
-                <%= link_to t('see_summary_of_application'), "/", target: :_blank %>
+                <%#= link_to t('see_summary_of_application'), profile_path(@profile) %>
+                <%#= link_to t('see_summary_of_application'), export_application_path(@export_application) %>
+                <%= link_to t('see_summary_of_application'), controller: "export_applications", action: "show", id: application %>
+                <%#= link_to t('see_summary_of_application'), "/export_applications/:id", target: 'application#id' %>
            </div>
     </div>
 </div>

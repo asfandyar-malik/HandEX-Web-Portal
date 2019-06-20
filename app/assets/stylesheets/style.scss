@@ -322,7 +322,7 @@ form.col.s12.custom-form {
   margin-right: 0;
   margin-bottom: 0;
   margin-top: 25px;
-  height: 75px;
+  height: 90px;
   padding: 15px;
 
   li {
@@ -353,6 +353,46 @@ form.col.s12.custom-form {
     color: black;
   }
 }
+
+
+.overview-top {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  height: 50px;
+  background-color: #2541b2;
+  padding: 0.7%;
+  color:white;
+
+  li {
+    list-style: none;
+    display: inline-block;
+    width: 18.33%;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    z-index: 99;
+    color: grey;
+    font-weight: bold;
+  }
+
+  li:hover {
+    color: #2541b2;
+  }
+
+  li.active {
+    color: black;
+  }
+
+  li.inactive {
+    color: grey;
+  }
+
+  li.inactive:hover {
+    color: black;
+  }
+}
+
 
 .card {
   .card-title {
