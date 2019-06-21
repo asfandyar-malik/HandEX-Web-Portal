@@ -397,7 +397,6 @@ form.col.s12.custom-form {
   }
 }
 
-
 .card {
   .card-title {
     font-size: medium;
@@ -407,7 +406,7 @@ form.col.s12.custom-form {
   }
 
   .card-title.sent_financing_application {
-    background: rgb(129, 207, 219);
+    background: #f08e63;
   }
 
   .card-title.approved_financing_application {
@@ -415,7 +414,7 @@ form.col.s12.custom-form {
   }
 
   .card-title.action_required_financing_application {
-    background: rgb(239, 131, 84)
+    background: #2541b2;
   }
 
   .card-title.draft_financing_application {
@@ -777,3 +776,5 @@ li .dot {
 .collection .collection-item {
   line-height: 3em;
 }
+
+

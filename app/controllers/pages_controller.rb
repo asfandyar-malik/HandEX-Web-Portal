@@ -26,9 +26,6 @@ class PagesController < ApplicationController
     
     def broker_option
     end
-
-    def overview
-    end
     
     def welcome
     end

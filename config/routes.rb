@@ -16,7 +16,6 @@ Rails.application.routes.draw do
         get 'pages/advice' => 'pages#advice'
         get 'pages/contacted_exporter' => 'pages#contacted_exporter'
         get 'pages/broker_option' => 'pages#broker_option'
-        get 'pages/overview' => 'pages#overview'
         get 'pages/welcome' => 'pages#welcome'
         get 'pages/broker_default' => 'pages#broker_default'
         get 'pages/products' => 'pages#products'
