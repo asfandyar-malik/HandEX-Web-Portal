@@ -604,6 +604,9 @@ nav ul a:hover {
   background-image: image-url("Clock-Icon.svg");
 }
 
+
+
+
 .import-icon {
   background-image: image-url("Import-Icon.svg");
 }
@@ -648,6 +651,12 @@ nav ul a:hover {
   background-image: image-url("reciept-icon-white.svg");
 }
 
+.no-application-icon {
+  //color:#41bf93;
+  //font-size: 110px;
+  background-image: image-url("icon-no-application.svg");
+}
+
 .card.big-choice-card {
   margin: auto;
   width: 70%;
@@ -673,8 +682,20 @@ nav ul a:hover {
 }
 
 .section {
-  padding-top: 0.5em;
+   padding-top: 0.5em;
 }
+
+.section .no-application-section {
+  color:black;
+  border-radius: 1em;
+  padding: 1em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
 
 .background_toggle {
   width: 100%;
