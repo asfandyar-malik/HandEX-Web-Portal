@@ -10,7 +10,7 @@
       </div>
       <div class="col s6">
         <div class="valign-wrapper">
-          <% if @export_application.status == "SUBMITTED" %>
+          <% if @export_application.application_status == "SUBMITTED" %>
             <i class="material-icons">timer</i>
             <div>
               <strong><%= t('application_sent') %></strong>
@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="valign-wrapper">
-        <% if @export_application.status == "DRAFT" %>
+        <% if @export_application.application_status == "DRAFT" %>
           <i class="custom_icon reciept-icon-white"></i>
           <div>
             <strong><%= t('draft_application') %></strong>

@@ -44,5 +44,8 @@ class PagesController < ApplicationController
     
     def registration_terms_and_conditions
     end
+
+    def application_submitted
+    end
     
 end

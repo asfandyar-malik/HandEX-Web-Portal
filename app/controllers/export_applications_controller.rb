@@ -33,14 +33,13 @@ class ExportApplicationsController < ApplicationController
         else
             @export_application.application_status = 'SUBMITTED'
             if @export_application.save
-                redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich erstellt.'
+                redirect_to pages_application_submitted_path, notice: 'Antrag wurde erfolgreich erstellt.'
             else
                 flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
                 render :new
             end
             # save as published
         end
-    
     end
     
     def update
@@ -55,7 +54,7 @@ class ExportApplicationsController < ApplicationController
         else
             @export_application.application_status = 'SUBMITTED'
             if @export_application.update(export_application_params)
-                redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich gespeichert.'
+                redirect_to pages_application_submitted_path, notice: 'Antrag wurde erfolgreich gespeichert.'
             else
                 flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
                 render :update
