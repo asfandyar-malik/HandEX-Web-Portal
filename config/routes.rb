@@ -11,7 +11,6 @@ Rails.application.routes.draw do
         get 'pages/impressum' => 'pages#impressum'
         get 'pages/terms_and_conditions' => 'pages#terms_and_conditions'
         get 'pages/registration_terms_and_conditions' => 'pages#registration_terms_and_conditions'
-        get 'pages/submitted_application' => 'pages#submitted_application'
         get 'pages/guidelines' => 'pages#guidelines'
         get 'pages/advice' => 'pages#advice'
         get 'pages/contacted_exporter' => 'pages#contacted_exporter'
