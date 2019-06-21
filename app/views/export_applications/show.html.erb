@@ -1,7 +1,8 @@
 <%= render 'shared/navbar' %>
 <p id="notice" class="" hidden><%= notice %></p>
 
-<div class="overview-top">
+<% if @export_application.application_status == "SUBMITTED" %>
+  <div class="overview-top submitted">
     <div class="row">
       <div class="col s6 ">
         <%= link_to :back do %>
@@ -10,30 +11,51 @@
       </div>
       <div class="col s6">
         <div class="valign-wrapper">
-          <% if @export_application.application_status == "SUBMITTED" %>
-            <i class="material-icons">timer</i>
-            <div>
-              <strong><%= t('application_sent') %></strong>
-            </div>
-          <% elsif @export_application.application_status == "DRAFT" %>
-            <i class="custom_icon reciept-icon-white"></i>
-            <div>
-              <strong><%= t('draft_application') %></strong>
-            </div>
-          <% end %>
+          <i class="material-icons">timer</i>
+          <div>
+            <strong><%= t('application_sent') %></strong>
+          </div>
         </div>
       </div>
     </div>
-</div>
+  </div>
+<% elsif @export_application.application_status == "DRAFT" %>
+  <div class="overview-top draft">
+    <div class="row">
+      <div class="col s6 ">
+        <%= link_to :back do %>
+          <i class="material-icons">arrow_back</i>
+        <% end %>
+      </div>
+      <div class="col s6">
+        <div class="valign-wrapper">
+          <i class="custom_icon reciept-icon-white"></i>
+          <div>
+            <strong><%= t('draft_application') %></strong>
+          </div>
+          <%# end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <div class="overview-header">
   <div class="container center">
     <div class="col s12 m12">
       <ul>
-        <li><%= t('importer') %><div></div></li>
-        <li><%= t('product') %><div></div></li>
-        <li><%= t('contract_value') %><div></div></li>
-        <li><%=  t('application_sent_at')%><div></div></li>
+        <li><%= t('importer') %>
+          <div></div>
+        </li>
+        <li><%= t('product') %>
+          <div></div>
+        </li>
+        <li><%= t('contract_value') %>
+          <div></div>
+        </li>
+        <li><%= t('application_sent_at') %>
+          <div></div>
+        </li>
       </ul>
     </div>
   </div>
@@ -45,7 +67,7 @@
 
       <ul class="collection with-header">
         <% @export_application.attributes.each do |attr_name, attr_value|
-          next if attr_name == "id"  %>
+          next if attr_name == "id"   %>
           <li class="collection-item">
             <div><%= t(attr_name) %>
               <div class="secondary-content">
@@ -53,8 +75,8 @@
                       t('not_selected_yet')
                     elsif !attr_value
                       t('no')
-                    # elsif attr_value
-                    #   t('yes')
+                      # elsif attr_value
+                      #   t('yes')
                     end
                 %>
               </div>
@@ -65,7 +87,3 @@
     </div>
   </div>
 </div>
-
-<script>
-    $('.disable_input :input').prop('disabled', true);
-</script>
