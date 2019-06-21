@@ -64,8 +64,17 @@
             </div>
         </div>
 
+      <% if application.application_type == "export_application" %>
         <div class="card-action center">
-                <%= link_to t('see_summary_of_application'), controller: "export_applications", action: "show", id: application %>
-           </div>
+          <%= link_to t('see_summary_of_application'), controller: "export_applications", action: "show", id: application %>
+        </div>
+      <% end %>
+
+      <% if application.application_type == "insurance" %>
+        <div class="card-action center">
+          <%= link_to t('see_summary_of_application'), controller: "insurance", action: "show", id: application %>
+        </div>
+      <% end %>
+
     </div>
 </div>
