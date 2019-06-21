@@ -116,6 +116,7 @@ de:
   application_submit: "Antrag Shicken"
   save_draft: "Entwurf speichern"
   complete: "fertig"
+  draft_application : "Antrag Entwurf"
 
   #navbar
   submitted_application: "Versendete Anträge"

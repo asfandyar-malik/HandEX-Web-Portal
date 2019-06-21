@@ -72,7 +72,7 @@
 
       <% if application.application_type == "insurance" %>
         <div class="card-action center">
-          <%= link_to t('see_summary_of_application'), controller: "insurance", action: "show", id: application %>
+          <%= link_to t('see_summary_of_application'), controller: "insurances", action: "show", id: application %>
         </div>
       <% end %>
 
