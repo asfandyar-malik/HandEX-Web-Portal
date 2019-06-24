@@ -167,14 +167,14 @@
 
                                     <table class='table'>
                                         <tbody class='application_of_funds'>
-                                        <%= form.fields_for :application_of_funds do |builder| %>
+                                        <%= form.fields_for :insurance_application_of_funds do |builder| %>
                                             <%= render 'insurances/dynamic/insurance_application_of_fund_fields', f: builder %>
                                         <% end %>
                                         </tbody>
                                     </table>
 
                                     <div class="form-actions">
-                                        <%= link_to_add_association t('add'), form, :application_of_funds, :partial => 'insurances/dynamic/insurance_application_of_fund_fields', class: 'btn btn-primary', data: {association_insertion_node: '.application_of_funds', association_insertion_method: :append} %>
+                                        <%= link_to_add_association t('add'), form, :insurance_application_of_funds, :partial => 'insurances/dynamic/insurance_application_of_fund_fields', class: 'btn btn-primary', data: {association_insertion_node: '.application_of_funds', association_insertion_method: :append} %>
                                     </div>
                                 </div>
 
@@ -183,14 +183,14 @@
 
                                     <table class='table'>
                                         <tbody class='source_of_funds'>
-                                        <%= form.fields_for :source_of_funds do |builder| %>
+                                        <%= form.fields_for :insurance_source_of_funds do |builder| %>
                                             <%= render 'insurances/dynamic/source_of_fund_fields', f: builder %>
                                         <% end %>
                                         </tbody>
                                     </table>
 
                                     <div class="form-actions">
-                                        <%= link_to_add_association t('add'), form, :source_of_funds, :partial => 'insurances/dynamic/insurance_source_of_fund_fields', class: 'btn btn-primary', data: {association_insertion_node: '.source_of_funds', association_insertion_method: :append} %>
+                                        <%= link_to_add_association t('add'), form, :insurance_source_of_funds, :partial => 'insurances/dynamic/insurance_source_of_fund_fields', class: 'btn btn-primary', data: {association_insertion_node: '.source_of_funds', association_insertion_method: :append} %>
                                     </div>
                                 </div>
                             </div>
@@ -233,14 +233,14 @@
                                     <div class="input-field col s12 m8">
                                         <table class='table'>
                                             <tbody class='multiple_shipments'>
-                                            <%= form.fields_for :multiple_shipments do |builder| %>
+                                            <%= form.fields_for :insurance_multiple_shipments do |builder| %>
                                                 <%= render 'insurances/dynamic/insurance_multiple_shipment_fields', f: builder %>
                                             <% end %>
                                             </tbody>
                                         </table>
 
                                         <div class="form-actions">
-                                            <%= link_to_add_association t('add'), form, :multiple_shipments, :partial => 'insurances/dynamic/insurance_multiple_shipment_fields', class: 'btn btn-primary', data: {association_insertion_node: '.multiple_shipments', association_insertion_method: :append} %>
+                                            <%= link_to_add_association t('add'), form, :insurance_multiple_shipments, :partial => 'insurances/dynamic/insurance_multiple_shipment_fields', class: 'btn btn-primary', data: {association_insertion_node: '.multiple_shipments', association_insertion_method: :append} %>
                                         </div>
                                     </div>
 
@@ -282,14 +282,14 @@
 
                                 <table class='table'>
                                     <tbody class='extra_billed_items'>
-                                    <%= form.fields_for :extra_billed_items do |builder| %>
+                                    <%= form.fields_for :insurance_extra_billed_items do |builder| %>
                                         <%= render 'insurances/dynamic/insurance_extra_billed_item_fields', f: builder %>
                                     <% end %>
                                     </tbody>
                                 </table>
 
                                 <div class="form-actions">
-                                    <%= link_to_add_association t('add'), form, :extra_billed_items, :partial => 'insurances/dynamic/insurance_extra_billed_item_fields', class: 'btn btn-primary', data: {association_insertion_node: '.extra_billed_items', association_insertion_method: :append} %>
+                                    <%= link_to_add_association t('add'), form, :insurance_extra_billed_items, :partial => 'insurances/dynamic/insurance_extra_billed_item_fields', class: 'btn btn-primary', data: {association_insertion_node: '.extra_billed_items', association_insertion_method: :append} %>
                                 </div>
                             </div>
 
@@ -556,7 +556,7 @@
                                         </thead>
 
                                         <tbody class='supplies_from_foreign_origins'>
-                                        <%= form.fields_for :supplies_from_foreign_origins do |builder| %>
+                                        <%= form.fields_for :insurance_supplies_from_foreign_origins do |builder| %>
                                             <%= render 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', f: builder %>
                                         <% end %>
                                         </tbody>
@@ -564,7 +564,7 @@
                                     </table>
 
                                     <div class="form-actions">
-                                        <%= link_to_add_association 'Hinzufügen', form, :supplies_from_foreign_origins, :partial => 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins', association_insertion_method: :append} %>
+                                        <%= link_to_add_association 'Hinzufügen', form, :insurance_supplies_from_foreign_origins, :partial => 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins', association_insertion_method: :append} %>
                                     </div>
 
                                     <div class="input-field col s12 m12">
@@ -594,13 +594,13 @@
                                         </thead>
 
                                         <tbody class='supplies_from_foreign_origins_partly'>
-                                        <%= form.fields_for :supplies_from_foreign_origins do |builder| %>
+                                        <%= form.fields_for :insurance_supplies_from_foreign_origins do |builder| %>
                                             <%= render 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', f: builder %>
                                         <% end %>
                                         </tbody>
                                     </table>
 
-                                    <%= link_to_add_association 'Hinzufügen', form, :supplies_from_foreign_origins, :partial => 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins_partly', association_insertion_method: :append} %>
+                                    <%= link_to_add_association 'Hinzufügen', form, :insurance_supplies_from_foreign_origins, :partial => 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins_partly', association_insertion_method: :append} %>
 
                                     <div class="input-field col s12 m12">
                                         <br>

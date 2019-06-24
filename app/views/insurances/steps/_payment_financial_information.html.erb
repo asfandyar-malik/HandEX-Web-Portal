@@ -47,14 +47,14 @@
 
                                 <table class='table'>
                                     <tbody class='guarantees'>
-                                    <%= form.fields_for :guarantees do |builder| %>
+                                    <%= form.fields_for :insurance_guarantees do |builder| %>
                                         <%= render 'insurances/dynamic/insurance_guarantee_fields', f: builder %>
                                     <% end %>
                                     </tbody>
                                 </table>
 
                                 <div class="form-actions">
-                                    <%= link_to_add_association 'Hinzufügen', form, :guarantees,
+                                    <%= link_to_add_association 'Hinzufügen', form, :insurance_guarantees,
                                                                 :partial => 'insurances/dynamic/insurance_guarantee_fields',
                                                                 class: 'btn btn-primary', data: {association_insertion_node: '.guarantees', association_insertion_method: :append} %>
                                 </div>
@@ -144,7 +144,7 @@
 
                                                     <tbody class='agreed_payments'>
 
-                                                    <%= form.fields_for :agreed_payments do |builder| %>
+                                                    <%= form.fields_for :insurance_agreed_payments do |builder| %>
                                                         <%= render 'insurances/dynamic/insurance_agreed_payment_fields', f: builder %>
                                                     <% end %>
 
@@ -153,7 +153,7 @@
                                                 </table>
 
                                                 <div class="form-actions">
-                                                    <%= link_to_add_association 'Hinzufügen', form, :agreed_payments,
+                                                    <%= link_to_add_association 'Hinzufügen', form, :insurance_agreed_payments,
                                                                                 :partial => 'insurances/dynamic/insurance_agreed_payment_fields',
                                                                                 class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payments', association_insertion_method: :append} %>
                                                 </div>
@@ -185,7 +185,7 @@
                                         <table class='table'>
 
                                             <tbody class='agreed_payment_mid_longs'>
-                                            <%= form.fields_for :agreed_payment_mid_longs do |builder| %>
+                                            <%= form.fields_for :insurance_agreed_payment_mid_longs do |builder| %>
                                                 <%= render 'insurances/dynamic/insurance_agreed_payment_mid_long_fields', f: builder %>
                                             <% end %>
                                             </tbody>
@@ -193,7 +193,7 @@
                                         </table>
 
                                         <div class="form-actions">
-                                            <%= link_to_add_association t('add'), form, :agreed_payment_mid_longs,
+                                            <%= link_to_add_association t('add'), form, :insurance_agreed_payment_mid_longs,
                                                                         :partial => 'insurances/dynamic/insurance_agreed_payment_mid_long_fields',
                                                                         class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payment_mid_longs', association_insertion_method: :append} %>
                                         </div>
@@ -271,14 +271,14 @@
 
                                         <table class='table'>
                                             <tbody class='agreed_payments_both'>
-                                            <%= form.fields_for :agreed_payments do |builder| %>
+                                            <%= form.fields_for :insurance_agreed_payments do |builder| %>
                                                 <%= render 'insurances/dynamic/insurance_agreed_payment_fields', f: builder %>
                                             <% end %>
                                             </tbody>
                                         </table>
 
                                         <div class="form-actions">
-                                            <%= link_to_add_association 'Hinzufügen', form, :agreed_payments,
+                                            <%= link_to_add_association 'Hinzufügen', form, :insurance_agreed_payments,
                                                                         :partial => 'insurances/dynamic/insurance_agreed_payment_fields',
                                                                         class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payments_both', association_insertion_method: :append} %>
                                         </div>
