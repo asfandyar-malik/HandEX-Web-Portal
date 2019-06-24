@@ -44,16 +44,24 @@
     <div class="col s12 m12">
       <ul>
         <li><%= t('importer') %>
-          <div></div>
+          <div>
+            <%= (@export_application.importer_company_name.nil? or ( !@export_application.importer_company_name.nil? and @export_application.importer_company_name.to_s.empty?) or ( !@export_application.importer_company_name.nil? and @export_application.importer_company_name.to_s == t('please_select')))? t('not_available') : @export_application.importer_company_name %>
+          </div>
         </li>
         <li><%= t('product') %>
-          <div></div>
+          <div>
+            <%= (@export_application.exported_goods_type.nil? or ( !@export_application.exported_goods_type.nil? and @export_application.exported_goods_type.to_s.empty?) or ( !@export_application.exported_goods_type.nil? and @export_application.exported_goods_type.to_s == t('please_select')))? t('not_available') : @export_application.exported_goods_type %>
+          </div>
         </li>
         <li><%= t('contract_value') %>
-          <div></div>
+          <div>
+            <%= (@export_application.contract_value.nil? or ( !@export_application.contract_value.nil? and @export_application.contract_value.to_s.empty?) or ( !@export_application.contract_value.nil? and @export_application.contract_value.to_s == t('please_select')))? t('not_available') : @export_application.contract_value %>
+          </div>
         </li>
         <li><%= t('application_sent_at') %>
-          <div></div>
+          <div>
+            <%= (@export_application.created_at.nil? or ( !@export_application.created_at.nil? and @export_application.created_at.to_s.empty?) or ( !@export_application.created_at.nil? and @export_application.created_at.to_s == t('please_select')))? t('not_available') : @export_application.created_at %>
+          </div>
         </li>
       </ul>
     </div>
@@ -66,7 +74,7 @@
 
       <ul class="collection with-header">
         <% @export_application.attributes.each do |attr_name, attr_value|
-          next if attr_name == "id"   %>
+          next if attr_name == "id"    %>
           <li class="collection-item">
             <div><%= t(attr_name) %>
               <div class="secondary-content">
