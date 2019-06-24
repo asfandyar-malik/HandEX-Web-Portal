@@ -63,17 +63,19 @@
     <div class="section">
 
       <ul class="collection with-header">
-        <% @insurance.attributes.each do |attr_name, attr_value|
-          next if attr_name == "id"  %>
+        <% @export_application.attributes.each do |attr_name, attr_value|
+          next if attr_name == "id"    %>
           <li class="collection-item">
             <div><%= t(attr_name) %>
               <div class="secondary-content">
-                <%= if attr_value == "Bitte auswählen"
+                <%= if !attr_value.nil? and attr_value == t('please_select')
                       t('not_selected_yet')
-                    elsif !attr_value
+                    elsif !attr_value.nil? and !attr_value
                       t('no')
-                    # elsif attr_value
-                    #   t('yes')
+                    elsif !attr_value.nil? and attr_value == true
+                      t('yes')
+                    elsif !attr_value.nil?
+                      attr_value
                     end
                 %>
               </div>
