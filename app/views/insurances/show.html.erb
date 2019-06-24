@@ -70,6 +70,8 @@
               <div class="secondary-content">
                 <%= if !attr_value.nil? and attr_value == t('please_select')
                       t('not_selected_yet')
+                    elsif !attr_value.nil? and attr_value == "insurance"
+                      t('insurance_application')
                     elsif !attr_value.nil? and !attr_value
                       t('no')
                     elsif !attr_value.nil? and attr_value == true
