@@ -86,9 +86,12 @@
     }
 
     function setActive(current_tab_index) {
-        for (let i = 1; i <= current_tab_index; i++) {
+        let i;
+        for (i = 1; i <= current_tab_index; i++) {
             $('li[tab_index="' + i + '"]').addClass('active');
         }
+        alert(i);
+        $('li[tab_index="' + i + '"] .dot').removeClass('hidden');
         $('.step-' + current_tab_index).show();
     }
 
