@@ -34,7 +34,7 @@ class InsurancesController < ApplicationController
         else
             @insurance.application_status = 'SUBMITTED'
             if @insurance.save
-                redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich erstellt.'
+                redirect_to pages_application_submitted_path, notice: 'Antrag wurde erfolgreich erstellt.'
             else flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
                 render :new
             end
@@ -54,7 +54,7 @@ class InsurancesController < ApplicationController
         else
             @insurance.application_status = 'SUBMITTED'
             if @insurance.update(insurance_params)
-                redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich gespeichert.'
+                redirect_to pages_application_submitted_path, notice: 'Antrag wurde erfolgreich gespeichert.'
             else
                 flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
                 render :update

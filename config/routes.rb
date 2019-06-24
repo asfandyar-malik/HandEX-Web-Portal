@@ -11,12 +11,10 @@ Rails.application.routes.draw do
         get 'pages/impressum' => 'pages#impressum'
         get 'pages/terms_and_conditions' => 'pages#terms_and_conditions'
         get 'pages/registration_terms_and_conditions' => 'pages#registration_terms_and_conditions'
-        get 'pages/submitted_application' => 'pages#submitted_application'
         get 'pages/guidelines' => 'pages#guidelines'
         get 'pages/advice' => 'pages#advice'
         get 'pages/contacted_exporter' => 'pages#contacted_exporter'
         get 'pages/broker_option' => 'pages#broker_option'
-        get 'pages/overview' => 'pages#overview'
         get 'pages/welcome' => 'pages#welcome'
         get 'pages/broker_default' => 'pages#broker_default'
         get 'pages/products' => 'pages#products'
@@ -24,6 +22,7 @@ Rails.application.routes.draw do
         get 'pages/advice_credit' => 'pages#advice_credit'
         get 'pages/advice_refinance' => 'pages#advice_refinance'
         get 'pages/invite_or_fill_yourself' => 'pages#invite_or_fill_yourself'
+        get 'pages/application_submitted' => 'pages#application_submitted'
         
         resources :insurances
         resources :export_applications

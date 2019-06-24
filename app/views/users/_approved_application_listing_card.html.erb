@@ -41,7 +41,8 @@
             </div>
         </div>
         <div class="card-action center">
-            <a href="#">Zusammenfassung Ansehen</a>
+<!--          <a href="#">Zusammenfassung Ansehen</a>-->
+          <%= link_to t('see_summary_of_application'), controller: "export_applications", action: "show", id: application %>
         </div>
     </div>
 </div>

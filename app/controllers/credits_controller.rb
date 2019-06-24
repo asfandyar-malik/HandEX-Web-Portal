@@ -22,7 +22,7 @@ class CreditsController < ApplicationController
   # def create
   #   @credit= current_user.credits.build(credit_params)
   #   if @credit.save
-  #     redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich erstellt.'
+  #     redirect_to pages_application_submitted_path, notice: 'Antrag wurde erfolgreich erstellt.'
   #   else
   #     flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
   #     render :new
@@ -41,7 +41,7 @@ class CreditsController < ApplicationController
     else
       @credit.application_status = 'new'
       if @credit.save
-        redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich erstellt.'
+        redirect_to pages_application_submitted_path, notice: 'Antrag wurde erfolgreich erstellt.'
       else
         flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
         render :new
@@ -53,7 +53,7 @@ class CreditsController < ApplicationController
 
   # def update
   #   if @credit.update(credit_params)
-  #     redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich aktualisiert.'
+  #     redirect_to pages_application_submitted_path, notice: 'Antrag wurde erfolgreich aktualisiert.'
   #   else
   #     flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
   #   end
@@ -71,7 +71,7 @@ class CreditsController < ApplicationController
     else
       @credit.application_status = 'new'
       if @credit.update(credit_params)
-        redirect_to pages_submitted_application_path, notice: 'Antrag wurde erfolgreich gespeichert.'
+        redirect_to pages_application_submitted_path, notice: 'Antrag wurde erfolgreich gespeichert.'
       else
         flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
         render :update

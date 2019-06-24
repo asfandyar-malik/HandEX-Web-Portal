@@ -14,10 +14,7 @@ class PagesController < ApplicationController
     
     def guidelines
     end
-    
-    def submitted_application
-    end
-    
+   
     def advice
     end
 
@@ -25,9 +22,6 @@ class PagesController < ApplicationController
     end
     
     def broker_option
-    end
-
-    def overview
     end
     
     def welcome
@@ -49,6 +43,9 @@ class PagesController < ApplicationController
     end
     
     def registration_terms_and_conditions
+    end
+
+    def application_submitted
     end
     
 end

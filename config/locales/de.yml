@@ -116,6 +116,7 @@ de:
   application_submit: "Antrag Shicken"
   save_draft: "Entwurf speichern"
   complete: "fertig"
+  draft_application : "Antrag Entwurf"
 
   #navbar
   submitted_application: "Versendete Anträge"
@@ -447,3 +448,8 @@ de:
 
   #Overview
   not_selected_yet: "Nicht gewählt"
+  application_sent: "Antrag versendet"
+  not_available: "Nicht gesetzt"
+  application_type: "Application type"
+  export_application: "Export Application"
+  insurance: "Insurance Application"

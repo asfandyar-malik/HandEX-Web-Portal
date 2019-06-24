@@ -1,8 +1,7 @@
 <%= render 'shared/navbar' %>
 <p id="notice" class="" hidden><%= notice %></p>
 
-<% if @export_application.application_status == "SUBMITTED" %>
-  <div class="overview-top submitted">
+<div class="overview-top">
     <div class="row">
       <div class="col s6 ">
         <%= link_to :back do %>
@@ -11,33 +10,24 @@
       </div>
       <div class="col s6">
         <div class="valign-wrapper">
-          <i class="material-icons">timer</i>
-          <div>
-            <strong><%= t('application_sent') %></strong>
-          </div>
+          <% if @insurance.application_status == "SUBMITTED" %>
+            <i class="material-icons">timer</i>
+            <div>
+              <strong><%= t('application_sent') %></strong>
+            </div>
+          <% end %>
         </div>
       </div>
-    </div>
-  </div>
-<% elsif @export_application.application_status == "DRAFT" %>
-  <div class="overview-top draft">
-    <div class="row">
-      <div class="col s6 ">
-        <%= link_to :back do %>
-          <i class="material-icons">arrow_back</i>
-        <% end %>
-      </div>
-      <div class="col s6">
-        <div class="valign-wrapper">
+      <div class="valign-wrapper">
+        <% if @insurance.application_status == "DRAFT" %>
           <i class="custom_icon reciept-icon-white"></i>
           <div>
             <strong><%= t('draft_application') %></strong>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
-  </div>
-<% end %>
+</div>
 
 <div class="overview-header">
   <div class="container center">
@@ -80,8 +70,8 @@
               <div class="secondary-content">
                 <%= if !attr_value.nil? and attr_value == t('please_select')
                       t('not_selected_yet')
-                    elsif !attr_value.nil? and attr_value == "export_application"
-                      t('export_application')
+                    elsif !attr_value.nil? and attr_value == "insurance"
+                      t('insurance_application')
                     elsif !attr_value.nil? and !attr_value
                       t('no')
                     elsif !attr_value.nil? and attr_value == true
@@ -98,3 +88,7 @@
     </div>
   </div>
 </div>
+
+<script>
+    $('.disable_input :input').prop('disabled', true);
+</script>
