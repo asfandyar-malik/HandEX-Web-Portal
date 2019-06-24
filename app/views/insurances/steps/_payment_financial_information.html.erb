@@ -1,0 +1,466 @@
+<!-- step-4 start -->
+<div class="step-4 tab">
+    <!--   Form Navigation Section   -->
+    <div class="row form-nav-top">
+        <div class="col s12 m4">
+            <div class="form-nav">
+                <p><span> 75% Fertig </span></p>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="form-nav">
+                <h2> <%= t :finance_and_payment %> </h2>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="form-nav right">
+                <input class="btn handex-btn z-depth-0" type="submit" name="draft" value="Entwurf speichern">
+                <input class="btn handex-btn z-depth-0 next handex-nav-button" tab_index="5" type="navigator" value="Weiter">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="form-content">
+                <div class="row">
+                    <div class="col background_toggle is_security_present_for_transaction">
+
+                        <div class="input-field col s12 m12">
+                            <div class="input-field col s12 m12 nopadding">
+                                <%= form.label :is_security_present_for_transaction, t('is_security_present_for_transaction') %>
+                                <p>
+                                    <label>
+                                        <%= check_box_tag "insurance[is_security_present_for_transaction]", @insurance.is_security_present_for_transaction ? @insurance.is_security_present_for_transaction : nil, false, :onclick => "securityPresent();", id: "export_application_is_security_present_for_transaction" %>
+                                        <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_security_present_for_transaction.present? && @insurance.is_security_present_for_transaction) %>"><%= t :yes %></span>
+                                    </label>
+
+                                    <label onclick="noSecurityPresent()">
+                                        <span style="font-size: 14px; padding-bottom: 11px; pfadding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.is_security_present_for_transaction.present? && !@insurance.is_security_present_for_transaction) %>"><%= t :no %></span>
+                                    </label>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="securityPresent" style="display: none">
+                            <div class="input-field col s12">
+                                <label> <%= t('security_type') %> </label>
+
+                                <table class='table'>
+                                    <tbody class='guarantees'>
+                                    <%= form.fields_for :insurance_guarantees do |builder| %>
+                                        <%= render 'insurances/dynamic/insurance_guarantee_fields', f: builder %>
+                                    <% end %>
+                                    </tbody>
+                                </table>
+
+                                <div class="form-actions">
+                                    <%= link_to_add_association 'Hinzufügen', form, :insurance_guarantees,
+                                                                :partial => 'insurances/dynamic/insurance_guarantee_fields',
+                                                                class: 'btn btn-primary', data: {association_insertion_node: '.guarantees', association_insertion_method: :append} %>
+                                </div>
+                            </div>
+
+                            <div class="input-field col s12 m12">
+                                <br>
+                                <%= form.label :proportion_of_good_covered_by_security, t('proportion_of_good_covered_by_security') %>
+                                <div> <%= form.text_field :proportion_of_good_covered_by_security, class: "validate" %> </div>
+                            </div>
+
+                            <div class="input-field col s12 m12">
+                                <div class="input-field col s12 m6 nopadding">
+                                    <%= form.label :when_security_received, t('when_security_received') %>
+                                    <%= form.select :when_security_received, options_for_select([[t('please_select'), "0"], ["Vor Fabrikationsbeginn", "1"], ["bereits erhalten", "2"], ["Vor Liefer-/Leistungsbeginn", "3"], ["Später", "4"], ["Anderer Termin", "5"]]), {}, id: "when_security_received", class: "validate" %>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col background_toggle has_agreed_payment_term_already">
+                        <div class="input-field col s12 m12">
+                            <div class="input-field col s12 m12 nopadding">
+                                <label> <%= t('has_agreed_payment_term_already') %> </label>
+                                <p>
+                                    <label>
+                                        <%= check_box_tag "insurance[has_agreed_payment_term_already]", @insurance.has_agreed_payment_term_already ? @insurance.has_agreed_payment_term_already : nil, false, :onclick => "agreedTermOfPayments();", id: "export_application_has_agreed_payment_term_already" %>
+                                        <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.has_agreed_payment_term_already.present? && @insurance.has_agreed_payment_term_already) %>"><%= t :yes %></span>
+                                    </label>
+
+                                    <label onclick="noAgreedTermOfPayments()">
+                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.has_agreed_payment_term_already.present? && !@insurance.has_agreed_payment_term_already) %>"><%= t :no %></span>
+                                    </label>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="agreedTermsOfPayments" style="display: <%= (@insurance.has_agreed_payment_term_already.present? && @insurance.has_agreed_payment_term_already) ? 'block' : 'none' %>">
+                            <div class="row">
+                                <div class="input-field col s12 m12">
+                                    <label class="active_selection_card_label">
+                                                    <span class="input-field col s12 m4 threecol" name="kurzfristigtermofpayment">
+                                                            <%= check_box_tag "insurance[payment_term_short]", @insurance.payment_term_short ? @insurance.payment_term_short : nil, false, :onclick => "kurzFristigTermOfPayment();", id: "export_application_payment_term_short" %>
+                                                        <%= form.label :payment_term_short, t('payment_term_short') %>
+                                                    </span>
+                                    </label>
+
+                                    <label class="active_selection_card_label">
+                                                    <span class="input-field col s12 m4 threecol" name="mitteltermofpayment">
+                                                        <%= check_box_tag "insurance[payment_term_mid]", @insurance.payment_term_mid ? @insurance.payment_term_mid : nil, false, :onclick => "mittelTermOfPayment();", id: "export_application_payment_term_mid" %>
+                                                        <%= form.label :payment_term_short, t('payment_term_mid') %>
+                                                    </span>
+                                    </label>
+
+                                    <label class="active_selection_card_label">
+                                                    <span class="input-field col s12 m4 threecol" name="sonstigekurzfristigtermofpayment">
+                                                        <%= check_box_tag "insurance[payment_term_both]", @insurance.payment_term_both ? @insurance.payment_term_both : nil, false, :onclick => "sonstigeKurzFristigTermOfPayment();", id: "export_application_payment_term_both" %>
+                                                        <%= form.label :payment_term_short, t('payment_term_both') %>
+                                                    </span>
+                                    </label>
+                                </div>
+
+                                <div id="ShortTermOfPayment" style="display: none;">
+                                    <br>
+                                    <div class="input-field col m12">
+                                        <div class="input-field col m10 no-padding">
+                                            <%= form.label :downpayment_delivery, t('downpayment_delivery') %>
+                                        </div>
+
+                                        <div class="row no-padding">
+
+                                            <div class="input-field col m6">
+                                                <%= form.select :downpayment_delivery_currency_payment_term_short, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: "validate" %>
+                                            </div>
+
+                                            <div class="input-field col m6">
+                                                <div> <%= form.text_field :downpayment_delivery_amount_payment_term_short, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row no-padding">
+                                            <div class="input-field col m12">
+
+                                                <%= form.label :agreed_payments, t('agreed_payments') %>
+
+                                                <table class='table'>
+
+                                                    <tbody class='agreed_payments'>
+
+                                                    <%= form.fields_for :insurance_agreed_payments do |builder| %>
+                                                        <%= render 'insurances/dynamic/insurance_agreed_payment_fields', f: builder %>
+                                                    <% end %>
+
+                                                    </tbody>
+
+                                                </table>
+
+                                                <div class="form-actions">
+                                                    <%= link_to_add_association 'Hinzufügen', form, :insurance_agreed_payments,
+                                                                                :partial => 'insurances/dynamic/insurance_agreed_payment_fields',
+                                                                                class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payments', association_insertion_method: :append} %>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="workwithothercompanies">
+                                            <div class="row no-padding">
+                                                <div class="input-field col m10">
+                                                    <%= form.label :payment_vehichle_payment_term_short, t('payment_vehichle_payment_term_short') %>
+                                                    <div> <%= form.text_area :payment_vehichle_payment_term_short, class: "validate" %> </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div id="MidTermOfPayment" style="display: none;">
+                                    <div class="input-field col m12">
+
+                                        <div class="row no-padding">
+                                            <div class="input-field col m12">
+                                                <label> <%= t('amount_advance_interim_payment') %> </label>
+                                                <p><%= t('notice_prepayment') %></p>
+                                            </div>
+                                        </div>
+
+                                        <table class='table'>
+
+                                            <tbody class='agreed_payment_mid_longs'>
+                                            <%= form.fields_for :insurance_agreed_payment_mid_longs do |builder| %>
+                                                <%= render 'insurances/dynamic/insurance_agreed_payment_mid_long_fields', f: builder %>
+                                            <% end %>
+                                            </tbody>
+
+                                        </table>
+
+                                        <div class="form-actions">
+                                            <%= link_to_add_association t('add'), form, :insurance_agreed_payment_mid_longs,
+                                                                        :partial => 'insurances/dynamic/insurance_agreed_payment_mid_long_fields',
+                                                                        class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payment_mid_longs', association_insertion_method: :append} %>
+                                        </div>
+
+                                        <div class="row no-padding">
+                                            <div class="input-field col m10 no-pad-bot">
+                                                <%= form.label :receive_deposit_time_payment_term_mid, t('receive_deposit_time_payment_term_mid') %>
+                                            </div>
+                                            <div class="input-field col m4">
+                                                <%= form.select :receive_deposit_time_payment_term_mid, options_for_select(["vor Fabrikationsbeginn", "vor Liefer /- Leistungbeginn", "bereits erhalten", "bei Betriebsbereitschaft", "anderer Termin"]), {}, class: "validate" %>
+                                            </div>
+                                        </div>
+
+                                        <div class="row no-padding">
+                                            <div class="input-field col m10 no-pad-botrem">
+                                                <%= form.label :repayment_structure_payment_term_mid, t('repayment_structure_payment_term_mid') %>
+                                            </div>
+                                            <div class="input-field col m4">
+                                                <%= form.select :repayment_structure_payment_term_mid, options_for_select([t('please_select'), "Monatliche Tilgungsraten", "Vierteljährliche Tilgungsprofil", "Halbjährige Tilgungsprofil", "Unregelmäßig"]), {}, class: "validate" %>
+                                            </div>
+                                        </div>
+
+                                        <div class="row no-padding">
+                                            <div class="input-field col m10 no-pad-bot">
+                                                <%= form.label :loan_term_start_payment_term_mid, t('loan_term_start_payment_term_mid') %>
+                                            </div>
+                                            <div class="input-field col m4">
+                                                <%= form.select :loan_term_start_payment_term_mid, options_for_select([t('please_select'), "mit Lieferung", "mit erster Lieferung (bei mehreren Lieferungen)", "mit jeweiliger Lieferung (bei mehreren Lieferungen)", "mittlerer gewogener Liefertermin (bei mehreren Lieferungen)", "mit Betriebsbereitschaft", "sonstige"]), {}, class: "validate" %>
+                                            </div>
+
+                                            <div class="input-field col m10">
+                                                <%= form.text_area :loan_term_start_description_payment_term_mid, class: "validate", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
+                                            </div>
+                                        </div>
+
+                                        <div id="workwithothercompanies">
+                                            <div class="row no-padding">
+                                                <div class="input-field col m10 no-pad-bot">
+                                                    <%= form.label :number_of_installments_payment_term_mid, t('number_of_installments_payment_term_mid') %>
+                                                </div>
+                                                <div class="input-field col m4">
+                                                    <%= form.text_field :number_of_installments_payment_term_mid, class: "validate", placeholder: "Anzahl der Raten", :onkeypress => "return onlyAllowNumericalValue(event)" %>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div id="BothTermOfPayment" style="display: none;">
+
+                                    <div class="input-field col m12">
+
+                                        <div class="row no-padding">
+                                            <div class="input-field col m10">
+                                                <label><%= t('payment_term_both_info1') %> </label>
+                                                <%= t('downpayment_before_delivery') %>
+                                            </div>
+                                        </div>
+
+                                        <div class="row no-padding">
+                                            <div class="input-field col m2">
+                                                <%= form.select :downpayment_delivery_currency_payment_term_both, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: "validate" %>
+                                            </div>
+                                            <div class="input-field col m4">
+                                                <div> <%= form.text_field :downpayment_delivery_amount_payment_term_both, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row no-padding">
+                                            <div class="input-field col m8">
+                                                <label> <%= t('agreed_payments') %></label>
+                                            </div>
+                                        </div>
+
+                                        <table class='table'>
+                                            <tbody class='agreed_payments_both'>
+                                            <%= form.fields_for :insurance_agreed_payments do |builder| %>
+                                                <%= render 'insurances/dynamic/insurance_agreed_payment_fields', f: builder %>
+                                            <% end %>
+                                            </tbody>
+                                        </table>
+
+                                        <div class="form-actions">
+                                            <%= link_to_add_association 'Hinzufügen', form, :insurance_agreed_payments,
+                                                                        :partial => 'insurances/dynamic/insurance_agreed_payment_fields',
+                                                                        class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payments_both', association_insertion_method: :append} %>
+                                        </div>
+
+                                        <br><br>
+
+                                        <div class="row no-padding">
+                                            <div class="input-field col m10">
+                                                <label><b> <%= t('payment_term_both_info2') %></b></label>
+                                                <br>
+                                            </div>
+                                        </div>
+
+                                        <div class="row no-padding">
+                                            <div class="input-field col m10">
+                                                <label> <%= t('amount_advance_interim_payment') %></label>
+                                                <p><i> <%= t('notice_prepayment') %></i></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row no-padding">
+
+                                            <div class="input-field col m2">
+                                                <%= form.select :advance_payment_currency_payment_term_both, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: "validate" %>
+                                            </div>
+
+                                            <div class="input-field col m4">
+                                                <div> <%= form.text_field :advance_payment_amount_payment_term_both, class: "validate", placeholder: "0,00", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                            </div>
+
+                                            <div class="input-field col m4">
+                                                <div> <%= form.text_field :advance_payment_description_payment_term_both, class: "validate" %> </div>
+                                            </div>
+
+                                            <div class="input-field col m1">
+                                                <p>%</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row no-padding">
+                                            <div class="input-field col m4">
+                                                <label> <%= t('receive_deposit_time_payment_term_mid') %></label>
+                                                <%= form.select :deposit_received_payment_term_both, options_for_select([t('please_select'), "vor Fabrikationsbeginn", "bereits erhalten", "vor Liefer /- Leistungbeginn", "bei Betriebsbereitschaft", "anderer Termin",]), {}, class: "validate" %>
+                                            </div>
+                                        </div>
+
+                                        <div class="row no-padding">
+                                            <div class="input-field col m4">
+                                                <%= form.label :repayment_structure_payment_term_both, t('repayment_structure_payment_term_both') %>
+                                                <%= form.select :repayment_structure_payment_term_both, options_for_select([t('please_select'), "Monatliche Tilgungsraten", "Vierteljährliche Tilgungsprofil", "Halbjährige Tilgungsprofil", "Unregelmäßig"]), {}, class: "validate" %>
+                                            </div>
+                                        </div>
+
+                                        <div class="row no-padding">
+                                            <div class="input-field col m6">
+                                                <%= form.label :loan_term_start_payment_term_both, t('loan_term_start_payment_term_both') %>
+                                                <%= form.select :loan_term_start_payment_term_both, options_for_select([t('please_select'), "mit Lieferung", "mit erster Lieferung (bei mehreren Lieferungen)", "mit jeweiliger Lieferung (bei mehreren Lieferungen)", "mittlerer gewogener Liefertermin (bei mehreren Lieferungen)", "mit Betriebsbereitschaft", "sonstige"]), {}, class: "validate" %>
+                                            </div>
+                                            <div class="input-field col m8">
+                                                <br>
+                                                <%= form.text_area :loan_term_start_description_payment_term_both, class: "validate", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
+                                            </div>
+                                        </div>
+
+                                        <div id="workwithothercompanies">
+                                            <div class="form-group">
+                                                <div class="row no-padding">
+                                                    <div class="input-field col m6">
+                                                        <%= form.label :number_of_installments_payment_term_both, t('number_of_installments_payment_term_both') %>
+                                                        <%= form.text_field :number_of_installments_payment_term_both, class: "validate", placeholder: "Anzahl der Raten", :onkeypress => "return onlyAllowNumericalValue(event)" %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="workwithothercompanies">
+                                            <div class="row no-padding">
+                                                <div class="input-field col m10">
+                                                    <%= form.label :payment_vehichle_payment_term_both, t('payment_vehichle_payment_term_both') %>
+                                                    <div> <%= form.text_field :payment_vehichle_payment_term_both, class: "validate" %> </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="input-field col s12">
+                                    <%= form.label :is_interest_charged_to_importer, t('is_interest_charged_to_importer') %>
+                                    <p>
+                                        <label>
+                                            <%= check_box_tag "insurance[is_interest_charged_to_importer]", @insurance.is_interest_charged_to_importer ? @insurance.is_interest_charged_to_importer : nil, false, :onclick => "customerCountsInterest()", id: "is_interest_charged_to_importer" %>
+                                            <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_interest_charged_to_importer.present? && @insurance.is_interest_charged_to_importer) %>"><%= t :yes %></span>
+                                        </label>
+
+                                        <label onclick="customerCountsInterest()">
+                                            <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.is_interest_charged_to_importer.present? && !@insurance.is_interest_charged_to_importer) %>"><%= t :no %></span>
+                                        </label>
+                                    </p>
+
+                                    <div id="yesCustomerCountInterest" style="display: <%=(@insurance.is_interest_charged_to_importer.present? && @insurance.is_interest_charged_to_importer)? 'block' : 'none'%>;">
+                                        <div class="input-field col s12 m12 ">
+                                            <%= form.label :interest, t('interest') %>
+                                            <p>
+                                            <div class="input-field col s12 m4">
+                                                <%= form.select :interest_currency, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: 'validate' %>
+                                            </div>
+                                            <div class="input-field col s12 m8">
+                                                <div> <%= form.text_field :interest_value, class: "validate", placeholder: t('amount'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-field col s12 m12">
+                                            <div class="input-field col s12 m12 nopadding">
+                                                <%= form.label :fixed_interest_rate, t('fixed_interest_rate') %>
+                                                <p>
+                                                    <label>
+                                                        <%= check_box_tag "insurance[fixed_interest_rate]", @insurance.fixed_interest_rate ? @insurance.fixed_interest_rate : nil, false, :onclick => "fixedInterestRate();", id: "fixed_interest_rate" %>
+                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.fixed_interest_rate.present? && @insurance.fixed_interest_rate) %>"> <%= t :yes %> </span>
+                                                    </label>
+
+                                                    <label onclick="noFixedInterestRate()">
+                                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.fixed_interest_rate.present? && !@insurance.fixed_interest_rate) %>"><%= t :no %></span>
+                                                    </label>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div id="yesFixedInterestRate" style="display: <%=(@insurance.fixed_interest_rate.present? && @insurance.fixed_interest_rate)? 'block' : 'none'%>;">
+                                            <div class="input-field col s12 m12">
+                                                <div class="input-field col s12 m12 nopadding">
+                                                    <p>
+                                                    <div class="input-field col s12 m12">
+                                                        <%= form.label :fixed_interest_rate_value, t('fixed_interest_rate_value') %>
+                                                        <div> <%= form.text_field :fixed_interest_rate_value, class: "validate" %> </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="noFixedInterestRate" style="display: <%=(@insurance.fixed_interest_rate.present? && !@insurance.fixed_interest_rate)? 'block' : 'none'%>;">
+                                            <div class="input-field col s12 m12">
+                                                <div class="input-field col s12 m12 nopadding">
+                                                    <p>
+                                                    <div class="input-field col s12 m12">
+                                                        <%= form.label :variable_interest_rate, t('variable_interest_rate') %>
+                                                        <div> <%= form.text_area :variable_interest_rate %> </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="input-field col s12 m12">
+                                            <div class="input-field col s12 m12 nopadding">
+                                                <%= form.label :degressive_interest_rate, t('degressive_interest_rate') %>
+                                                <p>
+                                                    <label>
+                                                        <%= check_box_tag "insurance[degressive_interest_rate]", @insurance.degressive_interest_rate ? @insurance.degressive_interest_rate : nil, false, :onclick => "degressiveInterestRate();", id: "degressive_interest_rate" %>
+                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.degressive_interest_rate.present? && @insurance.degressive_interest_rate) %>"><%= t :yes %></span>
+                                                    </label>
+
+                                                    <label onclick="noDegressiveInterestRate()">
+                                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.degressive_interest_rate.present? && !@insurance.degressive_interest_rate) %>"><%= t :no %></span>
+                                                    </label>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div id="noDegressiveInterestRate" style="display: <%=(@insurance.degressive_interest_rate.present? && !@insurance.degressive_interest_rate)? 'block' : 'none'%>;">
+                                            <div class="input-field col s12 m12">
+                                                <div class="input-field col s12 m12 nopadding">
+                                                    <p>
+                                                    <div class="input-field col s12 m12">
+                                                        <%= form.label :interest_calculation_description, t('interest_calculation_description') %>
+                                                        <div> <%= form.text_area :interest_calculation_description %> </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
