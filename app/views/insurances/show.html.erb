@@ -35,22 +35,22 @@
       <ul>
         <li><%= t('importer') %>
           <div class="overview_header_value">
-            <%= (@export_application.importer_company_name.nil? or ( !@export_application.importer_company_name.nil? and @export_application.importer_company_name.to_s.empty?) or ( !@export_application.importer_company_name.nil? and @export_application.importer_company_name.to_s == t('please_select')))? t('not_available') : @export_application.importer_company_name %>
+            <%= (@insurance.importer_company_name.nil? or ( !@insurance.importer_company_name.nil? and @insurance.importer_company_name.to_s.empty?) or ( !@insurance.importer_company_name.nil? and @insurance.importer_company_name.to_s == t('please_select')))? t('not_available') : @insurance.importer_company_name %>
           </div>
         </li>
         <li><%= t('product') %>
           <div class="overview_header_value">
-            <%= (@export_application.exported_goods_type.nil? or ( !@export_application.exported_goods_type.nil? and @export_application.exported_goods_type.to_s.empty?) or ( !@export_application.exported_goods_type.nil? and @export_application.exported_goods_type.to_s == t('please_select')))? t('not_available') : @export_application.exported_goods_type %>
+            <%= (@insurance.exported_goods_type.nil? or ( !@insurance.exported_goods_type.nil? and @insurance.exported_goods_type.to_s.empty?) or ( !@insurance.exported_goods_type.nil? and @insurance.exported_goods_type.to_s == t('please_select')))? t('not_available') : @insurance.exported_goods_type %>
           </div>
         </li>
         <li><%= t('contract_value') %>
           <div class="overview_header_value">
-            <%= (@export_application.contract_value.nil? or ( !@export_application.contract_value.nil? and @export_application.contract_value.to_s.empty?) or ( !@export_application.contract_value.nil? and @export_application.contract_value.to_s == t('please_select')))? t('not_available') : @export_application.contract_value %>
+            <%= (@insurance.contract_value.nil? or ( !@insurance.contract_value.nil? and @insurance.contract_value.to_s.empty?) or ( !@insurance.contract_value.nil? and @insurance.contract_value.to_s == t('please_select')))? t('not_available') : @insurance.contract_value %>
           </div>
         </li>
         <li><%= t('application_sent_at') %>
           <div class="overview_header_value">
-            <%= (@export_application.created_at.nil? or ( !@export_application.created_at.nil? and @export_application.created_at.to_s.empty?) or ( !@export_application.created_at.nil? and @export_application.created_at.to_s == t('please_select')))? t('not_available') : @export_application.created_at %>
+            <%= (@insurance.created_at.nil? or ( !@insurance.created_at.nil? and @insurance.created_at.to_s.empty?) or ( !@insurance.created_at.nil? and @insurance.created_at.to_s == t('please_select')))? t('not_available') : @insurance.created_at %>
           </div>
         </li>
       </ul>
@@ -63,7 +63,7 @@
     <div class="section">
 
       <ul class="collection with-header">
-        <% @export_application.attributes.each do |attr_name, attr_value|
+        <% @insurance.attributes.each do |attr_name, attr_value|
           next if attr_name == "id"    %>
           <li class="collection-item">
             <div><%= t(attr_name) %>
