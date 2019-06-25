@@ -22,6 +22,7 @@ class ExportApplicationsController < ApplicationController
 
     def create
         @export_application = current_user.export_applications.build(export_application_params)
+        @export_application.application_type = 'export_application'
         if params[:draft] == 'Entwurf speichern'
             @export_application.application_status = 'DRAFT'
             if @export_application.save
@@ -43,6 +44,7 @@ class ExportApplicationsController < ApplicationController
     end
     
     def update
+        @export_application.application_type = 'export_application'
         if params[:draft] == 'Entwurf speichern'
             @export_application.application_status = 'DRAFT'
             if @export_application.update(export_application_params)

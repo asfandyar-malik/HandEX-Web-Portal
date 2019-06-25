@@ -23,6 +23,7 @@ class InsurancesController < ApplicationController
     
     def create
         @insurance = current_user.insurances.build(insurance_params)
+        @insurance.application_type = 'insurance'
         if params[:draft] == 'Entwurf speichern'
             @insurance.application_status = 'DRAFT'
             if @insurance.save
@@ -43,6 +44,7 @@ class InsurancesController < ApplicationController
     end
     
     def update
+        @insurance.application_type = 'insurance'
         if params[:draft] == 'Entwurf speichern'
             @insurance.application_status = 'DRAFT'
             if @insurance.update(insurance_params)
