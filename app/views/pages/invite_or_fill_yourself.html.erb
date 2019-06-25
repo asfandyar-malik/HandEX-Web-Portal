@@ -15,11 +15,6 @@
             <div class="col s12 m7">
                 <div class="row">
                     <div class="col s4 m6">
-                        <% if params[:locale] %>
-                            <% @export_portal = 'pages/advice' %>
-                        <% else %>
-                            <% @export_portal = params[:locale].to_s + '/pages/advice' %>
-                        <% end %>
                         <div class="card small choice-card">
                             <div class="card-title valign-wrapper">
                                 <%= image_tag "behalf_customer.png" %>
@@ -41,11 +36,6 @@
 
 
                     <div class="col s4 m6">
-                        <% if params[:locale] %>
-                            <% @import_portal = '/' + params[:locale].to_s + '/imports/new' %>
-                        <% else %>
-                            <% @import_portal = params[:locale].to_s + '/imports/new' %>
-                        <% end %>
                         <div class="card small choice-card">
                             <div class="card-title valign-wrapper">
                                 <%= image_tag "invitecustomer.png" %>

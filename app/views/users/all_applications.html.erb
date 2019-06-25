@@ -1,0 +1,44 @@
+<%= render 'shared/navbar' %>
+
+<nav class="handex-color-1 z-depth-0">
+    <div class="nav-wrapper">
+        <% if current_user.is_broker? %>
+            <span class="nav-title">Makler Portal</span>
+            <a class="z-depth-0 btn z-depth-0 handex-btn-positiv" href="/pages/invite_or_fill_yourself">Antrag starten</a>
+            <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= invited_exporter_user_path(current_user.id) %>" > Eingeladen </a>
+        <% else %>
+            <span class="nav-title">Anträge</span>
+            <a class="z-depth-0 btn z-depth-0 handex-btn-positiv" href="/pages/products">Antrag starten</a>
+        <% end %>
+        <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= draft_applications_user_path(current_user.id) %>" >Entwürfe</a>
+        <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= submitted_applications_user_path(current_user.id) %>">Versendet</a>
+        <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= approved_applications_user_path(current_user.id) %>" >Genehmigt</a>
+        <a class="z-depth-0 btn handex-btn rounded active" href="<%= all_applications_user_path(current_user.id) %>" >Alle</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <% if @all_applications.empty? && @invited_exporters.empty? %>
+                <%= render "users/no_application" %>
+            <% else %>
+                <% @all_applications.each do |application| %>
+                    <% if application.application_status == "DRAFT" %>
+                    <%= render partial: "users/draft_application_listing_card", locals:  {application: application, can_edit: false} %>
+                    <% elsif application.application_status == "SUBMITTED" %>
+                    <%= render partial: "users/submitted_application_listing_card", locals:  {application: application, can_edit: false} %>
+                    <% end %>
+                <% end %>
+
+                <% @invited_exporters.each do |application| %>
+                    <%= render partial: "users/invited_exporter_listing_card", locals:  {application: application,
+                                                                                         can_edit: false} %>
+                <% end %>
+
+            <% end %>
+
+        </div>
+
+    </div>
+</div>

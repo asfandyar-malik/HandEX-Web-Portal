@@ -1,0 +1,16 @@
+<tr class="nested-fields">
+
+    <td class="input-field">
+        <%= f.select :security_type, options_for_select([[t('please_select'), "0"], ["Unbestätigtes Akkreditiv einer Bank", "1"], ["Bestätigtes Akkreditiv", "2"], ["Zahlungsgarantie einer Bank", "3"], ["Zahlungsgarantie eines Unternehmens", "4"], ["(eingetragener) Eigentumsvorbehalt (dingliche Sicherheit)", "5"], ["Pfandrecht (dingliche Sicherheit)", "6"], ["sonstige", "7"]]), {}, id: "security_type", class: "validate" %>
+    </td>
+
+    <td class="input-field">
+        <%= f.label :security_type_name, t('security_name') %>
+        <%= f.text_field :security_type_name, class: "validate", placeholder: "Bitte Name vergeben" %>
+    </td>
+
+    <td>
+        <%= link_to_remove_association "Löschen", f, class: 'btn btn-primary btn-xs' %>
+    </td>
+
+</tr>

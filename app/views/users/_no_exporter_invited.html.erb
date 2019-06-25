@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="section no-application-section">
+        <div class="card-content center-align light-hint" style="line-height:0.1">
+            <i class="material-icons" style="color:#41bf93;font-size: 110px">assignment</i>
+
+            <div class="title-text">
+                <strong class="no-application-text">
+                    <br><br><br>
+                    Keine Einladungen Geschickt
+                    <br><br><br>
+
+                </strong>
+            </div>
+            <h6> Sie haben keine Finanzierung beantragen.</h6>
+        </div>
+        <div class="card-action">
+            <div class="col s12 center-align" style="line-height:5">
+                <% if current_user.is_broker? %>
+                    <a class="btn-large z-depth-0 handex-btn btn-flat z-depth-0 validate white-text" href="/pages/invite_or_fill_yourself">Antrag starten</a>
+                <% else %>
+                    <a class="btn-large z-depth-0 handex-btn btn-flat z-depth-0 validate white-text" href="/pages/products">Antrag starten</a>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

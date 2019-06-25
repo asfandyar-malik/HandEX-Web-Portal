@@ -1,9 +1,37 @@
 class Insurance < ApplicationRecord
     belongs_to :user
-    
-    # validates :has_read_all_instructions, :acceptance => true
-    # validates :read_privacy_policy, :acceptance => true
-    # validates :accept_terms_conditions, :acceptance => true
+    has_many :insurance_supplies_from_foreign_origins, dependent: :destroy
+    has_many :insurance_guarantees, dependent: :destroy
+    has_many :insurance_agreed_payments, dependent: :destroy
+    has_many :insurance_agreed_payment_mid_longs, dependent: :destroy
+    has_many :insurance_multiple_shipments, dependent: :destroy
+    has_many :insurance_source_of_funds, dependent: :destroy
+    has_many :insurance_application_of_funds, dependent: :destroy
+    has_many :insurance_extra_billed_items, dependent: :destroy
+
+    accepts_nested_attributes_for :insurance_supplies_from_foreign_origins,
+                                  allow_destroy: true
+
+    accepts_nested_attributes_for :insurance_guarantees,
+                                  allow_destroy: true
+
+    accepts_nested_attributes_for :insurance_agreed_payments,
+                                  allow_destroy: true
+
+    accepts_nested_attributes_for :insurance_agreed_payment_mid_longs,
+                                  allow_destroy: true
+
+    accepts_nested_attributes_for :insurance_multiple_shipments,
+                                  allow_destroy: true
+
+    accepts_nested_attributes_for :insurance_source_of_funds,
+                                  allow_destroy: true
+
+    accepts_nested_attributes_for :insurance_application_of_funds,
+                                  allow_destroy: true
+
+    accepts_nested_attributes_for :insurance_extra_billed_items,
+                                  allow_destroy: true
 
     has_attached_file :self_disclosure, :storage => :cloudinary,  :cloudinary_resource_type => :image, :path => "insurances/:attachment/:id/:style/:filename",
                       styles: { medium: "300x300>", thumb: "100x100>" }

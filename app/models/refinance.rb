@@ -1,0 +1,2 @@
+class Refinance < ApplicationRecord
+end

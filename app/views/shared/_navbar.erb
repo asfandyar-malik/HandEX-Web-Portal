@@ -1,14 +1,14 @@
 <nav class="white z-depth-0">
 
-    <div class="nav-wrapper">
+    <div class="nav-wrapper z-depth-1">
 
-        <a href="/insurances" class="brand-logo"> <%= image_tag "HandEX_logo4.png", class: "handex-nav-logo", style: 'height:0.8em; width:auto; margin-left: 1em; margin-top: 0.7em; margin-bottom: 0.5em' %></a>
+        <a href="/" class="brand-logo"> <%= image_tag "HandEX_logo4.png", class: "handex-nav-logo", style: 'height:0.8em; width:auto; margin-left: 1em; margin-top: 0.7em; margin-bottom: 0.5em' %></a>
 
         <ul class="right hide-on-med-and-down handex-nav-icon">
 
             <li><a class="top-navigation-icons waves-effect" href="/profile"><i class="material-icons">account_circle</i></a></li>
 
-            <li><a class="top-navigation-icons waves-effect" href=<%= submitted_applications_insurance_path(current_user.id) %> ><i class="material-icons">add_alert</i></a></li>
+            <li><a class="top-navigation-icons waves-effect" href=<%= submitted_applications_user_path(current_user.id) %> ><i class="material-icons">add_alert</i></a></li>
 
             <li><a class="top-navigation-icons waves-effect dropdown-trigger" data-target="dropdown1"><i class="material-icons">settings</i></a></li>
 
@@ -18,10 +18,11 @@
 </nav>
 
 <ul id="dropdown1" class="dropdown-content">
-    <li><%= link_to t('submitted_application'), submitted_applications_insurance_path(current_user.id) %></li>
+    <li><%= link_to t('submitted_application'), submitted_applications_user_path(current_user.id) %></li>
     <li><%= link_to t('your_profile'), edit_user_registration_path %></li>
     <li class="divider"></li>
-    <li><%= link_to t('logout'), destroy_user_session_path, method: :destroy %></li>
+    <li><%= button_to t('logout'), destroy_user_session_path, method: :get %></li>
+
 </ul>
 
 <script>
