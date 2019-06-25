@@ -90,8 +90,8 @@
         for (i = 1; i <= current_tab_index; i++) {
             $('li[tab_index="' + i + '"]').addClass('active');
         }
-        alert(i);
-        $('li[tab_index="' + i + '"] .dot').removeClass('hidden');
+        $('li .dot').addClass('hidden');
+        $('li[tab_index="' + current_tab_index + '"] span').removeClass("hidden");
         $('.step-' + current_tab_index).show();
     }
 
