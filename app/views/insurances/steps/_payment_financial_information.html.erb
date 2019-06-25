@@ -35,7 +35,7 @@
                                     </label>
 
                                     <label onclick="noSecurityPresent()">
-                                        <span style="font-size: 14px; padding-bottom: 11px; pfadding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.is_security_present_for_transaction.present? && !@insurance.is_security_present_for_transaction) %>"><%= t :no %></span>
+                                        <span class="no yes-no-btns <%= 'active-btn' if (@insurance.is_security_present_for_transaction.present? && !@insurance.is_security_present_for_transaction) %>"><%= t :no %></span>
                                     </label>
                                 </p>
                             </div>
@@ -86,7 +86,7 @@
                                     </label>
 
                                     <label onclick="noAgreedTermOfPayments()">
-                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.has_agreed_payment_term_already.present? && !@insurance.has_agreed_payment_term_already) %>"><%= t :no %></span>
+                                        <span  class="no yes-no-btns <%= 'active-btn' if (@insurance.has_agreed_payment_term_already.present? && !@insurance.has_agreed_payment_term_already) %>"><%= t :no %></span>
                                     </label>
                                 </p>
                             </div>
@@ -374,7 +374,7 @@
                                         </label>
 
                                         <label onclick="customerCountsInterest()">
-                                            <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.is_interest_charged_to_importer.present? && !@insurance.is_interest_charged_to_importer) %>"><%= t :no %></span>
+                                            <span  class="no yes-no-btns <%= 'active-btn' if (@insurance.is_interest_charged_to_importer.present? && !@insurance.is_interest_charged_to_importer) %>"><%= t :no %></span>
                                         </label>
                                     </p>
 
@@ -400,7 +400,7 @@
                                                     </label>
 
                                                     <label onclick="noFixedInterestRate()">
-                                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.fixed_interest_rate.present? && !@insurance.fixed_interest_rate) %>"><%= t :no %></span>
+                                                        <span  class="no yes-no-btns <%= 'active-btn' if (@insurance.fixed_interest_rate.present? && !@insurance.fixed_interest_rate) %>"><%= t :no %></span>
                                                     </label>
                                                 </p>
                                             </div>
@@ -438,7 +438,7 @@
                                                     </label>
 
                                                     <label onclick="noDegressiveInterestRate()">
-                                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.degressive_interest_rate.present? && !@insurance.degressive_interest_rate) %>"><%= t :no %></span>
+                                                        <span  class="no yes-no-btns <%= 'active-btn' if (@insurance.degressive_interest_rate.present? && !@insurance.degressive_interest_rate) %>"><%= t :no %></span>
                                                     </label>
                                                 </p>
                                             </div>

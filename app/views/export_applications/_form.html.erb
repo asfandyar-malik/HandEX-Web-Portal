@@ -93,15 +93,12 @@
         }
         $('li .dot').addClass('hidden');
         $('li[tab_index="' + current_tab_index + '"] span').removeClass("hidden");
-        // $('.step-' + current_tab_index).show();
     }
 
     $('.progressbar li, .next').click(function function_name(argument) {
         setActive($(this).attr('tab_index'));
         changeTabs($(this).attr('tab_index'));
         $(this).addClass('active');
-        $('.dot').addClass('hidden');
-        $(this).children('.dot').removeClass('hidden');
     });
 
     function customerCountsInterest() {

@@ -36,7 +36,7 @@
                                     </label>
 
                                     <label onclick="noPreviouslyHermesInsuranceUsed()">
-                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns  <%= 'active-btn' if (@insurance.has_previously_used_hermes_cover.present? && !@insurance.has_previously_used_hermes_cover) %>"><%= t :no %></span>
+                                        <span  class="no yes-no-btns  <%= 'active-btn' if (@insurance.has_previously_used_hermes_cover.present? && !@insurance.has_previously_used_hermes_cover) %>"><%= t :no %></span>
                                     </label>
                                 </p>
                             </div>
@@ -210,7 +210,7 @@
                                 </label>
 
                                 <label onclick="noCorruptionDeclaration()">
-                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.does_corruption_declaration_apply.present? && !@insurance.does_corruption_declaration_apply) %>">Trifft nicht zu</span>
+                                    <span  class="no yes-no-btns <%= 'active-btn' if (@insurance.does_corruption_declaration_apply.present? && !@insurance.does_corruption_declaration_apply) %>">Trifft nicht zu</span>
                                 </label>
                             </p>
                         </div>
