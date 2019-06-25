@@ -1,7 +1,8 @@
 <%= render 'shared/navbar' %>
 <p id="notice" class="" hidden><%= notice %></p>
 
-<div class="overview-top">
+<% if @insurance.application_status == "SUBMITTED" %>
+  <div class="overview-top submitted">
     <div class="row">
       <div class="col s6 ">
         <%= link_to :back do %>
@@ -10,24 +11,33 @@
       </div>
       <div class="col s6">
         <div class="valign-wrapper">
-          <% if @insurance.application_status == "SUBMITTED" %>
-            <i class="material-icons">timer</i>
-            <div>
-              <strong><%= t('application_sent') %></strong>
-            </div>
-          <% end %>
+          <i class="material-icons">timer</i>
+          <div>
+            <strong><%= t('application_sent') %></strong>
+          </div>
         </div>
       </div>
-      <div class="valign-wrapper">c
-        <% if @insurance.application_status == "DRAFT" %>
+    </div>
+  </div>
+<% elsif @insurance.application_status == "DRAFT" %>
+  <div class="overview-top draft">
+    <div class="row">
+      <div class="col s6 ">
+        <%= link_to :back do %>
+          <i class="material-icons">arrow_back</i>
+        <% end %>
+      </div>
+      <div class="col s6">
+        <div class="valign-wrapper">
           <i class="custom_icon reciept-icon-white"></i>
           <div>
             <strong><%= t('draft_application') %></strong>
           </div>
-        <% end %>
+        </div>
       </div>
     </div>
-</div>
+  </div>
+<% end %>
 
 <div class="overview-header">
   <div class="container center">
