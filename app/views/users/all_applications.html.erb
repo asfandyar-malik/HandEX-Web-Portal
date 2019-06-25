@@ -24,8 +24,11 @@
                 <%= render "users/no_application" %>
             <% else %>
                 <% @all_applications.each do |application| %>
-                    <%= render partial: "users/submitted_application_listing_card", locals:  {application: application,
-                                                                                                   can_edit: false} %>
+                    <% if application.application_status == "DRAFT" %>
+                    <%= render partial: "users/draft_application_listing_card", locals:  {application: application, can_edit: false} %>
+                    <% elsif application.application_status == "SUBMITTED" %>
+                    <%= render partial: "users/submitted_application_listing_card", locals:  {application: application, can_edit: false} %>
+                    <% end %>
                 <% end %>
 
                 <% @invited_exporters.each do |application| %>

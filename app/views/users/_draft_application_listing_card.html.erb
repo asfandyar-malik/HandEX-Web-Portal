@@ -45,6 +45,7 @@
                     <p id="output_value">
                         <% if application.contract_value %>
                             <div class="col s6">
+<!--                              TODO From @Hamid to @Hamid: show the saved contract currency-->
                                 &euro; <%= application.contract_value %>
                             </div>
                         <% else %>
@@ -65,9 +66,18 @@
             </div>
         </div>
 
+      <% if application.application_type == "export_application" %>
         <div class="card-action center">
-          <%#= link_to t('see_summary_of_application') %>
-          <%= link_to t('see_summary_of_application'), controller: "export_applications", action: "show",  id: application %>
+          <%= link_to t('see_summary_of_application'), controller: "export_applications", action: "show", id: application %>
         </div>
+      <% end %>
+
+      <% if application.application_type == "insurance" %>
+        <div class="card-action center">
+          <%= link_to t('see_summary_of_application'), controller: "insurances", action: "show", id: application %>
+        </div>
+      <% end %>
+
+
     </div>
 </div>

@@ -43,6 +43,7 @@
                 </div>
 
             <% end %>
+
         </div>
     </div>
 </div>
@@ -86,10 +87,13 @@
     }
 
     function setActive(current_tab_index) {
-        for (let i = 1; i <= current_tab_index; i++) {
+        let i;
+        for (i = 1; i <= current_tab_index; i++) {
             $('li[tab_index="' + i + '"]').addClass('active');
         }
-        $('.step-' + current_tab_index).show();
+        $('li .dot').addClass('hidden');
+        $('li[tab_index="' + current_tab_index + '"] span').removeClass("hidden");
+        // $('.step-' + current_tab_index).show();
     }
 
     $('.progressbar li, .next').click(function function_name(argument) {
