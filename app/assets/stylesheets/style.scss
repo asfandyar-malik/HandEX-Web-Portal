@@ -64,6 +64,7 @@ body {
         border: 1px solid #d6d0d0;
         font-weight: bold;
         height: auto !important;
+        border-radius: 4px;
       }
 
       span:before {
@@ -371,6 +372,10 @@ nav {
 
 .form-content .input-field input[type="submit"] {
   background: rgb(129, 207, 219);
+}
+
+.form-content .input-field input {
+  border-radius: 4px;
 }
 
 .handex-btn {
