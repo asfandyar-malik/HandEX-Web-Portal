@@ -834,3 +834,21 @@ li .dot {
 .overview_header_value {
   color: black;
 }
+
+.tabs .tab a {
+  color: #518fde;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+  background-color: transparent;
+  color: rgb(37, 65, 178);
+}
+
+.tabs .indicator {
+  background-color: #518fde;
+}
+
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+  background-color: rgba(135,206,250, 0.3);
+  font-weight: bold;
+}
