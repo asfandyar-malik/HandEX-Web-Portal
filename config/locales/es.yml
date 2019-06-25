@@ -326,3 +326,29 @@ es:
   subject_origin: "Fuente de Financiación"
   entire_project_financing_detail: "Por favor, introduzca una descripción lo más detallada posible de cómo se financia el proyecto en su conjunto."
   sum: "Cifra"
+  conclusion: "ABSCHLUSS"
+  delete: "Please translate: Löschen"
+  add: "Please translate: Hinzufügen"
+  rate: "Please translate: Rate"
+  to: "Please translate: zu"
+  reference_point: "Please translate: Referenztermin/Milestone"
+  browse: "Please translate: Browse"
+
+  #documents
+  self_disclosure: "Please translate: Selbsauskunft"
+  additional_document: "Please translate: Sonstiges"
+  credit_bureaus_importer: "Please translate: Auskünfte Ihres Kunden"
+  documents_for_examination: "Please translate: Diese Anlagen benötigen wir für die Prüfung Ihres Geschäftes"
+  self_declaration: "Please translate: Selbstauskunft (bei Neukunden)"
+  annual_financial_statement_importer: "Please translate: Jahresabschlüsse Ihres Kunden"
+  environment_social_audit: "Please translate: Umwelt- und Sozialinformationen"
+  project_memorandum_exporter_business: "Please translate: ggf. Projektmemorandum"
+
+
+  #Overview
+  not_selected_yet: "Please translate: Nicht gewählt"
+  application_sent: "Please translate: Antrag versendet"
+  not_available: "Please translate: Nicht gesetzt"
+  application_type: "Please translate: Application type"
+  export_application: "Please translate: Export Application"
+  insurance: "Please translate: Insurance Application"

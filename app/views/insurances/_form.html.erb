@@ -48,6 +48,7 @@
         </div>
     </div>
 </div>
+
 <!--  Scripts-->
 <script type="text/javascript">
 
@@ -93,7 +94,7 @@
         }
         $('li .dot').addClass('hidden');
         $('li[tab_index="' + current_tab_index + '"] span').removeClass("hidden");
-        $('.step-' + current_tab_index).show();
+        // $('.step-' + current_tab_index).show();
     }
 
     $('.progressbar li, .next').click(function function_name(argument) {
@@ -368,9 +369,6 @@
 
     function investmentGoods() {
         $('#insurance_is_investment_good').prop('checked', true);
-        $("#firstdrop").hide();
-        $("#seconddrop").show();
-
     }
 
     function noInvestmentGoods() {
