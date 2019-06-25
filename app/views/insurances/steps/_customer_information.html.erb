@@ -58,7 +58,7 @@
                                     </label>
 
                                     <label onclick="noDeliveredAtThisAddress()">
-                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.is_delivered_at_this_address.present? && !@insurance.is_delivered_at_this_address) %>"><%= t :no%></span>
+                                        <span  class="no yes-no-btns <%= 'active-btn' if (@insurance.is_delivered_at_this_address.present? && !@insurance.is_delivered_at_this_address) %>"><%= t :no%></span>
                                     </label>
                                 </p>
                             </div>
@@ -106,7 +106,7 @@
                                 </label>
 
                                 <label onclick="noPrivate_sector()">
-                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.is_exporting_to_private_sector.present? && !@insurance.is_exporting_to_private_sector) %>"><%= t :to_public_sector%></span>
+                                    <span  class="no yes-no-btns <%= 'active-btn' if (@insurance.is_exporting_to_private_sector.present? && !@insurance.is_exporting_to_private_sector) %>"><%= t :to_public_sector%></span>
                                 </label>
                             </p>
                         </div>
@@ -127,7 +127,7 @@
                                 </label>
 
                                 <label onclick="noPaymentExperience()">
-                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.has_payment_experience_with_importer.present? && !@insurance.has_payment_experience_with_importer) %>"><%= t :no%></span>
+                                    <span  class="no yes-no-btns <%= 'active-btn' if (@insurance.has_payment_experience_with_importer.present? && !@insurance.has_payment_experience_with_importer) %>"><%= t :no%></span>
                                 </label>
                             </p>
                         </div>
@@ -158,7 +158,7 @@
                                     </label>
 
                                     <label onclick="noImporterExternalRatingFunction()">
-                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.importer_external_rating_available.present? && !@insurance.importer_external_rating_available) %>"><%= t :no%></span>
+                                        <span  class="no yes-no-btns <%= 'active-btn' if (@insurance.importer_external_rating_available.present? && !@insurance.importer_external_rating_available) %>"><%= t :no%></span>
                                     </label>
                                 </p>
                             </div>
@@ -191,7 +191,7 @@
                                 </label>
 
                                 <label onclick="notControlledByMotherCompany()">
-                                    <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns  <%= 'active-btn' if (@insurance.is_company_controlled_by_mother_company.present? && !@insurance.is_company_controlled_by_mother_company) %>"><%= t :no%></span>
+                                    <span  class="no yes-no-btns  <%= 'active-btn' if (@insurance.is_company_controlled_by_mother_company.present? && !@insurance.is_company_controlled_by_mother_company) %>"><%= t :no%></span>
                                 </label>
                             </p>
                         </div>
@@ -207,7 +207,7 @@
                                     </label>
 
                                     <label onclick="noSignificantInfluenceOnImporter()">
-                                        <span style="font-size: 14px; padding-bottom: 11px; padding-top: 11px" class="no yes-no-btns <%= 'active-btn' if (@insurance.has_significant_influence_on_importer_management.present? && !@insurance.has_significant_influence_on_importer_management) %>"><%= t :no%></span>
+                                        <span  class="no yes-no-btns <%= 'active-btn' if (@insurance.has_significant_influence_on_importer_management.present? && !@insurance.has_significant_influence_on_importer_management) %>"><%= t :no%></span>
                                     </label>
                                 </p>
                             </div>
