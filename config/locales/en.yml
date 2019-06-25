@@ -280,6 +280,9 @@ en:
   read_all_instruction_html: "We have noted the   %{href} for the application, publication of project data, OECD Guidelines for Multinational Enterprises and UN Guiding Principles on Economic and Human Rights."
   read_all_instruction_text: "tips on feeds and charges, guidelines, responsibilites "
   read_all_instruction_href: "/pages/guidelines"
+  has_read_all_instructions: "Please translate: Wir haben die %{href} für den Antrag, Veröffentlichung von Projektdaten, OECD-Leitsätze für multinationale Unternehmen und UN-Leitprinzipien für Wirtschafts- und Menschenrechte zur Kenntnis genommen."
+  has_read_all_instructions_link: "/pages/guidelines"
+
   #summary
   summary: "Summary"
   where_should_it_go: "Where are you exporting to?"
@@ -289,3 +292,31 @@ en:
   #submit_application
   application_sent_successfully: "Your application is succesfully sent !!!"
   application_sent_successfully_text: "Your application has been successfully sent and is now being reviewed by HandEX. You will probably receive an answer within the next two weeks. If you have any questions, you can always contact us by sending an email to info@handex.co"
+  entire_project_financing_detail: "Please translate: Bitte tragen Sie so detailiert wie möglich ein, wie das Gesamtprojekt finanziert ist"
+  sum: "Please translate:Summe"
+  conclusion: "Please translate:ABSCHLUSS"
+  delete: "Please translate:Löschen"
+  add: "Please translate:Hinzufügen"
+  rate: "Please translate:Rate"
+  to: "Please translate:zu"
+  reference_point: "Please translate:Referenztermin/Milestone"
+  browse: "Please translate:Browse"
+
+  #documents
+  self_disclosure: "Please translate:Selbsauskunft"
+  additional_document: "Please translate:Sonstiges"
+  credit_bureaus_importer: "Please translate:Auskünfte Ihres Kunden"
+  documents_for_examination: "Please translate:Diese Anlagen benötigen wir für die Prüfung Ihres Geschäftes"
+  self_declaration: "Please translate:Selbstauskunft (bei Neukunden)"
+  annual_financial_statement_importer: "Please translate:Jahresabschlüsse Ihres Kunden"
+  environment_social_audit: "Please translate:Umwelt- und Sozialinformationen"
+  project_memorandum_exporter_business: "Please translate:ggf. Projektmemorandum"
+
+
+  #Overview
+  not_selected_yet: "Please translate: Nicht gewählt"
+  application_sent: "Please translate: Antrag versendet"
+  not_available: "Please translate: Nicht gesetzt"
+  application_type: "Please translate: Application type"
+  export_application: "Please translate: Export Application"
+  insurance: "Please translate: Insurance Application"
