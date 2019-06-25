@@ -271,12 +271,10 @@ es:
   exporter_representative_email: "Email"
   exporter_representative_function: "Ocupación"
   exporter_representative_department: "Variedad"
-  documents_for_examination: "Necesitamos estas instalaciones para el examen de su negocio"
   self_declaration_document: "Revelación de información (para nuevos clientes)"
   annual_financial_statement_importer_document: "Estados Financieros Anuales de su Cliente"
   credit_bureaus_importer_document: "Información sobre sus Clientes"
   environment_social_audit_document: "Información Ambiental y Social"
-  project_memorandum_exporter_business: "Memorándum del proyecto"
   corruption_prevention_statement: "Por favor, haga la Declaración sobre la Prevención de la Corrupción."
   compliance_heading: "Cumplimiento de los requisitos Legales"
   compliance_statement: "Declaramos que la conclusión de la operación de entrega o de prestación de servicios no se ha producido o no se producirá por un acto delictivo de un empleado, de la dirección o de un propietario de nuestra empresa o de otra persona que actúe en nuestro nombre."
@@ -338,11 +336,11 @@ es:
   self_disclosure: "Please translate: Selbsauskunft"
   additional_document: "Please translate: Sonstiges"
   credit_bureaus_importer: "Please translate: Auskünfte Ihres Kunden"
-  documents_for_examination: "Please translate: Diese Anlagen benötigen wir für die Prüfung Ihres Geschäftes"
+  documents_for_examination: "Necesitamos estas instalaciones para el examen de su negocio"
   self_declaration: "Please translate: Selbstauskunft (bei Neukunden)"
   annual_financial_statement_importer: "Please translate: Jahresabschlüsse Ihres Kunden"
   environment_social_audit: "Please translate: Umwelt- und Sozialinformationen"
-  project_memorandum_exporter_business: "Please translate: ggf. Projektmemorandum"
+  project_memorandum_exporter_business: "Memorándum del proyecto"
 
 
   #Overview
