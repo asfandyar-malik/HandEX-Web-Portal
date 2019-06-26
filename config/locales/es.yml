@@ -259,7 +259,6 @@ es:
   experience_with_importer_country: "¿Tiene muchos años de experiencia en exportación y conocimiento del mercado del país receptor?"
   adequate_claims_management: "Por favor, explique hasta qué punto dispone de una gestión de siniestros adecuada. ¿Se ha enfrentado en el pasado (con más frecuencia) a retrasos en los pagos o a pérdidas por deudas incobrables y qué medidas toma en su empresa si un cliente se retrasa en los pagos?"
   exporter_company_data: "Por favor, introduzca los datos de su empresa."
-  exporter_name: "Nombre de Empresa"
   exporter_dn_no: "DN-NR"
   exporter_telephone: "Telefono"
   exporter_street_hno: "Dirección de Empresa"
@@ -344,7 +343,6 @@ es:
   environment_social_audit: "Please translate: Umwelt- und Sozialinformationen"
   project_memorandum_exporter_business: "Memorándum del proyecto"
 
-
   #Overview
   not_selected_yet: "Please translate: Nicht gewählt"
   application_sent: "Please translate: Antrag versendet"
@@ -352,3 +350,22 @@ es:
   application_type: "Please translate: Application type"
   export_application: "Please translate: Export Application"
   insurance: "Please translate: Insurance Application"
+
+  #Invited Exporter
+  exporter_name: "Nombre de Empresa"
+  exporter_representative_name: "Kontaktperson"
+  exporter_email: "Email"
+  exporter_broker_id: "Interne Kundennummer"
+  invited_application: "Eingeladene Anträge"
+  contact_info_customer: "Kontaktdaten Ihres Kunden"
+  invite_exporter_info: "Bitte füllen Sie hier die Kontaktdaten Ihres Kunden ein. Ihr Kunde erhält per Email eine Einladung zu unserem Portal und kann sich selbst registrieren und wird danach direkt in die Antragsstrecke des von Ihnen ausgewählten Produktes geleitet. Bitte stellen Sie sicher, dass Sie die Erlabunis haben die Kontaktdaten Ihres Kunden an HandEX weiterzugeben."
+
+  #registration
+  company_name: "Firmenname"
+  firstname: "Vorname"
+  lastname: "Nachname"
+  email: "E-Mail"
+  phone_number: "Telefonnummer"
+  is_broker: "Ich bin ein Makler oder möchte nicht selbst Exportfinanzierung erhalten."
+  accept_terms_1: "Ich akzeptiere die"
+  accept_terms_2: "Allgemeinen Geschäftbedingungen von HandEX"

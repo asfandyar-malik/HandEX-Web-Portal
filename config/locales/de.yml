@@ -366,7 +366,6 @@ de:
   project_memorendum: "ggf. Projektmemorandum"
   customer_info: "Auskünfte Ihres Kunden"
   exporter_company_data: "Bitte geben Sie Ihre Firmendaten an."
-  exporter_name: "Firmenname"
   exporter_dn_no: "Euler Hermes' DN-NR (Optional)"
   exporter_telephone: "Telefon"
   importer_shipment_street_hno: "Straße / Hausnummer"
@@ -380,7 +379,7 @@ de:
   exporter_representative: "Wen können wir ansprechen?"
   exporter_representative_firstname: "Vorname"
   exporter_representative_lastname: "Nachname"
-  exporter_representative_email: "Email"
+  exporter_representative_email: "E-Mail"
   exporter_representative_function: "Funktion"
   exporter_representative_department: "Bereich"
   corruption_prevention_statement: "Bitte geben Sie die Erklärung zur Korruptionsprävention ab."
@@ -445,7 +444,6 @@ de:
   environment_social_audit: "Umwelt- und Sozialinformationen"
   project_memorandum_exporter_business: "ggf. Projektmemorandum"
 
-
   #Overview
   not_selected_yet: "Nicht gewählt"
   application_sent: "Antrag versendet"
@@ -453,3 +451,23 @@ de:
   application_type: "Application type"
   export_application: "Export Application"
   insurance: "Insurance Application"
+
+  #Invited Exporter
+  exporter_name: "Firmenname"
+  exporter_representative_name: "Kontaktperson"
+  exporter_email: "E-Mail"
+  exporter_broker_id: "Interne Kundennummer"
+  invited_application: "Eingeladene Anträge"
+  contact_info_customer: "Kontaktdaten Ihres Kunden"
+  invite_exporter_info: "Bitte füllen Sie hier die Kontaktdaten Ihres Kunden ein. Ihr Kunde erhält per Email eine Einladung zu unserem Portal und kann sich selbst registrieren und wird danach direkt in die Antragsstrecke des von Ihnen ausgewählten Produktes geleitet. Bitte stellen Sie sicher, dass Sie die Erlabunis haben die Kontaktdaten Ihres Kunden an HandEX weiterzugeben."
+
+  #registration
+  company_name: "Firmenname"
+  firstname: "Vorname"
+  lastname: "Nachname"
+  email: "E-Mail"
+  phone_number: "Telefonnummer"
+  is_broker: "Ich bin ein Makler oder möchte nicht selbst Exportfinanzierung erhalten."
+  accept_terms_1: "Ich akzeptiere die"
+  accept_terms_2: "Allgemeinen Geschäftbedingungen von HandEX"
+
