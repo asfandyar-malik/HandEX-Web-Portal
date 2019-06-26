@@ -150,7 +150,7 @@ body {
     padding-top: 11px;
     padding-bottom: 11px;
     width: 100%;
-    padding-left: 38px;
+    padding-left: 37px;
     padding-right: 38px;
   }
 
@@ -346,7 +346,7 @@ form.col.s12.custom-form {
     cursor: pointer;
     z-index: 99;
     color: grey;
-    font-weight: bold;
+    font-weight: bolder;
   }
 
   li:hover {
@@ -834,3 +834,52 @@ li .dot {
 .overview_header_value {
   color: black;
 }
+
+.tabs .tab a {
+  color: #518fde;
+}
+
+.tabs .tab a {
+  color: grey;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+  background-color: transparent;
+  color: grey;
+}
+
+.tabs .indicator {
+  background-color: #518fde;
+}
+
+.tabs .tab a.active {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  background-color: #F6F7FA; //rgba(135,206,250, 0.3);
+  font-weight: bolder;
+}
+
+
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+  background-color: #F6F7FA;
+}
+
+.secondary-content {
+  color: black;
+  font-weight: bolder;
+}
+
+.tabs .indicator {
+  display: none;
+}
+
+.overview-item {
+  color: grey;
+  font-weight: bolder;
+}
+
+//
+//.tabs .tab a:focus, .tabs .tab a:focus.active {
+//  background-color: rgba(135,206,250, 0.3);
+//  font-weight: bold;
+//}
