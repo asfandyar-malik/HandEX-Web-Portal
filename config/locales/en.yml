@@ -1,4 +1,6 @@
 en:
+  yes_button: "Ja"
+  no_button: "Nein"
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
@@ -68,8 +70,6 @@ en:
   delivery_end: "End of delivery"
   payment_relevant_date: "Weiterer zahlungsrelevanter Termin"
   milestone: "e.g. Milestone xy"
-  yes: "Yes"
-  no: "No"
   part_of_goods: "for parts of goods"
   other: "other"
   Others: "Others"

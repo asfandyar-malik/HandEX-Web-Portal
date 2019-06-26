@@ -1,4 +1,6 @@
 es:
+  yes_button: "Si"
+  no_button: "No"
   errors:
     messages:
       already_confirmed: “Ya confirmado“
@@ -85,8 +87,6 @@ es:
   delivery_end: "Fin de Entrega"
   payment_relevant_date: "Fecha relevante para el pago posterior"
   milestone: "z.B. Meta xy"
-  yes: "Si"
-  no: "No"
   part_of_goods: "parte de los productos"
   other: "otro"
   Others: "Otros"
@@ -155,6 +155,8 @@ es:
   is_requested: "... se solicita."
   is_still_to_be_requested: "... que debe solicitarse."
   are_secondhand_goods_delivered: "Entrega de Productos Usados?"
+  manufacture_year: "Jahr der Fertigung"
+  remaining_life: "Restlebensdauer in Jahren"
   is_contract_already_signed_between_parties: "¿Han firmado ya todas las partes el contrato de exportación?"
   contract_signing_date_exporter_internal_contract_id: "Por favor, introduzca la fecha en la que se finalizo el contrato y, opcionalmente, una referencia interna."
   has_special_contract_structure: "¿Tiene una estructura de contrato especial con la otra parte contratante?"

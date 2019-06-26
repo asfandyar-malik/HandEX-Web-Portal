@@ -501,11 +501,11 @@
                                 <p>
                                     <label>
                                         <%= check_box_tag "insurance[has_special_contract_structure]", @insurance.has_special_contract_structure ? @insurance.has_special_contract_structure : nil, false, :onclick => "specialContractStructure();", id: "export_application_has_special_contract_structure" %>
-                                        <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.has_special_contract_structure.present? && @insurance.has_special_contract_structure) %>">Ja</span>
+                                        <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.has_special_contract_structure.present? && @insurance.has_special_contract_structure) %>"><%= t :yes_button %></span>
                                     </label>
 
                                     <label onclick="noSpecialContractStructure()">
-                                        <span  class="no yes-no-btns <%= 'active-btn' if (@insurance.has_special_contract_structure.present? && !@insurance.has_special_contract_structure) %>">Nein</span>
+                                        <span  class="no yes-no-btns <%= 'active-btn' if (@insurance.has_special_contract_structure.present? && !@insurance.has_special_contract_structure) %>"><%= t :no_button %></span>
                                     </label>
                                 </p>
                             </div>
@@ -526,11 +526,11 @@
                             <p>
                                 <label>
                                     <%= check_box_tag "insurance[has_german_certificate_of_origin]", @insurance.has_german_certificate_of_origin ? @insurance.has_german_certificate_of_origin : nil, false, :onclick => "germanCertificateOfOrigin();", id: "export_application_has_german_certificate_of_origin" %>
-                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.has_german_certificate_of_origin.present? && @insurance.has_german_certificate_of_origin) %>">Ja</span>
+                                    <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.has_german_certificate_of_origin.present? && @insurance.has_german_certificate_of_origin) %>"><%= t :yes_button %></span>
                                 </label>
 
                                 <label onclick="noGermanCertificateOfOrigin()">
-                                    <span  class="no yes-no-btns <%= 'active-btn' if (@insurance.has_german_certificate_of_origin.present? && !@insurance.has_german_certificate_of_origin) %>">Nein</span>
+                                    <span  class="no yes-no-btns <%= 'active-btn' if (@insurance.has_german_certificate_of_origin.present? && !@insurance.has_german_certificate_of_origin) %>"><%= t :no_button %>></span>
                                 </label>
 
                                 <label>

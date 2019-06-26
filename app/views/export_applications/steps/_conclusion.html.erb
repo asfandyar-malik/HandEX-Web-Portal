@@ -32,11 +32,11 @@
                                 <p>
                                     <label>
                                         <%= check_box_tag "export_application[has_previously_used_hermes_cover]", @export_application.has_previously_used_hermes_cover ? @export_application.has_previously_used_hermes_cover : nil, false, :onclick => "previouslyHermesInsuranceUsed();", id: "export_application_has_previously_used_hermes_cover" %>
-                                        <span class="yes yes-no-btns  <%= 'active-btn' if (@export_application.has_previously_used_hermes_cover.present? && @export_application.has_previously_used_hermes_cover) %>"><%= t :yes %></span>
+                                        <span class="yes yes-no-btns  <%= 'active-btn' if (@export_application.has_previously_used_hermes_cover.present? && @export_application.has_previously_used_hermes_cover) %>"><%= t :yes_button %></span>
                                     </label>
 
                                     <label onclick="noPreviouslyHermesInsuranceUsed()">
-                                        <span  class="no yes-no-btns  <%= 'active-btn' if (@export_application.has_previously_used_hermes_cover.present? && !@export_application.has_previously_used_hermes_cover) %>"><%= t :no %></span>
+                                        <span  class="no yes-no-btns  <%= 'active-btn' if (@export_application.has_previously_used_hermes_cover.present? && !@export_application.has_previously_used_hermes_cover) %>"><%= t :no_button %></span>
                                     </label>
                                 </p>
                             </div>
