@@ -54,11 +54,11 @@
                                 <p>
                                     <label>
                                         <%= check_box_tag "export_application[is_delivered_at_this_address]", @export_application.is_delivered_at_this_address ? @export_application.is_delivered_at_this_address : nil, false, :onclick => "deliveredAtThisAddress();", id: "export_application_is_delivered_at_this_address" %>
-                                        <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_delivered_at_this_address.present? && @export_application.is_delivered_at_this_address) %>"><%= t :yes%></span>
+                                        <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_delivered_at_this_address.present? && @export_application.is_delivered_at_this_address) %>"><%= t :yes_button%></span>
                                     </label>
 
                                     <label onclick="noDeliveredAtThisAddress()">
-                                        <span  class="no yes-no-btns <%= 'active-btn' if (@export_application.is_delivered_at_this_address.present? && !@export_application.is_delivered_at_this_address) %>"><%= t :no%></span>
+                                        <span  class="no yes-no-btns <%= 'active-btn' if (@export_application.is_delivered_at_this_address.present? && !@export_application.is_delivered_at_this_address) %>"><%= t :no_button%></span>
                                     </label>
                                 </p>
                             </div>
@@ -123,11 +123,11 @@
                             <p>
                                 <label>
                                     <%= check_box_tag "export_application[has_payment_experience_with_importer]", @export_application.has_payment_experience_with_importer ? @export_application.has_payment_experience_with_importer : nil, false, id: "export_application_has_payment_experience_with_importer" %>
-                                    <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.has_payment_experience_with_importer.present? && @export_application.has_payment_experience_with_importer) %>"><%= t :yes%></span>
+                                    <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.has_payment_experience_with_importer.present? && @export_application.has_payment_experience_with_importer) %>"><%= t :yes_button%></span>
                                 </label>
 
                                 <label onclick="noPaymentExperience()">
-                                    <span  class="no yes-no-btns <%= 'active-btn' if (@export_application.has_payment_experience_with_importer.present? && !@export_application.has_payment_experience_with_importer) %>"><%= t :no%></span>
+                                    <span  class="no yes-no-btns <%= 'active-btn' if (@export_application.has_payment_experience_with_importer.present? && !@export_application.has_payment_experience_with_importer) %>"><%= t :no_button%></span>
                                 </label>
                             </p>
                         </div>
@@ -154,11 +154,11 @@
                                 <p>
                                     <label>
                                         <%= check_box_tag "export_application[importer_external_rating_available]", @export_application.importer_external_rating_available ? @export_application.importer_external_rating_available : nil, false, :onclick => "importerExternalRatingFunction();", id: "export_application_importer_external_rating_available" %>
-                                        <span class="yes yes-no-btns  <%= 'active-btn' if (@export_application.importer_external_rating_available.present? && @export_application.importer_external_rating_available) %>"><%= t :yes%></span>
+                                        <span class="yes yes-no-btns  <%= 'active-btn' if (@export_application.importer_external_rating_available.present? && @export_application.importer_external_rating_available) %>"><%= t :yes_button%></span>
                                     </label>
 
                                     <label onclick="noImporterExternalRatingFunction()">
-                                        <span  class="no yes-no-btns <%= 'active-btn' if (@export_application.importer_external_rating_available.present? && !@export_application.importer_external_rating_available) %>"><%= t :no%></span>
+                                        <span  class="no yes-no-btns <%= 'active-btn' if (@export_application.importer_external_rating_available.present? && !@export_application.importer_external_rating_available) %>"><%= t :no_button%></span>
                                     </label>
                                 </p>
                             </div>
@@ -187,11 +187,11 @@
                             <p>
                                 <label>
                                     <%= check_box_tag "export_application[is_company_controlled_by_mother_company]", @export_application.is_company_controlled_by_mother_company ? @export_application.is_company_controlled_by_mother_company : nil, false, :onclick => "controlledByMotherCompany();", id: "export_application_is_company_controlled_by_mother_company" %>
-                                    <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_company_controlled_by_mother_company.present? && @export_application.is_company_controlled_by_mother_company) %>"><%= t :yes%></span>
+                                    <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_company_controlled_by_mother_company.present? && @export_application.is_company_controlled_by_mother_company) %>"><%= t :yes_button%></span>
                                 </label>
 
                                 <label onclick="notControlledByMotherCompany()">
-                                    <span  class="no yes-no-btns  <%= 'active-btn' if (@export_application.is_company_controlled_by_mother_company.present? && !@export_application.is_company_controlled_by_mother_company) %>"><%= t :no%></span>
+                                    <span  class="no yes-no-btns  <%= 'active-btn' if (@export_application.is_company_controlled_by_mother_company.present? && !@export_application.is_company_controlled_by_mother_company) %>"><%= t :no_button%></span>
                                 </label>
                             </p>
                         </div>
@@ -203,11 +203,11 @@
                                 <p>
                                     <label>
                                         <%= check_box_tag "export_application[has_significant_influence_on_importer_management]", @export_application.has_significant_influence_on_importer_management ? @export_application.has_significant_influence_on_importer_management : nil, false, :onclick => "significantInfluenceOnImporter();", id: "export_application_has_significant_influence_on_importer_management" %>
-                                        <span class="yes yes-no-btns  <%= 'active-btn' if (@export_application.has_significant_influence_on_importer_management.present? && @export_application.has_significant_influence_on_importer_management) %>"><%= t :yes%></span>
+                                        <span class="yes yes-no-btns  <%= 'active-btn' if (@export_application.has_significant_influence_on_importer_management.present? && @export_application.has_significant_influence_on_importer_management) %>"><%= t :yes_button%></span>
                                     </label>
 
                                     <label onclick="noSignificantInfluenceOnImporter()">
-                                        <span  class="no yes-no-btns <%= 'active-btn' if (@export_application.has_significant_influence_on_importer_management.present? && !@export_application.has_significant_influence_on_importer_management) %>"><%= t :no%></span>
+                                        <span  class="no yes-no-btns <%= 'active-btn' if (@export_application.has_significant_influence_on_importer_management.present? && !@export_application.has_significant_influence_on_importer_management) %>"><%= t :no_button%></span>
                                     </label>
                                 </p>
                             </div>

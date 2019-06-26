@@ -55,11 +55,11 @@
                                                 <p>
                                                     <label onclick="isBroker()">
                                                         <%= check_box_tag "user[is_broker]", @user.is_broker ? @user.is_broker : nil, false, id: "user_is_broker" %>
-                                                        <span class="yes yes-no-btns">Ja</span>
+                                                        <span class="yes yes-no-btns"> <%= t :yes_button %></span>
                                                     </label>
 
                                                     <label onclick="noIsBroker()">
-                                                        <span  class="no yes-no-btns">Nein</span>
+                                                        <span  class="no yes-no-btns"><%= t :no_button %>></span>
                                                     </label>
                                                 </p>
                                             </div>
