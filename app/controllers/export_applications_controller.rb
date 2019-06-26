@@ -166,7 +166,6 @@ class ExportApplicationsController < ApplicationController
               source_of_funds_attributes:                SourceOfFund.attribute_names.map(&:to_sym).push(:_destroy),
               application_of_funds_attributes:           ApplicationOfFund.attribute_names.map(&:to_sym).push(:_destroy),
               extra_billed_items_attributes:             ExtraBilledItem.attribute_names.map(&:to_sym).push(:_destroy)
-
             )
     
     end
