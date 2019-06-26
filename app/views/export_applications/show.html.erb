@@ -87,7 +87,7 @@
             <% @export_application.attributes.each do |attr_name, attr_value|
               next if attr_name == "id" %>
               <li class="collection-item">
-                <div><%= t(attr_name) %>
+                <div class="overview-item"><%= t(attr_name) %>
                   <div class="secondary-content">
                     <%= if !attr_value.nil? and attr_value == t('please_select')
                           t('not_selected_yet')
@@ -119,7 +119,7 @@
             <% @export_application.attributes.each do |attr_name, attr_value|
               next if attr_name == "id"     %>
               <li class="collection-item">
-                <div><%= t(attr_name) %>
+                <div class="overview-item"><%= t(attr_name) %>
                   <div class="secondary-content">
                     <%= if !attr_value.nil? and attr_value == t('please_select')
                           t('not_selected_yet')
@@ -151,7 +151,7 @@
             <% @export_application.attributes.each do |attr_name, attr_value|
               next if attr_name == "id"     %>
               <li class="collection-item">
-                <div><%= t(attr_name) %>
+                <div class="overview-item"><%= t(attr_name) %>
                   <div class="secondary-content">
                     <%= if !attr_value.nil? and attr_value == t('please_select')
                           t('not_selected_yet')
@@ -183,7 +183,7 @@
             <% @export_application.attributes.each do |attr_name, attr_value|
               next if attr_name == "id"     %>
               <li class="collection-item">
-                <div><%= t(attr_name) %>
+                <div class="overview-item"><%= t(attr_name) %>
                   <div class="secondary-content">
                     <%= if !attr_value.nil? and attr_value == t('please_select')
                           t('not_selected_yet')
