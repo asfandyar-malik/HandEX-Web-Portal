@@ -85,7 +85,7 @@
 
           <ul class="collection with-header">
             <% @export_application.attributes.each do |attr_name, attr_value|
-              next if attr_name == "id" or []     %>
+              next if attr_name == "id" %>
               <li class="collection-item">
                 <div><%= t(attr_name) %>
                   <div class="secondary-content">

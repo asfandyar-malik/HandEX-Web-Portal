@@ -150,7 +150,7 @@ body {
     padding-top: 11px;
     padding-bottom: 11px;
     width: 100%;
-    padding-left: 38px;
+    padding-left: 37px;
     padding-right: 38px;
   }
 
@@ -839,16 +839,38 @@ li .dot {
   color: #518fde;
 }
 
+.tabs .tab a {
+  color: grey;
+}
+
 .tabs .tab a:hover, .tabs .tab a.active {
   background-color: transparent;
-  color: rgb(37, 65, 178);
+  color: grey;
 }
 
 .tabs .indicator {
   background-color: #518fde;
 }
 
-.tabs .tab a:focus, .tabs .tab a:focus.active {
-  background-color: rgba(135,206,250, 0.3);
+.tabs .tab a.active {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  background-color: #F6F7FA; //rgba(135,206,250, 0.3);
   font-weight: bold;
 }
+
+
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+  background-color: #F6F7FA;
+}
+
+.secondary-content {
+  color: black;
+  font-weight: bold;
+}
+
+//
+//.tabs .tab a:focus, .tabs .tab a:focus.active {
+//  background-color: rgba(135,206,250, 0.3);
+//  font-weight: bold;
+//}
