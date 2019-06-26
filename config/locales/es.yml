@@ -369,3 +369,5 @@ es:
   is_broker: "Ich bin ein Makler oder möchte nicht selbst Exportfinanzierung erhalten."
   accept_terms_1: "Ich akzeptiere die"
   accept_terms_2: "Allgemeinen Geschäftbedingungen von HandEX"
+  account_exists: "Haben Sie bereits ein Account ? Bitte loggen Sie sich ein."
+  account_registration: "Konto registrieren."
