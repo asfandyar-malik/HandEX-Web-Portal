@@ -104,7 +104,7 @@
                     <div class="edit_field input-field hidden">
                       <%= form.label attr_name, t(attr_name) %>
                       <%= form.text_field attr_name, autofocus: true, class: "validate" %>
-                      <input class="btn handex-btn z-depth-0" type="submit" name="draft_edit" value="Antrag als Entwurf speichern">
+                      <input class="save_modification_button btn handex-btn z-depth-0" type="submit" name="draft_edit" value=<%= t('save') %>>
                     </div>
                   </li>
                 <% end %>
@@ -141,7 +141,7 @@
                     <div class="edit_field input-field hidden">
                       <%= form.label attr_name, t(attr_name) %>
                       <%= form.text_field attr_name, autofocus: true, class: "validate" %>
-                      <input class="btn handex-btn z-depth-0" type="submit" name="draft_edit" value="Antrag als Entwurf speichern">
+                      <input class="save_modification_button btn handex-btn z-depth-0" type="submit" name="draft_edit" value=<%= t('save') %>>
                     </div>
                   </li>
                 <% end %>
@@ -178,7 +178,7 @@
                     <div class="edit_field input-field hidden">
                       <%= form.label attr_name, t(attr_name) %>
                       <%= form.text_field attr_name, autofocus: true, class: "validate" %>
-                      <input class="btn handex-btn z-depth-0" type="submit" name="draft_edit" value="Antrag als Entwurf speichern">
+                      <input class="save_modification_button btn handex-btn z-depth-0" type="submit" name="draft_edit" value=<%= t('save') %>>
                     </div>
                   </li>
                 <% end %>
@@ -215,7 +215,7 @@
                     <div class="edit_field input-field hidden">
                       <%= form.label attr_name, t(attr_name) %>
                       <%= form.text_field attr_name, autofocus: true, class: "validate" %>
-                      <input class="btn handex-btn z-depth-0" type="submit" name="draft_edit" value="Antrag als Entwurf speichern">
+                      <input class="save_modification_button btn handex-btn z-depth-0" type="submit" name="draft_edit" value=<%= t('save') %>>
                     </div>
                   </li>
                 <% end %>
@@ -233,6 +233,8 @@
       });
 
       function onclickEditButton(caller) {
+          $('.save_modification_button').addClass('hidden');
           $(caller).find('.edit_field').removeClass('hidden');
+          $(caller).find('.save_modification_button').removeClass('hidden');
       }
   </script>

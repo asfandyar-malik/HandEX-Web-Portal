@@ -829,7 +829,14 @@ li .dot {
 
 .collection .collection-item {
   line-height: 3em;
+
 }
+
+.collection .collection-item:hover {
+  //background-color: ;
+
+}
+
 
 .overview_header_value {
   color: black;
@@ -886,9 +893,3 @@ li .dot {
   color: grey;
   font-weight: bolder;
 }
-
-//
-//.tabs .tab a:focus, .tabs .tab a:focus.active {
-//  background-color: rgba(135,206,250, 0.3);
-//  font-weight: bold;
-//}

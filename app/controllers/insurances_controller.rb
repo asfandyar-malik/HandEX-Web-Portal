@@ -36,6 +36,14 @@ class InsurancesController < ApplicationController
                 flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
                 render :new
             end
+        elsif params[:draft_edit] == t('save')
+            @insurance.application_status = 'DRAFT'
+            if @insurance.update(export_application_params)
+                redirect_to "/insurances/" + @insurance.id.to_s , notice: 'Antrag wurde erfolgreich aktualisiert.'
+            else
+                flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+                show
+            end
         else
             @insurance.application_status = 'SUBMITTED'
             if @insurance.save
@@ -60,7 +68,7 @@ class InsurancesController < ApplicationController
         elsif params[:draft_edit] == 'Antrag als Entwurf speichern'
             @insurance.application_status = 'DRAFT'
             if @insurance.update(insurance_params)
-                redirect_to "/insurances/" + @insurance.id.to_s , notice: 'Antrag wurde erfolgreich aktualisiert.'
+                redirect_to "/insurances/" + @insurance.id.to_s , notice:        'Antrag wurde erfolgreich aktualisiert.'
             else
                 flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
                 show
