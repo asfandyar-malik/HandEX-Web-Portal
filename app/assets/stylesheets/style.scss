@@ -340,7 +340,7 @@ form.col.s12.custom-form {
   li {
     list-style: none;
     display: inline-block;
-    width: 18.33%;
+    width: 24.5%;
     position: relative;
     text-align: center;
     cursor: pointer;
@@ -835,6 +835,13 @@ li .dot {
   color: black;
 }
 
+.tabs .tab:hover {
+  //border: 1px solid rgb(220, 220, 222);
+  border-radius: 3px;
+  background-color: #ebebeb;
+  font-weight: bolder;
+}
+
 .tabs .tab a {
   color: #518fde;
 }
@@ -853,15 +860,17 @@ li .dot {
 }
 
 .tabs .tab a.active {
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-  background-color: #F6F7FA; //rgba(135,206,250, 0.3);
+  //border-bottom-left-radius: 12px;
+  //border-bottom-right-radius: 12px;
+  color: white;
+  border-radius: 3px;
+  background-color: #2541b2; //rgba(135,206,250, 0.3);
   font-weight: bolder;
 }
 
 
 .tabs .tab a:focus, .tabs .tab a:focus.active {
-  background-color: #F6F7FA;
+  background-color: #2541b2;
 }
 
 .secondary-content {

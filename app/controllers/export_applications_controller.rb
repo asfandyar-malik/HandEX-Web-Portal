@@ -57,6 +57,14 @@ class ExportApplicationsController < ApplicationController
                 flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
                 render :update
             end
+        elsif params[:draft_edit] == 'Antrag als Entwurf speichern'
+            @export_application.application_status = 'DRAFT'
+            if @export_application.update(export_application_params)
+                redirect_to "/export_applications/" + @export_application.id.to_s , notice: 'Antrag wurde erfolgreich aktualisiert.'
+            else
+                flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+                show
+            end
         else
             @export_application.application_status = 'SUBMITTED'
             if @export_application.update(export_application_params)

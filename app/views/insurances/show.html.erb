@@ -1,217 +1,238 @@
 <%= render 'shared/navbar' %>
 <p id="notice" class="" hidden><%= notice %></p>
+<div class="handex-form-container">
+  <%= form_for(@insurance, local: true, html: {multipart: true}, id: "export-application-portal") do |form| %>
+    <% if @insurance.application_status == "SUBMITTED" %>
+      <div class="overview-top submitted">
+        <div class="row">
+          <div class="col s5 ">
+            <%= link_to :back do %>
+              <i class="material-icons">arrow_back</i>
+            <% end %>
+          </div>
+          <div class="col s5">
+            <div class="valign-wrapper">
+              <i class="material-icons">timer</i>
+              <div>
+                <strong><%= t('application_sent') %></strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% elsif @insurance.application_status == "DRAFT" %>
+      <div class="overview-top draft">
+        <div class="row">
+          <div class="col s5 ">
+            <%= link_to :back do %>
+              <i class="material-icons">arrow_back</i>
+            <% end %>
+          </div>
+          <div class="col s5">
+            <div class="valign-wrapper">
+              <i class="custom_icon reciept-icon-white"></i>
+              <div>
+                <strong><%= t('draft_application') %></strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
 
-<% if @insurance.application_status == "SUBMITTED" %>
-  <div class="overview-top submitted">
+    <div class="overview-header">
+      <div class=" center">
+        <ul>
+          <li><%= t('importer') %>
+            <div class="overview_header_value">
+              <%= (@insurance.importer_company_name.nil? or (!@insurance.importer_company_name.nil? and @insurance.importer_company_name.to_s.empty?) or (!@insurance.importer_company_name.nil? and @insurance.importer_company_name.to_s == t('please_select'))) ? t('not_available') : @insurance.importer_company_name %>
+            </div>
+          </li>
+          <li><%= t('product') %>
+            <div class="overview_header_value">
+              <%= (@insurance.exported_goods_type.nil? or (!@insurance.exported_goods_type.nil? and @insurance.exported_goods_type.to_s.empty?) or (!@insurance.exported_goods_type.nil? and @insurance.exported_goods_type.to_s == t('please_select'))) ? t('not_available') : @insurance.exported_goods_type %>
+            </div>
+          </li>
+          <li><%= t('contract_value') %>
+            <div class="overview_header_value">
+              <%= (@insurance.contract_value.nil? or (!@insurance.contract_value.nil? and @insurance.contract_value.to_s.empty?) or (!@insurance.contract_value.nil? and @insurance.contract_value.to_s == t('please_select'))) ? t('not_available') : @insurance.contract_value %>
+            </div>
+          </li>
+          <li><%= t('application_sent_at') %>
+            <div class="overview_header_value">
+              <%= (@insurance.created_at.nil? or (!@insurance.created_at.nil? and @insurance.created_at.to_s.empty?) or (!@insurance.created_at.nil? and @insurance.created_at.to_s == t('please_select'))) ? t('not_available') : @insurance.created_at %>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <div class="row">
-      <div class="col s6 ">
-        <%= link_to :back do %>
-          <i class="material-icons">arrow_back</i>
-        <% end %>
+      <div class="col s12">
+        <ul class="tabs">
+          <li class="tab col s3"><a class="active" href="#company"><%= t('company') %></a></li>
+          <li class="tab col s3"><a href="#your_importer"><%= t('your_importer') %></a></li>
+          <li class="tab col s3"><a href="#business_heading"><%= t('business_heading') %></a></li>
+          <li class="tab col s3"><a href="#finance_and_payment"><%= t('finance_and_payment') %></a></li>
+        </ul>
       </div>
-      <div class="col s6">
-        <div class="valign-wrapper">
-          <i class="material-icons">timer</i>
-          <div>
-            <strong><%= t('application_sent') %></strong>
+      <div id="company" class="col s12">
+        <div class="handex-form-container">
+          <div class="container">
+            <div class="section">
+
+              <ul class="collection with-header">
+                <% @insurance.attributes.each do |attr_name, attr_value|
+                  next if (attr_name == "id" or !@insurance_company_attr_list.include? attr_name)     %>
+                  <li class="collection-item" onclick="onclickEditButton(this)">
+                    <div class="show_field overview-item"><%= t(attr_name) %>
+                      <div class="secondary-content">
+                        <%= if !attr_value.nil? and attr_value == t('please_select')
+                              t('not_selected_yet')
+                            elsif !attr_value.nil? and attr_value == "insurance"
+                              t('insurance')
+                            elsif !attr_value.nil? and !attr_value
+                              t('no')
+                            elsif !attr_value.nil? and attr_value == true
+                              t('yes')
+                            elsif !attr_value.nil?
+                              attr_value
+                            end
+                        %>
+                      </div>
+                    </div>
+                    <div class="edit_field input-field hidden">
+                      <%= form.label attr_name, t(attr_name) %>
+                      <%= form.text_field attr_name, autofocus: true, class: "validate" %>
+                      <input class="btn handex-btn z-depth-0" type="submit" name="draft_edit" value="Antrag als Entwurf speichern">
+                    </div>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="your_importer" class="col s12">
+        <div class="handex-form-container">
+          <div class="container">
+            <div class="section">
+
+              <ul class="collection with-header">
+                <% @insurance.attributes.each do |attr_name, attr_value|
+                  next if (attr_name == "id" or !@insurance_your_importer_attr_list.include? attr_name)      %>
+                  <li class="collection-item" onclick="onclickEditButton(this)">
+                    <div class="show_field overview-item"><%= t(attr_name) %>
+                      <div class="secondary-content">
+                        <%= if !attr_value.nil? and attr_value == t('please_select')
+                              t('not_selected_yet')
+                            elsif !attr_value.nil? and attr_value == "insurance"
+                              t('insurance')
+                            elsif !attr_value.nil? and !attr_value
+                              t('no')
+                            elsif !attr_value.nil? and attr_value == true
+                              t('yes')
+                            elsif !attr_value.nil?
+                              attr_value
+                            end
+                        %>
+                      </div>
+                    </div>
+                    <div class="edit_field input-field hidden">
+                      <%= form.label attr_name, t(attr_name) %>
+                      <%= form.text_field attr_name, autofocus: true, class: "validate" %>
+                      <input class="btn handex-btn z-depth-0" type="submit" name="draft_edit" value="Antrag als Entwurf speichern">
+                    </div>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="business_heading" class="col s12">
+        <div class="handex-form-container">
+          <div class="container">
+            <div class="section">
+
+              <ul class="collection with-header">
+                <% @insurance.attributes.each do |attr_name, attr_value|
+                  next if (attr_name == "id" or !@insurance_business_attr_list.include? attr_name)       %>
+                  <li class="collection-item" onclick="onclickEditButton(this)">
+                    <div class="show_field overview-item"><%= t(attr_name) %>
+                      <div class="secondary-content">
+                        <%= if !attr_value.nil? and attr_value == t('please_select')
+                              t('not_selected_yet')
+                            elsif !attr_value.nil? and attr_value == "insurance"
+                              t('insurance')
+                            elsif !attr_value.nil? and !attr_value
+                              t('no')
+                            elsif !attr_value.nil? and attr_value == true
+                              t('yes')
+                            elsif !attr_value.nil?
+                              attr_value
+                            end
+                        %>
+                      </div>
+                    </div>
+                    <div class="edit_field input-field hidden">
+                      <%= form.label attr_name, t(attr_name) %>
+                      <%= form.text_field attr_name, autofocus: true, class: "validate" %>
+                      <input class="btn handex-btn z-depth-0" type="submit" name="draft_edit" value="Antrag als Entwurf speichern">
+                    </div>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="finance_and_payment" class="col s12">
+        <div class="handex-form-container">
+          <div class="container">
+            <div class="section">
+
+              <ul class="collection with-header">
+                <% @insurance.attributes.each do |attr_name, attr_value|
+                  next if (attr_name == "id" or !@insurance_finance_and_payment_attr_list.include? attr_name)       %>
+                  <li class="collection-item" onclick="onclickEditButton(this)">
+                    <div class="show_field overview-item"><%= t(attr_name) %>
+                      <div class="secondary-content">
+                        <%= if !attr_value.nil? and attr_value == t('please_select')
+                              t('not_selected_yet')
+                            elsif !attr_value.nil? and attr_value == "insurance"
+                              t('insurance')
+                            elsif !attr_value.nil? and !attr_value
+                              t('no')
+                            elsif !attr_value.nil? and attr_value == true
+                              t('yes')
+                            elsif !attr_value.nil?
+                              attr_value
+                            end
+                        %>
+                      </div>
+                    </div>
+                    <div class="edit_field input-field hidden">
+                      <%= form.label attr_name, t(attr_name) %>
+                      <%= form.text_field attr_name, autofocus: true, class: "validate" %>
+                      <input class="btn handex-btn z-depth-0" type="submit" name="draft_edit" value="Antrag als Entwurf speichern">
+                    </div>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-<% elsif @insurance.application_status == "DRAFT" %>
-  <div class="overview-top draft">
-    <div class="row">
-      <div class="col s6 ">
-        <%= link_to :back do %>
-          <i class="material-icons">arrow_back</i>
-        <% end %>
-      </div>
-      <div class="col s6">
-        <div class="valign-wrapper">
-          <i class="custom_icon reciept-icon-white"></i>
-          <div>
-            <strong><%= t('draft_application') %></strong>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+  <script>
+      $(document).ready(function () {
+          $('.tabs').tabs();
+      });
 
-<div class="overview-header">
-  <div class="container center">
-    <div class="col s12 m12">
-      <ul>
-        <li><%= t('importer') %>
-          <div class="overview_header_value">
-            <%= (@insurance.importer_company_name.nil? or (!@insurance.importer_company_name.nil? and @insurance.importer_company_name.to_s.empty?) or (!@insurance.importer_company_name.nil? and @insurance.importer_company_name.to_s == t('please_select'))) ? t('not_available') : @insurance.importer_company_name %>
-          </div>
-        </li>
-        <li><%= t('product') %>
-          <div class="overview_header_value">
-            <%= (@insurance.exported_goods_type.nil? or (!@insurance.exported_goods_type.nil? and @insurance.exported_goods_type.to_s.empty?) or (!@insurance.exported_goods_type.nil? and @insurance.exported_goods_type.to_s == t('please_select'))) ? t('not_available') : @insurance.exported_goods_type %>
-          </div>
-        </li>
-        <li><%= t('contract_value') %>
-          <div class="overview_header_value">
-            <%= (@insurance.contract_value.nil? or (!@insurance.contract_value.nil? and @insurance.contract_value.to_s.empty?) or (!@insurance.contract_value.nil? and @insurance.contract_value.to_s == t('please_select'))) ? t('not_available') : @insurance.contract_value %>
-          </div>
-        </li>
-        <li><%= t('application_sent_at') %>
-          <div class="overview_header_value">
-            <%= (@insurance.created_at.nil? or (!@insurance.created_at.nil? and @insurance.created_at.to_s.empty?) or (!@insurance.created_at.nil? and @insurance.created_at.to_s == t('please_select'))) ? t('not_available') : @insurance.created_at %>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col s12">
-    <ul class="tabs">
-      <li class="tab col s3"><a class="active" href="#company"><%= t('company') %></a></li>
-      <li class="tab col s3"><a href="#your_importer"><%= t('your_importer') %></a></li>
-      <li class="tab col s3"><a href="#business_heading"><%= t('business_heading') %></a></li>
-      <li class="tab col s3"><a href="#finance_and_payment"><%= t('finance_and_payment') %></a></li>
-    </ul>
-  </div>
-  <div id="company" class="col s12">
-    <div class="handex-form-container">
-      <div class="container">
-        <div class="section">
-
-          <ul class="collection with-header">
-            <% @insurance.attributes.each do |attr_name, attr_value|
-              next if (attr_name == "id" or !@insurance_company_attr_list.include? attr_name) %>
-              <li class="collection-item">
-                <div class="overview-item"><%= t(attr_name) %>
-                  <div class="secondary-content">
-                    <%= if !attr_value.nil? and attr_value == t('please_select')
-                          t('not_selected_yet')
-                        elsif !attr_value.nil? and attr_value == "insurance"
-                          t('insurance')
-                        elsif !attr_value.nil? and !attr_value
-                          t('no')
-                        elsif !attr_value.nil? and attr_value == true
-                          t('yes')
-                        elsif !attr_value.nil?
-                          attr_value
-                        end
-                    %>
-                  </div>
-                </div>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="your_importer" class="col s12">
-    <div class="handex-form-container">
-      <div class="container">
-        <div class="section">
-
-          <ul class="collection with-header">
-            <% your_importer_attr_list = ['importer_company_name','importer_street_hno','importer_plz','importer_city','importer_country','is_shipment_address','importer_shipment_company_name','importer_shipment_country','importer_shipment_street_hno','importer_shipment_plz','importer_shipment_city','has_significant_influence_on_importer_management','explain_exporter_influence_on_importer_management','has_payment_experience_with_importer','explain_previous_payment_experience_with_importer','exporter_offers_servicing_for_goods'] %>
-            <% @insurance.attributes.each do |attr_name, attr_value|
-              next if (attr_name == "id" or !@insurance_your_importer_attr_list.include? attr_name)  %>
-              <li class="collection-item">
-                <div class="overview-item"><%= t(attr_name) %>
-                  <div class="secondary-content">
-                    <%= if !attr_value.nil? and attr_value == t('please_select')
-                          t('not_selected_yet')
-                        elsif !attr_value.nil? and attr_value == "insurance"
-                          t('insurance')
-                        elsif !attr_value.nil? and !attr_value
-                          t('no')
-                        elsif !attr_value.nil? and attr_value == true
-                          t('yes')
-                        elsif !attr_value.nil?
-                          attr_value
-                        end
-                    %>
-                  </div>
-                </div>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="business_heading" class="col s12">
-    <div class="handex-form-container">
-      <div class="container">
-        <div class="section">
-
-          <ul class="collection with-header">
-            <% business_attr_list = ['describe_export_business','is_investment_good','explain_why_importer_buying_good','is_servicing_for_goods_offered','exported_goods_type','explain_good_industry_type','is_delivered_part_of_consortium_with_other_companies','delivery_doesnt_affects_sensitive_areas','delivery_affects_natural_reserves','delivery_affects_indigenous_people','delivery_affects_cultural_heritage','delivery_affects_other','explain_delivery_affects_other','is_export_licence_needed','which_regulations_enforcing_exportlicense_requirement','export_license_status','does_deliver_secondhand_goods','is_contract_already_signed_between_parties','contract_signing_date','exporter_internal_contract_id','has_special_contract_structure','total_delivery_value_excluding_servicing','percentage_of_spareparts_in_whole_order','other_billed_items_in_contract_currency','other_billed_items_in_contract_amount','describe_other_billed_items_in_contract','is_price_adjustment_clause_with_importer','explain_accounting_methods','is_good_sent_in_multiple_deliveries','delivery_start','delivery_end','other_important_delivery_information','other_important_delivery_milestones','has_german_certificate_of_origin','has_german_certificate_of_origin_for_only_parts_of_good','all_rawgoods_supplier_country','all_rawgoods_supplier_currency','all_rawgoods_supplier_text','why_all_foreign_rawgoods_necessary','partly_rawgoods_supplier_country','partly_rawgoods_supplier_currency','partly_rawgoods_supplier_text','why_partly_foreign_rawgoods_necessary','is_security_present_for_transaction','security_type','security_type_name','proportion_of_good_covered_by_security','when_security_received','project_detailed_description','is_fully_responsible_for_project','entire_project_currency','entire_project_amount'] %>
-            <% @insurance.attributes.each do |attr_name, attr_value|
-              next if (attr_name == "id" or !@insurance_business_attr_list.include? attr_name)   %>
-              <li class="collection-item">
-                <div class="overview-item"><%= t(attr_name) %>
-                  <div class="secondary-content">
-                    <%= if !attr_value.nil? and attr_value == t('please_select')
-                          t('not_selected_yet')
-                        elsif !attr_value.nil? and attr_value == "insurance"
-                          t('insurance')
-                        elsif !attr_value.nil? and !attr_value
-                          t('no')
-                        elsif !attr_value.nil? and attr_value == true
-                          t('yes')
-                        elsif !attr_value.nil?
-                          attr_value
-                        end
-                    %>
-                  </div>
-                </div>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="finance_and_payment" class="col s12">
-    <div class="handex-form-container">
-      <div class="container">
-        <div class="section">
-
-          <ul class="collection with-header">
-            <% finance_and_payment_attr_list = ['loan_duration','accept_partial_refinancing','has_agreed_payment_term_already','payment_term_short','payment_term_mid','payment_term_both','is_interest_charged_to_importer','downpayment_delivery_currency_payment_term_short','downpayment_delivery_amount_payment_term_short','downpayment_delivery_currency_payment_term_mid','downpayment_delivery_amount_payment_term_mid','downpayment_delivery_description_payment_term_mid','agreed_prepayment_payment_term_mid','agreed_payments_output_payment_term_mid','agreed_payments_amount_payment_term_mid','downpayment_delivery_currency_payment_term_both','downpayment_delivery_amount_payment_term_both','downpayment_delivery_description_payemnt_term_both','agreed_payments_currency_payment_term_both','agreed_payments_amount_payment_term_both','agreed_payments_output_payment_term_both','agreed_payments_time_payment_term_both','agreed_payments_some_output_payment_term_both','number_of_installments_payment_term_mid,:interest_currency','interest_value','fixed_interest_rate','fixed_interest_rate_value','variable_interest_rate','interest_calculation_description'] %>
-            <% @insurance.attributes.each do |attr_name, attr_value|
-              next if (attr_name == "id" or !@insurance_finance_and_payment_attr_list.include? attr_name)   %>
-              <li class="collection-item">
-                <div class="overview-item"><%= t(attr_name) %>
-                  <div class="secondary-content">
-                    <%= if !attr_value.nil? and attr_value == t('please_select')
-                          t('not_selected_yet')
-                        elsif !attr_value.nil? and attr_value == "insurance"
-                          t('insurance')
-                        elsif !attr_value.nil? and !attr_value
-                          t('no')
-                        elsif !attr_value.nil? and attr_value == true
-                          t('yes')
-                        elsif !attr_value.nil?
-                          attr_value
-                        end
-                    %>
-                  </div>
-                </div>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-    $(document).ready(function () {
-        $('.tabs').tabs();
-    });
-</script>
+      function onclickEditButton(caller) {
+          $(caller).find('.edit_field').removeClass('hidden');
+      }
+  </script>
