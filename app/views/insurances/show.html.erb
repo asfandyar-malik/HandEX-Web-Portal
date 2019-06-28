@@ -71,159 +71,30 @@
       <div class="overview_navigation">
         <div class="col s12">
           <ul class="tabs">
-            <li class="tab col s3"><a class="active" href="#company"><%= t('company') %></a></li>
-            <li class="tab col s3"><a href="#your_importer"><%= t('your_importer') %></a></li>
-            <li class="tab col s3"><a href="#business_heading"><%= t('business_heading') %></a></li>
-            <li class="tab col s3"><a href="#finance_and_payment"><%= t('finance_and_payment') %></a></li>
+            <li class="tab col s2"><a class="active" href="#step_1"><%= t('company') %></a></li>
+            <li class="tab col s2"><a href="#step_2"><%= t('your_importer') %></a></li>
+            <li class="tab col s2"><a href="#step_3"><%= t('business_heading') %></a></li>
+            <li class="tab col s2"><a href="#step_4"><%= t('finance_and_payment') %></a></li>
+            <li class="tab col s2"><a href="#step_5"><%= t('conclusion') %></a></li>
           </ul>
         </div>
       </div>
-      <div id="company" class="col s12">
-        <div class="handex-form-container">
-          <div class="container">
-            <div class="section">
+    </div>
 
-              <ul class="collection with-header">
-                <% @insurance.attributes.each do |attr_name, attr_value|
-                  next if (attr_name == "id" or !@insurance_company_attr_list.include? attr_name)      %>
-                  <li class="collection-item" onclick="onclickEditButton(this)">
-                    <div class="show_field overview-item"><%= t(attr_name) %>
-                      <div class="secondary-content">
-                        <%= if !attr_value.nil? and attr_value == t('please_select')
-                              t('not_selected_yet')
-                            elsif !attr_value.nil? and attr_value == "insurance"
-                              t('insurance')
-                            elsif !attr_value.nil? and !attr_value
-                              t('no')
-                            elsif !attr_value.nil? and attr_value == true
-                              t('yes')
-                            elsif !attr_value.nil?
-                              attr_value
-                            end
-                        %>
-                      </div>
-                    </div>
-                    <div class="edit_field input-field hidden">
-                      <%#= form.label attr_name, t(attr_name) %>
-                      <%= form.text_field attr_name, autofocus: true, class: "validate", placeholder: t('enter_new_value') %>
-                      <input class="save_modification_button btn handex-btn z-depth-0" type="submit" name="draft_edit" value= <%= t('save') %>>
-                    </div>
-                  </li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="your_importer" class="col s12">
-        <div class="handex-form-container">
-          <div class="container">
-            <div class="section">
+    <div class="handex-form-container">
+      <div class="container">
+        <div class="section">
 
-              <ul class="collection with-header">
-                <% @insurance.attributes.each do |attr_name, attr_value|
-                  next if (attr_name == "id" or !@insurance_your_importer_attr_list.include? attr_name)       %>
-                  <li class="collection-item" onclick="onclickEditButton(this)">
-                    <div class="show_field overview-item"><%= t(attr_name) %>
-                      <div class="secondary-content">
-                        <%= if !attr_value.nil? and attr_value == t('please_select')
-                              t('not_selected_yet')
-                            elsif !attr_value.nil? and attr_value == "insurance"
-                              t('insurance')
-                            elsif !attr_value.nil? and !attr_value
-                              t('no')
-                            elsif !attr_value.nil? and attr_value == true
-                              t('yes')
-                            elsif !attr_value.nil?
-                              attr_value
-                            end
-                        %>
-                      </div>
-                    </div>
-                    <div class="edit_field input-field hidden">
-                      <%#= form.label attr_name, t(attr_name) %>
-                      <%= form.text_field attr_name, autofocus: true, class: "validate", placeholder: t('enter_new_value') %>
-                      <input class="save_modification_button btn handex-btn z-depth-0" type="submit" name="draft_edit" value="Antrag als Entwurf speichern">
-                    </div>
-                  </li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="business_heading" class="col s12">
-        <div class="handex-form-container">
-          <div class="container">
-            <div class="section">
+          <%= render "insurances/steps/company_information.html.erb", form: form %>
 
-              <ul class="collection with-header">
-                <% @insurance.attributes.each do |attr_name, attr_value|
-                  next if (attr_name == "id" or !@insurance_business_attr_list.include? attr_name)        %>
-                  <li class="collection-item" onclick="onclickEditButton(this)">
-                    <div class="show_field overview-item"><%= t(attr_name) %>
-                      <div class="secondary-content">
-                        <%= if !attr_value.nil? and attr_value == t('please_select')
-                              t('not_selected_yet')
-                            elsif !attr_value.nil? and attr_value == "insurance"
-                              t('insurance')
-                            elsif !attr_value.nil? and !attr_value
-                              t('no')
-                            elsif !attr_value.nil? and attr_value == true
-                              t('yes')
-                            elsif !attr_value.nil?
-                              attr_value
-                            end
-                        %>
-                      </div>
-                    </div>
-                    <div class="edit_field input-field hidden">
-                      <%#= form.label attr_name, t(attr_name) %>
-                      <%= form.text_field attr_name, autofocus: true, class: "validate", placeholder: t('enter_new_value') %>
-                      <input class="save_modification_button btn handex-btn z-depth-0" type="submit" name="draft_edit" value="Antrag als Entwurf speichern">
-                    </div>
-                  </li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="finance_and_payment" class="col s12">
-        <div class="handex-form-container">
-          <div class="container">
-            <div class="section">
+          <%= render "insurances/steps/customer_information.html.erb", form: form %>
 
-              <ul class="collection with-header">
-                <% @insurance.attributes.each do |attr_name, attr_value|
-                  next if (attr_name == "id" or !@insurance_finance_and_payment_attr_list.include? attr_name)        %>
-                  <li class="collection-item" onclick="onclickEditButton(this)">
-                    <div class="show_field overview-item"><%= t(attr_name) %>
-                      <div class="secondary-content">
-                        <%= if !attr_value.nil? and attr_value == t('please_select')
-                              t('not_selected_yet')
-                            elsif !attr_value.nil? and attr_value == "insurance"
-                              t('insurance')
-                            elsif !attr_value.nil? and !attr_value
-                              t('no')
-                            elsif !attr_value.nil? and attr_value == true
-                              t('yes')
-                            elsif !attr_value.nil?
-                              attr_value
-                            end
-                        %>
-                      </div>
-                    </div>
-                    <div class="edit_field input-field hidden">
-                      <%#= form.label attr_name, t(attr_name) %>
-                      <%= form.text_field attr_name, autofocus: true, class: "validate", placeholder: t('enter_new_value') %>
-                      <input class="save_modification_button btn handex-btn z-depth-0" type="submit" name="draft_edit" value="Antrag als Entwurf speichern">
-                    </div>
-                  </li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
+          <%= render "insurances/steps/business_information.html.erb", form: form %>
+
+          <%= render "insurances/steps/payment_financial_information.html.erb", form: form %>
+
+          <%= render "insurances/steps/conclusion.html.erb", form: form %>
+
         </div>
       </div>
     </div>
@@ -239,4 +110,809 @@
           $(caller).find('.edit_field').removeClass('hidden');
           $(caller).find('.save_modification_button').removeClass('hidden');
       }
+
+      $('.handex-nav-button').hide();
+      $('.form-nav-percent').hide();
+  </script>
+
+  <script type="text/javascript">
+
+      //disabling ENTER key (AscII: 13) on our form because enter was submitting application
+      $("form").on("keypress", function (e) {
+          if (e.keyCode == 13) {
+              return false;
+          }
+      });
+
+      var curremt_tab = 1;
+
+      $(document).ready(function () {
+          $('.datepicker').datepicker();
+      });
+
+      $(".yes-no-btns").click(function (e) {
+          $(this).toggleClass("active-btn");
+          if ($(this).hasClass("yes")) {
+              // $(this).closest(".input-field").find(".hide-section").toggle();
+              $(this).closest('p').find('.no.yes-no-btns').removeClass("active-btn");
+              $(this).closest('p').find('.part.yes-no-btns').removeClass("active-btn");
+          } else if ($(this).hasClass("part")) {
+              $(this).closest('p').find('.no.yes-no-btns').removeClass("active-btn");
+              $(this).closest('p').find('.yes.yes-no-btns').removeClass("active-btn");
+          } else {
+              // $(this).closest(".input-field").find(".hide-section").hide();
+              $(this).closest('p').find('.yes.yes-no-btns').removeClass("active-btn");
+              $(this).closest('p').find('.part.yes-no-btns').removeClass("active-btn");
+          }
+      });
+
+      function changeTabs(current_tab_index) {
+          $('.tab').hide();
+          $('.step_' + current_tab_index).show();
+      }
+
+      function setActive(current_tab_index) {
+          let i;
+          for (i = 1; i <= current_tab_index; i++) {
+              $('li[tab_index="' + i + '"]').addClass('active');
+          }
+          $('li .dot').addClass('hidden');
+          $('li[tab_index="' + current_tab_index + '"] span').removeClass("hidden");
+      }
+
+      $('.progressbar li, .next').click(function function_name(argument) {
+          setActive($(this).attr('tab_index'));
+          changeTabs($(this).attr('tab_index'));
+          $(this).addClass('active');
+      });
+
+      function customerCountsInterest() {
+          var x = document.getElementById("yesCustomerCountInterest");
+          if (x.style.display === "none") {
+              x.style.display = "block";
+          } else {
+              x.style.display = "none";
+          }
+      }
+
+      function noCustomerCountsInterest() {
+          var x = document.getElementById("yesCustomerCountInterest");
+          if (x.style.display === "block") {
+              x.style.display = "none";
+          }
+      }
+
+      function kurzFristigTermOfPayment() {
+          var x = document.getElementById("ShortTermOfPayment");
+          var y = document.getElementById("MidTermOfPayment");
+          var z = document.getElementById("BothTermOfPayment");
+
+          if (x.style.display === "none") {
+              $("[name='kurzfristigtermofpayment']").addClass("active_selection_card");
+              $("[name='mitteltermofpayment']").removeClass("active_selection_card");
+              $("[name='sonstigekurzfristigtermofpayment']").removeClass("active_selection_card");
+
+              x.style.display = "block";
+              y.style.display = "none";
+              z.style.display = "none";
+          } else {
+              x.style.display = "none"
+          }
+      }
+
+      function mittelTermOfPayment() {
+          var x = document.getElementById("ShortTermOfPayment");
+          var y = document.getElementById("MidTermOfPayment");
+          var z = document.getElementById("BothTermOfPayment");
+          if (y.style.display === "none") {
+              $("[name='kurzfristigtermofpayment']").removeClass("active_selection_card");
+              $("[name='mitteltermofpayment']").addClass("active_selection_card");
+              $("[name='sonstigekurzfristigtermofpayment']").removeClass("active_selection_card");
+              y.class = "active";
+              y.style.display = "block";
+              z.style.display = "none";
+              x.style.display = "none";
+          } else {
+              y.style.display = "none"
+          }
+      }
+
+      function sonstigeKurzFristigTermOfPayment() {
+          var x = document.getElementById("ShortTermOfPayment");
+          var y = document.getElementById("MidTermOfPayment");
+          var z = document.getElementById("BothTermOfPayment");
+
+          if (z.style.display === "none") {
+              $("[name='kurzfristigtermofpayment']").removeClass("active_selection_card");
+              $("[name='mitteltermofpayment']").removeClass("active_selection_card");
+              $("[name='sonstigekurzfristigtermofpayment']").addClass("active_selection_card");
+              z.style.display = "block";
+              x.style.display = "none";
+              y.style.display = "none";
+          } else {
+              z.style.display = "none"
+          }
+      }
+
+      function previouslyHermesInsuranceUsed() {
+          var x = document.getElementById("newAtHermesDeckung");
+          if (x.style.display === "block") {
+              x.style.display = "none";
+          }
+          $('#insurance_has_previously_used_hermes_cover').prop('checked', true);
+          $('.has_previously_used_hermes_cover').removeClass('dialog_background');
+      }
+
+      function noPreviouslyHermesInsuranceUsed() {
+          var x = document.getElementById("newAtHermesDeckung");
+          if (x.style.display === "none") {
+              x.style.display = "block";
+          } else {
+              x.style.display = "none";
+          }
+          $('#insurance_has_previously_used_hermes_cover').prop('checked', false);
+          $('.has_previously_used_hermes_cover').toggleClass('dialog_background');
+      }
+
+      function germanCertificateOfOrigin() {
+          var x = document.getElementById("noGermanCertificateOfOriginId");
+          var y = document.getElementById("partlyGermanCertificateOfOrigin");
+
+          if (x.style.display === "block") {
+              x.style.display = "none";
+          }
+          if (y.style.display === "block") {
+              y.style.display = "none";
+          }
+
+          $('#insurance_has_german_certificate_of_origin').prop('checked', true);
+          $('#insurance_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', false);
+          $('.has_german_certificate_of_origin').removeClass('dialog_background');
+      }
+
+      function noGermanCertificateOfOrigin() {
+          var x = document.getElementById("noGermanCertificateOfOriginId");
+          var y = document.getElementById("partlyGermanCertificateOfOrigin");
+          var z = $('.has_german_certificate_of_origin');
+
+          if (x.style.display === "none") {
+              x.style.display = "block";
+              y.style.display = "none";
+          } else {
+              x.style.display = "none";
+              y.style.display = "none";
+          }
+          $('#insurance_has_german_certificate_of_origin').prop('checked', false);
+          $('#insurance_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', false);
+          if (z.hasClass('no')) {
+              z.toggleClass('dialog_background');
+          } else {
+              z.addClass('dialog_background');
+          }
+          z.removeClass('partly');
+          z.addClass('no');
+      }
+
+      function partlyGermanCertificateOfOrigin() {
+          var y = document.getElementById("partlyGermanCertificateOfOrigin");
+          var x = document.getElementById("noGermanCertificateOfOriginId");
+          var z = $('.has_german_certificate_of_origin');
+
+          if (y.style.display === "none") {
+              y.style.display = "block";
+              x.style.display = "none";
+          } else {
+              y.style.display = "none";
+              x.style.display = "none";
+          }
+          $('#insurance_has_german_certificate_of_origin').prop('checked', false);
+          $('#insurance_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', true);
+          if (z.hasClass('partly')) {
+              z.toggleClass('dialog_background');
+          } else {
+              z.addClass('dialog_background');
+          }
+          z.removeClass('no');
+          z.addClass('partly');
+      }
+
+      function goodOverhauled() {
+          var x = document.getElementById("goodsOverhauled");
+          if (x.style.display === "none") {
+              x.style.display = "block";
+          } else {
+              x.style.display = "none";
+          }
+          $('#insurance_are_goods_overhauled').prop('checked', true);
+      }
+
+      function NoGoodsOverhauled() {
+          var x = document.getElementById("goodsOverhauled");
+          if (x.style.display === "block") {
+              x.style.display = "none";
+          }
+          $('#insurance_are_goods_overhauled').prop('checked', false);
+      }
+
+      function incoTerms() {
+          var x = document.getElementById("incotermsAgreed");
+          if (x.style.display === "none") {
+              x.style.display = "block";
+          } else {
+              x.style.display = "none";
+          }
+      }
+
+      function noIncoTerms() {
+          var x = document.getElementById("incotermsAgreed");
+          if (x.style.display === "block") {
+              x.style.display = "none";
+          }
+      }
+
+      function exporterExternalRatingFunction() {
+          var y = document.getElementById("exporterExternalRating");
+          if (y.style.display === "none") {
+              y.style.display = "block";
+          } else {
+              y.style.display = "none";
+          }
+          $('#insurance_exporter_external_rating_available').prop('checked', true);
+          $('.exporter_external_rating_available').toggleClass('dialog_background');
+      }
+
+      function noExporterExternalRatingFunction() {
+          var x = document.getElementById("exporterExternalRating");
+          if (x.style.display === "block") {
+              x.style.display = "none";
+          }
+          $('#insurance_exporter_external_rating_available').prop('checked', false);
+          $('.exporter_external_rating_available').removeClass('dialog_background');
+      }
+
+      function importerExternalRatingFunction() {
+          var y = document.getElementById("importerExternalRating");
+          if (y.style.display === "none") {
+              y.style.display = "block";
+          } else {
+              y.style.display = "none";
+          }
+          $('#insurance_importer_external_rating_available').prop('checked', true);
+          $('.importer_external_rating_available').toggleClass('dialog_background');
+      }
+
+      function noImporterExternalRatingFunction() {
+          var x = document.getElementById("importerExternalRating");
+          if (x.style.display === "block") {
+              x.style.display = "none";
+          }
+          $('#insurance_importer_external_rating_available').prop('checked', false);
+          $('.importer_external_rating_available').removeClass('dialog_background');
+      }
+
+      function controlledByMotherCompany() {
+          var y = document.getElementById("motherCompanyControl");
+          if (y.style.display === "none") {
+              y.style.display = "block";
+          } else {
+              y.style.display = "none";
+          }
+          $('#insurance_is_company_controlled_by_mother_company').prop('checked', true);
+      }
+
+      function notControlledByMotherCompany() {
+          var x = document.getElementById("motherCompanyControl");
+          if (x.style.display === "block") {
+              x.style.display = "none";
+          }
+          $('#insurance_is_company_controlled_by_mother_company').prop('checked', false);
+      }
+
+      function significantInfluenceOnImporter() {
+          var y = document.getElementById("significantInfluenceImporter");
+          if (y.style.display === "none") {
+              y.style.display = "block";
+          } else {
+              y.style.display = "none";
+          }
+          $('#insurance_has_significant_influence_on_importer_management').prop('checked', true);
+          $('.has_significant_influence_on_importer_management').toggleClass('dialog_background');
+      }
+
+      function noSignificantInfluenceOnImporter() {
+          var x = document.getElementById("significantInfluenceImporter");
+          if (x.style.display === "block") {
+              x.style.display = "none";
+          }
+          $('#insurance_has_significant_influence_on_importer_management').prop('checked', false);
+          $('.has_significant_influence_on_importer_management').removeClass('dialog_background');
+      }
+
+      function investmentGoods() {
+          $('#insurance_is_investment_good').prop('checked', true);
+          $("#firstdrop").hide();
+          $("#seconddrop").show();
+
+      }
+
+      function noInvestmentGoods() {
+          $('#insurance_is_investment_good').prop('checked', false);
+          $("#firstdrop").show();
+      }
+
+
+      function deliveredAtThisAddress() {
+          var x = document.getElementById("deliveryAddress");
+          if (x.style.display === "block") {
+              x.style.display = "none";
+          }
+          $('#insurance_is_delivered_at_this_address').prop('checked', true);
+          $('.is_delivered_at_this_address').removeClass('dialog_background');
+      }
+
+      function noDeliveredAtThisAddress() {
+          var x = document.getElementById("deliveryAddress");
+          if (x.style.display === "none") {
+              x.style.display = "block";
+          } else {
+              x.style.display = "none";
+          }
+          $('#insurance_is_delivered_at_this_address').prop('checked', false);
+          $('.is_delivered_at_this_address').toggleClass('dialog_background');
+      }
+
+      function fixedInterestRate() {
+          $('#yesFixedInterestRate').show();
+          $('#noFixedInterestRate').hide();
+          $('#fixed_interest_rate').prop('checked', true);
+      }
+
+      function noFixedInterestRate() {
+          $('#yesFixedInterestRate').hide();
+          $('#noFixedInterestRate').show();
+          $('#fixed_interest_rate').prop('checked', false);
+      }
+
+      function degressiveInterestRate() {
+          $('#noDegressiveInterestRate').hide();
+          $('#fixed_interest_rate').prop('checked', true);
+      }
+
+      function noDegressiveInterestRate() {
+          $('#noDegressiveInterestRate').show();
+          $('#degressiveInterestRate').prop('checked', false);
+      }
+
+      function noPrivate_sector() {
+          $('#insurance_is_exporting_to_private_sector').prop('checked', false);
+      }
+
+      function noPaymentExperience() {
+          $('#insurance_has_payment_experience_with_importer').prop('checked', false);
+      }
+
+      function servicingForGoods() {
+          $('#insurance_exporter_offers_servicing_for_goods').prop('checked', true);
+      }
+
+      function noServicingForGoods() {
+          $('#insurance_exporter_offers_servicing_for_goods').prop('checked', false);
+      }
+
+      function deliveredPartOfConsortiumWithOtherCompanies() {
+          var y = document.getElementById("deliveredPartOfConsortiumWithOtherCompanies");
+          if (y.style.display === "none") {
+              y.style.display = "block";
+          } else {
+              y.style.display = "none";
+          }
+          $('#insurance_is_delivered_part_of_consortium_with_other_companies').prop('checked', true);
+          $('.is_delivered_part_of_consortium_with_other_companies').toggleClass('dialog_background');
+      }
+
+      function NoDeliveredPartOfConsortiumWithOtherCompanies() {
+          var x = document.getElementById("deliveredPartOfConsortiumWithOtherCompanies");
+          if (x.style.display === "block") {
+              x.style.display = "none";
+          }
+          $('#insurance_is_delivered_part_of_consortium_with_other_companies').prop('checked', false);
+          $('.is_delivered_part_of_consortium_with_other_companies').removeClass('dialog_background');
+      }
+
+      function deliveryAffectsSensitiveArea() {
+          var y = document.getElementById("deliveryAffectsSensitiveArea");
+          if (y.style.display === "none") {
+              y.style.display = "block";
+          } else {
+              y.style.display = "none";
+          }
+          $('#insurance_does_delivery_affect_sensitive_areas').prop('checked', true);
+          $('.does_delivery_affect_sensitive_areas').toggleClass('dialog_background');
+      }
+
+      function NoDeliveryAffectsSensitiveArea() {
+          var x = document.getElementById("deliveryAffectsSensitiveArea");
+          if (x.style.display === "block") {
+              x.style.display = "none";
+          }
+          $('#insurance_does_delivery_affect_sensitive_areas').prop('checked', false);
+          $('.does_delivery_affect_sensitive_areas').removeClass('dialog_background');
+      }
+
+      function exportLicenceNeeded() {
+          var y = document.getElementById("originLicense");
+          if (y.style.display === "none") {
+              y.style.display = "block";
+          } else {
+              y.style.display = "none";
+          }
+          $('#insurance_is_export_licence_needed').prop('checked', true);
+          $('.is_export_licence_needed').toggleClass('dialog_background');
+      }
+
+      function noExportLicenceNeeded() {
+          var x = document.getElementById("originLicense");
+          if (x.style.display === "block") {
+              x.style.display = "none";
+          }
+          $('#insurance_is_export_licence_needed').prop('checked', false);
+          $('.is_export_licence_needed').removeClass('dialog_background');
+      }
+
+      function isFullyResponsibleForProject() {
+          $('#is_fully_responsible_for_project').prop('checked', true);
+      }
+
+      function isNotFullyResponsibleForProject() {
+          $('#is_fully_responsible_for_project').prop('checked', false);
+      }
+
+
+      function deliverySecondHandGoods() {
+          var y = document.getElementById("deliverySecondHandGoods");
+          if (y.style.display === "none") {
+              y.style.display = "block";
+          } else {
+              y.style.display = "none";
+          }
+          $('#insurance_are_secondhand_goods_delivered').prop('checked', true);
+          $('.are_secondhand_goods_delivered').toggleClass('dialog_background');
+      }
+
+      function noDeliverySecondHandGoods() {
+          var x = document.getElementById("deliverySecondHandGoods");
+          if (x.style.display === "block") {
+              x.style.display = "none";
+          }
+          $('#insurance_are_secondhand_goods_delivered').prop('checked', false);
+          $('.are_secondhand_goods_delivered').removeClass('dialog_background');
+      }
+
+      function contractAlreadySignedBetweenParties() {
+          var x = document.getElementById("contractSignedBetweenParties");
+          var y = document.getElementById("noContractSignedBetweenParties");
+          var z = $('.is_contract_already_signed_between_parties');
+
+          if (x.style.display === "none") {
+              x.style.display = "block";
+              y.style.display = "none";
+          } else {
+              x.style.display = "none";
+              y.style.display = "none";
+          }
+
+          $('#insurance_is_contract_already_signed_between_parties').prop('checked', true);
+          if (z.hasClass('yes')) {
+              z.removeClass('dialog_background');
+              z.removeClass('yes');
+          } else if (z.hasClass('no')) {
+              z.removeClass('no');
+              z.addClass('yes');
+          } else {
+              z.addClass('yes');
+              z.addClass('dialog_background');
+          }
+      }
+
+      function noContractAlreadySignedBetweenParties() {
+          var x = document.getElementById(" contractSignedBetweenParties");
+          var y = document.getElementById("noContractSignedBetweenParties");
+          var z = $('.is_contract_already_signed_between_parties');
+
+          if (y.style.display === "none") {
+              y.style.display = "block";
+              x.style.display = "none";
+          } else {
+              y.style.display = "none";
+              x.style.display = "none";
+          }
+          $('#insurance_is_contract_already_signed_between_parties').prop('checked', false);
+          if (z.hasClass('no')) {
+              z.removeClass('dialog_background');
+              z.removeClass('no');
+          } else if (z.hasClass('yes')) {
+              z.removeClass('yes');
+              z.addClass('no');
+          } else {
+              z.addClass('no');
+              z.addClass('dialog_background');
+          }
+      }
+
+      function partInTender() {
+          var y = document.getElementById("partInTender");
+          if (y.style.display === "none") {
+              y.style.display = "block";
+          } else {
+              y.style.display = "none";
+          }
+          $('#insurance_taking_part_in_tender').prop('checked', true);
+      }
+
+      function noPartInTender() {
+          var x = document.getElementById("partInTender");
+          if (x.style.display === "block") {
+              x.style.display = "none";
+          }
+          $('#insurance_taking_part_in_tender').prop('checked', false);
+      }
+
+      function specialContractStructure() {
+          var y = document.getElementById("explainStructure");
+          if (y.style.display === "none") {
+              y.style.display = "block";
+          } else {
+              y.style.display = "none";
+          }
+          $('#insurance_has_special_contract_structure').prop('checked', true);
+          $('.has_special_contract_structure').toggleClass('dialog_background');
+      }
+
+      function noSpecialContractStructure() {
+          var x = document.getElementById("explainStructure");
+          if (x.style.display === "block") {
+              x.style.display = "none";
+          }
+          $('#insurance_has_special_contract_structure').prop('checked', false);
+          $('.has_special_contract_structure').removeClass('dialog_background');
+      }
+
+      function goodsSentMultipleDeliveries() {
+          var y = document.getElementById("GoodsSentMultipleDeliveries");
+          if (y.style.display === "none") {
+              y.style.display = "block";
+          } else {
+              y.style.display = "none";
+          }
+          $('#insurance_is_good_sent_in_multiple_deliveries').prop('checked', true);
+          $('.is_good_sent_in_multiple_deliveries').toggleClass('dialog_background');
+      }
+
+      function noGoodsSentMultipleDeliveries() {
+          var x = document.getElementById("GoodsSentMultipleDeliveries");
+          if (x.style.display === "block") {
+              x.style.display = "none";
+          }
+          $('#is_good_sent_in_multiple_deliveries').prop('checked', false);
+          $('.is_good_sent_in_multiple_deliveries').removeClass('dialog_background');
+      }
+
+      function securityPresent() {
+          var y = document.getElementById("securityPresent");
+          if (y.style.display === "none") {
+              y.style.display = "block";
+          } else {
+              y.style.display = "none";
+          }
+          $('#insurance_is_security_present_for_transaction').prop('checked', true);
+          $('.is_security_present_for_transaction').toggleClass('dialog_background');
+      }
+
+      function noSecurityPresent() {
+          var x = document.getElementById("securityPresent");
+          if (x.style.display === "block") {
+              x.style.display = "none";
+          }
+          $('#insurance_is_security_present_for_transaction').prop('checked', false);
+          $('.is_security_present_for_transaction').removeClass('dialog_background');
+      }
+
+      function agreedTermOfPayments() {
+          var y = document.getElementById("agreedTermsOfPayments");
+          if (y.style.display === "none") {
+              y.style.display = "block";
+          } else {
+              y.style.display = "none";
+          }
+          $('#insurance_has_agreed_payment_term_already').prop('checked', true);
+          $('.has_agreed_payment_term_already').toggleClass('dialog_background');
+      }
+
+      function noAgreedTermOfPayments() {
+          var x = document.getElementById("agreedTermsOfPayments");
+          if (x.style.display === "block") {
+              x.style.display = "none";
+          }
+          $('#insurance_has_agreed_payment_term_already').prop('checked', false);
+          $('.has_agreed_payment_term_already').removeClass('dialog_background');
+      }
+
+      function corruptionDeclaration() {
+          var y = document.getElementById("corruptionDeclaration");
+          if (y.style.display === "none") {
+              y.style.display = "block";
+          } else {
+              y.style.display = "none";
+          }
+          $('#insurance_does_corruption_declaration_apply').prop('checked', true);
+      }
+
+      function noCorruptionDeclaration() {
+          var x = document.getElementById("corruptionDeclaration");
+          if (x.style.display === "block") {
+              x.style.display = "none";
+          }
+          $('#insurance_does_corruption_declaration_apply').prop('checked', false);
+      }
+
+      function goodsOverhaulCountryIfGermanyHandler() {
+          if ($('#goods_overhaul_country option:selected').val() === 'Deutschland') {
+              $('#goods_overhaul_country_if_not_germany').hide();
+          } else {
+              $('#goods_overhaul_country_if_not_germany').show();
+          }
+      }
+
+      function sensitiveAreaTypeChangeHandler() {
+          if ($('#sensitive_area_type option:selected').val() === 'Sonstige') {
+              $('#explain_sensitive_area_type').show();
+          } else {
+              $('#explain_sensitive_area_type').hide();
+          }
+      }
+
+      var $choice = jQuery('.choice');
+
+      $choice.filter('[name="kurzfristigtermofpayment"]').click(function () {
+          $choice.filter('[name="mitteltermofpayment"]').removeClass('active');
+          $choice.filter('[name="sonstigekurzfristigtermofpayment"]').removeClass('active');
+      });
+
+      $choice.filter('[name="mitteltermofpayment"]').click(function () {
+          $choice.filter('[name="kurzfristigtermofpayment"]').removeClass('active');
+          $choice.filter('[name="sonstigekurzfristigtermofpayment"]').removeClass('active');
+      });
+
+      $choice.filter('[name="sonstigekurzfristigtermofpayment"]').click(function () {
+          $choice.filter('[name="mitteltermofpayment"]').removeClass('active');
+          $choice.filter('[name="kurzfristigtermofpayment"]').removeClass('active');
+      });
+
+      $choice.filter('[name="yes_customercountsinterest"]').click(function () {
+          $choice.filter('[name="no_customercountsinterest"]').removeClass('active');
+      });
+
+      $choice.filter('[name="no_customercountsinterest"]').click(function () {
+          $choice.filter('[name="yes_customercountsinterest"]').removeClass('active');
+      });
+
+      $choice.filter('[name="yes_previouslyhermesinsuranceused"]').click(function () {
+          $choice.filter('[name="no_previouslyhermesinsuranceused"]').removeClass('active');
+      });
+
+      $choice.filter('[name="no_previouslyhermesinsuranceused"]').click(function () {
+          $choice.filter('[name="yes_previouslyhermesinsuranceused"]').removeClass('active');
+      });
+
+      $choice.filter('[name="yes_incoterms"]').click(function () {
+          $choice.filter('[name="no_incoterms"]').removeClass('active');
+      });
+
+      $choice.filter('[name="no_incoterms"]').click(function () {
+          $choice.filter('[name="yes_incoterms"]').removeClass('active');
+      });
+
+      var loans_custom_arr = {
+          "Bergbau, inkl. Verarbeitung": {
+              "Bergbau untertage": ["Anlagen: Abbau von Kohle", "Anlagen: Abbau von Eisenerz", "Anlagen: Abbau von NE-Metallen", "Anlagen: Abbau von Gold", "Anlagen: Abbau von Diamanten", "Anlagen: Förderung von Baumaterial", "Zubehör/ Ersatzteile"],
+              "Bergbau übertage": ["Anlagen: Abbau von Kohlec", "Anlagen: Abbau von Eisenerz", "Anlagen: Abbau von NE-Metallen", "Anlagen: Abbau von Gold", "Anlagen: Abbau von Diamanten", "Anlagen: Förderung von Baumaterial", "Steinbrüche/Gewinnung von Rohstoffen", "Zubehör/ Ersatzteile"],
+              'Mineralverarbeitende Industrie': ["Anlagen: Herstellung von Glas", "Anlagen: Herst. von Mineralfasern", "Anlagen: Herst. von Zement und Kalk", "Anlagen: Herstellung von Keramik", "Anlagen: Herstellung von Klinkern", "Anlagen: Herstellung von Asbest", "Waren aus mineral. Stoffen", "Zubehör/ Ersatzteile"],
+              'Kohleverarbeitung': ["Anlagen:  Pressen von Kohle", "Kokereien", "Zubehör/ Ersatzteile"],
+              'Maschinenbau Bergbau inkl. Verarbeitung': ["Maschinen: Bergbau (untertage)", "Maschinen: Bergbau (übertage)", "Maschinen: mineralverarbeitende Industrie", "Maschinen: Kohleverarbeitung", "Hebezeuge und Fördermittel", "Zubehör/ Ersatzteile"]
+          },
+          'Erdöl- und Erdgasförderung inkl. Verarbeitung': {
+              'Offshore Förderung': ["Plattformen", "Pipelines", "Zubehör/ Ersatzteile"],
+              'Onshore Förderung': ["Bohrtürme", "Pipelines", "Zubehör/ Ersatzteile"],
+              'Erdgasverarbeitung': ["Anlagen: Erdgasverflüssigung", "Anlagen: Separation von Gasen", "Zubehör/ Ersatzteile"],
+              'Erdölverarbeitung': ["Raffinerien", "Anlagen: Herst. petrochem. Produkte", "Anlagen: Herst. chem. Grundstoffe", "Petrochemische Erzeugnisse", "Chemische Grundstoffe", "Zubehör/ Ersatzteile"],
+              'Maschinenbau Erdöl- und Erdgasförderung': ["Maschinen: Erdölförderung", "Maschinen: Erdgasförderung", "Maschinen: Erdöl/-gas-Verarbeitung", "Zubehör/ Ersatzteile"]
+          },
+          'Chemie': {
+              'Pharmaindustrie; Biotechnologie': ["Anlagen: Herst. von Arzneimitteln", "Anlagen: Herst. von Biotechnologie", "Pharmazeutische Produkte", "Biotechnische Produkte", "Zubehör/ Ersatzteile"],
+              'Düngemittel': ["Anlagen: Herst. von Düngemitteln", "Düngemittellieferungen", "Zubehör/ Ersatzteile"],
+              'Sonstige Chemische Industrie': ["Anlagen: Herst. organischer Chemik.", "Anlagen: Herst. anorgan. Chemikalien", "Anlagen: Herst. von Pflanzenschutzmitteln", "Anlagen: Oleochemie (Fett-Verarb.)", "Chemikalien", "Zubehör/ Ersatzteile"],
+              'Maschinenbau Chemie': ["Maschinen: chem. Industrie", "Zubehör/ Ersatzteile"]
+          },
+          'Energie': {
+              'Erneuerbare Energien': ["Biomassekraftwerke", "Geothermiekraftwerke", "Windkraft", "Solartechnik", "Wasserkraftwerke", "Pumpspeicherkraftwerke", "Laufwasserkraftwerke", "Großstaudämme zur Energieerzeugung", "Gezeitenkraftwerke", "Turbinen", "Pumpen", "Kompressoren", "Kraftwerksleittechnik", "Zubehör/ Ersatzteile"],
+              'Mit fossilen Energieträgern betriebene Kraftwerke': ["Gaskraftwerke", "Kohlekraftwerke", "Ölbefeuerte Kraftwerke", "Dieselkraftwerke", "Turbinen", "Pumpen", "Kompressoren", "Verbrennungsmotoren", "Kraftwerksleittechnik", "Zubehör/ Ersatzteile"],
+              'Atomenergie': ["Atomkraftwerke (komplett)", "Lieferung von Nukleartechnologie", "Lieferung von konventioneller Techn.", "Turbinen", "Pumpen", "Kompressoren", "Kraftwerksleittechnik", "Zubehör/ Ersatzteile"]
+          },
+          'Infrastruktur': {
+              'Entsorgung – Abfallbeseitigung und Abwasser': ["Recycling / Sortierung", "Verbrennung", "Deponie", "Abwasserentsorgung", "Kläranlagen", "Sammelkanalisation", "Zubehör/ Ersatzteile"],
+              'Energie Distribution': ["Netze,Transformatoren,Schaltanlagen", "Oberirdische Erdöl/gas-Speicherung", "Unterirdische Erdöl/gas-Lagerung", "Fernwärme", "Zubehör/ Ersatzteile"],
+              'Krankenhäuser': ["Krankenhäuser", "Ausstattungen für Krankenhäuser", "Zubehör/ Ersatzteile"],
+              'Tourismus': ["Hotels und Feriendörfer", "Skipisten, Skilifte, Seilbahnen", "Zubehör/ Ersatzteile"],
+              'Anlagen zum Bau von Transportmitteln ': ["Anlagen: Bau von KFZ/-Motoren", "Anlagen: Bau von Luftfahrzeugen", "Anlagen: Bau von Schienenfahrzeugen", "Anlagen: Bau von Schiffen", "Zubehör/ Ersatzteile"],
+              'Transportmittel (Straßenfahrzeuge, Schienenfahrzeuge, Flugzeuge, Schiffe (bis 1999), Spezialfahrzeuge)': ["Lastkraftwagen", "Busse", "Personenkraftwagen", "Fahrzeugkomponenten/Ersatzteile", "Lokomotiven", "Triebwagen", "Waggons", "Fahrzeugkomponenten/Ersatzteile", "Airbusse", "Flugzeuge", "Hubschrauber", "Fahrzeugkomponenten/Ersatzteile", "Schiffe (bis 1999 einschließlich)", "Schiffsausrüstungen (bis 1999 einschließlich)", "schwimmende Vorrichtungen (bis 1999 einschließlich)", "Fahrzeugkomponenten/Ersatzteile (bis 1999 einschließlich)", "Baufahrzeuge", "Spezialfahrzeuge", "Krane/Hebezeuge/Fördermittel", "Fahrzeugkomponenten/Ersatzteile"],
+              'Verkehrswege und –anlagen': ["Straßen, Tunnel, Brückenbauten", "Straßenbahnen/Stadtschnellbahnen", "Untergrundbahnen", "Eisenbahnstrecken/ Tunnel", "Flughäfen und Flughafenanlagen", "Häfen und Hafenanlagen", "Städtebauprojekte", "Bauten des Hochwasserschutzes", "Bau von Wasserstraßen/ Kanälen", "Landgewinnung", "Grenzsicherungs- und Zollanlagen", "Zubehör/ Ersatzteile"],
+              'Wasserwirtschaft': ["Entsalzungsanlagen", "Frischwasserversorgung", "Trinkwasserreservoirs (Speicherung)", "Grundwasserentnahme-/Auffüll.syteme", "Wasserfernleitungen", "Wasseraufbereitungsanlagen", "Staudämme (keine Energieerzeugung)", "Zubehör/ Ersatzteile"],
+              'Telekommunikation/ Rundfunk- und Nachrichtentechnik': ["Satelliten", "Mobil- und Funknetze", "Leitungsnetze", "Telekommunikationsgeräte", "Techn. Ausrüstung zur Grenzsicherung", "Überwachungstechnologien", "Zubehör/ Ersatzteile"],
+              'Computer und Software': ["Computer und weitere Hardware", "Software", "Geldautomaten", "Zubehör/ Ersatzteile"],
+              'Maschinenbau Infrastruktur': ["Bau- und Baustoffmaschinen", "Maschinen zum Baustoffmaschinen-Bau", "Maschinen für die Wasserwirtschaft", "Zubehör/ Ersatzteile"],
+              'Schiffe': ["Passagierschiffe (Hochsee-, Flusskreuzfahrtschiffe)", "Containerschiffe", "Fährschiffe (RoRo-/RoPax-Schiffe", "Tankschiffe (Öl-, Chemie-, LNG/LPG-Schiffe)", "Offshore-Schiffe (Errichterschiffe, Kabelleger, Ankerziehschlepper (AHTS), Offshore Support Vessel (OSV))", "Mehrzweckschiffe (Multi Pupose Vessel, Bulk-Schiffe, Schwerlastschiffe (Heavy Lift Carrier))", "Spezialschiffe (Bagger, Schlepper, Fischereiboote, Yachten)", "Behördenschiffe (Zoll-, Küstenwach-, Lotsenboote etc. mit sonstigen staatlichen oder staatlich kontrollierten Bestellern)", "Militärschiffe/ militärische Komponenten (U-Boote, Fregatten, Korvetten mit dem Verteidigungsministerium und/oder Unternehmen aus dem militär-industriellen Bereich))", "Maritime Komponenten (Reparaturen, Umbauten, Ersatzteile, Ausrüstungen)", "ohne Zuordnung"]
+          },
+          'Papier- , Holz-, Leder- und Textilindustrie': {
+              'Forstwirtschaftliche Anlagen': ["Anlagen für die Forstwirtschaft", "Zubehör/ Ersatzteile"],
+              'Papier- und Zellstoffherstellung': ["Anlagen: Herst. von Zellstoff", "Anlagen: Herst. von Papier, Pappe", "Druckereien", "Anlagen zum Bedrucken und Binden", "Papierwaren", "Zubehör/ Ersatzteile"],
+              'Holzverarbeitung': ["Sägemühlen", "Anlagen: Herstellung von Holzwaren", "Holzwaren (Bretter, Kork etc.)", "Zubehör/ Ersatzteile"],
+              'Textil- und Lederindustrie': ["Anlagen: Herst./ Pflege von Textilien", "Färbereianlagen", "Anlagen: Gerben, Lederherstellung", "Textilien", "Lederwaren", "Zubehör/ Ersatzteile"],
+              'Maschinenbau Papier- , Holz-, Leder- und Textilindustrie': ["Forstwirtschaftliche Maschinen", "Papiermaschinen", "Druckmaschinen", "Ledermaschinen", "Textilmaschinen", "Zubehör/ Ersatzteile"]
+          },
+          'Agrarsektor und Nahrungsmittelindustrie': {
+              'Landwirtschaftliche Anlagen': ["Tierfarmen", "Zubehör/ Ersatzteile"],
+              'Anlagen zur Nahrungsmittelverarbeitung': ["Anlagen: Herstellung von Zucker", "Anlagen: Erzeugung von Milchprod.", "Anlagen: Herstellung von Konserven", "Brauereien und Mälzereien", "Anlagen: Herstellung von Getränken", "Anlagen: Herst. von Tabakerzeugn.", "Schlachtanlagen", "Gewächshäuser", "Zubehör/ Ersatzteile"],
+              'Waren pflanzlichen und tierischen Ursprungs': ["Tiere", "Waren pflanzlichen Ursprungs", "Waren tierischen Ursprungs"],
+              'Maschinenbau Agrarsektor und Nahrungsmittelindustrie': ["Landwirtschaftliche Maschinen", "Maschinen für das Ernährungsgewerbe", "Maschinen für die Tabakverarbeitung", "Zub	ehör/ Ersatzteile"]
+          },
+          'Verarbeitende Industrie': {
+              'Metallindustrie': ["Stahl- und Hüttenwerke", "Anlagen: Erzeugung von Elektrostahl", "Warmwalzwerke", "Kaltwalzwerke", "Galvanisierungsanlagen", "Gießereien", "Anlagen zur NE-Herstellung", "Eisen-/Stahl-, -rohre, -bleche etc.", "NE-, -rohre, -bleche, -kabel etc.", "Lager, Getriebe, Zahnräder", "Werkzeuge", "Zubehör/ Ersatzteile"],
+              'Naturprodukte': ["Anlagen: Herst. von Gummiprodukten", "Kautschuk- und Gummiprodukte", "Zubehör/ Ersatzteile"],
+              'Kunststoffindustrie': ["Anlagen: Herst. von Kunststoffen", "Anlagen: Herst. von Kunststoffprod.", "Kunststoffprodukte", "Zubehör/ Ersatzteile"],
+              'Medizintechnik/Forschung': ["Labore/Laboreinrichtungen", "Medizinische Geräte und Anlagen", "Zubehör/ Ersatzteile"],
+              'Elektrotechnik, EDV-Technik, Feinmechanik/Optik': ["Elektromotoren, Generatoren, Transf.", "Halbleiter und Elektronik", "Antriebssysteme", "Feinmechanische Erzeugnisse", "Optische Erzeugnisse", "Zubehör/ Ersatzteile"],
+              'Maschinenbau für die verarbeitende Industrie': ["Maschinen für Metallerzeugnisse", "Maschinen: Prod. von Naturprodukten", "Maschinen für Kunststoffindustrie", "Maschinen: Herst. von Medizintechnik", "Verpackungsmaschinen", "Maschinen: Herst. von Elektrotechnik", "Maschinen für versch. Waren", "Zubehör/ Ersatzteile"]
+          },
+          'Umwelttechnik': {
+              'Anlagen für die Umwelttechnik': ["Anlagen: Herst. von Solaranlagen", "Anlagen: Herst. von Windkraftanlagen", "Luftreinhaltung/Luftfilter", "Klimatechnik", "Zubehör/ Ersatzteile"]
+          },
+          'Dienstleistungen': {
+              'Dienstleistungen': ["Reparaturen/Instandsetzung/Wartung", "Montageverträge", "Lizenzverträge", "Leihverträge", "Ingenieurleistungen/Projektierungen", "Studien"],
+              'Dienstleistungsanteile im Rahmen einer Lieferung': ["Montageverträge", "Lizenzverträge", "Leistungen", "Schulungen/Trainings"]
+          }
+
+      };
+
+      var global_seconddrop_key = "";
+
+      $.each(loans_custom_arr, function (index, value) {
+          $("#seconddrop").append("<option disabled='disabled' selected hidden>Bitte wählen Sie im ersten Schritt Ihre Branche aus.</option>");
+          var option = "<option value='" + index + "'>" + index + "</option>";
+          $('#seconddrop').append(option);
+      });
+
+      $('#seconddrop').change(function () {
+          $('#thirddrop').show();
+          global_seconddrop_key = $(this).val();
+          $('#thirddrop option').remove();
+          $('#thirddrop').append("<option disabled='disabled' selected hidden class='placeholder_design'>Bitte konkretisieren Sie Ihre Branche weiter.</option>");
+
+          $.each(loans_custom_arr[global_seconddrop_key], function (index, value) {
+              var option = "<option value='" + index + "'>" + index + "</option>";
+              $('#thirddrop').append(option);
+          });
+      });
+
+      $('#thirddrop').change(function () {
+          $('#fourthdrop').show();
+          var third_key = $(this).val();
+          $('#fourthdrop option').remove();
+          $("#fourthdrop").append("<option disabled='disabled' selected hidden>Welche Warenart passt zu den von Ihnen zu liefernden Waren/Gütern/Anlagen bzw. Dienstleistungen?</option>");
+
+          $.each(loans_custom_arr[global_seconddrop_key][third_key], function (index, value) {
+              var option = "<option value='" + value + "'>" + value + "</option>";
+              $('#fourthdrop').append(option);
+          });
+      });
+
   </script>
