@@ -1,16 +1,18 @@
 <div class="container">
     <div class="section sign-in">
         <div class="row valign-wrapper">
+
             <div class="col s12 m6">
                 <div class="text-section black-text">
                     <a class="smooth"><%= image_tag "HandEX_logo4.png", style: 'height:5em;width:auto;' %></a>
                     <h4>Passwort Vergessen?</h4>
-                    <p class="light">Kein Problem, passiert jedem! Tippen Sie einfach Ihre E-Mail Addresse ein um Ihr
+                    <p>Kein Problem, passiert jedem! Tippen Sie einfach Ihre E-Mail Addresse ein um Ihr
                         Passwort zurückzusetzen.<br>
                     </p>
                     <a href="/login" class="un"><u>Errinern Sie Ihr Passwort? Einloggen.</u></a>
                 </div>
             </div>
+
             <div class="col s12 m6">
                 <div class="col s12 custom-form">
                     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post}) do |f| %>
@@ -26,7 +28,7 @@
 
                                             <div class="input-field col s12">
                                                 <div class="actions">
-                                                    <%= f.submit "Anweisungen zum Zurücksetzen des Passworts senden", id: "submit", class: "validate" %>
+                                                    <%= f.submit "Senden Passwort-Reset-Anweisungen", id: "submit", class: "btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" %>
                                                 </div>
                                             </div>
                                         </div>
@@ -37,6 +39,7 @@
                     <% end %>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

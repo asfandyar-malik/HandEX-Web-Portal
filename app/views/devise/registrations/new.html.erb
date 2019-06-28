@@ -1,13 +1,13 @@
 <div class="notice"><%= devise_error_messages! %></div>
 
 <div class="container">
-    <div class="section sign-in">
+    <div class="section registration">
         <div class="row valign-wrapper">
             <div class="col s12 m6">
                 <div class="text-section black-text">
                     <a class="smooth"><%= image_tag "HandEX_logo4.png", style: 'height:5em;width:auto;' %></a>
-                    <h4><%= t :account_registration %> </h4>
-                    <p class="light">Wir freuen uns, dass Sie sich entschieden haben HandEX zu nutzen.<br>
+                    <h3><%= t :account_registration %> </h3>
+                    <p>Wir freuen uns, dass Sie sich entschieden haben HandEX zu nutzen.<br>
                         Wir brauchen nur noch folgende Informationen, um zu starten.<br>
 
                     </p>
@@ -31,7 +31,7 @@
                                             </div>
 
                                             <div class="input-field col s12 m6">
-                                                <label><%= t :firstname %>></label>
+                                                <label><%= t :firstname %></label>
                                                 <%= f.text_field :firstname, autofocus: true, class: "validate" %>
                                             </div>
 
@@ -59,16 +59,15 @@
                                                     </label>
 
                                                     <label onclick="noIsBroker()">
-                                                        <span  class="no yes-no-btns"><%= t :no_button %>></span>
+                                                        <span  class="no yes-no-btns"><%= t :no_button %></span>
                                                     </label>
                                                 </p>
                                             </div>
 
                                             <div class="input-field col s12">
                                                 <% if @minimum_password_length %>
-                                                    <p>Passwort (Mindestens <%= @minimum_password_length %>  Zeichen)</p>
+                                                    <label>Passwort (Mindestens <%= @minimum_password_length %>  Zeichen)</label>
                                                 <% end %>
-
                                                 <%= f.password_field :password, required: true,  minlength: 6 , autocomplete: "off", class: "form-control" %>
                                             </div>
 
