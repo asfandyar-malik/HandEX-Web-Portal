@@ -68,13 +68,15 @@
     </div>
 
     <div class="row">
-      <div class="col s12">
-        <ul class="tabs">
-          <li class="tab col s3"><a class="active" href="#company"><%= t('company') %></a></li>
-          <li class="tab col s3"><a href="#your_importer"><%= t('your_importer') %></a></li>
-          <li class="tab col s3"><a href="#business_heading"><%= t('business_heading') %></a></li>
-          <li class="tab col s3"><a href="#finance_and_payment"><%= t('finance_and_payment') %></a></li>
-        </ul>
+      <div class="overview_navigation">
+        <div class="col s12">
+          <ul class="tabs">
+            <li class="tab col s3"><a class="active" href="#company"><%= t('company') %></a></li>
+            <li class="tab col s3"><a href="#your_importer"><%= t('your_importer') %></a></li>
+            <li class="tab col s3"><a href="#business_heading"><%= t('business_heading') %></a></li>
+            <li class="tab col s3"><a href="#finance_and_payment"><%= t('finance_and_payment') %></a></li>
+          </ul>
+        </div>
       </div>
       <div id="company" class="col s12">
         <div class="handex-form-container">
@@ -83,7 +85,7 @@
 
               <ul class="collection with-header">
                 <% @insurance.attributes.each do |attr_name, attr_value|
-                  next if (attr_name == "id" or !@insurance_company_attr_list.include? attr_name)     %>
+                  next if (attr_name == "id" or !@insurance_company_attr_list.include? attr_name)      %>
                   <li class="collection-item" onclick="onclickEditButton(this)">
                     <div class="show_field overview-item"><%= t(attr_name) %>
                       <div class="secondary-content">
@@ -103,7 +105,7 @@
                     </div>
                     <div class="edit_field input-field hidden">
                       <%#= form.label attr_name, t(attr_name) %>
-                      <%= form.text_field attr_name, autofocus: true, class: "validate", placeholder: t('enter_new_value')  %>
+                      <%= form.text_field attr_name, autofocus: true, class: "validate", placeholder: t('enter_new_value') %>
                       <input class="save_modification_button btn handex-btn z-depth-0" type="submit" name="draft_edit" value= <%= t('save') %>>
                     </div>
                   </li>
@@ -120,7 +122,7 @@
 
               <ul class="collection with-header">
                 <% @insurance.attributes.each do |attr_name, attr_value|
-                  next if (attr_name == "id" or !@insurance_your_importer_attr_list.include? attr_name)      %>
+                  next if (attr_name == "id" or !@insurance_your_importer_attr_list.include? attr_name)       %>
                   <li class="collection-item" onclick="onclickEditButton(this)">
                     <div class="show_field overview-item"><%= t(attr_name) %>
                       <div class="secondary-content">
@@ -140,7 +142,7 @@
                     </div>
                     <div class="edit_field input-field hidden">
                       <%#= form.label attr_name, t(attr_name) %>
-                      <%= form.text_field attr_name, autofocus: true, class: "validate", placeholder: t('enter_new_value')  %>
+                      <%= form.text_field attr_name, autofocus: true, class: "validate", placeholder: t('enter_new_value') %>
                       <input class="save_modification_button btn handex-btn z-depth-0" type="submit" name="draft_edit" value="Antrag als Entwurf speichern">
                     </div>
                   </li>
@@ -157,7 +159,7 @@
 
               <ul class="collection with-header">
                 <% @insurance.attributes.each do |attr_name, attr_value|
-                  next if (attr_name == "id" or !@insurance_business_attr_list.include? attr_name)       %>
+                  next if (attr_name == "id" or !@insurance_business_attr_list.include? attr_name)        %>
                   <li class="collection-item" onclick="onclickEditButton(this)">
                     <div class="show_field overview-item"><%= t(attr_name) %>
                       <div class="secondary-content">
@@ -177,7 +179,7 @@
                     </div>
                     <div class="edit_field input-field hidden">
                       <%#= form.label attr_name, t(attr_name) %>
-                      <%= form.text_field attr_name, autofocus: true, class: "validate", placeholder: t('enter_new_value')  %>
+                      <%= form.text_field attr_name, autofocus: true, class: "validate", placeholder: t('enter_new_value') %>
                       <input class="save_modification_button btn handex-btn z-depth-0" type="submit" name="draft_edit" value="Antrag als Entwurf speichern">
                     </div>
                   </li>
@@ -194,7 +196,7 @@
 
               <ul class="collection with-header">
                 <% @insurance.attributes.each do |attr_name, attr_value|
-                  next if (attr_name == "id" or !@insurance_finance_and_payment_attr_list.include? attr_name)       %>
+                  next if (attr_name == "id" or !@insurance_finance_and_payment_attr_list.include? attr_name)        %>
                   <li class="collection-item" onclick="onclickEditButton(this)">
                     <div class="show_field overview-item"><%= t(attr_name) %>
                       <div class="secondary-content">
@@ -214,7 +216,7 @@
                     </div>
                     <div class="edit_field input-field hidden">
                       <%#= form.label attr_name, t(attr_name) %>
-                      <%= form.text_field attr_name, autofocus: true, class: "validate", placeholder: t('enter_new_value')  %>
+                      <%= form.text_field attr_name, autofocus: true, class: "validate", placeholder: t('enter_new_value') %>
                       <input class="save_modification_button btn handex-btn z-depth-0" type="submit" name="draft_edit" value="Antrag als Entwurf speichern">
                     </div>
                   </li>
