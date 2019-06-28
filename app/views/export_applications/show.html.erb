@@ -42,39 +42,41 @@
 
     <div class="overview-header">
       <div class=" center">
-          <ul>
-            <li><%= t('importer') %>
-              <div class="overview_header_value">
-                <%= (@export_application.importer_company_name.nil? or (!@export_application.importer_company_name.nil? and @export_application.importer_company_name.to_s.empty?) or (!@export_application.importer_company_name.nil? and @export_application.importer_company_name.to_s == t('please_select'))) ? t('not_available') : @export_application.importer_company_name %>
-              </div>
-            </li>
-            <li><%= t('product') %>
-              <div class="overview_header_value">
-                <%= (@export_application.exported_goods_type.nil? or (!@export_application.exported_goods_type.nil? and @export_application.exported_goods_type.to_s.empty?) or (!@export_application.exported_goods_type.nil? and @export_application.exported_goods_type.to_s == t('please_select'))) ? t('not_available') : @export_application.exported_goods_type %>
-              </div>
-            </li>
-            <li><%= t('contract_value') %>
-              <div class="overview_header_value">
-                <%= (@export_application.contract_value.nil? or (!@export_application.contract_value.nil? and @export_application.contract_value.to_s.empty?) or (!@export_application.contract_value.nil? and @export_application.contract_value.to_s == t('please_select'))) ? t('not_available') : @export_application.contract_value %>
-              </div>
-            </li>
-            <li><%= t('application_sent_at') %>
-              <div class="overview_header_value">
-                <%= (@export_application.created_at.nil? or (!@export_application.created_at.nil? and @export_application.created_at.to_s.empty?) or (!@export_application.created_at.nil? and @export_application.created_at.to_s == t('please_select'))) ? t('not_available') : @export_application.created_at %>
-              </div>
-            </li>
-          </ul>
+        <ul>
+          <li><%= t('importer') %>
+            <div class="overview_header_value">
+              <%= (@export_application.importer_company_name.nil? or (!@export_application.importer_company_name.nil? and @export_application.importer_company_name.to_s.empty?) or (!@export_application.importer_company_name.nil? and @export_application.importer_company_name.to_s == t('please_select'))) ? t('not_available') : @export_application.importer_company_name %>
+            </div>
+          </li>
+          <li><%= t('product') %>
+            <div class="overview_header_value">
+              <%= (@export_application.exported_goods_type.nil? or (!@export_application.exported_goods_type.nil? and @export_application.exported_goods_type.to_s.empty?) or (!@export_application.exported_goods_type.nil? and @export_application.exported_goods_type.to_s == t('please_select'))) ? t('not_available') : @export_application.exported_goods_type %>
+            </div>
+          </li>
+          <li><%= t('contract_value') %>
+            <div class="overview_header_value">
+              <%= (@export_application.contract_value.nil? or (!@export_application.contract_value.nil? and @export_application.contract_value.to_s.empty?) or (!@export_application.contract_value.nil? and @export_application.contract_value.to_s == t('please_select'))) ? t('not_available') : @export_application.contract_value %>
+            </div>
+          </li>
+          <li><%= t('application_sent_at') %>
+            <div class="overview_header_value">
+              <%= (@export_application.created_at.nil? or (!@export_application.created_at.nil? and @export_application.created_at.to_s.empty?) or (!@export_application.created_at.nil? and @export_application.created_at.to_s == t('please_select'))) ? t('not_available') : @export_application.created_at %>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
 
     <div class="row">
-      <div class="col s12">
-        <ul class="tabs">
-          <li class="tab col s3"><a class="active" href="#company"><%= t('company') %></a></li>
-          <li class="tab col s3"><a href="#your_importer"><%= t('your_importer') %></a></li>
-          <li class="tab col s3"><a href="#business_heading"><%= t('business_heading') %></a></li>
-          <li class="tab col s3"><a href="#finance_and_payment"><%= t('finance_and_payment') %></a></li>
-        </ul>
+      <div class="overview_navigation">
+        <div class="col s12">
+          <ul class="tabs">
+            <li class="tab col s3"><a class="active" href="#company"><%= t('company') %></a></li>
+            <li class="tab col s3"><a href="#your_importer"><%= t('your_importer') %></a></li>
+            <li class="tab col s3"><a href="#business_heading"><%= t('business_heading') %></a></li>
+            <li class="tab col s3"><a href="#finance_and_payment"><%= t('finance_and_payment') %></a></li>
+          </ul>
+        </div>
       </div>
       <div id="company" class="col s12">
         <div class="handex-form-container">
@@ -83,7 +85,7 @@
 
               <ul class="collection with-header">
                 <% @export_application.attributes.each do |attr_name, attr_value|
-                  next if (attr_name == "id" or !@company_attr_list.include? attr_name)     %>
+                  next if (attr_name == "id" or !@company_attr_list.include? attr_name)      %>
                   <li class="collection-item" onclick="onclickEditButton(this)">
                     <div class="show_field overview-item"><%= t(attr_name) %>
                       <div class="secondary-content">
@@ -102,8 +104,8 @@
                       </div>
                     </div>
                     <div class="edit_field input-field hidden">
-                      <%= form.label attr_name, t(attr_name) %>
-                      <%= form.text_field attr_name, autofocus: true, class: "validate" %>
+                      <%#= form.label attr_name, t(attr_name) %>
+                      <%= form.text_field attr_name, autofocus: true, class: "validate", placeholder: t('enter_new_value') %>
                       <input class="save_modification_button btn handex-btn z-depth-0" type="submit" name="draft_edit" value=<%= t('save') %>>
                     </div>
                   </li>
@@ -120,7 +122,7 @@
 
               <ul class="collection with-header">
                 <% @export_application.attributes.each do |attr_name, attr_value|
-                  next if (attr_name == "id" or !@your_importer_attr_list.include? attr_name)      %>
+                  next if (attr_name == "id" or !@your_importer_attr_list.include? attr_name)       %>
                   <li class="collection-item" onclick="onclickEditButton(this)">
                     <div class="show_field overview-item"><%= t(attr_name) %>
                       <div class="secondary-content">
@@ -139,8 +141,8 @@
                       </div>
                     </div>
                     <div class="edit_field input-field hidden">
-                      <%= form.label attr_name, t(attr_name) %>
-                      <%= form.text_field attr_name, autofocus: true, class: "validate" %>
+                      <%#= form.label attr_name, t(attr_name) %>
+                      <%= form.text_field attr_name, autofocus: true, class: "validate", placeholder: t('enter_new_value') %>
                       <input class="save_modification_button btn handex-btn z-depth-0" type="submit" name="draft_edit" value=<%= t('save') %>>
                     </div>
                   </li>
@@ -157,7 +159,7 @@
 
               <ul class="collection with-header">
                 <% @export_application.attributes.each do |attr_name, attr_value|
-                  next if (attr_name == "id" or !@business_attr_list.include? attr_name)       %>
+                  next if (attr_name == "id" or !@business_attr_list.include? attr_name)        %>
                   <li class="collection-item" onclick="onclickEditButton(this)">
                     <div class="show_field overview-item"><%= t(attr_name) %>
                       <div class="secondary-content">
@@ -176,8 +178,8 @@
                       </div>
                     </div>
                     <div class="edit_field input-field hidden">
-                      <%= form.label attr_name, t(attr_name) %>
-                      <%= form.text_field attr_name, autofocus: true, class: "validate" %>
+                      <%#= form.label attr_name, t(attr_name) %>
+                      <%= form.text_field attr_name, autofocus: true, class: "validate", placeholder: t('enter_new_value') %>
                       <input class="save_modification_button btn handex-btn z-depth-0" type="submit" name="draft_edit" value=<%= t('save') %>>
                     </div>
                   </li>
@@ -194,7 +196,7 @@
 
               <ul class="collection with-header">
                 <% @export_application.attributes.each do |attr_name, attr_value|
-                  next if (attr_name == "id" or !@finance_and_payment_attr_list.include? attr_name)       %>
+                  next if (attr_name == "id" or !@finance_and_payment_attr_list.include? attr_name)        %>
                   <li class="collection-item" onclick="onclickEditButton(this)">
                     <div class="show_field overview-item"><%= t(attr_name) %>
                       <div class="secondary-content">
@@ -213,8 +215,8 @@
                       </div>
                     </div>
                     <div class="edit_field input-field hidden">
-                      <%= form.label attr_name, t(attr_name) %>
-                      <%= form.text_field attr_name, autofocus: true, class: "validate" %>
+                      <%#= form.label attr_name, t(attr_name) %>
+                      <%= form.text_field attr_name, autofocus: true, class: "validate", placeholder: t('enter_new_value') %>
                       <input class="save_modification_button btn handex-btn z-depth-0" type="submit" name="draft_edit" value=<%= t('save') %>>
                     </div>
                   </li>

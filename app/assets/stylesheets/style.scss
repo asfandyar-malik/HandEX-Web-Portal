@@ -335,8 +335,19 @@ form.col.s12.custom-form {
   }
 }
 
+.overview_navigation {
+  margin-top:10px;
+}
+
 .overview-header {
-  min-height: 50px;
+  min-height: 70px;
+  background-color: #f6f7fa;
+  padding-top:7px;
+  padding-bottom:7px;
+
+  ul {
+    margin:0;
+  }
   li {
     list-style: none;
     display: inline-block;
@@ -375,6 +386,10 @@ form.col.s12.custom-form {
   background-color: #2541b2;
   padding: 0.7%;
   color:white;
+
+  .row {
+    margin-bottom:0;
+  }
 
   a {
     color:white;
