@@ -7,11 +7,8 @@
             <div class="col s12 m6">
                 <div class="text-section black-text">
                     <a class="smooth"><%= image_tag "HandEX_logo4.png", style: 'height:5em;width:auto;' %></a>
-                    <h4>Kontaktdaten Ihres Kunden</h4>
-                    <p>Bitte füllen Sie hier die Kontaktdaten Ihres Kunden ein. Ihr Kunde erhält per Email eine Einladung zu unserem Portal und kann sich selbst registrieren und wird danach
-                        direkt in die Antragsstrecke des von Ihnen ausgewählten Produktes geleitet. Bitte stellen Sie sicher, dass Sie die Erlabunis haben die Kontaktdaten Ihres Kunden an HandEX
-                        weiterzugeben.
-                    </p>
+                    <h4><%= t :contact_info_customer %></h4>
+                    <p> <%= t :invite_exporter_info %> </p>
                 </div>
             </div>
 
@@ -27,27 +24,27 @@
                                             <div class="row">
 
                                                 <div class="input-field col s12">
-                                                    <label> Firmenname </label>
+                                                    <label> <%= t :exporter_name %> </label>
                                                     <%= f.text_field :exporter_name, autofocus: true, required: true, class: "validate" %>
                                                 </div>
 
                                                 <div class="input-field col s12">
-                                                    <label>Kontaktperson</label>
+                                                    <label> <%= t :exporter_representative_name %> </label>
                                                     <%= f.text_field :exporter_representative_name, required: true, class: "validate" %>
                                                 </div>
 
                                                 <div class="input-field col s12">
-                                                    <label for="email"> Email </label>
+                                                    <label for="email"> <%= t :exporter_email %> </label>
                                                     <%= f.email_field :exporter_email, autofocus: true, required: true, class: "validate" %>
                                                 </div>
 
                                                 <div class="input-field col s12">
-                                                    <label> Telefonnummer </label>
+                                                    <label> <%= t :exporter_telephone %> </label>
                                                     <%= f.text_field :exporter_telephone, required: true, autofocus: true, class: "validate" %>
                                                 </div>
 
                                                 <div class="input-field col s12">
-                                                    <label> Interne Kundennummer </label>
+                                                    <label> <%= t :exporter_broker_id %> </label>
                                                     <%= f.text_field :exporter_broker_id, autofocus: true, class: "validate" %>
                                                 </div>
 

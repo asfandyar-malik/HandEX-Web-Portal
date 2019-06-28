@@ -6,6 +6,11 @@ body {
     color: #000000;
   }
 
+  .profile {
+    padding-top: 5%;
+    color: #000000;
+  }
+
   .form-section {
     background: #fff;
     border-radius: 2px;
@@ -553,14 +558,15 @@ nav {
   background-color: #41bf93;
 }
 
+.handex-btn-logout {
+  background-color: #41bf93;
+  align-content: center;
+  margin-left: 8%;
+}
+
 .handex-btn-positiv.btn {
   background-color: #41bf93;
 }
-
-
-
-
-
 
 
 .active_selection_card {
