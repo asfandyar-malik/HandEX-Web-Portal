@@ -6537,7 +6537,7 @@ form.col.s12.custom-form {
 .form-section .form-nav-top {
   padding: 15px 10px;
   border-bottom: 1px solid #eee; }
-.form-section .step-2, .form-section .step-3, .form-section .step-4, .form-section .step-5 {
+.form-section .step_2, .form-section .step_3, .form-section .step_4, .form-section .step_5 {
   display: none; }
 
 .form-nav h2 {

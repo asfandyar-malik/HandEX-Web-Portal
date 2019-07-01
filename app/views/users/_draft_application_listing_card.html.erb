@@ -4,66 +4,67 @@
         <div class="card-title grey white-text draft_financing_application valign-wrapper">
             <div class="valign-wrapper">
                 <i class="custom_icon reciept-icon-white"></i>
-                <div>
-                    <strong>Antrag Entwurf</strong>
+                <div class="card-header">
+                    Antrag Entwurf
                 </div>
             </div>
         </div>
 
         <div class="card-content">
             <div class="valign-wrapper">
-                <div>
+                <div class="col m2">
                     <i class="custom_icon import-icon"></i>
                 </div>
-                <div>
-                    <label for="output_importer"><%= t('importer') %></label>
-                    <p id="output_importer"><%= application.importer_company_name %></p>
+                <div class="col m10">
+                    <div class="summary"> <%= t('importer') %></div>
+                    <p><b><%= application.importer_company_name %></b></p>
                 </div>
             </div>
 
             <div class="valign-wrapper">
-                <div>
+                <div class="col m2">
                     <i class="custom_icon import-icon"></i>
                 </div>
-                <div>
-                    <label for="output_importer"><%= t('destination_country') %></label>
-                    <p id="output_importer"> <%= application.importer_country %></p>
+                <div class="col m10">
+                    <div class="summary"> <%= t('destination_country') %></div>
+                    <p> <b><%= application.importer_country %></b></p>
                 </div>
             </div>
 
             <div class="valign-wrapper">
-                <i class="custom_icon box-icon"></i>
-                <div>
-                    <label for="output_product"><%= t('product') %></label>
-                    <p id="output_product"><%= application.exported_goods_type %></p>
+                <div class="col m2">
+                    <i class="custom_icon box-icon"></i>
                 </div>
-            </div>
-            <div class="valign-wrapper">
-                <i class="custom_icon money-icon"></i>
-                <div>
-                    <label for="output_value"><%= t('contract_value') %></label>
-                    <p id="output_value">
-                        <% if application.contract_value %>
-                            <div class="col s6">
-<!--                              TODO From @Hamid to @Hamid: show the saved contract currency-->
-                                &euro; <%= application.contract_value %>
-                            </div>
-                        <% else %>
-                            <div class="col s6 text-red">
-                                MISSING
-                            </div>
-                        <% end %>
-                    </p>
+                <div class="col m10">
+                    <div class="summary"> <%= t('product') %></div>
+                    <p> <b><%= application.exported_goods_type %></b></p>
                 </div>
             </div>
 
             <div class="valign-wrapper">
-                <i class="custom_icon send-icon"></i>
-                <div>
-                    <label for="output_application_date"><%= t('application_sent_at') %></label>
-                    <p id="output_application_date"> <%= application.updated_at.strftime('%d %b %Y') %> </p>
+                <div class="col m2">
+                    <i class="custom_icon money-icon"></i>
+                </div>
+                <div class="col m10">
+                    <div class="summary"> <%= t('contract_value') %></div>
+                    <% if application.contract_value %>
+                        <p><b>&euro; <%= application.contract_value %> </b> </p>
+                    <% else %>
+                        <p><b>MISSING </b></p>
+                    <% end %>
                 </div>
             </div>
+
+            <div class="valign-wrapper">
+                <div class="col m2">
+                    <i class="custom_icon send-icon"></i>
+                </div>
+                <div class="col m10">
+                    <div class="summary"> <%= t('application_sent_at') %></div>
+                    <p><b><%= application.updated_at.strftime('%d %b %Y') %> </b> </p>
+                </div>
+            </div>
+
         </div>
 
       <% if application.application_type == "export_application" %>

@@ -6,7 +6,6 @@ class ExportApplicationsController < ApplicationController
     
     def index
         @new_applications    = filer_application_by_status "NEW"
-        # @export_applications = ExportApplication.all
     end
     
     def show
@@ -56,6 +55,14 @@ class ExportApplicationsController < ApplicationController
             else
                 flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
                 render :update
+            end
+        elsif params[:draft_edit] == t('save')
+            @export_application.application_status = 'DRAFT'
+            if @export_application.update(export_application_params)
+                redirect_to "/export_applications/" + @export_application.id.to_s , notice: 'Antrag wurde erfolgreich aktualisiert.'
+            else
+                flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+                show
             end
         else
             @export_application.application_status = 'SUBMITTED'
