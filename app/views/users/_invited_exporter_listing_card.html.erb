@@ -5,8 +5,8 @@
         <div class="card-title grey white-text draft_financing_application valign-wrapper">
             <div class="valign-wrapper">
                 <i class="custom_icon reciept-icon-white"></i>
-                <div>
-                    <strong><%= t :invited_application %></strong>
+                <div class="card-header">
+                    <%= t :invited_application %>
                 </div>
             </div>
         </div>
@@ -14,39 +14,42 @@
         <div class="card-content">
 
             <div class="valign-wrapper">
-                <div>
+                <div class="col m2">
                     <i class="custom_icon import-icon"></i>
                 </div>
-                <div>
-                    <label for="output_importer"> <%= t :exporter_name %> </label>
-                    <p id="output_importer"><%= application.exporter_company_name %></p>
-                </div>
-            </div>
-
-
-            <div class="valign-wrapper">
-                <i class="custom_icon send-icon"></i>
-                <div>
-                    <label for="output_application_date"> <%= t :exporter_email %> </label>
-                    <p id="output_application_date"> <%= application.exporter_email %> </p>
+                <div class="col m10">
+                    <div class="summary"> <%= t('exporter_name') %></div>
+                    <p><b><%= application.exporter_company_name %></b></p>
                 </div>
             </div>
 
             <div class="valign-wrapper">
-                <div>
+                <div class="col m2">
+                    <i class="custom_icon send-icon"></i>
+                </div>
+                <div class="col m10">
+                    <div class="summary"> <%= t('exporter_email') %></div>
+                    <p><b><%= application.exporter_email %></b></p>
+                </div>
+            </div>
+
+            <div class="valign-wrapper">
+                <div class="col m2">
                     <i class="custom_icon import-icon"></i>
                 </div>
-                <div>
-                    <label for="output_importer"><%= t :exporter_representative_name %> </label>
-                    <p id="output_importer"> <%= application.exporter_representative_name %></p>
+                <div class="col m10">
+                    <div class="summary"> <%= t('exporter_representative_name') %></div>
+                    <p><b><%= application.exporter_representative_name %></b></p>
                 </div>
             </div>
 
             <div class="valign-wrapper">
-                <i class="custom_icon send-icon"></i>
-                <div>
-                    <label for="output_application_date"> <%= t :exporter_telephone %></label>
-                    <p id="output_application_date"> <%= application.exporter_telephone %> </p>
+                <div class="col m2">
+                    <i class="custom_icon send-icon"></i>
+                </div>
+                <div class="col m10">
+                    <div class="summary"> <%= t('exporter_telephone') %></div>
+                    <p><b><%= application.exporter_telephone %></b></p>
                 </div>
             </div>
 
