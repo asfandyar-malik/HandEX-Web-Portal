@@ -440,19 +440,13 @@ en:
   project_memorandum_exporter_business: "ggf. Projektmemorandum"
 
   #Overview
-  not_selected_yet: "Please translate: Nicht gewählt"
-  application_sent: "Please translate: Antrag versendet"
-  not_available: "Please translate: Nicht gesetzt"
-  application_type: "Please translate: Application type"
-  export_application: "Please translate: Export Application"
-  insurance: "Please translate: Insurance Application"
-  enter_new_value: "New value"
   not_selected_yet: "Nicht gewählt"
   application_sent: "Antrag versendet"
   not_available: "Nicht gesetzt"
   application_type: "Application type"
   export_application: "Export Application"
   insurance: "Insurance Application"
+  enter_new_value: "New value"
 
   #Invited Exporter
   exporter_name: "Firmenname"
