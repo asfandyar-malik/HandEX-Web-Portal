@@ -108,6 +108,10 @@ p {
 }
 
 
+.bold-font {
+  font-weight: bold;
+}
+
 
 a {
   font-size: 16px;
@@ -885,6 +889,11 @@ nav ul a:hover {
 
 .section {
    padding-top: 0.5em;
+  width: 100%;
+}
+
+.section .overview {
+  padding-top: 0.5em;
 }
 
 .section .no-application-section {
