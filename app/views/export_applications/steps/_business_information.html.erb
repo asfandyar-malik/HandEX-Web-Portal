@@ -330,7 +330,7 @@
                             </div>
                         </div>
 
-                        <div id="noContractSignedBetweenParties" style="display: <%= (@export_application.is_contract_already_signed_between_parties.present? && @export_application.is_contract_already_signed_between_parties)? 'block' : 'none' %>;">
+                        <div id="noContractSignedBetweenParties" style="display: <%= (@export_application.is_contract_already_signed_between_parties.present? && !@export_application.is_contract_already_signed_between_parties)? 'block' : 'none' %>;">
 
                             <div class="input-field col s12 m12">
                                 <div class="input-field col s12 m12 nopadding">
@@ -358,7 +358,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col background_toggle does_delivery_affect_sensitive_areas">
+                    <div class="col background_toggle does_delivery_affect_sensitive_areas  <%= (@export_application.does_delivery_affect_sensitive_areas.present? && @export_application.does_delivery_affect_sensitive_areas)? 'dialog_background' : '' %>">
                         <div class="input-field col s12 m12">
                             <div class="input-field col s12 m12 nopadding">
                                 <%= form.label :does_delivery_affect_sensitive_areas, t('does_delivery_affect_sensitive_areas') %>
@@ -368,7 +368,7 @@
                                     <label>
                                         <%= check_box_tag "export_application[does_delivery_affect_sensitive_areas]", @export_application.does_delivery_affect_sensitive_areas ? @export_application.does_delivery_affect_sensitive_areas : nil, false, :onclick => "deliveryAffectsSensitiveArea();", id: "export_application_does_delivery_affect_sensitive_areas" %>
                                         <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.does_delivery_affect_sensitive_areas.present? && @export_application.does_delivery_affect_sensitive_areas) %>"><%= t :yes_button %></span>
-                                    </label>
+                                      </label>
 
                                     <label onclick="NoDeliveryAffectsSensitiveArea()">
                                         <span  class="no yes-no-btns <%= 'active-btn' if (@export_application.does_delivery_affect_sensitive_areas.present? && !@export_application.does_delivery_affect_sensitive_areas) %>"><%= t :no_button %></span>
@@ -377,7 +377,7 @@
                             </div>
                         </div>
 
-                        <div id="deliveryAffectsSensitiveArea" style="display: none">
+                        <div id="deliveryAffectsSensitiveArea" style="display: <%= (@export_application.does_delivery_affect_sensitive_areas.present? && @export_application.does_delivery_affect_sensitive_areas)? 'block' : 'none' %>;">
                             <div class="row">
                                 <div class="input-field col s12">
                                     <%= form.label :sensitive_area_type, t('sensitive_area_type') %>
@@ -392,10 +392,10 @@
 
                     </div>
 
-                    <div class="col background_toggle is_export_licence_needed">
+                    <div class="col background_toggle is_export_licence_needed  <%= (@export_application.is_export_licence_needed.present? && @export_application.is_export_licence_needed)? 'dialog_background' : '' %>">
                         <div class="input-field col s12 m12">
                             <div class="input-field col s12 m12 nopadding">
-                                <%= form.label :is_export_licence_needed, t('sensitive_area_type') %>
+                                <%= form.label :is_export_licence_needed, t('is_export_licence_needed') %>
                                 <p>
                                 <p>
                                     <label>
@@ -410,7 +410,7 @@
                             </div>
                         </div>
 
-                        <div id="originLicense" style="display: none">
+                        <div id="originLicense" style="display: <%= (@export_application.is_export_licence_needed.present? && @export_application.is_export_licence_needed)? 'block' : 'none' %>;">
                             <div class="row">
                                 <div class="input-field col s12">
                                     <%= form.label :which_regulations_enforcing_exportlicense_requirement, t('which_regulations_enforcing_exportlicense_requirement') %>
@@ -424,7 +424,7 @@
                         </div>
                     </div>
 
-                    <div class="col background_toggle are_secondhand_goods_delivered">
+                    <div class="col background_toggle are_secondhand_goods_delivered  <%= (@export_application.are_secondhand_goods_delivered.present? && @export_application.are_secondhand_goods_delivered)? 'dialog_background' : '' %>">
                         <div class="input-field col s12 m12">
                             <div class="input-field col s12 m12 nopadding">
                                 <%= form.label :are_secondhand_goods_delivered, t('are_secondhand_goods_delivered') %>
@@ -441,7 +441,7 @@
                             </div>
                         </div>
 
-                        <div id="deliverySecondHandGoods" style="display: none">
+                        <div id="deliverySecondHandGoods" style="display: <%= (@export_application.are_secondhand_goods_delivered.present? && @export_application.are_secondhand_goods_delivered)? 'block' : 'none' %>;">
                             <div class="input-field col s12">
                                 <%= form.label :manufacture_year, t('manufacture_year') %>
                                 <%= form.text_area :manufacture_year, autofocus: true, class: "validate" %>
@@ -467,14 +467,14 @@
                                 </div>
                             </div>
 
-                            <div id="goodsOverhauled" style="display: none">
+                            <div id="goodsOverhauled" style="display: <%= (@export_application.are_goods_overhauled.present? && @export_application.are_goods_overhauled)? 'block' : 'none' %>;">
 
                                 <div class="input-field col s12 m6">
                                     <%= form.label :goods_overhaul_country, t('goods_overhaul_country') %>
                                     <%= form.select :goods_overhaul_country, options_for_select([t('please_select'), t('overhaul_germany'), t('overhaul_foreign'), t('overhaul_other')], @export_application.goods_overhaul_country ? @export_application.goods_overhaul_country : nil), {}, class: 'validate', id: "goods_overhaul_country", :onchange => 'goodsOverhaulCountryIfGermanyHandler()' %>
                                 </div>
 
-                                <div id="goods_overhaul_country_if_not_germany" style="display: none">
+                                <div id="goods_overhaul_country_if_not_germany" style="display: <%= (@export_application.goods_overhaul_country.present? && @export_application.goods_overhaul_country != t('overhaul_germany'))? 'block' : 'none' %>;">
                                     <div class="input-field col s12 ">
                                         <%= form.label :why_good_overhauled_abroad, t('why_good_overhauled_abroad') %>
                                         <%= form.text_area :why_good_overhauled_abroad, autofocus: true %>
@@ -494,7 +494,7 @@
                         </div>
                     </div>
 
-                    <div class="col background_toggle has_special_contract_structure">
+                    <div class="col background_toggle has_special_contract_structure <%= (@export_application.has_special_contract_structure.present? && @export_application.has_special_contract_structure)? 'dialog_background' : '' %>">
                         <div class="input-field col s12 m12">
                             <div class="input-field col s12 m12 nopadding">
                                 <%= form.label :has_special_contract_structure, t('has_special_contract_structure') %>
@@ -511,7 +511,7 @@
                             </div>
                         </div>
 
-                        <div id="explainStructure" style="display: none">
+                        <div id="explainStructure" style="display: <%= (@export_application.has_special_contract_structure.present? && @export_application.has_special_contract_structure)? 'block' : 'none' %>;">
                             <div class="row">
                                 <div class="input-field col s12 m12">
                                     <%= form.label :explain_special_structure, t('explain_special_structure') %>
@@ -520,7 +520,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col background_toggle has_german_certificate_of_origin">
+                    <div class="col background_toggle has_german_certificate_of_origin  <%= (@export_application.has_german_certificate_of_origin.present? && @export_application.has_german_certificate_of_origin)? 'dialog_background' : '' %>">
                         <div class="input-field col s12">
                             <%= form.label :has_german_certificate_of_origin, t('has_german_certificate_of_origin') %>
                             <p>
@@ -539,7 +539,7 @@
                                 </label>
                             </p>
 
-                            <div id="noGermanCertificateOfOriginId" style="display: none">
+                            <div id="noGermanCertificateOfOriginId" style="display: <%= (@export_application.has_german_certificate_of_origin_for_only_parts_of_good.present? && !@export_application.has_german_certificate_of_origin_for_only_parts_of_good)? 'block' : 'none' %>;">
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <%= form.label :goods_supplied_from_foreign_origin, t('goods_supplied_from_foreign_origin') %>
@@ -575,7 +575,7 @@
                                 </div>
                             </div>
 
-                            <div id="partlyGermanCertificateOfOrigin" style="display: none">
+                            <div id="partlyGermanCertificateOfOrigin" style="display: <%= (@export_application.has_german_certificate_of_origin_for_only_parts_of_good.present? && @export_application.has_german_certificate_of_origin_for_only_parts_of_good)? 'block' : 'none' %>;">
                                 <div class="row">
 
                                     <div class="input-field col s12">
