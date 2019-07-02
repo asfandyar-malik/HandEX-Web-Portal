@@ -16,37 +16,21 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
     <%= javascript_include_tag 'js/jquery-2.2.4.min', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag('materialize.js') %>
 
+    <link href="onboarding.scss" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<!--    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">-->
-<!--    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>-->
-    <link href="onboardings.scss" type="text/css" rel="stylesheet" media="screen,projection"/>
-
-    <meta name="google-site-verification" content="W5f_acjB7RRBkTjQsgza4zJpdUCne6ll6Ztk5v4LwOg"/>
-
 </head>
 
 <body>
 
-   <%#= render 'shared/navbar' %>
    <%= render 'shared/message' %>
-
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6"
-                height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
    <div class="container-fluid">
        <%= yield %>
    </div>
-
-    <!-- Start of HubSpot Embed Code -->
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/5380143.js"></script>
-    <!-- End of HubSpot Embed Code -->
 
 </body>
 </html>
