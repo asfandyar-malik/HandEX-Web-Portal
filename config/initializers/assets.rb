@@ -17,6 +17,7 @@ Rails.application.config.assets.precompile += %w( css/themify-icons.css )
 Rails.application.config.assets.precompile += %w( insurance.css )
 Rails.application.config.assets.precompile += %w( style.scss )
 Rails.application.config.assets.precompile += %w( materialize.scss )
+Rails.application.config.assets.precompile += %w( onboarding.scss )
 
 Rails.application.config.assets.precompile += %w( js/jquery-2.2.4.min.js)
 Rails.application.config.assets.precompile += %w( init.js)

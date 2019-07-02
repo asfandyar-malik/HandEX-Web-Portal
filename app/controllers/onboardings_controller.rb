@@ -1,4 +1,6 @@
 class OnboardingsController < ApplicationController
+
+  layout "onboarding", only: [:new, :edit, :index]
   before_action :set_onboarding, only: [:show, :edit, :update, :destroy]
 
   # GET /onboardings

@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
     <title> HandEX </title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
@@ -14,14 +15,19 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+<!--
+    <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+-->
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
+    <%= stylesheet_link_tag "onboarding", media: 'all', 'data-turbolinks-track' => true%>
     <%= javascript_include_tag 'js/jquery-2.2.4.min', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag('materialize.js') %>
 
-    <link href="onboarding.scss" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -34,3 +40,6 @@
 
 </body>
 </html>
+
+
+
