@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_24_143656) do
+ActiveRecord::Schema.define(version: 2019_07_02_113556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -273,7 +273,6 @@ ActiveRecord::Schema.define(version: 2019_06_24_143656) do
     t.string "number_of_installments_payment_term_both"
     t.string "payment_vehichle_payment_term_both"
     t.string "has_german_certificate_of_origin_for_only_parts_of_good"
-    t.boolean "delivery_doesnt_affects_sensitive_areas", default: false
     t.boolean "delivery_affects_natural_reserves", default: false
     t.boolean "delivery_affects_indigenous_people", default: false
     t.boolean "delivery_affects_cultural_heritage", default: false
@@ -434,7 +433,7 @@ ActiveRecord::Schema.define(version: 2019_06_24_143656) do
     t.boolean "is_company_controlled_by_mother_company", default: false
     t.string "importer_mother_company_industry"
     t.boolean "exporter_offers_servicing_for_goods", default: false
-    t.string "does_delivery_affect_sensitive_areas"
+    t.boolean "does_delivery_affect_sensitive_areas"
     t.boolean "are_goods_overhauled", default: false
     t.boolean "does_corruption_declaration_appy", default: false
     t.string "importer_tax_id"
