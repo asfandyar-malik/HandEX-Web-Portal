@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_24_143656) do
+ActiveRecord::Schema.define(version: 2019_07_02_084715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -443,20 +443,20 @@ ActiveRecord::Schema.define(version: 2019_06_24_143656) do
     t.string "exporter_date_founded"
     t.string "project_detailed_description"
     t.boolean "is_fully_responsible_for_project"
+    t.string "contract_currency"
     t.string "entire_project_currency"
     t.string "entire_project_amount"
-    t.string "contract_currency"
     t.boolean "taking_part_in_tender"
     t.string "tender_submission_date"
+    t.string "downpayment_delivery_description_payment_term_both"
     t.string "interest_currency"
     t.string "interest_value"
     t.string "fixed_interest_rate"
     t.string "fixed_interest_rate_value"
     t.string "variable_interest_rate"
-    t.string "downpayment_delivery_description_payment_term_both"
     t.string "degressive_interest_rate"
     t.string "interest_calculation_description"
-    t.string "application_type", default: "export_application"
+    t.string "application_type"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
@@ -765,7 +765,7 @@ ActiveRecord::Schema.define(version: 2019_06_24_143656) do
     t.string "variable_interest_rate"
     t.string "degressive_interest_rate"
     t.string "interest_calculation_description"
-    t.string "application_type", default: "insurance"
+    t.string "application_type"
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 
@@ -788,6 +788,11 @@ ActiveRecord::Schema.define(version: 2019_06_24_143656) do
     t.datetime "updated_at", null: false
     t.string "payment_relevant_milestone"
     t.index ["export_application_id"], name: "index_multiple_shipments_on_export_application_id"
+  end
+
+  create_table "onboardings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "refinances", force: :cascade do |t|

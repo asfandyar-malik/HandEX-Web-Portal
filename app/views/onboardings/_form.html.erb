@@ -1,0 +1,557 @@
+<%= form_with(model: onboarding, local: true) do |form| %>
+    <% if onboarding.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(onboarding.errors.count, "error") %> prohibited this onboarding from being saved:</h2>
+
+            <ul>
+                <% onboarding.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+        <div class="main">
+            <div class="header-section">
+                <div class="form-section">
+                    <!-- stpe 1 start -->
+                    <div class="step-1 tab">
+                        <div class="row top-heder">
+                            <div class="col s12 m6">
+                                <a class="smooth"><%= image_tag "HandEX_blue_logo.png", style: 'height:5em;width:auto;' %></a>
+                            </div>
+                            <div class="col s12 m6">
+                                <ul class="right icons">
+                                    <li><i class="fa fa-user-circle-o" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-bell-o" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-cog" aria-hidden="true"></i></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <!--   Form Top Section   -->
+                        <div class="row form-nav-top">
+                            <div class="col s12 m6">
+                                <div class="top-nav">
+                                    <h4> Company Information </h4>
+                                </div>
+                            </div>
+                            <div class="col s12 m6">
+                                <div class="top-nav right">
+                                    <button class="skip" tab_index="2">Skip</button>
+                                    <button class="next" tab_index="2">Next Step</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-2 tab">
+                        <div class="row top-heder">
+                            <div class="col s12 m6">
+                                <a class="smooth"><%= image_tag "HandEX_blue_logo.png", style: 'height:5em;width:auto;' %></a>
+                            </div>
+                            <div class="col s12 m6">
+                                <ul class="right icons">
+                                    <li><i class="fa fa-user-circle-o" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-bell-o" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-cog" aria-hidden="true"></i></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <!--   Form Top Section   -->
+                        <div class="row form-nav-top">
+                            <div class="col s12 m6">
+                                <div class="top-nav">
+                                    <h4>Euler Hermes </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-3 tab">
+                        <div class="row top-heder">
+                            <div class="col s12 m6">
+                                <a class="smooth"><%= image_tag "HandEX_blue_logo.png", style: 'height:5em;width:auto;' %></a>
+                            </div>
+                            <div class="col s12 m6">
+                                <ul class="right icons">
+                                    <li><i class="fa fa-user-circle-o" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-bell-o" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-cog" aria-hidden="true"></i></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <!--   Form Top Section   -->
+                        <div class="row form-nav-top">
+                            <div class="col s12 m6">
+                                <div class="top-nav">
+                                    <h4>Share holders & Directors</h4>
+                                </div>
+                            </div>
+                            <div class="col s12 m6">
+                                <div class="top-nav right">
+                                    <button class="skip" tab_index="2">Skip</button>
+                                    <button class="next" tab_index="2">Next Step</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-form">
+
+                        <div class="row">
+                            <div class="col s12 m3 border-right">
+                                <div class="tab-section">
+                                    <ul class="progressbar">
+                                        <li class="active" tab_index="1"><p><span>step1</span><br>Company Information</p></li>
+                                        <li tab_index="2"><p><span>step2</span><br>Euler Hermes</p></li>
+                                        <li tab_index="3"><p><span>step3</span><br>Share holders & Directors</p></li>
+                                        <li tab_index="4"><p><span>step4</span><br>Buiseness Information</p></li>
+                                        <li tab_index="5"><p><span>step5</span><br>Financials</p></li>
+                                        <li tab_index="6"><p><span>step6</span><br>Documents</p></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col s12 m9">
+                                <div class="tab-content">
+                                    <div class="step-1 tab">
+                                        <form class="col s12 comapny-form">
+                                            <div class="row">
+                                                <div class="input-field col s12 m6">
+                                                    <label for="first_name"> Comapny Name</label>
+                                                    <input placeholder="Alfalot Ltd.& Co. Industrieausrustung" id="comapny_name" type="text" class="validate">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12 m4">
+                                                    <label for="number_of employee"> Number of Employee</label>
+                                                    <select>
+                                                        <option value="" disabled selected>Please Select...</option>
+                                                        <option value="1">Option 1</option>
+                                                        <option value="2">Option 2</option>
+                                                        <option value="3">Option 3</option>
+                                                    </select>
+                                                </div>
+                                                <div class="input-field col s12 m3">
+                                                    <label for="year-founded">Year Founded</label>
+                                                    <input placeholder="" id="year-founded" type="text" class="validate">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12 m3">
+                                                    <label for="legal-form">Legal Form</label>
+                                                    <input placeholder="" id="Legal_form" type="text" class="validate">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12 m6">
+                                                    <label for="address-line1">Address Line 1</label>
+                                                    <input placeholder="" id="address_line1" type="text" class="validate">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12 m6">
+                                                    <label for="address-line2">Address Line 2</label>
+                                                    <input placeholder="" id="address_line2" type="text" class="validate">
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="input-field col s12 m3">
+                                                    <label for="post_code">Post Code</label>
+                                                    <input placeholder="" id="post-code" type="text" class="validate">
+                                                </div>
+                                                <div class="input-field col s12 m4">
+                                                    <label for="country"> Country</label>
+                                                    <select>
+                                                        <option value="" disabled selected>Please Select...</option>
+                                                        <option value="1">Option 1</option>
+                                                        <option value="2">Option 2</option>
+                                                        <option value="3">Option 3</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12 m4">
+                                                    <label for="tax_id">Tax ID</label>
+                                                    <input placeholder="" id="tax_id" type="text" class="validate">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12 m6">
+                                                    <label for="commercial_reg">Name Of Commercial Register</label>
+                                                    <input placeholder="" id="commercial_reg" type="text" class="validate">
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="input-field col s12 m4">
+                                                    <label for="commercial_number">Commercial Register Number</label>
+                                                    <input placeholder="" id="commercial_number" type="text" class="validate">
+                                                </div>
+                                                <div class="input-field col s12 m3">
+                                                    <label for="date_reg">Date of Registration</label>
+                                                    <input type="text" class="datepicker" placeholder="DD/MM/YYYY">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+
+                                                <div class="input-field col s12 m3">
+                                                    <label for="country">Last Fiscal Year</label>
+                                                    <select>
+                                                        <option value="" disabled selected>Please Select...</option>
+                                                        <option value="1">Option 1</option>
+                                                        <option value="2">Option 2</option>
+                                                        <option value="3">Option 3</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="step-2 tab">
+                                        <form class="euler-section">
+                                            <div class="row">
+                                                <div class="input-field col s12 m7">
+                                                    <label for="country">Have you applied for Euler Harmes cover in the past?</label>
+                                                    <p>
+                                                        <span class="yes test" id="Hyes" onclick="EulerHarmes()">Yes</span>
+                                                        <span class="no test" id="Hno" onclick="noEulerHarmes()">No</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div id="dn-nr1" class="row dn-nr" style="display: none;">
+                                                <div class="input-field col s12 m3">
+                                                    <label for="dn-nr">Euler Harmes DN-Nr</label>
+                                                    <input placeholder="" id="dn-nr" type="text" class="validate">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12 m7">
+                                                    <label for="country">Did your company file for insolvency or were your assets the target of legal enforcement due to liquidity related issues in the last 5
+                                                        years?</label>
+                                                    <p>
+                                                        <span class="yes">Yes</span>
+                                                        <span class="no">No</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12 m7">
+                                                    <label for="country">Where your company or its administrators investigated,sued or sentenced for financial fraud/crime in the past 5 years?</label>
+                                                    <p>
+                                                        <span class="yes" id="Hyes">Yes</span>
+                                                        <span class="no" id="Hno">No</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="input-field col s12 m7">
+                                                    <label for="country">Does your company conduct business with any sanctioned country?</label>
+                                                    <p>
+                                                        <span class="yes" onclick="conductBusiness()" id="Hyes1">Yes</span>
+                                                        <span class="no" onclick="noconductBusiness()" id="Hno1">No</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="row which-one" id="business" style="display: none;">
+                                                <div class="input-field col s12 m6">
+                                                    <label for="country">Which one?</label>
+                                                    <select>
+                                                        <option value="" disabled selected>Please Select...</option>
+                                                        <option value="1">Option 1</option>
+                                                        <option value="2">Option 2</option>
+                                                        <option value="3">Option 3</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="step-3 tab">
+                                        <form class="share-holder-section">
+                                            <div class="row">
+                                                <div class="input-field col s12 m12">
+                                                    <div class="input-field col s12 m7">
+                                                        <label for="shareholder_name">Shareholder's Name and shareholding</label>
+                                                        <p class="light-test">Please list your current share holders and their participation within the company?</p>
+                                                    </div>
+                                                </div>
+                                                <div class="input-field col s12 m12 another">
+                                                    <div class="input-field col s12 m6">
+                                                        <label for="name">Name</label>
+                                                        <input placeholder="" id="name" type="text" class="validate">
+                                                    </div>
+                                                    <div class="input-field col s12 m6">
+                                                        <label for="participation">Participation</label>
+                                                        <input placeholder="" id="participation" type="text" class="validate">
+                                                    </div>
+                                                </div>
+                                                <a class="waves-effect waves-light btn-small">add another</a>
+
+                                                <div class="input-field col s12 m12">
+                                                    <div class="input-field col s12 m12">
+                                                        <label for="country">Is your company a shareholder of other companies?</label>
+                                                        <p>
+                                                            <span class="yes" onclick="shareholder()" id="Hyes2">Yes</span>
+                                                            <span class="no" onclick="noshareholder()" id="Hno2">No</span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="input-field col s12 m12" id="holder" style="display: none;">
+                                                        <div class=" input-field col s12 m12 another">
+                                                            <div class="input-field col s12 m6">
+                                                                <label for="name">Name</label>
+                                                                <input placeholder="" id="name" type="text" class="validate">
+                                                            </div>
+                                                            <div class="input-field col s12 m6">
+                                                                <label for="participation">Participation</label>
+                                                                <input placeholder="" id="participation" type="text" class="validate">
+                                                            </div>
+                                                        </div>
+                                                        <a class="waves-effect waves-light btn-small">add another</a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="input-field col s12 m12">
+                                                    <div class="input-field col s12 m12">
+                                                        <label for="country">Is one of your legal representatives(MD's, etc) or shareholders running for a political office ("Politisch Exponierte
+                                                            Personen")?</label>
+                                                        <p>
+                                                            <span class="yes" onclick="politicaloffice()" id="H3">Yes</span>
+                                                            <span class="no" onclick="nopoliticaloffice()" id="N3">No</span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="input-field col s12 m12" id="office" style="display: none;">
+                                                        <div class="input-field col s12 m12 another">
+                                                            <div class="row">
+                                                                <div class="input-field col s12 m6">
+                                                                    <label for="first_name">First Name</label>
+                                                                    <input placeholder="" id="first_name" type="text" class="validate">
+                                                                </div>
+                                                                <div class="input-field col s12 m6">
+                                                                    <label for="last_name">Last Name</label>
+                                                                    <input placeholder="" id="last_name" type="text" class="validate">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="input-field col s12 m3">
+                                                                    <label for="date_birth">Date of Birth</label>
+                                                                    <input type="text" class="datepicker" placeholder="DD/MM/YYYY">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="input-field col s12 m8">
+                                                                    <label for="address-line1">Address Line 1</label>
+                                                                    <input placeholder="" id="address-line1" type="text" class="validate">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="input-field col s12 m8">
+                                                                    <label for="address-line2">Address Line 2</label>
+                                                                    <input placeholder="" id="address-line2" type="text" class="validate">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="input-field col s12 m3">
+                                                                    <label for="post-code">Post Code</label>
+                                                                    <input placeholder="" id="post-code" type="text" class="validate">
+                                                                </div>
+                                                                <div class="input-field col s12 m6">
+                                                                    <label for="country">Country</label>
+                                                                    <select>
+                                                                        <option value="" disabled selected>Please Select...</option>
+                                                                        <option value="1">Option 1</option>
+                                                                        <option value="2">Option 2</option>
+                                                                        <option value="3">Option 3</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="input-field col s12 m12">
+                                                                    <label for="pep">Reason for PEP</label>
+                                                                    <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <a class="waves-effect waves-light btn-small">add another</a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="input-field col s12 m12">
+                                                    <label>Please state source of funds of the company</label>
+                                                    <p class="light-test">Multiple answers possible</p>
+                                                    <p>
+                                                        <label>
+                                                            <input type="checkbox" class="filled-in" checked="checked"/>
+                                                            <span>Own Assets</span>
+                                                        </label>
+                                                    </p>
+
+                                                    <p>
+                                                        <label>
+                                                            <input type="checkbox" class="filled-in"/>
+                                                            <span>Assets Transfer (donation,inheritance)</span>
+                                                        </label>
+                                                    </p>
+
+                                                    <p>
+                                                        <label>
+                                                            <input type="checkbox" class="filled-in" checked="checked"/>
+                                                            <span>Income from Operations</span>
+                                                        </label>
+                                                    </p>
+
+                                                    <p>
+                                                        <label>
+                                                            <input type="checkbox" class="filled-in"/>
+                                                            <span>Sale of Assets</span>
+                                                        </label>
+                                                    </p>
+
+                                                    <p>
+                                                        <label>
+                                                            <input type="checkbox" class="filled-in"/>
+                                                            <span>Insurance Indemnization</span>
+                                                        </label>
+                                                    </p>
+
+                                                    <p>
+                                                        <label>
+                                                            <input type="checkbox" class="filled-in"/>
+                                                            <span>No Assets(Credit)</span>
+                                                        </label>
+                                                    </p>
+
+                                                    <p>
+                                                        <label>
+                                                            <input type="checkbox" class="filled-in" checked="checked"/>
+                                                            <span>Other</span>
+                                                        </label>
+                                                    </p>
+                                                    <input placeholder="Please Specify" id="specify" type="text" class="validate specify">
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <%= form.submit %>
+        </div>
+<% end %>
+
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+
+<script>
+    function changeTabs(curremt_tab_index) {
+        $('.tab').hide();
+        $('.step-' + curremt_tab_index).show();
+    }
+
+    $('.progressbar li, .next').click(function function_name(argument) {
+        /*console.log($(this).attr('tab_index'));*/
+        changeTabs($(this).attr('tab_index'));
+        $('.progressbar li').removeClass('active');
+        $(this).addClass('active');
+
+    });
+
+    /*document.addEventListener('DOMContentLoaded', function() {
+var elems = document.querySelectorAll('.datepicker');
+var instances = M.Datepicker.init(elems, options);
+});*/
+
+    // Or with jQuery
+
+    $(document).ready(function () {
+        $('.datepicker').datepicker();
+    });
+
+
+    /*yes-no functions*/
+
+    function EulerHarmes() {
+        var x = document.getElementById("dn-nr1");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('#Hyes').addClass('active').siblings().removeClass('active');
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function noEulerHarmes() {
+        var x = document.getElementById("dn-nr1");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+            $('#Hno').addClass('active').siblings().removeClass('active');
+        }
+    }
+
+
+    function conductBusiness() {
+        var x = document.getElementById("business");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('#Hyes1').addClass('active').siblings().removeClass('active');
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function noconductBusiness() {
+        var x = document.getElementById("business");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+            $('#Hno1').addClass('active').siblings().removeClass('active');
+        }
+    }
+
+
+    function shareholder() {
+        var x = document.getElementById("holder");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('#Hyes2').addClass('active').siblings().removeClass('active');
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function noshareholder() {
+        var x = document.getElementById("holder");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+            $('#Hno2').addClass('active').siblings().removeClass('active');
+        }
+    }
+
+    function politicaloffice() {
+        var x = document.getElementById("office");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('#H3').addClass('active').siblings().removeClass('active');
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function nopoliticaloffice() {
+        var x = document.getElementById("office");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+            $('#N3').addClass('active').siblings().removeClass('active');
+        }
+    }
+</script>
