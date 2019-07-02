@@ -68,6 +68,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="step-3 tab">
                     <div class="row top-heder">
                         <div class="col s12 m6">
@@ -97,6 +98,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="progress-form">
 
                     <div class="row">
@@ -112,6 +114,7 @@
                                 </ul>
                             </div>
                         </div>
+
                         <div class="col s12 m9">
                             <div class="tab-content">
                                 <div class="step-1 tab">
@@ -445,13 +448,14 @@
         </div>
     </div>
 
-    <div class="actions">
-        <%= form.submit %>
-    </div>
+<!--    <div class="actions">-->
+        <%#= form.submit %>
+<!--    </div>-->
 <% end %>
 
 
 <script>
+
     function changeTabs(curremt_tab_index) {
         $('.tab').hide();
         $('.step-' + curremt_tab_index).show();
@@ -465,19 +469,10 @@
 
     });
 
-    /*document.addEventListener('DOMContentLoaded', function() {
-var elems = document.querySelectorAll('.datepicker');
-var instances = M.Datepicker.init(elems, options);
-});*/
-
     // Or with jQuery
-
     $(document).ready(function () {
         $('.datepicker').datepicker();
     });
-
-
-    /*yes-no functions*/
 
     function EulerHarmes() {
         var x = document.getElementById("dn-nr1");
@@ -496,7 +491,6 @@ var instances = M.Datepicker.init(elems, options);
             $('#Hno').addClass('active').siblings().removeClass('active');
         }
     }
-
 
     function conductBusiness() {
         var x = document.getElementById("business");
