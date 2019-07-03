@@ -11,102 +11,20 @@
         </div>
     <% end %>
 
+
+
+
+  <!--top header rendered-->
+
+  <%= render 'shared/navbar_blue' %>
+
     <div class="main">
         <div class="header-section">
             <div class="form-section">
-                <!-- stpe 1 start -->
-                <div class="step-1 tab">
-                    <div class="row top-heder">
-                        <div class="col s12 m6">
-                            <a class="smooth"><%= image_tag "HandEX_blue_logo.png", style: 'height:5em;width:auto;' %></a>
-                        </div>
-                        <div class="col s12 m6">
-                            <ul class="right icons">
-                                <li><i class="fa fa-user-circle-o" aria-hidden="true"></i></li>
-                                <li><i class="fa fa-bell-o" aria-hidden="true"></i></li>
-                                <li><i class="fa fa-cog" aria-hidden="true"></i></li>
 
-                            </ul>
-                        </div>
-                    </div>
-                    <!--   Form Top Section   -->
-                    <div class="row form-nav-top">
-                        <div class="col s12 m6">
-                            <div class="top-nav">
-                                <h4> Company Information </h4>
-                            </div>
-                        </div>
-                        <div class="col s12 m6">
-<!--                            <div class="top-nav right">-->
-<!--                                <button class="skip" tab_index="2">Skip</button>-->
-<!--                                <button class="next" tab_index="2">Next Step</button>-->
-<!--                            </div>-->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="step-2 tab">
-                    <div class="row top-heder">
-                        <div class="col s12 m6">
-                            <a class="smooth"><%= image_tag "HandEX_blue_logo.png", style: 'height:5em;width:auto;' %></a>
-                        </div>
-                        <div class="col s12 m6">
-                            <ul class="right icons">
-                                <li><i class="fa fa-user-circle-o" aria-hidden="true"></i></li>
-                                <li><i class="fa fa-bell-o" aria-hidden="true"></i></li>
-                                <li><i class="fa fa-cog" aria-hidden="true"></i></li>
-
-                            </ul>
-                        </div>
-                    </div>
-                    <!--   Form Top Section   -->
-                    <div class="row form-nav-top">
-                        <div class="col s12 m6">
-                            <div class="top-nav">
-                                <h4>Euler Hermes </h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s12 m6">
-<!--                        <div class="top-nav right">-->
-<!--                            <button class="skip" tab_index="2">Skip</button>-->
-<!--                            <button class="next" tab_index="2">Next Step</button>-->
-<!--                        </div>-->
-                    </div>
-                </div>
-
-                <div class="step-3 tab">
-                    <div class="row top-heder">
-                        <div class="col s12 m6">
-                            <a class="smooth"><%= image_tag "HandEX_blue_logo.png", style: 'height:5em;width:auto;' %></a>
-                        </div>
-                        <div class="col s12 m6">
-                            <ul class="right icons">
-                                <li><i class="fa fa-user-circle-o" aria-hidden="true"></i></li>
-                                <li><i class="fa fa-bell-o" aria-hidden="true"></i></li>
-                                <li><i class="fa fa-cog" aria-hidden="true"></i></li>
-
-                            </ul>
-                        </div>
-                    </div>
-                    <!--   Form Top Section   -->
-                    <div class="row form-nav-top">
-                        <div class="col s12 m6">
-                            <div class="top-nav">
-                                <h4>Share holders & Directors</h4>
-                            </div>
-                        </div>
-                        <div class="col s12 m6">
-<!--                            <div class="top-nav right">-->
-<!--                                <button class="skip" tab_index="2">Skip</button>-->
-<!--                                <button class="next" tab_index="2">Next Step</button>-->
-<!--                            </div>-->
-                        </div>
-                    </div>
-                </div>
+              <!--progress bar on the left side-->
 
                 <div class="progress-form">
-
                     <div class="row">
                         <div class="col s12 m3 border-right">
                             <div class="tab-section">
@@ -121,13 +39,27 @@
                             </div>
                         </div>
 
-                        <div class="col s12 m9">
+                      <!--company info section-->
+
+
+                      <div class="col s12 m9">
                             <div class="tab-content">
                                 <div class="step-1 tab">
+
+
+                                  <div class="row form-nav-top">
+                                    <div class="col s12 m6">
+                                      <div class="top-nav">
+                                        <h4> Company Information </h4>
+                                      </div>
+                                    </div>
+                                  </div>
+
+
                                     <form class="col s12 comapny-form">
                                         <div class="row">
                                             <div class="input-field col s12 m6">
-                                                <label for="first_name"> Comapny Name</label>
+                                                <label for="first_name"> Company Name</label>
                                                 <input placeholder="Alfalot Ltd.& Co. Industrieausrustung" id="comapny_name" type="text" class="validate">
                                             </div>
                                         </div>
@@ -216,8 +148,24 @@
                                             </div>
                                         </div>
                                     </form>
+
                                 </div>
+
+
+                              <!--EH section-->
+
+
                                 <div class="step-2 tab">
+
+                                  <div class="row form-nav-top">
+                                    <div class="col s12 m6">
+                                      <div class="top-nav">
+                                        <h4>Euler Hermes </h4>
+                                      </div>
+                                    </div>
+                                  </div>
+
+
                                     <form class="euler-section">
                                         <div class="row">
                                             <div class="input-field col s12 m7">
@@ -278,7 +226,20 @@
                                         </div>
                                     </form>
                                 </div>
+
+<!--Share Holders section-->
+
+
+
                                 <div class="step-3 tab">
+
+                                  <div class="row form-nav-top">
+                                    <div class="col s12 m6">
+                                      <div class="top-nav">
+                                        <h4> Share holders & Directors</h4>
+                                      </div>
+                                    </div>
+                                  </div>
                                     <form class="share-holder-section">
                                         <div class="row">
                                             <div class="input-field col s12 m12">
@@ -444,8 +405,13 @@
                                         </div>
                                     </form>
                                 </div>
+
+
                             </div>
                         </div>
+
+
+
 
                     </div>
 
@@ -462,9 +428,9 @@
 
 <script>
 
-    function changeTabs(curremt_tab_index) {
+    function changeTabs(current_tab_index) {
         $('.tab').hide();
-        $('.step-' + curremt_tab_index).show();
+        $('.step-' + current_tab_index).show();
     }
 
     $('.progressbar li, .next').click(function function_name(argument) {
