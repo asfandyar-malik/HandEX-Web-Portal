@@ -14,8 +14,8 @@
       </div>
     </div>
     <div class="col s4 overview-top-button">
-      <%= form_for(@export_application, local: true, html: {multipart: true}, id: "export-application-portal") do |form| %>
-        <%= link_to 'Edit', edit_export_application_path(@export_application), class: "btn handex-btn z-depth-0 right" %>
+      <%= form_for(@insurance, local: true, html: {multipart: true}, id: "export-application-portal") do |form| %>
+        <%= link_to t('edit'), edit_insurance_path(@insurance), class: "btn handex-btn z-depth-0 right" %>
       <% end %>
     </div>
   </div>

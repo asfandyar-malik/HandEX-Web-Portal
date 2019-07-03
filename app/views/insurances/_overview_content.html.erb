@@ -14,15 +14,15 @@
           <div class="section">
 
             <ul class="collection with-header">
-              <% @export_application.attributes.each do |attr_name, attr_value|
-                next if (attr_name == "id" or !@company_attr_list.include? attr_name)  %>
+              <% @insurance.attributes.each do |attr_name, attr_value|
+                next if (attr_name == "id" or !@insurance_company_attr_list.include? attr_name)  %>
                 <li class="collection-item">
                   <div class="overview-item"><%= t(attr_name) %>
                     <div class="secondary-content">
                       <%= if !attr_value.nil? and attr_value == t('please_select')
                             t('not_selected_yet')
-                          elsif !attr_value.nil? and attr_value == "export_application"
-                            t('export_application')
+                          elsif !attr_value.nil? and attr_value == "insurance"
+                            t('insurance')
                           elsif !attr_value.nil? and !attr_value
                             t('no')
                           elsif !attr_value.nil? and attr_value == true
@@ -46,15 +46,15 @@
           <div class="section">
 
             <ul class="collection with-header">
-              <% @export_application.attributes.each do |attr_name, attr_value|
-                next if (attr_name == "id" or !@your_importer_attr_list.include? attr_name)   %>
+              <% @insurance.attributes.each do |attr_name, attr_value|
+                next if (attr_name == "id" or !@insurance_your_importer_attr_list.include? attr_name)   %>
                 <li class="collection-item">
                   <div class="overview-item"><%= t(attr_name) %>
                     <div class="secondary-content">
                       <%= if !attr_value.nil? and attr_value == t('please_select')
                             t('not_selected_yet')
-                          elsif !attr_value.nil? and attr_value == "export_application"
-                            t('export_application')
+                          elsif !attr_value.nil? and attr_value == "insurance"
+                            t('insurance')
                           elsif !attr_value.nil? and !attr_value
                             t('no')
                           elsif !attr_value.nil? and attr_value == true
@@ -78,15 +78,15 @@
           <div class="section">
 
             <ul class="collection with-header">
-              <% @export_application.attributes.each do |attr_name, attr_value|
-                next if (attr_name == "id" or !@business_attr_list.include? attr_name)    %>
+              <% @insurance.attributes.each do |attr_name, attr_value|
+                next if (attr_name == "id" or !@insurance_business_attr_list.include? attr_name)    %>
                 <li class="collection-item">
                   <div class="overview-item"><%= t(attr_name) %>
                     <div class="secondary-content">
                       <%= if !attr_value.nil? and attr_value == t('please_select')
                             t('not_selected_yet')
-                          elsif !attr_value.nil? and attr_value == "export_application"
-                            t('export_application')
+                          elsif !attr_value.nil? and attr_value == "insurance"
+                            t('insurance')
                           elsif !attr_value.nil? and !attr_value
                             t('no')
                           elsif !attr_value.nil? and attr_value == true
@@ -110,15 +110,15 @@
           <div class="section">
 
             <ul class="collection with-header">
-              <% @export_application.attributes.each do |attr_name, attr_value|
-                next if (attr_name == "id" or !@finance_and_payment_attr_list.include? attr_name)    %>
+              <% @insurance.attributes.each do |attr_name, attr_value|
+                next if (attr_name == "id" or !@insurance_finance_and_payment_attr_list.include? attr_name)    %>
                 <li class="collection-item">
                   <div class="overview-item"><%= t(attr_name) %>
                     <div class="secondary-content">
                       <%= if !attr_value.nil? and attr_value == t('please_select')
                             t('not_selected_yet')
-                          elsif !attr_value.nil? and attr_value == "export_application"
-                            t('export_application')
+                          elsif !attr_value.nil? and attr_value == "insurance"
+                            t('insurance')
                           elsif !attr_value.nil? and !attr_value
                             t('no')
                           elsif !attr_value.nil? and attr_value == true

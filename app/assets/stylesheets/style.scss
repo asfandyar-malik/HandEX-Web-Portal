@@ -390,9 +390,15 @@ form.col.s12.custom-form {
   margin-bottom: 0;
   height: 50px;
   background-color: #2541b2;
-  padding: 0.7%;
   color:white;
 
+  .overview-top-icon {
+    margin-top:0.7%;
+  }
+
+  .overview-top-button {
+    margin-top:0.4%;
+  }
   .row {
     margin-bottom:0;
   }
@@ -922,4 +928,15 @@ li .dot {
 
 .row .overview_navigation .s2 {
   width:20%;
+}
+
+.overview_content {
+  padding-top:0.3%;
+  background-color: white;
+}
+
+.h_centered {
+  display: inline-flex;
+  vertical-align: middle;
+  margin:auto;
 }
