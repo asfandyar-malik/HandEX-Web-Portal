@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_03_085842) do
+ActiveRecord::Schema.define(version: 2019_07_03_131648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -794,6 +794,45 @@ ActiveRecord::Schema.define(version: 2019_07_03_085842) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "company_name"
+    t.integer "number_of_employees"
+    t.string "year_founded"
+    t.string "legal_form"
+    t.string "address_line_one"
+    t.string "address_line_two"
+    t.integer "post_code"
+    t.string "country"
+    t.string "tax_id"
+    t.string "commercial_register_name"
+    t.string "commercial_register_number"
+    t.datetime "date_of_registration"
+    t.string "last_fiscal_year"
+    t.boolean "is_euler_cover_in_past"
+    t.string "euler_dnnr_number"
+    t.boolean "is_insolvent_in_last_five_years"
+    t.boolean "is_investigated_in_last_five_years"
+    t.boolean "is_business_with_sanctioned_company"
+    t.string "business_with_sanctioned_company_name"
+    t.string "shareholder_name"
+    t.string "shareholder_participation"
+    t.boolean "is_shareholder_of_another_company"
+    t.string "shareholder_of_another_company_name"
+    t.string "shareholder_of_another_company_participation"
+    t.boolean "is_legal_representative_pep"
+    t.string "legal_representative_pep_firstname"
+    t.string "legal_representative_pep_lastname"
+    t.string "legal_representative_pep_dob"
+    t.string "legal_representative_pep_address_line_one"
+    t.integer "legal_representative_pep_postcode"
+    t.string "legal_representative_pep_country"
+    t.text "legal_representative_pep_reason"
+    t.boolean "is_source_of_fund_own_assets"
+    t.boolean "is_source_of_fund_assets_transfer"
+    t.boolean "is_source_of_fund_income_operations"
+    t.boolean "is_source_of_fund_assets_sales"
+    t.boolean "is_source_of_fund_insurance_indemnization"
+    t.boolean "is_source_of_fund_no_assets"
+    t.boolean "is_source_of_fund_other"
+    t.text "is_source_of_fund_other_specify"
   end
 
   create_table "refinances", force: :cascade do |t|
