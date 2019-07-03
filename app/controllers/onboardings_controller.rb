@@ -73,6 +73,51 @@ class OnboardingsController < ApplicationController
     def onboarding_params
         params
             .require(:onboarding)
-            .permit(:company_name)
+            .permit(
+                # compnay information -------------------------------------
+                :company_name,
+                :number_of_employees,
+                :year_founded,
+                :legal_form,
+                :address_line_one,
+                :address_line_two,
+                :post_code,
+                :country,
+                :tax_id,
+                :commercial_register_name,
+                :commercial_register_number,
+                :date_of_registration,
+                :last_fiscal_year,
+                # Euler Hermes information -------------------------------------
+                :is_euler_cover_in_past,
+                :euler_dnnr_number,
+                :is_insolvent_in_last_five_years,
+                :is_investigated_in_last_five_years,
+                :is_business_with_sanctioned_company,
+                :business_with_sanctioned_company_name,
+                # Shareholder information -------------------------------------
+                :shareholder_name,
+                :shareholder_participation,
+                :is_shareholder_of_another_company,
+                :shareholder_of_another_company_name,
+                :shareholder_of_another_company_participation,
+                :is_legal_representative_pep,
+                :legal_representative_pep_firstname,
+                :legal_representative_pep_lastname,
+                :legal_representative_pep_dob,
+                :legal_representative_pep_address_line_one,
+                :legal_representative_pep_address_line_one,
+                :legal_representative_pep_postcode,
+                :legal_representative_pep_country,
+                :legal_representative_pep_reason,
+                :is_source_of_fund_own_assets,
+                :is_source_of_fund_assets_transfer,
+                :is_source_of_fund_income_operations,
+                :is_source_of_fund_assets_sales,
+                :is_source_of_fund_insurance_indemnization,
+                :is_source_of_fund_no_assets,
+                :is_source_of_fund_other,
+                :is_source_of_fund_other_specify
+                )
     end
 end
