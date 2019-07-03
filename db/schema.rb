@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_02_084715) do
+ActiveRecord::Schema.define(version: 2019_07_03_085842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -793,6 +793,7 @@ ActiveRecord::Schema.define(version: 2019_07_02_084715) do
   create_table "onboardings", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "company_name"
   end
 
   create_table "refinances", force: :cascade do |t|
