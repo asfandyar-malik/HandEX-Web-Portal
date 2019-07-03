@@ -4,22 +4,22 @@
       <ul>
         <li><%= t('importer') %>
           <div class="overview_header_value">
-            <%= (@insurance.importer_company_name.nil? or (!@insurance.importer_company_name.nil? and @insurance.importer_company_name.to_s.empty?) or (!@insurance.importer_company_name.nil? and @insurance.importer_company_name.to_s == t('please_select'))) ? t('not_available') : @insurance.importer_company_name %>
+            <%= (@insurance.importer_company_name.nil? or (!@insurance.importer_company_name.nil? and @insurance.importer_company_name.to_s.empty?) or (!@insurance.importer_company_name.nil? and @insurance.importer_company_name.to_s == t('please_select'))) ? render('shared/missing_icon') : @insurance.importer_company_name %>
           </div>
         </li>
         <li><%= t('product') %>
           <div class="overview_header_value">
-            <%= (@insurance.exported_goods_type.nil? or (!@insurance.exported_goods_type.nil? and @insurance.exported_goods_type.to_s.empty?) or (!@insurance.exported_goods_type.nil? and @insurance.exported_goods_type.to_s == t('please_select'))) ? t('not_available') : @insurance.exported_goods_type %>
+            <%= (@insurance.exported_goods_type.nil? or (!@insurance.exported_goods_type.nil? and @insurance.exported_goods_type.to_s.empty?) or (!@insurance.exported_goods_type.nil? and @insurance.exported_goods_type.to_s == t('please_select'))   or (!@insurance.exported_goods_type.nil? and @insurance.exported_goods_type.to_s == t('please_select_corresponding_option')) ) ? render('shared/missing_icon') : @insurance.exported_goods_type %>
           </div>
         </li>
         <li><%= t('contract_value') %>
           <div class="overview_header_value">
-            <%= (@insurance.contract_value.nil? or (!@insurance.contract_value.nil? and @insurance.contract_value.to_s.empty?) or (!@insurance.contract_value.nil? and @insurance.contract_value.to_s == t('please_select'))) ? t('not_available') : @insurance.contract_value %>
+            <%= (@insurance.contract_value.nil? or (!@insurance.contract_value.nil? and @insurance.contract_value.to_s.empty?) or (!@insurance.contract_value.nil? and @insurance.contract_value.to_s == t('please_select'))) ? render('shared/missing_icon') : @insurance.contract_value %>
           </div>
         </li>
         <li><%= t('application_sent_at') %>
           <div class="overview_header_value">
-            <%= (@insurance.created_at.nil? or (!@insurance.created_at.nil? and @insurance.created_at.to_s.empty?) or (!@insurance.created_at.nil? and @insurance.created_at.to_s == t('please_select'))) ? t('not_available') : @insurance.created_at %>
+            <%= (@insurance.created_at.nil? or (!@insurance.created_at.nil? and @insurance.created_at.to_s.empty?) or (!@insurance.created_at.nil? and @insurance.created_at.to_s == t('please_select'))) ? render('shared/missing_icon') : @insurance.created_at %>
           </div>
         </li>
       </ul>
