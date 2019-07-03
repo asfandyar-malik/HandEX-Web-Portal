@@ -94,7 +94,7 @@
                                     <!--                                        <option value="OTHER">Sonstige</option>-->
                                     <!--                                    </select>-->
 
-                                    <%= form.select :exported_goods_type, options_for_select(["Bitte wählen Sie eine Warenkategorie, die zu Ihrem Produkt passt", "Konsumgüter, Rohstoffe, Halbfabrikate, Massengüter, Komponenten, Ersatzteile", "Düngemittel, Insektizide, Zuchtvieh, Agrargüter und Saatgut", "langlebige Konsumgüter", "Sonstige"]), {}, id: "firstdrop" %>
+                                    <%= form.select :exported_goods_type, options_for_select([t('please_select_corresponding_option'), "Konsumgüter, Rohstoffe, Halbfabrikate, Massengüter, Komponenten, Ersatzteile", "Düngemittel, Insektizide, Zuchtvieh, Agrargüter und Saatgut", "langlebige Konsumgüter", "Sonstige"]), {}, id: "firstdrop" %>
 
                                     <%= form.select :exported_goods_type, options_for_select([]), {}, id: "seconddrop" %>
 

@@ -373,3 +373,5 @@ es:
   account_exists: "Haben Sie bereits ein Account ? Bitte loggen Sie sich ein."
   account_registration: "Konto registrieren."
   edit: "Editar"
+  no_applications_available: ""
+  please_select_corresponding_option : "Please translate me"
