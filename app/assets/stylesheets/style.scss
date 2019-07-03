@@ -1,14 +1,61 @@
+@font-face {
+  font-family: "OpenSans-Regular";
+  src: asset-url('open-sans.regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "OpenSans-SemiBold";
+  src: asset-url('open-sans.semibold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Nunito-Bold";
+  src: asset-url('nunito-bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Nunito-Light";
+  src: asset-url('nunito-light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Nunito-Regular";
+  src: asset-url('nunito-regular.ttf') format('truetype');
+}
+
+textarea {
+  font-family: OpenSans-Regular, serif;
+}
+
 body {
   background: #f6f7fa;
+  font-family: OpenSans-Regular, serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0px;
 
   .sign-in {
-    padding-top: 10%;
+    padding-top: 15%;
     color: #000000;
+    padding-bottom: 15%;
+  }
+
+  .standard {
+    padding-top: 9%;
+    color: #000000;
+    padding-bottom: 9%;
+  }
+
+  .registration {
+    padding-top: 4%;
+    color: #000000;
+    padding-bottom: 10%;
   }
 
   .profile {
-    padding-top: 5%;
+    padding-top: 3%;
     color: #000000;
+    padding-bottom: 5%;
   }
 
   .form-section {
@@ -21,6 +68,74 @@ body {
       margin: 0 auto;
     }
   }
+}
+
+label {
+  font-size: 16px;
+  font-weight: 600;
+  height: 23px;
+  color: #000000;
+  font-family: OpenSans-SemiBold, serif;
+}
+
+.summary {
+   font-size: 16px;
+   font-weight: 600;
+   height: 23px;
+   color: #9e9e9e;
+}
+
+.card-header {
+  color: rgb(255, 255, 255);
+  font-family: Nunito-Bold, serif;
+  font-size: 16px;
+  font-weight: bold;
+  height: 16px;
+  letter-spacing: 0px;
+  width: 253px;
+}
+
+.valign-wrapper {
+  margin-bottom: 10px;
+}
+
+
+p {
+  font-size: 16px;
+  font-weight: normal;
+  letter-spacing: 0px;
+  font-family: OpenSans-Regular, serif;
+}
+
+
+.bold-font {
+  font-weight: bold;
+}
+
+
+a {
+  font-size: 16px;
+  font-weight: normal;
+  height: 50px;
+  letter-spacing: 0px;
+  font-family: OpenSans-Regular, serif;
+}
+
+strong {
+  font-size: 16px;
+  font-weight: normal;
+  height: 50px;
+  letter-spacing: 0px;
+  font-family: OpenSans-Regular, serif;
+}
+
+
+h2 {
+  font-family: HandelBeckerLight, serif;
+}
+
+h3 {
+  font-family: HandelBeckerLight, serif;
 }
 
 .custom-form {
@@ -63,12 +178,16 @@ body {
       top: -5px;
       color: #333;
       font-weight: 600;
+      height: 23px;
+      font-size: 16px;
+      letter-spacing: 0px;
+      font-family: OpenSans-SemiBold, serif;
 
       span {
         padding: 7px 35px;
         border: 1px solid #d6d0d0;
         font-weight: bold;
-        font-size:15px;
+        font-size:16px;
         height: auto !important;
         border-radius: 4px;
       }
@@ -641,7 +760,7 @@ nav {
   font-size:25px;
   top:10%;
   color:black;
-  font-family:'Helvetica Neue';
+  font-family: OpenSans-Regular, serif;
 }
 
 .card.choice-card .card-title {
@@ -655,8 +774,6 @@ nav {
     font-size: 24px;
     padding: 5%;
   }
-
-
 
   img {
     display: block;
@@ -778,6 +895,11 @@ nav ul a:hover {
 
 .section {
    padding-top: 0.5em;
+  width: 100%;
+}
+
+.section .overview {
+  padding-top: 0.5em;
 }
 
 .section .no-application-section {

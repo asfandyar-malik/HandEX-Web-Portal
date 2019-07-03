@@ -29,6 +29,16 @@ Rails.application.routes.draw do
         resources :credits
         resources :invite_exporters
         resources :refinances
+
+        resources :users, only: [:show] do
+            member do
+                get 'submitted_applications'
+                get 'approved_applications'
+                get 'draft_applications'
+                get 'all_applications'
+                get 'invited_exporter'
+            end
+        end
     end
     
     devise_for :users,
@@ -36,13 +46,4 @@ Rails.application.routes.draw do
                path_names:  {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'},
                controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
     
-    resources :users, only: [:show] do
-        member do
-            get 'submitted_applications'
-            get 'approved_applications'
-            get 'draft_applications'
-            get 'all_applications'
-            get 'invited_exporter'
-        end
-    end
 end
