@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_03_131648) do
+ActiveRecord::Schema.define(version: 2019_07_03_165051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -833,6 +833,7 @@ ActiveRecord::Schema.define(version: 2019_07_03_131648) do
     t.boolean "is_source_of_fund_no_assets"
     t.boolean "is_source_of_fund_other"
     t.text "is_source_of_fund_other_specify"
+    t.string "legal_representative_pep_address_line_two"
   end
 
   create_table "refinances", force: :cascade do |t|
