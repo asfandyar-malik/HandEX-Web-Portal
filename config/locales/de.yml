@@ -473,6 +473,7 @@ de:
   accept_terms_2: "Allgemeinen Geschäftbedingungen von HandEX"
   account_exists: "Haben Sie bereits ein Account ? Bitte loggen Sie sich ein."
   account_registration: "Konto registrieren."
+  submit: "Senden"
 
   enter_new_value: "Neuen Wert eingeben"
   edit: "Bearbeiten"
