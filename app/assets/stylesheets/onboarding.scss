@@ -145,6 +145,20 @@ ul.progressbar p {
   height: 100px;
 }
 
+ #countries_business_activities{
+   height: 100px;
+
+ }
+
+.col.s12.m3.border-right {
+  border-right: 0px !important;
+}
+
+.progress-form .m9 {
+  background: lightgrey;
+}
+
+
 form.company.form {
   padding: 35px;
 }
@@ -162,11 +176,9 @@ form.company.form {
 .progress-form .m9 {
   background: #fcfcfd;
 }
-.col.s12.m3.border-right {
-  border-right: 1px solid #eee;
-}
+
 form.col.s12.comapny-form {
-  padding: 30px;
+  background-color: #fcfcfd;
 }
 .form-section label {
 
