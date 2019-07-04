@@ -934,14 +934,13 @@ nav ul a:hover {
   width: 100%;
 }
 
-.background_toggle.dialog_background {
-  margin-top: 5px;
+.background_toggle.dialog_background .row {
   background: #f2f2f2;
+  padding-top: 5px;
 }
 
 .handex-color-1 {
  background-color: white;
-  //background-color: black;
 }
 
 li .dot {

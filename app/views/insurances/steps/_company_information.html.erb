@@ -81,7 +81,7 @@
                                     <%= form.text_field :exporter_last_fiscal_year, autofocus: true, class: "validate" %>
                                 </div>
                             </div>
-                            <div class="col background_toggle exporter_external_rating_available <%= (@insurance.exporter_external_rating_available.present? && @insurance.exporter_external_rating_available)? 'dialog_background' : '' %>">
+                            <div class="background_toggle exporter_external_rating_available <%= (@insurance.exporter_external_rating_available.present? && @insurance.exporter_external_rating_available)? 'dialog_background' : '' %>">
                                 <div class="input-field col s12 m12">
                                     <div class="input-field col s12 m12 nopadding">
                                         <%= form.label :exporter_external_rating_available, t('exporter_external_rating_available') %>
