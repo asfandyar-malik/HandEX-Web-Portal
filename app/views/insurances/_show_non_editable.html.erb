@@ -1,0 +1,214 @@
+<%= render 'shared/navbar' %>
+<p id="notice" class="" hidden><%= notice %></p>
+
+<% if @insurance.application_status == "SUBMITTED" %>
+  <div class="overview-top submitted">
+    <div class="row">
+      <div class="col s6 ">
+        <%= link_to :back do %>
+          <i class="material-icons">arrow_back</i>
+        <% end %>
+      </div>
+      <div class="col s6">
+        <div class="valign-wrapper">
+          <i class="material-icons">timer</i>
+          <div>
+            <strong><%= t('application_sent') %></strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% elsif @insurance.application_status == "DRAFT" %>
+  <div class="overview-top draft">
+    <div class="row">
+      <div class="col s6 ">
+        <%= link_to :back do %>
+          <i class="material-icons">arrow_back</i>
+        <% end %>
+      </div>
+      <div class="col s6">
+        <div class="valign-wrapper">
+          <i class="custom_icon reciept-icon-white"></i>
+          <div>
+            <strong><%= t('draft_application') %></strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="overview-header">
+  <div class="container center">
+    <div class="col s12 m12">
+      <ul>
+        <li><%= t('importer') %>
+          <div class="overview_header_value">
+            <%= (@insurance.importer_company_name.nil? or (!@insurance.importer_company_name.nil? and @insurance.importer_company_name.to_s.empty?) or (!@insurance.importer_company_name.nil? and @insurance.importer_company_name.to_s == t('please_select'))) ? t('not_available') : @insurance.importer_company_name %>
+          </div>
+        </li>
+        <li><%= t('product') %>
+          <div class="overview_header_value">
+            <%= (@insurance.exported_goods_type.nil? or (!@insurance.exported_goods_type.nil? and @insurance.exported_goods_type.to_s.empty?) or (!@insurance.exported_goods_type.nil? and @insurance.exported_goods_type.to_s == t('please_select'))) ? t('not_available') : @insurance.exported_goods_type %>
+          </div>
+        </li>
+        <li><%= t('contract_value') %>
+          <div class="overview_header_value">
+            <%= (@insurance.contract_value.nil? or (!@insurance.contract_value.nil? and @insurance.contract_value.to_s.empty?) or (!@insurance.contract_value.nil? and @insurance.contract_value.to_s == t('please_select'))) ? t('not_available') : @insurance.contract_value %>
+          </div>
+        </li>
+        <li><%= t('application_sent_at') %>
+          <div class="overview_header_value">
+            <%= (@insurance.created_at.nil? or (!@insurance.created_at.nil? and @insurance.created_at.to_s.empty?) or (!@insurance.created_at.nil? and @insurance.created_at.to_s == t('please_select'))) ? t('not_available') : @insurance.created_at %>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s12">
+    <ul class="tabs">
+      <li class="tab col s3"><a class="active" href="#company"><%= t('company') %></a></li>
+      <li class="tab col s3"><a href="#your_importer"><%= t('your_importer') %></a></li>
+      <li class="tab col s3"><a href="#business_heading"><%= t('business_heading') %></a></li>
+      <li class="tab col s3"><a href="#finance_and_payment"><%= t('finance_and_payment') %></a></li>
+    </ul>
+  </div>
+  <div id="company" class="col s12">
+    <div class="handex-form-container">
+      <div class="container">
+        <div class="section">
+
+          <ul class="collection with-header">
+            <% @insurance.attributes.each do |attr_name, attr_value|
+              next if (attr_name == "id" or !@insurance_company_attr_list.include? attr_name) %>
+              <li class="collection-item">
+                <div class="overview-item"><%= t(attr_name) %>
+                  <div class="secondary-content">
+                    <%= if !attr_value.nil? and attr_value == t('please_select')
+                          t('not_selected_yet')
+                        elsif !attr_value.nil? and attr_value == "insurance"
+                          t('insurance')
+                        elsif !attr_value.nil? and !attr_value
+                          t('no')
+                        elsif !attr_value.nil? and attr_value == true
+                          t('yes')
+                        elsif !attr_value.nil?
+                          attr_value
+                        end
+                    %>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="your_importer" class="col s12">
+    <div class="handex-form-container">
+      <div class="container">
+        <div class="section">
+
+          <ul class="collection with-header">
+            <% @insurance.attributes.each do |attr_name, attr_value|
+              next if (attr_name == "id" or !@insurance_your_importer_attr_list.include? attr_name)  %>
+              <li class="collection-item">
+                <div class="overview-item"><%= t(attr_name) %>
+                  <div class="secondary-content">
+                    <%= if !attr_value.nil? and attr_value == t('please_select')
+                          t('not_selected_yet')
+                        elsif !attr_value.nil? and attr_value == "insurance"
+                          t('insurance')
+                        elsif !attr_value.nil? and !attr_value
+                          t('no')
+                        elsif !attr_value.nil? and attr_value == true
+                          t('yes')
+                        elsif !attr_value.nil?
+                          attr_value
+                        end
+                    %>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="business_heading" class="col s12">
+    <div class="handex-form-container">
+      <div class="container">
+        <div class="section">
+
+          <ul class="collection with-header">
+            <% @insurance.attributes.each do |attr_name, attr_value|
+              next if (attr_name == "id" or !@insurance_business_attr_list.include? attr_name)   %>
+              <li class="collection-item">
+                <div class="overview-item"><%= t(attr_name) %>
+                  <div class="secondary-content">
+                    <%= if !attr_value.nil? and attr_value == t('please_select')
+                          t('not_selected_yet')
+                        elsif !attr_value.nil? and attr_value == "insurance"
+                          t('insurance')
+                        elsif !attr_value.nil? and !attr_value
+                          t('no')
+                        elsif !attr_value.nil? and attr_value == true
+                          t('yes')
+                        elsif !attr_value.nil?
+                          attr_value
+                        end
+                    %>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="finance_and_payment" class="col s12">
+    <div class="handex-form-container">
+      <div class="container">
+        <div class="section">
+
+          <ul class="collection with-header">
+            <% @insurance.attributes.each do |attr_name, attr_value|
+              next if (attr_name == "id" or !@insurance_finance_and_payment_attr_list.include? attr_name)   %>
+              <li class="collection-item">
+                <div class="overview-item"><%= t(attr_name) %>
+                  <div class="secondary-content">
+                    <%= if !attr_value.nil? and attr_value == t('please_select')
+                          t('not_selected_yet')
+                        elsif !attr_value.nil? and attr_value == "insurance"
+                          t('insurance')
+                        elsif !attr_value.nil? and !attr_value
+                          t('no')
+                        elsif !attr_value.nil? and attr_value == true
+                          t('yes')
+                        elsif !attr_value.nil?
+                          attr_value
+                        end
+                    %>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.tabs').tabs();
+    });
+</script>

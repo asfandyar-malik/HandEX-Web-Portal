@@ -1,5 +1,5 @@
 <!-- stpe 1 start -->
-<div class="step-1 tab">
+<div id ="step_1" class="step_1 tab">
     <!--   Form Navigation Section   -->
     <div class="row form-nav-top">
         <div class="col s12 m4">
@@ -88,7 +88,7 @@
                                         <p>
                                             <label>
                                                 <%= check_box_tag "insurance[exporter_external_rating_available]", @insurance.exporter_external_rating_available ? @insurance.exporter_external_rating_available : nil, false, :onclick => "exporterExternalRatingFunction();", id: "export_application_exporter_external_rating_available" %>
-                                                <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.exporter_external_rating_available.present? && @insurance.exporter_external_rating_available) %>"><%= t('yes_button')%></span>
+                                                <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.exporter_external_rating_available.present? && @insurance.exporter_external_rating_available) %>"><%= t :yes_button%></span>
                                             </label>
 
                                             <label onclick="noExporterExternalRatingFunction()">

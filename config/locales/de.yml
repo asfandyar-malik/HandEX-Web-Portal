@@ -451,6 +451,7 @@ de:
   application_type: "Application type"
   export_application: "Export Application"
   insurance: "Insurance Application"
+  enter_new_value: "Neuen Wert eingeben"
 
   #Invited Exporter
   exporter_name: "Firmenname"
@@ -473,3 +474,4 @@ de:
   account_exists: "Haben Sie bereits ein Account ? Bitte loggen Sie sich ein."
   account_registration: "Konto registrieren."
   submit: "Senden"
+

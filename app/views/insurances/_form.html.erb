@@ -84,7 +84,7 @@
 
     function changeTabs(current_tab_index) {
         $('.tab').hide();
-        $('.step-' + current_tab_index).show();
+        $('.step_' + current_tab_index).show();
     }
 
     function setActive(current_tab_index) {
@@ -175,7 +175,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_has_previously_used_hermes_cover').prop('checked', true);
+        $('#insurance_has_previously_used_hermes_cover').prop('checked', true);
         $('.has_previously_used_hermes_cover').removeClass('dialog_background');
     }
 
@@ -186,7 +186,7 @@
         } else {
             x.style.display = "none";
         }
-        $('#export_application_has_previously_used_hermes_cover').prop('checked', false);
+        $('#insurance_has_previously_used_hermes_cover').prop('checked', false);
         $('.has_previously_used_hermes_cover').toggleClass('dialog_background');
     }
 
@@ -201,8 +201,8 @@
             y.style.display = "none";
         }
 
-        $('#export_application_has_german_certificate_of_origin').prop('checked', true);
-        $('#export_application_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', false);
+        $('#insurance_has_german_certificate_of_origin').prop('checked', true);
+        $('#insurance_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', false);
         $('.has_german_certificate_of_origin').removeClass('dialog_background');
     }
 
@@ -218,8 +218,8 @@
             x.style.display = "none";
             y.style.display = "none";
         }
-        $('#export_application_has_german_certificate_of_origin').prop('checked', false);
-        $('#export_application_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', false);
+        $('#insurance_has_german_certificate_of_origin').prop('checked', false);
+        $('#insurance_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', false);
         if (z.hasClass('no')) {
             z.toggleClass('dialog_background');
         } else {
@@ -241,8 +241,8 @@
             y.style.display = "none";
             x.style.display = "none";
         }
-        $('#export_application_has_german_certificate_of_origin').prop('checked', false);
-        $('#export_application_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', true);
+        $('#insurance_has_german_certificate_of_origin').prop('checked', false);
+        $('#insurance_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', true);
         if (z.hasClass('partly')) {
             z.toggleClass('dialog_background');
         } else {
@@ -259,7 +259,7 @@
         } else {
             x.style.display = "none";
         }
-        $('#export_application_are_goods_overhauled').prop('checked', true);
+        $('#insurance_are_goods_overhauled').prop('checked', true);
     }
 
     function NoGoodsOverhauled() {
@@ -267,7 +267,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_are_goods_overhauled').prop('checked', false);
+        $('#insurance_are_goods_overhauled').prop('checked', false);
     }
 
     function incoTerms() {
@@ -293,7 +293,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_exporter_external_rating_available').prop('checked', true);
+        $('#insurance_exporter_external_rating_available').prop('checked', true);
         $('.exporter_external_rating_available').toggleClass('dialog_background');
     }
 
@@ -302,7 +302,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_exporter_external_rating_available').prop('checked', false);
+        $('#insurance_exporter_external_rating_available').prop('checked', false);
         $('.exporter_external_rating_available').removeClass('dialog_background');
     }
 
@@ -313,7 +313,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_importer_external_rating_available').prop('checked', true);
+        $('#insurance_importer_external_rating_available').prop('checked', true);
         $('.importer_external_rating_available').toggleClass('dialog_background');
     }
 
@@ -322,7 +322,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_importer_external_rating_available').prop('checked', false);
+        $('#insurance_importer_external_rating_available').prop('checked', false);
         $('.importer_external_rating_available').removeClass('dialog_background');
     }
 
@@ -333,7 +333,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_is_company_controlled_by_mother_company').prop('checked', true);
+        $('#insurance_is_company_controlled_by_mother_company').prop('checked', true);
     }
 
     function notControlledByMotherCompany() {
@@ -341,7 +341,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_is_company_controlled_by_mother_company').prop('checked', false);
+        $('#insurance_is_company_controlled_by_mother_company').prop('checked', false);
     }
 
     function significantInfluenceOnImporter() {
@@ -351,7 +351,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_has_significant_influence_on_importer_management').prop('checked', true);
+        $('#insurance_has_significant_influence_on_importer_management').prop('checked', true);
         $('.has_significant_influence_on_importer_management').toggleClass('dialog_background');
     }
 
@@ -360,19 +360,19 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_has_significant_influence_on_importer_management').prop('checked', false);
+        $('#insurance_has_significant_influence_on_importer_management').prop('checked', false);
         $('.has_significant_influence_on_importer_management').removeClass('dialog_background');
     }
 
     function investmentGoods() {
-        $('#export_application_is_investment_good').prop('checked', true);
+        $('#insurance_is_investment_good').prop('checked', true);
         $("#firstdrop").hide();
         $("#seconddrop").show();
 
     }
 
     function noInvestmentGoods() {
-        $('#export_application_is_investment_good').prop('checked', false);
+        $('#insurance_is_investment_good').prop('checked', false);
         $("#firstdrop").show();
     }
 
@@ -382,7 +382,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_is_delivered_at_this_address').prop('checked', true);
+        $('#insurance_is_delivered_at_this_address').prop('checked', true);
         $('.is_delivered_at_this_address').removeClass('dialog_background');
     }
 
@@ -393,7 +393,7 @@
         } else {
             x.style.display = "none";
         }
-        $('#export_application_is_delivered_at_this_address').prop('checked', false);
+        $('#insurance_is_delivered_at_this_address').prop('checked', false);
         $('.is_delivered_at_this_address').toggleClass('dialog_background');
     }
 
@@ -420,19 +420,19 @@
     }
 
     function noPrivate_sector() {
-        $('#export_application_is_exporting_to_private_sector').prop('checked', false);
+        $('#insurance_is_exporting_to_private_sector').prop('checked', false);
     }
 
     function noPaymentExperience() {
-        $('#export_application_has_payment_experience_with_importer').prop('checked', false);
+        $('#insurance_has_payment_experience_with_importer').prop('checked', false);
     }
 
     function servicingForGoods() {
-        $('#export_application_exporter_offers_servicing_for_goods').prop('checked', true);
+        $('#insurance_exporter_offers_servicing_for_goods').prop('checked', true);
     }
 
     function noServicingForGoods() {
-        $('#export_application_exporter_offers_servicing_for_goods').prop('checked', false);
+        $('#insurance_exporter_offers_servicing_for_goods').prop('checked', false);
     }
 
     function deliveredPartOfConsortiumWithOtherCompanies() {
@@ -442,7 +442,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_is_delivered_part_of_consortium_with_other_companies').prop('checked', true);
+        $('#insurance_is_delivered_part_of_consortium_with_other_companies').prop('checked', true);
         $('.is_delivered_part_of_consortium_with_other_companies').toggleClass('dialog_background');
     }
 
@@ -451,7 +451,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_is_delivered_part_of_consortium_with_other_companies').prop('checked', false);
+        $('#insurance_is_delivered_part_of_consortium_with_other_companies').prop('checked', false);
         $('.is_delivered_part_of_consortium_with_other_companies').removeClass('dialog_background');
     }
 
@@ -462,7 +462,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_does_delivery_affect_sensitive_areas').prop('checked', true);
+        $('#insurance_does_delivery_affect_sensitive_areas').prop('checked', true);
         $('.does_delivery_affect_sensitive_areas').toggleClass('dialog_background');
     }
 
@@ -471,7 +471,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_does_delivery_affect_sensitive_areas').prop('checked', false);
+        $('#insurance_does_delivery_affect_sensitive_areas').prop('checked', false);
         $('.does_delivery_affect_sensitive_areas').removeClass('dialog_background');
     }
 
@@ -482,7 +482,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_is_export_licence_needed').prop('checked', true);
+        $('#insurance_is_export_licence_needed').prop('checked', true);
         $('.is_export_licence_needed').toggleClass('dialog_background');
     }
 
@@ -491,7 +491,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_is_export_licence_needed').prop('checked', false);
+        $('#insurance_is_export_licence_needed').prop('checked', false);
         $('.is_export_licence_needed').removeClass('dialog_background');
     }
 
@@ -511,7 +511,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_are_secondhand_goods_delivered').prop('checked', true);
+        $('#insurance_are_secondhand_goods_delivered').prop('checked', true);
         $('.are_secondhand_goods_delivered').toggleClass('dialog_background');
     }
 
@@ -520,7 +520,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_are_secondhand_goods_delivered').prop('checked', false);
+        $('#insurance_are_secondhand_goods_delivered').prop('checked', false);
         $('.are_secondhand_goods_delivered').removeClass('dialog_background');
     }
 
@@ -537,7 +537,7 @@
             y.style.display = "none";
         }
 
-        $('#export_application_is_contract_already_signed_between_parties').prop('checked', true);
+        $('#insurance_is_contract_already_signed_between_parties').prop('checked', true);
         if (z.hasClass('yes')) {
             z.removeClass('dialog_background');
             z.removeClass('yes');
@@ -562,7 +562,7 @@
             y.style.display = "none";
             x.style.display = "none";
         }
-        $('#export_application_is_contract_already_signed_between_parties').prop('checked', false);
+        $('#insurance_is_contract_already_signed_between_parties').prop('checked', false);
         if (z.hasClass('no')) {
             z.removeClass('dialog_background');
             z.removeClass('no');
@@ -582,7 +582,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_taking_part_in_tender').prop('checked', true);
+        $('#insurance_taking_part_in_tender').prop('checked', true);
     }
 
     function noPartInTender() {
@@ -590,7 +590,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_taking_part_in_tender').prop('checked', false);
+        $('#insurance_taking_part_in_tender').prop('checked', false);
     }
 
     function specialContractStructure() {
@@ -600,7 +600,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_has_special_contract_structure').prop('checked', true);
+        $('#insurance_has_special_contract_structure').prop('checked', true);
         $('.has_special_contract_structure').toggleClass('dialog_background');
     }
 
@@ -609,7 +609,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_has_special_contract_structure').prop('checked', false);
+        $('#insurance_has_special_contract_structure').prop('checked', false);
         $('.has_special_contract_structure').removeClass('dialog_background');
     }
 
@@ -620,7 +620,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_is_good_sent_in_multiple_deliveries').prop('checked', true);
+        $('#insurance_is_good_sent_in_multiple_deliveries').prop('checked', true);
         $('.is_good_sent_in_multiple_deliveries').toggleClass('dialog_background');
     }
 
@@ -640,7 +640,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_is_security_present_for_transaction').prop('checked', true);
+        $('#insurance_is_security_present_for_transaction').prop('checked', true);
         $('.is_security_present_for_transaction').toggleClass('dialog_background');
     }
 
@@ -649,7 +649,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_is_security_present_for_transaction').prop('checked', false);
+        $('#insurance_is_security_present_for_transaction').prop('checked', false);
         $('.is_security_present_for_transaction').removeClass('dialog_background');
     }
 
@@ -660,7 +660,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_has_agreed_payment_term_already').prop('checked', true);
+        $('#insurance_has_agreed_payment_term_already').prop('checked', true);
         $('.has_agreed_payment_term_already').toggleClass('dialog_background');
     }
 
@@ -669,7 +669,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_has_agreed_payment_term_already').prop('checked', false);
+        $('#insurance_has_agreed_payment_term_already').prop('checked', false);
         $('.has_agreed_payment_term_already').removeClass('dialog_background');
     }
 
@@ -680,7 +680,7 @@
         } else {
             y.style.display = "none";
         }
-        $('#export_application_does_corruption_declaration_apply').prop('checked', true);
+        $('#insurance_does_corruption_declaration_apply').prop('checked', true);
     }
 
     function noCorruptionDeclaration() {
@@ -688,7 +688,7 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_does_corruption_declaration_apply').prop('checked', false);
+        $('#insurance_does_corruption_declaration_apply').prop('checked', false);
     }
 
     function goodsOverhaulCountryIfGermanyHandler() {
