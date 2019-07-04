@@ -166,6 +166,11 @@ h3 {
   }
 
   .input-field {
+
+    input, textarea {
+      background-color: white;
+    }
+
     input[type="submit"] {
       background: #47e1c1;
       color: #fff;
