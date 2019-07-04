@@ -31,11 +31,11 @@
                                 <p>
                                     <label>
                                         <%= check_box_tag "insurance[is_security_present_for_transaction]", @insurance.is_security_present_for_transaction ? @insurance.is_security_present_for_transaction : nil, false, :onclick => "securityPresent();", id: "export_application_is_security_present_for_transaction" %>
-                                        <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_security_present_for_transaction.present? && @insurance.is_security_present_for_transaction) %>"><%= t :yes %></span>
+                                        <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_security_present_for_transaction.present? && @insurance.is_security_present_for_transaction) %>"><%= t :yes_button %></span>
                                     </label>
 
                                     <label onclick="noSecurityPresent()">
-                                        <span class="no yes-no-btns <%= 'active-btn' if (@insurance.is_security_present_for_transaction.present? && !@insurance.is_security_present_for_transaction) %>"><%= t :no %></span>
+                                        <span class="no yes-no-btns <%= 'active-btn' if (@insurance.is_security_present_for_transaction.present? && !@insurance.is_security_present_for_transaction) %>"><%= t :no_button %></span>
                                     </label>
                                 </p>
                             </div>
@@ -82,11 +82,11 @@
                                 <p>
                                     <label>
                                         <%= check_box_tag "insurance[has_agreed_payment_term_already]", @insurance.has_agreed_payment_term_already ? @insurance.has_agreed_payment_term_already : nil, false, :onclick => "agreedTermOfPayments();", id: "export_application_has_agreed_payment_term_already" %>
-                                        <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.has_agreed_payment_term_already.present? && @insurance.has_agreed_payment_term_already) %>"><%= t :yes %></span>
+                                        <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.has_agreed_payment_term_already.present? && @insurance.has_agreed_payment_term_already) %>"><%= t :yes_button %></span>
                                     </label>
 
                                     <label onclick="noAgreedTermOfPayments()">
-                                        <span  class="no yes-no-btns <%= 'active-btn' if (@insurance.has_agreed_payment_term_already.present? && !@insurance.has_agreed_payment_term_already) %>"><%= t :no %></span>
+                                        <span  class="no yes-no-btns <%= 'active-btn' if (@insurance.has_agreed_payment_term_already.present? && !@insurance.has_agreed_payment_term_already) %>"><%= t :no_button %></span>
                                     </label>
                                 </p>
                             </div>
@@ -370,11 +370,11 @@
                                     <p>
                                         <label>
                                             <%= check_box_tag "insurance[is_interest_charged_to_importer]", @insurance.is_interest_charged_to_importer ? @insurance.is_interest_charged_to_importer : nil, false, :onclick => "customerCountsInterest()", id: "is_interest_charged_to_importer" %>
-                                            <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_interest_charged_to_importer.present? && @insurance.is_interest_charged_to_importer) %>"><%= t :yes %></span>
+                                            <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.is_interest_charged_to_importer.present? && @insurance.is_interest_charged_to_importer) %>"><%= t :yes_button %></span>
                                         </label>
 
                                         <label onclick="customerCountsInterest()">
-                                            <span  class="no yes-no-btns <%= 'active-btn' if (@insurance.is_interest_charged_to_importer.present? && !@insurance.is_interest_charged_to_importer) %>"><%= t :no %></span>
+                                            <span  class="no yes-no-btns <%= 'active-btn' if (@insurance.is_interest_charged_to_importer.present? && !@insurance.is_interest_charged_to_importer) %>"><%= t :no_button %></span>
                                         </label>
                                     </p>
 
@@ -396,11 +396,11 @@
                                                 <p>
                                                     <label>
                                                         <%= check_box_tag "insurance[fixed_interest_rate]", @insurance.fixed_interest_rate ? @insurance.fixed_interest_rate : nil, false, :onclick => "fixedInterestRate();", id: "fixed_interest_rate" %>
-                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.fixed_interest_rate.present? && @insurance.fixed_interest_rate) %>"> <%= t :yes %> </span>
+                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.fixed_interest_rate.present? && @insurance.fixed_interest_rate) %>"> <%= t :yes_button %> </span>
                                                     </label>
 
                                                     <label onclick="noFixedInterestRate()">
-                                                        <span  class="no yes-no-btns <%= 'active-btn' if (@insurance.fixed_interest_rate.present? && !@insurance.fixed_interest_rate) %>"><%= t :no %></span>
+                                                        <span  class="no yes-no-btns <%= 'active-btn' if (@insurance.fixed_interest_rate.present? && !@insurance.fixed_interest_rate) %>"><%= t :no_button %></span>
                                                     </label>
                                                 </p>
                                             </div>
@@ -434,11 +434,11 @@
                                                 <p>
                                                     <label>
                                                         <%= check_box_tag "insurance[degressive_interest_rate]", @insurance.degressive_interest_rate ? @insurance.degressive_interest_rate : nil, false, :onclick => "degressiveInterestRate();", id: "degressive_interest_rate" %>
-                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.degressive_interest_rate.present? && @insurance.degressive_interest_rate) %>"><%= t :yes %></span>
+                                                        <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.degressive_interest_rate.present? && @insurance.degressive_interest_rate) %>"><%= t :yes_button %></span>
                                                     </label>
 
                                                     <label onclick="noDegressiveInterestRate()">
-                                                        <span  class="no yes-no-btns <%= 'active-btn' if (@insurance.degressive_interest_rate.present? && !@insurance.degressive_interest_rate) %>"><%= t :no %></span>
+                                                        <span  class="no yes-no-btns <%= 'active-btn' if (@insurance.degressive_interest_rate.present? && !@insurance.degressive_interest_rate) %>"><%= t :no_button %></span>
                                                     </label>
                                                 </p>
                                             </div>
