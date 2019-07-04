@@ -25,54 +25,10 @@
 
             <div class="form-content">
                 <div class="row">
-                    <div class="col background_toggle has_previously_used_hermes_cover">
-                        <div class="input-field col s12 m12">
-                            <div class="input-field col s12 m12 nopadding">
-                                <%= form.label :has_previously_used_hermes_cover, t('has_previously_used_hermes_cover') %>
-                                <p>
-                                    <label>
-                                        <%= check_box_tag "export_application[has_previously_used_hermes_cover]", @export_application.has_previously_used_hermes_cover ? @export_application.has_previously_used_hermes_cover : nil, false, :onclick => "previouslyHermesInsuranceUsed();", id: "export_application_has_previously_used_hermes_cover" %>
-                                        <span class="yes yes-no-btns  <%= 'active-btn' if (@export_application.has_previously_used_hermes_cover.present? && @export_application.has_previously_used_hermes_cover) %>"><%= t :yes_button %></span>
-                                    </label>
-
-                                    <label onclick="noPreviouslyHermesInsuranceUsed()">
-                                        <span  class="no yes-no-btns  <%= 'active-btn' if (@export_application.has_previously_used_hermes_cover.present? && !@export_application.has_previously_used_hermes_cover) %>"><%= t :no_button %></span>
-                                    </label>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div id="newAtHermesDeckung" style="display: none">
-                            <div class="row">
-                                <br>
-                                <div class="col m10 offset-m1">
-                                    <p> <%= t('new_to_hermes_cover') %></p>
-                                </div>
-
-                                <div class="col m10 offset-m1">
-                                    <p><i><%= t('years_trading_without_hermes_insurance') %></i></p>
-                                    <div> <%= form.text_field :years_trading_without_hermes_insurance, class: "form-control" %> </div>
-                                </div>
-
-                                <div class="col m10 offset-m1">
-                                    <p><i><%= t('experience_with_importer_country') %></i></p>
-                                    <%= form.text_field :experience_with_importer_country, class: "form-control" %>
-                                </div>
-
-                                <div class="col m10 offset-m1 ">
-                                    <p><i> <%= t('adequate_claims_management') %></i></p>
-                                    <%= form.text_field :adequate_claims_management, class: "form-control" %>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="input-field col s12 m12">
                         <label> <%= t('information_for_business_examination') %> </label>
                         <p> <%= t('information_for_business_examination_description') %> </p>
                     </div>
-
-
                     <div class="input-field col s12 m6" style="display: <%= (@export_application.exporter_external_rating_available.present? && @export_application.exporter_external_rating_available)? 'none' : 'block' %>;">
                         <%= form.label :self_disclosure, t('self_disclosure') %>
                         <div class="file-field input-field">
@@ -81,7 +37,6 @@
                                 <%= form.file_field :self_disclosure %>
                                 <input type="file" data-height="300"/>
                             </div>
-
                             <div class="file-path-wrapper">
                                 <input class="file-path validate" placeholder="Upload file"
                                        type="text"/>
