@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_03_165051) do
+ActiveRecord::Schema.define(version: 2019_07_04_154916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -834,6 +834,32 @@ ActiveRecord::Schema.define(version: 2019_07_03_165051) do
     t.boolean "is_source_of_fund_other"
     t.text "is_source_of_fund_other_specify"
     t.string "legal_representative_pep_address_line_two"
+    t.text "business_activity_explanation"
+    t.boolean "change_corporate_purpose"
+    t.string "change_corporate_purpose_how"
+    t.string "see_your_self_as"
+    t.text "countries_of_main_business_activities"
+    t.string "most_important_customer_name"
+    t.string "most_important_customer_country"
+    t.integer "most_important_customer_volume"
+    t.string "most_important_supplier_name"
+    t.string "most_important_supplier_country"
+    t.integer "most_important_supplier_volume"
+    t.string "usual_payment_behaviour_supplier_buyer"
+    t.integer "order_amount_backlog"
+    t.integer "months_to_complete_backlog"
+    t.integer "expected_revenues_this_year"
+    t.integer "percentage_share_export_revenue_lastyear"
+    t.integer "percentage_share_export_revenue_previousyear"
+    t.integer "percentage_share_export_revenue_eu"
+    t.integer "percentage_share_export_revenue_othercountries"
+    t.integer "expected_ebit_this_year"
+    t.integer "expected_net_income_this_year"
+    t.text "explanation_of_dunning_process"
+    t.boolean "is_any_default_last_two_year"
+    t.text "default_last_two_year_explain"
+    t.boolean "is_any_external_rating"
+    t.string "external_rating_specify"
   end
 
   create_table "refinances", force: :cascade do |t|

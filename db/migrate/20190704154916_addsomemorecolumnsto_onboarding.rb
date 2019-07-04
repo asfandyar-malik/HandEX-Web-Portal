@@ -2,7 +2,6 @@ class AddsomemorecolumnstoOnboarding < ActiveRecord::Migration[5.2]
   def change
     add_column :onboardings, :business_activity_explanation, :text
     add_column :onboardings, :change_corporate_purpose, :boolean
-    add_column :onboardings, :change_corporate_purpose, :boolean
     add_column :onboardings, :change_corporate_purpose_how, :string
     add_column :onboardings, :see_your_self_as, :string
     add_column :onboardings, :countries_of_main_business_activities, :text
