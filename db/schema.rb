@@ -1,4 +1,4 @@
-  # This file is auto-generated from the current state of the database. Instead
+# This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
@@ -442,20 +442,20 @@ ActiveRecord::Schema.define(version: 2019_07_03_165051) do
     t.string "exporter_date_founded"
     t.string "project_detailed_description"
     t.boolean "is_fully_responsible_for_project"
-    t.string "contract_currency"
     t.string "entire_project_currency"
     t.string "entire_project_amount"
+    t.string "contract_currency"
     t.boolean "taking_part_in_tender"
     t.string "tender_submission_date"
     t.string "interest_currency"
     t.string "interest_value"
-    t.string "downpayment_delivery_description_payment_term_both"
     t.string "fixed_interest_rate"
     t.string "fixed_interest_rate_value"
     t.string "variable_interest_rate"
+    t.string "downpayment_delivery_description_payment_term_both"
     t.string "degressive_interest_rate"
     t.string "interest_calculation_description"
-    t.string "application_type"
+    t.string "application_type", default: "export_application"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
@@ -693,7 +693,6 @@ ActiveRecord::Schema.define(version: 2019_07_03_165051) do
     t.boolean "payment_term_short", default: false
     t.boolean "payment_term_mid", default: false
     t.boolean "payment_term_both", default: false
-    t.string "application_status", default: "new"
     t.string "downpayment_delivery_currency_payment_term_mid"
     t.string "downpayment_delivery_amount_payment_term_mid"
     t.string "downpayment_delivery_description_payment_term_mid"
@@ -735,6 +734,7 @@ ActiveRecord::Schema.define(version: 2019_07_03_165051) do
     t.string "exporter_rating"
     t.string "exporter_rating_agency"
     t.string "exporter_rating_issued_date"
+    t.string "application_status"
     t.boolean "is_delivered_at_this_address", default: false
     t.boolean "exporter_external_rating_available", default: false
     t.boolean "is_fully_responsible_for_project"
@@ -764,7 +764,7 @@ ActiveRecord::Schema.define(version: 2019_07_03_165051) do
     t.string "variable_interest_rate"
     t.string "degressive_interest_rate"
     t.string "interest_calculation_description"
-    t.string "application_type"
+    t.string "application_type", default: "insurance"
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 

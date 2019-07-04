@@ -85,20 +85,17 @@
                                 <div class="input-field col s12 m12">
                                     <div class="input-field col s12 m12 nopadding">
                                         <%= form.label :exporter_external_rating_available, t('exporter_external_rating_available') %>
-                                        <p>
-                                            <label>
-                                                <%#= check_box_tag "export_application[exporter_external_rating_available]", @export_application.exporter_external_rating_available ? @export_application.exporter_external_rating_available : nil, false, :onclick => "exporterExternalRatingFunction();", id: "export_application_exporter_external_rating_available" %>
-                                              <%= check_box_tag("export_application[exporter_external_rating_available]", 1, (@export_application.exporter_external_rating_available == 1 ? true : false)) %>
-                                                <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.exporter_external_rating_available.present? && @export_application.exporter_external_rating_available) %>">  <%= t('yes_button')%> </span>
-                                            </label>
+                                      <p>
+                                        <label>
+                                          <%= check_box_tag "export_application[exporter_external_rating_available]", @export_application.exporter_external_rating_available ? @export_application.exporter_external_rating_available : nil, false, :onclick => "exporterExternalRatingFunction();", id: "export_application_exporter_external_rating_available" %>
+                                          <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.exporter_external_rating_available.present? && @export_application.exporter_external_rating_available) %>"><%= t :yes%></span>
+                                        </label>
 
-                                            <label>
-                                                <%= hidden_field_tag "export_application[exporter_external_rating_available]", 0 %>
-                                                <span class="no yes-no-btns <%= 'active-btn' if (@export_application.exporter_external_rating_available.present? && !@export_application.exporter_external_rating_available) %>"> <%= t('no_button') %></span>
-                                            </label>
-                                        </p>
+                                        <label onclick="noExporterExternalRatingFunction()">
+                                          <span class="no yes-no-btns <%= 'active-btn' if (@export_application.exporter_external_rating_available.present? && !@export_application.exporter_external_rating_available) %>"><%= t :no%></span>
+                                        </label>
+                                      </p>
                                     </div>
-<!--                                    <div id="noFixedInterestRate" style="display: <%#=(@export_application.exporter_external_rating_available.present? && !@export_application.exporter_external_rating_available)? 'block' : 'none'%>;">-->
 
                                     <div id="exporterExternalRating" style="display: <%= (@export_application.exporter_external_rating_available.present? && @export_application.exporter_external_rating_available)? 'block' : 'none' %>;">
                                         <div class="row">
