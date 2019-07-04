@@ -27,7 +27,7 @@
                 <div class="row">
                     <div class="background_toggle has_previously_used_hermes_cover">
                         <div class="input-field col s12 m12">
-                            <div class="input-field col s12 m12 nopadding">
+                            <div class="input-field col s12 m12">
                                 <%= form.label :has_previously_used_hermes_cover, t('has_previously_used_hermes_cover') %>
                                 <p>
                                     <label>
@@ -202,7 +202,7 @@
                     </div>
 
                     <div class="input-field col s12 m12">
-                        <div class="input-field col s12 m12 nopadding">
+                        <div class="input-field col s12 m12">
                             <p>
                                 <label>
                                     <%= check_box_tag "insurance[does_corruption_declaration_apply]", @insurance.does_corruption_declaration_apply ? @insurance.does_corruption_declaration_apply : nil, false, :onclick => "corruptionDeclaration();", id: "export_application_does_corruption_declaration_apply" %>
