@@ -272,6 +272,8 @@ es:
   exporter_representative_email: "Email"
   exporter_representative_function: "Ocupación"
   exporter_representative_department: "Variedad"
+  exporter_company_registration_number: "Handelsregisternummer"
+  registration_court: "Amtsgericht"
   self_declaration_document: "Revelación de información (para nuevos clientes)"
   annual_financial_statement_importer_document: "Estados Financieros Anuales de su Cliente"
   credit_bureaus_importer_document: "Información sobre sus Clientes"

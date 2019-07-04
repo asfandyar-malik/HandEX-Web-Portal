@@ -153,6 +153,9 @@ de:
   exporter_rating_agency: "Ratingagentur"
   importer_rating_issued_date: "Datum des Ratings"
   exporter_rating_issued_date: "Datum des Ratings"
+  exporter_company_registration_number: "Handelsregisternummer"
+  registration_court: "Amtsgericht"
+
 
 
   #customer information

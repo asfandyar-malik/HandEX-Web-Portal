@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_03_165051) do
+ActiveRecord::Schema.define(version: 2019_07_04_142355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -456,6 +456,8 @@ ActiveRecord::Schema.define(version: 2019_07_03_165051) do
     t.string "degressive_interest_rate"
     t.string "interest_calculation_description"
     t.string "application_type", default: "export_application"
+    t.string "exporter_company_registration_number"
+    t.string "registration_court"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
