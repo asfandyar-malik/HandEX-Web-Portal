@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
     
-    resources :overall_project_financing_details
     scope "(:locale)", locale: /en|es|de/ do
         
         get '/:locale' => 'users#submitted_applications'
@@ -29,6 +28,7 @@ Rails.application.routes.draw do
         resources :credits
         resources :invite_exporters
         resources :refinances
+        resources :onboardings
 
         resources :users, only: [:show] do
             member do

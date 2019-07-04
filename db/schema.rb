@@ -1,4 +1,4 @@
-# This file is auto-generated from the current state of the database. Instead
+  # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_02_113556) do
+ActiveRecord::Schema.define(version: 2019_07_03_165051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -442,20 +442,20 @@ ActiveRecord::Schema.define(version: 2019_07_02_113556) do
     t.string "exporter_date_founded"
     t.string "project_detailed_description"
     t.boolean "is_fully_responsible_for_project"
+    t.string "contract_currency"
     t.string "entire_project_currency"
     t.string "entire_project_amount"
-    t.string "contract_currency"
     t.boolean "taking_part_in_tender"
     t.string "tender_submission_date"
     t.string "interest_currency"
     t.string "interest_value"
+    t.string "downpayment_delivery_description_payment_term_both"
     t.string "fixed_interest_rate"
     t.string "fixed_interest_rate_value"
     t.string "variable_interest_rate"
-    t.string "downpayment_delivery_description_payment_term_both"
     t.string "degressive_interest_rate"
     t.string "interest_calculation_description"
-    t.string "application_type", default: "export_application"
+    t.string "application_type"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
@@ -693,6 +693,7 @@ ActiveRecord::Schema.define(version: 2019_07_02_113556) do
     t.boolean "payment_term_short", default: false
     t.boolean "payment_term_mid", default: false
     t.boolean "payment_term_both", default: false
+    t.string "application_status", default: "new"
     t.string "downpayment_delivery_currency_payment_term_mid"
     t.string "downpayment_delivery_amount_payment_term_mid"
     t.string "downpayment_delivery_description_payment_term_mid"
@@ -734,7 +735,6 @@ ActiveRecord::Schema.define(version: 2019_07_02_113556) do
     t.string "exporter_rating"
     t.string "exporter_rating_agency"
     t.string "exporter_rating_issued_date"
-    t.string "application_status"
     t.boolean "is_delivered_at_this_address", default: false
     t.boolean "exporter_external_rating_available", default: false
     t.boolean "is_fully_responsible_for_project"
@@ -764,7 +764,7 @@ ActiveRecord::Schema.define(version: 2019_07_02_113556) do
     t.string "variable_interest_rate"
     t.string "degressive_interest_rate"
     t.string "interest_calculation_description"
-    t.string "application_type", default: "insurance"
+    t.string "application_type"
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 
@@ -787,6 +787,52 @@ ActiveRecord::Schema.define(version: 2019_07_02_113556) do
     t.datetime "updated_at", null: false
     t.string "payment_relevant_milestone"
     t.index ["export_application_id"], name: "index_multiple_shipments_on_export_application_id"
+  end
+
+  create_table "onboardings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "company_name"
+    t.integer "number_of_employees"
+    t.string "year_founded"
+    t.string "legal_form"
+    t.string "address_line_one"
+    t.string "address_line_two"
+    t.integer "post_code"
+    t.string "country"
+    t.string "tax_id"
+    t.string "commercial_register_name"
+    t.string "commercial_register_number"
+    t.datetime "date_of_registration"
+    t.string "last_fiscal_year"
+    t.boolean "is_euler_cover_in_past"
+    t.string "euler_dnnr_number"
+    t.boolean "is_insolvent_in_last_five_years"
+    t.boolean "is_investigated_in_last_five_years"
+    t.boolean "is_business_with_sanctioned_company"
+    t.string "business_with_sanctioned_company_name"
+    t.string "shareholder_name"
+    t.string "shareholder_participation"
+    t.boolean "is_shareholder_of_another_company"
+    t.string "shareholder_of_another_company_name"
+    t.string "shareholder_of_another_company_participation"
+    t.boolean "is_legal_representative_pep"
+    t.string "legal_representative_pep_firstname"
+    t.string "legal_representative_pep_lastname"
+    t.string "legal_representative_pep_dob"
+    t.string "legal_representative_pep_address_line_one"
+    t.integer "legal_representative_pep_postcode"
+    t.string "legal_representative_pep_country"
+    t.text "legal_representative_pep_reason"
+    t.boolean "is_source_of_fund_own_assets"
+    t.boolean "is_source_of_fund_assets_transfer"
+    t.boolean "is_source_of_fund_income_operations"
+    t.boolean "is_source_of_fund_assets_sales"
+    t.boolean "is_source_of_fund_insurance_indemnization"
+    t.boolean "is_source_of_fund_no_assets"
+    t.boolean "is_source_of_fund_other"
+    t.text "is_source_of_fund_other_specify"
+    t.string "legal_representative_pep_address_line_two"
   end
 
   create_table "refinances", force: :cascade do |t|
