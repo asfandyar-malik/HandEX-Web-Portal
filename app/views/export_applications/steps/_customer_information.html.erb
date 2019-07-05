@@ -189,10 +189,10 @@
                             </div>
 
                         <div id="significantInfluenceImporter" style="display: <%= (@export_application.has_significant_influence_on_importer_management.present? && @export_application.has_significant_influence_on_importer_management)? 'block' : 'none' %>;">
-                            <div class="input-field col s12 m6">
-                                <label><%= t :understanding_influence%></label>
-                                <%= form.text_field :explain_exporter_influence_on_importer_management, autofocus: true, class: "validate" %>
-                            </div>
+                                <div class="input-field col s12 m6">
+                                    <label><%= t :understanding_influence%></label>
+                                    <%= form.text_field :explain_exporter_influence_on_importer_management, autofocus: true, class: "validate" %>
+                                </div>
                         </div>
                     </div>
                 </div>
