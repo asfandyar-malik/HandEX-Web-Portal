@@ -84,6 +84,7 @@ de:
   amount: "Betrag"
   description: "Beschreibung"
   please_select: "Bitte auswählen"
+  please_select_currency: "Währung"
   delivery_start: "Lieferbeginn"
   delivery_end: "Lieferende"
   payment_relevant_date: "Weiterer zahlungsrelevanter Termin"
