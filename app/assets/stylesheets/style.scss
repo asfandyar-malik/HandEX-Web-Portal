@@ -941,6 +941,7 @@ nav ul a:hover {
   display: inline-block;
   background: #f2f2f2;
   padding-top: 5px;
+  padding-bottom: 10px;
   border-radius: 6px;
 }
 
@@ -1086,4 +1087,8 @@ li .dot {
 .brand-logo {
   margin-top:15px;
   margin-left:25px;
+}
+
+.input-field tr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
