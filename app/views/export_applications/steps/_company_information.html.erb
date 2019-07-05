@@ -88,16 +88,27 @@
                                         <p>
                                             <label>
                                                 <%= check_box_tag "export_application[exporter_external_rating_available]", @export_application.exporter_external_rating_available ? @export_application.exporter_external_rating_available : nil, false, :onclick => "exporterExternalRatingFunction();", id: "export_application_exporter_external_rating_available" %>
+
                                                 <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.exporter_external_rating_available.present? && @export_application.exporter_external_rating_available) %>">  <%= t('yes_button')%> </span>
                                             </label>
 
-                                            <label onclick="noExporterExternalRatingFunction()">
-                                                <span class="no yes-no-btns <%= 'active-btn' if (@export_application.exporter_external_rating_available.present? && !@export_application.exporter_external_rating_available) %>"> <%= t('no_button') %></span>
+                                            <label>
+                                                <%= check_box_tag "export_application[exporter_external_rating_available]", @export_application.exporter_external_rating_available ? @export_application.exporter_external_rating_available : nil, false, :onclick => "noExporterExternalRatingFunction();", id: "export_application_exporter_external_rating_available" %>
+
+                                                <span class="no yes-no-btns <%= 'active-btn' if (@export_application.exporter_external_rating_available.present? && !@export_application.exporter_external_rating_available) %>">  <%= t('no_button')%> </span>
                                             </label>
+
+
+                                            <!--                                            <label onclick="noExporterExternalRatingFunction()">-->
+                                            <!--                                                <span class="no yes-no-btns <%#= 'active-btn' if (@export_application.exporter_external_rating_available.present? && !@export_application.exporter_external_rating_available) %>"> <%#= t('no_button') %></span>-->
+                                            <!--                                            </label>-->
+
+
                                         </p>
                                     </div>
 
                                     <div id="exporterExternalRating" style="display: none">
+
                                         <div class="row">
                                             <div class="input-field col s12">
                                                 <%= form.label :exporter_rating, t('exporter_rating') %>
@@ -112,6 +123,7 @@
                                                 <%= form.text_field :exporter_rating_issued_date, autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
                                             </div>
                                         </div>
+
                                     </div>
 
                                 </div>
