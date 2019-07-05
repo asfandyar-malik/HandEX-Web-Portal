@@ -78,6 +78,10 @@ label {
   font-family: OpenSans-SemiBold, serif;
 }
 
+.btn, .btn-large, .btn-small, .btn-flat {
+  border-radius: 5px;
+}
+
 .summary {
    font-size: 16px;
    font-weight: 600;
@@ -174,7 +178,6 @@ h3 {
     input[type="submit"] {
       background: #47e1c1;
       color: #fff;
-      border-radius: 3px;
     }
 
     label {
@@ -374,7 +377,7 @@ form.col.s12.custom-form {
     color: #fff;
     padding: 11px 15px;
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: 5px;
   }
 
   .next:hover {
@@ -679,7 +682,7 @@ nav {
 }
 
 .form-content .input-field input {
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
 .handex-btn {
