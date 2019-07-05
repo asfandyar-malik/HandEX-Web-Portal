@@ -11,17 +11,13 @@
         </div>
     <% end %>
 
-
-
-  <!--top header rendered-->
-
-  <%= render 'shared/navbar_blue' %>
+    <%= render 'shared/navbar_blue' %>
 
     <div class="main">
         <div class="header-section">
             <div class="form-section">
 
-              <!--progress bar on the left side-->
+                <!--progress bar on the left side-->
 
                 <div class="progress-form">
                     <div class="row">
@@ -39,36 +35,35 @@
                         </div>
 
 
-
-                      <div class="col s12 m9">
+                        <div class="col s12 m9">
                             <div class="tab-content">
 
-                              <!--company info section-->
+                                <!--company info section-->
 
                                 <div class="step-1 tab">
 
 
-                                  <div class="row form-nav-top">
-                                    <div class="col s12 m6">
-                                      <div class="top-nav">
-                                        <h4> Company Information </h4>
-                                      </div>
+                                    <div class="row form-nav-top">
+                                        <div class="col s12 m6">
+                                            <div class="top-nav">
+                                                <h4> Company Information </h4>
+                                            </div>
+                                        </div>
                                     </div>
-                                  </div>
 
                                     <form class="col s12 comapny-form">
                                         <div class="row">
                                             <div class="input-field col s12 m6">
-                                                  <%= form.label :company_name, t('company_name') %>
+                                                <%= form.label :company_name, t('company_name') %>
                                                 <input placeholder="Alfalot Ltd.& Co. Industrieausrustung" id="comapny_name" type="text" class="validate">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s12 m4">
-                                                  <%= form.label :number_of_employees, t('number_of_employees') %>
-                                              <div class="select_box">
-                                                <%= form.select :exported_goods_type, options_for_select(["Please Select", "Option 1","Option 2","Option 3" ]), {}, id: "firstdrop"%>
-                                              </div>
+                                                <%= form.label :number_of_employees, t('number_of_employees') %>
+                                                <div class="select_box">
+                                                    <%= form.select :exported_goods_type, options_for_select(["Please Select", "Option 1","Option 2","Option 3" ]), {}, id: "firstdrop"%>
+                                                </div>
 
                                             </div>
                                             <div class="input-field col s12 m3">
@@ -78,101 +73,101 @@
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s12 m3">
-                                              <%= form.label :legal_form, t('legal_form') %>
+                                                <%= form.label :legal_form, t('legal_form') %>
                                                 <input placeholder="" id="Legal_form" type="text" class="validate">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s12 m6">
-                                              <%= form.label :address_line_one, t('address_line_one') %>
+                                                <%= form.label :address_line_one, t('address_line_one') %>
                                                 <input placeholder="" id="address_line1" type="text" class="validate">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s12 m6">
-                                              <%= form.label :address_line_two, t('address_line_two') %>
+                                                <%= form.label :address_line_two, t('address_line_two') %>
                                                 <input placeholder="" id="address_line2" type="text" class="validate">
                                             </div>
                                         </div>
 
                                         <div class="row">
                                             <div class="input-field col s12 m3">
-                                              <%= form.label :post_code, t('post_code') %>
+                                                <%= form.label :post_code, t('post_code') %>
                                                 <input placeholder="" id="post-code" type="text" class="validate">
                                             </div>
                                             <div class="input-field col s12 m4">
-                                              <%= form.label :country, t('country') %>
-                                              <div class="select_box">
-                                                <%= form.select :country, options_for_select([t('please_select'), "Afghanistan", "Ägypten", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Äquatorialguinea", "Argentinien", "Armenien", "Aserbaidschan", "Äthiopien", "Australien", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belgien", "Belize", "Benin", "Bergkarabach", "Bhutan", "Bolivien", "Bosnien und Herzegowina", "Botswana", "Brasilien", "Brunei", "Bulgarien", "Burkina Faso", "Burundi", "Chile", "Republik China", "Volksrepublik China", "mit Hongkong (HK) und Macao (MO)", "Cookinseln", "Costa Rica", "Dänemark", "mit Färöer (FO) und Grönland (GL)", "Deutschland", "Dominica", "Dominikanische Republik", "Dschibuti", "Ecuador", "El Salvador", "Elfenbeinküste", "Eritrea", "Estland", "Fidschi", "Finnland", "Frankreich", "(ohne Französische Überseegebiete)", "Gabun", "Gambia", "Georgien", "(mit Abchasien und Südossetien)", "Ghana", "Grenada", "Griechenland", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Indien", "(mit Kaschmir)", "Indonesien", "Irak", "Iran", "Irland", "Island", "Israel", "(ohne Gazastreifen, Golanhöhen und Westjordanland)", "Italien", "Jamaika", "Japan", "Jemen", "Jordanien", "Kambodscha", "Kamerun", "Kanada", "Kap Verde", "Kasachstan", "Katar", "Kenia", "Kirgisistan", "Kiribati", "Kolumbien", "Komoren", "Kongo, Demokratische Republik", "Kongo, Republik", "Korea, Nord", "Korea, Süd", "Kosovo", "Kroatien", "Kuba", "Kuwait", "Laos", "Lesotho", "Lettland", "Libanon", "Liberia", "Libyen", "Liechtenstein", "Litauen", "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marokko", "(ohne Westsahara)", "Marshallinseln", "Mauretanien", "Mauritius", "Mazedonien", "Mexiko", "Mikronesien", "Moldawien", "(mit Transnistrien)", "Monaco", "Mongolei", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nepal", "Neuseeland", "Nicaragua", "Königreich der Niederlande", "(ohne Curaçao, Sint Maarten und Aruba)", "Niger", "Nigeria", "Niue", "Nordzypern", "Norwegen", "(ohne Svalbard)", "Oman", "Österreich", "Osttimor / Timor-Leste", "Pakistan", "(ohne Kaschmir)", "Palästina", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal", "Ruanda", "Rumänien", "Russland", "Salomonen", "Sambia", "Samoa", "San Marino", "São Tomé und Príncipe", "Saudi-Arabien", "Schweden", "Schweiz", "Senegal", "Serbien", "(ohne Kosovo)", "Seychellen", "Sierra Leone", "Simbabwe", "Singapur", "Slowakei", "Slowenien", "Somalia", "(mit Somaliland)", "Somaliland", "Spanien", "Sri Lanka", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Südafrika", "Sudan", "Südossetien", "Südsudan", "Suriname", "Swasiland", "Syrien", "(mit Golanhöhen)", "Tadschikistan", "Tansania", "Thailand", "Togo", "Tonga", "Transnistrien", "Trinidad und Tobago", "Tschad", "Tschechien", "Tunesien", "Türkei", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstadt", "Venezuela", "Vereinigte Arabische Emirate", "Vereinigte Staaten", "(ohne Außengebiete)", "Vereinigtes Königreich", "Vietnam", "Weißrussland", "Westsahara", "Zentralafrikanische Republik", "Zypern"]), {}, id: "firstdrop" %>
-                                              </div>
+                                                <%= form.label :country, t('country') %>
+                                                <div class="select_box">
+                                                    <%= form.select :country, options_for_select([t('please_select'), "Afghanistan", "Ägypten", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Äquatorialguinea", "Argentinien", "Armenien", "Aserbaidschan", "Äthiopien", "Australien", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belgien", "Belize", "Benin", "Bergkarabach", "Bhutan", "Bolivien", "Bosnien und Herzegowina", "Botswana", "Brasilien", "Brunei", "Bulgarien", "Burkina Faso", "Burundi", "Chile", "Republik China", "Volksrepublik China", "mit Hongkong (HK) und Macao (MO)", "Cookinseln", "Costa Rica", "Dänemark", "mit Färöer (FO) und Grönland (GL)", "Deutschland", "Dominica", "Dominikanische Republik", "Dschibuti", "Ecuador", "El Salvador", "Elfenbeinküste", "Eritrea", "Estland", "Fidschi", "Finnland", "Frankreich", "(ohne Französische Überseegebiete)", "Gabun", "Gambia", "Georgien", "(mit Abchasien und Südossetien)", "Ghana", "Grenada", "Griechenland", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Indien", "(mit Kaschmir)", "Indonesien", "Irak", "Iran", "Irland", "Island", "Israel", "(ohne Gazastreifen, Golanhöhen und Westjordanland)", "Italien", "Jamaika", "Japan", "Jemen", "Jordanien", "Kambodscha", "Kamerun", "Kanada", "Kap Verde", "Kasachstan", "Katar", "Kenia", "Kirgisistan", "Kiribati", "Kolumbien", "Komoren", "Kongo, Demokratische Republik", "Kongo, Republik", "Korea, Nord", "Korea, Süd", "Kosovo", "Kroatien", "Kuba", "Kuwait", "Laos", "Lesotho", "Lettland", "Libanon", "Liberia", "Libyen", "Liechtenstein", "Litauen", "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marokko", "(ohne Westsahara)", "Marshallinseln", "Mauretanien", "Mauritius", "Mazedonien", "Mexiko", "Mikronesien", "Moldawien", "(mit Transnistrien)", "Monaco", "Mongolei", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nepal", "Neuseeland", "Nicaragua", "Königreich der Niederlande", "(ohne Curaçao, Sint Maarten und Aruba)", "Niger", "Nigeria", "Niue", "Nordzypern", "Norwegen", "(ohne Svalbard)", "Oman", "Österreich", "Osttimor / Timor-Leste", "Pakistan", "(ohne Kaschmir)", "Palästina", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal", "Ruanda", "Rumänien", "Russland", "Salomonen", "Sambia", "Samoa", "San Marino", "São Tomé und Príncipe", "Saudi-Arabien", "Schweden", "Schweiz", "Senegal", "Serbien", "(ohne Kosovo)", "Seychellen", "Sierra Leone", "Simbabwe", "Singapur", "Slowakei", "Slowenien", "Somalia", "(mit Somaliland)", "Somaliland", "Spanien", "Sri Lanka", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Südafrika", "Sudan", "Südossetien", "Südsudan", "Suriname", "Swasiland", "Syrien", "(mit Golanhöhen)", "Tadschikistan", "Tansania", "Thailand", "Togo", "Tonga", "Transnistrien", "Trinidad und Tobago", "Tschad", "Tschechien", "Tunesien", "Türkei", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstadt", "Venezuela", "Vereinigte Arabische Emirate", "Vereinigte Staaten", "(ohne Außengebiete)", "Vereinigtes Königreich", "Vietnam", "Weißrussland", "Westsahara", "Zentralafrikanische Republik", "Zypern"]), {}, id: "firstdrop" %>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s12 m4">
-                                              <%= form.label :tax_id, t('tax_id') %>
+                                                <%= form.label :tax_id, t('tax_id') %>
                                                 <input placeholder="" id="tax_id" type="text" class="validate">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s12 m6">
-                                              <%= form.label :commercial_register_name, t('commercial_register_name') %>
+                                                <%= form.label :commercial_register_name, t('commercial_register_name') %>
                                                 <input placeholder="" id="commercial_reg" type="text" class="validate">
                                             </div>
                                         </div>
 
                                         <div class="row">
                                             <div class="input-field col s12 m4">
-                                              <%= form.label :commercial_register_number, t('commercial_register_number') %>
+                                                <%= form.label :commercial_register_number, t('commercial_register_number') %>
                                                 <input placeholder="" id="commercial_number" type="text" class="validate">
                                             </div>
                                             <div class="input-field col s12 m3">
-                                              <%= form.label :date_of_registration, t('date_of_registration') %>
+                                                <%= form.label :date_of_registration, t('date_of_registration') %>
                                                 <input type="text" class="datepicker" placeholder="DD/MM/YYYY">
                                             </div>
                                         </div>
                                         <div class="row">
 
                                             <div class="input-field col s12 m3">
-                                              <%= form.label :last_fiscal_year, t('last_fiscal_year') %>
-                                              <div class="select_box">
-                                                <%= form.select :exported_goods_type, options_for_select(["Please Select", "Option 1","Option 2","Option 3" ]), {}, id: "firstdrop"%>
-                                              </div>
+                                                <%= form.label :last_fiscal_year, t('last_fiscal_year') %>
+                                                <div class="select_box">
+                                                    <%= form.select :exported_goods_type, options_for_select(["Please Select", "Option 1","Option 2","Option 3" ]), {}, id: "firstdrop"%>
+                                                </div>
                                             </div>
                                         </div>
                                     </form>
 
                                 </div>
 
-                              <!--EH section-->
+                                <!--EH section-->
 
                                 <div class="step-2 tab">
-                                  <div class="row form-nav-top">
-                                    <div class="col s12 m6">
-                                      <div class="top-nav">
-                                        <h4>Euler Hermes </h4>
-                                      </div>
+                                    <div class="row form-nav-top">
+                                        <div class="col s12 m6">
+                                            <div class="top-nav">
+                                                <h4>Euler Hermes </h4>
+                                            </div>
+                                        </div>
                                     </div>
-                                  </div>
 
                                     <form class="euler-section">
                                         <div class="row">
                                             <div class="input-field col s12 m7" >
-                                               <%= form.label :is_euler_cover_in_past, t('is_euler_cover_in_past') %>
+                                                <%= form.label :is_euler_cover_in_past, t('is_euler_cover_in_past') %>
                                                 <p>
                                                     <span class="yes" id="Hyes" onclick="EulerHermes()">Yes</span>
                                                     <span class="no" id="Hno" onclick="noEulerHermes()">No</span>
                                                 </p>
                                             </div>
                                         </div>
-                                      <div id="dn-nr1" class="row dn-nr" style="display: none;">
+                                        <div id="dn-nr1" class="row dn-nr" style="display: none;">
                                             <div class="input-field col s12 m3">
-                                              <%= form.label :euler_dnnr_number, t('euler_dnnr_number') %>
+                                                <%= form.label :euler_dnnr_number, t('euler_dnnr_number') %>
                                                 <input placeholder="" id="dn-nr" type="text" class="validate">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s12 m7">
-                                              <%= form.label :is_insolvent_in_last_five_years, t('is_insolvent_in_last_five_years') %>
+                                                <%= form.label :is_insolvent_in_last_five_years, t('is_insolvent_in_last_five_years') %>
                                                 <p>
                                                     <span class="yes">Yes</span>
                                                     <span class="no">No</span>
@@ -181,7 +176,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s12 m7">
-                                              <%= form.label :is_investigated_in_last_five_years, t('is_investigated_in_last_five_years') %>
+                                                <%= form.label :is_investigated_in_last_five_years, t('is_investigated_in_last_five_years') %>
                                                 <p>
                                                     <span class="yes" id="Hyes">Yes</span>
                                                     <span class="no" id="Hno">No</span>
@@ -191,7 +186,7 @@
 
                                         <div class="row">
                                             <div class="input-field col s12 m7">
-                                              <%= form.label :is_business_with_sanctioned_company, t('is_business_with_sanctioned_company') %>
+                                                <%= form.label :is_business_with_sanctioned_company, t('is_business_with_sanctioned_company') %>
                                                 <p>
                                                     <span class="yes" onclick="conductBusiness()" id="Hyes1">Yes</span>
                                                     <span class="no" onclick="noconductBusiness()" id="Hno1">No</span>
@@ -200,26 +195,26 @@
                                         </div>
                                         <div class="row which-one" id="business" style="display: none;">
                                             <div class="input-field col s12 m6">
-                                              <%= form.label :business_with_sanctioned_company_name, t('business_with_sanctioned_company_name') %>
-                                              <div class="select_box">
-                                                <%= form.select :country, options_for_select([t('please_select'), "Afghanistan", "Ägypten", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Äquatorialguinea", "Argentinien", "Armenien", "Aserbaidschan", "Äthiopien", "Australien", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belgien", "Belize", "Benin", "Bergkarabach", "Bhutan", "Bolivien", "Bosnien und Herzegowina", "Botswana", "Brasilien", "Brunei", "Bulgarien", "Burkina Faso", "Burundi", "Chile", "Republik China", "Volksrepublik China", "mit Hongkong (HK) und Macao (MO)", "Cookinseln", "Costa Rica", "Dänemark", "mit Färöer (FO) und Grönland (GL)", "Deutschland", "Dominica", "Dominikanische Republik", "Dschibuti", "Ecuador", "El Salvador", "Elfenbeinküste", "Eritrea", "Estland", "Fidschi", "Finnland", "Frankreich", "(ohne Französische Überseegebiete)", "Gabun", "Gambia", "Georgien", "(mit Abchasien und Südossetien)", "Ghana", "Grenada", "Griechenland", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Indien", "(mit Kaschmir)", "Indonesien", "Irak", "Iran", "Irland", "Island", "Israel", "(ohne Gazastreifen, Golanhöhen und Westjordanland)", "Italien", "Jamaika", "Japan", "Jemen", "Jordanien", "Kambodscha", "Kamerun", "Kanada", "Kap Verde", "Kasachstan", "Katar", "Kenia", "Kirgisistan", "Kiribati", "Kolumbien", "Komoren", "Kongo, Demokratische Republik", "Kongo, Republik", "Korea, Nord", "Korea, Süd", "Kosovo", "Kroatien", "Kuba", "Kuwait", "Laos", "Lesotho", "Lettland", "Libanon", "Liberia", "Libyen", "Liechtenstein", "Litauen", "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marokko", "(ohne Westsahara)", "Marshallinseln", "Mauretanien", "Mauritius", "Mazedonien", "Mexiko", "Mikronesien", "Moldawien", "(mit Transnistrien)", "Monaco", "Mongolei", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nepal", "Neuseeland", "Nicaragua", "Königreich der Niederlande", "(ohne Curaçao, Sint Maarten und Aruba)", "Niger", "Nigeria", "Niue", "Nordzypern", "Norwegen", "(ohne Svalbard)", "Oman", "Österreich", "Osttimor / Timor-Leste", "Pakistan", "(ohne Kaschmir)", "Palästina", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal", "Ruanda", "Rumänien", "Russland", "Salomonen", "Sambia", "Samoa", "San Marino", "São Tomé und Príncipe", "Saudi-Arabien", "Schweden", "Schweiz", "Senegal", "Serbien", "(ohne Kosovo)", "Seychellen", "Sierra Leone", "Simbabwe", "Singapur", "Slowakei", "Slowenien", "Somalia", "(mit Somaliland)", "Somaliland", "Spanien", "Sri Lanka", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Südafrika", "Sudan", "Südossetien", "Südsudan", "Suriname", "Swasiland", "Syrien", "(mit Golanhöhen)", "Tadschikistan", "Tansania", "Thailand", "Togo", "Tonga", "Transnistrien", "Trinidad und Tobago", "Tschad", "Tschechien", "Tunesien", "Türkei", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstadt", "Venezuela", "Vereinigte Arabische Emirate", "Vereinigte Staaten", "(ohne Außengebiete)", "Vereinigtes Königreich", "Vietnam", "Weißrussland", "Westsahara", "Zentralafrikanische Republik", "Zypern"]), {}, id: "firstdrop" %>
-                                              </div>
+                                                <%= form.label :business_with_sanctioned_company_name, t('business_with_sanctioned_company_name') %>
+                                                <div class="select_box">
+                                                    <%= form.select :country, options_for_select([t('please_select'), "Afghanistan", "Ägypten", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Äquatorialguinea", "Argentinien", "Armenien", "Aserbaidschan", "Äthiopien", "Australien", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belgien", "Belize", "Benin", "Bergkarabach", "Bhutan", "Bolivien", "Bosnien und Herzegowina", "Botswana", "Brasilien", "Brunei", "Bulgarien", "Burkina Faso", "Burundi", "Chile", "Republik China", "Volksrepublik China", "mit Hongkong (HK) und Macao (MO)", "Cookinseln", "Costa Rica", "Dänemark", "mit Färöer (FO) und Grönland (GL)", "Deutschland", "Dominica", "Dominikanische Republik", "Dschibuti", "Ecuador", "El Salvador", "Elfenbeinküste", "Eritrea", "Estland", "Fidschi", "Finnland", "Frankreich", "(ohne Französische Überseegebiete)", "Gabun", "Gambia", "Georgien", "(mit Abchasien und Südossetien)", "Ghana", "Grenada", "Griechenland", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Indien", "(mit Kaschmir)", "Indonesien", "Irak", "Iran", "Irland", "Island", "Israel", "(ohne Gazastreifen, Golanhöhen und Westjordanland)", "Italien", "Jamaika", "Japan", "Jemen", "Jordanien", "Kambodscha", "Kamerun", "Kanada", "Kap Verde", "Kasachstan", "Katar", "Kenia", "Kirgisistan", "Kiribati", "Kolumbien", "Komoren", "Kongo, Demokratische Republik", "Kongo, Republik", "Korea, Nord", "Korea, Süd", "Kosovo", "Kroatien", "Kuba", "Kuwait", "Laos", "Lesotho", "Lettland", "Libanon", "Liberia", "Libyen", "Liechtenstein", "Litauen", "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marokko", "(ohne Westsahara)", "Marshallinseln", "Mauretanien", "Mauritius", "Mazedonien", "Mexiko", "Mikronesien", "Moldawien", "(mit Transnistrien)", "Monaco", "Mongolei", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nepal", "Neuseeland", "Nicaragua", "Königreich der Niederlande", "(ohne Curaçao, Sint Maarten und Aruba)", "Niger", "Nigeria", "Niue", "Nordzypern", "Norwegen", "(ohne Svalbard)", "Oman", "Österreich", "Osttimor / Timor-Leste", "Pakistan", "(ohne Kaschmir)", "Palästina", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal", "Ruanda", "Rumänien", "Russland", "Salomonen", "Sambia", "Samoa", "San Marino", "São Tomé und Príncipe", "Saudi-Arabien", "Schweden", "Schweiz", "Senegal", "Serbien", "(ohne Kosovo)", "Seychellen", "Sierra Leone", "Simbabwe", "Singapur", "Slowakei", "Slowenien", "Somalia", "(mit Somaliland)", "Somaliland", "Spanien", "Sri Lanka", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Südafrika", "Sudan", "Südossetien", "Südsudan", "Suriname", "Swasiland", "Syrien", "(mit Golanhöhen)", "Tadschikistan", "Tansania", "Thailand", "Togo", "Tonga", "Transnistrien", "Trinidad und Tobago", "Tschad", "Tschechien", "Tunesien", "Türkei", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstadt", "Venezuela", "Vereinigte Arabische Emirate", "Vereinigte Staaten", "(ohne Außengebiete)", "Vereinigtes Königreich", "Vietnam", "Weißrussland", "Westsahara", "Zentralafrikanische Republik", "Zypern"]), {}, id: "firstdrop" %>
+                                                </div>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
 
-                              <!--Share Holders section-->
+                                <!--Share Holders section-->
 
                                 <div class="step-3 tab">
 
-                                  <div class="row form-nav-top">
-                                    <div class="col s12 m6">
-                                      <div class="top-nav">
-                                        <h4> Share holders & Directors</h4>
-                                      </div>
+                                    <div class="row form-nav-top">
+                                        <div class="col s12 m6">
+                                            <div class="top-nav">
+                                                <h4> Share holders & Directors</h4>
+                                            </div>
+                                        </div>
                                     </div>
-                                  </div>
                                     <form class="share-holder-section">
                                         <div class="row">
                                             <div class="input-field col s12 m12">
@@ -230,11 +225,11 @@
                                             </div>
                                             <div class="input-field col s12 m12 another">
                                                 <div class="input-field col s12 m6">
-                                                  <%= form.label :shareholder_name, t('shareholder_name') %>
+                                                    <%= form.label :shareholder_name, t('shareholder_name') %>
                                                     <input placeholder="" id="name" type="text" class="validate">
                                                 </div>
                                                 <div class="input-field col s12 m6">
-                                                  <%= form.label :shareholder_participation,t('shareholder_participation ') %>
+                                                    <%= form.label :shareholder_participation,t('shareholder_participation ') %>
                                                     <input placeholder="" id="participation" type="text" class="validate">
                                                 </div>
                                             </div>
@@ -242,7 +237,7 @@
 
                                             <div class="input-field col s12 m12">
                                                 <div class="input-field col s12 m12">
-                                                  <%= form.label :is_shareholder_of_another_company,t('is_shareholder_of_another_company') %>
+                                                    <%= form.label :is_shareholder_of_another_company,t('is_shareholder_of_another_company') %>
                                                     <p>
                                                         <span class="yes" onclick="shareholder()" id="Hyes2">Yes</span>
                                                         <span class="no" onclick="noshareholder()" id="Hno2">No</span>
@@ -251,21 +246,21 @@
                                                 <div class="input-field col s12 m12" id="holder" style="display: none;">
                                                     <div class=" input-field col s12 m12 another">
                                                         <div class="input-field col s12 m6">
-                                                          <%= form.label :shareholder_of_another_company_name,t('shareholder_of_another_company_name') %>
+                                                            <%= form.label :shareholder_of_another_company_name,t('shareholder_of_another_company_name') %>
                                                             <input placeholder="" id="name" type="text" class="validate">
                                                         </div>
                                                         <div class="input-field col s12 m6">
-                                                          <%= form.label :shareholder_of_another_company_participation,t('shareholder_of_another_company_participation') %>
+                                                            <%= form.label :shareholder_of_another_company_participation,t('shareholder_of_another_company_participation') %>
                                                             <input placeholder="" id="participation" type="text" class="validate">
                                                         </div>
                                                     </div>
-                                                 <a class="waves-effect waves-light btn-small">add another</a>
+                                                    <a class="waves-effect waves-light btn-small">add another</a>
 
                                                 </div>
                                             </div>
                                             <div class="input-field col s12 m12">
                                                 <div class="input-field col s12 m12">
-                                                  <%= form.label :is_legal_representative_pep,t('is_legal_representative_pep') %>
+                                                    <%= form.label :is_legal_representative_pep,t('is_legal_representative_pep') %>
                                                     <p>
                                                         <span class="yes" onclick="politicaloffice()" id="H3">Yes</span>
                                                         <span class="no" onclick="nopoliticaloffice()" id="N3">No</span>
@@ -275,47 +270,47 @@
                                                     <div class="input-field col s12 m12 another">
                                                         <div class="row">
                                                             <div class="input-field col s12 m6">
-                                                              <%= form.label :legal_representative_pep_firstname,t('legal_representative_pep_firstname') %>
+                                                                <%= form.label :legal_representative_pep_firstname,t('legal_representative_pep_firstname') %>
                                                                 <input placeholder="" id="first_name" type="text" class="validate">
                                                             </div>
                                                             <div class="input-field col s12 m6">
-                                                              <%= form.label :legal_representative_pep_lastname,t('legal_representative_pep_lastname') %>
+                                                                <%= form.label :legal_representative_pep_lastname,t('legal_representative_pep_lastname') %>
                                                                 <input placeholder="" id="last_name" type="text" class="validate">
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="input-field col s12 m3">
-                                                              <%= form.label :legal_representative_pep_dob,t('legal_representative_pep_dob') %>
+                                                                <%= form.label :legal_representative_pep_dob,t('legal_representative_pep_dob') %>
                                                                 <input type="text" class="datepicker" placeholder="DD/MM/YYYY">
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="input-field col s12 m8">
-                                                              <%= form.label :legal_representative_pep_address_line_one,t('legal_representative_pep_address_line_one') %>
+                                                                <%= form.label :legal_representative_pep_address_line_one,t('legal_representative_pep_address_line_one') %>
                                                                 <input placeholder="" id="address-line1" type="text" class="validate">
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="input-field col s12 m8">
-                                                              <%= form.label :legal_representative_pep_address_line_two,t('legal_representative_pep_address_line_two') %>
+                                                                <%= form.label :legal_representative_pep_address_line_two,t('legal_representative_pep_address_line_two') %>
                                                                 <input placeholder="" id="address-line2" type="text" class="validate">
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="input-field col s12 m3">
-                                                              <%= form.label :legal_representative_pep_postcode,t('legal_representative_pep_postcode') %>
+                                                                <%= form.label :legal_representative_pep_postcode,t('legal_representative_pep_postcode') %>
                                                                 <input placeholder="" id="post-code" type="text" class="validate">
                                                             </div>
                                                             <div class="input-field col s12 m6">
-                                                              <%= form.label :legal_representative_pep_country,t('legal_representative_pep_country') %>
-                                                              <div class="select_box">
-                                                                <%= form.select :country, options_for_select([t('please_select'), "Afghanistan", "Ägypten", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Äquatorialguinea", "Argentinien", "Armenien", "Aserbaidschan", "Äthiopien", "Australien", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belgien", "Belize", "Benin", "Bergkarabach", "Bhutan", "Bolivien", "Bosnien und Herzegowina", "Botswana", "Brasilien", "Brunei", "Bulgarien", "Burkina Faso", "Burundi", "Chile", "Republik China", "Volksrepublik China", "mit Hongkong (HK) und Macao (MO)", "Cookinseln", "Costa Rica", "Dänemark", "mit Färöer (FO) und Grönland (GL)", "Deutschland", "Dominica", "Dominikanische Republik", "Dschibuti", "Ecuador", "El Salvador", "Elfenbeinküste", "Eritrea", "Estland", "Fidschi", "Finnland", "Frankreich", "(ohne Französische Überseegebiete)", "Gabun", "Gambia", "Georgien", "(mit Abchasien und Südossetien)", "Ghana", "Grenada", "Griechenland", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Indien", "(mit Kaschmir)", "Indonesien", "Irak", "Iran", "Irland", "Island", "Israel", "(ohne Gazastreifen, Golanhöhen und Westjordanland)", "Italien", "Jamaika", "Japan", "Jemen", "Jordanien", "Kambodscha", "Kamerun", "Kanada", "Kap Verde", "Kasachstan", "Katar", "Kenia", "Kirgisistan", "Kiribati", "Kolumbien", "Komoren", "Kongo, Demokratische Republik", "Kongo, Republik", "Korea, Nord", "Korea, Süd", "Kosovo", "Kroatien", "Kuba", "Kuwait", "Laos", "Lesotho", "Lettland", "Libanon", "Liberia", "Libyen", "Liechtenstein", "Litauen", "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marokko", "(ohne Westsahara)", "Marshallinseln", "Mauretanien", "Mauritius", "Mazedonien", "Mexiko", "Mikronesien", "Moldawien", "(mit Transnistrien)", "Monaco", "Mongolei", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nepal", "Neuseeland", "Nicaragua", "Königreich der Niederlande", "(ohne Curaçao, Sint Maarten und Aruba)", "Niger", "Nigeria", "Niue", "Nordzypern", "Norwegen", "(ohne Svalbard)", "Oman", "Österreich", "Osttimor / Timor-Leste", "Pakistan", "(ohne Kaschmir)", "Palästina", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal", "Ruanda", "Rumänien", "Russland", "Salomonen", "Sambia", "Samoa", "San Marino", "São Tomé und Príncipe", "Saudi-Arabien", "Schweden", "Schweiz", "Senegal", "Serbien", "(ohne Kosovo)", "Seychellen", "Sierra Leone", "Simbabwe", "Singapur", "Slowakei", "Slowenien", "Somalia", "(mit Somaliland)", "Somaliland", "Spanien", "Sri Lanka", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Südafrika", "Sudan", "Südossetien", "Südsudan", "Suriname", "Swasiland", "Syrien", "(mit Golanhöhen)", "Tadschikistan", "Tansania", "Thailand", "Togo", "Tonga", "Transnistrien", "Trinidad und Tobago", "Tschad", "Tschechien", "Tunesien", "Türkei", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstadt", "Venezuela", "Vereinigte Arabische Emirate", "Vereinigte Staaten", "(ohne Außengebiete)", "Vereinigtes Königreich", "Vietnam", "Weißrussland", "Westsahara", "Zentralafrikanische Republik", "Zypern"]), {}, id: "firstdrop" %>
-                                                              </div>
+                                                                <%= form.label :legal_representative_pep_country,t('legal_representative_pep_country') %>
+                                                                <div class="select_box">
+                                                                    <%= form.select :country, options_for_select([t('please_select'), "Afghanistan", "Ägypten", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Äquatorialguinea", "Argentinien", "Armenien", "Aserbaidschan", "Äthiopien", "Australien", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belgien", "Belize", "Benin", "Bergkarabach", "Bhutan", "Bolivien", "Bosnien und Herzegowina", "Botswana", "Brasilien", "Brunei", "Bulgarien", "Burkina Faso", "Burundi", "Chile", "Republik China", "Volksrepublik China", "mit Hongkong (HK) und Macao (MO)", "Cookinseln", "Costa Rica", "Dänemark", "mit Färöer (FO) und Grönland (GL)", "Deutschland", "Dominica", "Dominikanische Republik", "Dschibuti", "Ecuador", "El Salvador", "Elfenbeinküste", "Eritrea", "Estland", "Fidschi", "Finnland", "Frankreich", "(ohne Französische Überseegebiete)", "Gabun", "Gambia", "Georgien", "(mit Abchasien und Südossetien)", "Ghana", "Grenada", "Griechenland", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Indien", "(mit Kaschmir)", "Indonesien", "Irak", "Iran", "Irland", "Island", "Israel", "(ohne Gazastreifen, Golanhöhen und Westjordanland)", "Italien", "Jamaika", "Japan", "Jemen", "Jordanien", "Kambodscha", "Kamerun", "Kanada", "Kap Verde", "Kasachstan", "Katar", "Kenia", "Kirgisistan", "Kiribati", "Kolumbien", "Komoren", "Kongo, Demokratische Republik", "Kongo, Republik", "Korea, Nord", "Korea, Süd", "Kosovo", "Kroatien", "Kuba", "Kuwait", "Laos", "Lesotho", "Lettland", "Libanon", "Liberia", "Libyen", "Liechtenstein", "Litauen", "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marokko", "(ohne Westsahara)", "Marshallinseln", "Mauretanien", "Mauritius", "Mazedonien", "Mexiko", "Mikronesien", "Moldawien", "(mit Transnistrien)", "Monaco", "Mongolei", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nepal", "Neuseeland", "Nicaragua", "Königreich der Niederlande", "(ohne Curaçao, Sint Maarten und Aruba)", "Niger", "Nigeria", "Niue", "Nordzypern", "Norwegen", "(ohne Svalbard)", "Oman", "Österreich", "Osttimor / Timor-Leste", "Pakistan", "(ohne Kaschmir)", "Palästina", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal", "Ruanda", "Rumänien", "Russland", "Salomonen", "Sambia", "Samoa", "San Marino", "São Tomé und Príncipe", "Saudi-Arabien", "Schweden", "Schweiz", "Senegal", "Serbien", "(ohne Kosovo)", "Seychellen", "Sierra Leone", "Simbabwe", "Singapur", "Slowakei", "Slowenien", "Somalia", "(mit Somaliland)", "Somaliland", "Spanien", "Sri Lanka", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Südafrika", "Sudan", "Südossetien", "Südsudan", "Suriname", "Swasiland", "Syrien", "(mit Golanhöhen)", "Tadschikistan", "Tansania", "Thailand", "Togo", "Tonga", "Transnistrien", "Trinidad und Tobago", "Tschad", "Tschechien", "Tunesien", "Türkei", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstadt", "Venezuela", "Vereinigte Arabische Emirate", "Vereinigte Staaten", "(ohne Außengebiete)", "Vereinigtes Königreich", "Vietnam", "Weißrussland", "Westsahara", "Zentralafrikanische Republik", "Zypern"]), {}, id: "firstdrop" %>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="input-field col s12 m12">
-                                                              <%= form.label :legal_representative_pep_reason,t('legal_representative_pep_reason') %>
+                                                                <%= form.label :legal_representative_pep_reason,t('legal_representative_pep_reason') %>
                                                                 <textarea id="textarea1" class="materialize-textarea"></textarea>
                                                             </div>
                                                         </div>
@@ -339,42 +334,42 @@
                                                 <p>
                                                     <label>
                                                         <input type="checkbox" class="filled-in"/>
-                                                      <span> <%= form.label :is_source_of_fund_assets_transfer,t('is_source_of_fund_assets_transfer') %></span>
+                                                        <span> <%= form.label :is_source_of_fund_assets_transfer,t('is_source_of_fund_assets_transfer') %></span>
                                                     </label>
                                                 </p>
 
                                                 <p>
                                                     <label>
                                                         <input type="checkbox" class="filled-in" checked="checked"/>
-                                                      <span> <%= form.label :is_source_of_fund_income_operations,t('is_source_of_fund_income_operations') %></span>
+                                                        <span> <%= form.label :is_source_of_fund_income_operations,t('is_source_of_fund_income_operations') %></span>
                                                     </label>
                                                 </p>
 
                                                 <p>
                                                     <label>
                                                         <input type="checkbox" class="filled-in"/>
-                                                      <span> <%= form.label :is_source_of_fund_assets_sales,t('is_source_of_fund_assets_sales') %></span>
+                                                        <span> <%= form.label :is_source_of_fund_assets_sales,t('is_source_of_fund_assets_sales') %></span>
                                                     </label>
                                                 </p>
 
                                                 <p>
                                                     <label>
                                                         <input type="checkbox" class="filled-in"/>
-                                                      <span> <%= form.label :is_source_of_fund_insurance_indemnization,t('is_source_of_fund_insurance_indemnization') %></span>
+                                                        <span> <%= form.label :is_source_of_fund_insurance_indemnization,t('is_source_of_fund_insurance_indemnization') %></span>
                                                     </label>
                                                 </p>
 
                                                 <p>
                                                     <label>
                                                         <input type="checkbox" class="filled-in"/>
-                                                      <span> <%= form.label :is_source_of_fund_no_assets,t('is_source_of_fund_no_assets') %></span>
+                                                        <span> <%= form.label :is_source_of_fund_no_assets,t('is_source_of_fund_no_assets') %></span>
                                                     </label>
                                                 </p>
 
                                                 <p>
                                                     <label>
                                                         <input type="checkbox" class="filled-in" checked="checked"/>
-                                                      <span> <%= form.label :is_source_of_fund_other,t('is_source_of_fund_other') %></span>
+                                                        <span> <%= form.label :is_source_of_fund_other,t('is_source_of_fund_other') %></span>
                                                     </label>
                                                 </p>
                                                 <input placeholder="Please Specify" id="specify" type="text" class="validate specify">
@@ -384,248 +379,247 @@
                                     </form>
                                 </div>
 
-                              <!--Business Information section-->
+                                <!--Business Information section-->
 
-                              <div class="step-4 tab">
-                                <div class="row form-nav-top">
-                                  <div class="col s12 m6">
-                                    <div class="top-nav">
-                                      <h4> Business Information </h4>
+                                <div class="step-4 tab">
+                                    <div class="row form-nav-top">
+                                        <div class="col s12 m6">
+                                            <div class="top-nav">
+                                                <h4> Business Information </h4>
+                                            </div>
+                                        </div>
                                     </div>
-                                  </div>
-                                </div>
-                                <form class="col s12 comapny-form">
-                                  <div class="row">
-                                    <div class="input-field col s12 m6">
-                                      <%= form.label :business_activity_explanation,t('business_activity_explanation') %>
-                                       <input placeholder="" id="business_activities" type="text" class="validate">
-                                    </div>
-                                  </div>
-                                  <div class="row">
-                                    <div class="input-field col s12 m7" >
-                                      <%= form.label :change_corporate_purpose,t('change_corporate_purpose') %>
-                                      <p>
-                                        <span class="yes" id="Byes" onclick="BusinessActivityChange()">Yes</span>
-                                        <span class="no" id="Bno" onclick="noBusinessActivityChange()">No</span>
-                                      </p>
-                                    </div>
-                                  </div>
-                                  <div id="ba-change1" class="row ba-change" style="display: none;">
-                                    <div class="input-field col s12 m3">
-                                      <%= form.label :change_corporate_purpose_how,t('change_corporate_purpose_how') %>
-                                      <input placeholder="" id="ba-change" type="text" class="validate">
-                                    </div>
-                                  </div>
-                                  <div class="row">
-                                    <div class="input-field col s12 m4">
-                                      Do you see yourself as..
-                                      <div class="select_box">
-                                        <%= form.select :see_your_self_as, options_for_select(["Please Select", "Option 1","Option 2","Option 3" ]), {}, id: "firstdrop"%>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="row">
-                                    <div class="input-field col s12 m6">
-                                      <%= form.label :countries_of_main_business_activities,t('countries_of_main_business_activities') %>
-                                      <input placeholder="" id="countries_business_activities" type="text" class="validate">
-                                    </div>
-                                  </div>
-                                  <div class="input-field col s12 m12">
-                                    <div class="input-field col s12 m7">
-                                      <label for="important_customer_name">Who are your most important customers?</label>
-                                    </div>
-                                  </div>
-                                  <div class="input-field col s10 m10 another">
-                                    <div class="input-field col s12 m6">
-                                      <%= form.label :most_important_customer_name,t('most_important_customer_name') %>
-                                      <input placeholder="" id="name" type="text" class="validate">
-                                    </div>
-                                    <div class="input-field col s12 m6">
-                                      <%= form.label :most_important_customer_country, t('most_important_customer_country') %>
-                                      <div class="select_box">
-                                        <%= form.select :country, options_for_select([t('please_select'), "Afghanistan", "Ägypten", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Äquatorialguinea", "Argentinien", "Armenien", "Aserbaidschan", "Äthiopien", "Australien", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belgien", "Belize", "Benin", "Bergkarabach", "Bhutan", "Bolivien", "Bosnien und Herzegowina", "Botswana", "Brasilien", "Brunei", "Bulgarien", "Burkina Faso", "Burundi", "Chile", "Republik China", "Volksrepublik China", "mit Hongkong (HK) und Macao (MO)", "Cookinseln", "Costa Rica", "Dänemark", "mit Färöer (FO) und Grönland (GL)", "Deutschland", "Dominica", "Dominikanische Republik", "Dschibuti", "Ecuador", "El Salvador", "Elfenbeinküste", "Eritrea", "Estland", "Fidschi", "Finnland", "Frankreich", "(ohne Französische Überseegebiete)", "Gabun", "Gambia", "Georgien", "(mit Abchasien und Südossetien)", "Ghana", "Grenada", "Griechenland", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Indien", "(mit Kaschmir)", "Indonesien", "Irak", "Iran", "Irland", "Island", "Israel", "(ohne Gazastreifen, Golanhöhen und Westjordanland)", "Italien", "Jamaika", "Japan", "Jemen", "Jordanien", "Kambodscha", "Kamerun", "Kanada", "Kap Verde", "Kasachstan", "Katar", "Kenia", "Kirgisistan", "Kiribati", "Kolumbien", "Komoren", "Kongo, Demokratische Republik", "Kongo, Republik", "Korea, Nord", "Korea, Süd", "Kosovo", "Kroatien", "Kuba", "Kuwait", "Laos", "Lesotho", "Lettland", "Libanon", "Liberia", "Libyen", "Liechtenstein", "Litauen", "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marokko", "(ohne Westsahara)", "Marshallinseln", "Mauretanien", "Mauritius", "Mazedonien", "Mexiko", "Mikronesien", "Moldawien", "(mit Transnistrien)", "Monaco", "Mongolei", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nepal", "Neuseeland", "Nicaragua", "Königreich der Niederlande", "(ohne Curaçao, Sint Maarten und Aruba)", "Niger", "Nigeria", "Niue", "Nordzypern", "Norwegen", "(ohne Svalbard)", "Oman", "Österreich", "Osttimor / Timor-Leste", "Pakistan", "(ohne Kaschmir)", "Palästina", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal", "Ruanda", "Rumänien", "Russland", "Salomonen", "Sambia", "Samoa", "San Marino", "São Tomé und Príncipe", "Saudi-Arabien", "Schweden", "Schweiz", "Senegal", "Serbien", "(ohne Kosovo)", "Seychellen", "Sierra Leone", "Simbabwe", "Singapur", "Slowakei", "Slowenien", "Somalia", "(mit Somaliland)", "Somaliland", "Spanien", "Sri Lanka", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Südafrika", "Sudan", "Südossetien", "Südsudan", "Suriname", "Swasiland", "Syrien", "(mit Golanhöhen)", "Tadschikistan", "Tansania", "Thailand", "Togo", "Tonga", "Transnistrien", "Trinidad und Tobago", "Tschad", "Tschechien", "Tunesien", "Türkei", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstadt", "Venezuela", "Vereinigte Arabische Emirate", "Vereinigte Staaten", "(ohne Außengebiete)", "Vereinigtes Königreich", "Vietnam", "Weißrussland", "Westsahara", "Zentralafrikanische Republik", "Zypern"]), {}, id: "firstdrop" %>
-                                      </div>
-                                    </div>
-                                    <div class="input-field col s12 m12">
-                                      <%= form.label :most_important_customer_volume, t('most_important_customer_volume') %>
-                                      <input placeholder="" id="volume" type="text" class="validate">
-                                    </div>
-                                  </div>
-                                  <div class="input-field col s12 m10">
-                                    <a class="waves-effect waves-light btn-small">add another</a>
-                                  </div>
-                                  <div class="input-field col s12 m12">
-                                    <div class="input-field col s12 m7">
-                                      <label for="shareholder_name">Who are your most important Suppliers?</label>
-                                    </div>
-                                  </div>
-                                  <div class="input-field col s10 m10 another">
-                                    <div class="input-field col s12 m6">
-                                      <%= form.label :most_important_supplier_name, t('most_important_supplier_name') %>
-                                      <input placeholder="" id="name" type="text" class="validate">
-                                    </div>
-                                    <div class="input-field col s12 m6">
-                                      <%= form.label :most_important_supplier_country, t('most_important_supplier_country') %>
-                                      <div class="select_box">
-                                        <%= form.select :country, options_for_select([t('please_select'), "Afghanistan", "Ägypten", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Äquatorialguinea", "Argentinien", "Armenien", "Aserbaidschan", "Äthiopien", "Australien", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belgien", "Belize", "Benin", "Bergkarabach", "Bhutan", "Bolivien", "Bosnien und Herzegowina", "Botswana", "Brasilien", "Brunei", "Bulgarien", "Burkina Faso", "Burundi", "Chile", "Republik China", "Volksrepublik China", "mit Hongkong (HK) und Macao (MO)", "Cookinseln", "Costa Rica", "Dänemark", "mit Färöer (FO) und Grönland (GL)", "Deutschland", "Dominica", "Dominikanische Republik", "Dschibuti", "Ecuador", "El Salvador", "Elfenbeinküste", "Eritrea", "Estland", "Fidschi", "Finnland", "Frankreich", "(ohne Französische Überseegebiete)", "Gabun", "Gambia", "Georgien", "(mit Abchasien und Südossetien)", "Ghana", "Grenada", "Griechenland", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Indien", "(mit Kaschmir)", "Indonesien", "Irak", "Iran", "Irland", "Island", "Israel", "(ohne Gazastreifen, Golanhöhen und Westjordanland)", "Italien", "Jamaika", "Japan", "Jemen", "Jordanien", "Kambodscha", "Kamerun", "Kanada", "Kap Verde", "Kasachstan", "Katar", "Kenia", "Kirgisistan", "Kiribati", "Kolumbien", "Komoren", "Kongo, Demokratische Republik", "Kongo, Republik", "Korea, Nord", "Korea, Süd", "Kosovo", "Kroatien", "Kuba", "Kuwait", "Laos", "Lesotho", "Lettland", "Libanon", "Liberia", "Libyen", "Liechtenstein", "Litauen", "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marokko", "(ohne Westsahara)", "Marshallinseln", "Mauretanien", "Mauritius", "Mazedonien", "Mexiko", "Mikronesien", "Moldawien", "(mit Transnistrien)", "Monaco", "Mongolei", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nepal", "Neuseeland", "Nicaragua", "Königreich der Niederlande", "(ohne Curaçao, Sint Maarten und Aruba)", "Niger", "Nigeria", "Niue", "Nordzypern", "Norwegen", "(ohne Svalbard)", "Oman", "Österreich", "Osttimor / Timor-Leste", "Pakistan", "(ohne Kaschmir)", "Palästina", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal", "Ruanda", "Rumänien", "Russland", "Salomonen", "Sambia", "Samoa", "San Marino", "São Tomé und Príncipe", "Saudi-Arabien", "Schweden", "Schweiz", "Senegal", "Serbien", "(ohne Kosovo)", "Seychellen", "Sierra Leone", "Simbabwe", "Singapur", "Slowakei", "Slowenien", "Somalia", "(mit Somaliland)", "Somaliland", "Spanien", "Sri Lanka", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Südafrika", "Sudan", "Südossetien", "Südsudan", "Suriname", "Swasiland", "Syrien", "(mit Golanhöhen)", "Tadschikistan", "Tansania", "Thailand", "Togo", "Tonga", "Transnistrien", "Trinidad und Tobago", "Tschad", "Tschechien", "Tunesien", "Türkei", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstadt", "Venezuela", "Vereinigte Arabische Emirate", "Vereinigte Staaten", "(ohne Außengebiete)", "Vereinigtes Königreich", "Vietnam", "Weißrussland", "Westsahara", "Zentralafrikanische Republik", "Zypern"]), {}, id: "firstdrop" %>
-                                      </div>
-                                    </div>
-                                    <div class="input-field col s12 m12">
-                                      <%= form.label :most_important_supplier_volume, t('most_important_supplier_volume') %>
-                                      <input placeholder="" id="volume" type="text" class="validate">
-                                    </div>
-                                  </div>
-                                  <div class="input-field col s12 m10">
-                                  <a class="waves-effect waves-light btn-small">add another</a>
-                                  </div>
-                                  <div class="row">
-                                    <div class="input-field col s12 m8">
-                                      <%= form.label :usual_payment_behaviour_supplier_buyer, t('usual_payment_behaviour_supplier_buyer') %>
-                                      <input placeholder="" id="behaviour_line" type="text" class="validate">
-                                    </div>
-                                  </div>
-                                </form>
-                              </div>
-
-                              <!--Financials section-->
-
-                              <div class="step-5 tab">
-                                <div class="row form-nav-top">
-                                  <div class="col s12 m6">
-                                    <div class="top-nav">
-                                      <h4> Financials </h4>
-                                    </div>
-                                  </div>
-                                </div>
-                                <form class="col s12 comapny-form">
-                                  <div class="row">
-                                    <div class="input-field col s12 m3">
-                                      <i class="material-icons prefix">euro_symbol</i>
-                                      <input id="icon_prefix" type="text" class="validate">
-                                      <label for="icon_prefix"><%= form.label :order_amount_backlog, t('order_amount_backlog') %></label>
-                                    </div>
-                                  </div>
-                                  <div class="row">
-                                    <div class="input-field col s12 m8">
-                                      <%= form.label :months_to_complete_backlog, t('months_to_complete_backlog') %>
-                                      <input placeholder="" id="behaviour_line" type="text" class="validate">
-                                    </div>
-                                  </div>
-                                  <div class="row">
-                                    <div class="input-field col s12 m3">
-                                      <i class="material-icons prefix">euro_symbol</i>
-                                      <input id="icon_prefix" type="text" class="validate">
-                                      <label for="icon_prefix"><%= form.label :expected_revenues_this_year, t('expected_revenues_this_year') %></label>
-                                    </div>
-                                  </div>
-                                  <div class="row">
-                                  <div class="input-field col s12 m12">
-                                    <div class="input-field col s12 m7">
-                                      <label for="shareholder_name">Share of exports in revenue (%) </label>
-                                    </div>
-                                  </div>
-                                  <div class="input-field col s8 m6 another">
-                                    <div class="input-field col s8 m6">
-                                      <i class="material-icons prefix">pie_chart_outlined</i>
-                                      <input id="icon_prefix" type="text" class="validate">
-                                      <label for="icon_prefix"><%= form.label :percentage_share_export_revenue_lastyear, t('percentage_share_export_revenue_lastyear') %></label>
-                                    </div>
-                                    <div class="input-field col s8 m6">
-                                      <i class="material-icons prefix">pie_chart_outlined</i>
-                                      <input id="icon_prefix" type="text" class="validate">
-                                      <label for="icon_prefix"><%= form.label :percentage_share_export_revenue_previousyear, t('percentage_share_export_revenue_previousyear') %></label>
-                                    </div>
-                                  </div>
-                                  </div>
-                                  <div class="row">
-                                    <div class="input-field col s8 m6 another">
-                                      <div class="input-field col s8 m6">
-                                        <i class="material-icons prefix">pie_chart_outlined</i>
-                                        <input id="icon_prefix" type="text" class="validate">
-                                        <label for="icon_prefix"><%= form.label :percentage_share_export_revenue_eu, t('percentage_share_export_revenue_eu') %></label>
-                                      </div>
-                                      <div class="input-field col s8 m6">
-                                        <i class="material-icons prefix">pie_chart_outlined</i>
-                                        <input id="icon_prefix" type="text" class="validate">
-                                        <label for="icon_prefix"><%= form.label :percentage_share_export_revenue_othercountries, t('percentage_share_export_revenue_othercountries') %></label>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="row">
-                                    <div class="input-field col s12 m3">
-                                      <i class=" material-icons prefix">euro_symbol</i>
-                                      <input id="icon_prefix" type="text" class="validate">
-                                      <label for="icon_prefix"><%= form.label :expected_ebit_this_year, t('expected_ebit_this_year') %></label>
-                                    </div>
-                                  </div>
-                                  <div class="row">
-                                    <div class="input-field col s12 m3">
-                                      <i class="material-icons prefix">euro_symbol</i>
-                                      <input id="icon_prefix" type="text" class="validate">
-                                      <label for="icon_prefix"><%= form.label :expected_net_income_this_year, t('expected_net_income_this_year') %></label>
-                                    </div>
-                                  </div>
-                                  <div class="row">
-                                    <div class="input-field col s12 m6">
-                                      <%= form.label :explanation_of_dunning_process, t('explanation_of_dunning_process') %>
-                                      <input placeholder="" id="business_activities" type="text" class="validate">
-                                    </div>
-                                  </div>
-                                  <div class="row">
-                                    <div class="input-field col s12 m7" >
-                                      <%= form.label :is_any_default_last_two_year, t('is_any_default_last_two_year') %>
-                                      <p>
-                                        <span class="yes" id="Dyes" onclick="BusinessDefaults()">Yes</span>
-                                        <span class="no" id="Dno" onclick="noBusinessDefaults()">No</span>
-                                      </p>
-                                    </div>
-                                  </div>
-                                  <div id="df-change1" class="row ba-change" style="display: none;">
-                                    <div class="input-field col s12 m6">
-                                      <%= form.label :default_last_two_year_explain, t('default_last_two_year_explain') %>
-                                      <input placeholder="" id="df-change" type="text" class="validate">
-                                    </div>
-                                  </div>
-                                  <div class="row">
-                                    <div class="input-field col s12 m7" >
-                                      <%= form.label :is_any_external_rating, t('is_any_external_rating') %>
-
-                                      <p>
-                                        <span class="yes" id="ERyes" onclick="ExternalRating()">Yes</span>
-                                        <span class="no" id="ERno" onclick="noExternalRating()">No</span>
-                                      </p>
-
-                                    </div>
-                                  </div>
-
-                                  <div id="er1" class="er" style="display: none;">
-                                    <div class="input-field col s12 m3">
-                                      <%= form.label :external_rating_specify, t('external_rating_specify') %>
-                                      <input placeholder="" id="er" type="text" class="validate">
-                                    </div>
-                                  </div>
-                                </form>
-                              </div>
-
-                              <!--Document Upload section-->
-
-                              <div class="step-6 tab">
-
-
-                                <div class="row form-nav-top">
-                                  <div class="col s12 m6">
-                                    <div class="top-nav">
-                                      <h4> Documents </h4>
-                                    </div>
-                                  </div>
+                                    <form class="col s12 comapny-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m6">
+                                                <%= form.label :business_activity_explanation,t('business_activity_explanation') %>
+                                                <input placeholder="" id="business_activities" type="text" class="validate">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12 m7" >
+                                                <%= form.label :change_corporate_purpose,t('change_corporate_purpose') %>
+                                                <p>
+                                                    <span class="yes" id="Byes" onclick="BusinessActivityChange()">Yes</span>
+                                                    <span class="no" id="Bno" onclick="noBusinessActivityChange()">No</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div id="ba-change1" class="row ba-change" style="display: none;">
+                                            <div class="input-field col s12 m3">
+                                                <%= form.label :change_corporate_purpose_how,t('change_corporate_purpose_how') %>
+                                                <input placeholder="" id="ba-change" type="text" class="validate">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12 m4">
+                                                Do you see yourself as..
+                                                <div class="select_box">
+                                                    <%= form.select :see_your_self_as, options_for_select(["Please Select", "Option 1","Option 2","Option 3" ]), {}, id: "firstdrop"%>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12 m6">
+                                                <%= form.label :countries_of_main_business_activities,t('countries_of_main_business_activities') %>
+                                                <input placeholder="" id="countries_business_activities" type="text" class="validate">
+                                            </div>
+                                        </div>
+                                        <div class="input-field col s12 m12">
+                                            <div class="input-field col s12 m7">
+                                                <label for="important_customer_name">Who are your most important customers?</label>
+                                            </div>
+                                        </div>
+                                        <div class="input-field col s10 m10 another">
+                                            <div class="input-field col s12 m6">
+                                                <%= form.label :most_important_customer_name,t('most_important_customer_name') %>
+                                                <input placeholder="" id="name" type="text" class="validate">
+                                            </div>
+                                            <div class="input-field col s12 m6">
+                                                <%= form.label :most_important_customer_country, t('most_important_customer_country') %>
+                                                <div class="select_box">
+                                                    <%= form.select :country, options_for_select([t('please_select'), "Afghanistan", "Ägypten", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Äquatorialguinea", "Argentinien", "Armenien", "Aserbaidschan", "Äthiopien", "Australien", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belgien", "Belize", "Benin", "Bergkarabach", "Bhutan", "Bolivien", "Bosnien und Herzegowina", "Botswana", "Brasilien", "Brunei", "Bulgarien", "Burkina Faso", "Burundi", "Chile", "Republik China", "Volksrepublik China", "mit Hongkong (HK) und Macao (MO)", "Cookinseln", "Costa Rica", "Dänemark", "mit Färöer (FO) und Grönland (GL)", "Deutschland", "Dominica", "Dominikanische Republik", "Dschibuti", "Ecuador", "El Salvador", "Elfenbeinküste", "Eritrea", "Estland", "Fidschi", "Finnland", "Frankreich", "(ohne Französische Überseegebiete)", "Gabun", "Gambia", "Georgien", "(mit Abchasien und Südossetien)", "Ghana", "Grenada", "Griechenland", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Indien", "(mit Kaschmir)", "Indonesien", "Irak", "Iran", "Irland", "Island", "Israel", "(ohne Gazastreifen, Golanhöhen und Westjordanland)", "Italien", "Jamaika", "Japan", "Jemen", "Jordanien", "Kambodscha", "Kamerun", "Kanada", "Kap Verde", "Kasachstan", "Katar", "Kenia", "Kirgisistan", "Kiribati", "Kolumbien", "Komoren", "Kongo, Demokratische Republik", "Kongo, Republik", "Korea, Nord", "Korea, Süd", "Kosovo", "Kroatien", "Kuba", "Kuwait", "Laos", "Lesotho", "Lettland", "Libanon", "Liberia", "Libyen", "Liechtenstein", "Litauen", "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marokko", "(ohne Westsahara)", "Marshallinseln", "Mauretanien", "Mauritius", "Mazedonien", "Mexiko", "Mikronesien", "Moldawien", "(mit Transnistrien)", "Monaco", "Mongolei", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nepal", "Neuseeland", "Nicaragua", "Königreich der Niederlande", "(ohne Curaçao, Sint Maarten und Aruba)", "Niger", "Nigeria", "Niue", "Nordzypern", "Norwegen", "(ohne Svalbard)", "Oman", "Österreich", "Osttimor / Timor-Leste", "Pakistan", "(ohne Kaschmir)", "Palästina", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal", "Ruanda", "Rumänien", "Russland", "Salomonen", "Sambia", "Samoa", "San Marino", "São Tomé und Príncipe", "Saudi-Arabien", "Schweden", "Schweiz", "Senegal", "Serbien", "(ohne Kosovo)", "Seychellen", "Sierra Leone", "Simbabwe", "Singapur", "Slowakei", "Slowenien", "Somalia", "(mit Somaliland)", "Somaliland", "Spanien", "Sri Lanka", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Südafrika", "Sudan", "Südossetien", "Südsudan", "Suriname", "Swasiland", "Syrien", "(mit Golanhöhen)", "Tadschikistan", "Tansania", "Thailand", "Togo", "Tonga", "Transnistrien", "Trinidad und Tobago", "Tschad", "Tschechien", "Tunesien", "Türkei", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstadt", "Venezuela", "Vereinigte Arabische Emirate", "Vereinigte Staaten", "(ohne Außengebiete)", "Vereinigtes Königreich", "Vietnam", "Weißrussland", "Westsahara", "Zentralafrikanische Republik", "Zypern"]), {}, id: "firstdrop" %>
+                                                </div>
+                                            </div>
+                                            <div class="input-field col s12 m12">
+                                                <%= form.label :most_important_customer_volume, t('most_important_customer_volume') %>
+                                                <input placeholder="" id="volume" type="text" class="validate">
+                                            </div>
+                                        </div>
+                                        <div class="input-field col s12 m10">
+                                            <a class="waves-effect waves-light btn-small">add another</a>
+                                        </div>
+                                        <div class="input-field col s12 m12">
+                                            <div class="input-field col s12 m7">
+                                                <label for="shareholder_name">Who are your most important Suppliers?</label>
+                                            </div>
+                                        </div>
+                                        <div class="input-field col s10 m10 another">
+                                            <div class="input-field col s12 m6">
+                                                <%= form.label :most_important_supplier_name, t('most_important_supplier_name') %>
+                                                <input placeholder="" id="name" type="text" class="validate">
+                                            </div>
+                                            <div class="input-field col s12 m6">
+                                                <%= form.label :most_important_supplier_country, t('most_important_supplier_country') %>
+                                                <div class="select_box">
+                                                    <%= form.select :country, options_for_select([t('please_select'), "Afghanistan", "Ägypten", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Äquatorialguinea", "Argentinien", "Armenien", "Aserbaidschan", "Äthiopien", "Australien", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belgien", "Belize", "Benin", "Bergkarabach", "Bhutan", "Bolivien", "Bosnien und Herzegowina", "Botswana", "Brasilien", "Brunei", "Bulgarien", "Burkina Faso", "Burundi", "Chile", "Republik China", "Volksrepublik China", "mit Hongkong (HK) und Macao (MO)", "Cookinseln", "Costa Rica", "Dänemark", "mit Färöer (FO) und Grönland (GL)", "Deutschland", "Dominica", "Dominikanische Republik", "Dschibuti", "Ecuador", "El Salvador", "Elfenbeinküste", "Eritrea", "Estland", "Fidschi", "Finnland", "Frankreich", "(ohne Französische Überseegebiete)", "Gabun", "Gambia", "Georgien", "(mit Abchasien und Südossetien)", "Ghana", "Grenada", "Griechenland", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Indien", "(mit Kaschmir)", "Indonesien", "Irak", "Iran", "Irland", "Island", "Israel", "(ohne Gazastreifen, Golanhöhen und Westjordanland)", "Italien", "Jamaika", "Japan", "Jemen", "Jordanien", "Kambodscha", "Kamerun", "Kanada", "Kap Verde", "Kasachstan", "Katar", "Kenia", "Kirgisistan", "Kiribati", "Kolumbien", "Komoren", "Kongo, Demokratische Republik", "Kongo, Republik", "Korea, Nord", "Korea, Süd", "Kosovo", "Kroatien", "Kuba", "Kuwait", "Laos", "Lesotho", "Lettland", "Libanon", "Liberia", "Libyen", "Liechtenstein", "Litauen", "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marokko", "(ohne Westsahara)", "Marshallinseln", "Mauretanien", "Mauritius", "Mazedonien", "Mexiko", "Mikronesien", "Moldawien", "(mit Transnistrien)", "Monaco", "Mongolei", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nepal", "Neuseeland", "Nicaragua", "Königreich der Niederlande", "(ohne Curaçao, Sint Maarten und Aruba)", "Niger", "Nigeria", "Niue", "Nordzypern", "Norwegen", "(ohne Svalbard)", "Oman", "Österreich", "Osttimor / Timor-Leste", "Pakistan", "(ohne Kaschmir)", "Palästina", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal", "Ruanda", "Rumänien", "Russland", "Salomonen", "Sambia", "Samoa", "San Marino", "São Tomé und Príncipe", "Saudi-Arabien", "Schweden", "Schweiz", "Senegal", "Serbien", "(ohne Kosovo)", "Seychellen", "Sierra Leone", "Simbabwe", "Singapur", "Slowakei", "Slowenien", "Somalia", "(mit Somaliland)", "Somaliland", "Spanien", "Sri Lanka", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Südafrika", "Sudan", "Südossetien", "Südsudan", "Suriname", "Swasiland", "Syrien", "(mit Golanhöhen)", "Tadschikistan", "Tansania", "Thailand", "Togo", "Tonga", "Transnistrien", "Trinidad und Tobago", "Tschad", "Tschechien", "Tunesien", "Türkei", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstadt", "Venezuela", "Vereinigte Arabische Emirate", "Vereinigte Staaten", "(ohne Außengebiete)", "Vereinigtes Königreich", "Vietnam", "Weißrussland", "Westsahara", "Zentralafrikanische Republik", "Zypern"]), {}, id: "firstdrop" %>
+                                                </div>
+                                            </div>
+                                            <div class="input-field col s12 m12">
+                                                <%= form.label :most_important_supplier_volume, t('most_important_supplier_volume') %>
+                                                <input placeholder="" id="volume" type="text" class="validate">
+                                            </div>
+                                        </div>
+                                        <div class="input-field col s12 m10">
+                                            <a class="waves-effect waves-light btn-small">add another</a>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12 m8">
+                                                <%= form.label :usual_payment_behaviour_supplier_buyer, t('usual_payment_behaviour_supplier_buyer') %>
+                                                <input placeholder="" id="behaviour_line" type="text" class="validate">
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
 
+                                <!--Financials section-->
 
-                                <form class="col s12 comapny-form">
-                                </form>
+                                <div class="step-5 tab">
+                                    <div class="row form-nav-top">
+                                        <div class="col s12 m6">
+                                            <div class="top-nav">
+                                                <h4> Financials </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <form class="col s12 comapny-form">
+                                        <div class="row">
+                                            <div class="input-field col s12 m3">
+                                                <i class="material-icons prefix">euro_symbol</i>
+                                                <input id="icon_prefix" type="text" class="validate">
+                                                <label for="icon_prefix"><%= form.label :order_amount_backlog, t('order_amount_backlog') %></label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12 m8">
+                                                <%= form.label :months_to_complete_backlog, t('months_to_complete_backlog') %>
+                                                <input placeholder="" id="behaviour_line" type="text" class="validate">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12 m3">
+                                                <i class="material-icons prefix">euro_symbol</i>
+                                                <input id="icon_prefix" type="text" class="validate">
+                                                <label for="icon_prefix"><%= form.label :expected_revenues_this_year, t('expected_revenues_this_year') %></label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12 m12">
+                                                <div class="input-field col s12 m7">
+                                                    <label for="shareholder_name">Share of exports in revenue (%) </label>
+                                                </div>
+                                            </div>
+                                            <div class="input-field col s8 m6 another">
+                                                <div class="input-field col s8 m6">
+                                                    <i class="material-icons prefix">pie_chart_outlined</i>
+                                                    <input id="icon_prefix" type="text" class="validate">
+                                                    <label for="icon_prefix"><%= form.label :percentage_share_export_revenue_lastyear, t('percentage_share_export_revenue_lastyear') %></label>
+                                                </div>
+                                                <div class="input-field col s8 m6">
+                                                    <i class="material-icons prefix">pie_chart_outlined</i>
+                                                    <input id="icon_prefix" type="text" class="validate">
+                                                    <label for="icon_prefix"><%= form.label :percentage_share_export_revenue_previousyear, t('percentage_share_export_revenue_previousyear') %></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s8 m6 another">
+                                                <div class="input-field col s8 m6">
+                                                    <i class="material-icons prefix">pie_chart_outlined</i>
+                                                    <input id="icon_prefix" type="text" class="validate">
+                                                    <label for="icon_prefix"><%= form.label :percentage_share_export_revenue_eu, t('percentage_share_export_revenue_eu') %></label>
+                                                </div>
+                                                <div class="input-field col s8 m6">
+                                                    <i class="material-icons prefix">pie_chart_outlined</i>
+                                                    <input id="icon_prefix" type="text" class="validate">
+                                                    <label for="icon_prefix"><%= form.label :percentage_share_export_revenue_othercountries, t('percentage_share_export_revenue_othercountries') %></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12 m3">
+                                                <i class=" material-icons prefix">euro_symbol</i>
+                                                <input id="icon_prefix" type="text" class="validate">
+                                                <label for="icon_prefix"><%= form.label :expected_ebit_this_year, t('expected_ebit_this_year') %></label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12 m3">
+                                                <i class="material-icons prefix">euro_symbol</i>
+                                                <input id="icon_prefix" type="text" class="validate">
+                                                <label for="icon_prefix"><%= form.label :expected_net_income_this_year, t('expected_net_income_this_year') %></label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12 m6">
+                                                <%= form.label :explanation_of_dunning_process, t('explanation_of_dunning_process') %>
+                                                <input placeholder="" id="business_activities" type="text" class="validate">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12 m7" >
+                                                <%= form.label :is_any_default_last_two_year, t('is_any_default_last_two_year') %>
+                                                <p>
+                                                    <span class="yes" id="Dyes" onclick="BusinessDefaults()">Yes</span>
+                                                    <span class="no" id="Dno" onclick="noBusinessDefaults()">No</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div id="df-change1" class="row ba-change" style="display: none;">
+                                            <div class="input-field col s12 m6">
+                                                <%= form.label :default_last_two_year_explain, t('default_last_two_year_explain') %>
+                                                <input placeholder="" id="df-change" type="text" class="validate">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12 m7" >
+                                                <%= form.label :is_any_external_rating, t('is_any_external_rating') %>
 
-                              </div>
+                                                <p>
+                                                    <span class="yes" id="ERyes" onclick="ExternalRating()">Yes</span>
+                                                    <span class="no" id="ERno" onclick="noExternalRating()">No</span>
+                                                </p>
 
+                                            </div>
+                                        </div>
+
+                                        <div id="er1" class="er" style="display: none;">
+                                            <div class="input-field col s12 m3">
+                                                <%= form.label :external_rating_specify, t('external_rating_specify') %>
+                                                <input placeholder="" id="er" type="text" class="validate">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!--Document Upload section-->
+
+                                <div class="step-6 tab">
+
+
+                                    <div class="row form-nav-top">
+                                        <div class="col s12 m6">
+                                            <div class="top-nav">
+                                                <h4> Documents </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <form class="col s12 comapny-form">
+                                    </form>
+
+                                </div>
 
                             </div>
                         </div>
@@ -635,46 +629,12 @@
         </div>
     </div>
 
-<!--    <div class="actions">-->
-        <%#= form.submit %>
-<!--    </div>-->
+    <!--    <div class="actions">-->
+    <%#= form.submit %>
+    <!--    </div>-->
 <% end %>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script>
-
-
-
 
     function changeTabs(current_tab_index) {
         $('.tab').hide();
@@ -689,7 +649,6 @@
 
     });
 
-    // Or with jQuery
     $(document).ready(function () {
         $('.datepicker').datepicker();
     });
@@ -704,8 +663,6 @@
         }
     }
 
-
-
     function noEulerHermes() {
         var x = document.getElementById("dn-nr1");
         if (x.style.display === "block") {
@@ -713,7 +670,6 @@
             $('#Hno').addClass('active').siblings().removeClass('active');
         }
     }
-
 
     function BusinessActivityChange() {
         var x = document.getElementById("ba-change1");
@@ -725,8 +681,6 @@
         }
     }
 
-
-
     function noBusinessActivityChange() {
         var x = document.getElementById("ba-change1");
         if (x.style.display === "block") {
@@ -734,9 +688,6 @@
             $('#Bno').addClass('active').siblings().removeClass('active');
         }
     }
-
-
-
 
     function BusinessDefaults() {
         var x = document.getElementById("df-change1");
@@ -747,8 +698,6 @@
             x.style.display = "none";
         }
     }
-
-
 
     function noBusinessDefaults() {
         var x = document.getElementById("df-change1");
@@ -768,7 +717,6 @@
         }
     }
 
-
     function noExternalRating() {
         var x = document.getElementById("er1");
         if (x.style.display === "block") {
@@ -776,7 +724,6 @@
             $('#ERno').addClass('active').siblings().removeClass('active');
         }
     }
-
 
     function conductBusiness() {
         var x = document.getElementById("business");
@@ -795,7 +742,6 @@
             $('#Hno1').addClass('active').siblings().removeClass('active');
         }
     }
-
 
     function shareholder() {
         var x = document.getElementById("holder");
