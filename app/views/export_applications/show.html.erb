@@ -1,5 +1,5 @@
 <% if @export_application.application_status == "SUBMITTED" %>
-  <%= render "export_applications/show_non_editable.html.erb" %>
+  <%= render "show_non_editable.html.erb" %>
 <% elsif @export_application.application_status == "DRAFT" %>
-  <%= render "export_applications/show_editable.html.erb" %>
+  <%= render "show_editable.html.erb" %>
 <% end %>

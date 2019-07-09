@@ -94,7 +94,7 @@
                                     <!--                                        <option value="OTHER">Sonstige</option>-->
                                     <!--                                    </select>-->
 
-                                    <%= form.select :exported_goods_type, options_for_select(["Bitte wählen Sie eine Warenkategorie, die zu Ihrem Produkt passt", "Konsumgüter, Rohstoffe, Halbfabrikate, Massengüter, Komponenten, Ersatzteile", "Düngemittel, Insektizide, Zuchtvieh, Agrargüter und Saatgut", "langlebige Konsumgüter", "Sonstige"]), {}, id: "firstdrop" %>
+                                    <%= form.select :exported_goods_type, options_for_select([t('please_select_corresponding_option'), "Konsumgüter, Rohstoffe, Halbfabrikate, Massengüter, Komponenten, Ersatzteile", "Düngemittel, Insektizide, Zuchtvieh, Agrargüter und Saatgut", "langlebige Konsumgüter", "Sonstige"]), {}, id: "firstdrop" %>
 
                                     <%= form.select :exported_goods_type, options_for_select([]), {}, id: "seconddrop" %>
 
@@ -108,8 +108,8 @@
                         </div>
                     </div>
 
-                    <div class="col background_toggle is_delivered_part_of_consortium_with_other_companies">
-                        <div class="input-field col s12 m12 no-padding">
+                    <div class="background_toggle is_delivered_part_of_consortium_with_other_companies">
+                        <div class="input-field col s12 m12">
                             <%= form.label :is_delivered_part_of_consortium_with_other_companies, t('is_delivered_part_of_consortium_with_other_companies') %>
                             <p>
                                 <label>
@@ -130,7 +130,7 @@
                                 </div>
 
                                 <div class="input-field col s12 m12">
-                                    <div class="input-field col s12 m12 nopadding">
+                                    <div class="input-field col s12 m12">
                                         <%= form.label :is_fully_responsible_for_project, t('is_fully_responsible_for_project') %>
                                         <p>
                                             <label>
@@ -197,8 +197,8 @@
                         </div>
                     </div>
 
-                    <div class="col background_toggle is_good_sent_in_multiple_deliveries">
-                        <div class="input-field col s12 m12 no-padding">
+                    <div class="background_toggle is_good_sent_in_multiple_deliveries">
+                        <div class="input-field col s12 m12">
                             <%= form.label :is_good_sent_in_multiple_deliveries, t('is_good_sent_in_multiple_deliveries') %>
                             <p>
                                 <label>
@@ -296,9 +296,9 @@
                         </div>
                     </div>
 
-                    <div class="col background_toggle is_contract_already_signed_between_parties">
+                    <div class="background_toggle is_contract_already_signed_between_parties">
                         <div class="input-field col s12 m12">
-                            <div class="input-field col s12 m12 nopadding">
+                            <div class="input-field col s12 m12">
 
                                 <%= form.label :is_contract_already_signed_between_parties, t('is_contract_already_signed_between_parties')%>
                                 <p>
@@ -333,7 +333,7 @@
                         <div id="noContractSignedBetweenParties" style="display: none">
 
                             <div class="input-field col s12 m12">
-                                <div class="input-field col s12 m12 nopadding">
+                                <div class="input-field col s12 m12">
                                     <%= form.label :taking_part_in_tender, t('taking_part_in_tender') %>
                                     <p>
                                         <label>
@@ -358,9 +358,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col background_toggle does_delivery_affect_sensitive_areas">
+                    <div class="background_toggle does_delivery_affect_sensitive_areas">
                         <div class="input-field col s12 m12">
-                            <div class="input-field col s12 m12 nopadding">
+                            <div class="input-field col s12 m12">
                                 <%= form.label :does_delivery_affect_sensitive_areas, t('does_delivery_affect_sensitive_areas') %>
                                 <p> <%= t :sensitivearea_additional_information %></p>
                                 <p>
@@ -392,9 +392,9 @@
 
                     </div>
 
-                    <div class="col background_toggle is_export_licence_needed">
+                    <div class="background_toggle is_export_licence_needed">
                         <div class="input-field col s12 m12">
-                            <div class="input-field col s12 m12 nopadding">
+                            <div class="input-field col s12 m12">
                                 <%= form.label :is_export_licence_needed, t('sensitive_area_type') %>
                                 <p>
                                 <p>
@@ -424,9 +424,9 @@
                         </div>
                     </div>
 
-                    <div class="col background_toggle are_secondhand_goods_delivered">
+                    <div class="background_toggle are_secondhand_goods_delivered">
                         <div class="input-field col s12 m12">
-                            <div class="input-field col s12 m12 nopadding">
+                            <div class="input-field col s12 m12">
                                 <%= form.label :are_secondhand_goods_delivered, t('are_secondhand_goods_delivered') %>
                                 <p>
                                     <label>
@@ -452,7 +452,7 @@
                             </div>
 
                             <div class="input-field col s12 m12">
-                                <div class="input-field col s12 m12 nopadding">
+                                <div class="input-field col s12 m12">
                                     <%= form.label :are_goods_overhauled, t('are_goods_overhauled') %>
                                     <p>
                                         <label>
@@ -494,9 +494,9 @@
                         </div>
                     </div>
 
-                    <div class="col background_toggle has_special_contract_structure">
+                    <div class="background_toggle has_special_contract_structure">
                         <div class="input-field col s12 m12">
-                            <div class="input-field col s12 m12 nopadding">
+                            <div class="input-field col s12 m12">
                                 <%= form.label :has_special_contract_structure, t('has_special_contract_structure') %>
                                 <p>
                                     <label>
@@ -520,7 +520,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col background_toggle has_german_certificate_of_origin">
+                    <div class="background_toggle has_german_certificate_of_origin">
                         <div class="input-field col s12">
                             <%= form.label :has_german_certificate_of_origin, t('has_german_certificate_of_origin') %>
                             <p>

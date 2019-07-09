@@ -83,7 +83,8 @@ en:
           other: "Konnte %{resource} nicht speichern: %{count} Fehler."
   amount: "Betrag"
   description: "Beschreibung"
-  please_select: "Bitte auswählen"
+  please_select: "Please select"
+  please_select_currency: "Currency"
   delivery_start: "Lieferbeginn"
   delivery_end: "Lieferende"
   payment_relevant_date: "Weiterer zahlungsrelevanter Termin"
@@ -148,6 +149,8 @@ en:
   exporter_rating_agency: "Ratingagentur"
   importer_rating_issued_date: "Datum des Ratings"
   exporter_rating_issued_date: "Datum des Ratings"
+  exporter_company_registration_number: "Handelsregisternummer"
+  registration_court: "Amtsgericht"
 
 
   #customer information
@@ -468,3 +471,6 @@ en:
   accept_terms_2: "Allgemeinen Geschäftbedingungen von HandEX"
   account_exists: "Haben Sie bereits ein Account ? Bitte loggen Sie sich ein."
   account_registration: "Konto registrieren."
+  edit: "Edit"
+  no_applications_available: ""
+  please_select_corresponding_option : "Please translate me"

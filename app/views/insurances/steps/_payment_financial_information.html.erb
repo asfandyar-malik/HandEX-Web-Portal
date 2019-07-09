@@ -23,10 +23,10 @@
         <div class="col s12">
             <div class="form-content">
                 <div class="row">
-                    <div class="col background_toggle is_security_present_for_transaction">
+                    <div class="background_toggle is_security_present_for_transaction">
 
                         <div class="input-field col s12 m12">
-                            <div class="input-field col s12 m12 nopadding">
+                            <div class="input-field col s12 m12">
                                 <%= form.label :is_security_present_for_transaction, t('is_security_present_for_transaction') %>
                                 <p>
                                     <label>
@@ -67,7 +67,7 @@
                             </div>
 
                             <div class="input-field col s12 m12">
-                                <div class="input-field col s12 m6 nopadding">
+                                <div class="input-field col s12 m6">
                                     <%= form.label :when_security_received, t('when_security_received') %>
                                     <%= form.select :when_security_received, options_for_select([[t('please_select'), "0"], ["Vor Fabrikationsbeginn", "1"], ["bereits erhalten", "2"], ["Vor Liefer-/Leistungsbeginn", "3"], ["Später", "4"], ["Anderer Termin", "5"]]), {}, id: "when_security_received", class: "validate" %>
                                 </div>
@@ -75,9 +75,9 @@
 
                         </div>
                     </div>
-                    <div class="col background_toggle has_agreed_payment_term_already">
+                    <div class="background_toggle has_agreed_payment_term_already">
                         <div class="input-field col s12 m12">
-                            <div class="input-field col s12 m12 nopadding">
+                            <div class="input-field col s12 m12">
                                 <label> <%= t('has_agreed_payment_term_already') %> </label>
                                 <p>
                                     <label>
@@ -391,7 +391,7 @@
                                         </div>
 
                                         <div class="input-field col s12 m12">
-                                            <div class="input-field col s12 m12 nopadding">
+                                            <div class="input-field col s12 m12">
                                                 <%= form.label :fixed_interest_rate, t('fixed_interest_rate') %>
                                                 <p>
                                                     <label>
@@ -408,7 +408,7 @@
 
                                         <div id="yesFixedInterestRate" style="display: <%=(@insurance.fixed_interest_rate.present? && @insurance.fixed_interest_rate)? 'block' : 'none'%>;">
                                             <div class="input-field col s12 m12">
-                                                <div class="input-field col s12 m12 nopadding">
+                                                <div class="input-field col s12 m12">
                                                     <p>
                                                     <div class="input-field col s12 m12">
                                                         <%= form.label :fixed_interest_rate_value, t('fixed_interest_rate_value') %>
@@ -419,7 +419,7 @@
                                         </div>
                                         <div id="noFixedInterestRate" style="display: <%=(@insurance.fixed_interest_rate.present? && !@insurance.fixed_interest_rate)? 'block' : 'none'%>;">
                                             <div class="input-field col s12 m12">
-                                                <div class="input-field col s12 m12 nopadding">
+                                                <div class="input-field col s12 m12">
                                                     <p>
                                                     <div class="input-field col s12 m12">
                                                         <%= form.label :variable_interest_rate, t('variable_interest_rate') %>
@@ -429,7 +429,7 @@
                                             </div>
                                         </div>
                                         <div class="input-field col s12 m12">
-                                            <div class="input-field col s12 m12 nopadding">
+                                            <div class="input-field col s12 m12">
                                                 <%= form.label :degressive_interest_rate, t('degressive_interest_rate') %>
                                                 <p>
                                                     <label>
@@ -445,7 +445,7 @@
                                         </div>
                                         <div id="noDegressiveInterestRate" style="display: <%=(@insurance.degressive_interest_rate.present? && !@insurance.degressive_interest_rate)? 'block' : 'none'%>;">
                                             <div class="input-field col s12 m12">
-                                                <div class="input-field col s12 m12 nopadding">
+                                                <div class="input-field col s12 m12">
                                                     <p>
                                                     <div class="input-field col s12 m12">
                                                         <%= form.label :interest_calculation_description, t('interest_calculation_description') %>

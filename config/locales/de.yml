@@ -84,6 +84,7 @@ de:
   amount: "Betrag"
   description: "Beschreibung"
   please_select: "Bitte auswählen"
+  please_select_currency: "Währung"
   delivery_start: "Lieferbeginn"
   delivery_end: "Lieferende"
   payment_relevant_date: "Weiterer zahlungsrelevanter Termin"
@@ -153,6 +154,9 @@ de:
   exporter_rating_agency: "Ratingagentur"
   importer_rating_issued_date: "Datum des Ratings"
   exporter_rating_issued_date: "Datum des Ratings"
+  exporter_company_registration_number: "Handelsregisternummer"
+  registration_court: "Amtsgericht"
+
 
 
   #customer information
@@ -473,4 +477,9 @@ de:
   accept_terms_2: "Allgemeinen Geschäftbedingungen von HandEX"
   account_exists: "Haben Sie bereits ein Account ? Bitte loggen Sie sich ein."
   account_registration: "Konto registrieren."
+  submit: "Senden"
 
+  enter_new_value: "Neuen Wert eingeben"
+  edit: "Bearbeiten"
+  no_applications_available: ""
+  please_select_corresponding_option : "Bitte wählen Sie eine Warenkategorie, die zu Ihrem Produkt passt"
