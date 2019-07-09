@@ -89,21 +89,21 @@
           <div id="agreedTermsOfPayments" style="display: <%= (@insurance.has_agreed_payment_term_already.present? && @insurance.has_agreed_payment_term_already) ? 'block' : 'none' %>">
             <div class="input-field col s12 m12">
               <label class="active_selection_card_label">
-                                                    <span class="input-field col s12 m4 threecol" name="kurzfristigtermofpayment">
+                                                    <span class="input-field col s12 m4 threecol z-depth-1-half" name="kurzfristigtermofpayment">
                                                             <%= check_box_tag "insurance[payment_term_short]", @insurance.payment_term_short ? @insurance.payment_term_short : nil, false, :onclick => "kurzFristigTermOfPayment();", id: "export_application_payment_term_short" %>
                                                       <%= form.label :payment_term_short, t('payment_term_short') %>
                                                     </span>
               </label>
 
               <label class="active_selection_card_label">
-                <span class="input-field col s12 m4 threecol" name="mitteltermofpayment">
+                <span class="input-field col s12 m4 threecol z-depth-1-half" name="mitteltermofpayment">
                     <%= check_box_tag "insurance[payment_term_mid]", @insurance.payment_term_mid ? @insurance.payment_term_mid : nil, false, :onclick => "mittelTermOfPayment();", id: "export_application_payment_term_mid" %>
                   <%= form.label :payment_term_short, t('payment_term_mid') %>
                 </span>
               </label>
 
               <label class="active_selection_card_label">
-                                                    <span class="input-field col s12 m4 threecol" name="sonstigekurzfristigtermofpayment">
+                                                    <span class="input-field col s12 m4 threecol z-depth-1-half" name="sonstigekurzfristigtermofpayment">
                                                         <%= check_box_tag "insurance[payment_term_both]", @insurance.payment_term_both ? @insurance.payment_term_both : nil, false, :onclick => "sonstigeKurzFristigTermOfPayment();", id: "export_application_payment_term_both" %>
                                                       <%= form.label :payment_term_short, t('payment_term_both') %>
                                                     </span>

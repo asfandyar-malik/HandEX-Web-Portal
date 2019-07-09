@@ -200,6 +200,15 @@ h3 {
         border-radius: 4px;
       }
 
+      span.active_selection_card {
+        border-color: #41bf93;
+      }
+
+      span.threecol:hover {
+        background-color: #41bf93;
+        border-color: #41bf93;
+      }
+
       span span {
         padding: 0;
         border: 0;
