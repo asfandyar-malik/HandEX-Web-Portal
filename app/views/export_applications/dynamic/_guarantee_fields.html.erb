@@ -1,6 +1,7 @@
 <tr class="nested-fields">
 
     <td class="input-field">
+        <%= f.label :security_type, t('type_of_security') %>
         <%= f.select :security_type, options_for_select([[t('please_select'), "0"], ["Unbestätigtes Akkreditiv einer Bank", "1"], ["Bestätigtes Akkreditiv", "2"], ["Zahlungsgarantie einer Bank", "3"], ["Zahlungsgarantie eines Unternehmens", "4"], ["(eingetragener) Eigentumsvorbehalt (dingliche Sicherheit)", "5"], ["Pfandrecht (dingliche Sicherheit)", "6"], ["sonstige", "7"]]), {}, id: "security_type", class: "validate" %>
     </td>
 
