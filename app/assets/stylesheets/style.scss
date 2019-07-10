@@ -209,12 +209,18 @@ h3 {
       }
 
       span.threecol.btn {
+        border: 0;
         background-color: #d6d0d0;
         border-color: #d6d0d0;
       }
 
       span.threecol.btn.active_selection_card {
-        border-color: #2541b2;
+        //border-color: #2541b2;
+        border: 0;
+        background-color: #2541b2;
+        label {
+          color:white;
+        }
       }
 
       span span {
