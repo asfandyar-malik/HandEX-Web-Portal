@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_10_154514) do
+ActiveRecord::Schema.define(version: 2019_07_10_163016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -458,6 +458,8 @@ ActiveRecord::Schema.define(version: 2019_07_10_154514) do
     t.string "application_type", default: "export_application"
     t.string "exporter_company_registration_number"
     t.string "registration_court"
+    t.string "importer_email"
+    t.string "importer_phone_number"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
@@ -769,6 +771,8 @@ ActiveRecord::Schema.define(version: 2019_07_10_154514) do
     t.string "application_type", default: "insurance"
     t.string "exporter_company_registration_number"
     t.string "registration_court"
+    t.string "importer_email"
+    t.string "importer_phone_number"
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 
