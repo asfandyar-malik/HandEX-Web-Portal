@@ -54,6 +54,15 @@
               </div>
 
               <div class="input-field col s12 m6">
+                <%= form.label :exporter_company_registration_number, t('exporter_company_registration_number') %>
+                <%= form.text_field :exporter_company_registration_number, autofocus: true, class: "validate" %>
+              </div>
+              <div class="input-field col s12 m6">
+                <%= form.label :registration_court, t('registration_court') %>
+                <%= form.text_field :registration_court, autofocus: true, class: "validate" %>
+              </div>
+
+              <div class="input-field col s12 m6">
                 <%= form.label :exporter_tax_id, t('exporter_tax_id') %>
                 <%= form.text_field :exporter_tax_id, autofocus: true, class: "validate" %>
               </div>
