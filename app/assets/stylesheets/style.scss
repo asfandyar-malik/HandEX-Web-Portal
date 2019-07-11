@@ -200,6 +200,29 @@ h3 {
         border-radius: 4px;
       }
 
+      span.threecol.btn:hover {
+        background-color: #2541b2;
+        border: 0;
+        label {
+          color:white;
+        }
+      }
+
+      span.threecol.btn {
+        border: 0;
+        background-color: #d6d0d0;
+        border-color: #d6d0d0;
+      }
+
+      span.threecol.btn.active_selection_card {
+        //border-color: #2541b2;
+        border: 0;
+        background-color: #2541b2;
+        label {
+          color:white;
+        }
+      }
+
       span span {
         padding: 0;
         border: 0;
@@ -1093,4 +1116,12 @@ li .dot {
 
 .input-field tr {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.add_fields {
+  margin-top:5px;
+}
+
+.remove_fields {
+  margin-top:15px;
 }
