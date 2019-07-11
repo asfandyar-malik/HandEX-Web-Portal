@@ -34,7 +34,6 @@
                 <%= form.label :exporter_dn_no, t('exporter_dn_no') %>
                 <%= form.text_field :exporter_dn_no, autofocus: true, class: "validate" %>
               </div>
-
               <div class="input-field col s12">
                 <%= form.label :exporter_address_line1, t('exporter_address_line1') %>
                 <%= form.text_field :exporter_address_line1, autofocus: true, class: "validate" %>
@@ -77,16 +76,16 @@
                 <%= form.text_field :employees_count, autofocus: true, class: "validate" %>
               </div>
               <div class="input-field col s12 m6">
+                <%= form.label :exporter_last_fiscal_year, t('exporter_last_fiscal_year') %>
+                <%= form.text_field :exporter_last_fiscal_year, autofocus: true, class: "validate" %>
+              </div>
+              <div class="input-field col s12 m6">
                 <%= form.label :exporter_revenue, t('exporter_revenue') %>
                 <%= form.text_field :exporter_revenue, autofocus: true, class: "validate" %>
               </div>
               <div class="input-field col s12 m6">
                 <%= form.label :exporter_total_assets, t('exporter_total_assets') %>
                 <%= form.text_field :exporter_total_assets, autofocus: true, class: "validate" %>
-              </div>
-              <div class="input-field col s12 m12">
-                <%= form.label :exporter_last_fiscal_year, t('exporter_last_fiscal_year') %>
-                <%= form.text_field :exporter_last_fiscal_year, autofocus: true, class: "validate" %>
               </div>
               <div class="background_toggle exporter_external_rating_available <%= (@insurance.exporter_external_rating_available.present? && @insurance.exporter_external_rating_available) ? 'dialog_background' : '' %>">
                 <div class="input-field col s12 m12">
