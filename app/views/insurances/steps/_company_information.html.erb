@@ -133,25 +133,30 @@
                 </div>
 
                 <div id="newAtHermesDeckung" style="display: none">
-                  <div class="col m10 offset-m1">
-                    <p> <%= t('new_to_hermes_cover') %></p>
-                  </div>
+                    <div class="col m10">
+                        <br>
+                        <%= t('new_to_hermes_cover') %>
+                    </div>
 
-                  <div class="col m10 offset-m1">
-                    <p><i><%= t('years_trading_without_hermes_insurance') %></i></p>
-                    <div> <%= form.text_field :years_trading_without_hermes_insurance, class: "form-control" %> </div>
-                  </div>
+                    <div class="col m10">
+                        <br>
+                        <%= t('years_trading_without_hermes_insurance') %>
+                        <%= form.text_field :years_trading_without_hermes_insurance %>
+                    </div>
 
-                  <div class="col m10 offset-m1">
-                    <p><i><%= t('experience_with_importer_country') %></i></p>
-                    <%= form.text_field :experience_with_importer_country, class: "form-control" %>
-                  </div>
+                    <div class="col m10">
+                        <br>
+                        <%= t('experience_with_importer_country') %>
+                        <%= form.text_field :experience_with_importer_country %>
+                    </div>
 
-                  <div class="col m10 offset-m1 ">
-                    <p><i> <%= t('adequate_claims_management') %></i></p>
-                    <%= form.text_field :adequate_claims_management, class: "form-control" %>
-                  </div>
+                    <div class="col m10">
+                        <br>
+                        <%= t('adequate_claims_management') %>
+                        <%= form.text_field :adequate_claims_management%>
+                    </div>
                 </div>
+
               </div>
             </div>
           </div>
