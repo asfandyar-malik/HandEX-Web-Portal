@@ -22,8 +22,7 @@
   <div class="col s12">
     <div class="form-content">
       <div class="row">
-        <div class="background_toggle is_security_present_for_transaction">
-
+        <div class="background_toggle is_security_present_for_transaction  <%= (@insurance.is_security_present_for_transaction.present? && @insurance.is_security_present_for_transaction) ? 'dialog_background' : '' %>">
           <div class="input-field col s12 m12">
             <%= form.label :is_security_present_for_transaction, t('is_security_present_for_transaction') %>
             <p>
@@ -49,12 +48,10 @@
                 <% end %>
                 </tbody>
               </table>
-              <div class="input-field col m12">
-                <div class="form-actions">
-                  <%= link_to_add_association 'Hinzufügen', form, :insurance_guarantees,
-                                              :partial => 'insurances/dynamic/insurance_guarantee_fields',
-                                              class: 'btn btn-primary', data: {association_insertion_node: '.guarantees', association_insertion_method: :append} %>
-                </div>
+              <div class="form-actions">
+                <%= link_to_add_association t('add_guarantee_fields'), form, :insurance_guarantees,
+                                            :partial => 'insurances/dynamic/insurance_guarantee_fields',
+                                            class: 'btn btn-primary', data: {association_insertion_node: '.guarantees', association_insertion_method: :append} %>
               </div>
             </div>
 
@@ -150,9 +147,9 @@
               </div>
 
               <div id="workwithothercompanies">
-                <div class="input-field col m10">
+                <div class="input-field col m12">
                   <%= form.label :payment_vehichle_payment_term_short, t('payment_vehichle_payment_term_short') %>
-                  <div> <%= form.text_area :payment_vehichle_payment_term_short, class: "validate" %> </div>
+                  <div> <%= form.text_area :payment_vehichle_payment_term_short, class: "validate handex_text_area", :rows => 10 %> </div>
                 </div>
               </div>
 
@@ -385,7 +382,7 @@
                 <div class="input-field col s12 m12">
                   <p>
                     <%= form.label :interest_calculation_description, t('interest_calculation_description') %>
-                  <div> <%= form.text_area :interest_calculation_description %> </div>
+                  <div> <%= form.text_area :interest_calculation_description, class: "validate handex_text_area", :rows => 10  %> </div>
                 </div>
               </div>
             </div>
