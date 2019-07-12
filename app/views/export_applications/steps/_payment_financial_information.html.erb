@@ -130,7 +130,7 @@
                     </tbody>
                   </table>
                   <div class="form-actions">
-                    <%= link_to_add_association 'Hinzufügen', form, :agreed_payments,
+                    <%= link_to_add_association t('add_agreed_payment'), form, :agreed_payments,
                                                 :partial => 'export_applications/dynamic/agreed_payment_fields',
                                                 class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payments', association_insertion_method: :append} %>
                   </div>
