@@ -50,8 +50,8 @@
                 </table>
 
                 <div class="form-actions">
-                  <%= link_to_add_association 'Hinzufügen', form, :guarantees,
-                                              :partial => 'export_applications/dynamic/guarantee_fields',
+                  <%= link_to_add_association t('add_guarantee_fields'), form, :guarantees,
+                                                  :partial => 'export_applications/dynamic/guarantee_fields',
                                               class: 'btn btn-primary', data: {association_insertion_node: '.guarantees', association_insertion_method: :append} %>
                 </div>
               </div>
@@ -136,9 +136,9 @@
                   </div>
                 </div>
                 <div id="workwithothercompanies">
-                  <div class="input-field col m10">
+                  <div class="input-field col m12">
                     <%= form.label :payment_vehichle_payment_term_short, t('payment_vehichle_payment_term_short') %>
-                    <div> <%= form.text_area :payment_vehichle_payment_term_short, class: "validate" %> </div>
+                    <div> <%= form.text_area :payment_vehichle_payment_term_short, class: "validate handex_text_area", :rows => 10 %> </div>
                   </div>
                 </div>
               </div>
@@ -360,7 +360,7 @@
                   <div id="noDegressiveInterestRate" style="display: <%=(@export_application.degressive_interest_rate.present? && !@export_application.degressive_interest_rate)? 'block' : 'none'%>;">
                     <p>
                       <%= form.label :interest_calculation_description, t('interest_calculation_description') %>
-                    <div> <%= form.text_area :interest_calculation_description %> </div>
+                    <div> <%= form.text_area :interest_calculation_description, class: "validate handex_text_area", :rows => 10 %> </div>
                   </div>
                 </div>
               </div>
