@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_12_082212) do
+ActiveRecord::Schema.define(version: 2019_07_12_113711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -460,7 +460,7 @@ ActiveRecord::Schema.define(version: 2019_07_12_082212) do
     t.string "registration_court"
     t.string "importer_email"
     t.string "importer_phone_number"
-    t.decimal "percentage_of_service_in_whole_order"
+    t.float "percentage_of_service_in_whole_order"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
@@ -774,7 +774,7 @@ ActiveRecord::Schema.define(version: 2019_07_12_082212) do
     t.string "registration_court"
     t.string "importer_email"
     t.string "importer_phone_number"
-    t.decimal "percentage_of_service_in_whole_order"
+    t.float "percentage_of_service_in_whole_order"
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 
