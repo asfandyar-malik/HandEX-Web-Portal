@@ -1,0 +1,28 @@
+<div class="overview-header">
+  <div class="container center">
+    <div class="col s12 m12">
+      <ul>
+        <li><%= t('importer') %>
+          <div class="overview_header_value">
+            <%= (@export_application.importer_company_name.nil? or (!@export_application.importer_company_name.nil? and @export_application.importer_company_name.to_s.empty?) or (!@export_application.importer_company_name.nil? and @export_application.importer_company_name.to_s == t('please_select'))) ? render('shared/missing_icon') : @export_application.importer_company_name %>
+          </div>
+        </li>
+        <li><%= t('product') %>
+          <div class="overview_header_value">
+            <%= (@export_application.exported_goods_type.nil? or (!@export_application.exported_goods_type.nil? and @export_application.exported_goods_type.to_s.empty?) or (!@export_application.exported_goods_type.nil? and @export_application.exported_goods_type.to_s == t('please_select'))  or (!@export_application.exported_goods_type.nil? and @export_application.exported_goods_type.to_s == t('please_select_corresponding_option')) ) ? render('shared/missing_icon') : @export_application.exported_goods_type %>
+          </div>
+        </li>
+        <li><%= t('contract_value') %>
+          <div class="overview_header_value">
+            <%= (@export_application.contract_value.nil? or (!@export_application.contract_value.nil? and @export_application.contract_value.to_s.empty?) or (!@export_application.contract_value.nil? and @export_application.contract_value.to_s == t('please_select'))) ? render('shared/missing_icon') : @export_application.contract_value %>
+          </div>
+        </li>
+        <li><%= t('application_sent_at') %>
+          <div class="overview_header_value">
+            <%= (@export_application.created_at.nil? or (!@export_application.created_at.nil? and @export_application.created_at.to_s.empty?) or (!@export_application.created_at.nil? and @export_application.created_at.to_s == t('please_select'))) ? render('shared/missing_icon') : @export_application.created_at %>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

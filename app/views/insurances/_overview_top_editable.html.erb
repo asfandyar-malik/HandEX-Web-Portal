@@ -1,0 +1,22 @@
+<div class="overview-top draft">
+  <div class="row">
+    <div class="col s4 overview-top-icon">
+      <%= link_to :back do %>
+        <i class="material-icons">arrow_back</i>
+      <% end %>
+    </div>
+    <div class="col s4 overview-top-icon">
+      <div class="valign-wrapper">
+        <div class="valign h_centered">
+          <i class="custom_icon reciept-icon-white"></i>
+          <strong><%= t('draft_application') %></strong>
+        </div>
+      </div>
+    </div>
+    <div class="col s4 overview-top-button">
+      <%= form_for(@insurance, local: true, html: {multipart: true}, id: "export-application-portal") do |form| %>
+        <%= link_to t('edit'), edit_insurance_path(@insurance), class: "btn handex-btn z-depth-0 right" %>
+      <% end %>
+    </div>
+  </div>
+</div>

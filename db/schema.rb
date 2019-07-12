@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_24_143656) do
+ActiveRecord::Schema.define(version: 2019_07_12_082212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -273,7 +273,6 @@ ActiveRecord::Schema.define(version: 2019_06_24_143656) do
     t.string "number_of_installments_payment_term_both"
     t.string "payment_vehichle_payment_term_both"
     t.string "has_german_certificate_of_origin_for_only_parts_of_good"
-    t.boolean "delivery_doesnt_affects_sensitive_areas", default: false
     t.boolean "delivery_affects_natural_reserves", default: false
     t.boolean "delivery_affects_indigenous_people", default: false
     t.boolean "delivery_affects_cultural_heritage", default: false
@@ -434,7 +433,7 @@ ActiveRecord::Schema.define(version: 2019_06_24_143656) do
     t.boolean "is_company_controlled_by_mother_company", default: false
     t.string "importer_mother_company_industry"
     t.boolean "exporter_offers_servicing_for_goods", default: false
-    t.string "does_delivery_affect_sensitive_areas"
+    t.boolean "does_delivery_affect_sensitive_areas"
     t.boolean "are_goods_overhauled", default: false
     t.boolean "does_corruption_declaration_appy", default: false
     t.string "importer_tax_id"
@@ -457,6 +456,11 @@ ActiveRecord::Schema.define(version: 2019_06_24_143656) do
     t.string "degressive_interest_rate"
     t.string "interest_calculation_description"
     t.string "application_type", default: "export_application"
+    t.string "exporter_company_registration_number"
+    t.string "registration_court"
+    t.string "importer_email"
+    t.string "importer_phone_number"
+    t.decimal "percentage_of_service_in_whole_order"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
@@ -766,6 +770,11 @@ ActiveRecord::Schema.define(version: 2019_06_24_143656) do
     t.string "degressive_interest_rate"
     t.string "interest_calculation_description"
     t.string "application_type", default: "insurance"
+    t.string "exporter_company_registration_number"
+    t.string "registration_court"
+    t.string "importer_email"
+    t.string "importer_phone_number"
+    t.decimal "percentage_of_service_in_whole_order"
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 
@@ -788,6 +797,52 @@ ActiveRecord::Schema.define(version: 2019_06_24_143656) do
     t.datetime "updated_at", null: false
     t.string "payment_relevant_milestone"
     t.index ["export_application_id"], name: "index_multiple_shipments_on_export_application_id"
+  end
+
+  create_table "onboardings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "company_name"
+    t.integer "number_of_employees"
+    t.string "year_founded"
+    t.string "legal_form"
+    t.string "address_line_one"
+    t.string "address_line_two"
+    t.integer "post_code"
+    t.string "country"
+    t.string "tax_id"
+    t.string "commercial_register_name"
+    t.string "commercial_register_number"
+    t.datetime "date_of_registration"
+    t.string "last_fiscal_year"
+    t.boolean "is_euler_cover_in_past"
+    t.string "euler_dnnr_number"
+    t.boolean "is_insolvent_in_last_five_years"
+    t.boolean "is_investigated_in_last_five_years"
+    t.boolean "is_business_with_sanctioned_company"
+    t.string "business_with_sanctioned_company_name"
+    t.string "shareholder_name"
+    t.string "shareholder_participation"
+    t.boolean "is_shareholder_of_another_company"
+    t.string "shareholder_of_another_company_name"
+    t.string "shareholder_of_another_company_participation"
+    t.boolean "is_legal_representative_pep"
+    t.string "legal_representative_pep_firstname"
+    t.string "legal_representative_pep_lastname"
+    t.string "legal_representative_pep_dob"
+    t.string "legal_representative_pep_address_line_one"
+    t.integer "legal_representative_pep_postcode"
+    t.string "legal_representative_pep_country"
+    t.text "legal_representative_pep_reason"
+    t.boolean "is_source_of_fund_own_assets"
+    t.boolean "is_source_of_fund_assets_transfer"
+    t.boolean "is_source_of_fund_income_operations"
+    t.boolean "is_source_of_fund_assets_sales"
+    t.boolean "is_source_of_fund_insurance_indemnization"
+    t.boolean "is_source_of_fund_no_assets"
+    t.boolean "is_source_of_fund_other"
+    t.text "is_source_of_fund_other_specify"
+    t.string "legal_representative_pep_address_line_two"
   end
 
   create_table "refinances", force: :cascade do |t|

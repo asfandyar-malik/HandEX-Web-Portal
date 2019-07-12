@@ -84,6 +84,7 @@ de:
   amount: "Betrag"
   description: "Beschreibung"
   please_select: "Bitte auswählen"
+  please_select_currency: "Währung"
   delivery_start: "Lieferbeginn"
   delivery_end: "Lieferende"
   payment_relevant_date: "Weiterer zahlungsrelevanter Termin"
@@ -144,8 +145,8 @@ de:
   exporter_revenue: "Umsatz"
   exporter_total_assets: "Bilanzsumme"
   exporter_last_fiscal_year: "Letztes Geschäftsjahr"
-  importer_external_rating_available: "Externes Rating"
-  exporter_external_rating_available: "Externes Rating"
+  importer_external_rating_available: "Hat Ihr Kunde ein externes Rating ?"
+  exporter_external_rating_available: "Liegt für Ihr Unternehmen ein externes Rating vor ?"
   have_external_rating: "Wurde Ihr Unternehmen von einer externen Rating Agentur bewertet?"
   importer_rating: "Rating Ergebnis"
   exporter_rating: "Rating Ergebnis"
@@ -153,6 +154,9 @@ de:
   exporter_rating_agency: "Ratingagentur"
   importer_rating_issued_date: "Datum des Ratings"
   exporter_rating_issued_date: "Datum des Ratings"
+  exporter_company_registration_number: "Handelsregisternummer"
+  registration_court: "Amtsgericht"
+
 
 
   #customer information
@@ -198,7 +202,9 @@ de:
   project_funding_detail: "Bitte tragen Sie so detailiert wie möglich ein, wie das Gesamtprojekt finanziert ist"
   application_of_funds: "Mittelverwendung"
   fictitious_example_machine: "fiktives Beispiel: Maschine \"x\""
+  add_application_of_funds: "Mittelverwendung Angeben"
   source_of_funds: "Mittelherkunft"
+  add_source_of_funds: "Mittelherkunft Angeben"
   source_of_fund_description_placeholder: "z.B. \"ECA-Finanzierung\""
   how_much_entire_project_amount: "Wie hoch ist das Gesamtprojektvolumen?"
   explain_why_importer_buying_good: "Bitte helfen Sie uns nun, das Vorhaben gut zu verstehen"
@@ -238,7 +244,7 @@ de:
   total_delivery_value_excluding_servicing: "Wie hoch ist der Lieferwert der Güter exkl. anderer Leistungen (Montagen, etc.)"
   total_delivery_value_excluding_servicing_placeholder: "Lieferwert (Betrag)"
   percentage_of_spareparts_in_whole_order: "Wie hoch ist der Anteil der Ersatzteile am Lieferwert?"
-  percentage_of_spareparts_in_whole_order_placeholder: "Wert Ersatzteile in Prozent oder Betrag"
+  percentage_of_spareparts_in_whole_order_placeholder: "Wert der Ersatzteile in Prozent oder Betrag"
   other_billed_items_in_contract: "Wenn weitere Bestandteile offen gegenüber Ihrem Kunden ausgewiesen werden (bspw. Montagen, Trainings, etc.), tragen Sie diese bitte hier ein."
   contract_date_and_internal_reference: "Bitte geben Sie das Abschlussdatum des Vertrags und optional eine interne Referenz an."
   contract_signing_date: "Datum der Unterschrift"
@@ -270,6 +276,11 @@ de:
   has_payment_experience_with_security_provider: "Haben Sie bereits Zahlungserfahrungen mit Ihrem Sicherheitengeber?  "
   explain_previous_payment_experience_with_security_provider: "Bitte beschreiben Sie diese näher."
   security_provider_address: "Bitte geben Sie die Adresse des Sicherheitengebers an."
+  add_multiple_shipment_entry: "Weiteren Liefertermin Angeben"
+  add_extra_billed_item_entry: "Bestandteil Angeben"
+  add_goods_supplied_from_foreign_origin: "Zulieferung Angeben"
+  percentage_of_service_in_whole_order: "Wie hoch ist der Leistungswert ?"
+  percentage_of_service_in_whole_order_placeholder: "Wert der Lesitungen in Prozent oder Betrag"
 
   #financing
   finance_and_payment: "Zahlung & Finanzierung"
@@ -473,4 +484,14 @@ de:
   accept_terms_2: "Allgemeinen Geschäftbedingungen von HandEX"
   account_exists: "Haben Sie bereits ein Account ? Bitte loggen Sie sich ein."
   account_registration: "Konto registrieren."
+  submit: "Senden"
 
+  enter_new_value: "Neuen Wert eingeben"
+  edit: "Bearbeiten"
+  no_applications_available: ""
+  please_select_corresponding_option : "Bitte wählen Sie eine Warenkategorie, die zu Ihrem Produkt passt"
+  use_of_funds: "Mittelverwendung"
+
+  downpayment_before_delivery: "Zahlung vor der Lieferung"
+  type_of_security: "Art der Sicherheit"
+  importer_shipment_country: "Land"
