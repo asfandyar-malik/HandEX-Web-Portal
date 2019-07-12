@@ -202,7 +202,9 @@ de:
   project_funding_detail: "Bitte tragen Sie so detailiert wie möglich ein, wie das Gesamtprojekt finanziert ist"
   application_of_funds: "Mittelverwendung"
   fictitious_example_machine: "fiktives Beispiel: Maschine \"x\""
+  add_application_of_funds: "Mittelverwendung Angeben"
   source_of_funds: "Mittelherkunft"
+  add_source_of_funds: "Mittelherkunft Angeben"
   source_of_fund_description_placeholder: "z.B. \"ECA-Finanzierung\""
   how_much_entire_project_amount: "Wie hoch ist das Gesamtprojektvolumen?"
   explain_why_importer_buying_good: "Bitte helfen Sie uns nun, das Vorhaben gut zu verstehen"
@@ -274,6 +276,9 @@ de:
   has_payment_experience_with_security_provider: "Haben Sie bereits Zahlungserfahrungen mit Ihrem Sicherheitengeber?  "
   explain_previous_payment_experience_with_security_provider: "Bitte beschreiben Sie diese näher."
   security_provider_address: "Bitte geben Sie die Adresse des Sicherheitengebers an."
+  add_multiple_shipment_entry: "Weiteren Liefertermin Angeben"
+  add_extra_billed_item_entry: "Bestandteil Angeben"
+  add_goods_supplied_from_foreign_origin: "Zulieferung Angeben"
 
   #financing
   finance_and_payment: "Zahlung & Finanzierung"

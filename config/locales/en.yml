@@ -151,6 +151,11 @@ en:
   exporter_rating_issued_date: "Datum des Ratings"
   exporter_company_registration_number: "Handelsregisternummer"
   registration_court: "Amtsgericht"
+  add_application_of_funds: "Mittelverwendung Angeben"
+  add_source_of_funds: "Mittelherkunft Angeben"
+  add_multiple_shipment_entry: "Translate me"
+  add_extra_billed_item_entry: "Translate me"
+  add_goods_supplied_from_foreign_origin: "Translate me"
 
 
   #customer information

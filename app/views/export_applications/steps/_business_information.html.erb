@@ -54,7 +54,7 @@
 
           <div class="input-field col s12 ">
             <%= form.label :explain_product_service, t('explain_product_service') %>
-            <%= form.text_area :explain_product_service, autofocus: true, class: "validate, handex_text_area", :rows => 10 %>
+            <%= form.text_area :explain_product_service, autofocus: true, class: "validate handex_text_area", :rows => 10 %>
           </div>
 
           <div class="input-field col s12 m12">
@@ -112,7 +112,7 @@
 
               <div class="input-field col s12 m12">
                 <%= form.label :describe_export_business, t('describe_export_business') %>
-                <%= form.text_area :describe_export_business, autofocus: true, class: "validate", placeholder: t('describe_export_business') %>
+                <%= form.text_area :describe_export_business, autofocus: true, class: "validate handex_text_area", :rows => 10 ,placeholder: t('describe_export_business') %>
               </div>
 
               <div class="input-field col s12 m12">
@@ -158,7 +158,7 @@
                 </table>
 
                 <div class="form-actions">
-                  <%= link_to_add_association t('add'), form, :application_of_funds, :partial => 'export_applications/dynamic/application_of_fund_fields', class: 'btn btn-primary', data: {association_insertion_node: '.application_of_funds', association_insertion_method: :append} %>
+                  <%= link_to_add_association t('add_application_of_funds'), form, :application_of_funds, :partial => 'export_applications/dynamic/application_of_fund_fields', class: 'btn btn-primary', data: {association_insertion_node: '.application_of_funds', association_insertion_method: :append} %>
                 </div>
               </div>
 
@@ -174,7 +174,7 @@
                 </table>
 
                 <div class="form-actions">
-                  <%= link_to_add_association t('add'), form, :source_of_funds, :partial => 'export_applications/dynamic/source_of_fund_fields', class: 'btn btn-primary', data: {association_insertion_node: '.source_of_funds', association_insertion_method: :append} %>
+                  <%= link_to_add_association t('add_source_of_funds'), form, :source_of_funds, :partial => 'export_applications/dynamic/source_of_fund_fields', class: 'btn btn-primary', data: {association_insertion_node: '.source_of_funds', association_insertion_method: :append} %>
                 </div>
               </div>
             </div>
@@ -220,7 +220,7 @@
                   </table>
 
                   <div class="form-actions">
-                    <%= link_to_add_association t('add'), form, :multiple_shipments, :partial => 'export_applications/dynamic/multiple_shipment_fields', class: 'btn btn-primary', data: {association_insertion_node: '.multiple_shipments', association_insertion_method: :append} %>
+                    <%= link_to_add_association t('add_multiple_shipment_entry'), form, :multiple_shipments, :partial => 'export_applications/dynamic/multiple_shipment_fields', class: 'btn btn-primary', data: {association_insertion_node: '.multiple_shipments', association_insertion_method: :append} %>
                   </div>
                 </div>
               </div>
@@ -252,7 +252,7 @@
                 </table>
 
                 <div class="form-actions">
-                  <%= link_to_add_association t('add'), form, :extra_billed_items, :partial => 'export_applications/dynamic/extra_billed_item_fields', class: 'btn btn-primary', data: {association_insertion_node: '.extra_billed_items', association_insertion_method: :append} %>
+                  <%= link_to_add_association t('add_extra_billed_item_entry'), form, :extra_billed_items, :partial => 'export_applications/dynamic/extra_billed_item_fields', class: 'btn btn-primary', data: {association_insertion_node: '.extra_billed_items', association_insertion_method: :append} %>
                 </div>
               </div>
 
@@ -493,13 +493,13 @@
                   </table>
 
                   <div class="form-actions">
-                    <%= link_to_add_association 'Hinzufügen', form, :supplies_from_foreign_origins, :partial => 'export_applications/dynamic/supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins', association_insertion_method: :append} %>
+                    <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :supplies_from_foreign_origins, :partial => 'export_applications/dynamic/supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins', association_insertion_method: :append} %>
                   </div>
 
                   <div class="input-field col s12 m12">
                     <br>
                     <%= form.label :why_all_foreign_rawgoods_necessary, t('why_all_foreign_rawgoods_necessary') %>
-                    <%= form.text_area :why_all_foreign_rawgoods_necessary, class: "validate" %>
+                    <%= form.text_area :why_all_foreign_rawgoods_necessary, class: "validate handex_text_area", :rows => 10 %>
                   </div>
                 </div>
 
@@ -522,12 +522,12 @@
                     <% end %>
                     </tbody>
                   </table>
-                  <%= link_to_add_association 'Hinzufügen', form, :supplies_from_foreign_origins, :partial => 'export_applications/dynamic/supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins_partly', association_insertion_method: :append} %>
+                  <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :supplies_from_foreign_origins, :partial => 'export_applications/dynamic/supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins_partly', association_insertion_method: :append} %>
 
                   <div class="input-field col s12 m12">
                     <br>
                     <%= form.label :why_partly_foreign_rawgoods_necessary, t('why_partly_foreign_rawgoods_necessary') %>
-                    <%= form.text_area :why_partly_foreign_rawgoods_necessary, class: "validate" %>
+                    <%= form.text_area :why_partly_foreign_rawgoods_necessary, class: "validate handex_text_area", :rows => 10 %>
                   </div>
                 </div>
               </div>
