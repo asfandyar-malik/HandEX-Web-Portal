@@ -156,6 +156,8 @@ en:
   add_multiple_shipment_entry: "Translate me"
   add_extra_billed_item_entry: "Translate me"
   add_goods_supplied_from_foreign_origin: "Translate me"
+  percentage_of_service_in_whole_order: "Wie hoch ist der Leistungswert ?"
+  percentage_of_service_in_whole_order_placeholder: "Wert in Prozent oder Betrag"
 
 
   #customer information
@@ -479,3 +481,4 @@ en:
   edit: "Edit"
   no_applications_available: ""
   please_select_corresponding_option : "Please translate me"
+  importer_shipment_country: "Country"

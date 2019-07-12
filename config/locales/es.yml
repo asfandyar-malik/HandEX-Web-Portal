@@ -217,6 +217,9 @@ es:
   add_multiple_shipment_entry: "Translate me"
   add_extra_billed_item_entry: "Translate me"
   add_goods_supplied_from_foreign_origin: "Translate me"
+  percentage_of_service_in_whole_order: "Wie hoch ist der Leistungswert ?"
+  percentage_of_service_in_whole_order_placeholder: "Wert der Leistungen in Prozent oder Betrag"
+
   #financing
   your_financing: "Pago y Financiación"
   accept_partial_refinancing: "¿Está dispuesto a aceptar (re)financiación que no corresponda al valor total del pedido (85-95%)? "

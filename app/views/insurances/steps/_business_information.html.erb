@@ -111,7 +111,7 @@
 
               <div class="input-field col s12 m12">
                 <%= form.label :describe_export_business, t('describe_export_business') %>
-                <%= form.text_area :describe_export_business, autofocus: true, class: "validate", placeholder: t('describe_export_business') %>
+                <%= form.text_area :describe_export_business, autofocus: true, class: "validate handex_text_area", :rows => 10,  placeholder: t('describe_export_business') %>
               </div>
 
               <div class="input-field col s12 m12">
@@ -240,6 +240,10 @@
             <div class="input-field col s12 m12">
               <%= form.label :percentage_of_spareparts_in_whole_order, t('percentage_of_spareparts_in_whole_order') %>
               <div> <%= form.text_field :percentage_of_spareparts_in_whole_order, class: "validate", placeholder: t('percentage_of_spareparts_in_whole_order_placeholder'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+            </div>
+            <div class="input-field col s12 m12">
+              <%= form.label :percentage_of_service_in_whole_order, t('percentage_of_service_in_whole_order') %>
+              <div> <%= form.text_field :percentage_of_service_in_whole_order, class: "validate", placeholder: t('percentage_of_service_in_whole_order_placeholder'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
             </div>
             <div class="input-field col s12 m12">
               <%= form.label :other_billed_items_in_contract, t('other_billed_items_in_contract') %>

@@ -242,6 +242,10 @@
                 <div> <%= form.text_field :percentage_of_spareparts_in_whole_order, class: "validate", placeholder: t('percentage_of_spareparts_in_whole_order_placeholder'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
               </div>
               <div class="input-field col s12 m12">
+                <%= form.label :percentage_of_service_in_whole_order, t('percentage_of_service_in_whole_order') %>
+                <div> <%= form.text_field :percentage_of_service_in_whole_order, class: "validate", placeholder: t('percentage_of_service_in_whole_order_placeholder'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+              </div>
+              <div class="input-field col s12 m12">
                 <%= form.label :other_billed_items_in_contract, t('other_billed_items_in_contract') %>
                 <table class='table'>
                   <tbody class='extra_billed_items'>
