@@ -338,7 +338,7 @@
               </div>
               <div class="input-field col s12 m12" id="explain_sensitive_area_type">
                 <%= form.label :explain_sensitive_area_type, t('explain_sensitive_area_type') %>
-                <%= form.text_area :explain_sensitive_area_type, autofocus: true, class: "validate" %>
+                <%= form.text_area :explain_sensitive_area_type, autofocus: true, class: "validate handex_text_area", :rows => 10 %>
               </div>
             </div>
 
@@ -390,7 +390,7 @@
             <div id="deliverySecondHandGoods" style="display: <%= (@insurance.are_secondhand_goods_delivered.present? && @insurance.are_secondhand_goods_delivered)? 'block' : 'none' %>;">
               <div class="input-field col s12">
                 <%= form.label :manufacture_year, t('manufacture_year') %>
-                <%= form.text_area :manufacture_year, autofocus: true, class: "validate" %>
+                <%= form.text_field :manufacture_year, autofocus: true, class: "validate" %>
               </div>
               <div class="input-field col s12">
                 <%= form.label :remaining_life, t('remaining_life') %>
@@ -452,7 +452,7 @@
             <div id="explainStructure" style="display: <%= (@insurance.has_special_contract_structure.present? && @insurance.has_special_contract_structure)? 'block' : 'none' %>;">
               <div class="input-field col s12 m12">
                 <%= form.label :explain_special_structure, t('explain_special_structure') %>
-                <div> <%= form.text_area :explain_special_structure, class: "validate" %> </div>
+                <div> <%= form.text_area :explain_special_structure, class: "validate handex_text_area", :rows => 10 %> </div>
               </div>
             </div>
           </div>
@@ -503,7 +503,7 @@
                 <div class="input-field col s12 m12">
                   <br>
                   <%= form.label :why_all_foreign_rawgoods_necessary, t('why_all_foreign_rawgoods_necessary') %>
-                  <%= form.text_area :why_all_foreign_rawgoods_necessary, class: "validate" %>
+                  <%= form.text_area :why_all_foreign_rawgoods_necessary, class: "validate handex_text_area", :rows => 10  %>
                 </div>
               </div>
 
@@ -531,7 +531,7 @@
                 <div class="input-field col s12 m12">
                   <br>
                   <%= form.label :why_partly_foreign_rawgoods_necessary, t('why_partly_foreign_rawgoods_necessary') %>
-                  <%= form.text_area :why_partly_foreign_rawgoods_necessary, class: "validate" %>
+                  <%= form.text_area :why_partly_foreign_rawgoods_necessary, class: "validate handex_text_area", :rows => 10 %>
                 </div>
               </div>
             </div>
