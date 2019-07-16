@@ -341,7 +341,7 @@
                 </div>
                 <div class="input-field col s12 m12" id="explain_sensitive_area_type">
                   <%= form.label :explain_sensitive_area_type, t('explain_sensitive_area_type') %>
-                  <%= form.text_area :explain_sensitive_area_type, autofocus: true, class: "validate" %>
+                  <%= form.text_area :explain_sensitive_area_type, autofocus: true, class: "validate handex_text_area", :rows => 10 %>
                 </div>
               </div>
 
@@ -393,7 +393,7 @@
               <div id="deliverySecondHandGoods" style="display: <%= (@export_application.are_secondhand_goods_delivered.present? && @export_application.are_secondhand_goods_delivered)? 'block' : 'none' %>;">
                 <div class="input-field col s12">
                   <%= form.label :manufacture_year, t('manufacture_year') %>
-                  <%= form.text_area :manufacture_year, autofocus: true, class: "validate" %>
+                  <%= form.text_field :manufacture_year, autofocus: true, class: "validate" %>
                 </div>
                 <div class="input-field col s12">
                   <%= form.label :remaining_life, t('remaining_life') %>
@@ -455,7 +455,7 @@
               <div id="explainStructure" style="display: <%= (@export_application.has_special_contract_structure.present? && @export_application.has_special_contract_structure)? 'block' : 'none' %>;">
                 <div class="input-field col s12 m12">
                   <%= form.label :explain_special_structure, t('explain_special_structure') %>
-                  <div> <%= form.text_area :explain_special_structure, class: "validate" %> </div>
+                  <div> <%= form.text_area :explain_special_structure, class: "validate handex_text_area", :rows => 10 %> </div>
                 </div>
               </div>
             </div>
