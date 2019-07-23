@@ -82,19 +82,27 @@
                                 <%= form.label :exporter_total_assets, t('exporter_total_assets') %>
                                 <%= form.text_field :exporter_total_assets, autofocus: true, class: "validate" %>
                             </div>
+
+
                             <div class="background_toggle exporter_external_rating_available <%= (@export_application.exporter_external_rating_available.present? && @export_application.exporter_external_rating_available) ? 'dialog_background' : '' %>">
+
                                 <div class="input-field col s12 m12">
                                     <%= form.label :exporter_external_rating_available, t('exporter_external_rating_available') %>
-                                    <p>
-                                        <label>
-                                            <%= check_box_tag "export_application[exporter_external_rating_available]", @export_application.exporter_external_rating_available ? @export_application.exporter_external_rating_available : nil, false, :onclick => "exporterExternalRatingFunction();", id: "export_application_exporter_external_rating_available" %>
-                                            <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.exporter_external_rating_available.present? && @export_application.exporter_external_rating_available) %>"><%= t :yes_button %></span>
-                                        </label>
+                                    <br><br>
 
-                                        <label onclick="noExporterExternalRatingFunction()">
-                                            <span class="no yes-no-btns <%= 'active-btn' if (@export_application.exporter_external_rating_available.present? && !@export_application.exporter_external_rating_available) %>"><%= t :no_button %></span>
-                                        </label>
-                                    </p>
+                                    <label onclick="exporterExternalRatingFunction()">
+                                        <span class="yes yes-no-btns exporter_external_rating_available <%= 'active-btn' if (@export_application.exporter_external_rating_available) %>">
+                                            <%= check_box_tag "export_application[exporter_external_rating_available]", '1' %>
+                                            <%= t :yes_button %>
+                                        </span>
+                                    </label>
+
+                                    <label onclick="noExporterExternalRatingFunction()">
+                                        <span class="no yes-no-btns exporter_external_rating_available <%= 'active-btn' if (!@export_application.exporter_external_rating_available.nil? && !@export_application.exporter_external_rating_available) %>">
+                                            <%= check_box_tag "export_application[exporter_external_rating_available]", '0' %>
+                                            <%= t :no_button %>
+                                        </span>
+                                    </label>
                                 </div>
 
                                 <div id="exporterExternalRating" style="display: <%= (@export_application.exporter_external_rating_available.present? && @export_application.exporter_external_rating_available)? 'block' : 'none' %>;">
@@ -111,23 +119,31 @@
                                         <%= form.text_field :exporter_rating_issued_date, autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
                                     </div>
                                 </div>
+
                             </div>
-                            <div class="background_toggle has_previously_used_hermes_cover">
+
+                            <div class="background_toggle has_previously_used_hermes_cover <%= (!@export_application.has_previously_used_hermes_cover.nil? && !@export_application.has_previously_used_hermes_cover) ? 'dialog_background' : '' %>">
+
                                 <div class="input-field col s12 m12">
                                     <%= form.label :has_previously_used_hermes_cover, t('has_previously_used_hermes_cover') %>
-                                    <p>
-                                        <label>
-                                            <%= check_box_tag "export_application[has_previously_used_hermes_cover]", @export_application.has_previously_used_hermes_cover ? @export_application.has_previously_used_hermes_cover : nil, false, :onclick => "previouslyHermesInsuranceUsed();", id: "export_application_has_previously_used_hermes_cover" %>
-                                            <span class="yes yes-no-btns  <%= 'active-btn' if (@export_application.has_previously_used_hermes_cover.present? && @export_application.has_previously_used_hermes_cover) %>"><%= t :yes_button %></span>
-                                        </label>
+                                    <br><br>
 
-                                        <label onclick="noPreviouslyHermesInsuranceUsed()">
-                                            <span class="no yes-no-btns  <%= 'active-btn' if (@export_application.has_previously_used_hermes_cover.present? && !@export_application.has_previously_used_hermes_cover) %>"><%= t :no_button %></span>
-                                        </label>
-                                    </p>
+                                    <label onclick="previouslyHermesInsuranceUsed()">
+                                        <span class="yes yes-no-btns has_previously_used_hermes_cover <%= 'active-btn' if (@export_application.has_previously_used_hermes_cover) %>">
+                                            <%= check_box_tag "export_application[has_previously_used_hermes_cover]", '1' %>
+                                            <%= t :yes_button %>
+                                        </span>
+                                    </label>
+
+                                    <label onclick="noPreviouslyHermesInsuranceUsed()">
+                                        <span class="no yes-no-btns has_previously_used_hermes_cover <%= 'active-btn' if (!@export_application.has_previously_used_hermes_cover.nil? && !@export_application.has_previously_used_hermes_cover) %>">
+                                            <%= check_box_tag "export_application[has_previously_used_hermes_cover]", '0' %>
+                                            <%= t :no_button %>
+                                        </span>
+                                    </label>
                                 </div>
 
-                                <div id="newAtHermesDeckung" style="display: none">
+                                <div id="newAtHermesDeckung" style="display: <%= (!@export_application.has_previously_used_hermes_cover.nil? && !@export_application.has_previously_used_hermes_cover)? 'block' : 'none' %>;">
                                     <div class="col m10">
                                         <br>
                                         <%= t('new_to_hermes_cover') %>
@@ -136,7 +152,7 @@
                                     <div class="col m10">
                                         <br>
                                         <%= t('years_trading_without_hermes_insurance') %>
-                                         <%= form.text_field :years_trading_without_hermes_insurance %>
+                                        <%= form.text_field :years_trading_without_hermes_insurance %>
                                     </div>
 
                                     <div class="col m10">
@@ -148,7 +164,7 @@
                                     <div class="col m10">
                                         <br>
                                         <%= t('adequate_claims_management') %>
-                                        <%= form.text_field :adequate_claims_management%>
+                                        <%= form.text_field :adequate_claims_management %>
                                     </div>
                                 </div>
 

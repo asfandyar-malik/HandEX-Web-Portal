@@ -60,28 +60,26 @@
         });
     });
 
-    var curremt_tab = 1;
-
     $(document).ready(function () {
         $('.datepicker').datepicker();
     });
 
-    $(".yes-no-btns").click(function (e) {
-        $(this).toggleClass("active-btn");
-        if ($(this).hasClass("yes")) {
-            // $(this).closest(".input-field").find(".hide-section").toggle();
-            $(this).closest('p').find('.no.yes-no-btns').removeClass("active-btn");
-            $(this).closest('p').find('.part.yes-no-btns').removeClass("active-btn");
-        } else if ($(this).hasClass("part")) {
-            $(this).closest('p').find('.no.yes-no-btns').removeClass("active-btn");
-            $(this).closest('p').find('.yes.yes-no-btns').removeClass("active-btn");
-        }
-        else {
-            // $(this).closest(".input-field").find(".hide-section").hide();
-            $(this).closest('p').find('.yes.yes-no-btns').removeClass("active-btn");
-            $(this).closest('p').find('.part.yes-no-btns').removeClass("active-btn");
-        }
-    });
+    // $(".yes-no-btns").click(function (e) {
+    //     $(this).toggleClass("active-btn");
+    //     if ($(this).hasClass("yes")) {
+    //         // $(this).closest(".input-field").find(".hide-section").toggle();
+    //         $(this).closest('p').find('.no.yes-no-btns').removeClass("active-btn");
+    //         $(this).closest('p').find('.part.yes-no-btns').removeClass("active-btn");
+    //     } else if ($(this).hasClass("part")) {
+    //         $(this).closest('p').find('.no.yes-no-btns').removeClass("active-btn");
+    //         $(this).closest('p').find('.yes.yes-no-btns').removeClass("active-btn");
+    //     }
+    //     else {
+    //         // $(this).closest(".input-field").find(".hide-section").hide();
+    //         $(this).closest('p').find('.yes.yes-no-btns').removeClass("active-btn");
+    //         $(this).closest('p').find('.part.yes-no-btns').removeClass("active-btn");
+    //     }
+    // });
 
     function changeTabs(current_tab_index) {
         $('.tab').hide();
@@ -176,19 +174,20 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_has_previously_used_hermes_cover').prop('checked', true);
         $('.has_previously_used_hermes_cover').removeClass('dialog_background');
+        $('.yes.yes-no-btns.has_previously_used_hermes_cover').addClass('active-btn');
+        $('.no.yes-no-btns.has_previously_used_hermes_cover').removeClass('active-btn');
     }
 
     function noPreviouslyHermesInsuranceUsed() {
         var x = document.getElementById("newAtHermesDeckung");
         if (x.style.display === "none") {
             x.style.display = "block";
-        } else {
-            x.style.display = "none";
+            $('.no.yes-no-btns.has_previously_used_hermes_cover').addClass('active-btn');
         }
-        $('#export_application_has_previously_used_hermes_cover').prop('checked', false);
-        $('.has_previously_used_hermes_cover').toggleClass('dialog_background');
+
+        $('.yes.yes-no-btns.has_previously_used_hermes_cover').removeClass('active-btn');
+        $('.has_previously_used_hermes_cover').addClass('dialog_background');
     }
 
     function germanCertificateOfOrigin() {
@@ -288,14 +287,13 @@
     }
 
     function exporterExternalRatingFunction() {
-        var y = document.getElementById("exporterExternalRating");
-        if (y.style.display === "none") {
-            y.style.display = "block";
-        } else {
-            y.style.display = "none";
+        var x = document.getElementById("exporterExternalRating");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('.yes.yes-no-btns.exporter_external_rating_available').addClass('active-btn');
         }
-        $('#export_application_exporter_external_rating_available').prop('checked', true);
-        $('.exporter_external_rating_available').toggleClass('dialog_background');
+        $('.no.yes-no-btns.exporter_external_rating_available').removeClass('active-btn');
+        $('.exporter_external_rating_available').addClass('dialog_background');
     }
 
     function noExporterExternalRatingFunction() {
@@ -303,19 +301,19 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_exporter_external_rating_available').prop('checked', false);
         $('.exporter_external_rating_available').removeClass('dialog_background');
+        $('.no.yes-no-btns.exporter_external_rating_available').addClass('active-btn');
+        $('.yes.yes-no-btns.exporter_external_rating_available').removeClass('active-btn');
     }
 
     function importerExternalRatingFunction() {
-        var y = document.getElementById("importerExternalRating");
-        if (y.style.display === "none") {
-            y.style.display = "block";
-        } else {
-            y.style.display = "none";
+        var x = document.getElementById("importerExternalRating");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('.yes.yes-no-btns.importer_external_rating_available').addClass('active-btn');
         }
-        $('#export_application_importer_external_rating_available').prop('checked', true);
-        $('.importer_external_rating_available').toggleClass('dialog_background');
+        $('.no.yes-no-btns.importer_external_rating_available').removeClass('active-btn');
+        $('.importer_external_rating_available').addClass('dialog_background');
     }
 
     function noImporterExternalRatingFunction() {
@@ -323,37 +321,29 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_importer_external_rating_available').prop('checked', false);
         $('.importer_external_rating_available').removeClass('dialog_background');
+        $('.no.yes-no-btns.importer_external_rating_available').addClass('active-btn');
+        $('.yes.yes-no-btns.importer_external_rating_available').removeClass('active-btn');
     }
 
     function controlledByMotherCompany() {
-        var y = document.getElementById("motherCompanyControl");
-        if (y.style.display === "none") {
-            y.style.display = "block";
-        } else {
-            y.style.display = "none";
-        }
-        $('#export_application_is_company_controlled_by_mother_company').prop('checked', true);
+        $('.yes.yes-no-btns.is_company_controlled_by_mother_company').addClass('active-btn');
+        $('.no.yes-no-btns.is_company_controlled_by_mother_company').removeClass('active-btn');
     }
 
     function notControlledByMotherCompany() {
-        var x = document.getElementById("motherCompanyControl");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        }
-        $('#export_application_is_company_controlled_by_mother_company').prop('checked', false);
+        $('.no.yes-no-btns.is_company_controlled_by_mother_company').addClass('active-btn');
+        $('.yes.yes-no-btns.is_company_controlled_by_mother_company').removeClass('active-btn');
     }
 
     function significantInfluenceOnImporter() {
-        var y = document.getElementById("significantInfluenceImporter");
-        if (y.style.display === "none") {
-            y.style.display = "block";
-        } else {
-            y.style.display = "none";
+        var x = document.getElementById("significantInfluenceImporter");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('.yes.yes-no-btns.has_significant_influence_on_importer_management').addClass('active-btn');
         }
-        $('#export_application_has_significant_influence_on_importer_management').prop('checked', true);
-        $('.has_significant_influence_on_importer_management').toggleClass('dialog_background');
+        $('.no.yes-no-btns.has_significant_influence_on_importer_management').removeClass('active-btn');
+        $('.has_significant_influence_on_importer_management').addClass('dialog_background');
     }
 
     function noSignificantInfluenceOnImporter() {
@@ -361,8 +351,9 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_has_significant_influence_on_importer_management').prop('checked', false);
         $('.has_significant_influence_on_importer_management').removeClass('dialog_background');
+        $('.no.yes-no-btns.has_significant_influence_on_importer_management').addClass('active-btn');
+        $('.yes.yes-no-btns.has_significant_influence_on_importer_management').removeClass('active-btn');
     }
 
     function investmentGoods() {
@@ -377,25 +368,25 @@
         $("#firstdrop").show();
     }
 
-
     function deliveredAtThisAddress() {
         var x = document.getElementById("deliveryAddress");
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_is_delivered_at_this_address').prop('checked', true);
         $('.is_delivered_at_this_address').removeClass('dialog_background');
+        $('.yes.yes-no-btns.is_delivered_at_this_address').addClass('active-btn');
+        $('.no.yes-no-btns.is_delivered_at_this_address').removeClass('active-btn');
     }
 
     function noDeliveredAtThisAddress() {
         var x = document.getElementById("deliveryAddress");
         if (x.style.display === "none") {
             x.style.display = "block";
-        } else {
-            x.style.display = "none";
+            $('.no.yes-no-btns.is_delivered_at_this_address').addClass('active-btn');
         }
-        $('#export_application_is_delivered_at_this_address').prop('checked', false);
-        $('.is_delivered_at_this_address').toggleClass('dialog_background');
+
+        $('.yes.yes-no-btns.is_delivered_at_this_address').removeClass('active-btn');
+        $('.is_delivered_at_this_address').addClass('dialog_background');
     }
 
     function fixedInterestRate() {
@@ -420,12 +411,24 @@
         $('#degressiveInterestRate').prop('checked', false);
     }
 
-    function noPrivate_sector() {
-        $('#export_application_is_exporting_to_private_sector').prop('checked', false);
+    function privateSector() {
+        $('.yes.yes-no-btns.is_exporting_to_private_sector').addClass('active-btn');
+        $('.no.yes-no-btns.is_exporting_to_private_sector').removeClass('active-btn');
     }
 
-    function noPaymentExperience() {
-        $('#export_application_has_payment_experience_with_importer').prop('checked', false);
+    function noPrivateSector() {
+        $('.no.yes-no-btns.is_exporting_to_private_sector').addClass('active-btn');
+        $('.yes.yes-no-btns.is_exporting_to_private_sector').removeClass('active-btn');
+    }
+
+    function paymentExperienceWithImporter() {
+        $('.yes.yes-no-btns.has_payment_experience_with_importer').addClass('active-btn');
+        $('.no.yes-no-btns.has_payment_experience_with_importer').removeClass('active-btn');
+    }
+
+    function noPaymentExperienceWithImporter() {
+        $('.yes.yes-no-btns.has_payment_experience_with_importer').removeClass('active-btn');
+        $('.no.yes-no-btns.has_payment_experience_with_importer').addClass('active-btn');
     }
 
     function servicingForGoods() {

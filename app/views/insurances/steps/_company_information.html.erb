@@ -87,20 +87,26 @@
                                 <%= form.label :exporter_total_assets, t('exporter_total_assets') %>
                                 <%= form.text_field :exporter_total_assets, autofocus: true, class: "validate" %>
                             </div>
+
                             <div class="background_toggle exporter_external_rating_available <%= (@insurance.exporter_external_rating_available.present? && @insurance.exporter_external_rating_available) ? 'dialog_background' : '' %>">
 
                                 <div class="input-field col s12 m12">
                                     <%= form.label :exporter_external_rating_available, t('exporter_external_rating_available') %>
-                                    <p>
-                                        <label>
-                                            <%= check_box_tag "insurance[exporter_external_rating_available]", @insurance.exporter_external_rating_available ? @insurance.exporter_external_rating_available : nil, false, :onclick => "exporterExternalRatingFunction();", id: "insurance_exporter_external_rating_available" %>
-                                            <span class="yes yes-no-btns <%= 'active-btn' if (@insurance.exporter_external_rating_available.present? && @insurance.exporter_external_rating_available) %>"><%= t :yes_button %></span>
-                                        </label>
+                                    <br><br>
 
-                                        <label onclick="noExporterExternalRatingFunction()">
-                                            <span class="no yes-no-btns <%= 'active-btn' if (@insurance.exporter_external_rating_available.present? && !@insurance.exporter_external_rating_available) %>"><%= t :no_button %></span>
-                                        </label>
-                                    </p>
+                                    <label onclick="exporterExternalRatingFunction()">
+                                        <span class="yes yes-no-btns exporter_external_rating_available <%= 'active-btn' if (@insurance.exporter_external_rating_available) %>">
+                                            <%= check_box_tag "insurance[exporter_external_rating_available]", '1' %>
+                                            <%= t :yes_button %>
+                                        </span>
+                                    </label>
+
+                                    <label onclick="noExporterExternalRatingFunction()">
+                                        <span class="no yes-no-btns exporter_external_rating_available <%= 'active-btn' if (!@insurance.exporter_external_rating_available.nil? && !@insurance.exporter_external_rating_available) %>">
+                                            <%= check_box_tag "insurance[exporter_external_rating_available]", '0' %>
+                                            <%= t :no_button %>
+                                        </span>
+                                    </label>
                                 </div>
 
                                 <div id="exporterExternalRating" style="display: <%= (@insurance.exporter_external_rating_available.present? && @insurance.exporter_external_rating_available)? 'block' : 'none' %>;">
@@ -119,22 +125,29 @@
                                 </div>
 
                             </div>
-                            <div class="background_toggle has_previously_used_hermes_cover">
+
+                            <div class="background_toggle has_previously_used_hermes_cover <%= (!@insurance.has_previously_used_hermes_cover.nil? && !@insurance.has_previously_used_hermes_cover) ? 'dialog_background' : '' %>">
+
                                 <div class="input-field col s12 m12">
                                     <%= form.label :has_previously_used_hermes_cover, t('has_previously_used_hermes_cover') %>
-                                    <p>
-                                        <label>
-                                            <%= check_box_tag "insurance[has_previously_used_hermes_cover]", @insurance.has_previously_used_hermes_cover ? @insurance.has_previously_used_hermes_cover : nil, false, :onclick => "previouslyHermesInsuranceUsed();", id: "insurance_has_previously_used_hermes_cover" %>
-                                            <span class="yes yes-no-btns  <%= 'active-btn' if (@insurance.has_previously_used_hermes_cover.present? && @insurance.has_previously_used_hermes_cover) %>"><%= t :yes_button %></span>
-                                        </label>
+                                    <br><br>
 
-                                        <label onclick="noPreviouslyHermesInsuranceUsed()">
-                                            <span class="no yes-no-btns  <%= 'active-btn' if (@insurance.has_previously_used_hermes_cover.present? && !@insurance.has_previously_used_hermes_cover) %>"><%= t :no_button %></span>
-                                        </label>
-                                    </p>
+                                    <label onclick="previouslyHermesInsuranceUsed()">
+                                        <span class="yes yes-no-btns has_previously_used_hermes_cover <%= 'active-btn' if (@insurance.has_previously_used_hermes_cover) %>">
+                                            <%= check_box_tag "insurance[has_previously_used_hermes_cover]", '1' %>
+                                            <%= t :yes_button %>
+                                        </span>
+                                    </label>
+
+                                    <label onclick="noPreviouslyHermesInsuranceUsed()">
+                                        <span class="no yes-no-btns has_previously_used_hermes_cover <%= 'active-btn' if (!@insurance.has_previously_used_hermes_cover.nil? && !@insurance.has_previously_used_hermes_cover) %>">
+                                            <%= check_box_tag "insurance[has_previously_used_hermes_cover]", '0' %>
+                                            <%= t :no_button %>
+                                        </span>
+                                    </label>
                                 </div>
 
-                                <div id="newAtHermesDeckung" style="display: none">
+                                <div id="newAtHermesDeckung" style="display: <%= (!@insurance.has_previously_used_hermes_cover.nil? && !@insurance.has_previously_used_hermes_cover)? 'block' : 'none' %>;">
                                     <div class="col m10">
                                         <br>
                                         <%= t('new_to_hermes_cover') %>

@@ -1,6 +1,6 @@
 en:
-  yes_button: "Ja"
-  no_button: "Nein"
+  yes_button: "Yes"
+  no_button: "No"
   errors:
     messages:
       already_confirmed: "wurde bereits bestätigt"
