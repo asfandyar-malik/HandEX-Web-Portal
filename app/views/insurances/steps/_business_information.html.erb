@@ -161,7 +161,7 @@
                                 <%= form.label :use_of_funds, t('use_of_funds') %>
 
                                 <table class='table'>
-                                    <tbody class='insurance_application_of_funds'>
+                                    <tbody class='application_of_funds'>
                                     <%= form.fields_for :insurance_application_of_funds do |builder| %>
                                         <%= render 'insurances/dynamic/insurance_application_of_fund_fields', f: builder %>
                                     <% end %>
@@ -555,7 +555,7 @@
                                     <th></th>
                                 </tr>
                                 </thead>
-                                <tbody class='insurance_supplies_from_foreign_origins'>
+                                <tbody class='supplies_from_foreign_origins'>
                                 <%= form.fields_for :insurance_supplies_from_foreign_origins do |builder| %>
                                     <%= render 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', f: builder %>
                                 <% end %>
@@ -586,7 +586,7 @@
                                     <th></th>
                                 </tr>
                                 </thead>
-                                <tbody class='insurance_supplies_from_foreign_origins_partly'>
+                                <tbody class='supplies_from_foreign_origins_partly'>
                                 <%= form.fields_for :insurance_supplies_from_foreign_origins do |builder| %>
                                     <%= render 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', f: builder %>
                                 <% end %>
