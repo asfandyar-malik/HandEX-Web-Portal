@@ -64,23 +64,6 @@
         $('.datepicker').datepicker();
     });
 
-    // $(".yes-no-btns").click(function (e) {
-    //     $(this).toggleClass("active-btn");
-    //     if ($(this).hasClass("yes")) {
-    //         // $(this).closest(".input-field").find(".hide-section").toggle();
-    //         $(this).closest('p').find('.no.yes-no-btns').removeClass("active-btn");
-    //         $(this).closest('p').find('.part.yes-no-btns').removeClass("active-btn");
-    //     } else if ($(this).hasClass("part")) {
-    //         $(this).closest('p').find('.no.yes-no-btns').removeClass("active-btn");
-    //         $(this).closest('p').find('.yes.yes-no-btns').removeClass("active-btn");
-    //     }
-    //     else {
-    //         // $(this).closest(".input-field").find(".hide-section").hide();
-    //         $(this).closest('p').find('.yes.yes-no-btns').removeClass("active-btn");
-    //         $(this).closest('p').find('.part.yes-no-btns').removeClass("active-btn");
-    //     }
-    // });
-
     function changeTabs(current_tab_index) {
         $('.tab').hide();
         $('.step_' + current_tab_index).show();
@@ -206,7 +189,7 @@
         }
         $('.yes.yes-no-btns.has_german_certificate_of_origin').addClass('active-btn');
         $('.no.yes-no-btns.has_german_certificate_of_origin').removeClass('active-btn');
-        $('.no.yes-no-btns.has_german_certificate_of_origin_for_only_parts_of_good').removeClass('active-btn');
+        $('.partly.yes-no-btns.has_german_certificate_of_origin_for_only_parts_of_good').removeClass('active-btn');
         $('.has_german_certificate_of_origin').removeClass('dialog_background');
     }
 
