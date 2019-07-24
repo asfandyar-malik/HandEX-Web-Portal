@@ -155,16 +155,20 @@
                     </div>
 
                     <div class="input-field col s12 m12">
-                        <p>
-                            <label>
-                                <%= check_box_tag "export_application[does_corruption_declaration_apply]", @export_application.does_corruption_declaration_apply ? @export_application.does_corruption_declaration_apply : nil, false, :onclick => "corruptionDeclaration();", id: "export_application_does_corruption_declaration_apply" %>
-                                <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.does_corruption_declaration_apply.present? && @export_application.does_corruption_declaration_apply) %>">Trifft zu</span>
-                            </label>
 
-                            <label onclick="noCorruptionDeclaration()">
-                                <span class="no yes-no-btns <%= 'active-btn' if (@export_application.does_corruption_declaration_apply.present? && !@export_application.does_corruption_declaration_apply) %>">Trifft nicht zu</span>
-                            </label>
-                        </p>
+                        <label onclick="corruptionDeclaration()">
+                            <span class="yes yes-no-btns does_corruption_declaration_apply <%= 'active-btn' if (@export_application.does_corruption_declaration_apply) %>">
+                                <%= check_box_tag "export_application[does_corruption_declaration_apply]", '1' %>
+                                Trifft zu
+                            </span>
+                        </label>
+
+                        <label onclick="noCorruptionDeclaration()">
+                            <span class="no yes-no-btns does_corruption_declaration_apply <%= 'active-btn' if (!@export_application.does_corruption_declaration_apply.nil? && !@export_application.does_corruption_declaration_apply) %>">
+                                <%= check_box_tag "export_application[does_corruption_declaration_apply]", '0' %>
+                                Trifft nicht zu
+                            </span>
+                        </label>
                     </div>
 
                     <div id="corruptionDeclaration" style="display: none">
@@ -187,21 +191,22 @@
                     <label>
                         <input type="checkbox"/>
                         <span class="terms">
-                                                <%= t("has_accepted_terms_conditions_one_html", href: link_to(t('has_accepted_terms_conditions_one_text'), t("has_accepted_terms_conditions_one_href"), target: "_blank", rel: "noopener noreferrer")) %>
+                            <%= t("has_accepted_terms_conditions_one_html", href: link_to(t('has_accepted_terms_conditions_one_text'), t("has_accepted_terms_conditions_one_href"), target: "_blank", rel: "noopener noreferrer")) %>
 
                             <%= t("has_accepted_terms_conditions_two_html", href: link_to(t('has_accepted_terms_conditions_two_text'), t("has_accepted_terms_conditions_two_href"), target: "_blank", rel: "noopener noreferrer")) %>
-                                            </span>
+
+                        </span>
                     </label>
                 </div>
-
 
                 <div class="input-field col s12 m12">
                     <%#= form.check_box :has_read_privacy_policy, type: "checkbox"%>
                     <label>
                         <input type="checkbox"/>
                         <span class="terms">
-                                                <%= t("has_read_privacy_policy_html", href: link_to(t('has_read_privacy_policy_text'), t("has_read_privacy_policy_href"), target: "_blank", rel: "noopener noreferrer")) %>
-                                            </span>
+                            <%= t("has_read_privacy_policy_html", href: link_to(t('has_read_privacy_policy_text'), t("has_read_privacy_policy_href"), target: "_blank", rel: "noopener noreferrer")) %>
+
+                        </span>
                     </label>
                 </div>
 
@@ -210,8 +215,8 @@
                     <label>
                         <input type="checkbox"/>
                         <span class="terms">
-                                                <%= t("read_all_instruction_html", href: link_to(t('read_all_instruction_text'), t("read_all_instruction_href"), target: "_blank", rel: "noopener noreferrer")) %>
-                                            </span>
+                            <%= t("read_all_instruction_html", href: link_to(t('read_all_instruction_text'), t("read_all_instruction_href"), target: "_blank", rel: "noopener noreferrer")) %>
+                        </span>
                     </label>
                 </div>
 

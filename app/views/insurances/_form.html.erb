@@ -675,13 +675,12 @@
     }
 
     function corruptionDeclaration() {
-        var y = document.getElementById("corruptionDeclaration");
-        if (y.style.display === "none") {
-            y.style.display = "block";
-        } else {
-            y.style.display = "none";
+        var x = document.getElementById("corruptionDeclaration");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('.yes.yes-no-btns.does_corruption_declaration_apply').addClass('active-btn');
         }
-        $('#insurance_does_corruption_declaration_apply').prop('checked', true);
+        $('.no.yes-no-btns.does_corruption_declaration_apply').removeClass('active-btn');
     }
 
     function noCorruptionDeclaration() {
@@ -689,7 +688,8 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#insurance_does_corruption_declaration_apply').prop('checked', false);
+        $('.no.yes-no-btns.does_corruption_declaration_apply').addClass('active-btn');
+        $('.yes.yes-no-btns.does_corruption_declaration_apply').removeClass('active-btn');
     }
 
     function goodsOverhaulCountryIfGermanyHandler() {
