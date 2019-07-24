@@ -331,7 +331,9 @@
 
                             <div id="yesCustomerCountInterest" style="display: <%=(@export_application.is_interest_charged_to_importer.present? && @export_application.is_interest_charged_to_importer)? 'block' : 'none'%>;">
 
-                                <%= form.label :interest, t('interest') %>
+                                <div class="input-field col s12 m12">
+                                    <%= form.label :interest, t('interest') %>
+                                </div>
 
                                 <div class="input-field col s12 m4">
 
