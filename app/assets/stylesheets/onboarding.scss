@@ -142,11 +142,16 @@ ul.progressbar p {
 }
 
  #business_activities {
-  height: 100px;
+  height: 150px;
 }
 
+ #df-change{
+   height: 150px;
+
+ }
+
  #countries_business_activities{
-   height: 100px;
+   height: 150px;
 
  }
 
@@ -221,7 +226,6 @@ p.light-test {
   color: #a6a8ac;
 }
 form.share-holder-section {
-  width: 75%;
   margin: 0 auto;
 }
 .another {
@@ -247,9 +251,8 @@ textarea#textarea1 {
   background-color: #2541b2 !important;
 }
 input#specify {
-  width: 70%;
-  margin: 0 auto;
-  display: table;
+  width: 700px;
+
 }
 .form-section span.active {
   background: #2541b2;

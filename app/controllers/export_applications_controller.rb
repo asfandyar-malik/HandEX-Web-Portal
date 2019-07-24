@@ -20,7 +20,6 @@ class ExportApplicationsController < ApplicationController
     end
 
     def edit
-
     end
 
     def create
@@ -29,7 +28,7 @@ class ExportApplicationsController < ApplicationController
         if params[:draft] == 'Entwurf speichern'
             @export_application.application_status = 'DRAFT'
             if @export_application.save
-                redirect_to "/export_applications/" + @export_application.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert.'
+                redirect_to "/export_applications/" + @export_application.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert (create).'
             else
                 flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
                 render :new
@@ -51,7 +50,7 @@ class ExportApplicationsController < ApplicationController
         if params[:draft] == 'Entwurf speichern'
             @export_application.application_status = 'DRAFT'
             if @export_application.update(export_application_params)
-                redirect_to "/export_applications/" + @export_application.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert.'
+                redirect_to "/export_applications/" + @export_application.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert (update).'
             else
                 flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
                 render :update

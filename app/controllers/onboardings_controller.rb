@@ -117,7 +117,35 @@ class OnboardingsController < ApplicationController
                 :is_source_of_fund_insurance_indemnization,
                 :is_source_of_fund_no_assets,
                 :is_source_of_fund_other,
-                :is_source_of_fund_other_specify
+                :is_source_of_fund_other_specify,
+                # Business and Financials information -------------------------------------
+                :business_activity_explanation,
+                :change_corporate_purpose,
+                :change_corporate_purpose,
+                :change_corporate_purpose_how,
+                :see_your_self_as,
+                :countries_of_main_business_activities,
+                :most_important_customer_name,
+                :most_important_customer_country,
+                :most_important_customer_volume,
+                :most_important_supplier_name,
+                :most_important_supplier_country,
+                :most_important_supplier_volume,
+                :usual_payment_behaviour_supplier_buyer,
+                :order_amount_backlog,
+                :months_to_complete_backlog,
+                :expected_revenues_this_year,
+                :percentage_share_export_revenue_lastyear,
+                :percentage_share_export_revenue_previousyear,
+                :percentage_share_export_revenue_eu,
+                :percentage_share_export_revenue_othercountries,
+                :expected_ebit_this_year,
+                :expected_net_income_this_year,
+                :explanation_of_dunning_process,
+                :is_any_default_last_two_year,
+                :default_last_two_year_explain,
+                :is_any_external_rating,
+                :external_rating_specify
                 )
     end
 end

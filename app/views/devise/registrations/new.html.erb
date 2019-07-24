@@ -50,18 +50,37 @@
                                                 <%= f.text_field :phone_number, autofocus: true, class: "validate" %>
                                             </div>
 
+<!--                                            <div class="input-field col s12 m12">-->
+<!--                                                <label> <%#= t :is_broker %></label>-->
+<!--                                                <p>-->
+<!--                                                    <label onclick="isBroker()">-->
+                                                        <%#= check_box_tag "user[is_broker]", @user.is_broker ? @user.is_broker : nil, false, id: "user_is_broker" %>
+<!--                                                        <span class="yes yes-no-btns"> <%#= t :yes_button %></span>-->
+<!--                                                    </label>-->
+
+<!--                                                    <label onclick="noIsBroker()">-->
+<!--                                                        <span  class="no yes-no-btns"><%#= t :no_button %></span>-->
+<!--                                                    </label>-->
+<!--                                                </p>-->
+<!--                                            </div>-->
+
                                             <div class="input-field col s12 m12">
                                                 <label> <%= t :is_broker %></label>
-                                                <p>
-                                                    <label onclick="isBroker()">
-                                                        <%= check_box_tag "user[is_broker]", @user.is_broker ? @user.is_broker : nil, false, id: "user_is_broker" %>
-                                                        <span class="yes yes-no-btns"> <%= t :yes_button %></span>
-                                                    </label>
+                                                <br><br>
 
-                                                    <label onclick="noIsBroker()">
-                                                        <span  class="no yes-no-btns"><%= t :no_button %></span>
-                                                    </label>
-                                                </p>
+                                                <label onclick="isBroker()">
+                                                    <span class="yes yes-no-btns is_broker <%= 'active-btn' if (@user.is_broker) %>">
+                                                        <%= check_box_tag "user[is_broker]", '1' %>
+                                                        <%= t :yes_button %>
+                                                    </span>
+                                                </label>
+
+                                                <label onclick="noIsBroker()">
+                                                    <span class="no yes-no-btns is_broker <%= 'active-btn' if (!@user.is_broker.nil? && !@user.is_broker) %>">
+                                                        <%= check_box_tag "user[is_broker]", '0' %>
+                                                        <%= t :no_button %>
+                                                    </span>
+                                                </label>
                                             </div>
 
                                             <div class="input-field col s12">
@@ -112,12 +131,12 @@
     });
 
     function isBroker() {
-        $('#user_is_broker').prop('checked', true);
+        $('.yes.yes-no-btns.is_broker').addClass('active-btn');
+        $('.no.yes-no-btns.is_broker').removeClass('active-btn');
     }
 
     function noIsBroker() {
-        $('#user_is_broker').prop('checked', false);
+        $('.no.yes-no-btns.is_broker').addClass('active-btn');
+        $('.yes.yes-no-btns.is_broker').removeClass('active-btn');
     }
-
-
 </script>
