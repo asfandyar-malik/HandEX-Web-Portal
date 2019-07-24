@@ -1,544 +1,611 @@
 <!-- step_3 start -->
 <div class="step_3 tab" id="step_3">
-  <!--   Form Navigation Section   -->
-  <div class="row form-nav-top">
-    <div class="col s12 m4">
-      <div class="form-nav form-nav-percent">
-        <p><span> 50% <%= t :complete %> </span></p>
-      </div>
-    </div>
-    <div class="col s12 m4">
-      <div class="form-nav">
-        <h2><%= t :business_heading %></h2>
-      </div>
-    </div>
-    <div class="col s12 m4">
-      <div class="form-nav right">
-        <input class="btn handex-btn z-depth-0" type="submit" name="draft" value="Entwurf speichern">
-        <input class="btn handex-btn z-depth-0 next handex-nav-button" tab_index="4" type="navigator" value="Weiter">
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col s12">
-      <div class="form-content">
-        <div class="row">
-          <div class="input-field col s12 m12">
-            <%= form.label :is_investment_good, t('is_investment_good') %>
-            <p>
-              <label>
-                <%= check_box_tag "export_application[is_investment_good]", @export_application.is_investment_good ? @export_application.is_investment_good : nil, false, :onclick => "investmentGoods();", id: "export_application_is_investment_good" %>
-
-                <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_investment_good.present? && @export_application.is_investment_good) %>"><%= t :yes_button %></span>
-              </label>
-
-              <label onclick="noInvestmentGoods()">
-                <span class="no yes-no-btns <%= 'active-btn' if (@export_application.is_investment_good.present? && !@export_application.is_investment_good) %>"><%= t :no_button %></span>
-              </label>
-            </p>
-          </div>
-
-          <!--                    <div class="input-field col s12">-->
-          <%#= form.label :exported_goods_type, t('exported_goods_type') %>
-
-          <%#= form.select :exported_goods_type, options_for_select([t('please_select'), t('mining'), t('oil_gas_extraction'), t('chemistry'), t('energy'), t('infrastructure'),  t('paper_wood_leather_tetile_industry'), t('agriculture_food_industry'),t('manifacturing_industry'),t('environmental_technology'),t('services')], @export_application.exported_goods_type ? @export_application.exported_goods_type : nil) %>
-          <!--                    </div>-->
-
-          <!--                    <div class="input-field col s12">-->
-          <%#= form.label :explain_good_industry_type, t('explain_good_industry_type') %>
-          <%#= form.text_field :explain_good_industry_type, autofocus: true, class: "validate" %>
-          <!--                    </div>-->
-
-          <div class="input-field col s12 ">
-            <%= form.label :explain_product_service, t('explain_product_service') %>
-            <%= form.text_area :explain_product_service, autofocus: true, class: "validate handex_text_area", :rows => 10 %>
-          </div>
-
-          <div class="input-field col s12 m12">
-            <%= form.label :exporter_offers_servicing_for_goods, t('exporter_offers_servicing_for_goods') %>
-            <p>
-              <label>
-                <%= check_box_tag "export_application[exporter_offers_servicing_for_goods]", @export_application.exporter_offers_servicing_for_goods ? @export_application.exporter_offers_servicing_for_goods : nil, false, :onclick => "servicingForGoods();", id: "export_application_exporter_offers_servicing_for_goods" %>
-                <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.exporter_offers_servicing_for_goods.present? && @export_application.exporter_offers_servicing_for_goods) %>"><%= t :yes_button %></span>
-              </label>
-
-              <label onclick="noServicingForGoods()">
-                <span class="no yes-no-btns <%= 'active-btn' if (@export_application.exporter_offers_servicing_for_goods.present? && !@export_application.exporter_offers_servicing_for_goods) %>"><%= t :no_button %></span>
-              </label>
-            </p>
-          </div>
-
-
-          <div class="background_toggle dialog_background">
-            <div class="input-field col s12 m12">
-              <label>Bitte ordnen Sie die von Ihnen zu liefernden Waren/Güter/Anlagen bzw. Dienstleistungen Ihrer
-                Branche und der passenden Warenart zu.</label>
-              <p>Wichtig: Diese Angabe kann ggf. von der Branche Ihres Kunden abweichen.</p>
-              <div class="select_box">
-                <!--                                    <select id="firstdrop">-->
-                <!--                                        <option value="" disabled selected="selected" hidden>Bitte wählen Sie eine Warenkategorie, die zu Ihrem Produkt passt</option>-->
-                <!--                                        <option value="PARTS">Konsumgüter, Rohstoffe, Halbfabrikate, Massengüter, Komponenten, Ersatzteile</option>-->
-                <!--                                        <option value="AGRICULTURE">Düngemittel, Insektizide, Zuchtvieh, Agrargüter und Saatgut</option>-->
-                <!--                                        <option value="CONSUMABLE">langlebige Konsumgüter</option>-->
-                <!--                                        <option value="OTHER">Sonstige</option>-->
-                <!--                                    </select>-->
-                <%= form.select :exported_goods_type, options_for_select([t('please_select_corresponding_option'), "Konsumgüter, Rohstoffe, Halbfabrikate, Massengüter, Komponenten, Ersatzteile", "Düngemittel, Insektizide, Zuchtvieh, Agrargüter und Saatgut", "langlebige Konsumgüter", "Sonstige"]), {}, id: "firstdrop" %>
-                <%= form.select :exported_goods_type, options_for_select([]), {}, id: "seconddrop" %>
-                <%= form.select :exported_goods_type, options_for_select([]), {}, id: "thirddrop" %>
-                <%= form.select :exported_goods_type, options_for_select([]), {}, id: "fourthdrop" %>
-              </div>
+    <!--   Form Navigation Section   -->
+    <div class="row form-nav-top">
+        <div class="col s12 m4">
+            <div class="form-nav form-nav-percent">
+                <p><span> 50% <%= t :complete %> </span></p>
             </div>
-          </div>
-
-          <div class="background_toggle is_delivered_part_of_consortium_with_other_companies  <%= (@export_application.is_delivered_part_of_consortium_with_other_companies.present? && @export_application.is_delivered_part_of_consortium_with_other_companies) ? 'dialog_background' : '' %>">
-            <div class="input-field col s12 m12">
-              <%= form.label :is_delivered_part_of_consortium_with_other_companies, t('is_delivered_part_of_consortium_with_other_companies') %>
-              <p>
-                <label>
-                  <%= check_box_tag "export_application[is_delivered_part_of_consortium_with_other_companies]", @export_application.is_delivered_part_of_consortium_with_other_companies ? @export_application.is_delivered_part_of_consortium_with_other_companies : nil, false, :onclick => "deliveredPartOfConsortiumWithOtherCompanies();", id: "export_application_is_delivered_part_of_consortium_with_other_companies" %>
-                  <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_delivered_part_of_consortium_with_other_companies.present? && @export_application.is_delivered_part_of_consortium_with_other_companies) %>"><%= t :yes_button %></span>
-                </label>
-
-                <label onclick="NoDeliveredPartOfConsortiumWithOtherCompanies()">
-                  <span class="no yes-no-btns <%= 'active-btn' if (@export_application.is_delivered_part_of_consortium_with_other_companies.present? && !@export_application.is_delivered_part_of_consortium_with_other_companies) %>"><%= t :no_button %></span>
-                </label>
-              </p>
-            </div>
-            <div id="deliveredPartOfConsortiumWithOtherCompanies" style="display: <%= (@export_application.is_delivered_part_of_consortium_with_other_companies.present? && @export_application.is_delivered_part_of_consortium_with_other_companies)? 'block' : 'none' %>; ">
-
-              <div class="input-field col s12 m12">
-                <%= form.label :describe_export_business, t('describe_export_business') %>
-                <%= form.text_area :describe_export_business, autofocus: true, class: "validate handex_text_area", :rows => 10 ,placeholder: t('describe_export_business') %>
-              </div>
-
-              <div class="input-field col s12 m12">
-                <%= form.label :is_fully_responsible_for_project, t('is_fully_responsible_for_project') %>
-                <p>
-                  <label>
-                    <%= check_box_tag "export_application[is_fully_responsible_for_project]", @export_application.is_fully_responsible_for_project ? @export_application.is_fully_responsible_for_project : nil, false, :onclick => "isFullyResponsibleForProject();", id: "is_fully_responsible_for_project" %>
-                    <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_fully_responsible_for_project.present? && @export_application.is_fully_responsible_for_project) %>"><%= t :yes_button %></span>
-                  </label>
-
-                  <label onclick="isNotFullyResponsibleForProject()">
-                    <span class="no yes-no-btns <%= 'active-btn' if (@export_application.is_fully_responsible_for_project.present? && !@export_application.is_fully_responsible_for_project) %>"><%= t :no_button %></span>
-                  </label>
-                </p>
-              </div>
-              <div class="input-field col s12">
-                <label><%= t :give_total_project_volume %> </label>
-              </div>
-
-              <div class="input-field col s6 m4">
-                <%= form.label :entire_project_currency, t('entire_project_currency'), class: 'hidden' %>
-                <%= form.select :entire_project_currency, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: "validate" %>
-              </div>
-
-              <div class="input-field col s12 m8">
-                <%= form.label :entire_project_amount, t('entire_project_amount'), class: 'hidden' %>
-                <%= form.text_field :entire_project_amount, class: "validate", placeholder: t('entire_project_amount') %>
-              </div>
-
-              <div class="input-field col s12 m12">
-                <%= form.label :project_funding_detail, t('project_funding_detail') %>
-              </div>
-
-              <div class="input-field col s12 m12">
-                <%= form.label :use_of_funds, t('use_of_funds') %>
-
-                <table class='table'>
-                  <tbody class='application_of_funds'>
-                  <%= form.fields_for :application_of_funds do |builder| %>
-                    <%= render 'export_applications/dynamic/application_of_fund_fields', f: builder %>
-                  <% end %>
-                  </tbody>
-                </table>
-
-                <div class="form-actions">
-                  <%= link_to_add_association t('add_application_of_funds'), form, :application_of_funds, :partial => 'export_applications/dynamic/application_of_fund_fields', class: 'btn btn-primary', data: {association_insertion_node: '.application_of_funds', association_insertion_method: :append} %>
-                </div>
-              </div>
-
-              <div class="input-field col s12 m12">
-                <%= form.label :source_of_funds, t('source_of_funds') %>
-
-                <table class='table'>
-                  <tbody class='source_of_funds'>
-                  <%= form.fields_for :source_of_funds do |builder| %>
-                    <%= render 'export_applications/dynamic/source_of_fund_fields', f: builder %>
-                  <% end %>
-                  </tbody>
-                </table>
-
-                <div class="form-actions">
-                  <%= link_to_add_association t('add_source_of_funds'), form, :source_of_funds, :partial => 'export_applications/dynamic/source_of_fund_fields', class: 'btn btn-primary', data: {association_insertion_node: '.source_of_funds', association_insertion_method: :append} %>
-                </div>
-              </div>
-            </div>
-          </div>
-
-            <div class="background_toggle is_good_sent_in_multiple_deliveries <%= (@export_application.is_good_sent_in_multiple_deliveries.present? && @export_application.is_good_sent_in_multiple_deliveries) ? 'dialog_background' : '' %>">
-              <div class="input-field col s12 m12">
-                <%= form.label :is_good_sent_in_multiple_deliveries, t('is_good_sent_in_multiple_deliveries') %>
-                <p>
-                  <label>
-                    <%= check_box_tag "export_application[is_good_sent_in_multiple_deliveries]", @export_application.is_good_sent_in_multiple_deliveries ? @export_application.is_good_sent_in_multiple_deliveries : nil, false, :onclick => "goodsSentMultipleDeliveries();", id: "export_application_is_good_sent_in_multiple_deliveries" %>
-                    <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_good_sent_in_multiple_deliveries.present? && @export_application.is_good_sent_in_multiple_deliveries) %>"><%= t :yes_button %></span>
-                  </label>
-
-                  <label onclick="noGoodsSentMultipleDeliveries()">
-                    <span class="no yes-no-btns <%= 'active-btn' if (@export_application.is_good_sent_in_multiple_deliveries.present? && !@export_application.is_good_sent_in_multiple_deliveries) %>"><%= t :no_button %></span>
-                  </label>
-                </p>
-              </div>
-
-              <div id="GoodsSentMultipleDeliveries" style="display: <%= (@export_application.is_good_sent_in_multiple_deliveries.present? && @export_application.is_good_sent_in_multiple_deliveries  )? 'block' : 'none' %>;">
-                <div class="input-field col s12 m12">
-                  <%= form.label :delivery_or_performance_dates, t('delivery_or_performance_dates') %>
-                </div>
-
-                <div class="input-field col s12 m6">
-                  <%= form.label :delivery_start, t('delivery_start') %>
-                  <%= form.text_field :delivery_start, id: "start_date", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
-                </div>
-
-                <div class="input-field col s12 m6">
-                  <%= form.label :delivery_end, t('delivery_end') %>
-                  <%= form.text_field :delivery_end, id: "start_date", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
-                </div>
-
-
-                <div class="input-field col s12 m12">
-                  <table class='table'>
-                    <tbody class='multiple_shipments'>
-                    <%= form.fields_for :multiple_shipments do |builder| %>
-                      <%= render 'export_applications/dynamic/multiple_shipment_fields', f: builder %>
-                    <% end %>
-                    </tbody>
-                  </table>
-
-                  <div class="form-actions">
-                    <%= link_to_add_association t('add_multiple_shipment_entry'), form, :multiple_shipments, :partial => 'export_applications/dynamic/multiple_shipment_fields', class: 'btn btn-primary', data: {association_insertion_node: '.multiple_shipments', association_insertion_method: :append} %>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="input-field col s12 m12">
-              <div>
-                <%= form.label :give_contract_value, t('give_contract_value') %>
-              </div>
-              <%= form.select :contract_currency, options_for_select([t('please_select_currency'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED s(UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: 'validate' %>
-              <%= form.text_field :contract_value, class: "validate", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %>
-            </div>
-            <div class="background_toggle dialog_background">
-              <div class="input-field col s12 m12">
-                <%= form.label :total_delivery_value_excluding_servicing, t('total_delivery_value_excluding_servicing') %>
-                <div> <%= form.text_field :total_delivery_value_excluding_servicing, class: "validate", placeholder: t('total_delivery_value_excluding_servicing_placeholder'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
-              </div>
-              <div class="input-field col s12 m12">
-                <%= form.label :percentage_of_spareparts_in_whole_order, t('percentage_of_spareparts_in_whole_order') %>
-                <div> <%= form.text_field :percentage_of_spareparts_in_whole_order, class: "validate", placeholder: t('percentage_of_spareparts_in_whole_order_placeholder'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
-              </div>
-
-              <div class="input-field col s12 m12">
-                <%= form.label :percentage_of_service_in_whole_order, t('percentage_of_service_in_whole_order') %>
-
-                <div> <%= form.text_field :percentage_of_service_in_whole_order, class: "validate", placeholder: t('percentage_of_service_in_whole_order_placeholder'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
-              </div>
-
-              <div class="input-field col s12 m12">
-                <%= form.label :other_billed_items_in_contract, t('other_billed_items_in_contract') %>
-                <table class='table'>
-                  <tbody class='extra_billed_items'>
-                  <%= form.fields_for :extra_billed_items do |builder| %>
-                    <%= render 'export_applications/dynamic/extra_billed_item_fields', f: builder %>
-                  <% end %>
-                  </tbody>
-                </table>
-
-                <div class="form-actions">
-                  <%= link_to_add_association t('add_extra_billed_item_entry'), form, :extra_billed_items, :partial => 'export_applications/dynamic/extra_billed_item_fields', class: 'btn btn-primary', data: {association_insertion_node: '.extra_billed_items', association_insertion_method: :append} %>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="background_toggle is_contract_already_signed_between_parties  <%= (@export_application.is_contract_already_signed_between_parties.present? && @export_application.is_contract_already_signed_between_parties) ? 'dialog_background' : '' %>">
-              <div class="input-field col s12 m12">
-                <%= form.label :is_contract_already_signed_between_parties, t('is_contract_already_signed_between_parties') %>
-                <p>
-                  <label>
-                    <%= check_box_tag "export_application[is_contract_already_signed_between_parties]", @export_application.is_contract_already_signed_between_parties ? @export_application.is_contract_already_signed_between_parties : nil, false, :onclick => "contractAlreadySignedBetweenParties();", id: "export_application_is_contract_already_signed_between_parties" %>
-                    <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_contract_already_signed_between_parties.present? && @export_application.is_contract_already_signed_between_parties) %>"><%= t :yes_button %></span>
-                  </label>
-
-                  <label onclick="noContractAlreadySignedBetweenParties()">
-                    <span class="no yes-no-btns <%= 'active-btn' if (@export_application.is_contract_already_signed_between_parties.present? && !@export_application.is_contract_already_signed_between_parties) %>"><%= t :no_button %></span>
-                  </label>
-                </p>
-              </div>
-
-              <div id="contractSignedBetweenParties" style="display: <%= (@export_application.is_contract_already_signed_between_parties.present? && @export_application.is_contract_already_signed_between_parties)? 'block' : 'none' %>;">
-                <div class="input-field col s12 m12">
-                  <%= form.label :contract_date_and_internal_reference, t('contract_date_and_internal_reference') %>
-                </div>
-                <div class="input-field col s12 m6">
-                  <%= form.label :contract_signing_date, t('contract_signing_date') %>
-                  <div> <%= form.text_field :contract_signing_date, id: "start_date", class: "datepicker", placeholder: "dd/mm/yyyy" %> </div>
-                </div>
-                <div class="input-field col s12 m6">
-                  <%= form.label :exporter_internal_contract_id, t('exporter_internal_contract_id') %>
-                  <div> <%= form.text_field :exporter_internal_contract_id, class: "validate" %> </div>
-                </div>
-              </div>
-
-              <div id="noContractSignedBetweenParties" style="display: <%= (@export_application.is_contract_already_signed_between_parties.present? && !@export_application.is_contract_already_signed_between_parties)? 'block' : 'none' %>;">
-                <div class="input-field col s12 m12">
-                  <%= form.label :taking_part_in_tender, t('taking_part_in_tender') %>
-                  <p>
-                    <label>
-                      <%= check_box_tag "export_application[taking_part_in_tender]", @export_application.taking_part_in_tender ? @export_application.taking_part_in_tender : nil, false, :onclick => "partInTender();", id: "export_application_taking_part_in_tender" %>
-                      <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.taking_part_in_tender.present? && @export_application.taking_part_in_tender) %>"><%= t :yes_button %></span>
-                    </label>
-
-                    <label onclick="noPartInTender()">
-                      <span class="no yes-no-btns <%= 'active-btn' if (@export_application.taking_part_in_tender.present? && !@export_application.taking_part_in_tender) %>"><%= t :no_button %></span>
-                    </label>
-                  </p>
-                </div>
-
-                <div id="partInTender" style="display: <%= (@export_application.taking_part_in_tender.present? && @export_application.taking_part_in_tender)? 'block' : 'none' %>;">
-                  <div class="input-field col s12 m6">
-                    <%= form.label :tender_submission_date, t('tender_submission_date') %>
-                    <div> <%= form.text_field :tender_submission_date, id: "start_date", type: "date", class: "datepicker" %> </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="background_toggle does_delivery_affect_sensitive_areas  <%= (@export_application.does_delivery_affect_sensitive_areas.present? && @export_application.does_delivery_affect_sensitive_areas) ? 'dialog_background' : '' %>">
-              <div class="input-field col s12 m12">
-                <%= form.label :does_delivery_affect_sensitive_areas, t('does_delivery_affect_sensitive_areas') %>
-                <p> <%= t :sensitivearea_additional_information %></p>
-                <p>
-                <p>
-                  <label>
-                    <%= check_box_tag "export_application[does_delivery_affect_sensitive_areas]", @export_application.does_delivery_affect_sensitive_areas ? @export_application.does_delivery_affect_sensitive_areas : nil, false, :onclick => "deliveryAffectsSensitiveArea();", id: "export_application_does_delivery_affect_sensitive_areas" %>
-                    <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.does_delivery_affect_sensitive_areas.present? && @export_application.does_delivery_affect_sensitive_areas) %>"><%= t :yes_button %></span>
-                  </label>
-
-                  <label onclick="NoDeliveryAffectsSensitiveArea()">
-                    <span class="no yes-no-btns <%= 'active-btn' if (@export_application.does_delivery_affect_sensitive_areas.present? && !@export_application.does_delivery_affect_sensitive_areas) %>"><%= t :no_button %></span>
-                  </label>
-                </p>
-              </div>
-
-              <div id="deliveryAffectsSensitiveArea" style="display: <%= (@export_application.does_delivery_affect_sensitive_areas.present? && @export_application.does_delivery_affect_sensitive_areas)? 'block' : 'none' %>;">
-                <div class="input-field col s12">
-                  <%= form.label :sensitive_area_type, t('sensitive_area_type') %>
-                  <%= form.select :sensitive_area_type, options_for_select([t('please_select'), t('delivery_affects_natural_reserves'), t('delivery_affects_indigenous_people'), t('delivery_affects_cultural_heritage'), t('delivery_affects_other')], @export_application.sensitive_area_type ? @export_application.sensitive_area_type : nil), {}, class: 'validate', id: "sensitive_area_type", :onchange => 'sensitiveAreaTypeChangeHandler()' %>
-                </div>
-                <div class="input-field col s12 m12" id="explain_sensitive_area_type">
-                  <%= form.label :explain_sensitive_area_type, t('explain_sensitive_area_type') %>
-                  <%= form.text_area :explain_sensitive_area_type, autofocus: true, class: "validate handex_text_area", :rows => 10 %>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="background_toggle is_export_licence_needed  <%= (@export_application.is_export_licence_needed.present? && @export_application.is_export_licence_needed) ? 'dialog_background' : '' %>">
-              <div class="input-field col s12 m12">
-                <%= form.label :is_export_licence_needed, t('is_export_licence_needed') %>
-                <p>
-                <p>
-                  <label>
-                    <%= check_box_tag "export_application[is_export_licence_needed]", @export_application.is_export_licence_needed ? @export_application.is_export_licence_needed : nil, false, :onclick => "exportLicenceNeeded();", id: "export_application_is_export_licence_needed" %>
-                    <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.is_export_licence_needed.present? && @export_application.is_export_licence_needed) %>"><%= t :yes_button %></span>
-                  </label>
-
-                  <label onclick="noExportLicenceNeeded()">
-                    <span class="no yes-no-btns <%= 'active-btn' if (@export_application.is_export_licence_needed.present? && !@export_application.is_export_licence_needed) %>"><%= t :no_button %></span>
-                  </label>
-                </p>
-              </div>
-
-              <div id="originLicense" style="display: <%= (@export_application.is_export_licence_needed.present? && @export_application.is_export_licence_needed)? 'block' : 'none' %>;">
-                <div class="input-field col s12">
-                  <%= form.label :which_regulations_enforcing_exportlicense_requirement, t('which_regulations_enforcing_exportlicense_requirement') %>
-                  <%= form.text_field :which_regulations_enforcing_exportlicense_requirement, autofocus: true, class: "validate" %>
-                </div>
-                <div class="input-field col s12 m12">
-                  <%= form.label :export_license_status, t('export_license_status') %>
-                  <%= form.select :export_license_status, options_for_select([t('please_select'), t('was_issued'), t('is_requested'), t('is_still_to_be_requested')]), {}, class: 'validate' %>
-                </div>
-              </div>
-            </div>
-
-            <div class="background_toggle are_secondhand_goods_delivered  <%= (@export_application.are_secondhand_goods_delivered.present? && @export_application.are_secondhand_goods_delivered) ? 'dialog_background' : '' %>">
-              <div class="input-field col s12 m12">
-                <%= form.label :are_secondhand_goods_delivered, t('are_secondhand_goods_delivered') %>
-                <p>
-                  <label>
-                    <%= check_box_tag "export_application[are_secondhand_goods_delivered]", @export_application.are_secondhand_goods_delivered ? @export_application.are_secondhand_goods_delivered : nil, false, :onclick => "deliverySecondHandGoods();", id: "export_application_are_secondhand_goods_delivered" %>
-                    <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.are_secondhand_goods_delivered.present? && @export_application.are_secondhand_goods_delivered) %>"><%= t :yes_button %></span>
-                  </label>
-
-                  <label onclick="noDeliverySecondHandGoods()">
-                    <span class="no yes-no-btns <%= 'active-btn' if (@export_application.are_secondhand_goods_delivered.present? && !@export_application.are_secondhand_goods_delivered) %>"><%= t :no_button %></span>
-                  </label>
-                </p>
-              </div>
-
-              <div id="deliverySecondHandGoods" style="display: <%= (@export_application.are_secondhand_goods_delivered.present? && @export_application.are_secondhand_goods_delivered)? 'block' : 'none' %>;">
-                <div class="input-field col s12">
-                  <%= form.label :manufacture_year, t('manufacture_year') %>
-                  <%= form.text_field :manufacture_year, autofocus: true, class: "validate" %>
-                </div>
-                <div class="input-field col s12">
-                  <%= form.label :remaining_life, t('remaining_life') %>
-                  <%= form.text_field :remaining_life, autofocus: true, class: "validate" %>
-                </div>
-
-                <div class="input-field col s12 m12">
-                  <%= form.label :are_goods_overhauled, t('are_goods_overhauled') %>
-                  <p>
-                    <label>
-                      <%= check_box_tag "export_application[are_goods_overhauled]", @export_application.are_goods_overhauled ? @export_application.are_goods_overhauled : nil, false, :onclick => "goodOverhauled();", id: "export_application_are_goods_overhauled" %>
-                      <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.are_goods_overhauled.present? && @export_application.are_goods_overhauled) %>"><%= t :yes_button %></span>
-                    </label>
-
-                    <label onclick="NoGoodsOverhauled()">
-                      <span class="no yes-no-btns <%= 'active-btn' if (@export_application.are_goods_overhauled.present? && !@export_application.are_goods_overhauled) %>"><%= t :no_button %></span>
-                    </label>
-                  </p>
-                </div>
-
-                <div id="goodsOverhauled" style="display: <%= (@export_application.are_goods_overhauled.present? && @export_application.are_goods_overhauled)? 'block' : 'none' %>;">
-                  <div class="input-field col s12 m6">
-                    <%= form.label :goods_overhaul_country, t('goods_overhaul_country') %>
-                    <%= form.select :goods_overhaul_country, options_for_select([t('please_select'), t('overhaul_germany'), t('overhaul_foreign'), t('overhaul_other')], @export_application.goods_overhaul_country ? @export_application.goods_overhaul_country : nil), {}, class: 'validate', id: "goods_overhaul_country", :onchange => 'goodsOverhaulCountryIfGermanyHandler()' %>
-                  </div>
-                  <div id="goods_overhaul_country_if_not_germany" style="display: <%= (@export_application.goods_overhaul_country.present? && @export_application.goods_overhaul_country != t('overhaul_germany'))? 'block' : 'none' %>;">
-                    <div class="input-field col s12 ">
-                      <%= form.label :why_good_overhauled_abroad, t('why_good_overhauled_abroad') %>
-                      <%= form.text_area :why_good_overhauled_abroad, autofocus: true %>
-                    </div>
-                    <div class="input-field col s6 ">
-                      <%= form.label :proportion_of_goods_overhauled_abroad, t('proportion_of_goods_overhauled_abroad') %>
-                      <%= form.text_field :proportion_of_goods_overhauled_abroad, autofocus: true, class: "validate" %>
-                    </div>
-                    <div class="input-field col s12">
-                      <%= form.label :describe_why_overhault_didnot_take_in_germany, t('describe_why_overhault_didnot_take_in_germany') %>
-                      <%= form.text_area :describe_why_overhault_didnot_take_in_germany, autofocus: true, class: "validate" %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="background_toggle has_special_contract_structure <%= (@export_application.has_special_contract_structure.present? && @export_application.has_special_contract_structure) ? 'dialog_background' : '' %>">
-              <div class="input-field col s12 m12">
-                <%= form.label :has_special_contract_structure, t('has_special_contract_structure') %>
-                <p>
-                  <label>
-                    <%= check_box_tag "export_application[has_special_contract_structure]", @export_application.has_special_contract_structure ? @export_application.has_special_contract_structure : nil, false, :onclick => "specialContractStructure();", id: "export_application_has_special_contract_structure" %>
-                    <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.has_special_contract_structure.present? && @export_application.has_special_contract_structure) %>"> <%= t :yes_button %> </span>
-                  </label>
-
-                  <label onclick="noSpecialContractStructure()">
-                    <span class="no yes-no-btns <%= 'active-btn' if (@export_application.has_special_contract_structure.present? && !@export_application.has_special_contract_structure) %>"><%= t :no_button %></span>
-                  </label>
-                </p>
-              </div>
-
-              <div id="explainStructure" style="display: <%= (@export_application.has_special_contract_structure.present? && @export_application.has_special_contract_structure)? 'block' : 'none' %>;">
-                <div class="input-field col s12 m12">
-                  <%= form.label :explain_special_structure, t('explain_special_structure') %>
-                  <div> <%= form.text_area :explain_special_structure, class: "validate handex_text_area", :rows => 10 %> </div>
-                </div>
-              </div>
-            </div>
-            <div class="background_toggle has_german_certificate_of_origin  <%= (@export_application.has_german_certificate_of_origin.present? && @export_application.has_german_certificate_of_origin) ? 'dialog_background' : '' %>">
-              <div class="input-field col s12">
-                <%= form.label :has_german_certificate_of_origin, t('has_german_certificate_of_origin') %>
-                <p>
-                  <label>
-                    <%= check_box_tag "export_application[has_german_certificate_of_origin]", @export_application.has_german_certificate_of_origin ? @export_application.has_german_certificate_of_origin : nil, false, :onclick => "germanCertificateOfOrigin();", id: "export_application_has_german_certificate_of_origin" %>
-                    <span class="yes yes-no-btns <%= 'active-btn' if (@export_application.has_german_certificate_of_origin.present? && @export_application.has_german_certificate_of_origin) %>"><%= t :yes_button %></span>
-                  </label>
-
-                  <label onclick="noGermanCertificateOfOrigin()">
-                    <span class="no yes-no-btns <%= 'active-btn' if (@export_application.has_german_certificate_of_origin.present? && !@export_application.has_german_certificate_of_origin) %>"><%= t :no_button %></span>
-                  </label>
-
-                  <label>
-                    <%= check_box_tag "export_application[has_german_certificate_of_origin_for_only_parts_of_good]", @export_application.has_german_certificate_of_origin_for_only_parts_of_good ? @export_application.has_german_certificate_of_origin_for_only_parts_of_good : nil, false, :onclick => "partlyGermanCertificateOfOrigin();", id: "export_application_has_german_certificate_of_origin_for_only_parts_of_good" %>
-                    <span class="part yes-no-btns"> <%= t('partial_german_certificate_of_origin') %></span>
-                  </label>
-                </p>
-
-                <div id="noGermanCertificateOfOriginId" style="display: <%= (@export_application.has_german_certificate_of_origin_for_only_parts_of_good.present? && !@export_application.has_german_certificate_of_origin_for_only_parts_of_good)? 'block' : 'none' %>;">
-                  <div class="input-field col s12">
-                    <%= form.label :goods_supplied_from_foreign_origin, t('goods_supplied_from_foreign_origin') %>
-                  </div>
-
-                  <table class='table'>
-                    <thead>
-                    <tr>
-                      <th>Währung</th>
-                      <th>Betrag</th>
-                      <th>Land</th>
-                      <th></th>
-                    </tr>
-                    </thead>
-                    <tbody class='supplies_from_foreign_origins'>
-                    <%= form.fields_for :supplies_from_foreign_origins do |builder| %>
-                      <%= render 'export_applications/dynamic/supplies_from_foreign_origin_fields', f: builder %>
-                    <% end %>
-                    </tbody>
-                  </table>
-
-                  <div class="form-actions">
-                    <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :supplies_from_foreign_origins, :partial => 'export_applications/dynamic/supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins', association_insertion_method: :append} %>
-                  </div>
-
-                  <div class="input-field col s12 m12">
-                    <br>
-                    <%= form.label :why_all_foreign_rawgoods_necessary, t('why_all_foreign_rawgoods_necessary') %>
-                    <%= form.text_area :why_all_foreign_rawgoods_necessary, class: "validate handex_text_area", :rows => 10 %>
-                  </div>
-                </div>
-
-                <div id="partlyGermanCertificateOfOrigin" style="display: <%= (@export_application.has_german_certificate_of_origin_for_only_parts_of_good.present? && @export_application.has_german_certificate_of_origin_for_only_parts_of_good)? 'block' : 'none' %>;">
-                  <div class="input-field col s12">
-                    <%= form.label :goods_supplied_from_foreign_origin, t('goods_supplied_from_foreign_origin') %>
-                  </div>
-                  <table class='table'>
-                    <thead>
-                    <tr>
-                      <th>Währung</th>
-                      <th>Betrag</th>
-                      <th>Land</th>
-                      <th></th>
-                    </tr>
-                    </thead>
-                    <tbody class='supplies_from_foreign_origins_partly'>
-                    <%= form.fields_for :supplies_from_foreign_origins do |builder| %>
-                      <%= render 'export_applications/dynamic/supplies_from_foreign_origin_fields', f: builder %>
-                    <% end %>
-                    </tbody>
-                  </table>
-                  <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :supplies_from_foreign_origins, :partial => 'export_applications/dynamic/supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins_partly', association_insertion_method: :append} %>
-
-                  <div class="input-field col s12 m12">
-                    <br>
-                    <%= form.label :why_partly_foreign_rawgoods_necessary, t('why_partly_foreign_rawgoods_necessary') %>
-                    <%= form.text_area :why_partly_foreign_rawgoods_necessary, class: "validate handex_text_area", :rows => 10 %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
+        <div class="col s12 m4">
+            <div class="form-nav">
+                <h2><%= t :business_heading %></h2>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="form-nav right">
+                <input class="btn handex-btn z-depth-0" type="submit" name="draft" value="Entwurf speichern">
+                <input class="btn handex-btn z-depth-0 next handex-nav-button" tab_index="4" type="navigator" value="Weiter">
+            </div>
+        </div>
     </div>
-  </div>
+
+    <div class="row">
+        <div class="col s12">
+            <div class="form-content">
+                <div class="row">
+
+                    <div class="input-field col s12 m12">
+                        <%= form.label :is_investment_good, t('is_investment_good') %>
+                        <br><br>
+
+                        <label onclick="investmentGoods()">
+                            <span class="yes yes-no-btns is_investment_good <%= 'active-btn' if (@export_application.is_investment_good) %>">
+                                <%= check_box_tag "export_application[is_investment_good]", '1' %>
+                                <%= t :yes_button %>
+                            </span>
+                        </label>
+
+                        <label onclick="noInvestmentGoods()">
+                            <span class="no yes-no-btns is_investment_good <%= 'active-btn' if (!@export_application.is_investment_good.nil? && !@export_application.is_investment_good) %>">
+                                <%= check_box_tag "export_application[is_investment_good]", '0' %>
+                                <%= t :no_button %>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="input-field col s12 ">
+                        <%= form.label :explain_product_service, t('explain_product_service') %>
+                        <%= form.text_area :explain_product_service, autofocus: true, class: "validate handex_text_area", :rows => 10 %>
+                    </div>
+
+                    <div class="input-field col s12 m12">
+                        <%= form.label :exporter_offers_servicing_for_goods, t('exporter_offers_servicing_for_goods') %>
+                        <br><br>
+
+                        <label onclick="servicingForGoods()">
+                            <span class="yes yes-no-btns exporter_offers_servicing_for_goods <%= 'active-btn' if (@export_application.exporter_offers_servicing_for_goods) %>">
+                                <%= check_box_tag "export_application[exporter_offers_servicing_for_goods]", '1' %>
+                                <%= t :yes_button %>
+                            </span>
+                        </label>
+
+                        <label onclick="noServicingForGoods()">
+                            <span class="no yes-no-btns exporter_offers_servicing_for_goods <%= 'active-btn' if (!@export_application.exporter_offers_servicing_for_goods.nil? && !@export_application.exporter_offers_servicing_for_goods) %>">
+                                <%= check_box_tag "export_application[exporter_offers_servicing_for_goods]", '0' %>
+                                <%= t :no_button %>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="background_toggle dialog_background">
+                        <div class="input-field col s12 m12">
+                            <label>Bitte ordnen Sie die von Ihnen zu liefernden Waren/Güter/Anlagen bzw. Dienstleistungen Ihrer
+                                Branche und der passenden Warenart zu.</label>
+                            <p> Wichtig: Diese Angabe kann ggf. von der Branche Ihres Kunden abweichen.</p>
+                            <div class="select_box">
+                                <!--                                    <select id="firstdrop">-->
+                                <!--                                        <option value="" disabled selected="selected" hidden>Bitte wählen Sie eine Warenkategorie, die zu Ihrem Produkt passt</option>-->
+                                <!--                                        <option value="PARTS">Konsumgüter, Rohstoffe, Halbfabrikate, Massengüter, Komponenten, Ersatzteile</option>-->
+                                <!--                                        <option value="AGRICULTURE">Düngemittel, Insektizide, Zuchtvieh, Agrargüter und Saatgut</option>-->
+                                <!--                                        <option value="CONSUMABLE">langlebige Konsumgüter</option>-->
+                                <!--                                        <option value="OTHER">Sonstige</option>-->
+                                <!--                                    </select>-->
+                                <%= form.select :exported_goods_type, options_for_select([t('please_select_corresponding_option'), "Konsumgüter, Rohstoffe, Halbfabrikate, Massengüter, Komponenten, Ersatzteile", "Düngemittel, Insektizide, Zuchtvieh, Agrargüter und Saatgut", "langlebige Konsumgüter", "Sonstige"]), {}, id: "firstdrop" %>
+                                <%= form.select :exported_goods_type, options_for_select([]), {}, id: "seconddrop" %>
+                                <%= form.select :exported_goods_type, options_for_select([]), {}, id: "thirddrop" %>
+                                <%= form.select :exported_goods_type, options_for_select([]), {}, id: "fourthdrop" %>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="background_toggle is_delivered_part_of_consortium_with_other_companies  <%= (@export_application.is_delivered_part_of_consortium_with_other_companies.present? && @export_application.is_delivered_part_of_consortium_with_other_companies) ? 'dialog_background' : '' %>">
+
+                        <div class="input-field col s12 m12">
+                            <%= form.label :is_delivered_part_of_consortium_with_other_companies, t('is_delivered_part_of_consortium_with_other_companies') %>
+                            <br><br>
+
+                            <label onclick="deliveredPartOfConsortiumWithOtherCompanies()">
+                                <span class="yes yes-no-btns is_delivered_part_of_consortium_with_other_companies <%= 'active-btn' if (@export_application.is_delivered_part_of_consortium_with_other_companies) %>">
+                                    <%= check_box_tag "export_application[is_delivered_part_of_consortium_with_other_companies]", '1' %>
+                                    <%= t :yes_button %>
+                                </span>
+                            </label>
+
+                            <label onclick="notDeliveredPartOfConsortiumWithOtherCompanies()">
+                                <span class="no yes-no-btns is_delivered_part_of_consortium_with_other_companies <%= 'active-btn' if (!@export_application.is_delivered_part_of_consortium_with_other_companies.nil? && !@export_application.is_delivered_part_of_consortium_with_other_companies) %>">
+                                    <%= check_box_tag "export_application[is_delivered_part_of_consortium_with_other_companies]", '0' %>
+                                    <%= t :no_button %>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div id="deliveredPartOfConsortiumWithOtherCompanies" style="display: <%= (@export_application.is_delivered_part_of_consortium_with_other_companies.present? && @export_application.is_delivered_part_of_consortium_with_other_companies)? 'block' : 'none' %>; ">
+
+                            <div class="input-field col s12 m12">
+                                <%= form.label :describe_export_business, t('describe_export_business') %>
+                                <%= form.text_area :describe_export_business, autofocus: true, class: "validate handex_text_area", :rows => 10, placeholder: t('describe_export_business') %>
+                            </div>
+
+                            <div class="input-field col s12 m12">
+                                <%= form.label :is_fully_responsible_for_project, t('is_fully_responsible_for_project') %>
+                                <br><br>
+
+                                <label onclick="isFullyResponsibleForProject()">
+                                    <span class="yes yes-no-btns is_fully_responsible_for_project <%= 'active-btn' if (@export_application.is_fully_responsible_for_project) %>">
+                                        <%= check_box_tag "export_application[is_fully_responsible_for_project]", '1' %>
+                                        <%= t :yes_button %>
+                                    </span>
+                                </label>
+
+                                <label onclick="isNotFullyResponsibleForProject()">
+                                    <span class="no yes-no-btns is_fully_responsible_for_project <%= 'active-btn' if (!@export_application.is_fully_responsible_for_project.nil? && !@export_application.is_fully_responsible_for_project) %>">
+                                        <%= check_box_tag "export_application[is_fully_responsible_for_project]", '0' %>
+                                        <%= t :no_button %>
+                                    </span>
+                                </label>
+                            </div>
+
+                            <div class="input-field col s12">
+                                <label><%= t :give_total_project_volume %> </label>
+                            </div>
+
+                            <div class="input-field col s6 m4">
+                                <%= form.label :entire_project_currency, t('entire_project_currency'), class: 'hidden' %>
+                                <%= form.select :entire_project_currency, options_for_select([t('please_select'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED (UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: "validate" %>
+                            </div>
+
+                            <div class="input-field col s12 m8">
+                                <%= form.label :entire_project_amount, t('entire_project_amount'), class: 'hidden' %>
+                                <%= form.text_field :entire_project_amount, class: "validate", placeholder: t('entire_project_amount') %>
+                            </div>
+
+                            <div class="input-field col s12 m12">
+                                <%= form.label :project_funding_detail, t('project_funding_detail') %>
+                            </div>
+
+                            <div class="input-field col s12 m12">
+                                <%= form.label :use_of_funds, t('use_of_funds') %>
+
+                                <table class='table'>
+                                    <tbody class='application_of_funds'>
+                                    <%= form.fields_for :application_of_funds do |builder| %>
+                                        <%= render 'export_applications/dynamic/application_of_fund_fields', f: builder %>
+                                    <% end %>
+                                    </tbody>
+                                </table>
+
+                                <div class="form-actions">
+                                    <%= link_to_add_association t('add_application_of_funds'), form, :application_of_funds, :partial => 'export_applications/dynamic/application_of_fund_fields', class: 'btn btn-primary', data: {association_insertion_node: '.application_of_funds', association_insertion_method: :append} %>
+                                </div>
+                            </div>
+
+                            <div class="input-field col s12 m12">
+                                <%= form.label :source_of_funds, t('source_of_funds') %>
+
+                                <table class='table'>
+                                    <tbody class='source_of_funds'>
+                                    <%= form.fields_for :source_of_funds do |builder| %>
+                                        <%= render 'export_applications/dynamic/source_of_fund_fields', f: builder %>
+                                    <% end %>
+                                    </tbody>
+                                </table>
+
+                                <div class="form-actions">
+                                    <%= link_to_add_association t('add_source_of_funds'), form, :source_of_funds, :partial => 'export_applications/dynamic/source_of_fund_fields', class: 'btn btn-primary', data: {association_insertion_node: '.source_of_funds', association_insertion_method: :append} %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="background_toggle is_good_sent_in_multiple_deliveries <%= (@export_application.is_good_sent_in_multiple_deliveries.present? && @export_application.is_good_sent_in_multiple_deliveries) ? 'dialog_background' : '' %>">
+
+                        <div class="input-field col s12 m12">
+                            <%= form.label :is_good_sent_in_multiple_deliveries, t('is_good_sent_in_multiple_deliveries') %>
+                            <br><br>
+
+                            <label onclick="goodsSentMultipleDeliveries()">
+                                <span class="yes yes-no-btns is_good_sent_in_multiple_deliveries <%= 'active-btn' if (@export_application.is_good_sent_in_multiple_deliveries) %>">
+                                    <%= check_box_tag "export_application[is_good_sent_in_multiple_deliveries]", '1' %>
+                                    <%= t :yes_button %>
+                                </span>
+                            </label>
+
+                            <label onclick="noGoodsSentMultipleDeliveries()">
+                                <span class="no yes-no-btns is_good_sent_in_multiple_deliveries <%= 'active-btn' if (!@export_application.is_good_sent_in_multiple_deliveries.nil? && !@export_application.is_good_sent_in_multiple_deliveries) %>">
+                                    <%= check_box_tag "export_application[is_good_sent_in_multiple_deliveries]", '0' %>
+                                    <%= t :no_button %>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div id="goodsSentMultipleDeliveries" style="display: <%= (@export_application.is_good_sent_in_multiple_deliveries.present? && @export_application.is_good_sent_in_multiple_deliveries  )? 'block' : 'none' %>;">
+                            <div class="input-field col s12 m12">
+                                <%= form.label :delivery_or_performance_dates, t('delivery_or_performance_dates') %>
+                            </div>
+
+                            <div class="input-field col s12 m6">
+                                <%= form.label :delivery_start, t('delivery_start') %>
+                                <%= form.text_field :delivery_start, id: "start_date", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
+                            </div>
+
+                            <div class="input-field col s12 m6">
+                                <%= form.label :delivery_end, t('delivery_end') %>
+                                <%= form.text_field :delivery_end, id: "start_date", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
+                            </div>
+
+
+                            <div class="input-field col s12 m12">
+                                <table class='table'>
+                                    <tbody class='multiple_shipments'>
+                                    <%= form.fields_for :multiple_shipments do |builder| %>
+                                        <%= render 'export_applications/dynamic/multiple_shipment_fields', f: builder %>
+                                    <% end %>
+                                    </tbody>
+                                </table>
+
+                                <div class="form-actions">
+                                    <%= link_to_add_association t('add_multiple_shipment_entry'), form, :multiple_shipments, :partial => 'export_applications/dynamic/multiple_shipment_fields', class: 'btn btn-primary', data: {association_insertion_node: '.multiple_shipments', association_insertion_method: :append} %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-field col s12 m12">
+                        <div>
+                            <%= form.label :give_contract_value, t('give_contract_value') %>
+                        </div>
+                        <%= form.select :contract_currency, options_for_select([t('please_select_currency'), "AFN (Afghani)", "ALL (Lek)", "DZD (Algerian Dinar)", "USD (US Dollar)", "EUR (Euro)", "AOA (Kwanza)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "ARS (Argentine Peso)", "AMD (Armenian Dram)", "AWG (Aruban Florin)", "AUD (Australian Dollar)", "AZN (Azerbaijan Manat)", "BSD (Bahamian Dollar)", "BHD (Bahraini Dinar)", "BDT (Taka)", "BBD (Barbados Dollar)", "BYN (Belarusian Ruble)", "BZD (Belize Dollar)", "XOF (CFA Franc BCEAO)", "BMD (Bermudian Dollar)", "INR (Indian Rupee)", "BTN (Ngultrum)", "BOB (Boliviano)", "BOV (Mvdol)", "USD (US Dollar)", "BAM (Convertible Mark)", "BWP (Pula)", "NOK (Norwegian Krone)", "BRL (Brazilian Real)", "USD (US Dollar)", "BND (Brunei Dollar)", "BGN (Bulgarian Lev)", "XOF (CFA Franc BCEAO)", "BIF (Burundi Franc)", "CVE (Cabo Verde Escudo)", "KHR (Riel)", "XAF (CFA Franc BEAC)", "CAD (Canadian Dollar)", "KYD (Cayman Islands Dollar)", "XAF (CFA Franc BEAC)", "XAF (CFA Franc BEAC)", "CLP (Chilean Peso)", "CLF (Unidad de Fomento)", "CNY (Yuan Renminbi)", "AUD (Australian Dollar)", "AUD (Australian Dollar)", "COP (Colombian Peso)", "COU (Unidad de Valor Real)", "KMF (Comorian Franc )", "CDF (Congolese Franc)", "XAF (CFA Franc BEAC)", "NZD (New Zealand Dollar)", "CRC (Costa Rican Colon)", "XOF (CFA Franc BCEAO)", "HRK (Kuna)", "CUP (Cuban Peso)", "CUC (Peso Convertible)", "ANG (Netherlands Antillean Guilder)", "CZK (Czech Koruna)", "DKK (Danish Krone)", "DJF (Djibouti Franc)", "XCD (East Caribbean Dollar)", "DOP (Dominican Peso)", "USD (US Dollar)", "EGP (Egyptian Pound)", "SVC (El Salvador Colon)", "USD (US Dollar)", "XAF (CFA Franc BEAC)", "ERN (Nakfa)", "ETB (Ethiopian Birr)", "FKP (Falkland Islands Pound)", "DKK (Danish Krone)", "FJD (Fiji Dollar)", "XPF (CFP Franc)", "XAF (CFA Franc BEAC)", "GMD (Dalasi)", "GEL (Lari)", "GHS (Ghana Cedi)", "GIP (Gibraltar Pound)", "DKK (Danish Krone)", "XCD (East Caribbean Dollar)", "USD (US Dollar)", "GTQ (Quetzal)", "GBP (Pound Sterling)", "GNF (Guinean Franc)", "XOF (CFA Franc BCEAO)", "GYD (Guyana Dollar)", "HTG (Gourde)", "USD (US Dollar)", "AUD (Australian Dollar)", "HNL (Lempira)", "HKD (Hong Kong Dollar)", "HUF (Forint)", "ISK (Iceland Krona)", "INR (Indian Rupee)", "IDR (Rupiah)", "XDR (SDR (Special Drawing Right))", "IRR (Iranian Rial)", "IQD (Iraqi Dinar)", "GBP (Pound Sterling)", "ILS (New Israeli Sheqel)", "JMD (Jamaican Dollar)", "JPY (Yen)", "GBP (Pound Sterling)", "JOD (Jordanian Dinar)", "KZT (Tenge)", "KES (Kenyan Shilling)", "AUD (Australian Dollar)", "KPW (North Korean Won)", "KRW (Won)", "KWD (Kuwaiti Dinar)", "KGS (Som)", "LAK (Lao Kip)", "LBP (Lebanese Pound)", "LSL (Loti)", "ZAR (Rand)", "LRD (Liberian Dollar)", "LYD (Libyan Dinar)", "CHF (Swiss Franc)", "MOP (Pataca)", "MKD (Denar)", "MGA (Malagasy Ariary)", "MWK (Malawi Kwacha)", "MYR (Malaysian Ringgit)", "MVR (Rufiyaa)", "XOF (CFA Franc BCEAO)", "USD (US Dollar)", "MRU (Ouguiya)", "MUR (Mauritius Rupee)", "XUA (ADB Unit of Account)", "MXN (Mexican Peso)", "MXV (Mexican Unidad de Inversion (UDI))", "USD (US Dollar)", "MDL (Moldovan Leu)", "MNT (Tugrik)", "XCD (East Caribbean Dollar)", "MAD (Moroccan Dirham)", "MZN (Mozambique Metical)", "MMK (Kyat)", "NAD (Namibia Dollar)", "ZAR (Rand)", "AUD (Australian Dollar)", "NPR (Nepalese Rupee)", "XPF (CFP Franc)", "NZD (New Zealand Dollar)", "NIO (Cordoba Oro)", "XOF (CFA Franc BCEAO)", "NGN (Naira)", "NZD (New Zealand Dollar)", "AUD (Australian Dollar)", "USD (US Dollar)", "NOK (Norwegian Krone)", "OMR (Rial Omani)", "PKR (Pakistan Rupee)", "USD (US Dollar)", " (No universal currency)", "PAB (Balboa)", "USD (US Dollar)", "PGK (Kina)", "PYG (Guarani)", "PEN (Sol)", "PHP (Philippine Peso)", "NZD (New Zealand Dollar)", "PLN (Zloty)", "USD (US Dollar)", "QAR (Qatari Rial)", "RON (Romanian Leu)", "RUB (Russian Ruble)", "RWF (Rwanda Franc)", "SHP (Saint Helena Pound)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "XCD (East Caribbean Dollar)", "WST (Tala)", "STN (Dobra)", "SAR (Saudi Riyal)", "XOF (CFA Franc BCEAO)", "RSD (Serbian Dinar)", "SCR (Seychelles Rupee)", "SLL (Leone)", "SGD (Singapore Dollar)", "ANG (Netherlands Antillean Guilder)", "XSU (Sucre)", "SBD (Solomon Islands Dollar)", "SOS (Somali Shilling)", "ZAR (Rand)", " (No universal currency)", "SSP (South Sudanese Pound)", "LKR (Sri Lanka Rupee)", "SDG (Sudanese Pound)", "SRD (Surinam Dollar)", "NOK (Norwegian Krone)", "SZL (Lilangeni)", "SEK (Swedish Krona)", "CHF (Swiss Franc)", "CHW (WIR Franc)", "SYP (Syrian Pound)", "TWD (New Taiwan Dollar)", "TJS (Somoni)", "TZS (Tanzanian Shilling)", "THB (Baht)", "USD (US Dollar)", "XOF (CFA Franc BCEAO)", "NZD (New Zealand Dollar)", "TOP (Pa’anga)", "TTD (Trinidad and Tobago Dollar)", "TND (Tunisian Dinar)", "TRY (Turkish Lira)", "TMT (Turkmenistan New Manat)", "USD (US Dollar)", "AUD (Australian Dollar)", "UGX (Uganda Shilling)", "UAH (Hryvnia)", "AED s(UAE Dirham)", "GBP (Pound Sterling)", "USD (US Dollar)", "USD (US Dollar)", "USN (US Dollar (Next day))", "UYU (Peso Uruguayo)", "UYI (Uruguay Peso en Unidades Indexadas (UI))", "UYW (Unidad Previsional)", "UZS (Uzbekistan Sum)", "VUV (Vatu)", "VES (Bolívar Soberano)", "VND (Dong)", "USD (US Dollar)", "USD (US Dollar)", "XPF (CFP Franc)", "MAD (Moroccan Dirham)", "YER (Yemeni Rial)", "ZMW (Zambian Kwacha)", "ZWL (Zimbabwe Dollar)"]), {}, class: 'validate' %>
+                        <%= form.text_field :contract_value, class: "validate", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %>
+                    </div>
+                    <div class="background_toggle dialog_background">
+                        <div class="input-field col s12 m12">
+                            <%= form.label :total_delivery_value_excluding_servicing, t('total_delivery_value_excluding_servicing') %>
+                            <div> <%= form.text_field :total_delivery_value_excluding_servicing, class: "validate", placeholder: t('total_delivery_value_excluding_servicing_placeholder'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                        </div>
+                        <div class="input-field col s12 m12">
+                            <%= form.label :percentage_of_spareparts_in_whole_order, t('percentage_of_spareparts_in_whole_order') %>
+                            <div> <%= form.text_field :percentage_of_spareparts_in_whole_order, class: "validate", placeholder: t('percentage_of_spareparts_in_whole_order_placeholder'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                        </div>
+
+                        <div class="input-field col s12 m12">
+                            <%= form.label :percentage_of_service_in_whole_order, t('percentage_of_service_in_whole_order') %>
+
+                            <div> <%= form.text_field :percentage_of_service_in_whole_order, class: "validate", placeholder: t('percentage_of_service_in_whole_order_placeholder'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                        </div>
+
+                        <div class="input-field col s12 m12">
+                            <%= form.label :other_billed_items_in_contract, t('other_billed_items_in_contract') %>
+                            <table class='table'>
+                                <tbody class='extra_billed_items'>
+                                <%= form.fields_for :extra_billed_items do |builder| %>
+                                    <%= render 'export_applications/dynamic/extra_billed_item_fields', f: builder %>
+                                <% end %>
+                                </tbody>
+                            </table>
+
+                            <div class="form-actions">
+                                <%= link_to_add_association t('add_extra_billed_item_entry'), form, :extra_billed_items, :partial => 'export_applications/dynamic/extra_billed_item_fields', class: 'btn btn-primary', data: {association_insertion_node: '.extra_billed_items', association_insertion_method: :append} %>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="background_toggle is_contract_already_signed_between_parties  <%= (@export_application.is_contract_already_signed_between_parties.present? && @export_application.is_contract_already_signed_between_parties) ? 'dialog_background' : '' %>">
+
+                        <div class="input-field col s12 m12">
+                            <%= form.label :is_contract_already_signed_between_parties, t('is_contract_already_signed_between_parties') %>
+                            <br><br>
+
+                            <label onclick="contractAlreadySignedBetweenParties()">
+                                <span class="yes yes-no-btns is_contract_already_signed_between_parties <%= 'active-btn' if (@export_application.is_contract_already_signed_between_parties) %>">
+                                    <%= check_box_tag "export_application[is_contract_already_signed_between_parties]", '1' %>
+                                    <%= t :yes_button %>
+                                </span>
+                            </label>
+
+                            <label onclick="noContractAlreadySignedBetweenParties()">
+                                <span class="no yes-no-btns is_contract_already_signed_between_parties <%= 'active-btn' if (!@export_application.is_contract_already_signed_between_parties.nil? && !@export_application.is_contract_already_signed_between_parties) %>">
+                                    <%= check_box_tag "export_application[is_contract_already_signed_between_parties]", '0' %>
+                                    <%= t :no_button %>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div id="contractSignedBetweenParties" style="display: <%= (@export_application.is_contract_already_signed_between_parties.present? && @export_application.is_contract_already_signed_between_parties)? 'block' : 'none' %>;">
+                            <div class="input-field col s12 m12">
+                                <%= form.label :contract_date_and_internal_reference, t('contract_date_and_internal_reference') %>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <%= form.label :contract_signing_date, t('contract_signing_date') %>
+                                <div> <%= form.text_field :contract_signing_date, id: "start_date", class: "datepicker", placeholder: "dd/mm/yyyy" %> </div>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <%= form.label :exporter_internal_contract_id, t('exporter_internal_contract_id') %>
+                                <div> <%= form.text_field :exporter_internal_contract_id, class: "validate" %> </div>
+                            </div>
+                        </div>
+
+                        <div id="noContractSignedBetweenParties" style="display: <%= (@export_application.is_contract_already_signed_between_parties.present? && !@export_application.is_contract_already_signed_between_parties)? 'block' : 'none' %>;">
+
+                            <div class="input-field col s12 m12">
+                                <%= form.label :taking_part_in_tender, t('taking_part_in_tender') %>
+                                <br><br>
+
+                                <label onclick="partInTender()">
+                                    <span class="yes yes-no-btns taking_part_in_tender <%= 'active-btn' if (@export_application.taking_part_in_tender) %>">
+                                        <%= check_box_tag "export_application[taking_part_in_tender]", '1' %>
+                                        <%= t :yes_button %>
+                                    </span>
+                                </label>
+
+                                <label onclick="noPartInTender()">
+                                    <span class="no yes-no-btns taking_part_in_tender <%= 'active-btn' if (!@export_application.taking_part_in_tender.nil? && !@export_application.taking_part_in_tender) %>">
+                                        <%= check_box_tag "export_application[taking_part_in_tender]", '0' %>
+                                        <%= t :no_button %>
+                                    </span>
+                                </label>
+                            </div>
+
+                            <div id="partInTender" style="display: <%= (@export_application.taking_part_in_tender.present? && @export_application.taking_part_in_tender)? 'block' : 'none' %>;">
+                                <div class="input-field col s12 m6">
+                                    <%= form.label :tender_submission_date, t('tender_submission_date') %>
+                                    <div> <%= form.text_field :tender_submission_date, id: "start_date", type: "date", class: "datepicker" %> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="background_toggle does_delivery_affect_sensitive_areas  <%= (@export_application.does_delivery_affect_sensitive_areas.present? && @export_application.does_delivery_affect_sensitive_areas) ? 'dialog_background' : '' %>">
+
+                        <div class="input-field col s12 m12">
+                            <%= form.label :does_delivery_affect_sensitive_areas, t('does_delivery_affect_sensitive_areas') %>
+                            <p> <%= t :sensitivearea_additional_information %></p>
+
+                            <label onclick="deliveryAffectsSensitiveArea()">
+                                <span class="yes yes-no-btns does_delivery_affect_sensitive_areas <%= 'active-btn' if (@export_application.does_delivery_affect_sensitive_areas) %>">
+                                    <%= check_box_tag "export_application[does_delivery_affect_sensitive_areas]", '1' %>
+                                    <%= t :yes_button %>
+                                </span>
+                            </label>
+
+                            <label onclick="deliveryDoesNotAffectsSensitiveArea()">
+                                <span class="no yes-no-btns does_delivery_affect_sensitive_areas <%= 'active-btn' if (!@export_application.does_delivery_affect_sensitive_areas.nil? && !@export_application.does_delivery_affect_sensitive_areas) %>">
+                                    <%= check_box_tag "export_application[does_delivery_affect_sensitive_areas]", '0' %>
+                                    <%= t :no_button %>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div id="deliveryAffectsSensitiveArea" style="display: <%= (@export_application.does_delivery_affect_sensitive_areas.present? && @export_application.does_delivery_affect_sensitive_areas)? 'block' : 'none' %>;">
+                            <div class="input-field col s12">
+                                <%= form.label :sensitive_area_type, t('sensitive_area_type') %>
+                                <%= form.select :sensitive_area_type, options_for_select([t('please_select'), t('delivery_affects_natural_reserves'), t('delivery_affects_indigenous_people'), t('delivery_affects_cultural_heritage'), t('delivery_affects_other')], @export_application.sensitive_area_type ? @export_application.sensitive_area_type : nil), {}, class: 'validate', id: "sensitive_area_type", :onchange => 'sensitiveAreaTypeChangeHandler()' %>
+                            </div>
+                            <div class="input-field col s12 m12" id="explain_sensitive_area_type">
+                                <%= form.label :explain_sensitive_area_type, t('explain_sensitive_area_type') %>
+                                <%= form.text_area :explain_sensitive_area_type, autofocus: true, class: "validate handex_text_area", :rows => 10 %>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="background_toggle is_export_licence_needed  <%= (@export_application.is_export_licence_needed.present? && @export_application.is_export_licence_needed) ? 'dialog_background' : '' %>">
+
+                        <div class="input-field col s12 m12">
+                            <%= form.label :is_export_licence_needed, t('is_export_licence_needed') %>
+                            <br><br>
+
+                            <label onclick="exportLicenceNeeded()">
+                                <span class="yes yes-no-btns is_export_licence_needed <%= 'active-btn' if (@export_application.is_export_licence_needed) %>">
+                                    <%= check_box_tag "export_application[is_export_licence_needed]", '1' %>
+                                    <%= t :yes_button %>
+                                </span>
+                            </label>
+
+                            <label onclick="noExportLicenceNeeded()">
+                                <span class="no yes-no-btns is_export_licence_needed <%= 'active-btn' if (!@export_application.is_export_licence_needed.nil? && !@export_application.is_export_licence_needed) %>">
+                                    <%= check_box_tag "export_application[is_export_licence_needed]", '0' %>
+                                    <%= t :no_button %>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div id="originLicense" style="display: <%= (@export_application.is_export_licence_needed.present? && @export_application.is_export_licence_needed)? 'block' : 'none' %>;">
+                            <div class="input-field col s12">
+                                <%= form.label :which_regulations_enforcing_exportlicense_requirement, t('which_regulations_enforcing_exportlicense_requirement') %>
+                                <%= form.text_field :which_regulations_enforcing_exportlicense_requirement, autofocus: true, class: "validate" %>
+                            </div>
+                            <div class="input-field col s12 m12">
+                                <%= form.label :export_license_status, t('export_license_status') %>
+                                <%= form.select :export_license_status, options_for_select([t('please_select'), t('was_issued'), t('is_requested'), t('is_still_to_be_requested')]), {}, class: 'validate' %>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="background_toggle are_secondhand_goods_delivered  <%= (@export_application.are_secondhand_goods_delivered.present? && @export_application.are_secondhand_goods_delivered) ? 'dialog_background' : '' %>">
+
+                        <div class="input-field col s12 m12">
+                            <%= form.label :are_secondhand_goods_delivered, t('are_secondhand_goods_delivered') %>
+                            <br><br>
+
+                            <label onclick="deliverySecondHandGoods()">
+                                <span class="yes yes-no-btns are_secondhand_goods_delivered <%= 'active-btn' if (@export_application.are_secondhand_goods_delivered) %>">
+                                    <%= check_box_tag "export_application[are_secondhand_goods_delivered]", '1' %>
+                                    <%= t :yes_button %>
+                                </span>
+                            </label>
+
+                            <label onclick="noDeliverySecondHandGoods()">
+                                <span class="no yes-no-btns are_secondhand_goods_delivered <%= 'active-btn' if (!@export_application.are_secondhand_goods_delivered.nil? && !@export_application.are_secondhand_goods_delivered) %>">
+                                    <%= check_box_tag "export_application[are_secondhand_goods_delivered]", '0' %>
+                                    <%= t :no_button %>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div id="deliverySecondHandGoods" style="display: <%= (@export_application.are_secondhand_goods_delivered.present? && @export_application.are_secondhand_goods_delivered)? 'block' : 'none' %>;">
+                            <div class="input-field col s12">
+                                <%= form.label :manufacture_year, t('manufacture_year') %>
+                                <%= form.text_field :manufacture_year, autofocus: true, class: "validate" %>
+                            </div>
+                            <div class="input-field col s12">
+                                <%= form.label :remaining_life, t('remaining_life') %>
+                                <%= form.text_field :remaining_life, autofocus: true, class: "validate" %>
+                            </div>
+
+                            <div class="input-field col s12 m12">
+                                <%= form.label :are_goods_overhauled, t('are_goods_overhauled') %>
+                                <br><br>
+
+                                <label onclick="goodOverhauled()">
+                                    <span class="yes yes-no-btns are_goods_overhauled <%= 'active-btn' if (@export_application.are_goods_overhauled) %>">
+                                        <%= check_box_tag "export_application[are_goods_overhauled]", '1' %>
+                                        <%= t :yes_button %>
+                                    </span>
+                                </label>
+
+                                <label onclick="noGoodsOverhauled()">
+                                    <span class="no yes-no-btns are_goods_overhauled <%= 'active-btn' if (!@export_application.are_goods_overhauled.nil? && !@export_application.are_goods_overhauled) %>">
+                                        <%= check_box_tag "export_application[are_goods_overhauled]", '0' %>
+                                        <%= t :no_button %>
+                                    </span>
+                                </label>
+                            </div>
+
+                            <div id="goodsOverhauled" style="display: <%= (@export_application.are_goods_overhauled.present? && @export_application.are_goods_overhauled)? 'block' : 'none' %>;">
+                                <div class="input-field col s12 m6">
+                                    <%= form.label :goods_overhaul_country, t('goods_overhaul_country') %>
+                                    <%= form.select :goods_overhaul_country, options_for_select([t('please_select'), t('overhaul_germany'), t('overhaul_foreign'), t('overhaul_other')], @export_application.goods_overhaul_country ? @export_application.goods_overhaul_country : nil), {}, class: 'validate', id: "goods_overhaul_country", :onchange => 'goodsOverhaulCountryIfGermanyHandler()' %>
+                                </div>
+                                <div id="goods_overhaul_country_if_not_germany" style="display: <%= (@export_application.goods_overhaul_country.present? && @export_application.goods_overhaul_country != t('overhaul_germany'))? 'block' : 'none' %>;">
+                                    <div class="input-field col s12 ">
+                                        <%= form.label :why_good_overhauled_abroad, t('why_good_overhauled_abroad') %>
+                                        <%= form.text_area :why_good_overhauled_abroad, autofocus: true %>
+                                    </div>
+                                    <div class="input-field col s6 ">
+                                        <%= form.label :proportion_of_goods_overhauled_abroad, t('proportion_of_goods_overhauled_abroad') %>
+                                        <%= form.text_field :proportion_of_goods_overhauled_abroad, autofocus: true, class: "validate" %>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <%= form.label :describe_why_overhault_didnot_take_in_germany, t('describe_why_overhault_didnot_take_in_germany') %>
+                                        <%= form.text_area :describe_why_overhault_didnot_take_in_germany, autofocus: true, class: "validate" %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="background_toggle has_special_contract_structure <%= (@export_application.has_special_contract_structure.present? && @export_application.has_special_contract_structure) ? 'dialog_background' : '' %>">
+
+                        <div class="input-field col s12 m12">
+                            <%= form.label :has_special_contract_structure, t('has_special_contract_structure') %>
+                            <br><br>
+
+                            <label onclick="specialContractStructure()">
+                                <span class="yes yes-no-btns has_special_contract_structure <%= 'active-btn' if (@export_application.has_special_contract_structure) %>">
+                                    <%= check_box_tag "export_application[has_special_contract_structure]", '1' %>
+                                    <%= t :yes_button %>
+                                </span>
+                            </label>
+
+                            <label onclick="noSpecialContractStructure()">
+                                <span class="no yes-no-btns has_special_contract_structure <%= 'active-btn' if (!@export_application.has_special_contract_structure.nil? && !@export_application.has_special_contract_structure) %>">
+                                    <%= check_box_tag "export_application[has_special_contract_structure]", '0' %>
+                                    <%= t :no_button %>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div id="explainStructure" style="display: <%= (@export_application.has_special_contract_structure.present? && @export_application.has_special_contract_structure)? 'block' : 'none' %>;">
+                            <div class="input-field col s12 m12">
+                                <%= form.label :explain_special_structure, t('explain_special_structure') %>
+                                <div> <%= form.text_area :explain_special_structure, class: "validate handex_text_area", :rows => 10 %> </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="background_toggle has_german_certificate_of_origin  <%= (@export_application.has_german_certificate_of_origin.present? && @export_application.has_german_certificate_of_origin) ? 'dialog_background' : '' %>">
+
+                        <div class="input-field col s12 m12">
+                            <%= form.label :has_german_certificate_of_origin, t('has_german_certificate_of_origin') %>
+                            <br><br>
+
+                            <label onclick="germanCertificateOfOrigin()">
+                                <span class="yes yes-no-btns has_german_certificate_of_origin <%= 'active-btn' if (@export_application.has_german_certificate_of_origin) %>">
+                                    <%= check_box_tag "export_application[has_german_certificate_of_origin]", '1' %>
+                                    <%= t :yes_button %>
+                                </span>
+                            </label>
+
+                            <label onclick="noGermanCertificateOfOrigin()">
+                                <span class="no yes-no-btns has_german_certificate_of_origin <%= 'active-btn' if (!@export_application.has_german_certificate_of_origin.nil? && !@export_application.has_german_certificate_of_origin) %>">
+                                    <%= check_box_tag "export_application[has_german_certificate_of_origin]", '0' %>
+                                    <%= t :no_button %>
+                                </span>
+                            </label>
+
+                            <label onclick="partlyGermanCertificateOfOrigin()">
+                                <span class="partly yes-no-btns has_german_certificate_of_origin_for_only_parts_of_good <%= 'active-btn' if (!@export_application.has_german_certificate_of_origin_for_only_parts_of_good.nil? && !@export_application.has_german_certificate_of_origin_for_only_parts_of_good) %>">
+                                    <%= check_box_tag "export_application[has_german_certificate_of_origin]", '1' %>
+                                    <%= t('partial_german_certificate_of_origin') %>
+                                </span>
+                            </label>
+
+                        </div>
+
+                        <div id="noGermanCertificateOfOriginId" style="display: <%= (@export_application.has_german_certificate_of_origin_for_only_parts_of_good.present? && !@export_application.has_german_certificate_of_origin_for_only_parts_of_good)? 'block' : 'none' %>;">
+                            <div class="input-field col s12">
+                                <%= form.label :goods_supplied_from_foreign_origin, t('goods_supplied_from_foreign_origin') %>
+                            </div>
+
+                            <table class='table'>
+                                <thead>
+                                <tr>
+                                    <th>Währung</th>
+                                    <th>Betrag</th>
+                                    <th>Land</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody class='supplies_from_foreign_origins'>
+                                <%= form.fields_for :supplies_from_foreign_origins do |builder| %>
+                                    <%= render 'export_applications/dynamic/supplies_from_foreign_origin_fields', f: builder %>
+                                <% end %>
+                                </tbody>
+                            </table>
+
+                            <div class="form-actions">
+                                <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :supplies_from_foreign_origins, :partial => 'export_applications/dynamic/supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins', association_insertion_method: :append} %>
+                            </div>
+
+                            <div class="input-field col s12 m12">
+                                <br>
+                                <%= form.label :why_all_foreign_rawgoods_necessary, t('why_all_foreign_rawgoods_necessary') %>
+                                <%= form.text_area :why_all_foreign_rawgoods_necessary, class: "validate handex_text_area", :rows => 10 %>
+                            </div>
+                        </div>
+
+                        <div id="partlyGermanCertificateOfOrigin" style="display: <%= (@export_application.has_german_certificate_of_origin_for_only_parts_of_good.present? && @export_application.has_german_certificate_of_origin_for_only_parts_of_good)? 'block' : 'none' %>;">
+                            <div class="input-field col s12">
+                                <%= form.label :goods_supplied_from_foreign_origin, t('goods_supplied_from_foreign_origin') %>
+                            </div>
+                            <table class='table'>
+                                <thead>
+                                <tr>
+                                    <th>Währung</th>
+                                    <th>Betrag</th>
+                                    <th>Land</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody class='supplies_from_foreign_origins_partly'>
+                                <%= form.fields_for :supplies_from_foreign_origins do |builder| %>
+                                    <%= render 'export_applications/dynamic/supplies_from_foreign_origin_fields', f: builder %>
+                                <% end %>
+                                </tbody>
+                            </table>
+                            <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :supplies_from_foreign_origins, :partial => 'export_applications/dynamic/supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins_partly', association_insertion_method: :append} %>
+
+                            <div class="input-field col s12 m12">
+                                <br>
+                                <%= form.label :why_partly_foreign_rawgoods_necessary, t('why_partly_foreign_rawgoods_necessary') %>
+                                <%= form.text_area :why_partly_foreign_rawgoods_necessary, class: "validate handex_text_area", :rows => 10 %>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

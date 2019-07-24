@@ -105,9 +105,10 @@
         var x = document.getElementById("yesCustomerCountInterest");
         if (x.style.display === "none") {
             x.style.display = "block";
-        } else {
-            x.style.display = "none";
+            $('.yes.yes-no-btns.is_interest_charged_to_importer').addClass('active-btn');
         }
+        $('.no.yes-no-btns.is_interest_charged_to_importer').removeClass('active-btn');
+        $('.is_interest_charged_to_importer').addClass('dialog_background');
     }
 
     function noCustomerCountsInterest() {
@@ -115,6 +116,9 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
+        $('.is_interest_charged_to_importer').removeClass('dialog_background');
+        $('.no.yes-no-btns.is_interest_charged_to_importer').addClass('active-btn');
+        $('.yes.yes-no-btns.is_interest_charged_to_importer').removeClass('active-btn');
     }
 
     function kurzFristigTermOfPayment() {
@@ -200,74 +204,64 @@
         if (y.style.display === "block") {
             y.style.display = "none";
         }
-
-        $('#export_application_has_german_certificate_of_origin').prop('checked', true);
-        $('#export_application_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', false);
+        $('.yes.yes-no-btns.has_german_certificate_of_origin').addClass('active-btn');
+        $('.no.yes-no-btns.has_german_certificate_of_origin').removeClass('active-btn');
+        $('.no.yes-no-btns.has_german_certificate_of_origin_for_only_parts_of_good').removeClass('active-btn');
         $('.has_german_certificate_of_origin').removeClass('dialog_background');
     }
 
     function noGermanCertificateOfOrigin() {
         var x = document.getElementById("noGermanCertificateOfOriginId");
         var y = document.getElementById("partlyGermanCertificateOfOrigin");
-        var z = $('.has_german_certificate_of_origin');
 
         if (x.style.display === "none") {
             x.style.display = "block";
-            y.style.display = "none";
-        } else {
-            x.style.display = "none";
+        }
+        if (y.style.display === "block") {
             y.style.display = "none";
         }
-        $('#export_application_has_german_certificate_of_origin').prop('checked', false);
-        $('#export_application_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', false);
-        if (z.hasClass('no')) {
-            z.toggleClass('dialog_background');
-        } else {
-            z.addClass('dialog_background');
-        }
-        z.removeClass('partly');
-        z.addClass('no');
+        $('.no.yes-no-btns.has_german_certificate_of_origin').addClass('active-btn');
+        $('.yes.yes-no-btns.has_german_certificate_of_origin').removeClass('active-btn');
+        $('.partly.yes-no-btns.has_german_certificate_of_origin_for_only_parts_of_good').removeClass('active-btn');
+        $('.has_german_certificate_of_origin').addClass('dialog_background');
     }
 
     function partlyGermanCertificateOfOrigin() {
-        var y = document.getElementById("partlyGermanCertificateOfOrigin");
-        var x = document.getElementById("noGermanCertificateOfOriginId");
-        var z = $('.has_german_certificate_of_origin');
+        var x = document.getElementById("partlyGermanCertificateOfOrigin");
+        var y = document.getElementById("noGermanCertificateOfOriginId");
 
-        if (y.style.display === "none") {
-            y.style.display = "block";
-            x.style.display = "none";
-        } else {
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        }
+
+        if (y.style.display === "block") {
             y.style.display = "none";
-            x.style.display = "none";
         }
-        $('#export_application_has_german_certificate_of_origin').prop('checked', false);
-        $('#export_application_has_german_certificate_of_origin_for_only_parts_of_good').prop('checked', true);
-        if (z.hasClass('partly')) {
-            z.toggleClass('dialog_background');
-        } else {
-            z.addClass('dialog_background');
-        }
-        z.removeClass('no');
-        z.addClass('partly');
+
+        $('.partly.yes-no-btns.has_german_certificate_of_origin_for_only_parts_of_good').addClass('active-btn');
+        $('.yes.yes-no-btns.has_german_certificate_of_origin').removeClass('active-btn');
+        $('.no.yes-no-btns.has_german_certificate_of_origin').removeClass('active-btn');
+        $('.has_german_certificate_of_origin').addClass('dialog_background');
     }
 
     function goodOverhauled() {
         var x = document.getElementById("goodsOverhauled");
         if (x.style.display === "none") {
             x.style.display = "block";
-        } else {
-            x.style.display = "none";
+            $('.yes.yes-no-btns.are_goods_overhauled').addClass('active-btn');
         }
-        $('#export_application_are_goods_overhauled').prop('checked', true);
+        $('.no.yes-no-btns.are_goods_overhauled').removeClass('active-btn');
+        $('.are_goods_overhauled').addClass('dialog_background');
     }
 
-    function NoGoodsOverhauled() {
+    function noGoodsOverhauled() {
         var x = document.getElementById("goodsOverhauled");
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_are_goods_overhauled').prop('checked', false);
+        $('.are_goods_overhauled').removeClass('dialog_background');
+        $('.no.yes-no-btns.are_goods_overhauled').addClass('active-btn');
+        $('.yes.yes-no-btns.are_goods_overhauled').removeClass('active-btn');
     }
 
     function incoTerms() {
@@ -357,15 +351,13 @@
     }
 
     function investmentGoods() {
-        $('#export_application_is_investment_good').prop('checked', true);
-        $("#firstdrop").hide();
-        $("#seconddrop").show();
-
+        $('.yes.yes-no-btns.is_investment_good').addClass('active-btn');
+        $('.no.yes-no-btns.is_investment_good').removeClass('active-btn');
     }
 
     function noInvestmentGoods() {
-        $('#export_application_is_investment_good').prop('checked', false);
-        $("#firstdrop").show();
+        $('.no.yes-no-btns.is_investment_good').addClass('active-btn');
+        $('.yes.yes-no-btns.is_investment_good').removeClass('active-btn');
     }
 
     function deliveredAtThisAddress() {
@@ -390,25 +382,46 @@
     }
 
     function fixedInterestRate() {
-        $('#yesFixedInterestRate').show();
-        $('#noFixedInterestRate').hide();
-        $('#fixed_interest_rate').prop('checked', true);
+        var x = document.getElementById("yesFixedInterestRate");
+        var y = document.getElementById("noFixedInterestRate");
+
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.display = "none";
+        }
+        $('.yes.yes-no-btns.fixed_interest_rate').addClass('active-btn');
+        $('.no.yes-no-btns.fixed_interest_rate').removeClass('active-btn');
     }
 
     function noFixedInterestRate() {
-        $('#yesFixedInterestRate').hide();
-        $('#noFixedInterestRate').show();
-        $('#fixed_interest_rate').prop('checked', false);
+        var x = document.getElementById("yesFixedInterestRate");
+        var y = document.getElementById("noFixedInterestRate");
+
+        if (y.style.display === "none") {
+            y.style.display = "block";
+            x.style.display = "none";
+        }
+
+        $('.no.yes-no-btns.fixed_interest_rate').addClass('active-btn');
+        $('.yes.yes-no-btns.fixed_interest_rate').removeClass('active-btn');
     }
 
     function degressiveInterestRate() {
-        $('#noDegressiveInterestRate').hide();
-        $('#fixed_interest_rate').prop('checked', true);
+        var x = document.getElementById("noDegressiveInterestRate");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('.yes.yes-no-btns.degressive_interest_rate').addClass('active-btn');
+        }
+        $('.no.yes-no-btns.degressive_interest_rate').removeClass('active-btn');
     }
 
     function noDegressiveInterestRate() {
-        $('#noDegressiveInterestRate').show();
-        $('#degressiveInterestRate').prop('checked', false);
+        var x = document.getElementById("noDegressiveInterestRate");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('.no.yes-no-btns.degressive_interest_rate').addClass('active-btn');
+        $('.yes.yes-no-btns.degressive_interest_rate').removeClass('active-btn');
     }
 
     function privateSector() {
@@ -432,62 +445,63 @@
     }
 
     function servicingForGoods() {
-        $('#export_application_exporter_offers_servicing_for_goods').prop('checked', true);
+        $('.yes.yes-no-btns.exporter_offers_servicing_for_goods').addClass('active-btn');
+        $('.no.yes-no-btns.exporter_offers_servicing_for_goods').removeClass('active-btn');
     }
 
     function noServicingForGoods() {
-        $('#export_application_exporter_offers_servicing_for_goods').prop('checked', false);
+        $('.no.yes-no-btns.exporter_offers_servicing_for_goods').addClass('active-btn');
+        $('.yes.yes-no-btns.exporter_offers_servicing_for_goods').removeClass('active-btn');
     }
 
     function deliveredPartOfConsortiumWithOtherCompanies() {
-        var y = document.getElementById("deliveredPartOfConsortiumWithOtherCompanies");
-        if (y.style.display === "none") {
-            y.style.display = "block";
-        } else {
-            y.style.display = "none";
+        var x = document.getElementById("deliveredPartOfConsortiumWithOtherCompanies");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('.yes.yes-no-btns.is_delivered_part_of_consortium_with_other_companies').addClass('active-btn');
         }
-        $('#export_application_is_delivered_part_of_consortium_with_other_companies').prop('checked', true);
-        $('.is_delivered_part_of_consortium_with_other_companies').toggleClass('dialog_background');
+        $('.no.yes-no-btns.is_delivered_part_of_consortium_with_other_companies').removeClass('active-btn');
+        $('.is_delivered_part_of_consortium_with_other_companies').addClass('dialog_background');
     }
 
-    function NoDeliveredPartOfConsortiumWithOtherCompanies() {
+    function notDeliveredPartOfConsortiumWithOtherCompanies() {
         var x = document.getElementById("deliveredPartOfConsortiumWithOtherCompanies");
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_is_delivered_part_of_consortium_with_other_companies').prop('checked', false);
         $('.is_delivered_part_of_consortium_with_other_companies').removeClass('dialog_background');
+        $('.no.yes-no-btns.is_delivered_part_of_consortium_with_other_companies').addClass('active-btn');
+        $('.yes.yes-no-btns.is_delivered_part_of_consortium_with_other_companies').removeClass('active-btn');
     }
 
     function deliveryAffectsSensitiveArea() {
-        var y = document.getElementById("deliveryAffectsSensitiveArea");
-        if (y.style.display === "none") {
-            y.style.display = "block";
-        } else {
-            y.style.display = "none";
+        var x = document.getElementById("deliveryAffectsSensitiveArea");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('.yes.yes-no-btns.does_delivery_affect_sensitive_areas').addClass('active-btn');
         }
-        $('#export_application_does_delivery_affect_sensitive_areas').prop('checked', true);
-        $('.does_delivery_affect_sensitive_areas').toggleClass('dialog_background');
+        $('.no.yes-no-btns.does_delivery_affect_sensitive_areas').removeClass('active-btn');
+        $('.does_delivery_affect_sensitive_areas').addClass('dialog_background');
     }
 
-    function NoDeliveryAffectsSensitiveArea() {
+    function deliveryDoesNotAffectsSensitiveArea() {
         var x = document.getElementById("deliveryAffectsSensitiveArea");
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_does_delivery_affect_sensitive_areas').prop('checked', false);
         $('.does_delivery_affect_sensitive_areas').removeClass('dialog_background');
+        $('.no.yes-no-btns.does_delivery_affect_sensitive_areas').addClass('active-btn');
+        $('.yes.yes-no-btns.does_delivery_affect_sensitive_areas').removeClass('active-btn');
     }
 
     function exportLicenceNeeded() {
-        var y = document.getElementById("originLicense");
-        if (y.style.display === "none") {
-            y.style.display = "block";
-        } else {
-            y.style.display = "none";
+        var x = document.getElementById("originLicense");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('.yes.yes-no-btns.is_export_licence_needed').addClass('active-btn');
         }
-        $('#export_application_is_export_licence_needed').prop('checked', true);
-        $('.is_export_licence_needed').toggleClass('dialog_background');
+        $('.no.yes-no-btns.is_export_licence_needed').removeClass('active-btn');
+        $('.is_export_licence_needed').addClass('dialog_background');
     }
 
     function noExportLicenceNeeded() {
@@ -495,28 +509,29 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_is_export_licence_needed').prop('checked', false);
         $('.is_export_licence_needed').removeClass('dialog_background');
+        $('.no.yes-no-btns.is_export_licence_needed').addClass('active-btn');
+        $('.yes.yes-no-btns.is_export_licence_needed').removeClass('active-btn');
     }
 
     function isFullyResponsibleForProject() {
-        $('#is_fully_responsible_for_project').prop('checked', true);
+        $('.yes.yes-no-btns.is_fully_responsible_for_project').addClass('active-btn');
+        $('.no.yes-no-btns.is_fully_responsible_for_project').removeClass('active-btn');
     }
 
     function isNotFullyResponsibleForProject() {
-        $('#is_fully_responsible_for_project').prop('checked', false);
+        $('.no.yes-no-btns.is_fully_responsible_for_project').addClass('active-btn');
+        $('.yes.yes-no-btns.is_fully_responsible_for_project').removeClass('active-btn');
     }
 
-
     function deliverySecondHandGoods() {
-        var y = document.getElementById("deliverySecondHandGoods");
-        if (y.style.display === "none") {
-            y.style.display = "block";
-        } else {
-            y.style.display = "none";
+        var x = document.getElementById("deliverySecondHandGoods");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('.yes.yes-no-btns.are_secondhand_goods_delivered').addClass('active-btn');
         }
-        $('#export_application_are_secondhand_goods_delivered').prop('checked', true);
-        $('.are_secondhand_goods_delivered').toggleClass('dialog_background');
+        $('.no.yes-no-btns.are_secondhand_goods_delivered').removeClass('active-btn');
+        $('.are_secondhand_goods_delivered').addClass('dialog_background');
     }
 
     function noDeliverySecondHandGoods() {
@@ -524,69 +539,45 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_are_secondhand_goods_delivered').prop('checked', false);
         $('.are_secondhand_goods_delivered').removeClass('dialog_background');
+        $('.no.yes-no-btns.are_secondhand_goods_delivered').addClass('active-btn');
+        $('.yes.yes-no-btns.are_secondhand_goods_delivered').removeClass('active-btn');
     }
 
     function contractAlreadySignedBetweenParties() {
         var x = document.getElementById("contractSignedBetweenParties");
         var y = document.getElementById("noContractSignedBetweenParties");
-        var z = $('.is_contract_already_signed_between_parties');
 
         if (x.style.display === "none") {
             x.style.display = "block";
             y.style.display = "none";
-        } else {
-            x.style.display = "none";
-            y.style.display = "none";
+            $('.yes.yes-no-btns.is_contract_already_signed_between_parties').addClass('active-btn');
         }
-
-        $('#export_application_is_contract_already_signed_between_parties').prop('checked', true);
-        if (z.hasClass('yes')) {
-            z.removeClass('dialog_background');
-            z.removeClass('yes');
-        } else if (z.hasClass('no')) {
-            z.removeClass('no');
-            z.addClass('yes');
-        } else {
-            z.addClass('yes');
-            z.addClass('dialog_background');
-        }
+        $('.no.yes-no-btns.is_contract_already_signed_between_parties').removeClass('active-btn');
+        $('.is_contract_already_signed_between_parties').addClass('dialog_background');
     }
 
     function noContractAlreadySignedBetweenParties() {
-        var x = document.getElementById(" contractSignedBetweenParties");
+        var x = document.getElementById("contractSignedBetweenParties");
         var y = document.getElementById("noContractSignedBetweenParties");
-        var z = $('.is_contract_already_signed_between_parties');
 
         if (y.style.display === "none") {
             y.style.display = "block";
             x.style.display = "none";
-        } else {
-            y.style.display = "none";
-            x.style.display = "none";
+            $('.no.yes-no-btns.is_contract_already_signed_between_parties').addClass('active-btn');
         }
-        $('#export_application_is_contract_already_signed_between_parties').prop('checked', false);
-        if (z.hasClass('no')) {
-            z.removeClass('dialog_background');
-            z.removeClass('no');
-        } else if (z.hasClass('yes')) {
-            z.removeClass('yes');
-            z.addClass('no');
-        } else {
-            z.addClass('no');
-            z.addClass('dialog_background');
-        }
+        $('.is_contract_already_signed_between_parties').addClass('dialog_background');
+        $('.yes.yes-no-btns.is_contract_already_signed_between_parties').removeClass('active-btn');
     }
 
     function partInTender() {
-        var y = document.getElementById("partInTender");
-        if (y.style.display === "none") {
-            y.style.display = "block";
-        } else {
-            y.style.display = "none";
+        var x = document.getElementById("partInTender");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('.yes.yes-no-btns.taking_part_in_tender').addClass('active-btn');
         }
-        $('#export_application_taking_part_in_tender').prop('checked', true);
+        $('.no.yes-no-btns.taking_part_in_tender').removeClass('active-btn');
+        $('.taking_part_in_tender').addClass('dialog_background');
     }
 
     function noPartInTender() {
@@ -594,18 +585,19 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_taking_part_in_tender').prop('checked', false);
+        $('.taking_part_in_tender').removeClass('dialog_background');
+        $('.no.yes-no-btns.taking_part_in_tender').addClass('active-btn');
+        $('.yes.yes-no-btns.taking_part_in_tender').removeClass('active-btn');
     }
 
     function specialContractStructure() {
-        var y = document.getElementById("explainStructure");
-        if (y.style.display === "none") {
-            y.style.display = "block";
-        } else {
-            y.style.display = "none";
+        var x = document.getElementById("explainStructure");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('.yes.yes-no-btns.has_special_contract_structure').addClass('active-btn');
         }
-        $('#export_application_has_special_contract_structure').prop('checked', true);
-        $('.has_special_contract_structure').toggleClass('dialog_background');
+        $('.no.yes-no-btns.has_special_contract_structure').removeClass('active-btn');
+        $('.has_special_contract_structure').addClass('dialog_background');
     }
 
     function noSpecialContractStructure() {
@@ -613,39 +605,39 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_has_special_contract_structure').prop('checked', false);
         $('.has_special_contract_structure').removeClass('dialog_background');
+        $('.no.yes-no-btns.has_special_contract_structure').addClass('active-btn');
+        $('.yes.yes-no-btns.has_special_contract_structure').removeClass('active-btn');
     }
 
     function goodsSentMultipleDeliveries() {
-        var y = document.getElementById("GoodsSentMultipleDeliveries");
-        if (y.style.display === "none") {
-            y.style.display = "block";
-        } else {
-            y.style.display = "none";
+        var x = document.getElementById("goodsSentMultipleDeliveries");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('.yes.yes-no-btns.is_good_sent_in_multiple_deliveries').addClass('active-btn');
         }
-        $('#export_application_is_good_sent_in_multiple_deliveries').prop('checked', true);
-        $('.is_good_sent_in_multiple_deliveries').toggleClass('dialog_background');
+        $('.no.yes-no-btns.is_good_sent_in_multiple_deliveries').removeClass('active-btn');
+        $('.is_good_sent_in_multiple_deliveries').addClass('dialog_background');
     }
 
     function noGoodsSentMultipleDeliveries() {
-        var x = document.getElementById("GoodsSentMultipleDeliveries");
+        var x = document.getElementById("goodsSentMultipleDeliveries");
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#is_good_sent_in_multiple_deliveries').prop('checked', false);
         $('.is_good_sent_in_multiple_deliveries').removeClass('dialog_background');
+        $('.no.yes-no-btns.is_good_sent_in_multiple_deliveries').addClass('active-btn');
+        $('.yes.yes-no-btns.is_good_sent_in_multiple_deliveries').removeClass('active-btn');
     }
 
     function securityPresent() {
-        var y = document.getElementById("securityPresent");
-        if (y.style.display === "none") {
-            y.style.display = "block";
-        } else {
-            y.style.display = "none";
+        var x = document.getElementById("securityPresent");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('.yes.yes-no-btns.is_security_present_for_transaction').addClass('active-btn');
         }
-        $('#export_application_is_security_present_for_transaction').prop('checked', true);
-        $('.is_security_present_for_transaction').toggleClass('dialog_background');
+        $('.no.yes-no-btns.is_security_present_for_transaction').removeClass('active-btn');
+        $('.is_security_present_for_transaction').addClass('dialog_background');
     }
 
     function noSecurityPresent() {
@@ -653,19 +645,19 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_is_security_present_for_transaction').prop('checked', false);
         $('.is_security_present_for_transaction').removeClass('dialog_background');
+        $('.no.yes-no-btns.is_security_present_for_transaction').addClass('active-btn');
+        $('.yes.yes-no-btns.is_security_present_for_transaction').removeClass('active-btn');
     }
 
     function agreedTermOfPayments() {
-        var y = document.getElementById("agreedTermsOfPayments");
-        if (y.style.display === "none") {
-            y.style.display = "block";
-        } else {
-            y.style.display = "none";
+        var x = document.getElementById("agreedTermsOfPayments");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('.yes.yes-no-btns.has_agreed_payment_term_already').addClass('active-btn');
         }
-        $('#export_application_has_agreed_payment_term_already').prop('checked', true);
-        $('.has_agreed_payment_term_already').toggleClass('dialog_background');
+        $('.no.yes-no-btns.has_agreed_payment_term_already').removeClass('active-btn');
+        $('.has_agreed_payment_term_already').addClass('dialog_background');
     }
 
     function noAgreedTermOfPayments() {
@@ -673,8 +665,9 @@
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('#export_application_has_agreed_payment_term_already').prop('checked', false);
         $('.has_agreed_payment_term_already').removeClass('dialog_background');
+        $('.no.yes-no-btns.has_agreed_payment_term_already').addClass('active-btn');
+        $('.yes.yes-no-btns.has_agreed_payment_term_already').removeClass('active-btn');
     }
 
     function corruptionDeclaration() {
