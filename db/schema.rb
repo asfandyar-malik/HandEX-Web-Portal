@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_25_143630) do
+ActiveRecord::Schema.define(version: 2019_07_25_155943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -793,6 +793,13 @@ ActiveRecord::Schema.define(version: 2019_07_25_143630) do
   create_table "invite_importers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "importer_name"
+    t.string "importer_representative_name"
+    t.string "importer_representative_email"
+    t.string "message_to_importer"
+    t.bigint "export_application_id"
+    t.string "application_status"
+    t.index ["export_application_id"], name: "index_invite_importers_on_export_application_id"
   end
 
   create_table "multiple_shipments", force: :cascade do |t|
@@ -1112,6 +1119,7 @@ ActiveRecord::Schema.define(version: 2019_07_25_143630) do
   add_foreign_key "insurance_source_of_funds", "insurances"
   add_foreign_key "insurance_supplies_from_foreign_origins", "insurances"
   add_foreign_key "insurances", "users"
+  add_foreign_key "invite_importers", "export_applications"
   add_foreign_key "multiple_shipments", "export_applications"
   add_foreign_key "source_of_funds", "export_applications"
   add_foreign_key "supplies_from_foreign_origins", "export_applications"

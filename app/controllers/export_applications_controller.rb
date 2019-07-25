@@ -175,7 +175,9 @@ class ExportApplicationsController < ApplicationController
               multiple_shipments_attributes:             MultipleShipment.attribute_names.map(&:to_sym).push(:_destroy),
               source_of_funds_attributes:                SourceOfFund.attribute_names.map(&:to_sym).push(:_destroy),
               application_of_funds_attributes:           ApplicationOfFund.attribute_names.map(&:to_sym).push(:_destroy),
-              extra_billed_items_attributes:             ExtraBilledItem.attribute_names.map(&:to_sym).push(:_destroy)
+              extra_billed_items_attributes:             ExtraBilledItem.attribute_names.map(&:to_sym).push(:_destroy),
+                # invite_importers_attributes:             InviteImporter.attribute_names.map(&:to_sym)
+                invite_importers_attributes: [:importer_name, :importer_representative_name, :importer_representative_email, :message_to_importer]
             )
     
     end

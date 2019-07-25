@@ -14,7 +14,7 @@
         </div>
         <div class="col s12 m4">
             <div class="form-nav right">
-                <input class="btn handex-btn z-depth-0" type="submit" name="draft" value="Entwurf speichsern">
+                <input class="btn handex-btn z-depth-0" type="submit" name="draft" value="Entwurf speichern">
                 <input class="btn handex-btn z-depth-0 next handex-nav-button" tab_index="2" type="navigator" value="Weiter">
             </div>
         </div>
@@ -36,55 +36,54 @@
                             </div>
 
                             <div class="form-popup" id="myForm">
-                                <%#= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+                                <%#= form_with(model: @invite_importer, local: true, html: {multipart: true}, id: "invite-importer") do |f| %>
                                 <div class="form-section z-depth-1">
 
                                     <div class="invite_importer">
-                                        <p> &nbsp; &nbsp;Invite Customer </p>
+                                        <p> &nbsp; &nbsp;Invite Importer </p>
                                     </div>
 
-                                    <div class="form-content">
-                                        <div class="row">
-                                            <br>
-                                            <div class="input-field col s12">
-                                                <label>Company Name</label>
-                                                <%= form.text_field :exporter_name, autofocus: true, class: "validate" %>
-                                            </div>
+                                    <%= form.fields_for :invite_importer do |h| %>
 
-                                            <div class="input-field col s6">
-                                                <label>Customer Name</label>
-                                                <%= form.text_field :exporter_name, autofocus: true, class: "validate" %>
-                                            </div>
+                                        <div class="form-content">
+                                            <div class="row">
+                                                <br>
+                                                <div class="input-field col s12">
+                                                    <label>Company Name</label>
+                                                    <%= h.text_field :importer_name, autofocus: true, class: "validate" %>
+                                                </div>
 
-                                            <div class="input-field col s6">
-                                                <label>Customer Email</label>
-                                                <%= form.text_field :exporter_name, autofocus: true, class: "validate" %>
-                                            </div>
+                                                <div class="input-field col s6">
+                                                    <label>Customer Name</label>
+                                                    <%= h.text_field :importer_representative_name, autofocus: true, class: "validate" %>
+                                                </div>
 
-                                            <br>
+                                                <div class="input-field col s6">
+                                                    <label>Customer Email</label>
+                                                    <%= h.text_field :importer_representative_email, autofocus: true, class: "validate" %>
+                                                </div>
 
-                                            <div class="input-field col s12 m12">
-                                                <label>Message</label>
-                                                <%= form.text_area :exporter_name, autofocus: true, class: "validate handex_text_area", :rows => 10 %>
-                                            </div>
+                                                <br>
 
-                                            <div class="input-field col s12">
-                                                <%#= form.check_box :has_read_privacy_policy %>
-                                                <label> I have permission to share my customers email and contact details </label>
-                                            </div>
+                                                <div class="input-field col s12 m12">
+                                                    <label>Message</label>
+                                                    <%= h.text_area :message_to_importer, autofocus: true, class: "validate handex_text_area", :rows => 10 %>
+                                                </div>
 
-                                            <div class=" col s12">
-                                                <div class="actions">
-                                                    <%#= f.submit "Einloggen", id: "submit", class: "btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" %>
-                                                    <button class="btn">Submit</button>
+                                                <div class="input-field col s12">
+                                                    <label> I have permission to share my customers email and contact details </label>
+                                                </div>
+
+                                                <div class=" col s12">
+                                                    <button type="button" class="btn cancel" onclick="closeForm()">Send Invite</button>
                                                     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
                                                 </div>
                                             </div>
-
                                         </div>
-                                    </div>
+                                    <% end %>
+
                                 </div>
-                                <%# end %>
                             </div>
                         </div>
 
@@ -150,7 +149,6 @@
                                 <%= form.label :exporter_total_assets, t('exporter_total_assets') %>
                                 <%= form.text_field :exporter_total_assets, autofocus: true, class: "validate" %>
                             </div>
-
 
                             <div class="background_toggle exporter_external_rating_available <%= (@export_application.exporter_external_rating_available.present? && @export_application.exporter_external_rating_available) ? 'dialog_background' : '' %>">
 
