@@ -130,15 +130,17 @@ de:
   buyers_financing: "Einkaufs finanzierung"
   export_credit_insurance: "Exportkredit versicherung"
 
-  #compnay
+  #company
   company: "Unternehmen"
   exporter_company_name: "Firmenname"
   importer_company_name: "Firmenname"
   importer_shipment_company_name: "Firmenname"
   exporter_address_line1: "Adresszeile 1 (Straße/Hausnummer)"
   exporter_address_line2: "Adresszeile 2"
+  exporter_city: "Stadt"
   importer_address_line1: "Adresszeile 1 (Straße/Hausnummer)"
   importer_address_line2: "Adresszeile 2"
+  importer_city: "Stadt"
   exporter_tax_id: "Steuernummer"
   importer_tax_id: "Steuernummer"
   exporter_date_founded: "Gründungsjahr"
@@ -156,8 +158,6 @@ de:
   exporter_rating_issued_date: "Datum des Ratings"
   exporter_company_registration_number: "Handelsregisternummer"
   registration_court: "Amtsgericht"
-
-
 
   #customer information
   your_importer: "Kunde"
@@ -486,7 +486,6 @@ de:
   account_registration: "Konto registrieren."
   submit: "Senden"
 
-  enter_new_value: "Neuen Wert eingeben"
   edit: "Bearbeiten"
   no_applications_available: ""
   please_select_corresponding_option : "Bitte wählen Sie eine Warenkategorie, die zu Ihrem Produkt passt"

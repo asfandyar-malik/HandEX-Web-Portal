@@ -33,10 +33,16 @@
                         <%= form.label :importer_address_line1, t('importer_address_line1') %>
                         <%= form.text_field :importer_address_line1, autofocus: true, class: "validate" %>
                     </div>
-                    <div class="input-field col s12 m12">
+                    <div class="input-field col s12 m6">
                         <%= form.label :importer_address_line2, t('importer_address_line2') %>
                         <%= form.text_field :importer_address_line2, autofocus: true, class: "validate" %>
                     </div>
+
+                    <div class="input-field col s12 m6">
+                        <%= form.label :importer_city, t('importer_city') %>
+                        <%= form.text_field :importer_city, autofocus: true, class: "validate" %>
+                    </div>
+
                     <div class="input-field col s12 m6">
                         <%= form.label :importer_plz, t('importer_plz') %>
                         <%= form.text_field :importer_plz, autofocus: true, class: "validate" %>

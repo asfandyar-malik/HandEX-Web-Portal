@@ -38,9 +38,13 @@
                                 <%= form.label :exporter_address_line1, t('exporter_address_line1') %>
                                 <%= form.text_field :exporter_address_line1, autofocus: true, class: "validate" %>
                             </div>
-                            <div class="input-field col s12 m12">
+                            <div class="input-field col s12 m6">
                                 <%= form.label :exporter_address_line2, t('exporter_address_line2') %>
                                 <%= form.text_field :exporter_address_line2, autofocus: true, class: "validate" %>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <%= form.label :exporter_city, t('exporter_city') %>
+                                <%= form.text_field :exporter_city, autofocus: true, class: "validate" %>
                             </div>
                             <div class="input-field col s12 m6">
                                 <%= form.label :exporter_plz, t('exporter_plz') %>
