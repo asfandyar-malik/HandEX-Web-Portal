@@ -1,0 +1,2 @@
+class InviteImporter < ApplicationRecord
+end

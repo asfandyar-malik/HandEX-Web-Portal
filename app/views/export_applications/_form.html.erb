@@ -171,6 +171,28 @@
         $('.has_previously_used_hermes_cover').addClass('dialog_background');
     }
 
+    function inviteCustomerToFillApplication() {
+        var x = document.getElementById("fillApplicationYourself");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('.yes.yes-no-btns.invite_customer_to_fill_application').addClass('active-btn');
+        $('.no.yes-no-btns.invite_customer_to_fill_application').removeClass('active-btn');
+    }
+
+    function dontInviteCustomerToFillApplication() {
+        var x = document.getElementById("fillApplicationYourself");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('.no.yes-no-btns.invite_customer_to_fill_application').addClass('active-btn');
+        }
+
+        $('.yes.yes-no-btns.invite_customer_to_fill_application').removeClass('active-btn');
+        $('.invite_customer_to_fill_application').addClass('dialog_background');
+    }
+
+
+
     function germanCertificateOfOrigin() {
         var x = document.getElementById("noGermanCertificateOfOriginId");
         var y = document.getElementById("partlyGermanCertificateOfOrigin");

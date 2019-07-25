@@ -14,7 +14,7 @@
         </div>
         <div class="col s12 m4">
             <div class="form-nav right">
-                <input class="btn handex-btn z-depth-0" type="submit" name="draft" value="Entwurf speichern">
+                <input class="btn handex-btn z-depth-0" type="submit" name="draft" value="Entwurf speichsern">
                 <input class="btn handex-btn z-depth-0 next handex-nav-button" tab_index="2" type="navigator" value="Weiter">
             </div>
         </div>
@@ -25,6 +25,69 @@
             <div class="row">
                 <div class="col s12">
                     <div class="form-content">
+                        <div class="row invite_importer">
+
+                            <div class="input-field col s8 m8">
+                                <p> Dont want to fill out this application, You can invite your customer to this portal </p>
+                            </div>
+
+                            <div class="input-field col s4 m4">
+                                <a onclick="openForm()" class="btn white-text" name="action">Invite Customer </a>
+                            </div>
+
+                            <div class="form-popup" id="myForm">
+                                <%#= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                                <div class="form-section z-depth-1">
+
+                                    <div class="invite_importer">
+                                        <p> &nbsp; &nbsp;Invite Customer </p>
+                                    </div>
+
+                                    <div class="form-content">
+                                        <div class="row">
+                                            <br>
+                                            <div class="input-field col s12">
+                                                <label>Company Name</label>
+                                                <%= form.text_field :exporter_name, autofocus: true, class: "validate" %>
+                                            </div>
+
+                                            <div class="input-field col s6">
+                                                <label>Customer Name</label>
+                                                <%= form.text_field :exporter_name, autofocus: true, class: "validate" %>
+                                            </div>
+
+                                            <div class="input-field col s6">
+                                                <label>Customer Email</label>
+                                                <%= form.text_field :exporter_name, autofocus: true, class: "validate" %>
+                                            </div>
+
+                                            <br>
+
+                                            <div class="input-field col s12 m12">
+                                                <label>Message</label>
+                                                <%= form.text_area :exporter_name, autofocus: true, class: "validate handex_text_area", :rows => 10 %>
+                                            </div>
+
+                                            <div class="input-field col s12">
+                                                <%#= form.check_box :has_read_privacy_policy %>
+                                                <label> I have permission to share my customers email and contact details </label>
+                                            </div>
+
+                                            <div class=" col s12">
+                                                <div class="actions">
+                                                    <%#= f.submit "Einloggen", id: "submit", class: "btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" %>
+                                                    <button class="btn">Submit</button>
+                                                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <%# end %>
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="input-field col s12 m6">
                                 <%= form.label :exporter_name, t('exporter_name') %>
@@ -181,3 +244,13 @@
         </div>
     </div>
 </div>
+
+<script>
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
+</script>
