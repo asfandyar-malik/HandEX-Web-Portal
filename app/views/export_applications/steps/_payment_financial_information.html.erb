@@ -30,17 +30,17 @@
                             <br><br>
 
                             <label onclick="securityPresent()">
-                                <span class="yes yes-no-btns is_security_present_for_transaction <%= 'active-btn' if (@export_application.is_security_present_for_transaction) %>">
-                                    <%= check_box_tag "export_application[is_security_present_for_transaction]", '1' %>
-                                    <%= t :yes_button %>
-                                </span>
+                                    <span class="yes yes-no-btns is_security_present_for_transaction <%= 'active-btn' if (@export_application.is_security_present_for_transaction) %>">
+                                        <%= check_box_tag "export_application[is_security_present_for_transaction]", '1' %>
+                                        <%= t :yes_button %>
+                                    </span>
                             </label>
 
                             <label onclick="noSecurityPresent()">
-                                <span class="no yes-no-btns is_security_present_for_transaction <%= 'active-btn' if (!@export_application.is_security_present_for_transaction.nil? && !@export_application.is_security_present_for_transaction) %>">
-                                    <%= check_box_tag "export_application[is_security_present_for_transaction]", '0' %>
-                                    <%= t :no_button %>
-                                </span>
+                                    <span class="no yes-no-btns is_security_present_for_transaction <%= 'active-btn' if (!@export_application.is_security_present_for_transaction.nil? && !@export_application.is_security_present_for_transaction) %>">
+                                        <%= check_box_tag "export_application[is_security_present_for_transaction]", '0' %>
+                                        <%= t :no_button %>
+                                    </span>
                             </label>
                         </div>
 
@@ -82,42 +82,45 @@
                             <br><br>
 
                             <label onclick="agreedTermOfPayments()">
-                                <span class="yes yes-no-btns has_agreed_payment_term_already <%= 'active-btn' if (@export_application.has_agreed_payment_term_already) %>">
-                                    <%= check_box_tag "export_application[has_agreed_payment_term_already]", '1' %>
-                                    <%= t :yes_button %>
-                                </span>
+                                    <span class="yes yes-no-btns has_agreed_payment_term_already <%= 'active-btn' if (@export_application.has_agreed_payment_term_already) %>">
+                                        <%= check_box_tag "export_application[has_agreed_payment_term_already]", '1' %>
+                                        <%= t :yes_button %>
+                                    </span>
                             </label>
 
                             <label onclick="noAgreedTermOfPayments()">
-                                <span class="no yes-no-btns has_agreed_payment_term_already <%= 'active-btn' if (!@export_application.has_agreed_payment_term_already.nil? && !@export_application.has_agreed_payment_term_already) %>">
-                                    <%= check_box_tag "export_application[has_agreed_payment_term_already]", '0' %>
-                                    <%= t :no_button %>
-                                </span>
+                                    <span class="no yes-no-btns has_agreed_payment_term_already <%= 'active-btn' if (!@export_application.has_agreed_payment_term_already.nil? && !@export_application.has_agreed_payment_term_already) %>">
+                                        <%= check_box_tag "export_application[has_agreed_payment_term_already]", '0' %>
+                                        <%= t :no_button %>
+                                    </span>
                             </label>
                         </div>
 
                         <div id="agreedTermsOfPayments" style="display: <%= (@export_application.has_agreed_payment_term_already.present? && @export_application.has_agreed_payment_term_already) ? 'block' : 'none' %>">
+
                             <div class="input-field col s12 m12">
-                                <label class="active_selection_card_label">
+
+                                <label id="export_application_payment_term_short" class="active_selection_card_label">
                                       <span class="input-field col s12 m4 threecol z-depth-1-half btn" name="kurzfristigtermofpayment">
-                                              <%= check_box_tag "export_application[payment_term_short]", @export_application.payment_term_short ? @export_application.payment_term_short : nil, false, :onclick => "kurzFristigTermOfPayment();", id: "export_application_payment_term_short" %>
-                                          <%= form.label :payment_term_short, t('payment_term_short') %>
+                                          <%= check_box_tag "export_application[payment_term_short]", @export_application.payment_term_short ? @export_application.payment_term_short : nil, false, :onclick => "kurzFristigTermOfPayment();", id: "export_application_payment_term_short" %>
+                                          <%= form.label :payment_term_short, t('payment_term_short'), id: "export_application_payment_term_short" %>
                                       </span>
                                 </label>
 
-                                <label class="active_selection_card_label">
-                                  <span class="input-field col s12 m4 threecol z-depth-1-half btn" name="mitteltermofpayment">
-                                      <%= check_box_tag "export_application[payment_term_mid]", @export_application.payment_term_mid ? @export_application.payment_term_mid : nil, false, :onclick => "mittelTermOfPayment();", id: "export_application_payment_term_mid" %>
-                                      <%= form.label :payment_term_short, t('payment_term_mid') %>
-                                  </span>
+                                <label id="export_application_payment_term_mid" class="active_selection_card_label">
+                                      <span class="input-field col s12 m4 threecol z-depth-1-half btn" name="mitteltermofpayment">
+                                          <%= check_box_tag "export_application[payment_term_mid]", @export_application.payment_term_mid ? @export_application.payment_term_mid : nil, false, :onclick => "mittelTermOfPayment();", id: "export_application_payment_term_mid" %>
+                                          <%= form.label :payment_term_mid, t('payment_term_mid'), id: "export_application_payment_term_mid" %>
+                                      </span>
                                 </label>
 
-                                <label class="active_selection_card_label">
-                                  <span class="input-field col s12 m4 threecol z-depth-1-half btn" name="sonstigekurzfristigtermofpayment">
-                                      <%= check_box_tag "export_application[payment_term_both]", @export_application.payment_term_both ? @export_application.payment_term_both : nil, false, :onclick => "sonstigeKurzFristigTermOfPayment();", id: "export_application_payment_term_both" %>
-                                      <%= form.label :payment_term_short, t('payment_term_both') %>
-                                  </span>
+                                <label id="export_application_payment_term_both" class="active_selection_card_label">
+                                      <span class="input-field col s12 m4 threecol z-depth-1-half btn" name="sonstigekurzfristigtermofpayment">
+                                          <%= check_box_tag "export_application[payment_term_both]", @export_application.payment_term_both ? @export_application.payment_term_both : nil, false, :onclick => "sonstigeKurzFristigTermOfPayment();", id: "export_application_payment_term_both" %>
+                                          <%= form.label :payment_term_both, t('payment_term_both'), id: "export_application_payment_term_both" %>
+                                      </span>
                                 </label>
+
                             </div>
 
                             <div id="ShortTermOfPayment" style="display: none;">
@@ -316,17 +319,17 @@
                                 <br><br>
 
                                 <label onclick="customerCountsInterest()">
-                                        <span class="yes yes-no-btns is_interest_charged_to_importer <%= 'active-btn' if (@export_application.is_interest_charged_to_importer) %>">
-                                            <%= check_box_tag "export_application[is_interest_charged_to_importer]", '1' %>
-                                            <%= t :yes_button %>
-                                        </span>
+                                            <span class="yes yes-no-btns is_interest_charged_to_importer <%= 'active-btn' if (@export_application.is_interest_charged_to_importer) %>">
+                                                <%= check_box_tag "export_application[is_interest_charged_to_importer]", '1' %>
+                                                <%= t :yes_button %>
+                                            </span>
                                 </label>
 
                                 <label onclick="noCustomerCountsInterest()">
-                                        <span class="no yes-no-btns is_interest_charged_to_importer <%= 'active-btn' if (!@export_application.is_interest_charged_to_importer.nil? && !@export_application.is_interest_charged_to_importer) %>">
-                                            <%= check_box_tag "export_application[is_interest_charged_to_importer]", '0' %>
-                                            <%= t :no_button %>
-                                        </span>
+                                            <span class="no yes-no-btns is_interest_charged_to_importer <%= 'active-btn' if (!@export_application.is_interest_charged_to_importer.nil? && !@export_application.is_interest_charged_to_importer) %>">
+                                                <%= check_box_tag "export_application[is_interest_charged_to_importer]", '0' %>
+                                                <%= t :no_button %>
+                                            </span>
                                 </label>
                             </div>
 
@@ -351,17 +354,17 @@
                                     <br><br>
 
                                     <label onclick="fixedInterestRate()">
-                                    <span class="yes yes-no-btns fixed_interest_rate <%= 'active-btn' if (@export_application.fixed_interest_rate) %>">
-                                        <%= check_box_tag "export_application[fixed_interest_rate]", '1' %>
-                                        <%= t :yes_button %>
-                                    </span>
+                                        <span class="yes yes-no-btns fixed_interest_rate <%= 'active-btn' if (@export_application.fixed_interest_rate) %>">
+                                            <%= check_box_tag "export_application[fixed_interest_rate]", '1' %>
+                                            <%= t :yes_button %>
+                                        </span>
                                     </label>
 
                                     <label onclick="noFixedInterestRate()">
-                                    <span class="no yes-no-btns fixed_interest_rate <%= 'active-btn' if (!@export_application.fixed_interest_rate.nil? && !@export_application.fixed_interest_rate) %>">
-                                        <%= check_box_tag "export_application[fixed_interest_rate]", '0' %>
-                                        <%= t :no_button %>
-                                    </span>
+                                        <span class="no yes-no-btns fixed_interest_rate <%= 'active-btn' if (!@export_application.fixed_interest_rate.nil? && !@export_application.fixed_interest_rate) %>">
+                                            <%= check_box_tag "export_application[fixed_interest_rate]", '0' %>
+                                            <%= t :no_button %>
+                                        </span>
                                     </label>
                                 </div>
 
@@ -388,17 +391,17 @@
                                     <br><br>
 
                                     <label onclick="degressiveInterestRate()">
-                                    <span class="yes yes-no-btns degressive_interest_rate <%= 'active-btn' if (@export_application.degressive_interest_rate) %>">
-                                        <%= check_box_tag "export_application[degressive_interest_rate]", '1' %>
-                                        <%= t :yes_button %>
-                                    </span>
+                                        <span class="yes yes-no-btns degressive_interest_rate <%= 'active-btn' if (@export_application.degressive_interest_rate) %>">
+                                            <%= check_box_tag "export_application[degressive_interest_rate]", '1' %>
+                                            <%= t :yes_button %>
+                                        </span>
                                     </label>
 
                                     <label onclick="noDegressiveInterestRate()">
-                                    <span class="no yes-no-btns degressive_interest_rate <%= 'active-btn' if (!@export_application.degressive_interest_rate.nil? && !@export_application.degressive_interest_rate) %>">
-                                        <%= check_box_tag "export_application[degressive_interest_rate]", '0' %>
-                                        <%= t :no_button %>
-                                    </span>
+                                        <span class="no yes-no-btns degressive_interest_rate <%= 'active-btn' if (!@export_application.degressive_interest_rate.nil? && !@export_application.degressive_interest_rate) %>">
+                                            <%= check_box_tag "export_application[degressive_interest_rate]", '0' %>
+                                            <%= t :no_button %>
+                                        </span>
                                     </label>
                                 </div>
 

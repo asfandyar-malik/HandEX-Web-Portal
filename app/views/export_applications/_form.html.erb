@@ -117,8 +117,6 @@
             x.style.display = "block";
             y.style.display = "none";
             z.style.display = "none";
-        } else {
-            x.style.display = "none"
         }
     }
 
@@ -134,8 +132,6 @@
             y.style.display = "block";
             z.style.display = "none";
             x.style.display = "none";
-        } else {
-            y.style.display = "none"
         }
     }
 
@@ -151,8 +147,6 @@
             z.style.display = "block";
             x.style.display = "none";
             y.style.display = "none";
-        } else {
-            z.style.display = "none"
         }
     }
 
@@ -686,47 +680,6 @@
             $('#explain_sensitive_area_type').hide();
         }
     }
-
-    var $choice = jQuery('.choice');
-
-    $choice.filter('[name="kurzfristigtermofpayment"]').click(function () {
-        $choice.filter('[name="mitteltermofpayment"]').removeClass('active');
-        $choice.filter('[name="sonstigekurzfristigtermofpayment"]').removeClass('active');
-    });
-
-    $choice.filter('[name="mitteltermofpayment"]').click(function () {
-        $choice.filter('[name="kurzfristigtermofpayment"]').removeClass('active');
-        $choice.filter('[name="sonstigekurzfristigtermofpayment"]').removeClass('active');
-    });
-
-    $choice.filter('[name="sonstigekurzfristigtermofpayment"]').click(function () {
-        $choice.filter('[name="mitteltermofpayment"]').removeClass('active');
-        $choice.filter('[name="kurzfristigtermofpayment"]').removeClass('active');
-    });
-
-    $choice.filter('[name="yes_customercountsinterest"]').click(function () {
-        $choice.filter('[name="no_customercountsinterest"]').removeClass('active');
-    });
-
-    $choice.filter('[name="no_customercountsinterest"]').click(function () {
-        $choice.filter('[name="yes_customercountsinterest"]').removeClass('active');
-    });
-
-    $choice.filter('[name="yes_previouslyhermesinsuranceused"]').click(function () {
-        $choice.filter('[name="no_previouslyhermesinsuranceused"]').removeClass('active');
-    });
-
-    $choice.filter('[name="no_previouslyhermesinsuranceused"]').click(function () {
-        $choice.filter('[name="yes_previouslyhermesinsuranceused"]').removeClass('active');
-    });
-
-    $choice.filter('[name="yes_incoterms"]').click(function () {
-        $choice.filter('[name="no_incoterms"]').removeClass('active');
-    });
-
-    $choice.filter('[name="no_incoterms"]').click(function () {
-        $choice.filter('[name="yes_incoterms"]').removeClass('active');
-    });
 
     var loans_custom_arr = {
         "Bergbau, inkl. Verarbeitung" : {
