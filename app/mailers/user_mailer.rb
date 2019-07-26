@@ -15,4 +15,11 @@ class UserMailer < ApplicationMailer
     mail(to: emails, subject: 'Welcome to HandEX', bcc: ["Asfandyar <asfandyar@handex.co>", "Hamid <hamid@handex.co>"])
   end
 
+  def invite_importer_email
+    @user = params[:user]
+    @export_application = params[:export_application]
+    emails = [@export_application.invitation_importer_email]
+    mail(to: emails, subject: 'Welcome to HandEX', bcc: ["Asfandyar <asfandyar@handex.co>", "Hamid <hamid@handex.co>"])
+  end
+
 end

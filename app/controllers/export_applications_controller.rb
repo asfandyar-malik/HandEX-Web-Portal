@@ -28,7 +28,7 @@ class ExportApplicationsController < ApplicationController
         if params[:draft] == 'Entwurf speichern'
             @export_application.application_status = 'DRAFT'
             if @export_application.save
-                redirect_to "/export_applications/" + @export_application.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert (create).'
+		        redirect_to "/export_applications/" + @export_application.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert (create).'
             else
                 flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
                 render :new
@@ -36,6 +36,7 @@ class ExportApplicationsController < ApplicationController
         else
             @export_application.application_status = 'SUBMITTED'
             if @export_application.save
+	            send_importer_invitation
                 redirect_to pages_application_submitted_path, notice: 'Antrag wurde erfolgreich erstellt.'
             else
                 flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
@@ -58,6 +59,7 @@ class ExportApplicationsController < ApplicationController
         elsif params[:draft_edit] == t('save')
             @export_application.application_status = 'DRAFT'
             if @export_application.update(export_application_params)
+	            send_importer_invitation
                 redirect_to "/export_applications/" + @export_application.id.to_s , notice: 'Antrag wurde erfolgreich aktualisiert.'
             else
                 flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
@@ -92,6 +94,12 @@ class ExportApplicationsController < ApplicationController
         @approved_applications = filer_application_by_status "APPROVED"
     end
 
+    def send_importer_invitation
+	    if @export_application.invitation_importer_email.present? && @export_application.invitation_importer_company_name.present?
+		    UserMailer.with(user: current_user, export_application: @export_application).invite_importer_email.deliver_now
+	    end
+    end
+    
     def all_applications
         @all_applications = current_user.export_applications
     end
