@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
     
+  resources :importer_informations
   resources :invite_importers
     scope "(:locale)", locale: /en|es|de/ do
         
