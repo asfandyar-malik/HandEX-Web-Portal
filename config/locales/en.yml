@@ -177,6 +177,10 @@ en:
   has_significant_influence_on_importer_management: "Sind Sie in irgendeiner Form an Ihrem Kunden beteiligt und/oder üben Sie maßgeblichen Einfluss auf die Geschäftsführung aus?"
   understanding_influence: "Bitte helfen sie uns, die Beteiligung besser zu verstehen"
   explain_previous_payment_experience_with_importer: "Bitte beschreiben Sie diese näher."
+  invitation_message_to_importer: "Message"
+  invitation_importer_email: "Customer Email"
+  invitation_importer_representative_name: "Customer Name"
+  invitation_importer_company_name: "Company Name"
 
   #business information
   business_heading: "Geschäft"

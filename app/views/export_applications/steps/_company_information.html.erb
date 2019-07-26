@@ -37,52 +37,47 @@
 
                             <div class="form-popup" id="myForm">
 
-                                <%#= form_with(model: @invite_importer, local: true, html: {multipart: true}, id: "invite-importer") do |f| %>
                                 <div class="form-section z-depth-1">
 
                                     <div class="invite_importer">
                                         <p> &nbsp; &nbsp;Invite Importer </p>
                                     </div>
-
-                                    <%= form.fields_for :invite_importer do |h| %>
-
-                                        <div class="form-content">
-                                            <div class="row">
-                                                <br>
-                                                <div class="input-field col s12">
-                                                    <label>Company Name</label>
-                                                    <%= h.text_field :importer_name, autofocus: true, class: "validate" %>
-                                                </div>
-
-                                                <div class="input-field col s6">
-                                                    <label>Customer Name</label>
-                                                    <%= h.text_field :importer_representative_name, autofocus: true, class: "validate" %>
-                                                </div>
-
-                                                <div class="input-field col s6">
-                                                    <label>Customer Email</label>
-                                                    <%= h.text_field :importer_representative_email, autofocus: true, class: "validate" %>
-                                                </div>
-
-                                                <br>
-
-                                                <div class="input-field col s12 m12">
-                                                    <label>Message</label>
-                                                    <%= h.text_area :message_to_importer, autofocus: true, class: "validate handex_text_area", :rows => 10 %>
-                                                </div>
-
-                                                <div class="input-field col s12">
-                                                    <label> I have permission to share my customers email and contact details </label>
-                                                </div>
-
-                                                <div class=" col s12">
-                                                    <button type="button" class="btn cancel" onclick="closeForm()">Send Invite</button>
-                                                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                                                </div>
+                                    <div class="form-content">
+                                        <div class="row">
+                                            <br>
+                                            <div class="input-field col s12">
+                                                <%= form.label :invitation_importer_company_name, t('invitation_importer_company_name') %>
+                                                <%= form.text_field :invitation_importer_company_name, autofocus: true, class: "validate" %>
                                             </div>
-                                        </div>
-                                    <% end %>
 
+                                            <div class="input-field col s6">
+                                                <%= form.label :invitation_importer_representative_name, t('invitation_importer_representative_name') %>
+                                                <%= form.text_field :invitation_importer_representative_name, autofocus: true, class: "validate" %>
+                                            </div>
+
+                                            <div class="input-field col s6">
+                                                <%= form.label :invitation_importer_email, t('invitation_importer_email') %>
+                                                <%= form.email_field :invitation_importer_email, autofocus: true, class: "validate" %>
+                                            </div>
+
+                                            <br>
+
+                                            <div class="input-field col s12 m12">
+                                                <%= form.label :invitation_message_to_importer, t('invitation_message_to_importer') %>
+                                                <%= form.text_area :invitation_message_to_importer, autofocus: true, class: "validate handex_text_area", :rows => 10 %>
+                                            </div>
+
+                                            <div class="input-field col s12">
+                                                <label> I have permission to share my customers email and contact details </label>
+                                            </div>
+
+                                            <div class=" col s12">
+                                                <button type="button" class="btn" onclick="closeForm()">Send Invite</button>
+                                                <button type="button" id="close-btn" class="btn" onclick="closeForm()">Close</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -251,4 +246,12 @@
     function closeForm() {
         document.getElementById("myForm").style.display = "none";
     }
+
+    $('#close-btn').click(function() {
+        $("#export_application_invitation_importer_company_name").val("");
+        $("#export_application_invitation_importer_email").val("");
+        $("#export_application_invitation_message_to_importer").val("");
+        $("#export_application_invitation_importer_representative_name").val("");
+    })
+
 </script>
