@@ -24,6 +24,64 @@
     <div class="row">
         <div class="col s12">
             <div class="form-content">
+
+                <div class="row invite_importer">
+
+                    <div class="input-field col s8 m8">
+                        <p> Dont want to fill out this application, You can invite your customer to this portal </p>
+                    </div>
+
+                    <div class="input-field col s4 m4">
+                        <a onclick="openForm()" class="btn white-text" name="action">Invite Customer </a>
+                    </div>
+
+                    <div class="form-popup" id="myForm">
+
+                        <div class="form-section z-depth-1">
+
+                            <div class="invite_importer">
+                                <p> &nbsp; &nbsp;Invite Importer </p>
+                            </div>
+                            <div class="form-content">
+                                <div class="row">
+                                    <br>
+                                    <div class="input-field col s12">
+                                        <%= form.label :invitation_importer_company_name, t('invitation_importer_company_name') %>
+                                        <%= form.text_field :invitation_importer_company_name, autofocus: true, class: "validate" %>
+                                    </div>
+
+                                    <div class="input-field col s6">
+                                        <%= form.label :invitation_importer_representative_name, t('invitation_importer_representative_name') %>
+                                        <%= form.text_field :invitation_importer_representative_name, autofocus: true, class: "validate" %>
+                                    </div>
+
+                                    <div class="input-field col s6">
+                                        <%= form.label :invitation_importer_email, t('invitation_importer_email') %>
+                                        <%= form.email_field :invitation_importer_email, autofocus: true, class: "validate" %>
+                                    </div>
+
+                                    <br>
+
+                                    <div class="input-field col s12 m12">
+                                        <%= form.label :invitation_message_to_importer, t('invitation_message_to_importer') %>
+                                        <%= form.text_area :invitation_message_to_importer, autofocus: true, class: "validate handex_text_area", :rows => 10 %>
+                                    </div>
+
+                                    <div class="input-field col s12">
+                                        <label> I have permission to share my customers email and contact details </label>
+                                    </div>
+
+                                    <div class=" col s12">
+                                        <button type="button" class="btn" onclick="closeForm()">Send Invite</button>
+                                        <button type="button" id="close-btn" class="btn">Clear All</button>
+                                        <button type="button" class="btn" onclick="closeForm()">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row">
 
                     <div class="input-field col s12 m12">
@@ -254,3 +312,21 @@
         </div>
     </div>
 </div>
+
+<script>
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
+
+    $('#close-btn').click(function() {
+        $("#export_application_invitation_importer_company_name").val("");
+        $("#export_application_invitation_importer_email").val("");
+        $("#export_application_invitation_message_to_importer").val("");
+        $("#export_application_invitation_importer_representative_name").val("");
+    })
+
+</script>
