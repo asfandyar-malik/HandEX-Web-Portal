@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_24_154028) do
+ActiveRecord::Schema.define(version: 2019_07_27_183949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -461,6 +461,10 @@ ActiveRecord::Schema.define(version: 2019_07_24_154028) do
     t.string "importer_email"
     t.string "importer_phone_number"
     t.float "percentage_of_service_in_whole_order"
+    t.string "invitation_message_to_importer"
+    t.string "invitation_importer_representative_name"
+    t.string "invitation_importer_company_name"
+    t.string "invitation_importer_email"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
@@ -481,6 +485,56 @@ ActiveRecord::Schema.define(version: 2019_07_24_154028) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["export_application_id"], name: "index_guarantees_on_export_application_id"
+  end
+
+  create_table "importer_informations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.string "importer_company_name"
+    t.string "importer_street_hno"
+    t.string "importer_plz"
+    t.string "importer_city"
+    t.string "importer_country"
+    t.string "is_shipment_address"
+    t.string "importer_shipment_company_name"
+    t.string "importer_shipment_country"
+    t.string "importer_shipment_street_hno"
+    t.string "importer_shipment_plz"
+    t.string "importer_shipment_city"
+    t.string "has_significant_influence_on_importer_management"
+    t.string "explain_exporter_influence_on_importer_management"
+    t.string "explain_previous_payment_experience_with_importer"
+    t.string "exporter_offers_servicing_for_goods"
+    t.string "importer_email"
+    t.string "importer_phone_number"
+    t.string "importer_address_line1"
+    t.string "importer_address_line2"
+    t.string "is_delivered_at_this_address"
+    t.boolean "belongs_to_private_sector"
+    t.string "importer_industry"
+    t.boolean "has_payment_experience_with_importer"
+    t.string "importer_tax_id"
+    t.string "importer_company_registration_number"
+    t.boolean "importer_external_rating_available"
+    t.string "importer_rating"
+    t.string "importer_rating_agency"
+    t.string "importer_rating_issued_date"
+    t.boolean "is_company_controlled_by_mother_company"
+    t.string "application_status"
+    t.string "application_type"
+    t.string "annual_financial_statement_importer_last_file_name"
+    t.string "annual_financial_statement_importer_last_content_type"
+    t.integer "annual_financial_statement_importer_last_file_size"
+    t.datetime "annual_financial_statement_importer_last_updated_at"
+    t.string "annual_financial_statement_importer_second_last_file_name"
+    t.string "annual_financial_statement_importer_second_last_content_type"
+    t.integer "annual_financial_statement_importer_second_last_file_size"
+    t.datetime "annual_financial_statement_importer_second_last_updated_at"
+    t.string "credit_bureaus_importer_file_name"
+    t.string "credit_bureaus_importer_content_type"
+    t.integer "credit_bureaus_importer_file_size"
+    t.datetime "credit_bureaus_importer_updated_at"
   end
 
   create_table "insurance_agreed_payment_mid_longs", force: :cascade do |t|

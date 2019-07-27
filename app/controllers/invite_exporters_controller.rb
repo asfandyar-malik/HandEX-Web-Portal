@@ -51,7 +51,7 @@ class InviteExportersController < ApplicationController
     private
 
     def filer_application_by_status status
-        current_user.export_applications.where("application_status = ?", status)
+        current_user.invite_exporters.where("application_status = ?", status)
     end
 
     def set_invite_exporter

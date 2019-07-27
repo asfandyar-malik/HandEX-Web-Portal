@@ -1,5 +1,7 @@
 class ExportApplication < ApplicationRecord
     belongs_to :user
+
+    has_many :invite_importers, dependent: :destroy
     has_many :supplies_from_foreign_origins, dependent: :destroy
     has_many :guarantees, dependent: :destroy
     has_many :agreed_payments, dependent: :destroy
@@ -8,6 +10,9 @@ class ExportApplication < ApplicationRecord
     has_many :source_of_funds, dependent: :destroy
     has_many :application_of_funds, dependent: :destroy
     has_many :extra_billed_items, dependent: :destroy
+    
+    accepts_nested_attributes_for :invite_importers,
+                                  allow_destroy: true
 
     accepts_nested_attributes_for :supplies_from_foreign_origins,
                                   allow_destroy: true

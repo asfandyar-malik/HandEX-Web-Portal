@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Importer Informations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @importer_informations.each do |importer_information| %>
+      <tr>
+        <td><%= link_to 'Show', importer_information %></td>
+        <td><%= link_to 'Edit', edit_importer_information_path(importer_information) %></td>
+        <td><%= link_to 'Destroy', importer_information, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Importer Information', new_importer_information_path %>

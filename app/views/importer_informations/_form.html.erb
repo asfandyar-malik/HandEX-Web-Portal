@@ -1,0 +1,210 @@
+<div class="form-progress">
+    <div class="container center-align">
+        <div class="col s12 m12">
+            <ul class="progressbar">
+                <li tab_index="1" class="active"><span class="dot"></span>Information</li>
+                <li tab_index="2"><span class="dot hidden"></span>Unterlagen</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="handex-form-container">
+    <div class="container">
+        <div class="section">
+            <%= form_for(@importer_information, local: true, html: {multipart: true}, id: "importer-information-portal") do |form| %>
+
+                <% if importer_information.errors.any? %>
+                    <div id="error_explanation">
+                        <h2><%= pluralize(importer_information.errors.count, "error") %> prohibited this importer_information from
+                            being saved:</h2>
+                        <ul>
+                            <% importer_information.errors.full_messages.each do |message| %>
+                                <li><%= message %></li>
+                            <% end %>
+                        </ul>
+                    </div>
+                <% end %>
+
+                <div class="form-section z-depth-1">
+
+                    <%= render "importer_informations/steps/document.html.erb", form: form %>
+
+                    <%= render "importer_informations/steps/information.html.erb", form: form %>
+
+                </div>
+
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    jQuery(function($) { // DOM ready
+
+        $('form').on('keydown', function(e) {
+            if (e.which === 13 && !$(e.target).is('textarea')) {
+                e.preventDefault();
+                console.log("ENTER-KEY PREVENTED ON NON-TEXTAREA ELEMENTS");
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $('.datepicker').datepicker();
+    });
+
+    function changeTabs(current_tab_index) {
+        $('.tab').hide();
+        $('.step_' + current_tab_index).show();
+    }
+
+    function setActive(current_tab_index) {
+        let i;
+        for (i = 1; i <= current_tab_index; i++) {
+            $('li[tab_index="' + i + '"]').addClass('active');
+        }
+        $('li .dot').addClass('hidden');
+        $('li[tab_index="' + current_tab_index + '"] span').removeClass("hidden");
+    }
+
+    $('.progressbar li, .next').click(function function_name(argument) {
+        setActive($(this).attr('tab_index'));
+        changeTabs($(this).attr('tab_index'));
+        $(this).addClass('active');
+    });
+
+    function importerExternalRatingFunction() {
+        var x = document.getElementById("importerExternalRating");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('.yes.yes-no-btns.importer_external_rating_available').addClass('active-btn');
+        }
+        $('.no.yes-no-btns.importer_external_rating_available').removeClass('active-btn');
+        $('.importer_external_rating_available').addClass('dialog_background');
+    }
+
+    function noImporterExternalRatingFunction() {
+        var x = document.getElementById("importerExternalRating");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('.importer_external_rating_available').removeClass('dialog_background');
+        $('.no.yes-no-btns.importer_external_rating_available').addClass('active-btn');
+        $('.yes.yes-no-btns.importer_external_rating_available').removeClass('active-btn');
+    }
+
+    function controlledByMotherCompany() {
+        $('.yes.yes-no-btns.is_company_controlled_by_mother_company').addClass('active-btn');
+        $('.no.yes-no-btns.is_company_controlled_by_mother_company').removeClass('active-btn');
+    }
+
+    function notControlledByMotherCompany() {
+        $('.no.yes-no-btns.is_company_controlled_by_mother_company').addClass('active-btn');
+        $('.yes.yes-no-btns.is_company_controlled_by_mother_company').removeClass('active-btn');
+    }
+
+
+    function privateSector() {
+        $('.yes.yes-no-btns.belongs_to_private_sector').addClass('active-btn');
+        $('.no.yes-no-btns.belongs_to_private_sector').removeClass('active-btn');
+    }
+
+    function noPrivateSector() {
+        $('.no.yes-no-btns.belongs_to_private_sector').addClass('active-btn');
+        $('.yes.yes-no-btns.belongs_to_private_sector').removeClass('active-btn');
+    }
+
+    function paymentExperienceWithImporter() {
+        $('.yes.yes-no-btns.has_payment_experience_with_importer').addClass('active-btn');
+        $('.no.yes-no-btns.has_payment_experience_with_importer').removeClass('active-btn');
+    }
+
+    function noPaymentExperienceWithImporter() {
+        $('.yes.yes-no-btns.has_payment_experience_with_importer').removeClass('active-btn');
+        $('.no.yes-no-btns.has_payment_experience_with_importer').addClass('active-btn');
+    }
+
+    function isFullyResponsibleForProject() {
+        $('.yes.yes-no-btns.is_fully_responsible_for_project').addClass('active-btn');
+        $('.no.yes-no-btns.is_fully_responsible_for_project').removeClass('active-btn');
+    }
+
+    function isNotFullyResponsibleForProject() {
+        $('.no.yes-no-btns.is_fully_responsible_for_project').addClass('active-btn');
+        $('.yes.yes-no-btns.is_fully_responsible_for_project').removeClass('active-btn');
+    }
+
+    function deliveredAtThisAddress() {
+        var x = document.getElementById("deliveryAddress");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('.is_delivered_at_this_address').removeClass('dialog_background');
+        $('.yes.yes-no-btns.is_delivered_at_this_address').addClass('active-btn');
+        $('.no.yes-no-btns.is_delivered_at_this_address').removeClass('active-btn');
+    }
+
+    function noDeliveredAtThisAddress() {
+        var x = document.getElementById("deliveryAddress");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('.no.yes-no-btns.is_delivered_at_this_address').addClass('active-btn');
+        }
+
+        $('.yes.yes-no-btns.is_delivered_at_this_address').removeClass('active-btn');
+        $('.is_delivered_at_this_address').addClass('dialog_background');
+    }
+
+    function significantInfluenceOnImporter() {
+        var x = document.getElementById("significantInfluenceImporter");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('.yes.yes-no-btns.has_significant_influence_on_importer_management').addClass('active-btn');
+        }
+        $('.no.yes-no-btns.has_significant_influence_on_importer_management').removeClass('active-btn');
+        $('.has_significant_influence_on_importer_management').addClass('dialog_background');
+    }
+
+    function noSignificantInfluenceOnImporter() {
+        var x = document.getElementById("significantInfluenceImporter");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('.has_significant_influence_on_importer_management').removeClass('dialog_background');
+        $('.no.yes-no-btns.has_significant_influence_on_importer_management').addClass('active-btn');
+        $('.yes.yes-no-btns.has_significant_influence_on_importer_management').removeClass('active-btn');
+    }
+
+    //------------------------- START: input validation checks here -------------------------
+    // only allow numerical value
+    function onlyAllowNumericalValue(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            alert("Bitte nur numerischen Wert eingeben");
+            return false;
+        }
+        return true;
+    }
+
+    // only allow numerical value and plus symbol
+    function onlyAllowNumericalValueAndPlus(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 43) {
+            alert("Bitte nur numerischen Wert eingeben");
+            return false;
+        }
+        return true;
+    }
+
+    // only allow numerical value and comma, dot
+    function onlyAllowNumericalValueAndDotComma(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 44 && charCode != 46) {
+            alert("Bitte nur numerischen Wert eingeben");
+            return false;
+        }
+        return true;
+    }
+
+</script>
