@@ -438,3 +438,6 @@ es:
   belongs_to_private_sector: "Gehören Sie zum privaten oder öffentlichen Sektor?"
   information: "Information"
   document: "Unterlagen"
+  annual_financial_statement_importer_last: "Annual Report (2018)"
+  annual_financial_statement_importer_second_last: "Annual Report (2017)"
+  credit_bureaus_importer_portal: "Credit Report"

@@ -32,7 +32,6 @@ class ImporterInformationsController < ApplicationController
 		else
 			@importer_information.application_status = 'SUBMITTED'
 			if @importer_information.save
-				send_importer_invitation
 				redirect_to pages_application_submitted_path, notice: 'Antrag wurde erfolgreich erstellt.'
 			else
 				flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
@@ -55,7 +54,6 @@ class ImporterInformationsController < ApplicationController
 		elsif params[:draft_edit] == t('save')
 			@importer_information.application_status = 'DRAFT'
 			if @importer_information.update(importer_information_params)
-				send_importer_invitation
 				redirect_to "/importer_informations/" + @importer_information.id.to_s , notice: 'Antrag wurde erfolgreich aktualisiert.'
 			else
 				flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
@@ -109,6 +107,6 @@ class ImporterInformationsController < ApplicationController
 	def importer_information_params
 		params
 			.require(:importer_information)
-			.permit()
+			.permit(    )
 	end
 end

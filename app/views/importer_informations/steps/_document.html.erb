@@ -1,5 +1,6 @@
 <!-- step_5 start -->
 <div class="step_2 tab" id="step_2">
+
     <!--   Form Navigation Section   -->
     <div class="row form-nav-top">
         <div class="col s12 m4">
@@ -20,6 +21,7 @@
             </div>
         </div>
     </div>
+
     <div class="row">
         <div class="col s12">
 
@@ -28,6 +30,54 @@
                     <label> <%= t('information_for_business_examination') %> </label>
                     <p> <%= t('information_for_business_examination_description') %> </p>
                 </div>
+
+                <div class="input-field col s12 m12 ">
+                    <%= form.label :annual_financial_statement_importer_last, t('annual_financial_statement_importer_last') %>
+                    <div class="file-field input-field">
+                        <div class="btn handex-btn z-depth-0">
+                            <span><%= t('browse') %></span>
+                            <%= form.file_field :annual_financial_statement_importer_last %>
+                            <input type="file" data-height="300"/>
+                        </div>
+
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text"
+                                   placeholder="Upload file"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-field col s12 m12 ">
+                    <%= form.label :annual_financial_statement_importer_second_last, t('annual_financial_statement_importer_second_last') %>
+                    <div class="file-field input-field">
+                        <div class="btn handex-btn z-depth-0">
+                            <span><%= t('browse') %></span>
+                            <%= form.file_field :annual_financial_statement_importer_second_last %>
+                            <input type="file" data-height="300"/>
+                        </div>
+
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text"
+                                   placeholder="Upload file"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-field col s12 m12 ">
+                    <%= form.label :credit_bureaus_importer, t('credit_bureaus_importer_portal') %>
+                    <div class="file-field input-field">
+                        <div class="btn handex-btn z-depth-0">
+                            <span><%= t('browse') %></span>
+                            <%= form.file_field :credit_bureaus_importer %>
+                        </div>
+
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text"
+                                   placeholder="Upload file"/>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_26_162842) do
+ActiveRecord::Schema.define(version: 2019_07_27_183949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -523,6 +523,18 @@ ActiveRecord::Schema.define(version: 2019_07_26_162842) do
     t.boolean "is_company_controlled_by_mother_company"
     t.string "application_status"
     t.string "application_type"
+    t.string "annual_financial_statement_importer_last_file_name"
+    t.string "annual_financial_statement_importer_last_content_type"
+    t.integer "annual_financial_statement_importer_last_file_size"
+    t.datetime "annual_financial_statement_importer_last_updated_at"
+    t.string "annual_financial_statement_importer_second_last_file_name"
+    t.string "annual_financial_statement_importer_second_last_content_type"
+    t.integer "annual_financial_statement_importer_second_last_file_size"
+    t.datetime "annual_financial_statement_importer_second_last_updated_at"
+    t.string "credit_bureaus_importer_file_name"
+    t.string "credit_bureaus_importer_content_type"
+    t.integer "credit_bureaus_importer_file_size"
+    t.datetime "credit_bureaus_importer_updated_at"
   end
 
   create_table "insurance_agreed_payment_mid_longs", force: :cascade do |t|
