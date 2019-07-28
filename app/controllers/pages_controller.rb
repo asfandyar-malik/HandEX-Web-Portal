@@ -47,5 +47,7 @@ class PagesController < ApplicationController
 
     def application_submitted
     end
-    
+
+    def importer_information_saved
+    end
 end

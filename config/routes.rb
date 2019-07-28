@@ -24,6 +24,7 @@ Rails.application.routes.draw do
         get 'pages/advice_refinance' => 'pages#advice_refinance'
         get 'pages/invite_or_fill_yourself' => 'pages#invite_or_fill_yourself'
         get 'pages/application_submitted' => 'pages#application_submitted'
+        get 'pages/importer_information_saved' => 'pages#importer_information_saved'
         
         resources :insurances
         resources :export_applications

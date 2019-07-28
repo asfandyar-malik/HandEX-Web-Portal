@@ -24,17 +24,17 @@ class ImporterInformationsController < ApplicationController
 		if params[:draft] == 'Entwurf speichern'
 			@importer_information.application_status = 'DRAFT'
 			if @importer_information.save
-				redirect_to "/importer_informations/" + @importer_information.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert (create).'
+				redirect_to "/importer_informations/" + @importer_information.id.to_s + "/edit", notice: 'Ihre Daten wurden erfolgreich aktualisiert (create).'
 			else
-				flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+				flash[:notice] = "beim Speichern von Daten ist ein Fehler aufgetreten...."
 				render :new
 			end
 		else
 			@importer_information.application_status = 'SUBMITTED'
 			if @importer_information.save
-				redirect_to pages_application_submitted_path, notice: 'Antrag wurde erfolgreich erstellt.'
+				redirect_to pages_importer_information_saved_path, notice: 'Ihre Daten wurden erfolgreich versendet.'
 			else
-				flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+				flash[:notice] = "beim Speichern von Daten ist ein Fehler aufgetreten...."
 				render :new
 			end
 			# save as published
@@ -46,7 +46,7 @@ class ImporterInformationsController < ApplicationController
 		if params[:draft] == 'Entwurf speichern'
 			@importer_information.application_status = 'DRAFT'
 			if @importer_information.update(importer_information_params)
-				redirect_to "/importer_informations/" + @importer_information.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert (update).'
+				redirect_to "/importer_informations/" + @importer_information.id.to_s + "/edit", notice: 'Ihre Daten wurden erfolgreich aktualisiert (update).'
 			else
 				flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
 				render :update
@@ -54,17 +54,17 @@ class ImporterInformationsController < ApplicationController
 		elsif params[:draft_edit] == t('save')
 			@importer_information.application_status = 'DRAFT'
 			if @importer_information.update(importer_information_params)
-				redirect_to "/importer_informations/" + @importer_information.id.to_s , notice: 'Antrag wurde erfolgreich aktualisiert.'
+				redirect_to "/importer_informations/" + @importer_information.id.to_s , notice: 'Ihre Daten wurden  erfolgreich aktualisiert.'
 			else
-				flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+				flash[:notice] = "beim Speichern von Daten ist ein Fehler aufgetreten...."
 				show
 			end
 		else
 			@importer_information.application_status = 'SUBMITTED'
 			if @importer_information.update(importer_information_params)
-				redirect_to pages_application_submitted_path, notice: 'Antrag wurde erfolgreich gespeichert.'
+				redirect_to pages_importer_information_saved_path, notice: 'Ihre Daten wurden erfolgreich gespeichert.'
 			else
-				flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+				flash[:notice] = "Beim Speichern von Daten ist ein Fehler aufgetreten...."
 				render :update
 			end
 		end
@@ -72,7 +72,7 @@ class ImporterInformationsController < ApplicationController
 	
 	def destroy
 		@importer_information.destroy
-		redirect_to importer_informations_url, notice: 'Antrag wurde erfolgreich zerstört'
+		redirect_to importer_informations_url, notice: 'Ihre Daten wurden erfolgreich zerstört'
 		head :no_content
 	end
 	
