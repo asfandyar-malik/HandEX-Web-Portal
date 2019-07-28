@@ -819,4 +819,20 @@
         return true;
     }
 
+    //importer invitation popup
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
+
+    $('#close-btn').click(function () {
+        $("#insurance_invitation_importer_company_name").val("");
+        $("#insurance_invitation_importer_email").val("");
+        $("#insurance_invitation_message_to_importer").val("");
+        $("#insurance_invitation_importer_representative_name").val("");
+    })
+
 </script>

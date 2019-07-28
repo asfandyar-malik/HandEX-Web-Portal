@@ -59,7 +59,6 @@ class ExportApplicationsController < ApplicationController
         elsif params[:draft_edit] == t('save')
             @export_application.application_status = 'DRAFT'
             if @export_application.update(export_application_params)
-	            send_importer_invitation
                 redirect_to "/export_applications/" + @export_application.id.to_s , notice: 'Antrag wurde erfolgreich aktualisiert.'
             else
                 flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
@@ -68,6 +67,7 @@ class ExportApplicationsController < ApplicationController
         else
             @export_application.application_status = 'SUBMITTED'
             if @export_application.update(export_application_params)
+                send_importer_invitation
                 redirect_to pages_application_submitted_path, notice: 'Antrag wurde erfolgreich gespeichert.'
             else
                 flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."

@@ -510,4 +510,7 @@ de:
   invitation_importer_representative_name: "Kundenname"
   invitation_importer_company_name: "Firmenname"
   importer_permission_to_share_information: "Ich habe die Erlaubnis, meine Kunden E-Mail und Kontaktdaten zu teilen"
+  close: "schließen"
+  importer_invitation_data: "speichern"
+  clear: "löschen"
 

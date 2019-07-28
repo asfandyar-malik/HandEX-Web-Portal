@@ -500,4 +500,6 @@ en:
   invitation_importer_representative_name: "Customer Name"
   invitation_importer_company_name: "Company Name"
   importer_permission_to_share_information: "I have permission to share my customers email and contact details"
-
+  close: "schließen"
+  importer_invitation_data: "speichern"
+  clear: "löschen"

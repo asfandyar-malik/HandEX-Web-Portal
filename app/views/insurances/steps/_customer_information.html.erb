@@ -23,7 +23,67 @@
     </div>
     <div class="row">
         <div class="col s12">
+
+            <div class="row invite_importer">
+
+                <div class="input-field col s9 m9 no-padding">
+                    <p> Sie möchten diesen Antrag nicht ausfüllen. Sie können Ihren Kunden zu diesem Portal einladen </p>
+                </div>
+
+                <div class="input-field col s3 m3 no-padding">
+                    <a onclick="openForm()" class="btn handex-btn white-text invite-importer-btn" name="action"> Kunden einladen </a>
+                </div>
+
+            </div>
+
             <div class="form-content">
+                <div class="form-popup" id="myForm">
+                    <div class="form-section z-depth-1">
+
+                        <div class="invite_importer">
+                            <p> &nbsp; &nbsp; <%= t('invite_importer')  %> </p>
+
+                        </div>
+
+                        <div class="form-content">
+                            <div class="row">
+                                <br>
+                                <div class="input-field col s12">
+                                    <%= form.label :invitation_importer_company_name, t('invitation_importer_company_name') %>
+                                    <%= form.text_field :invitation_importer_company_name, autofocus: true, class: "validate" %>
+                                </div>
+
+                                <div class="input-field col s6">
+                                    <%= form.label :invitation_importer_representative_name, t('invitation_importer_representative_name') %>
+                                    <%= form.text_field :invitation_importer_representative_name, autofocus: true, class: "validate" %>
+                                </div>
+
+                                <div class="input-field col s6">
+                                    <%= form.label :invitation_importer_email, t('invitation_importer_email') %>
+                                    <%= form.email_field :invitation_importer_email, autofocus: true, class: "validate" %>
+                                </div>
+
+                                <br>
+
+                                <div class="input-field col s12 m12">
+                                    <%= form.label :invitation_message_to_importer, t('invitation_message_to_importer') %>
+                                    <%= form.text_area :invitation_message_to_importer, autofocus: true, class: "validate handex_text_area", :rows => 10 %>
+                                </div>
+
+                                <div class="input-field col s12">
+                                    <label> <%= t('importer_permission_to_share_information') %> </label>
+                                </div>
+
+                                <div class=" col s12">
+                                    <button type="button" class="btn" onclick="closeForm()"> <%= t('importer_invitation_data') %></button>
+                                    <button type="button" id="close-btn" class="btn"> <%= t('clear') %></button>
+                                    <button type="button" class="btn" onclick="closeForm()"> <%= t('close') %></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="input-field col s12 m12">
                         <%= form.label :importer_company_name, t('importer_company_name') %>

@@ -75,9 +75,10 @@
                                 </div>
 
                                 <div class=" col s12">
-                                    <button type="button" class="btn" onclick="closeForm()">Send Invite</button>
-                                    <button type="button" id="close-btn" class="btn">Clear All</button>
-                                    <button type="button" class="btn" onclick="closeForm()">Close</button>
+                                    <button type="button" class="btn" onclick="closeForm()"> <%= t('importer_invitation_data') %></button>
+                                    <button type="button" id="close-btn" class="btn"> <%= t('clear') %></button>
+
+                                    <button type="button" class="btn" onclick="closeForm()"> <%= t('close') %></button>
                                 </div>
                             </div>
                         </div>
@@ -314,21 +315,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    function openForm() {
-        document.getElementById("myForm").style.display = "block";
-    }
-
-    function closeForm() {
-        document.getElementById("myForm").style.display = "none";
-    }
-
-    $('#close-btn').click(function () {
-        $("#export_application_invitation_importer_company_name").val("");
-        $("#export_application_invitation_importer_email").val("");
-        $("#export_application_invitation_message_to_importer").val("");
-        $("#export_application_invitation_importer_representative_name").val("");
-    })
-
-</script>

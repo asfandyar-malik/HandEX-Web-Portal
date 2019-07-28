@@ -837,4 +837,21 @@
         return true;
     }
 
+    //importer invitation popup
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
+
+    $('#close-btn').click(function () {
+        $("#export_application_invitation_importer_company_name").val("");
+        $("#export_application_invitation_importer_email").val("");
+        $("#export_application_invitation_message_to_importer").val("");
+        $("#export_application_invitation_importer_representative_name").val("");
+    })
+
+
 </script>

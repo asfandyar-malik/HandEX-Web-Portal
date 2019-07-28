@@ -47,8 +47,10 @@ class InsurancesController < ApplicationController
         else
             @insurance.application_status = 'SUBMITTED'
             if @insurance.save
+                send_importer_invitation
                 redirect_to pages_application_submitted_path, notice: 'Antrag wurde erfolgreich erstellt.'
-            else flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+            else
+	            flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
                 render :new
             end
         end
@@ -76,6 +78,7 @@ class InsurancesController < ApplicationController
         else
             @insurance.application_status = 'SUBMITTED'
             if @insurance.update(insurance_params)
+	            send_importer_invitation
                 redirect_to pages_application_submitted_path, notice: 'Antrag wurde erfolgreich gespeichert.'
             else
                 flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
@@ -100,6 +103,12 @@ class InsurancesController < ApplicationController
     
     def approved_applications
         @approved_applications = filer_application_by_status "APPROVED"
+    end
+
+    def send_importer_invitation
+	    if @insurance.invitation_importer_email.present? && @insurance.invitation_importer_company_name.present?
+		    UserMailer.with(user: current_user, insurance: @insurance).invite_importer_email.deliver_now
+	    end
     end
     
     def all_applications
