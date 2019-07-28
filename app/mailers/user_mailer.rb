@@ -5,14 +5,14 @@ class UserMailer < ApplicationMailer
     @user = params[:user]
     @insurance = params[:insurance]
     emails = [@user.email]
-    mail(to: emails, subject: 'Welcome to HandEX', bcc: ["Asfandyar <asfandyar@handex.co>", "Hamid <hamid@handex.co>"])
+    mail(to: emails, subject: 'Willkommen bei HandEX', bcc: ["Asfandyar <asfandyar@handex.co>", "Hamid <hamid@handex.co>"])
   end
 
   def invite_exporter_email
     @user = params[:user]
     @invite_exporter = params[:invite_exporter]
     emails = [@invite_exporter.exporter_email]
-    mail(to: emails, subject: 'Welcome to HandEX', bcc: ["Asfandyar <asfandyar@handex.co>", "Hamid <hamid@handex.co>"])
+    mail(to: emails, subject: 'Willkommen bei HandEX', bcc: ["Asfandyar <asfandyar@handex.co>", "Hamid <hamid@handex.co>"])
   end
 
   def invite_importer_email
