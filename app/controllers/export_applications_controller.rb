@@ -173,7 +173,6 @@ class ExportApplicationsController < ApplicationController
             
             :source_of_fund_amount, :goods_overhauled_location, :explain_special_contract_structure, :graphic_representation_project_participants, :contract_currency, :risk_shipment_risk_cover, :risk_supplier_credit_cover, :further_lower_economic_risk, :loan_term, :is_delivered_at_this_address, :is_exporting_to_private_sector,
 
-
              # # Invite Importer ----------------------------------------
              :invitation_message_to_importer, :invitation_importer_representative_name, :invitation_importer_company_name, :invitation_importer_email,
 

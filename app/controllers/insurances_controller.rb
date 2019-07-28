@@ -185,7 +185,10 @@ class InsurancesController < ApplicationController
             :deposit_received_payment_term_both, :repayment_structure_payment_term_both, :credit_start_date_payment_term_both, :credit_start_special_description_payment_term_both, :number_of_installments_payment_term_both, :payment_vehichle_explain_payment_term_both,
     
             :source_of_fund_amount, :goods_overhauled_location, :explain_special_contract_structure, :graphic_representation_project_participants, :contract_currency, :risk_shipment_risk_cover, :risk_supplier_credit_cover, :further_lower_economic_risk, :loan_term, :is_delivered_at_this_address, :is_exporting_to_private_sector,
-    
+
+            # # Invite Importer ----------------------------------------
+            :invitation_message_to_importer, :invitation_importer_representative_name, :invitation_importer_company_name, :invitation_importer_email,
+
             # # Varengold Datapoints ----------------------------------------
             :explain_product_service, :sensitive_area_type, :remaining_life, :manufacture_year, :why_good_overhauled_abroad, :goods_overhaul_country, :proportion_of_goods_overhauled_abroad, :describe_why_overhault_didnot_take_in_germany, :all_rawgoods_supplier_amount, :partly_rawgoods_supplier_amount, :importer_address_line1, :importer_address_line2, :importer_company_registration_number, :importer_rating, :importer_rating_agency, :importer_rating_issued_date, :importer_mother_company, :importer_company_corporate_form, :importer_industry, :exporter_address_line1, :exporter_address_line2, :exporter_tax_id, :exporter_revenue, :exporter_total_assets, :exporter_last_fiscal_year, :external_rating_available, :exporter_rating, :rating_agency, :rating_issued_date, :exporter_external_rating_available, :exporter_rating_agency, :exporter_rating_issued_date, :importer_external_rating_available, :is_company_controlled_by_mother_company, :importer_mother_company_industry, :importer_mother_company_corporate_form, :are_goods_overhauled, :exporter_company_registration_number, :registration_court, :exporter_date_founded,
 
