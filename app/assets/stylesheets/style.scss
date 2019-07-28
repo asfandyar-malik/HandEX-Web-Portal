@@ -1140,8 +1140,16 @@ li .dot {
 .invite_importer {
   background-color: #2541b2;
   color: white;
-  padding-bottom: 5px;
-  padding-top: 5px;
+  padding: 5px;
+}
+
+.invite-importer-btn {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  height: 50px;
+  //background-color:#2541b2;
+  background-color: #2d54ff;
+
 }
 
 /* Import Portal Pop Up */
