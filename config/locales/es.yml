@@ -156,10 +156,6 @@ es:
   exporter_industry: "Industrie"
   importer_company_registration_number: "Handelsregisternummer"
   is_company_controlled_by_mother_company: "Wird die Firma durch ein direktes Mutterunternehmen kontrolliert?"
-  invitation_message_to_importer: "Message"
-  invitation_importer_email: "Customer Email"
-  invitation_importer_representative_name: "Customer Name"
-  invitation_importer_company_name: "Company Name"
 
   #business information
   business_heading: "Empresa"
@@ -441,3 +437,10 @@ es:
   annual_financial_statement_importer_last: "Annual Report (2018)"
   annual_financial_statement_importer_second_last: "Annual Report (2017)"
   credit_bureaus_importer_portal: "Credit Report"
+  invite_importer: "Laden Sie den Importeur ein"
+  invitation_message_to_importer: "Message"
+  invitation_importer_email: "Customer Email"
+  invitation_importer_representative_name: "Customer Name"
+  invitation_importer_company_name: "Company Name"
+  importer_permission_to_share_information: "I have permission to share my customers email and contact details"
+
