@@ -107,7 +107,7 @@ class InsurancesController < ApplicationController
 
     def send_importer_invitation
 	    if @insurance.invitation_importer_email.present? && @insurance.invitation_importer_company_name.present?
-		    UserMailer.with(user: current_user, insurance: @insurance).invite_importer_email.deliver_now
+		    UserMailer.with(user: current_user, insurance: @insurance).invite_importer_email_insurance.deliver_now
 	    end
     end
     

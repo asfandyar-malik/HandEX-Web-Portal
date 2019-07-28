@@ -22,4 +22,10 @@ class UserMailer < ApplicationMailer
     mail(to: emails, subject: 'Welcome to HandEX', bcc: ["Asfandyar <asfandyar@handex.co>", "Hamid <hamid@handex.co>"])
   end
 
+  def invite_importer_email_insurance
+    @user = params[:user]
+    @insurance= params[:insurance]
+    emails = [@insurance.invitation_importer_email]
+    mail(to: emails, subject: 'Welcome to HandEX', bcc: ["Asfandyar <asfandyar@handex.co>", "Hamid <hamid@handex.co>"])
+  end
 end
