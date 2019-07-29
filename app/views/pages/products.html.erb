@@ -88,7 +88,7 @@
                                 <%= image_tag "versicherung_finanzierung.png", :class => "activator multi_image" %>
                             </div>
 
-                            <% if current_user.is_broker? %>
+                            <% if current_user.user_type == 3 %>
 
                                 <div class="card-content">
                                     <span class="card-title activator grey-text text-darken-4">
@@ -216,7 +216,7 @@
                                 <%= image_tag "financing.png", class: "activator" %>
                             </div>
 
-                            <% if current_user.is_broker? %>
+                            <% if current_user.user_type == 3 %>
 
                                 <div class="card-content">
                                     <span class="card-title activator grey-text text-darken-4">
