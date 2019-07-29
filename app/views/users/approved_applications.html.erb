@@ -2,12 +2,12 @@
 
 <nav class="handex-color-1 z-depth-0">
     <div class="nav-wrapper">
-        <% if current_user.is_broker? %>
+        <% if current_user.user_type == 3 %>
             <span class="nav-title">Makler Portal</span>
             <a class="z-depth-0 btn z-depth-0 handex-btn-positiv" href="/pages/products">Antrag starten</a>
             <a class="z-depth-0 btn z-depth-0 handex-btn" href="/invite_exporters/new">Kunden einladen</a>
             <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= invited_exporter_user_path(current_user.id) %>" > Eingeladen </a>
-    <% else %>
+        <% else %>
             <span class="nav-title">Anträge</span>
             <a class="z-depth-0 btn z-depth-0 handex-btn-positiv" href="/pages/products">Antrag starten</a>
         <% end %>

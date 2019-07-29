@@ -24,9 +24,6 @@ class User < ApplicationRecord
           user.email        = auth.info.email
           user.password     = Devise.friendly_token[0, 20]
           user.company_name = auth.info.name
-          # user.firstname    = auth.info.firstname
-          # user.lastname     = auth.info.lastname
-          # user.is_broker    = auth.info.is_broker
           user.image        = auth.info.image
           user.uid          = auth.uid
           user.provider     = auth.provider

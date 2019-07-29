@@ -51,22 +51,8 @@
                                             </div>
 
                                             <div class="input-field col s12 m12">
-                                                <label> <%= t :is_broker %></label>
-                                                <br><br>
-
-                                                <label onclick="isBroker()">
-                                                    <span class="yes yes-no-btns is_broker <%= 'active-btn' if (@user.is_broker) %>">
-                                                        <%= check_box_tag "user[is_broker]", '1' %>
-                                                        <%= t :yes_button %>
-                                                    </span>
-                                                </label>
-
-                                                <label onclick="noIsBroker()">
-                                                    <span class="no yes-no-btns is_broker <%= 'active-btn' if (!@user.is_broker.nil? && !@user.is_broker) %>">
-                                                        <%= check_box_tag "user[is_broker]", '0' %>
-                                                        <%= t :no_button %>
-                                                    </span>
-                                                </label>
+                                                <%= f.label :user_type, t('user_type') %>
+                                                <%= f.select :user_type, options_for_select([[t("please_select"), "0"],[t("importer"), "1"], [t("exporter"), "2"], [t("broker"), "3"]]), {}, class: 'validate' %>
                                             </div>
 
                                             <div class="input-field col s12">
@@ -103,26 +89,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    $(".yes-no-btns").click(function (e) {
-        $(this).toggleClass("active-btn");
-        if ($(this).hasClass("yes")) {
-            $(this).closest(".input-field").find(".hide-section").toggle();
-            $(this).closest('p').find('.no.yes-no-btns').removeClass("active-btn");
-        } else {
-            $(this).closest(".input-field").find(".hide-section").hide();
-            $(this).closest('p').find('.yes.yes-no-btns').removeClass("active-btn");
-        }
-    });
-
-    function isBroker() {
-        $('.yes.yes-no-btns.is_broker').addClass('active-btn');
-        $('.no.yes-no-btns.is_broker').removeClass('active-btn');
-    }
-
-    function noIsBroker() {
-        $('.no.yes-no-btns.is_broker').addClass('active-btn');
-        $('.yes.yes-no-btns.is_broker').removeClass('active-btn');
-    }
-</script>
