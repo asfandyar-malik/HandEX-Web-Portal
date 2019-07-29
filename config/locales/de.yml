@@ -505,7 +505,7 @@ de:
   annual_financial_statement_importer_second_last: "Jahresabschlüsse (2017)"
   credit_bureaus_importer_portal: "Selbsauskunft"
   invite_importer: "Importeur einladen"
-  invitation_message_to_importer: "Nachricht"
+  invitation_message_to_importer: "Einladungsnachricht an den Importeur"
   invitation_importer_email: "Kunden-eMail"
   invitation_importer_representative_name: "Kundenname"
   invitation_importer_company_name: "Firmenname"
@@ -538,3 +538,4 @@ de:
   project_detailed_description: "Projekt Beschreibung"
   importer_street_hno: "Importeur Straße hno"
   explain_exporter_influence_on_importer_management: "Bitte beschreiben Sie den Einfluss auf das Management"
+  security_type_name: "Bitte Name von Sicherheiten vergeben"

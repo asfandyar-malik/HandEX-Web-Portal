@@ -528,3 +528,4 @@ en:
   project_detailed_description: "Projekt Beschreibung"
   importer_street_hno: "Importeur Straße hno"
   explain_exporter_influence_on_importer_management: "Bitte beschreiben Sie den Einfluss auf das Management"
+  security_type_name: "Bitte Name von Sicherheiten vergeben"

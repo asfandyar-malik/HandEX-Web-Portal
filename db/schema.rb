@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_28_120102) do
+ActiveRecord::Schema.define(version: 2019_07_29_133001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -185,7 +185,6 @@ ActiveRecord::Schema.define(version: 2019_07_28_120102) do
     t.string "contract_value"
     t.boolean "has_german_certificate_of_origin"
     t.boolean "is_security_present_for_transaction"
-    t.boolean "is_shipment_address"
     t.boolean "has_significant_influence_on_importer_management"
     t.boolean "has_payment_experience_with_importer"
     t.boolean "has_previously_used_hermes_cover"
@@ -374,7 +373,6 @@ ActiveRecord::Schema.define(version: 2019_07_28_120102) do
     t.string "contract_value"
     t.boolean "has_german_certificate_of_origin"
     t.boolean "is_security_present_for_transaction"
-    t.boolean "is_shipment_address"
     t.boolean "has_significant_influence_on_importer_management"
     t.boolean "has_payment_experience_with_importer"
     t.boolean "has_previously_used_hermes_cover"
@@ -740,7 +738,6 @@ ActiveRecord::Schema.define(version: 2019_07_28_120102) do
     t.string "contract_value"
     t.boolean "has_german_certificate_of_origin"
     t.boolean "is_security_present_for_transaction"
-    t.boolean "is_shipment_address"
     t.boolean "has_significant_influence_on_importer_management"
     t.boolean "has_payment_experience_with_importer"
     t.boolean "has_previously_used_hermes_cover"
@@ -1067,7 +1064,6 @@ ActiveRecord::Schema.define(version: 2019_07_28_120102) do
     t.string "contract_value"
     t.boolean "has_german_certificate_of_origin"
     t.boolean "is_security_present_for_transaction"
-    t.boolean "is_shipment_address"
     t.boolean "has_significant_influence_on_importer_management"
     t.boolean "has_payment_experience_with_importer"
     t.boolean "has_previously_used_hermes_cover"
