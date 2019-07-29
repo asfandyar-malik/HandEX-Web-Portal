@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_29_133001) do
+ActiveRecord::Schema.define(version: 2019_07_29_133255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -494,7 +494,6 @@ ActiveRecord::Schema.define(version: 2019_07_29_133001) do
     t.string "importer_plz"
     t.string "importer_city"
     t.string "importer_country"
-    t.string "is_shipment_address"
     t.string "importer_shipment_company_name"
     t.string "importer_shipment_country"
     t.string "importer_shipment_street_hno"
