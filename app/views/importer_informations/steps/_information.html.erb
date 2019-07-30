@@ -14,8 +14,8 @@
         </div>
         <div class="col s12 m4">
             <div class="form-nav right">
-                <input class="btn handex-btn z-depth-0" type="submit" name="draft" value="Entwurf speichern">
-                <input class="btn handex-btn z-depth-0 next handex-nav-button" tab_index="2" type="navigator" value="Weiter">
+                <input class="btn handex-btn z-depth-0" type="submit" name="draft" value= <%= t('save_draft') %> >
+                <input class="btn handex-btn z-depth-0 next handex-nav-button" tab_index="2" type="navigator" value=<%= t('next_step') %> >
             </div>
         </div>
     </div>
@@ -136,7 +136,7 @@
 
                     <div class="input-field col s12 m12">
                         <br>
-                        <%= form.label :has_payment_experience_with_importer, t('has_payment_experience_with_importer') %>
+                        <%= form.label :has_payment_experience_with_importer, "Do you already have previous payment experience " %>
                         <br><br>
 
                         <label onclick="paymentExperienceWithImporter()">
@@ -166,7 +166,7 @@
                     <div class="background_toggle importer_external_rating_available <%= (@importer_information.importer_external_rating_available.present? && @importer_information.importer_external_rating_available) ? 'dialog_background' : '' %> ">
 
                         <div class="input-field col s12 m12">
-                            <%= form.label :importer_external_rating_available, t('importer_external_rating_available') %>
+                            <%= form.label :importer_external_rating_available, "Do you have external rating?" %>
                             <br><br>
 
                             <label onclick="importerExternalRatingFunction()">
@@ -222,7 +222,7 @@
                     <div class="background_toggle has_significant_influence_on_importer_management <%= (@importer_information.has_significant_influence_on_importer_management.present? && @importer_information.has_significant_influence_on_importer_management) ? 'dialog_background' : '' %>">
 
                         <div class="input-field col s12 m12">
-                            <%= form.label :has_significant_influence_on_importer_management, t('has_significant_influence_on_importer_management') %>
+                            <%= form.label :has_significant_influence_on_importer_management, "Does the exporting company have any influence on the management of your company" %>
                             <br><br>
 
                             <label onclick="significantInfluenceOnImporter()">
