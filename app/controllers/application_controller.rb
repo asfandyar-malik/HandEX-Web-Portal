@@ -6,7 +6,11 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   
   def after_sign_in_path_for(resource)
-    root_path
+    if current_user.user_type == 3
+      new_importer_information_path
+    else
+      root_path
+    end
   end
 
   def after_sign_out_path_for(resource_or_scope)
