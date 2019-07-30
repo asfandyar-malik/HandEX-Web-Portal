@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
     
+    
+    devise_for :users, only: :omniauth_callbacks,
+               controllers: {omniauth_callbacks: 'omniauth_callbacks'}
+    
     scope "(:locale)", locale: /en|es|de/ do
+    
+        get 'omniauth/:provider' => 'omniauth#localized', as: :localized_omniauth
+        
+        devise_for :users,
+                   path_names:  {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'},
+                   skip: :omniauth_callbacks,
+                   controllers: {omniauth_callbacks: 'omniauth_callbacks', passwords: 'passwords', registrations: 'registrations'}
         
         get '/:locale' => 'users#submitted_applications'
-        
         root to: 'users#submitted_applications'
         
         get 'pages/landing' => 'pages#landing'
@@ -42,10 +52,4 @@ Rails.application.routes.draw do
             end
         end
     end
-    
-    devise_for :users,
-               path:        '',
-               path_names:  {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'},
-               controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
-    
 end
