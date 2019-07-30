@@ -16,10 +16,10 @@
         <div class="card-action">
             <div class="col s12 center-align" style="line-height:5">
                 <% if current_user.user_type == 3 %>
-                    <a class="btn-large z-depth-0 handex-btn-positiv btn-flat z-depth-0 validate white-text" href="/pages/products">Antrag starten</a>
-                    <a class="btn-large z-depth-0 handex-btn btn-flat z-depth-0 validate white-text" href="/invite_exporters/new">Kunden einladen</a>
+                    <a class="btn-large z-depth-0 handex-btn-positiv btn-flat z-depth-0 validate white-text" href="<%= pages_products_path %>">Antrag starten</a>
+                    <a class="btn-large z-depth-0 handex-btn btn-flat z-depth-0 validate white-text" href="<%= new_invite_exporter_path %>">Kunden einladen</a>
                 <% else %>
-                    <a class="btn-large z-depth-0 handex-btn btn-flat z-depth-0 validate white-text" href="/pages/products">Antrag starten</a>
+                    <a class="btn-large z-depth-0 handex-btn btn-flat z-depth-0 validate white-text" href="<%= pages_products_path %>">Antrag starten</a>
                 <% end %>
             </div>
         </div>

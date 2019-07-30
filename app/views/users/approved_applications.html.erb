@@ -4,12 +4,12 @@
     <div class="nav-wrapper">
         <% if current_user.user_type == 3 %>
             <span class="nav-title">Makler Portal</span>
-            <a class="z-depth-0 btn z-depth-0 handex-btn-positiv" href="/pages/products">Antrag starten</a>
-            <a class="z-depth-0 btn z-depth-0 handex-btn" href="/invite_exporters/new">Kunden einladen</a>
+            <a class="z-depth-0 btn z-depth-0 handex-btn-positiv" href="<%= pages_products_path %>">Antrag starten</a>
+            <a class="z-depth-0 btn z-depth-0 handex-btn" href="<%= new_invite_exporter_path %>">Kunden einladen</a>
             <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= invited_exporter_user_path(current_user.id) %>" > Eingeladen </a>
         <% else %>
             <span class="nav-title">Anträge</span>
-            <a class="z-depth-0 btn z-depth-0 handex-btn-positiv" href="/pages/products">Antrag starten</a>
+            <a class="z-depth-0 btn z-depth-0 handex-btn-positiv" href="<%= pages_products_path %>">Antrag starten</a>
         <% end %>
         <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= draft_applications_user_path(current_user.id) %>" >Entwürfe</a>
         <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= submitted_applications_user_path(current_user.id) %>">Versendet</a>
