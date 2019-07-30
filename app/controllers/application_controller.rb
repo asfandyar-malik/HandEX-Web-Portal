@@ -6,8 +6,9 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   
   def after_sign_in_path_for(resource)
-    if current_user.user_type == 3
+    if current_user.user_type == 1
       new_importer_information_path
+      # I18n.locale #=> :en
     else
       root_path
     end
