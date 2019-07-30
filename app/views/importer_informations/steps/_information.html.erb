@@ -4,7 +4,7 @@
     <div class="row form-nav-top">
         <div class="col s12 m4">
             <div class="form-nav form-nav-percent">
-                <p><span> 50% <%= t :complete %></span></p>
+                <p><span> 50% Complete </span></p>
             </div>
         </div>
         <div class="col s12 m4">
@@ -14,8 +14,12 @@
         </div>
         <div class="col s12 m4">
             <div class="form-nav right">
-                <input class="btn handex-btn z-depth-0" type="submit" name="draft" value= <%= t('save_draft') %> >
-                <input class="btn handex-btn z-depth-0 next handex-nav-button" tab_index="2" type="navigator" value=<%= t('next_step') %> >
+<!--                <input class="btn handex-btn z-depth-0" type="submit" name="draft" value= <%#= t('save_draft') %> >-->
+<!--                <input class="btn handex-btn z-depth-0 next handex-nav-button" tab_index="2" type="navigator" value=<%#= t('next_step') %> >-->
+
+                <input class="btn handex-btn z-depth-0" type="submit" name="draft" value= "Save Draft" >
+                <input class="btn handex-btn z-depth-0 next handex-nav-button" tab_index="2" type="navigator" value="Next" >
+
             </div>
         </div>
     </div>
@@ -26,84 +30,100 @@
                 <div class="row">
 
                     <div class="input-field col s12 m12">
-                        <%= form.label :importer_company_name, t('importer_company_name') %>
+                        <%#= form.label :importer_company_name, t('importer_company_name') %>
+                        <%= form.label :importer_company_name, "Company" %>
                         <%= form.text_field :importer_company_name, autofocus: true, class: "validate" %>
                     </div>
                     <div class="input-field col s12 m12">
-                        <%= form.label :importer_address_line1, t('importer_address_line1') %>
+                        <%#= form.label :importer_address_line1, t('importer_address_line1') %>
+                        <%= form.label :importer_address_line1, "Address Line 1" %>
                         <%= form.text_field :importer_address_line1, autofocus: true, class: "validate" %>
                     </div>
 
                     <div class="input-field col s12 m6">
-                        <%= form.label :importer_address_line2, t('importer_address_line2') %>
+                        <%#= form.label :importer_address_line2, t('importer_address_line2') %>
+                        <%= form.label :importer_address_line2, "Address Line 2" %>
                         <%= form.text_field :importer_address_line2, autofocus: true, class: "validate" %>
                     </div>
 
                     <div class="input-field col s12 m6">
-                        <%= form.label :importer_city, t('importer_city') %>
+                        <%#= form.label :importer_city, t('importer_city') %>
+                        <%= form.label :importer_city, "City" %>
                         <%= form.text_field :importer_city, autofocus: true, class: "validate" %>
                     </div>
 
                     <div class="input-field col s12 m6">
-                        <%= form.label :importer_plz, t('importer_plz') %>
+                        <%#= form.label :importer_plz, t('importer_plz') %>
+                        <%= form.label :importer_plz, "Postcode" %>
                         <%= form.text_field :importer_plz, autofocus: true, class: "validate" %>
                     </div>
 
                     <div class="input-field col s12 m6">
-                        <%= form.label :importer_country, t('importer_country') %>
+                        <%#= form.label :importer_country, t('importer_country') %>
+                        <%= form.label :importer_country, "Country" %>
+
                         <%= form.select :importer_country, options_for_select([t('please_select'), "Afghanistan", "Ägypten", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Äquatorialguinea", "Argentinien", "Armenien", "Aserbaidschan", "Äthiopien", "Australien", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belgien", "Belize", "Benin", "Bergkarabach", "Bhutan", "Bolivien", "Bosnien und Herzegowina", "Botswana", "Brasilien", "Brunei", "Bulgarien", "Burkina Faso", "Burundi", "Chile", "Republik China", "Volksrepublik China", "mit Hongkong (HK) und Macao (MO)", "Cookinseln", "Costa Rica", "Dänemark", "mit Färöer (FO) und Grönland (GL)", "Deutschland", "Dominica", "Dominikanische Republik", "Dschibuti", "Ecuador", "El Salvador", "Elfenbeinküste", "Eritrea", "Estland", "Fidschi", "Finnland", "Frankreich", "(ohne Französische Überseegebiete)", "Gabun", "Gambia", "Georgien", "(mit Abchasien und Südossetien)", "Ghana", "Grenada", "Griechenland", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Indien", "(mit Kaschmir)", "Indonesien", "Irak", "Iran", "Irland", "Island", "Israel", "(ohne Gazastreifen, Golanhöhen und Westjordanland)", "Italien", "Jamaika", "Japan", "Jemen", "Jordanien", "Kambodscha", "Kamerun", "Kanada", "Kap Verde", "Kasachstan", "Katar", "Kenia", "Kirgisistan", "Kiribati", "Kolumbien", "Komoren", "Kongo, Demokratische Republik", "Kongo, Republik", "Korea, Nord", "Korea, Süd", "Kosovo", "Kroatien", "Kuba", "Kuwait", "Laos", "Lesotho", "Lettland", "Libanon", "Liberia", "Libyen", "Liechtenstein", "Litauen", "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marokko", "(ohne Westsahara)", "Marshallinseln", "Mauretanien", "Mauritius", "Mazedonien", "Mexiko", "Mikronesien", "Moldawien", "(mit Transnistrien)", "Monaco", "Mongolei", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nepal", "Neuseeland", "Nicaragua", "Königreich der Niederlande", "(ohne Curaçao, Sint Maarten und Aruba)", "Niger", "Nigeria", "Niue", "Nordzypern", "Norwegen", "(ohne Svalbard)", "Oman", "Österreich", "Osttimor / Timor-Leste", "Pakistan", "(ohne Kaschmir)", "Palästina", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal", "Ruanda", "Rumänien", "Russland", "Salomonen", "Sambia", "Samoa", "San Marino", "São Tomé und Príncipe", "Saudi-Arabien", "Schweden", "Schweiz", "Senegal", "Serbien", "(ohne Kosovo)", "Seychellen", "Sierra Leone", "Simbabwe", "Singapur", "Slowakei", "Slowenien", "Somalia", "(mit Somaliland)", "Somaliland", "Spanien", "Sri Lanka", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Südafrika", "Sudan", "Südossetien", "Südsudan", "Suriname", "Swasiland", "Syrien", "(mit Golanhöhen)", "Tadschikistan", "Tansania", "Thailand", "Togo", "Tonga", "Transnistrien", "Trinidad und Tobago", "Tschad", "Tschechien", "Tunesien", "Türkei", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstadt", "Venezuela", "Vereinigte Arabische Emirate", "Vereinigte Staaten", "(ohne Außengebiete)", "Vereinigtes Königreich", "Vietnam", "Weißrussland", "Westsahara", "Zentralafrikanische Republik", "Zypern"], @importer_information.importer_country ? @importer_information.importer_country : nil), {}, class: 'validate' %>
                     </div>
 
                     <div class="input-field col s12 m6">
-                        <%= form.label :importer_email, t('email') %>
+                        <%#= form.label :importer_email, t('email') %>
+                        <%= form.label :importer_email, "Email" %>
                         <%= form.text_field :importer_email, autofocus: true, class: "validate" %>
                     </div>
 
                     <div class="input-field col s12 m6">
-                        <%= form.label :importer_phone_number, t('phone_number') %>
+                        <%#= form.label :importer_phone_number, t('phone_number') %>
+                        <%= form.label :importer_phone_number, "Phone Number" %>
                         <%= form.text_field :importer_phone_number, autofocus: true, class: "validate" %>
                     </div>
 
                     <div class="background_toggle is_delivered_at_this_address <%= (@importer_information.is_delivered_at_this_address.present? && @importer_information.is_delivered_at_this_address) ? 'dialog_background' : '' %>">
 
                         <div class="input-field col s12 m12">
-                            <%= form.label :is_delivered_at_this_address, t('is_delivered_at_this_address') %>
+                            <%#= form.label :is_delivered_at_this_address, t('is_delivered_at_this_address') %>
+                            <%= form.label :is_delivered_at_this_address, "Do you take deliveries at this address" %>
+
                             <br><br>
 
                             <label onclick="deliveredAtThisAddress()">
                                 <span class="yes yes-no-btns is_delivered_at_this_address <%= 'active-btn' if (@importer_information.is_delivered_at_this_address) %>">
                                     <%= check_box_tag "importer_information[is_delivered_at_this_address]", '1' %>
-                                    <%= t :yes_button %>
+                                    Yes
                                 </span>
                             </label>
 
                             <label onclick="noDeliveredAtThisAddress()">
                                 <span class="no yes-no-btns is_delivered_at_this_address <%= 'active-btn' if (!@importer_information.is_delivered_at_this_address.nil? && !@importer_information.is_delivered_at_this_address) %>">
                                     <%= check_box_tag "importer_information[is_delivered_at_this_address]", '0' %>
-                                    <%= t :no_button %>
+                                    No
                                 </span>
                             </label>
                         </div>
 
                         <div id="deliveryAddress" style="display: <%= (@importer_information.is_delivered_at_this_address.present? && @importer_information.is_delivered_at_this_address)? 'block' : 'none' %>;">
                             <div class="input-field col s6 m4">
-                                <%= form.label :importer_shipment_company_name, t('importer_shipment_company_name') %>
+                                <%#= form.label :importer_shipment_company_name, t('importer_shipment_company_name') %>
+                                <%= form.label :importer_shipment_company_name, "Company" %>
                                 <%= form.text_field :importer_shipment_company_name, autofocus: true, class: "validate" %>
                             </div>
                             <div class="input-field col s6 m4">
-                                <%= form.label :importer_shipment_country, t('importer_shipment_country') %>
+                                <%#= form.label :importer_shipment_country, t('importer_shipment_country') %>
+                                <%= form.label :importer_shipment_country, "Country"%>
                                 <%= form.text_field :importer_shipment_country, autofocus: true, class: "validate" %>
                             </div>
                             <div class="input-field col s6 m4">
-                                <%= form.label :importer_shipment_street_hno, t('importer_shipment_street_hno') %>
+                                <%#= form.label :importer_shipment_street_hno, t('importer_shipment_street_hno') %>
+                                <%= form.label :importer_shipment_street_hno, "Street / H.no" %>
                                 <%= form.text_field :importer_shipment_street_hno, autofocus: true, class: "validate" %>
                             </div>
                             <div class="input-field col s6 m4">
-                                <%= form.label :importer_shipment_plz, t('importer_shipment_plz') %>
+                                <%#= form.label :importer_shipment_plz, t('importer_shipment_plz') %>
+                                <%= form.label :importer_shipment_plz, "Postcode" %>
                                 <%= form.text_field :importer_shipment_plz, :onkeypress => "return onlyAllowNumericalValue(event)", autofocus: true, class: "validate" %>
                             </div>
                             <div class="input-field col s6 m4">
-                                <%= form.label :importer_shipment_city, t('importer_shipment_city') %>
+                                <%#= form.label :importer_shipment_city, t('importer_shipment_city') %>
+                                <%= form.label :importer_shipment_city, "City" %>
                                 <%= form.text_field :importer_shipment_city, autofocus: true, class: "validate" %>
                             </div>
                         </div>
@@ -111,26 +131,30 @@
 
                     <div class="input-field col s12 m12">
                         <br>
-                        <%= form.label :belongs_to_private_sector, t('belongs_to_private_sector') %>
+                        <%#= form.label :belongs_to_private_sector, t('belongs_to_private_sector') %>
+                        <%= form.label :belongs_to_private_sector, "Are you private or public sector company" %>
                         <br><br>
 
                         <label onclick="privateSector()">
                             <span class="yes yes-no-btns belongs_to_private_sector <%= 'active-btn' if (@importer_information.belongs_to_private_sector) %>">
                                 <%= check_box_tag "importer_information[belongs_to_private_sector]", '1' %>
-                                <%= t :to_private_sector %>
+                                <%#= t :to_private_sector %>
+                                Private Sector
                             </span>
                         </label>
 
                         <label onclick="noPrivateSector()">
                             <span class="no yes-no-btns belongs_to_private_sector <%= 'active-btn' if (!@importer_information.belongs_to_private_sector.nil? && !@importer_information.belongs_to_private_sector) %>">
                                 <%= check_box_tag "importer_information[belongs_to_private_sector]", '0' %>
-                                <%= t :to_public_sector %>
+                                <%#= t :to_public_sector %>
+                                Public sector
                             </span>
                         </label>
                     </div>
 
                     <div class="input-field col s12 m6">
-                        <%= form.label :importer_industry, t('importer_industry') %>
+                        <%#= form.label :importer_industry, t('importer_industry') %>
+                        <%= form.label :importer_industry, "Industry" %>
                         <%= form.text_field :importer_industry, autofocus: true, class: "validate" %>
                     </div>
 
@@ -142,25 +166,27 @@
                         <label onclick="paymentExperienceWithImporter()">
                             <span class="yes yes-no-btns has_payment_experience_with_importer <%= 'active-btn' if (@importer_information.has_payment_experience_with_importer) %>">
                                 <%= check_box_tag "importer_information[has_payment_experience_with_importer]", '1' %>
-                                <%= t :yes_button %>
+                                Yes
                             </span>
                         </label>
 
                         <label onclick="noPaymentExperienceWithImporter()">
                             <span class="no yes-no-btns has_payment_experience_with_importer <%= 'active-btn' if (!@importer_information.has_payment_experience_with_importer.nil? && !@importer_information.has_payment_experience_with_importer) %>">
                                 <%= check_box_tag "importer_information[has_payment_experience_with_importer]", '0' %>
-                                <%= t :no_button %>
+                                No
                             </span>
                         </label>
                     </div>
 
                     <div class="input-field col s12 m6">
-                        <%= form.label :importer_tax_id, t('importer_tax_id') %>
+                        <%#= form.label :importer_tax_id, t('importer_tax_id') %>
+                        <%= form.label :importer_tax_id, "Tax Number" %>
                         <%= form.text_field :importer_tax_id, autofocus: true, class: "validate" %>
                     </div>
 
                     <div class="input-field col s12 m6">
-                        <%= form.label :importer_company_registration_number, t('importer_company_registration_number') %>
+                        <%#= form.label :importer_company_registration_number, t('importer_company_registration_number') %>
+                        <%= form.label :importer_company_registration_number, "Company registration number" %>
                         <%= form.text_field :importer_company_registration_number, autofocus: true, class: "validate" %>
                     </div>
                     <div class="background_toggle importer_external_rating_available <%= (@importer_information.importer_external_rating_available.present? && @importer_information.importer_external_rating_available) ? 'dialog_background' : '' %> ">
@@ -172,49 +198,53 @@
                             <label onclick="importerExternalRatingFunction()">
                                 <span class="yes yes-no-btns importer_external_rating_available <%= 'active-btn' if (@importer_information.importer_external_rating_available) %>">
                                     <%= check_box_tag "importer_information[importer_external_rating_available]", '1' %>
-                                    <%= t :yes_button %>
+                                    Yes
                                 </span>
                             </label>
 
                             <label onclick="noImporterExternalRatingFunction()">
                                 <span class="no yes-no-btns importer_external_rating_available <%= 'active-btn' if (!@importer_information.importer_external_rating_available.nil? && !@importer_information.importer_external_rating_available) %>">
                                     <%= check_box_tag "importer_information[importer_external_rating_available]", '0' %>
-                                    <%= t :no_button %>
+                                    No
                                 </span>
                             </label>
                         </div>
 
                         <div id="importerExternalRating" style="display: <%= (@importer_information.importer_external_rating_available.present? && @importer_information.importer_external_rating_available)? 'block' : 'none' %>;">
                             <div class="input-field col s12">
-                                <%= form.label :importer_rating, t('importer_rating') %>
+                                <%#= form.label :importer_rating, t('importer_rating') %>
+                                <%= form.label :importer_rating, "Rating Result" %>
                                 <%= form.text_field :importer_rating, autofocus: true, class: "validate" %>
                             </div>
                             <div class="input-field col s12 m6">
-                                <%= form.label :importer_rating_agency, t('importer_rating_agency') %>
+                                <%#= form.label :importer_rating_agency, t('importer_rating_agency') %>
+                                <%= form.label :importer_rating_agency, "Rating Agency" %>
                                 <%= form.text_field :importer_rating_agency, autofocus: true, class: "validate" %>
                             </div>
                             <div class="input-field col s12 m6">
-                                <%= form.label :importer_rating_issued_date, t('importer_rating_issued_date') %>
+                                <%#= form.label :importer_rating_issued_date, t('importer_rating_issued_date') %>
+                                <%= form.label :importer_rating_issued_date, "Date of Rating" %>
                                 <%= form.text_field :importer_rating_issued_date, autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
                             </div>
                         </div>
                     </div>
 
                     <div class="input-field col s12 m12">
-                        <%= form.label :is_company_controlled_by_mother_company, t('is_company_controlled_by_mother_company') %>
+                        <%#= form.label :is_company_controlled_by_mother_company, t('is_company_controlled_by_mother_company') %>
+                        <%= form.label :is_company_controlled_by_mother_company, "Is the company controlled by mother company?" %>
                         <br><br>
 
                         <label onclick="controlledByMotherCompany()">
                                 <span class="yes yes-no-btns is_company_controlled_by_mother_company <%= 'active-btn' if (@importer_information.is_company_controlled_by_mother_company) %>">
                                     <%= check_box_tag "importer_information[is_company_controlled_by_mother_company]", '1' %>
-                                    <%= t :yes_button %>
+                                    Yes
                                 </span>
                         </label>
 
                         <label onclick="notControlledByMotherCompany()">
                                 <span class="no yes-no-btns is_company_controlled_by_mother_company <%= 'active-btn' if (!@importer_information.is_company_controlled_by_mother_company.nil? && !@importer_information.is_company_controlled_by_mother_company) %>">
                                     <%= check_box_tag "importer_information[is_company_controlled_by_mother_company]", '0' %>
-                                    <%= t :no_button %>
+                                    No
                                 </span>
                         </label>
                     </div>
@@ -228,21 +258,22 @@
                             <label onclick="significantInfluenceOnImporter()">
                                 <span class="yes yes-no-btns has_significant_influence_on_importer_management <%= 'active-btn' if (@importer_information.has_significant_influence_on_importer_management) %>">
                                     <%= check_box_tag "importer_information[has_significant_influence_on_importer_management]", '1' %>
-                                    <%= t :yes_button %>
+                                    Yes
                                 </span>
                             </label>
 
                             <label onclick="noSignificantInfluenceOnImporter()">
                                 <span class="no yes-no-btns has_significant_influence_on_importer_management <%= 'active-btn' if (!@importer_information.has_significant_influence_on_importer_management.nil? && !@importer_information.has_significant_influence_on_importer_management) %>">
                                     <%= check_box_tag "importer_information[has_significant_influence_on_importer_management]", '0' %>
-                                    <%= t :no_button %>
+                                    No
                                 </span>
                             </label>
                         </div>
 
                         <div id="significantInfluenceImporter" style="display: <%= (@importer_information.has_significant_influence_on_importer_management.present? && @importer_information.has_significant_influence_on_importer_management)? 'block' : 'none' %>;">
                             <div class="input-field col s12 m12">
-                                <label><%= t :understanding_influence %></label>
+<!--                                <label><%#= t :understanding_influence %> </label>-->
+                                <label>Please help us understand the involvement better </label>
                                 <%= form.text_area :explain_exporter_influence_on_importer_management, autofocus: true, class: "validate handex_text_area", :rows => 10 %>
                             </div>
                         </div>

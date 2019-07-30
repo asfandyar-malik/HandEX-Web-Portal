@@ -15,9 +15,11 @@
         </div>
         <div class="col s12 m4">
             <div class="form-nav right">
-                <!--                                <a href="#">Entwurf speichern</a>-->
-                <input class="btn handex-btn z-depth-0" type="submit" name="draft" value = "<%= t("save_draft") %>">
-                <%= form.submit class: 'btn handex-btn z-depth-0', value: t('application_submit') %>
+<!--                <input class="btn handex-btn z-depth-0" type="submit" name="draft" value = "<%#= t("save_draft") %>">-->
+                <%#= form.submit class: 'btn handex-btn z-depth-0', value: t('application_submit') %>
+
+                <input class="btn handex-btn z-depth-0" type="submit" name="draft" value = "Save Draft">
+                <%= form.submit class: 'btn handex-btn z-depth-0', value: "Submit Application" %>
             </div>
         </div>
     </div>
@@ -27,12 +29,15 @@
 
             <div class="form-content">
                 <div class="input-field col s12 m12">
-                    <label> <%= t('information_for_business_examination') %> </label>
-                    <p> <%= t('information_for_business_examination_description') %> </p>
+<!--                    <label> <%#= t('information_for_business_examination') %> </label>-->
+<!--                    <p> <%#= t('information_for_business_examination_description') %> </p>-->
+                    <label> Following documents are required for the verification of your business.
+                    </label>
+                    <p> Please provide the necessary documentation so that we can make a fair assessment of your business and that of your customer.</p>
                 </div>
 
                 <div class="input-field col s12 m12 ">
-                    <%= form.label :annual_financial_statement_importer_last, t('annual_financial_statement_importer_last') %>
+                    <%= form.label :annual_financial_statement_importer_last, "Annual Report (2018)" %>
                     <div class="file-field input-field">
                         <div class="btn handex-btn z-depth-0">
                             <span><%= t('browse') %></span>
@@ -48,7 +53,7 @@
                 </div>
 
                 <div class="input-field col s12 m12 ">
-                    <%= form.label :annual_financial_statement_importer_second_last, t('annual_financial_statement_importer_second_last') %>
+                    <%= form.label :annual_financial_statement_importer_second_last, "Annual Report (2017)" %>
                     <div class="file-field input-field">
                         <div class="btn handex-btn z-depth-0">
                             <span><%= t('browse') %></span>
@@ -64,7 +69,7 @@
                 </div>
 
                 <div class="input-field col s12 m12 ">
-                    <%= form.label :credit_bureaus_importer, t('credit_bureaus_importer_portal') %>
+                    <%= form.label :credit_bureaus_importer, "Credit Report" %>
                     <div class="file-field input-field">
                         <div class="btn handex-btn z-depth-0">
                             <span><%= t('browse') %></span>
