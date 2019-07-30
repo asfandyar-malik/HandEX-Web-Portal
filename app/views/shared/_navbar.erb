@@ -5,7 +5,7 @@
     <a href="/" class="brand-logo"> <%= image_tag "HandEX_logo4.png", class: "handex-nav-logo" %></a>
 
     <ul class="right hide-on-med-and-down handex-nav-icon">
-      <li><a class="top-navigation-icons waves-effect" href="/profile"><i class="material-icons">account_circle</i></a></li>
+      <li><a class="top-navigation-icons waves-effect" href=<%= edit_user_registration_path %> ><i class="material-icons">account_circle</i></a></li>
 
       <li><a class="top-navigation-icons waves-effect" href=<%= submitted_applications_user_path(current_user.id) %> ><i class="material-icons">add_alert</i></a></li>
 
