@@ -30,21 +30,6 @@
                     <p> <%= t('information_for_business_examination_description') %> </p>
                 </div>
 
-                <div class="input-field col s12 m6" style="display: <%= (@export_application.exporter_external_rating_available.present? && @export_application.exporter_external_rating_available)? 'none' : 'block' %>;">
-                    <%= form.label :self_disclosure, t('self_disclosure') %>
-                    <div class="file-field input-field">
-                        <div class="btn handex-btn z-depth-0">
-                            <span> <%= t('browse') %></span>
-                            <%= form.file_field :self_disclosure %>
-                            <input type="file" data-height="300"/>
-                        </div>
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" placeholder="Upload file"
-                                   type="text"/>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="input-field col s12 m6 ">
                     <%= form.label :annual_financial_statement_importer, t('annual_financial_statement_importer') %>
                     <div class="file-field input-field">
@@ -57,6 +42,36 @@
                         <div class="file-path-wrapper">
                             <input class="file-path validate" type="text"
                                    placeholder="Upload file"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-field col s12 m6 ">
+                    <%= form.label :additional_document, t('additional_document') %>
+                    <div class="file-field input-field">
+                        <div class="btn z-depth-0 handex-btn">
+                            <span><%= t('browse') %></span>
+                            <%= form.file_field :additional_document %>
+                        </div>
+
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text"
+                                   placeholder="Upload file"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-field col s12 m6" style="display: <%= (@export_application.exporter_external_rating_available.present? && @export_application.exporter_external_rating_available)? 'none' : 'block' %>;">
+                    <%= form.label :self_disclosure, t('self_disclosure') %>
+                    <div class="file-field input-field">
+                        <div class="btn handex-btn z-depth-0">
+                            <span> <%= t('browse') %></span>
+                            <%= form.file_field :self_disclosure %>
+                            <input type="file" data-height="300"/>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" placeholder="Upload file"
+                                   type="text"/>
                         </div>
                     </div>
                 </div>
@@ -108,22 +123,6 @@
                                    placeholder="Upload file"/>
                         </div>
                     </div>
-                </div>
-
-                <div class="input-field col s12 m6 ">
-                    <%= form.label :additional_document, t('additional_document') %>
-                    <div class="file-field input-field">
-                        <div class="btn z-depth-0 handex-btn">
-                            <span><%= t('browse') %></span>
-                            <%= form.file_field :additional_document %>
-                        </div>
-
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text"
-                                   placeholder="Upload file"/>
-                        </div>
-                    </div>
-
                 </div>
 
                 <div class="input-field col s12 m12">
