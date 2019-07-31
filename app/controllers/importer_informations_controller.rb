@@ -21,7 +21,7 @@ class ImporterInformationsController < ApplicationController
 	def create
 		@importer_information = current_user.importer_informations.build(importer_information_params)
 		@importer_information.application_type = 'importer_information'
-		if params[:draft] == 'Entwurf speichern'
+		if params[:draft] == 'Save Draft'
 			@importer_information.application_status = 'DRAFT'
 			if @importer_information.save
 				redirect_to "/importer_informations/" + @importer_information.id.to_s + "/edit", notice: 'Ihre Daten wurden erfolgreich aktualisiert (create).'
@@ -37,13 +37,12 @@ class ImporterInformationsController < ApplicationController
 				flash[:notice] = "beim Speichern von Daten ist ein Fehler aufgetreten...."
 				render :new
 			end
-			# save as published
 		end
 	end
 	
 	def update
 		@importer_information.application_type = 'importer_information'
-		if params[:draft] == 'Entwurf speichern'
+		if params[:draft] == 'Save Draft'
 			@importer_information.application_status = 'DRAFT'
 			if @importer_information.update(importer_information_params)
 				redirect_to "/importer_informations/" + @importer_information.id.to_s + "/edit", notice: 'Ihre Daten wurden erfolgreich aktualisiert (update).'

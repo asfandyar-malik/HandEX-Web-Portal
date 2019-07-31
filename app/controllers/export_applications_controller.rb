@@ -42,7 +42,6 @@ class ExportApplicationsController < ApplicationController
                 flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
                 render :new
             end
-            # save as published
         end
     end
     
