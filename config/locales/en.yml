@@ -445,8 +445,8 @@ en:
   browse: "Browse"
 
   #documents
-  self_disclosure: "Selbsauskunft"
-  additional_document: "Sonstiges"
+  export_contract_or_bills: "Exportvertrag und ggf. Rechnung"
+  annual_financial_statement_importer_second_last: "Jahresabschluss vorletztes Geschäftsjahr"
   credit_bureaus_importer: "Bonitätsauskunft Ihres Kunden"
   documents_for_examination: "Diese Anlagen benötigen wir für die Prüfung Ihres Geschäftes"
   self_declaration: "Selbstauskunft (bei Neukunden)"
@@ -495,7 +495,6 @@ en:
   information: "Information"
   document: "Document"
   annual_financial_statement_importer_last: "Annual Report (2018)"
-  annual_financial_statement_importer_second_last: "Annual Report (2017)"
   credit_bureaus_importer_portal: "Credit Report"
   invite_importer: "Invite Importer"
   invitation_message_to_importer: "Message"

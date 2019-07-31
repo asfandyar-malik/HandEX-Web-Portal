@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_31_093040) do
+ActiveRecord::Schema.define(version: 2019_07_31_093616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -133,10 +133,6 @@ ActiveRecord::Schema.define(version: 2019_07_31_093040) do
     t.string "exporter_representative_email"
     t.string "exporter_representative_function"
     t.string "exporter_representative_department"
-    t.string "self_disclosure_file_name"
-    t.string "self_disclosure_content_type"
-    t.integer "self_disclosure_file_size"
-    t.datetime "self_disclosure_updated_at"
     t.string "annual_financial_statement_importer_file_name"
     t.string "annual_financial_statement_importer_content_type"
     t.integer "annual_financial_statement_importer_file_size"
@@ -153,10 +149,6 @@ ActiveRecord::Schema.define(version: 2019_07_31_093040) do
     t.string "project_memorandum_exporter_business_content_type"
     t.integer "project_memorandum_exporter_business_file_size"
     t.datetime "project_memorandum_exporter_business_updated_at"
-    t.string "additional_document_file_name"
-    t.string "additional_document_content_type"
-    t.integer "additional_document_file_size"
-    t.datetime "additional_document_updated_at"
     t.string "exporter_name"
     t.string "exporter_telephone"
     t.string "explain_corruption_sanctions"
@@ -261,6 +253,14 @@ ActiveRecord::Schema.define(version: 2019_07_31_093040) do
     t.string "invitation_importer_representative_name"
     t.string "invitation_importer_company_name"
     t.string "invitation_importer_email"
+    t.string "annual_financial_statement_importer_second_last_file_name"
+    t.string "annual_financial_statement_importer_second_last_content_type"
+    t.integer "annual_financial_statement_importer_second_last_file_size"
+    t.datetime "annual_financial_statement_importer_second_last_updated_at"
+    t.string "export_contract_or_bills_file_name"
+    t.string "export_contract_or_bills_content_type"
+    t.integer "export_contract_or_bills_file_size"
+    t.datetime "export_contract_or_bills_updated_at"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
@@ -498,10 +498,6 @@ ActiveRecord::Schema.define(version: 2019_07_31_093040) do
     t.string "exporter_representative_email"
     t.string "exporter_representative_function"
     t.string "exporter_representative_department"
-    t.string "self_disclosure_file_name"
-    t.string "self_disclosure_content_type"
-    t.integer "self_disclosure_file_size"
-    t.datetime "self_disclosure_updated_at"
     t.string "annual_financial_statement_importer_file_name"
     t.string "annual_financial_statement_importer_content_type"
     t.integer "annual_financial_statement_importer_file_size"
@@ -518,10 +514,6 @@ ActiveRecord::Schema.define(version: 2019_07_31_093040) do
     t.string "project_memorandum_exporter_business_content_type"
     t.integer "project_memorandum_exporter_business_file_size"
     t.datetime "project_memorandum_exporter_business_updated_at"
-    t.string "additional_document_file_name"
-    t.string "additional_document_content_type"
-    t.integer "additional_document_file_size"
-    t.datetime "additional_document_updated_at"
     t.string "exporter_name"
     t.string "exporter_telephone"
     t.string "explain_corruption_sanctions"
@@ -627,6 +619,14 @@ ActiveRecord::Schema.define(version: 2019_07_31_093040) do
     t.string "invitation_importer_representative_name"
     t.string "invitation_importer_company_name"
     t.string "invitation_importer_email"
+    t.string "annual_financial_statement_importer_second_last_file_name"
+    t.string "annual_financial_statement_importer_second_last_content_type"
+    t.integer "annual_financial_statement_importer_second_last_file_size"
+    t.datetime "annual_financial_statement_importer_second_last_updated_at"
+    t.string "export_contract_or_bills_file_name"
+    t.string "export_contract_or_bills_content_type"
+    t.integer "export_contract_or_bills_file_size"
+    t.datetime "export_contract_or_bills_updated_at"
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 

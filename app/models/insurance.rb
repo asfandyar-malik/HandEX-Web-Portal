@@ -33,9 +33,9 @@ class Insurance < ApplicationRecord
     accepts_nested_attributes_for :insurance_extra_billed_items,
                                   allow_destroy: true
 
-    has_attached_file :self_disclosure, :storage => :cloudinary,  :cloudinary_resource_type => :image, :path => "insurances/:attachment/:id/:style/:filename",
+    has_attached_file :export_contract_or_bills, :storage => :cloudinary,  :cloudinary_resource_type => :image, :path => "insurances/:attachment/:id/:style/:filename",
                       styles: { medium: "300x300>", thumb: "100x100>" }
-    validates_attachment_content_type :self_disclosure, content_type: ['image/jpeg', 'image/png', 'image/gif', 'application/pdf']
+    validates_attachment_content_type :export_contract_or_bills, content_type: ['image/jpeg', 'image/png', 'image/gif', 'application/pdf']
 
     has_attached_file :annual_financial_statement_importer, :storage => :cloudinary, :cloudinary_resource_type => :image, :path => "insurances/:attachment/:id/:style/:filename",
                       styles: { medium: "300x300>", thumb: "100x100>" }
@@ -53,8 +53,8 @@ class Insurance < ApplicationRecord
                       styles: { medium: "300x300>", thumb: "100x100>" }
     validates_attachment_content_type :project_memorandum_exporter_business, content_type: ['image/jpeg', 'image/png', 'image/gif', 'application/pdf']
 
-    has_attached_file :additional_document, :storage => :cloudinary, :cloudinary_resource_type => :image,  :path => "insurances/:attachment/:id/:style/:filename",
+    has_attached_file :annual_financial_statement_importer_second_last, :storage => :cloudinary, :cloudinary_resource_type => :image,  :path => "insurances/:attachment/:id/:style/:filename",
                       styles: { medium: "300x300>", thumb: "100x100>" }
-    validates_attachment_content_type :additional_document, content_type: ['image/jpeg', 'image/png', 'image/gif', 'application/pdf']
+    validates_attachment_content_type :annual_financial_statement_importer_second_last, content_type: ['image/jpeg', 'image/png', 'image/gif', 'application/pdf']
     
 end

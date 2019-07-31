@@ -379,8 +379,8 @@ es:
   browse: "Please translate: Browse"
 
   #documents
-  self_disclosure: "Please translate: Selbsauskunft"
-  additional_document: "Please translate: Sonstiges"
+  export_contract_or_bills: "Please translate: Selbsauskunft"
+  annual_financial_statement_importer_second_last: "Please translate: Sonstiges"
   credit_bureaus_importer: "Please translate: Auskünfte Ihres Kunden"
   documents_for_examination: "Necesitamos estas instalaciones para el examen de su negocio"
   self_declaration: "Please translate: Selbstauskunft (bei Neukunden)"
@@ -433,7 +433,6 @@ es:
   information: "Information"
   document: "Unterlagen"
   annual_financial_statement_importer_last: "Annual Report (2018)"
-  annual_financial_statement_importer_second_last: "Annual Report (2017)"
   credit_bureaus_importer_portal: "Credit Report"
   invite_importer: "Laden Sie den Importeur ein"
   invitation_message_to_importer: "Message"

@@ -51,11 +51,11 @@
 
 
                     <div class="input-field col s12 m6 ">
-                        <%= form.label :additional_document, t('additional_document') %>
+                        <%= form.label :annual_financial_statement_importer_second_last, t('annual_financial_statement_importer_second_last') %>
                         <div class="file-field input-field">
                             <div class="btn z-depth-0 handex-btn">
                                 <span><%= t('browse') %></span>
-                                <%= form.file_field :additional_document %>
+                                <%= form.file_field :annual_financial_statement_importer_second_last %>
                             </div>
 
                             <div class="file-path-wrapper">
@@ -66,11 +66,11 @@
                     </div>
 
                     <div class="input-field col s12 m6 " style="display: <%= (@insurance.exporter_external_rating_available.present? && @insurance.exporter_external_rating_available)? 'none' : 'block' %>;">
-                        <%= form.label :self_disclosure, t('self_disclosure') %>
+                        <%= form.label :export_contract_or_bills, t('export_contract_or_bills') %>
                         <div class="file-field input-field">
                             <div class="btn handex-btn z-depth-0">
                                 <span> <%= t('browse') %></span>
-                                <%= form.file_field :self_disclosure %>
+                                <%= form.file_field :export_contract_or_bills %>
                                 <input type="file" data-height="300"/>
                             </div>
 
