@@ -447,11 +447,11 @@ en:
   #documents
   self_disclosure: "Selbsauskunft"
   additional_document: "Sonstiges"
-  credit_bureaus_importer: "Auskünfte Ihres Kunden"
+  credit_bureaus_importer: "Bonitätsauskunft Ihres Kunden"
   documents_for_examination: "Diese Anlagen benötigen wir für die Prüfung Ihres Geschäftes"
   self_declaration: "Selbstauskunft (bei Neukunden)"
-  annual_financial_statement_importer: "Jahresabschlüsse Ihres Kunden"
-  environment_social_audit: "Umwelt- und Sozialinformationen"
+  annual_financial_statement_importer: "Jahresabschluss letztes Geschäftsjahr"
+  environment_social_audit: "ggf. Sozial- und Umweltinformationen"
   project_memorandum_exporter_business: "ggf. Projektmemorandum"
 
   #Overview
