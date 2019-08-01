@@ -7,12 +7,12 @@
                 <p><span> 80% Fertig</span></p>
             </div>
         </div>
-        <div class="col s12 m4">
+        <div class="col s12 m2">
             <div class="form-nav">
                 <h2>Abschluss</h2>
             </div>
         </div>
-        <div class="col s12 m4">
+        <div class="col s12 m6">
             <div class="form-nav right">
                 <input class="btn handex-btn z-depth-0" type="submit" name="draft" value="Entwurf speichern">
                 <%= form.submit class: 'btn handex-btn z-depth-0', value: t('application_submit') %>
@@ -30,71 +30,42 @@
                         <p> <%= t('information_for_business_examination_description') %> </p>
                     </div>
 
-                    <div class="input-field col s12 m6 ">
-                        <%= form.label :annual_financial_statement_importer, t('annual_financial_statement_importer') %>
-                        <div class="file-field input-field">
-                            <div class="btn handex-btn z-depth-0">
-                                <span><%= t('browse') %></span>
-                                <%= form.file_field :annual_financial_statement_importer %>
-                                <input type="file" data-height="300"/>
-                            </div>
 
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text"
-                                       placeholder="Upload file"/>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="input-field col s12 m6 ">
-                        <%= form.label :annual_financial_statement_importer_second_last, t('annual_financial_statement_importer_second_last') %>
-                        <div class="file-field input-field">
-                            <div class="btn z-depth-0 handex-btn">
-                                <span><%= t('browse') %></span>
-                                <%= form.file_field :annual_financial_statement_importer_second_last %>
-                            </div>
-
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text"
-                                       placeholder="Upload file"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="input-field col s12 m6 ">
+                    <div class="col s12 m6">
                         <%= form.label :credit_bureaus_importer, t('credit_bureaus_importer') %>
-                        <div class="file-field input-field">
+                        <br><br>
+
+                        <div class="file-field">
                             <div class="btn handex-btn z-depth-0">
                                 <span><%= t('browse') %></span>
                                 <%= form.file_field :credit_bureaus_importer %>
                             </div>
 
                             <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text"
-                                       placeholder="Upload file"/>
+                                <input class="file-path validate" type="text"/>
                             </div>
                         </div>
                     </div>
 
-                    <div class="input-field col s12 m6 ">
+                    <div class="col s12 m6 ">
                         <%= form.label :self_declaration, t('self_declaration') %>
-                        <div class="file-field input-field">
+                        <br><br>
+                        <div class="file-field">
                             <div class="btn handex-btn z-depth-0">
                                 <span><%= t('browse') %></span>
                                 <%= form.file_field :self_declaration %>
                             </div>
 
                             <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text"
-                                       placeholder="Upload file"/>
+                                <input class="file-path validate" type="text"/>
                             </div>
                         </div>
                     </div>
 
-                    <div class="input-field col s12 m6 " style="display: <%= (@insurance.exporter_external_rating_available.present? && @insurance.exporter_external_rating_available)? 'none' : 'block' %>;">
+                    <div class="col s12 m6">
                         <%= form.label :export_contract_or_bills, t('export_contract_or_bills') %>
-                        <div class="file-field input-field">
+                        <br><br>
+                        <div class="file-field">
                             <div class="btn handex-btn z-depth-0">
                                 <span> <%= t('browse') %></span>
                                 <%= form.file_field :export_contract_or_bills %>
@@ -102,15 +73,15 @@
                             </div>
 
                             <div class="file-path-wrapper">
-                                <input class="file-path validate" placeholder="Upload file"
-                                       type="text"/>
+                                <input class="file-path validate" type="text"/>
                             </div>
                         </div>
                     </div>
 
-                    <div class="input-field col s12 m6 ">
+                    <div class="col s12 m6">
                         <%= form.label :project_memorandum_exporter_business, t('project_memorandum_exporter_business') %>
-                        <div class="file-field input-field">
+                        <br><br>
+                        <div class="file-field">
                             <div class="btn handex-btn z-depth-0">
                                 <span><%= t('browse') %></span>
                                 <%= form.file_field :project_memorandum_exporter_business %>
@@ -118,16 +89,15 @@
                             </div>
 
                             <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text"
-                                       placeholder="Upload file"/>
+                                <input class="file-path validate" type="text"/>
                             </div>
                         </div>
                     </div>
 
-                    <div class="input-field col s12 m6 ">
+                    <div class="col s12 m6 ">
                         <%= form.label :environment_social_audit, t('environment_social_audit') %>
-                        <div class="file-field input-field">
-
+                        <br><br>
+                        <div class="file-field">
                             <div class="btn handex-btn z-depth-0">
                                 <span><%= t('browse') %></span>
                                 <%= form.file_field :environment_social_audit %>
@@ -135,16 +105,15 @@
                             </div>
 
                             <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text"
-                                       placeholder="Upload file"/>
+                                <input class="file-path validate" type="text" />
                             </div>
                         </div>
                     </div>
 
-                    <div class="input-field col s12 m6 ">
+                    <div class="col s12 m6 ">
                         <%= form.label :other_document, t('other_document') %>
-                        <div class="file-field input-field">
-
+                        <br><br>
+                        <div class="file-field">
                             <div class="btn handex-btn z-depth-0">
                                 <span><%= t('browse') %></span>
                                 <%= form.file_field :other_document %>
@@ -152,8 +121,7 @@
                             </div>
 
                             <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text"
-                                       placeholder="Upload file"/>
+                                <input class="file-path validate" type="text"/>
                             </div>
                         </div>
                     </div>

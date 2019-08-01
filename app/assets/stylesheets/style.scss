@@ -1167,7 +1167,13 @@ li .dot {
   margin-left: 13%;
 }
 
-//.visible-checkbox [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-//    position: relative;
-//    opacity: 1;
-//}
+.form-content .input-field input {
+  box-shadow: inset 0 0 4px #dcdcde;
+  border: 1px solid #dcdcde;
+}
+
+
+.file-field input[type=file] {
+  box-shadow: inset 0 0 4px #de3e6f;
+  border: 1px solid #dcdcde;
+}

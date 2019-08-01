@@ -447,7 +447,7 @@ en:
   #documents
   export_contract_or_bills: "Exportvertrag und ggf. Rechnung"
   annual_financial_statement_importer_second_last: "Jahresabschluss vorletztes Geschäftsjahr"
-  credit_bureaus_importer: "Bonitätsauskunft über den Kunden (sofern verfügbar)"
+  credit_bureaus_importer: "Bonitätsauskunft über den Kunden "
   documents_for_examination: "Diese Anlagen benötigen wir für die Prüfung Ihres Geschäftes"
   self_declaration: "Selbstauskunft (bei Neukunden)"
   annual_financial_statement_importer: "Jahresabschluss letztes Geschäftsjahr"

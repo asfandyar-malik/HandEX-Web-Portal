@@ -453,7 +453,7 @@ de:
   annual_financial_statement_importer_second_last: "Jahresabschluss des Kunden vorletztes Jahr"
   annual_financial_statement: "Jahresabschluss letztes Geschäftsjahr"
   annual_financial_statement_second_last: "Jahresabschluss vorletztes Geschäftsjahr"
-  credit_bureaus_importer: "Bonitätsauskunft über den Kunden (sofern verfügbar)"
+  credit_bureaus_importer: "Bonitätsauskunft über den Kunden"
   self_declaration: "Selbstauskunft (bei Neukunden)"
   export_contract_or_bills: "Liefervertrag (aktueller Entwurf, sofern verfügbar)"
   project_memorandum_exporter_business: "ggf. Projektmemorandum"

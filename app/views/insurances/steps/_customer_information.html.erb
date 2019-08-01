@@ -7,12 +7,12 @@
                 <p><span> 25% <%= t :complete %> </span></p>
             </div>
         </div>
-        <div class="col s12 m4">
+        <div class="col s12 m2">
             <div class="form-nav">
                 <h2><%= t :your_importer %></h2>
             </div>
         </div>
-        <div class="col s12 m4">
+        <div class="col s12 m6">
             <div class="form-nav right">
                 <input class="btn handex-btn z-depth-0" type="submit" name="draft" value="Entwurf speichern">
                 <input class="btn handex-btn z-depth-0 next handex-nav-button" tab_index="3" type="navigator" value="Weiter">
@@ -190,12 +190,12 @@
                     </div>
 
                     <div class="input-field col s12 m6">
+                        <br>
                         <%= form.label :importer_industry, t('importer_industry') %>
                         <%= form.text_field :importer_industry, autofocus: true, class: "validate" %>
                     </div>
 
                     <div class="input-field col s12 m12">
-                        <br>
                         <%= form.label :has_payment_experience_with_importer, t('has_payment_experience_with_importer') %>
                         <br><br>
 
@@ -215,6 +215,7 @@
                     </div>
 
                     <div class="input-field col s12 m6">
+                        <br>
                         <%= form.label :importer_tax_id, t('importer_tax_id') %>
                         <%= form.text_field :importer_tax_id, autofocus: true, class: "validate" %>
                     </div>
@@ -258,6 +259,41 @@
                             <div class="input-field col s12 m6">
                                 <%= form.label :importer_rating_issued_date, t('importer_rating_issued_date') %>
                                 <%= form.text_field :importer_rating_issued_date, autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col s12 m6 ">
+                        <br>
+                        <%= form.label :annual_financial_statement_importer, t('annual_financial_statement_importer') %>
+                        <br><br>
+                        <div class="file-field">
+                            <div class="btn handex-btn z-depth-0">
+                                <span><%= t('browse') %></span>
+                                <%= form.file_field :annual_financial_statement_importer %>
+                                <input type="file" data-height="300"/>
+                            </div>
+
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col s12 m6 ">
+                        <br>
+                        <%= form.label :annual_financial_statement_importer_second_last, t('annual_financial_statement_importer_second_last') %>
+                        <br><br>
+                        <div class="file-field">
+                            <div class="btn z-depth-0 handex-btn">
+                                <span><%= t('browse') %></span>
+                                <%= form.file_field :annual_financial_statement_importer_second_last %>
+                            </div>
+
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text"/>
                             </div>
                         </div>
                     </div>
@@ -309,6 +345,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
