@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_01_134157) do
+ActiveRecord::Schema.define(version: 2019_08_01_163637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -261,6 +261,18 @@ ActiveRecord::Schema.define(version: 2019_08_01_134157) do
     t.string "export_contract_or_bills_content_type"
     t.integer "export_contract_or_bills_file_size"
     t.datetime "export_contract_or_bills_updated_at"
+    t.string "self_declaration_file_name"
+    t.string "self_declaration_content_type"
+    t.integer "self_declaration_file_size"
+    t.datetime "self_declaration_updated_at"
+    t.string "annual_financial_statement_exporter_file_name"
+    t.string "annual_financial_statement_exporter_content_type"
+    t.integer "annual_financial_statement_exporter_file_size"
+    t.datetime "annual_financial_statement_exporter_updated_at"
+    t.string "annual_financial_statement_exporter_second_last_file_name"
+    t.string "annual_financial_statement_exporter_second_last_content_type"
+    t.integer "annual_financial_statement_exporter_second_last_file_size"
+    t.datetime "annual_financial_statement_exporter_second_last_updated_at"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 

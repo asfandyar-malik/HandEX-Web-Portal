@@ -451,8 +451,8 @@ de:
   #documents
   annual_financial_statement_importer: "Jahresabschluss des Kunden letztes Jahr"
   annual_financial_statement_importer_second_last: "Jahresabschluss des Kunden vorletztes Jahr"
-  annual_financial_statement: "Jahresabschluss letztes Geschäftsjahr"
-  annual_financial_statement_second_last: "Jahresabschluss vorletztes Geschäftsjahr"
+  annual_financial_statement_exporter: "Jahresabschluss letztes Geschäftsjahr"
+  annual_financial_statement_exporter_second_last: "Jahresabschluss vorletztes Geschäftsjahr"
   credit_bureaus_importer: "Bonitätsauskunft über den Kunden"
   self_declaration: "Selbstauskunft (bei Neukunden)"
   export_contract_or_bills: "Liefervertrag (aktueller Entwurf, sofern verfügbar)"

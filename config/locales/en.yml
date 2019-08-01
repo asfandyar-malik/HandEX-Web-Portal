@@ -445,14 +445,16 @@ en:
   browse: "Browse"
 
   #documents
-  export_contract_or_bills: "Exportvertrag und ggf. Rechnung"
-  annual_financial_statement_importer_second_last: "Jahresabschluss vorletztes Geschäftsjahr"
-  credit_bureaus_importer: "Bonitätsauskunft über den Kunden "
-  documents_for_examination: "Diese Anlagen benötigen wir für die Prüfung Ihres Geschäftes"
+  annual_financial_statement_importer: "Jahresabschluss des Kunden letztes Jahr"
+  annual_financial_statement_importer_second_last: "Jahresabschluss des Kunden vorletztes Jahr"
+  annual_financial_statement_exporter: "Jahresabschluss letztes Geschäftsjahr"
+  annual_financial_statement_exporter_second_last: "Jahresabschluss vorletztes Geschäftsjahr"
+  credit_bureaus_importer: "Bonitätsauskunft über den Kunden"
   self_declaration: "Selbstauskunft (bei Neukunden)"
-  annual_financial_statement_importer: "Jahresabschluss letztes Geschäftsjahr"
-  environment_social_audit: "ggf. Sozial- und Umweltinformationen"
+  export_contract_or_bills: "Liefervertrag (aktueller Entwurf, sofern verfügbar)"
   project_memorandum_exporter_business: "ggf. Projektmemorandum"
+  environment_social_audit: "ggf. Sozial- und Umweltinformationen"
+  other_document: "Sonstiges"
 
   #Overview
   not_selected_yet: "Nicht gewählt"

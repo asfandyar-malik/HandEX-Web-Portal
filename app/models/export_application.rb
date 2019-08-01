@@ -38,28 +38,40 @@ class ExportApplication < ApplicationRecord
     accepts_nested_attributes_for :extra_billed_items,
                                   allow_destroy: true
     
-    has_attached_file :export_contract_or_bills, :storage => :cloudinary,  :cloudinary_resource_type => :image, :path => "export_applications/:attachment/:id/:style/:filename",
-                      styles: { medium: "300x300>", thumb: "100x100>" }
-    validates_attachment_content_type :export_contract_or_bills, content_type: ['image/jpeg', 'image/png', 'image/gif', 'application/pdf']
-
     has_attached_file :annual_financial_statement_importer, :storage => :cloudinary, :cloudinary_resource_type => :image, :path => "export_applications/:attachment/:id/:style/:filename",
                       styles: { medium: "300x300>", thumb: "100x100>" }
     validates_attachment_content_type :annual_financial_statement_importer, content_type: ['image/jpeg', 'image/png', 'image/gif', 'application/pdf']
+    
+    has_attached_file :annual_financial_statement_importer_second_last, :storage => :cloudinary, :cloudinary_resource_type => :image,  :path => "export_applications/:attachment/:id/:style/:filename",
+                      styles: { medium: "300x300>", thumb: "100x100>" }
+    validates_attachment_content_type :annual_financial_statement_importer_second_last, content_type: ['image/jpeg', 'image/png', 'image/gif', 'application/pdf']
 
+    has_attached_file :annual_financial_statement_exporter, :storage => :cloudinary, :cloudinary_resource_type => :image, :path => "export_applications/:attachment/:id/:style/:filename",
+                      styles: { medium: "300x300>", thumb: "100x100>" }
+    validates_attachment_content_type :annual_financial_statement_exporter, content_type: ['image/jpeg', 'image/png', 'image/gif', 'application/pdf']
+
+    has_attached_file :annual_financial_statement_exporter_second_last, :storage => :cloudinary, :cloudinary_resource_type => :image, :path => "export_applications/:attachment/:id/:style/:filename",
+                      styles: { medium: "300x300>", thumb: "100x100>" }
+    validates_attachment_content_type :annual_financial_statement_exporter_second_last, content_type: ['image/jpeg', 'image/png', 'image/gif', 'application/pdf']
+
+    has_attached_file :export_contract_or_bills, :storage => :cloudinary,  :cloudinary_resource_type => :image, :path => "export_applications/:attachment/:id/:style/:filename",
+                      styles: { medium: "300x300>", thumb: "100x100>" }
+    validates_attachment_content_type :export_contract_or_bills, content_type: ['image/jpeg', 'image/png', 'image/gif', 'application/pdf']
+    
     has_attached_file :credit_bureaus_importer, :storage => :cloudinary, :cloudinary_resource_type => :image,  :path => "export_applications/:attachment/:id/:style/:filename",
                       styles: { medium: "300x300>", thumb: "100x100>" }
     validates_attachment_content_type :credit_bureaus_importer, content_type: ['image/jpeg', 'image/png', 'image/gif', 'application/pdf']
 
-    has_attached_file :environment_social_audit, :storage => :cloudinary, :cloudinary_resource_type => :image,  :path => "export_applications/:attachment/:id/:style/:filename",
+    has_attached_file :self_declaration, :storage => :cloudinary, :cloudinary_resource_type => :image,  :path => "export_applications/:attachment/:id/:style/:filename",
                       styles: { medium: "300x300>", thumb: "100x100>" }
-    validates_attachment_content_type :environment_social_audit, content_type: ['image/jpeg', 'image/png', 'image/gif', 'application/pdf']
+    validates_attachment_content_type :self_declaration, content_type: ['image/jpeg', 'image/png', 'image/gif', 'application/pdf']
 
     has_attached_file :project_memorandum_exporter_business, :storage => :cloudinary, :cloudinary_resource_type => :image,  :path => "export_applications/:attachment/:id/:style/:filename",
                       styles: { medium: "300x300>", thumb: "100x100>" }
     validates_attachment_content_type :project_memorandum_exporter_business, content_type: ['image/jpeg', 'image/png', 'image/gif', 'application/pdf']
 
-    has_attached_file :annual_financial_statement_importer_second_last, :storage => :cloudinary, :cloudinary_resource_type => :image,  :path => "export_applications/:attachment/:id/:style/:filename",
+    has_attached_file :environment_social_audit, :storage => :cloudinary, :cloudinary_resource_type => :image,  :path => "export_applications/:attachment/:id/:style/:filename",
                       styles: { medium: "300x300>", thumb: "100x100>" }
-    validates_attachment_content_type :annual_financial_statement_importer_second_last, content_type: ['image/jpeg', 'image/png', 'image/gif', 'application/pdf']
-    
+    validates_attachment_content_type :environment_social_audit, content_type: ['image/jpeg', 'image/png', 'image/gif', 'application/pdf']
+	
 end

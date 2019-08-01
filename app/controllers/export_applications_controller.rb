@@ -153,9 +153,10 @@ class ExportApplicationsController < ApplicationController
             :has_previously_used_hermes_cover, :years_trading_without_hermes_insurance, :experience_with_importer_country, :adequate_claims_management, :exporter_name, :exporter_dn_no, :exporter_telephone, :exporter_street_hno, :exporter_plz, :exporter_country, :exporter_city, :employees_count, :revenue_last_year, :exporter_representative_firstname, :exporter_representative_lastname, :exporter_representative_email, :exporter_representative_function, :exporter_representative_department, :does_corruption_declaration_apply, :explain_corruption_sanctions, :give_consortiums_companies, :is_all_information_provided_with_best_of_knowledge, :has_accepted_terms_conditions, :has_read_privacy_policy, :has_read_all_instructions,
             
             # # Documents ----------------------------------------
-            :export_contract_or_bills, :annual_financial_statement_importer, :credit_bureaus_importer, :environment_social_audit, :project_memorandum_exporter_business, :annual_financial_statement_importer_second_last,
-            
-            # # Orphan ----------------------------------------
+            :annual_financial_statement_importer, :annual_financial_statement_importer_second_last, :annual_financial_statement_exporter, :annual_financial_statement_exporter_second_last, :export_contract_or_bills, :credit_bureaus_importer,  :self_declaration,
+                :project_memorandum_exporter_business, :environment_social_audit,
+
+                # # Orphan ----------------------------------------
             :application_status,
             
             :agreed_payments_output_payment_term_short, :agreed_payments_output_payment_term_short_2, :agreed_payments_output_payment_term_short_3, :agreed_payments_output_payment_term_short_4, :agreed_payments_output_payment_term_short_5,

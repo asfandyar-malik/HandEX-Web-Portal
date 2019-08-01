@@ -30,7 +30,6 @@
                         <p> <%= t('information_for_business_examination_description') %> </p>
                     </div>
 
-
                     <div class="col s12 m6">
                         <%= form.label :credit_bureaus_importer, t('credit_bureaus_importer') %>
                         <br><br>
@@ -46,7 +45,6 @@
                             </div>
                         </div>
                     </div>
-
 
                     <div class="background_toggle has_previously_used_hermes_cover <%= (!@insurance.has_previously_used_hermes_cover.nil? && !@insurance.has_previously_used_hermes_cover) ? 'dialog_background' : '' %>">
 
@@ -64,9 +62,7 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
 
                     <div class="col s12 m6">
                         <%= form.label :export_contract_or_bills, t('export_contract_or_bills') %>
