@@ -156,8 +156,13 @@
 
     function previouslyHermesInsuranceUsed() {
         var x = document.getElementById("newAtHermesDeckung");
+        var y = document.getElementById("selfDeclaration");
+
         if (x.style.display === "block") {
             x.style.display = "none";
+        }
+        if (y.style.display === "block") {
+            y.style.display = "none";
         }
         $('.has_previously_used_hermes_cover').removeClass('dialog_background');
         $('.yes.yes-no-btns.has_previously_used_hermes_cover').addClass('active-btn');
@@ -166,12 +171,18 @@
 
     function noPreviouslyHermesInsuranceUsed() {
         var x = document.getElementById("newAtHermesDeckung");
+        var y = document.getElementById("selfDeclaration");
+
         if (x.style.display === "none") {
             x.style.display = "block";
-            $('.no.yes-no-btns.has_previously_used_hermes_cover').addClass('active-btn');
+        }
+
+        if (y.style.display === "none") {
+            y.style.display = "block";
         }
 
         $('.yes.yes-no-btns.has_previously_used_hermes_cover').removeClass('active-btn');
+        $('.no.yes-no-btns.has_previously_used_hermes_cover').addClass('active-btn');
         $('.has_previously_used_hermes_cover').addClass('dialog_background');
     }
 

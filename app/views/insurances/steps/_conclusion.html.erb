@@ -48,17 +48,20 @@
 
                     <div class="background_toggle has_previously_used_hermes_cover <%= (!@insurance.has_previously_used_hermes_cover.nil? && !@insurance.has_previously_used_hermes_cover) ? 'dialog_background' : '' %>">
 
-                        <div class="col s12 m6 ">
-                            <%= form.label :self_declaration, t('self_declaration') %>
-                            <br><br>
-                            <div class="file-field">
-                                <div class="btn handex-btn z-depth-0">
-                                    <span><%= t('browse') %></span>
-                                    <%= form.file_field :self_declaration %>
-                                </div>
+                        <div id="selfDeclaration" style="display: <%= (!@insurance.has_previously_used_hermes_cover.nil? && !@insurance.has_previously_used_hermes_cover)? 'block' : 'none' %>;">
 
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text"/>
+                            <div class="col s12 m6 ">
+                                <%= form.label :self_declaration, t('self_declaration') %>
+                                <br><br>
+                                <div class="file-field">
+                                    <div class="btn handex-btn z-depth-0">
+                                        <span><%= t('browse') %></span>
+                                        <%= form.file_field :self_declaration %>
+                                    </div>
+
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
