@@ -831,19 +831,18 @@
     }
 
     //importer invitation popup
-    function openForm() {
+    function openImporterInvitationForm() {
         document.getElementById("myForm").style.display = "block";
+        $("#insurance_invitation_importer_company_name").attr('required',true);
+        $("#insurance_invitation_importer_representative_name").attr('required',true);
+        $("#insurance_invitation_importer_email").attr('required',true);
     }
 
     function closeForm() {
+        $("#insurance_invitation_importer_company_name").prop('required',false);
+        $("#insurance_invitation_importer_representative_name").prop('required',false);
+        $("#insurance_invitation_importer_email").prop('required',false);
         document.getElementById("myForm").style.display = "none";
     }
-
-    $('#close-btn').click(function () {
-        $("#insurance_invitation_importer_company_name").val("");
-        $("#insurance_invitation_importer_email").val("");
-        $("#insurance_invitation_message_to_importer").val("");
-        $("#insurance_invitation_importer_representative_name").val("");
-    })
 
 </script>

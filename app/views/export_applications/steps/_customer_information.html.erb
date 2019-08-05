@@ -21,17 +21,14 @@
     </div>
     <div class="row">
         <div class="col s12">
-
             <div class="row invite_importer">
-
                 <div class="input-field col s9 m9 no-padding">
                     <p> <%= t('invite_importer_to_fill_application') %> </p>
                 </div>
 
                 <div class="input-field col s3 m3 no-padding">
-                    <a onclick="openForm()" class="btn handex-btn white-text invite-importer-btn" name="action"> Kunden einladen </a>
+                    <a onclick="openImporterInvitationForm()" class="btn handex-btn white-text invite-importer-btn" name="action"> Kunden einladen </a>
                 </div>
-
             </div>
 
             <div class="form-content">
@@ -61,7 +58,6 @@
                                 </div>
 
                                 <br>
-
                                 <div class="input-field col s12 m12">
                                     <%= form.label :invitation_message_to_importer, t('invitation_message_to_importer') %>
                                     <%= form.text_area :invitation_message_to_importer, autofocus: true, class: "validate handex_text_area", :rows => 5 %>
@@ -72,12 +68,14 @@
                                 </div>
 
                                 <div class=" col s12">
-                                    <button type="button" class="btn" onclick="closeForm()"> <%= t('importer_invitation_data') %></button>
-                                    <button type="button" id="close-btn" class="btn"> <%= t('clear') %></button>
+                                     <% if @export_application.has_invited_importer %>
+                                        <input class="btn handex-btn z-depth-0" id= "send_importer_invitation" type="submit" name="draft" disabled=true value=<%= t('invite_importer_button')%>>
+                                    <% else %>
+                                        <input class="btn handex-btn z-depth-0" id= "send_importer_invitation" type="submit" name="draft" value=<%= t('invite_importer_button') %>>
+                                    <% end %>
 
                                     <button type="button" class="btn" onclick="closeForm()"> <%= t('close') %></button>
                                 </div>
-
                             </div>
                         </div>
                     </div>

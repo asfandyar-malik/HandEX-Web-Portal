@@ -849,20 +849,18 @@
     }
 
     //importer invitation popup
-    function openForm() {
+    function openImporterInvitationForm() {
         document.getElementById("myForm").style.display = "block";
+        $("#export_application_invitation_importer_company_name").attr('required',true);
+        $("#export_application_invitation_importer_representative_name").attr('required',true);
+        $("#export_application_invitation_importer_email").attr('required',true);
     }
 
     function closeForm() {
+        $("#export_application_invitation_importer_company_name").prop('required',false);
+        $("#export_application_invitation_importer_representative_name").prop('required',false);
+        $("#export_application_invitation_importer_email").prop('required',false);
         document.getElementById("myForm").style.display = "none";
     }
-
-    $('#close-btn').click(function () {
-        $("#export_application_invitation_importer_company_name").val("");
-        $("#export_application_invitation_importer_email").val("");
-        $("#export_application_invitation_message_to_importer").val("");
-        $("#export_application_invitation_importer_representative_name").val("");
-    })
-
 
 </script>

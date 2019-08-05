@@ -512,7 +512,7 @@ de:
   invitation_importer_company_name: "Kundenname (Firma)"
   importer_permission_to_share_information: "Mein Kunde ist einverstanden, dass ich seine Daten teile"
   close: "schließen"
-  importer_invitation_data: "Senden"
+  invite_importer_button: "Senden"
   clear: "Abbrechen"
   importer_information_saved: "Ihre Daten wurden erfolgreich gespeichert !"
   importer_information_saved_text: "Ihre Daten wurden erfolgreich versendet. Wir überprüfen jetzt die Daten, damit wir mit der Exportfinanzierung und -versicherung fortfahren können. Bei Fragen können Sie sich jederzeit per E-Mail an info@handex.co wenden. "

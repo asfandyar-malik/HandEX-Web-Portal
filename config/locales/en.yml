@@ -505,7 +505,7 @@ en:
   invitation_importer_company_name: "Company Name"
   importer_permission_to_share_information: "I have permission to share my customers email and contact details"
   close: "schließen"
-  importer_invitation_data: "speichern"
+  invite_importer_button: "Senden"
   clear: "löschen"
   importer_information_saved: "Your data has been saved successfully!"
   importer_information_saved_text: "Your data have been sent. We are now reviewing the data so that we can proceed with the export financing and insurance. If you have any questions, you can always contact us by e-mail at info@handex.co."

@@ -33,10 +33,19 @@ class ExportApplicationsController < ApplicationController
                 flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
                 render :new
             end
+        elsif params[:draft] == t("invite_importer_button")
+            @export_application.application_status = 'DRAFT'
+            @export_application.has_invited_importer = true
+            if @export_application.save
+	            send_importer_invitation
+	            redirect_to "/export_applications/" + @export_application.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert (create).'
+            else
+	            flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+	            render :new
+            end
         else
             @export_application.application_status = 'SUBMITTED'
             if @export_application.save
-	            send_importer_invitation
                 redirect_to pages_application_submitted_path, notice: 'Antrag wurde erfolgreich erstellt.'
             else
                 flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
@@ -55,18 +64,19 @@ class ExportApplicationsController < ApplicationController
                 flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
                 render :update
             end
-        elsif params[:draft_edit] == t('save')
-            @export_application.application_status = 'DRAFT'
-            if @export_application.update(export_application_params)
-                redirect_to "/export_applications/" + @export_application.id.to_s , notice: 'Antrag wurde erfolgreich aktualisiert.'
-            else
-                flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
-                show
-            end
+        elsif params[:draft] == t("invite_importer_button")
+	        @export_application.application_status = 'DRAFT'
+	        if @export_application.save
+		        @export_application.has_invited_importer = true
+		        send_importer_invitation
+		        redirect_to "/export_applications/" + @export_application.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert (create).'
+	        else
+		        flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+		        render :new
+	        end
         else
             @export_application.application_status = 'SUBMITTED'
             if @export_application.update(export_application_params)
-                send_importer_invitation
                 redirect_to pages_application_submitted_path, notice: 'Antrag wurde erfolgreich gespeichert.'
             else
                 flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
@@ -174,9 +184,9 @@ class ExportApplicationsController < ApplicationController
             :source_of_fund_amount, :goods_overhauled_location, :explain_special_contract_structure, :graphic_representation_project_participants, :contract_currency, :risk_shipment_risk_cover, :risk_supplier_credit_cover, :further_lower_economic_risk, :loan_term, :is_delivered_at_this_address, :is_exporting_to_private_sector,
 
              # # Invite Importer ----------------------------------------
-             :invitation_message_to_importer, :invitation_importer_representative_name, :invitation_importer_company_name, :invitation_importer_email,
+             :invitation_message_to_importer, :invitation_importer_representative_name, :invitation_importer_company_name, :invitation_importer_email,:has_invited_importer,
 
-                # # Varengold Datapoints ----------------------------------------
+             # # Varengold Datapoints ----------------------------------------
             :explain_product_service, :sensitive_area_type, :remaining_life, :manufacture_year, :why_good_overhauled_abroad, :goods_overhaul_country, :proportion_of_goods_overhauled_abroad, :describe_why_overhault_didnot_take_in_germany, :all_rawgoods_supplier_amount, :partly_rawgoods_supplier_amount, :importer_address_line1, :importer_address_line2, :importer_company_registration_number, :importer_rating, :importer_rating_agency, :importer_rating_issued_date, :importer_mother_company, :importer_company_corporate_form, :importer_industry, :exporter_address_line1, :exporter_address_line2, :exporter_tax_id, :exporter_revenue, :exporter_total_assets, :exporter_last_fiscal_year, :external_rating_available, :exporter_rating, :rating_agency, :rating_issued_date, :exporter_external_rating_available, :exporter_rating_agency, :exporter_rating_issued_date, :importer_external_rating_available, :is_company_controlled_by_mother_company, :importer_mother_company_industry, :importer_mother_company_corporate_form, :are_goods_overhauled, :registration_court, :exporter_company_registration_number, :exporter_date_founded, :importer_representative_name, :message_to_importer,
               
               supplies_from_foreign_origins_attributes:  SuppliesFromForeignOrigin.attribute_names.map(&:to_sym).push(:_destroy),

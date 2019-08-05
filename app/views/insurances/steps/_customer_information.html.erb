@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="input-field col s3 m3 no-padding">
-                    <a onclick="openForm()" class="btn handex-btn white-text invite-importer-btn" name="action"> Kunden einladen </a>
+                    <a onclick="openImporterInvitationForm()" class="btn handex-btn white-text invite-importer-btn" name="action"> Kunden einladen </a>
                 </div>
 
             </div>
@@ -72,10 +72,15 @@
                                 </div>
 
                                 <div class=" col s12">
-                                    <button type="button" class="btn" onclick="closeForm()"> <%= t('importer_invitation_data') %></button>
-                                    <button type="button" id="close-btn" class="btn"> <%= t('clear') %></button>
+                                    <% if @insurance.has_invited_importer %>
+                                        <input class="btn handex-btn z-depth-0" id= "send_importer_invitation" type="submit" name="draft" disabled=true value=<%= t('invite_importer_button')%>>
+                                    <% else %>
+                                        <input class="btn handex-btn z-depth-0" id= "send_importer_invitation" type="submit" name="draft" value=<%= t('invite_importer_button') %>>
+                                    <% end %>
+
                                     <button type="button" class="btn" onclick="closeForm()"> <%= t('close') %></button>
                                 </div>
+
                             </div>
                         </div>
                     </div>
