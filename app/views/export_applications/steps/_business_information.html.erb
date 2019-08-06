@@ -82,9 +82,9 @@
                                 <!--                                        <option value="OTHER">Sonstige</option>-->
                                 <!--                                    </select>-->
                                 <%= form.select :exported_goods_type, options_for_select([t('please_select_corresponding_option'), "Konsumgüter, Rohstoffe, Halbfabrikate, Massengüter, Komponenten, Ersatzteile", "Düngemittel, Insektizide, Zuchtvieh, Agrargüter und Saatgut", "langlebige Konsumgüter", "Sonstige"]), {}, id: "firstdrop" %>
-                                <%= form.select :exported_goods_type, options_for_select([]), {}, id: "seconddrop" %>
-                                <%= form.select :exported_goods_type, options_for_select([]), {}, id: "thirddrop" %>
-                                <%= form.select :exported_goods_type, options_for_select([]), {}, id: "fourthdrop" %>
+                                <%= form.select :exported_goods_type_two, options_for_select([]), {}, id: "seconddrop" %>
+                                <%= form.select :exported_goods_type_three, options_for_select([]), {}, id: "thirddrop" %>
+                                <%= form.select :exported_goods_type_four, options_for_select([]), {}, id: "fourthdrop" %>
                             </div>
                         </div>
                     </div>
