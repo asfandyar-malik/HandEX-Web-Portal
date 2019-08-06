@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_02_092107) do
+ActiveRecord::Schema.define(version: 2019_08_06_151855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -230,20 +230,20 @@ ActiveRecord::Schema.define(version: 2019_08_02_092107) do
     t.string "exporter_date_founded"
     t.string "project_detailed_description"
     t.boolean "is_fully_responsible_for_project"
-    t.string "contract_currency"
     t.string "entire_project_currency"
     t.string "entire_project_amount"
+    t.string "contract_currency"
     t.boolean "taking_part_in_tender"
     t.string "tender_submission_date"
-    t.string "downpayment_delivery_description_payment_term_both"
     t.string "interest_currency"
     t.string "interest_value"
     t.string "fixed_interest_rate"
     t.string "fixed_interest_rate_value"
     t.string "variable_interest_rate"
+    t.string "downpayment_delivery_description_payment_term_both"
     t.string "degressive_interest_rate"
     t.string "interest_calculation_description"
-    t.string "application_type"
+    t.string "application_type", default: "export_application"
     t.string "exporter_company_registration_number"
     t.string "registration_court"
     t.string "importer_email"
@@ -274,6 +274,9 @@ ActiveRecord::Schema.define(version: 2019_08_02_092107) do
     t.integer "annual_financial_statement_exporter_second_last_file_size"
     t.datetime "annual_financial_statement_exporter_second_last_updated_at"
     t.boolean "has_invited_importer", default: false
+    t.string "exported_goods_type_two"
+    t.string "exported_goods_type_three"
+    t.string "exported_goods_type_four"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
@@ -622,7 +625,7 @@ ActiveRecord::Schema.define(version: 2019_08_02_092107) do
     t.string "variable_interest_rate"
     t.string "degressive_interest_rate"
     t.string "interest_calculation_description"
-    t.string "application_type"
+    t.string "application_type", default: "insurance"
     t.string "exporter_company_registration_number"
     t.string "registration_court"
     t.string "importer_email"
@@ -649,6 +652,9 @@ ActiveRecord::Schema.define(version: 2019_08_02_092107) do
     t.integer "self_declaration_file_size"
     t.datetime "self_declaration_updated_at"
     t.boolean "has_invited_importer", default: false
+    t.string "exported_goods_type_two"
+    t.string "exported_goods_type_three"
+    t.string "exported_goods_type_four"
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 
