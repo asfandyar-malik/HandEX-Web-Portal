@@ -66,7 +66,7 @@ class ExportApplicationsController < ApplicationController
             end
         elsif params[:draft] == t("invite_importer_button")
 	        @export_application.application_status = 'DRAFT'
-	        if @export_application.save
+	        if @export_application.update(export_application_params)
 		        @export_application.has_invited_importer = true
 		        send_importer_invitation
 		        redirect_to "/export_applications/" + @export_application.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert (create).'
