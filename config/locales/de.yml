@@ -45,6 +45,10 @@ de:
         subject: "Anleitung zur Bestätigung Deines Accounts"
       reset_password_instructions:
         subject: "Anleitung um Dein Passwort zurückzusetzen"
+        greeting: "Hallo"
+        email_introduction: "Jemand hat einen Link zum Ändern Ihres Passworts angefordert. Sie können dies über den folgenden Link tun."
+        reset_link_text: "Passwort ändern"
+        reset_instructions: "Wenn Sie dies nicht angefordert haben, ignorieren Sie diese E-Mail bitte. Ihr Passwort ändert sich erst, wenn Sie auf den obigen Link zugreifen und einen neuen erstellen."
       unlock_instructions:
         subject: "Anleitung um Deinen Account freizuschalten"
     omniauth_callbacks:
