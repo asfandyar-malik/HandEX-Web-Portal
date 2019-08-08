@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     devise_for :users, only: :omniauth_callbacks,
                controllers: {omniauth_callbacks: 'omniauth_callbacks'}
     
-    scope "(:locale)", locale: /en|es|de/ do
+    scope "(:locale)", locale: /en|es|de|pt/ do
     
         get 'omniauth/:provider' => 'omniauth#localized', as: :localized_omniauth
         

@@ -17,7 +17,7 @@ module Handex
 
     config.i18n.default_locale = :de
 
-    I18n.available_locales = [:en, :de, :es]
+    I18n.available_locales = [:en, :de, :es, :pt]
     
     config.load_defaults 5.2
 
