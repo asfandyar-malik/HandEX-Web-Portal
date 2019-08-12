@@ -514,7 +514,7 @@
                         </div>
                     </div>
 
-                    <div class="background_toggle has_german_certificate_of_origin <%= ((!@export_application.has_german_certificate_of_origin.nil? && !@export_application.has_german_certificate_of_origin) || (@export_application.has_german_certificate_of_origin_for_only_parts_of_good.present? && @export_application.has_german_certificate_of_origin_for_only_parts_of_good)  )? 'dialog_background' : '' %>">
+                    <div class="background_toggle has_german_certificate_of_origin <%= ((!@export_application.has_german_certificate_of_origin.nil? && !@export_application.has_german_certificate_of_origin) || (@export_application.has_german_certificate_of_origin_for_only_parts_of_good.present? && @export_application.has_german_certificate_of_origin_for_only_parts_of_good))? 'dialog_background' : '' %>">
 
                         <div class="input-field col s12 m12">
                             <%= form.label :has_german_certificate_of_origin, t('has_german_certificate_of_origin') %>

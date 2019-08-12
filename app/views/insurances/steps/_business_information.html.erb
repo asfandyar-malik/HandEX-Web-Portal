@@ -510,7 +510,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="background_toggle has_german_certificate_of_origin  <%= (@insurance.has_german_certificate_of_origin.present? && @insurance.has_german_certificate_of_origin) ? 'dialog_background' : '' %>">
+
+                    <div class="background_toggle has_german_certificate_of_origin  <%= ((!@insurance.has_german_certificate_of_origin.nil? && !@insurance.has_german_certificate_of_origin) || (@insurance.has_german_certificate_of_origin_for_only_parts_of_good.present? && @insurance.has_german_certificate_of_origin_for_only_parts_of_good)) ? 'dialog_background' : '' %>">
 
                         <div class="input-field col s12 m12">
                             <%= form.label :has_german_certificate_of_origin, t('has_german_certificate_of_origin') %>
@@ -531,15 +532,16 @@
                             </label>
 
                             <label onclick="partlyGermanCertificateOfOrigin()">
-                                <span class="partly yes-no-btns has_german_certificate_of_origin_for_only_parts_of_good <%= 'active-btn' if (!@insurance.has_german_certificate_of_origin_for_only_parts_of_good.nil? && !@insurance.has_german_certificate_of_origin_for_only_parts_of_good) %>">
-                                    <%= check_box_tag "insurance[has_german_certificate_of_origin]", '1' %>
+                                <span class="partly yes-no-btns has_german_certificate_of_origin_for_only_parts_of_good <%= 'active-btn' if (@insurance.has_german_certificate_of_origin_for_only_parts_of_good.present? && @insurance.has_german_certificate_of_origin_for_only_parts_of_good) %>">
+
+                                    <%= check_box_tag "insurance[has_german_certificate_of_origin_for_only_parts_of_good]", '1' %>
                                     <%= t('partial_german_certificate_of_origin') %>
                                 </span>
                             </label>
 
                         </div>
 
-                        <div id="noGermanCertificateOfOriginId" style="display: <%= (@insurance.has_german_certificate_of_origin_for_only_parts_of_good.present? && !@insurance.has_german_certificate_of_origin_for_only_parts_of_good)? 'block' : 'none' %>;">
+                        <div id="noGermanCertificateOfOriginId" style="display: <%= (!@insurance.has_german_certificate_of_origin.nil? && !@insurance.has_german_certificate_of_origin)? 'block' : 'none' %>;">
                             <div class="input-field col s12">
                                 <%= form.label :goods_supplied_from_foreign_origin, t('goods_supplied_from_foreign_origin') %>
                             </div>
