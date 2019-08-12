@@ -305,18 +305,12 @@ h3 {
   }
 
   .yes-no-btns {
+    display: inline-block;
     cursor: pointer;
     padding: 7px 35px;
-    min-width: 110px;
+    min-width: 130px;
     text-align: center;
-  }
-
-  .yes-no-btns.no {
-    //padding-top: 6px;
-    //padding-bottom: 7px;
-    //width: 100%;
-    //padding-left: 37px;
-    //padding-right: 38px;
+    margin-right: 3px;
   }
 
   .yes-no-btns:hover {
