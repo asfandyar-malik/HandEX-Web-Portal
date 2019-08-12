@@ -230,9 +230,9 @@
             y.style.display = "none";
         }
 
-        $('.partly.yes-no-btns.has_german_certificate_of_origin_for_only_parts_of_good').addClass('active-btn');
         $('.yes.yes-no-btns.has_german_certificate_of_origin').removeClass('active-btn');
         $('.no.yes-no-btns.has_german_certificate_of_origin').removeClass('active-btn');
+        $('.partly.yes-no-btns.has_german_certificate_of_origin_for_only_parts_of_good').addClass('active-btn');
         $('.has_german_certificate_of_origin').addClass('dialog_background');
     }
 
@@ -345,11 +345,21 @@
     function investmentGoods() {
         $('.yes.yes-no-btns.is_investment_good').addClass('active-btn');
         $('.no.yes-no-btns.is_investment_good').removeClass('active-btn');
+
+        var x = document.getElementById("exportGoodsType");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
     }
 
     function noInvestmentGoods() {
         $('.no.yes-no-btns.is_investment_good').addClass('active-btn');
         $('.yes.yes-no-btns.is_investment_good').removeClass('active-btn');
+
+        var x = document.getElementById("exportGoodsType");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        }
     }
 
     function deliveredAtThisAddress() {
@@ -770,32 +780,32 @@
     var global_seconddrop_key = "";
 
     $.each(loans_custom_arr, function (index, value) {
-        $("#seconddrop").append("<option disabled='disabled' selected hidden>Bitte wählen Sie im ersten Schritt Ihre Branche aus.</option>");
+        $("#exported_goods_type_two").append("<option disabled='disabled' selected hidden> Bitte wählen Sie im ersten Schritt Ihre Branche aus.</option>");
         var option = "<option value='"+index+"'>" + index + "</option>";
-        $('#seconddrop').append(option);
+        $('#exported_goods_type_two').append(option);
     });
 
-    $('#seconddrop').change(function (){
-        $('#thirddrop').show();
+    $('#exported_goods_type_two').change(function (){
+        $('#exported_goods_type_three').show();
         global_seconddrop_key = $(this).val();
-        $('#thirddrop option').remove();
-        $('#thirddrop').append("<option disabled='disabled' selected hidden class='placeholder_design'>Bitte konkretisieren Sie Ihre Branche weiter.</option>");
+        $('#exported_goods_type_three option').remove();
+        $('#exported_goods_type_three').append("<option disabled='disabled' selected hidden class='placeholder_design'> Bitte konkretisieren Sie Ihre Branche weiter.</option>");
 
         $.each(loans_custom_arr[global_seconddrop_key], function (index, value) {
             var option = "<option value='"+index+"'>"+index+"</option>";
-            $('#thirddrop').append(option);
+            $('#exported_goods_type_three').append(option);
         });
     });
 
-    $('#thirddrop').change(function (){
-        $('#fourthdrop').show();
+    $('#exported_goods_type_three').change(function (){
+        $('#exported_goods_type_four').show();
         var third_key = $(this).val();
-        $('#fourthdrop option').remove();
-        $("#fourthdrop").append("<option disabled='disabled' selected hidden>Welche Warenart passt zu den von Ihnen zu liefernden Waren/Gütern/Anlagen bzw. Dienstleistungen?</option>");
+        $('#exported_goods_type_four option').remove();
+        $("#exported_goods_type_four").append("<option disabled='disabled' selected hidden> Welche Warenart passt zu den von Ihnen zu liefernden Waren/Gütern/Anlagen bzw. Dienstleistungen?</option>");
 
         $.each(loans_custom_arr[global_seconddrop_key][third_key], function (index, value) {
             var option = "<option value='"+value+"'>"+value+"</option>";
-            $('#fourthdrop').append(option);
+            $('#exported_goods_type_four').append(option);
         });
     });
 
