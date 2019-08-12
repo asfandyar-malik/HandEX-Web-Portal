@@ -24,7 +24,7 @@
         <div class="col s12">
             <div class="form-content">
                 <div class="row">
-                    <div class="background_toggle is_security_present_for_transaction  <%= (@insurance.is_security_present_for_transaction.present? && @insurance.is_security_present_for_transaction) ? 'dialog_background' : '' %>">
+                    <div class="background_toggle is_security_present_for_transaction  <%= (!@insurance.is_security_present_for_transaction.nil? && @insurance.is_security_present_for_transaction) ? 'dialog_background' : '' %>">
 
                         <div class="input-field col s12 m12">
                             <%= form.label :is_security_present_for_transaction, t('is_security_present_for_transaction') %>
@@ -45,7 +45,7 @@
                             </label>
                         </div>
 
-                        <div id="securityPresent" style="display: none">
+                        <div id="securityPresent" style="display: <%= (@insurance.is_security_present_for_transaction.present? && @insurance.is_security_present_for_transaction)? 'block' : 'none' %>;">
                             <div class="input-field col s12">
                                 <label> <%= t('security_type') %> </label>
 
@@ -356,21 +356,21 @@
                                     <br><br>
 
                                     <label onclick="fixedInterestRate()">
-                                    <span class="yes yes-no-btns fixed_interest_rate <%= 'active-btn' if (@insurance.fixed_interest_rate) %>">
+                                    <span class="yes yes-no-btns fixed_interest_rate <%= 'active-btn' if (!@insurance.fixed_interest_rate.nil? && @insurance.fixed_interest_rate) %>">
                                         <%= check_box_tag "insurance[fixed_interest_rate]", '1' %>
                                         <%= t :yes_button %>
                                     </span>
                                     </label>
 
                                     <label onclick="noFixedInterestRate()">
-                                    <span class="no yes-no-btns fixed_interest_rate <%= 'active-btn' if (!@insurance.fixed_interest_rate.nil? && !@insurance.fixed_interest_rate) %>">
+                                    <span class="no yes-no-btns fixed_interest_rate <%= 'active-btn' if (!@insurance.fixed_interest_rate.nil? && @insurance.fixed_interest_rate) %>">
                                         <%= check_box_tag "insurance[fixed_interest_rate]", '0' %>
                                         <%= t :no_button %>
                                     </span>
                                     </label>
                                 </div>
 
-                                <div id="yesFixedInterestRate" style="display: <%=(@insurance.fixed_interest_rate.present? && @insurance.fixed_interest_rate)? 'block' : 'none'%>;">
+                                <div id="yesFixedInterestRate" style="display: <%=(!@insurance.fixed_interest_rate.nil? && @insurance.fixed_interest_rate)? 'block' : 'none'%>;">
                                     <div class="input-field col s12 m12">
                                         <%= form.label :fixed_interest_rate_value, t('fixed_interest_rate_value') %>
                                         <div>
@@ -379,7 +379,7 @@
                                     </div>
                                 </div>
 
-                                <div id="noFixedInterestRate" style="display: <%=(@insurance.fixed_interest_rate.present? && !@insurance.fixed_interest_rate)? 'block' : 'none'%>;">
+                                <div id="noFixedInterestRate" style="display: <%=(!@insurance.fixed_interest_rate.nil? && !@insurance.fixed_interest_rate)? 'block' : 'none'%>;">
                                     <div class="input-field col s12 m12">
                                         <%= form.label :variable_interest_rate, t('variable_interest_rate') %>
                                         <div>
