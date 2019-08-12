@@ -1,7 +1,7 @@
 <!-- step_3 start -->
 <div class="step_3 tab" id="step_3">
     <!--   Form Navigation Section   -->
-    <div class="row form-nav-top sticky ">
+    <div class="row form-nav-top">
         <div class="col s12 m4">
             <div class="form-nav form-nav-percent">
                 <p><span> 50% <%= t :complete %> </span></p>
@@ -371,8 +371,7 @@
                                 <%= form.label :sensitive_area_type, t('sensitive_area_type') %>
                                 <%= form.select :sensitive_area_type, options_for_select([t('please_select'), t('delivery_affects_natural_reserves'), t('delivery_affects_indigenous_people'), t('delivery_affects_cultural_heritage'), t('delivery_affects_other')], @insurance.sensitive_area_type ? @insurance.sensitive_area_type : nil), {}, class: 'validate', id: "sensitive_area_type", :onchange => 'sensitiveAreaTypeChangeHandler()' %>
                             </div>
-                            <div class="input-field col s12 m12" id="explain_sensitive_area_type">
-                                <%= form.label :explain_sensitive_area_type, t('explain_sensitive_area_type') %>
+                          <div class="input-field col s12 m12" id="explain_sensitive_area_type" style="display: <%=(!@insurance.sensitive_area_type.nil? && @insurance.sensitive_area_type == "Sonstige") ? 'block' : 'none' %>;">                                <%= form.label :explain_sensitive_area_type, t('explain_sensitive_area_type') %>
                                 <%= form.text_area :explain_sensitive_area_type, autofocus: true, class: "validate handex_text_area", :rows => 10 %>
                             </div>
                         </div>
