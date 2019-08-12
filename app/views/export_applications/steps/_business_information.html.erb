@@ -514,28 +514,28 @@
                         </div>
                     </div>
 
-                    <div class="background_toggle has_german_certificate_of_origin <%= (!@export_application.has_german_certificate_of_origin.present? || !@export_application.has_german_certificate_of_origin )? 'dialog_background' : '' %>">
+                    <div class="background_toggle has_german_certificate_of_origin <%= ((!@export_application.has_german_certificate_of_origin.nil? && !@export_application.has_german_certificate_of_origin) || (@export_application.has_german_certificate_of_origin_for_only_parts_of_good.present? && @export_application.has_german_certificate_of_origin_for_only_parts_of_good)  )? 'dialog_background' : '' %>">
 
                         <div class="input-field col s12 m12">
                             <%= form.label :has_german_certificate_of_origin, t('has_german_certificate_of_origin') %>
                             <br><br>
 
                             <label onclick="germanCertificateOfOrigin()">
-                                <span class="yes yes-no-btns has_german_certificate_of_origin <%= 'active-btn' if (!@export_application.has_german_certificate_of_origin.nil? && @export_application.has_german_certificate_of_origin) %>">
+                                <span class="yes yes-no-btns has_german_certificate_of_origin <%= 'active-btn' if (@export_application.has_german_certificate_of_origin) %>">
                                     <%= check_box_tag "export_application[has_german_certificate_of_origin]", '1' %>
                                     <%= t :yes_button %>
                                 </span>
                             </label>
 
                             <label onclick="noGermanCertificateOfOrigin()">
-                                <span class="no yes-no-btns has_german_certificate_of_origin <%= 'active-btn' if (@export_application.has_german_certificate_of_origin.nil? || !@export_application.has_german_certificate_of_origin) %>">
+                                <span class="no yes-no-btns has_german_certificate_of_origin <%= 'active-btn' if (!@export_application.has_german_certificate_of_origin.nil? && !@export_application.has_german_certificate_of_origin) %>">
                                     <%= check_box_tag "export_application[has_german_certificate_of_origin]", '0' %>
                                     <%= t :no_button %>
                                 </span>
                             </label>
 
                             <label onclick="partlyGermanCertificateOfOrigin()">
-                                <span class="partly yes-no-btns has_german_certificate_of_origin_for_only_parts_of_good <%= 'active-btn' if (@export_application.has_german_certificate_of_origin_for_only_parts_of_good.nil? && @export_application.has_german_certificate_of_origin_for_only_parts_of_good) %>">
+                                <span class="partly yes-no-btns has_german_certificate_of_origin_for_only_parts_of_good <%= 'active-btn' if (@export_application.has_german_certificate_of_origin_for_only_parts_of_good.present? && @export_application.has_german_certificate_of_origin_for_only_parts_of_good) %>">
                                     <%= check_box_tag "export_application[has_german_certificate_of_origin_for_only_parts_of_good]", '1' %>
                                     <%= t('partial_german_certificate_of_origin') %>
                                 </span>
@@ -543,7 +543,7 @@
 
                         </div>
 
-                        <div id="noGermanCertificateOfOriginId" style="display: <%=(!@export_application.has_german_certificate_of_origin.present? || !@export_application.has_german_certificate_of_origin) ? 'block' : 'none' %>;">
+                        <div id="noGermanCertificateOfOriginId" style="display: <%=(!@export_application.has_german_certificate_of_origin.nil? && !@export_application.has_german_certificate_of_origin) ? 'block' : 'none' %>;">
                             <div class="input-field col s12">
                                 <%= form.label :goods_supplied_from_foreign_origin, t('goods_supplied_from_foreign_origin') %>
                             </div>
