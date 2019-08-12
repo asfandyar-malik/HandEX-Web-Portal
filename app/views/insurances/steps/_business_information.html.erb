@@ -78,11 +78,11 @@
                                     <%= form.select :exported_goods_type, options_for_select([t('please_select_corresponding_option'), "Konsumgüter, Rohstoffe, Halbfabrikate, Massengüter, Komponenten, Ersatzteile", "Düngemittel, Insektizide, Zuchtvieh, Agrargüter und Saatgut", "langlebige Konsumgüter", "Sonstige"], @insurance.exported_goods_type ? @insurance.exported_goods_type : nil), {}, id: "firstdrop" %>
 
                                 </div>
-                                <%= form.select :exported_goods_type_two, options_for_select([], @insurance.exported_goods_type_two ? @insurance.exported_goods_type_two : nil), {}, id: "exported_goods_type_two", class: "validate" %>
+                                <%= form.select :exported_goods_type_two, options_for_select([@insurance.exported_goods_type_two.nil? ? t('please_select_corresponding_option') : @insurance.exported_goods_type_two], @insurance.exported_goods_type_two ? @insurance.exported_goods_type_two : nil), {}, id: "exported_goods_type_two", class: "validate" %>
 
-                                <%= form.select :exported_goods_type_three, options_for_select([], @insurance.exported_goods_type_three ? @insurance.exported_goods_type_three : nil), {}, id: "exported_goods_type_three", class: "validate"%>
+                                <%= form.select :exported_goods_type_three, options_for_select([@insurance.exported_goods_type_three], @insurance.exported_goods_type_three ? @insurance.exported_goods_type_three : nil), {}, id: "exported_goods_type_three", class: "validate"%>
 
-                                <%= form.select :exported_goods_type_four, options_for_select([],  @insurance.exported_goods_type_four ? @insurance.exported_goods_type_four : nil), {}, id: "exported_goods_type_four", class: "validate" %>
+                                <%= form.select :exported_goods_type_four, options_for_select([@insurance.exported_goods_type_four],  @insurance.exported_goods_type_four ? @insurance.exported_goods_type_four : nil), {}, id: "exported_goods_type_four", class: "validate" %>
                             </div>
                         </div>
                     </div>
