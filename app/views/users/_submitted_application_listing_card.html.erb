@@ -1,16 +1,16 @@
 <div class="col s12 m3">
     <div class="card">
 
-        <div class="card-title sent_financing_application white-text valign-wrapper">
-            <div class="valign-wrapper">
-                <i class="custom_icon clock-icon"></i>
-                <div class="card-header">
-                    Antrag versendet
+        <% if application.application_type == ("export_application" || "insurance") %>
+
+            <div class="card-title sent_financing_application white-text valign-wrapper">
+                <div class="valign-wrapper">
+                    <i class="custom_icon clock-icon"></i>
+                    <div class="card-header">
+                        Antrag versendet
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <% if application.application_type == ("export_application" || "insurance") %>
 
             <div class="card-content">
                 <div class="valign-wrapper">
@@ -68,7 +68,28 @@
                 </div>
             </div>
 
+            <% if application.application_type == "export_application" %>
+                <div class="card-action center">
+                    <%= link_to t('see_summary_of_application'), controller: "export_applications", action: "show", id: application %>
+                </div>
+            <% end %>
+
+            <% if application.application_type == "insurance" %>
+                <div class="card-action center">
+                    <%= link_to t('see_summary_of_application'), controller: "insurances", action: "show", id: application %>
+                </div>
+            <% end %>
+
         <% elsif application.application_type == "importer_information" %>
+
+            <div class="card-title sent_financing_application white-text valign-wrapper">
+                <div class="valign-wrapper">
+                    <i class="custom_icon clock-icon"></i>
+                    <div class="card-header">
+                        Antrag versendet
+                    </div>
+                </div>
+            </div>
 
             <div class="card-content">
                 <div class="valign-wrapper">
@@ -110,18 +131,6 @@
                         <p><b><%= application.exporter_offers_servicing_for_goods %></b></p>
                     </div>
                 </div>
-            </div>
-        <% end %>
-
-        <% if application.application_type == "export_application" %>
-            <div class="card-action center">
-                <%= link_to t('see_summary_of_application'), controller: "export_applications", action: "show", id: application %>
-            </div>
-        <% end %>
-
-        <% if application.application_type == "insurance" %>
-            <div class="card-action center">
-                <%= link_to t('see_summary_of_application'), controller: "insurances", action: "show", id: application %>
             </div>
         <% end %>
 

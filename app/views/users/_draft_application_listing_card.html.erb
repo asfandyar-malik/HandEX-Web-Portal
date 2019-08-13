@@ -1,16 +1,16 @@
 <div class="col s12 m3">
     <div class="card">
 
-        <div class="card-title grey white-text draft_financing_application valign-wrapper">
-            <div class="valign-wrapper">
-                <i class="custom_icon reciept-icon-white"></i>
-                <div class="card-header">
-                    Antrag Entwurf
+        <% if application.application_type ==  ("export_application" || "insurance") %>
+
+            <div class="card-title grey white-text draft_financing_application valign-wrapper">
+                <div class="valign-wrapper">
+                    <i class="custom_icon reciept-icon-white"></i>
+                    <div class="card-header">
+                        Antrag Entwurf
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <% if application.application_type ==  ("export_application" || "insurance") %>
 
              <div class="card-content">
                 <div class="valign-wrapper">
@@ -71,6 +71,15 @@
 
         <% elsif application.application_type == "importer_information" %>
 
+            <div class="card-title grey white-text draft_financing_application valign-wrapper">
+                <div class="valign-wrapper">
+                    <i class="custom_icon reciept-icon-white"></i>
+                    <div class="card-header">
+                        Antrag Entwurf
+                    </div>
+                </div>
+            </div>
+
             <div class="card-content">
                 <div class="valign-wrapper">
                     <div class="col m2">
@@ -113,19 +122,18 @@
                 </div>
             </div>
 
-        <% end %>
+            <% if application.application_type == "export_application" %>
+                <div class="card-action center">
+                    <%= link_to t('see_summary_of_application'), controller: "export_applications", action: "show", id: application %>
+                </div>
+            <% end %>
 
+            <% if application.application_type == "insurance" %>
+                <div class="card-action center">
+                    <%= link_to t('see_summary_of_application'), controller: "insurances", action: "show", id: application %>
+                </div>
+            <% end %>
 
-        <% if application.application_type == "export_application" %>
-            <div class="card-action center">
-                <%= link_to t('see_summary_of_application'), controller: "export_applications", action: "show", id: application %>
-            </div>
-        <% end %>
-
-        <% if application.application_type == "insurance" %>
-            <div class="card-action center">
-                <%= link_to t('see_summary_of_application'), controller: "insurances", action: "show", id: application %>
-            </div>
         <% end %>
 
     </div>
