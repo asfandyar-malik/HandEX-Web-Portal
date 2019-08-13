@@ -1,7 +1,7 @@
 <!-- step_4 start -->
 <div id="step_4" class="step_4 tab">
     <!--   Form Navigation Section   -->
-    <div class="row form-nav-top sticky ">
+    <div class="row form-nav-top ">
         <div class="col s12 m4">
             <div class="form-nav">
                 <p><span> 75% Fertig </span></p>
@@ -24,7 +24,7 @@
         <div class="col s12">
             <div class="form-content">
                 <div class="row">
-                    <div class="background_toggle is_security_present_for_transaction  <%= (@insurance.is_security_present_for_transaction.present? && @insurance.is_security_present_for_transaction) ? 'dialog_background' : '' %>">
+                    <div class="background_toggle is_security_present_for_transaction  <%= (!@insurance.is_security_present_for_transaction.nil? && @insurance.is_security_present_for_transaction) ? 'dialog_background' : '' %>">
 
                         <div class="input-field col s12 m12">
                             <%= form.label :is_security_present_for_transaction, t('is_security_present_for_transaction') %>
@@ -45,7 +45,7 @@
                             </label>
                         </div>
 
-                        <div id="securityPresent" style="display: none">
+                        <div id="securityPresent" style="display: <%= (@insurance.is_security_present_for_transaction.present? && @insurance.is_security_present_for_transaction)? 'block' : 'none' %>;">
                             <div class="input-field col s12">
                                 <label> <%= t('security_type') %> </label>
 
@@ -356,14 +356,14 @@
                                     <br><br>
 
                                     <label onclick="fixedInterestRate()">
-                                    <span class="yes yes-no-btns fixed_interest_rate <%= 'active-btn' if (@insurance.fixed_interest_rate) %>">
+                                    <span class="yes yes-no-btns fixed_interest_rate <%= 'active-btn' if (@insurance.fixed_interest_rate.present? && @insurance.fixed_interest_rate) == "1" %>">
                                         <%= check_box_tag "insurance[fixed_interest_rate]", '1' %>
                                         <%= t :yes_button %>
                                     </span>
                                     </label>
 
                                     <label onclick="noFixedInterestRate()">
-                                    <span class="no yes-no-btns fixed_interest_rate <%= 'active-btn' if (!@insurance.fixed_interest_rate.nil? && !@insurance.fixed_interest_rate) %>">
+                                    <span class="no yes-no-btns fixed_interest_rate <%= 'active-btn' if (@insurance.fixed_interest_rate.present? && @insurance.fixed_interest_rate != "1") %>">
                                         <%= check_box_tag "insurance[fixed_interest_rate]", '0' %>
                                         <%= t :no_button %>
                                     </span>
@@ -379,7 +379,7 @@
                                     </div>
                                 </div>
 
-                                <div id="noFixedInterestRate" style="display: <%=(@insurance.fixed_interest_rate.present? && !@insurance.fixed_interest_rate)? 'block' : 'none'%>;">
+                                <div id="noFixedInterestRate" style="display: <%=(!@insurance.fixed_interest_rate.nil? && !@insurance.fixed_interest_rate)? 'block' : 'none'%>;">
                                     <div class="input-field col s12 m12">
                                         <%= form.label :variable_interest_rate, t('variable_interest_rate') %>
                                         <div>
@@ -393,21 +393,21 @@
                                     <br><br>
 
                                     <label onclick="degressiveInterestRate()">
-                                    <span class="yes yes-no-btns degressive_interest_rate <%= 'active-btn' if (@insurance.degressive_interest_rate) %>">
+                                    <span class="yes yes-no-btns degressive_interest_rate <%= 'active-btn' if (@insurance.degressive_interest_rate.present? && @insurance.degressive_interest_rate) == "1" %>">
                                         <%= check_box_tag "insurance[degressive_interest_rate]", '1' %>
                                         <%= t :yes_button %>
                                     </span>
                                     </label>
 
                                     <label onclick="noDegressiveInterestRate()">
-                                    <span class="no yes-no-btns degressive_interest_rate <%= 'active-btn' if (!@insurance.degressive_interest_rate.nil? && !@insurance.degressive_interest_rate) %>">
+                                    <span class="no yes-no-btns degressive_interest_rate <%= 'active-btn' if (@insurance.degressive_interest_rate.present? && @insurance.degressive_interest_rate != "1") %>">
                                         <%= check_box_tag "insurance[degressive_interest_rate]", '0' %>
                                         <%= t :no_button %>
                                     </span>
                                     </label>
                                 </div>
 
-                                <div id="noDegressiveInterestRate" style="display: <%=(@insurance.degressive_interest_rate.present? && !@insurance.degressive_interest_rate)? 'block' : 'none'%>;">
+                                <div id="noDegressiveInterestRate" style="display: <%=(@insurance.degressive_interest_rate.present? && @insurance.degressive_interest_rate != "0")? 'block' : 'none'%>">
                                     <div class="input-field col s12 m12">
                                         <%= form.label :interest_calculation_description, t('interest_calculation_description') %>
                                         <div> <%= form.text_area :interest_calculation_description, class: "validate handex_text_area", :rows => 10 %> </div>

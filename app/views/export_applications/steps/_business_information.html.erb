@@ -1,7 +1,7 @@
 <!-- step_3 start -->
 <div class="step_3 tab" id="step_3">
     <!--   Form Navigation Section   -->
-    <div class="row form-nav-top sticky ">
+    <div class="row form-nav-top ">
         <div class="col s12 m4">
             <div class="form-nav form-nav-percent">
                 <p><span> 50% <%= t :complete %> </span></p>
@@ -216,11 +216,14 @@
                             </div>
 
                             <div class="input-field col s12 m6">
-                                <%= form.label :delivery_start, t('delivery_start') %>
-                                <%= form.text_field :delivery_start, id: "start_date", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
+                              <label for="delivery_start" class="active">Erste Lieferung</label>
+                              <br>
+                              <%= form.label :delivery_start, t('delivery_start') %>
+                              <%= form.text_field :delivery_start, id: "start_date", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
                             </div>
 
                             <div class="input-field col s12 m6">
+                              <br>
                                 <%= form.label :delivery_end, t('delivery_end') %>
                                 <%= form.text_field :delivery_end, id: "start_date", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
                             </div>
@@ -379,7 +382,7 @@
                                 <%= form.label :sensitive_area_type, t('sensitive_area_type') %>
                                 <%= form.select :sensitive_area_type, options_for_select([t('please_select'), t('delivery_affects_natural_reserves'), t('delivery_affects_indigenous_people'), t('delivery_affects_cultural_heritage'), t('delivery_affects_other')], @export_application.sensitive_area_type ? @export_application.sensitive_area_type : nil), {}, class: 'validate', id: "sensitive_area_type", :onchange => 'sensitiveAreaTypeChangeHandler()' %>
                             </div>
-                            <div class="input-field col s12 m12" id="explain_sensitive_area_type">
+                            <div class="input-field col s12 m12" id="explain_sensitive_area_type" style="display: <%=(!@export_application.sensitive_area_type.nil? && @export_application.sensitive_area_type == "Sonstige") ? 'block' : 'none' %>;">
                                 <%= form.label :explain_sensitive_area_type, t('explain_sensitive_area_type') %>
                                 <%= form.text_area :explain_sensitive_area_type, autofocus: true, class: "validate handex_text_area", :rows => 10 %>
                             </div>
@@ -552,56 +555,48 @@
                         </div>
 
                         <div id="noGermanCertificateOfOriginId" style="display: <%=(!@export_application.has_german_certificate_of_origin.nil? && !@export_application.has_german_certificate_of_origin) ? 'block' : 'none' %>;">
-                            <div class="input-field col s12">
-                                <%= form.label :goods_supplied_from_foreign_origin, t('goods_supplied_from_foreign_origin') %>
-                            </div>
+                          <div class="input-field col s12">
+                            <%= form.label :goods_supplied_from_foreign_origin, t('goods_supplied_from_foreign_origin') %>
+                          </div>
 
+                          <div class="col">
                             <table class='table'>
-                                <tbody class='supplies_from_foreign_origins'>
-                                <%= form.fields_for :supplies_from_foreign_origins do |builder| %>
-                                    <%= render 'export_applications/dynamic/supplies_from_foreign_origin_fields', f: builder %>
-                                <% end %>
-                                </tbody>
+                              <tbody class='supplies_from_foreign_origins'>
+                              <%= form.fields_for :supplies_from_foreign_origins do |builder| %>
+                                <%= render 'export_applications/dynamic/supplies_from_foreign_origin_fields', f: builder %>
+                              <% end %>
+                              </tbody>
                             </table>
-
-                            <div class="form-actions">
-                                <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :supplies_from_foreign_origins, :partial => 'export_applications/dynamic/supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins', association_insertion_method: :append} %>
-                            </div>
-
-                            <div class="input-field col s12 m12">
-                                <br>
-                                <%= form.label :why_all_foreign_rawgoods_necessary, t('why_all_foreign_rawgoods_necessary') %>
-                                <%= form.text_area :why_all_foreign_rawgoods_necessary, class: "validate handex_text_area", :rows => 10 %>
-                            </div>
+                          <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :supplies_from_foreign_origins, :partial => 'export_applications/dynamic/supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins', association_insertion_method: :append} %>
+                          </div>
+                          <div class="input-field col s12 m12">
+                            <br>
+                            <%= form.label :why_all_foreign_rawgoods_necessary, t('why_all_foreign_rawgoods_necessary') %>
+                            <%= form.text_area :why_all_foreign_rawgoods_necessary, class: "validate handex_text_area", :rows => 10 %>
+                          </div>
                         </div>
 
-                        <div id="partlyGermanCertificateOfOrigin" style="display: <%= (@export_application.has_german_certificate_of_origin_for_only_parts_of_good.present? && @export_application.has_german_certificate_of_origin_for_only_parts_of_good)? 'block' : 'none' %>;">
-                            <div class="input-field col s12">
-                                <%= form.label :goods_supplied_from_foreign_origin, t('goods_supplied_from_foreign_origin') %>
-                            </div>
-                            <table class='table'>
-                                <thead>
-                                <tr>
-                                    <th>Währung</th>
-                                    <th>Betrag</th>
-                                    <th>Land</th>
-                                    <th></th>
-                                </tr>
-                                </thead>
-                                <tbody class='supplies_from_foreign_origins_partly'>
-                                <%= form.fields_for :supplies_from_foreign_origins do |builder| %>
-                                    <%= render 'export_applications/dynamic/supplies_from_foreign_origin_fields', f: builder %>
-                                <% end %>
-                                </tbody>
-                            </table>
-                            <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :supplies_from_foreign_origins, :partial => 'export_applications/dynamic/supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins_partly', association_insertion_method: :append} %>
-
-                            <div class="input-field col s12 m12">
-                                <br>
-                                <%= form.label :why_partly_foreign_rawgoods_necessary, t('why_partly_foreign_rawgoods_necessary') %>
-                                <%= form.text_area :why_partly_foreign_rawgoods_necessary, class: "validate handex_text_area", :rows => 10 %>
-                            </div>
+                      <div id="partlyGermanCertificateOfOrigin" style="display: <%= (@export_application.has_german_certificate_of_origin_for_only_parts_of_good.present? && @export_application.has_german_certificate_of_origin_for_only_parts_of_good)? 'block' : 'none' %>;">
+                        <div class="input-field col s12">
+                          <%= form.label :goods_supplied_from_foreign_origin, t('goods_supplied_from_foreign_origin') %>
                         </div>
+
+                        <div class="col">
+                          <table class='table'>
+                            <tbody class='supplies_from_foreign_origins_partly'>
+                            <%= form.fields_for :supplies_from_foreign_origins do |builder| %>
+                              <%= render 'export_applications/dynamic/supplies_from_foreign_origin_fields', f: builder %>
+                            <% end %>
+                            </tbody>
+                          </table>
+                          <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :supplies_from_foreign_origins, :partial => 'export_applications/dynamic/supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins_partly', association_insertion_method: :append} %>
+                        </div>
+                        <div class="input-field col s12 m12">
+                          <br>
+                          <%= form.label :why_partly_foreign_rawgoods_necessary, t('why_partly_foreign_rawgoods_necessary') %>
+                          <%= form.text_area :why_partly_foreign_rawgoods_necessary, class: "validate handex_text_area", :rows => 10 %>
+                        </div>
+                      </div>
 
                     </div>
                 </div>

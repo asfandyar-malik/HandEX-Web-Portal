@@ -105,6 +105,7 @@
     }
 
     function kurzFristigTermOfPayment() {
+        $('#export_application_payment_term_short').prop('checked', true);
         var x = document.getElementById("ShortTermOfPayment");
         var y = document.getElementById("MidTermOfPayment");
         var z = document.getElementById("BothTermOfPayment");
@@ -825,15 +826,6 @@
             $('#exported_goods_type_four').append(option);
         });
     });
-
-    // $(window).scroll(function(){
-    //     if ($(window).scrollTop() >= 330) {
-    //         $('.sticky').addClass('fixed');
-    //     }
-    //     else {
-    //         $('.sticky').removeClass('fixed');
-    //     }
-    // });
 
     //------------------------- START: input validation checks here -------------------------
     // only allow numerical value
