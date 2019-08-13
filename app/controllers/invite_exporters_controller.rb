@@ -18,6 +18,7 @@ class InviteExportersController < ApplicationController
     end
     
     def create
+        @invite_exporter.application_type = 'invite_exporter'
         @invite_exporter = current_user.invite_exporters.build(invite_exporter_params)
         @invite_exporter.application_status = 'INVITED'
         if @invite_exporter.save
@@ -30,6 +31,7 @@ class InviteExportersController < ApplicationController
     end
     
     def update
+        @invite_exporter.application_type = 'invite_exporter'
         @invite_exporter.application_status = 'INVITED'
         if @invite_exporter.update(invite_exporter_params)
             redirect_to pages_contacted_exporter_path, notice: 'Antrag wurde erfolgreich aktualisiert.'

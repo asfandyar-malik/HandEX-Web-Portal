@@ -64,12 +64,12 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      address: 'smtp.mailgun.org',
+      address: 'smtp.eu.mailgun.org',
       port: 587,
       domain: 'https://api.mailgun.net/v3/handex.co',
       authentication: 'plain',
-      user_name: 'postmaster@handex.co',
-      password: '8041babbee4896f2666b8df00928127c-e44cc7c1-71cfbe94'
+      user_name: 'postmaster@mg.handex.co',
+      password: 'be4baa23427d4125a351a3c1673b767a-898ca80e-bfb3f1c9'
   }
 
   # config.action_mailer.smtp_settings = {
