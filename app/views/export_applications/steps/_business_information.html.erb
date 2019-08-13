@@ -555,48 +555,48 @@
                         </div>
 
                         <div id="noGermanCertificateOfOriginId" style="display: <%=(!@export_application.has_german_certificate_of_origin.nil? && !@export_application.has_german_certificate_of_origin) ? 'block' : 'none' %>;">
-                            <div class="input-field col s12">
-                                <%= form.label :goods_supplied_from_foreign_origin, t('goods_supplied_from_foreign_origin') %>
-                            </div>
+                          <div class="input-field col s12">
+                            <%= form.label :goods_supplied_from_foreign_origin, t('goods_supplied_from_foreign_origin') %>
+                          </div>
 
+                          <div class="col">
                             <table class='table'>
-                                <tbody class='supplies_from_foreign_origins'>
-                                <%= form.fields_for :supplies_from_foreign_origins do |builder| %>
-                                    <%= render 'export_applications/dynamic/supplies_from_foreign_origin_fields', f: builder %>
-                                <% end %>
-                                </tbody>
+                              <tbody class='supplies_from_foreign_origins'>
+                              <%= form.fields_for :supplies_from_foreign_origins do |builder| %>
+                                <%= render 'export_applications/dynamic/supplies_from_foreign_origin_fields', f: builder %>
+                              <% end %>
+                              </tbody>
                             </table>
-
-                            <div class="form-actions">
-                                <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :supplies_from_foreign_origins, :partial => 'export_applications/dynamic/supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins', association_insertion_method: :append} %>
-                            </div>
-
-                            <div class="input-field col s12 m12">
-                                <br>
-                                <%= form.label :why_all_foreign_rawgoods_necessary, t('why_all_foreign_rawgoods_necessary') %>
-                                <%= form.text_area :why_all_foreign_rawgoods_necessary, class: "validate handex_text_area", :rows => 10 %>
-                            </div>
+                          <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :supplies_from_foreign_origins, :partial => 'export_applications/dynamic/supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins', association_insertion_method: :append} %>
+                          </div>
+                          <div class="input-field col s12 m12">
+                            <br>
+                            <%= form.label :why_all_foreign_rawgoods_necessary, t('why_all_foreign_rawgoods_necessary') %>
+                            <%= form.text_area :why_all_foreign_rawgoods_necessary, class: "validate handex_text_area", :rows => 10 %>
+                          </div>
                         </div>
 
-                        <div id="partlyGermanCertificateOfOrigin" style="display: <%= (@export_application.has_german_certificate_of_origin_for_only_parts_of_good.present? && @export_application.has_german_certificate_of_origin_for_only_parts_of_good)? 'block' : 'none' %>;">
-                            <div class="input-field col s12">
-                                <%= form.label :goods_supplied_from_foreign_origin, t('goods_supplied_from_foreign_origin') %>
-                            </div>
-                            <table class='table'>
-                                <tbody class='supplies_from_foreign_origins_partly'>
-                                <%= form.fields_for :supplies_from_foreign_origins do |builder| %>
-                                    <%= render 'export_applications/dynamic/supplies_from_foreign_origin_fields', f: builder %>
-                                <% end %>
-                                </tbody>
-                            </table>
-                            <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :supplies_from_foreign_origins, :partial => 'export_applications/dynamic/supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins_partly', association_insertion_method: :append} %>
-
-                            <div class="input-field col s12 m12">
-                                <br>
-                                <%= form.label :why_partly_foreign_rawgoods_necessary, t('why_partly_foreign_rawgoods_necessary') %>
-                                <%= form.text_area :why_partly_foreign_rawgoods_necessary, class: "validate handex_text_area", :rows => 10 %>
-                            </div>
+                      <div id="partlyGermanCertificateOfOrigin" style="display: <%= (@export_application.has_german_certificate_of_origin_for_only_parts_of_good.present? && @export_application.has_german_certificate_of_origin_for_only_parts_of_good)? 'block' : 'none' %>;">
+                        <div class="input-field col s12">
+                          <%= form.label :goods_supplied_from_foreign_origin, t('goods_supplied_from_foreign_origin') %>
                         </div>
+
+                        <div class="col">
+                          <table class='table'>
+                            <tbody class='supplies_from_foreign_origins_partly'>
+                            <%= form.fields_for :supplies_from_foreign_origins do |builder| %>
+                              <%= render 'export_applications/dynamic/supplies_from_foreign_origin_fields', f: builder %>
+                            <% end %>
+                            </tbody>
+                          </table>
+                          <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :supplies_from_foreign_origins, :partial => 'export_applications/dynamic/supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins_partly', association_insertion_method: :append} %>
+                        </div>
+                        <div class="input-field col s12 m12">
+                          <br>
+                          <%= form.label :why_partly_foreign_rawgoods_necessary, t('why_partly_foreign_rawgoods_necessary') %>
+                          <%= form.text_area :why_partly_foreign_rawgoods_necessary, class: "validate handex_text_area", :rows => 10 %>
+                        </div>
+                      </div>
 
                     </div>
                 </div>
