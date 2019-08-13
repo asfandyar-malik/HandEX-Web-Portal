@@ -580,14 +580,6 @@
                                 <%= form.label :goods_supplied_from_foreign_origin, t('goods_supplied_from_foreign_origin') %>
                             </div>
                             <table class='table'>
-                                <thead>
-                                <tr>
-                                    <th>Währung</th>
-                                    <th>Betrag</th>
-                                    <th>Land</th>
-                                    <th></th>
-                                </tr>
-                                </thead>
                                 <tbody class='supplies_from_foreign_origins_partly'>
                                 <%= form.fields_for :insurance_supplies_from_foreign_origins do |builder| %>
                                     <%= render 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', f: builder %>
