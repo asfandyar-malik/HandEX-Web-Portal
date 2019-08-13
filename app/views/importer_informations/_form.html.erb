@@ -176,6 +176,18 @@
         $('.yes.yes-no-btns.has_significant_influence_on_importer_management').removeClass('active-btn');
     }
 
+    function preventExporterFromViewingDocs() {
+        $('.yes.yes-no-btns.prevent_exporter_from_viewing_documents').addClass('active-btn');
+        $('.no.yes-no-btns.prevent_exporter_from_viewing_documents').removeClass('active-btn');
+        $('.prevent_exporter_from_viewing_documents').addClass('dialog_background');
+    }
+
+    function dontPreventExporterFromViewingDocs() {
+        $('.prevent_exporter_from_viewing_documents').removeClass('dialog_background');
+        $('.no.yes-no-btns.prevent_exporter_from_viewing_documents').addClass('active-btn');
+        $('.yes.yes-no-btns.prevent_exporter_from_viewing_documents').removeClass('active-btn');
+    }
+
     //------------------------- START: input validation checks here -------------------------
     // only allow numerical value
     function onlyAllowNumericalValue(evt) {

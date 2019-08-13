@@ -175,7 +175,7 @@ en:
   is_exporting_to_private_sector: "Ist Ihr Kunde ein öffentliches oder privates Unternehmen?"
   to_private_sector: "Privater Sektor"
   to_public_sector: "Öffentlicher Sektor"
-  is_delivered_at_this_address: "Do you take deliveries at this address"
+  is_delivered_at_this_address: "Are goods being shipped to this address"
   importer_industry: "Industry"
   exporter_industry: "Industry"
   has_payment_experience_with_importer: "Haben Sie bereits Zahlungserfahrungen mit Ihrem Kunden?"
@@ -508,12 +508,13 @@ en:
   invitation_importer_representative_name: "Customer Name"
   invitation_importer_company_name: "Company Name"
   importer_permission_to_share_information: "I have permission to share my customers email and contact details"
-  close: "schließen"
+  close: "Abbrechen"
   invite_importer_button: "Senden"
   clear: "löschen"
   importer_information_saved: "Your data has been saved successfully!"
   importer_information_saved_text: "Your data have been sent. We are now reviewing the data so that we can proceed with the export financing and insurance. If you have any questions, you can always contact us by e-mail at info@handex.co."
   invite_importer_to_fill_application: "Sie möchten diesen Teil des Antrags und Dokumente von Ihrem Kunden selbst senden lassen? Dann laden Sie Ihn zum HandEX-Portal ein!"
+  servicing_offered: "Leistung anbieten"
 
   #summary
   loan_duration: ""

@@ -15,10 +15,10 @@
         </div>
         <div class="col s12 m4">
             <div class="form-nav right">
-<!--                <input class="btn handex-btn z-depth-0" type="submit" name="draft" value = "<%#= t("save_draft") %>">-->
+                <!--                <input class="btn handex-btn z-depth-0" type="submit" name="draft" value = "<%#= t("save_draft") %>">-->
                 <%#= form.submit class: 'btn handex-btn z-depth-0', value: t('application_submit') %>
 
-                <input class="btn handex-btn z-depth-0" type="submit" name="draft" value = "Save Draft">
+                <input class="btn handex-btn z-depth-0" type="submit" name="draft" value="Save Draft">
                 <%= form.submit class: 'btn handex-btn z-depth-0', value: "Submit Application" %>
             </div>
         </div>
@@ -29,11 +29,8 @@
 
             <div class="form-content">
                 <div class="input-field col s12 m12">
-<!--                    <label> <%#= t('information_for_business_examination') %> </label>-->
-<!--                    <p> <%#= t('information_for_business_examination_description') %> </p>-->
-                    <label> Following documents are required for the verification of your business.
-                    </label>
-                    <p> Please provide the necessary documentation so that we can make a fair assessment of your business.</p>
+                    <p> We need the documents below to arrange the best payment terms for you. In Other, you can provide any supporting documents that underscore the financial strength of your
+                        company.</p>
                 </div>
 
                 <div class="input-field col s12 m12 ">
@@ -46,8 +43,7 @@
                         </div>
 
                         <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text"
-                                   placeholder="Upload file"/>
+                            <input class="file-path validate" type="text"/>
                         </div>
                     </div>
                 </div>
@@ -62,14 +58,13 @@
                         </div>
 
                         <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text"
-                                   placeholder="Upload file"/>
+                            <input class="file-path validate" type="text"/>
                         </div>
                     </div>
                 </div>
 
                 <div class="input-field col s12 m12 ">
-                    <%= form.label :credit_bureaus_importer, "Credit Report" %>
+                    <%= form.label :credit_bureaus_importer, "Credit Agency Report (if available)" %>
                     <div class="file-field input-field">
                         <div class="btn handex-btn z-depth-0">
                             <span><%= t('browse') %></span>
@@ -77,12 +72,47 @@
                         </div>
 
                         <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text"
-                                   placeholder="Upload file"/>
+                            <input class="file-path validate" type="text"/>
                         </div>
                     </div>
                 </div>
 
+                <div class="input-field col s12 m12 ">
+                    <%= form.label :other_document, "Other" %>
+                    <div class="file-field input-field">
+                        <div class="btn handex-btn z-depth-0">
+                            <span><%= t('browse') %></span>
+                            <%= form.file_field :other_document %>
+                        </div>
+
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="background_toggle prevent_exporter_from_viewing_documents <%= (@importer_information.prevent_exporter_from_viewing_documents.present? && @importer_information.prevent_exporter_from_viewing_documents) ? 'dialog_background' : '' %>">
+
+                    <div class="input-field col s12 m12">
+                        <%= form.label :prevent_exporter_from_viewing_documents, "Do you want us to avoid that your supplier sees your annual report and other documents provided here" %>
+                        <br><br>
+
+                        <label onclick="preventExporterFromViewingDocs()">
+                            <span class="yes yes-no-btns prevent_exporter_from_viewing_documents <%= 'active-btn' if (@importer_information.prevent_exporter_from_viewing_documents) %>">
+                                <%= check_box_tag "importer_information[prevent_exporter_from_viewing_documents]", '1' %>
+                                Yes
+                            </span>
+                        </label>
+
+                        <label onclick="dontPreventExporterFromViewingDocs()">
+                            <span class="no yes-no-btns prevent_exporter_from_viewing_documents <%= 'active-btn' if (!@importer_information.prevent_exporter_from_viewing_documents.nil? && !@importer_information.prevent_exporter_from_viewing_documents) %>">
+                                <%= check_box_tag "importer_information[prevent_exporter_from_viewing_documents]", '0' %>
+                                No
+                            </span>
+                        </label>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>

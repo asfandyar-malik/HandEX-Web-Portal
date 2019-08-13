@@ -8,31 +8,35 @@ class UsersController < ApplicationController
     end
     
     def submitted_applications
-        @submitted_insurance = filter_insurance "SUBMITTED"
+        @submitted_insurances = filter_insurance "SUBMITTED"
         @submitted_export_applications = filter_export_application "SUBMITTED"
-        @submitted_applications = @submitted_insurance + @submitted_export_applications
+        @submitted_importer_informations = filter_importer_information "SUBMITTED"
+        @submitted_applications = @submitted_insurances + @submitted_export_applications + @submitted_importer_informations
     end
     
     def draft_applications
-        @draft_insurance = filter_insurance "DRAFT"
+        @draft_insurances = filter_insurance "DRAFT"
         @draft_export_applications = filter_export_application "DRAFT"
-        @draft_applications = @draft_insurance + @draft_export_applications
+        @draft_importer_informations = filter_importer_information "DRAFT"
+        @draft_applications = @draft_insurances + @draft_export_applications + @draft_importer_informations
     end
     
     def approved_applications
-        @approved_insurance = filter_insurance "APPROVED"
+        @approved_insurances = filter_insurance "APPROVED"
         @approved_export_applications = filter_export_application "APPROVED"
-        @approved_applications = @approved_insurance + @approved_export_applications
+        @approved_importer_informations = filter_importer_information "APPROVED"
+        @approved_applications = @approved_insurances + @approved_export_applications + @approved_importer_informations
     end
     
     def all_applications
-        @all_insurance = current_user.insurances
-        @all_export_application = current_user.export_applications
+        @all_insurances = current_user.insurances
+        @all_export_applications = current_user.export_applications
+        @all_importer_informations = current_user.importer_informations
         @invited_exporters = current_user.invite_exporters
-        @all_applications = @all_export_application + @all_insurance
+        @all_applications = @all_export_applications + @all_insurances + @all_importer_informations
     end
 
-    def invited_exporter
+    def invited_exporters
         @invited_exporters = filter_invite_exporter "INVITED"
     end
     
@@ -48,6 +52,10 @@ class UsersController < ApplicationController
 
     def filter_invite_exporter status
         current_user.invite_exporters.where("application_status = ?", status)
+    end
+
+    def filter_importer_information status
+        current_user.importer_informations.where("application_status = ?", status)
     end
     
     # def set_user

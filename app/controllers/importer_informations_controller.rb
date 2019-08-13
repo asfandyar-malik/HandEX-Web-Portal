@@ -106,6 +106,8 @@ class ImporterInformationsController < ApplicationController
 	def importer_information_params
 		params
 			.require(:importer_information)
-			.permit(    )
+			.permit(:importer_company_name, :importer_street_hno, :importer_plz, :importer_city, :importer_country, :importer_shipment_company_name, :importer_shipment_country, :importer_shipment_street_hno, :importer_shipment_plz, :importer_shipment_city, :has_significant_influence_on_importer_management, :explain_exporter_influence_on_importer_management, :explain_previous_payment_experience_with_importer, :exporter_offers_servicing_for_goods, :importer_email, :importer_phone_number, :importer_address_line1, :importer_address_line2, :is_delivered_at_this_address, :belongs_to_private_sector, :importer_industry, :has_payment_experience_with_importer, :importer_tax_id, :importer_company_registration_number, :importer_external_rating_available, :importer_rating,  :importer_rating_agency, :importer_rating_issued_date, :is_company_controlled_by_mother_company, :application_status, :application_type, :prevent_exporter_from_viewing_documents,
+			 #Document
+	          :annual_financial_statement_importer_last, :annual_financial_statement_importer_second_last, :credit_bureaus_importer, :other_document)
 	end
 end

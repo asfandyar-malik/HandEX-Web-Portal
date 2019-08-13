@@ -24,6 +24,7 @@
             <% if @all_applications.empty? && @invited_exporters.empty? %>
                 <%= render "users/no_application" %>
             <% else %>
+
                 <% @all_applications.each do |application| %>
                     <% if application.application_status == "DRAFT" %>
                     <%= render partial: "users/draft_application_listing_card", locals:  {application: application, can_edit: false} %>
@@ -38,8 +39,6 @@
                 <% end %>
 
             <% end %>
-
         </div>
-
     </div>
 </div>

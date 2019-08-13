@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_06_151855) do
+ActiveRecord::Schema.define(version: 2019_08_13_121215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -346,6 +346,11 @@ ActiveRecord::Schema.define(version: 2019_08_06_151855) do
     t.string "credit_bureaus_importer_content_type"
     t.integer "credit_bureaus_importer_file_size"
     t.datetime "credit_bureaus_importer_updated_at"
+    t.string "other_document_file_name"
+    t.string "other_document_content_type"
+    t.integer "other_document_file_size"
+    t.datetime "other_document_updated_at"
+    t.boolean "prevent_exporter_from_viewing_documents"
   end
 
   create_table "insurance_agreed_payment_mid_longs", force: :cascade do |t|
@@ -668,6 +673,7 @@ ActiveRecord::Schema.define(version: 2019_08_06_151855) do
     t.string "exporter_company_name"
     t.string "exporter_representative_name"
     t.string "application_status"
+    t.string "application_type"
   end
 
   create_table "multiple_shipments", force: :cascade do |t|
