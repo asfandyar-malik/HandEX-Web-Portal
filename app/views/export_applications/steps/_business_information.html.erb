@@ -216,11 +216,14 @@
                             </div>
 
                             <div class="input-field col s12 m6">
-                                <%= form.label :delivery_start, t('delivery_start') %>
-                                <%= form.text_field :delivery_start, id: "start_date", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
+                              <label for="delivery_start" class="active">Erste Lieferung</label>
+                              <br>
+                              <%= form.label :delivery_start, t('delivery_start') %>
+                              <%= form.text_field :delivery_start, id: "start_date", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
                             </div>
 
                             <div class="input-field col s12 m6">
+                              <br>
                                 <%= form.label :delivery_end, t('delivery_end') %>
                                 <%= form.text_field :delivery_end, id: "start_date", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
                             </div>
