@@ -1,130 +1,133 @@
+<% if application.application_type == ("export_application" || "insurance") %>
+
 <div class="col s12 m3">
     <div class="card">
+        <div class="card-title approved_financing_application white-text valign-wrapper">
+            <div class="valign-wrapper">
+                <i class="custom_icon check-icon"></i>
+                <div class="card-header">
+                    Antrag genehmigt
+                </div>
+            </div>
+        </div>
 
-        <% if application.application_type == ("export_application" || "insurance") %>
-
-            <div class="card-title approved_financing_application white-text valign-wrapper">
-                <div class="valign-wrapper">
-                    <i class="custom_icon check-icon"></i>
-                    <div class="card-header">
-                        Antrag genehmigt
-                    </div>
+        <div class="card-content">
+            <div class="valign-wrapper">
+                <div class="col m2">
+                    <i class="custom_icon import-icon"></i>
+                </div>
+                <div class="col m10">
+                    <div class="output_importer"> <%= t('importer') %></div>
+                    <p><b><%= application.importer_company_name %></b></p>
                 </div>
             </div>
 
-            <div class="card-content">
-                <div class="valign-wrapper">
-                    <div class="col m2">
-                        <i class="custom_icon import-icon"></i>
-                    </div>
-                    <div class="col m10">
-                        <div class="output_importer"> <%= t('importer') %></div>
-                        <p><b><%= application.importer_company_name %></b></p>
-                    </div>
+            <div class="valign-wrapper">
+                <div class="col m2">
+                    <i class="custom_icon box-icon"></i>
                 </div>
-
-                <div class="valign-wrapper">
-                    <div class="col m2">
-                        <i class="custom_icon box-icon"></i>
-                    </div>
-                    <div class="col m10">
-                        <div class="summary"> PRODUKT</div>
-                        <p><b>Textilmaschine</b></p>
-                    </div>
-                </div>
-
-
-                <div class="valign-wrapper">
-                    <div class="col m2">
-                        <i class="custom_icon money-icon"></i>
-                    </div>
-                    <div class="col m10">
-                        <div class="summary"> <%= t('contract_value') %></div>
-                        <% if application.contract_value %>
-                            <p><b>&euro; <%= application.contract_value %> </b></p>
-                        <% else %>
-                            <p><b>MISSING </b></p>
-                        <% end %>
-                    </div>
-                </div>
-
-                <div class="valign-wrapper">
-                    <div class="col m2">
-                        <i class="custom_icon send-icon"></i>
-                    </div>
-                    <div class="col m10">
-                        <div class="summary"> <%= t('application_sent_at') %></div>
-                        <p><b><%= application.updated_at.strftime('%d %b %Y') %> </b></p>
-                    </div>
+                <div class="col m10">
+                    <div class="summary"> PRODUKT</div>
+                    <p><b>Textilmaschine</b></p>
                 </div>
             </div>
 
-            <% if application.application_type == "export_application" %>
-                <div class="card-action center">
-                    <%= link_to t('see_summary_of_application'), controller: "export_applications", action: "show", id: application %>
+
+            <div class="valign-wrapper">
+                <div class="col m2">
+                    <i class="custom_icon money-icon"></i>
                 </div>
-            <% end %>
-
-
-            <% if application.application_type == "insurance" %>
-                <div class="card-action center">
-                    <%= link_to t('see_summary_of_application'), controller: "insurances", action: "show", id: application %>
-                </div>
-            <% end %>
-
-
-        <% elsif application.application_type == "importer_information" %>
-
-            <div class="card-title approved_financing_application white-text valign-wrapper">
-                <div class="valign-wrapper">
-                    <i class="custom_icon check-icon"></i>
-                    <div class="card-header">
-                        Antrag genehmigt
-                    </div>
+                <div class="col m10">
+                    <div class="summary"> <%= t('contract_value') %></div>
+                    <% if application.contract_value %>
+                        <p><b>&euro; <%= application.contract_value %> </b></p>
+                    <% else %>
+                        <p><b>MISSING </b></p>
+                    <% end %>
                 </div>
             </div>
 
-            <div class="card-content">
-                <div class="valign-wrapper">
-                    <div class="col m2">
-                        <i class="custom_icon import-icon"></i>
-                    </div>
-                    <div class="col m10">
-                        <div class="summary"> <%= t('importer') %></div>
-                        <p><b><%= application.importer_company_name %></b></p>
-                    </div>
+            <div class="valign-wrapper">
+                <div class="col m2">
+                    <i class="custom_icon send-icon"></i>
                 </div>
+                <div class="col m10">
+                    <div class="summary"> <%= t('application_sent_at') %></div>
+                    <p><b><%= application.updated_at.strftime('%d %b %Y') %> </b></p>
+                </div>
+            </div>
+        </div>
 
-                <div class="valign-wrapper">
-                    <div class="col m2">
-                        <i class="custom_icon box-icon"></i>
-                    </div>
-                    <div class="col m10">
-                        <div class="summary"> <%= t('destination_country') %></div>
-                        <p><b><%= application.importer_country %></b></p>
-                    </div>
-                </div>
-
-                <div class="valign-wrapper">
-                    <div class="col m2">
-                        <i class="custom_icon send-icon"></i>
-                    </div>
-                    <div class="col m10">
-                        <div class="summary"> <%= t('importer_tax_id') %></div>
-                        <p><b><%= application.importer_tax_id %></b></p>
-                    </div>
-                </div>
-
-                <div class="valign-wrapper">
-                    <div class="col m2">
-                        <i class="custom_icon money-icon"></i>
-                    </div>
-                    <div class="col m10">
-                        <div class="summary"> <%= t('servicing_offered') %></div>
-                        <p><b><%= application.exporter_offers_servicing_for_goods %></b></p>
-                    </div>
-                </div>
+        <% if application.application_type == "export_application" %>
+            <div class="card-action center">
+                <%= link_to t('see_summary_of_application'), controller: "export_applications", action: "show", id: application %>
             </div>
         <% end %>
+
+
+        <% if application.application_type == "insurance" %>
+            <div class="card-action center">
+                <%= link_to t('see_summary_of_application'), controller: "insurances", action: "show", id: application %>
+            </div>
+        <% end %>
+
     </div>
 </div>
+
+<% elsif application.application_type == "importer_information" %>
+
+<div class="col s12 m3">
+    <div class="card">
+        <div class="card-title approved_financing_application white-text valign-wrapper">
+            <div class="valign-wrapper">
+                <i class="custom_icon check-icon"></i>
+                <div class="card-header">
+                    Antrag genehmigt
+                </div>
+            </div>
+        </div>
+
+        <div class="card-content">
+            <div class="valign-wrapper">
+                <div class="col m2">
+                    <i class="custom_icon import-icon"></i>
+                </div>
+                <div class="col m10">
+                    <div class="summary"> <%= t('importer') %></div>
+                    <p><b><%= application.importer_company_name %></b></p>
+                </div>
+            </div>
+
+            <div class="valign-wrapper">
+                <div class="col m2">
+                    <i class="custom_icon box-icon"></i>
+                </div>
+                <div class="col m10">
+                    <div class="summary"> <%= t('destination_country') %></div>
+                    <p><b><%= application.importer_country %></b></p>
+                </div>
+            </div>
+
+            <div class="valign-wrapper">
+                <div class="col m2">
+                    <i class="custom_icon send-icon"></i>
+                </div>
+                <div class="col m10">
+                    <div class="summary"> <%= t('importer_tax_id') %></div>
+                    <p><b><%= application.importer_tax_id %></b></p>
+                </div>
+            </div>
+
+            <div class="valign-wrapper">
+                <div class="col m2">
+                    <i class="custom_icon money-icon"></i>
+                </div>
+                <div class="col m10">
+                    <div class="summary"> <%= t('servicing_offered') %></div>
+                    <p><b><%= application.exporter_offers_servicing_for_goods %></b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>
