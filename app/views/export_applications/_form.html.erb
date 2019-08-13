@@ -633,22 +633,30 @@
 
     function goodsSentMultipleDeliveries() {
         var x = document.getElementById("goodsSentMultipleDeliveries");
+        var y = document.getElementById("noGoodsSentMultipleDeliveries");
         if (x.style.display === "none") {
             x.style.display = "block";
-            $('.yes.yes-no-btns.is_good_sent_in_multiple_deliveries').addClass('active-btn');
+        }
+        if (y.style.display === "block") {
+            y.style.display = "none";
         }
         $('.no.yes-no-btns.is_good_sent_in_multiple_deliveries').removeClass('active-btn');
+        $('.yes.yes-no-btns.is_good_sent_in_multiple_deliveries').addClass('active-btn');
         $('.is_good_sent_in_multiple_deliveries').addClass('dialog_background');
     }
 
     function noGoodsSentMultipleDeliveries() {
         var x = document.getElementById("goodsSentMultipleDeliveries");
+        var y = document.getElementById("noGoodsSentMultipleDeliveries");
         if (x.style.display === "block") {
             x.style.display = "none";
         }
-        $('.is_good_sent_in_multiple_deliveries').removeClass('dialog_background');
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        }
         $('.no.yes-no-btns.is_good_sent_in_multiple_deliveries').addClass('active-btn');
         $('.yes.yes-no-btns.is_good_sent_in_multiple_deliveries').removeClass('active-btn');
+        $('.is_good_sent_in_multiple_deliveries').addClass('dialog_background');
     }
 
     function securityPresent() {
