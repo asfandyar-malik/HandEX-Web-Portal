@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_13_121215) do
+ActiveRecord::Schema.define(version: 2019_08_14_163837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -277,6 +277,9 @@ ActiveRecord::Schema.define(version: 2019_08_13_121215) do
     t.string "exported_goods_type_two"
     t.string "exported_goods_type_three"
     t.string "exported_goods_type_four"
+    t.date "service_start"
+    t.date "service_end"
+    t.date "availability"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
@@ -660,6 +663,9 @@ ActiveRecord::Schema.define(version: 2019_08_13_121215) do
     t.string "exported_goods_type_two"
     t.string "exported_goods_type_three"
     t.string "exported_goods_type_four"
+    t.date "service_start"
+    t.date "service_end"
+    t.date "availability"
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 

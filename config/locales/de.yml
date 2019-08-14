@@ -288,6 +288,9 @@ de:
   add_goods_supplied_from_foreign_origin: "Zulieferung Angeben"
   percentage_of_service_in_whole_order: "Wie hoch ist der Leistungswert ?"
   percentage_of_service_in_whole_order_placeholder: "Wert der Lesitungen in Prozent oder Betrag"
+  service_start: "Leistungsbegin"
+  service_end: "Leistungsende"
+  availability: "Betriebsbereitschaft"
 
   #financing
   finance_and_payment: "Zahlung & Finanzierung"

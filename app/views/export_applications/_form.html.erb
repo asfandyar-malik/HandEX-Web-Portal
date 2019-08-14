@@ -466,11 +466,13 @@
     }
 
     function servicingForGoods() {
+        $('#exporterOffersServicingForGoods').show();
         $('.yes.yes-no-btns.exporter_offers_servicing_for_goods').addClass('active-btn');
         $('.no.yes-no-btns.exporter_offers_servicing_for_goods').removeClass('active-btn');
     }
 
     function noServicingForGoods() {
+        $('#exporterOffersServicingForGoods').hide();
         $('.no.yes-no-btns.exporter_offers_servicing_for_goods').addClass('active-btn');
         $('.yes.yes-no-btns.exporter_offers_servicing_for_goods').removeClass('active-btn');
     }

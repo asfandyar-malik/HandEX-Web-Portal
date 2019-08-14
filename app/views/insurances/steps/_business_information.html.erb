@@ -226,9 +226,28 @@
                 <%= form.text_field :delivery_end, id: "start_date", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
               </div>
 
+              <div id="exporterOffersServicingForGoods" style="display: <%= (@insurance.exporter_offers_servicing_for_goods.present? && @insurance.exporter_offers_servicing_for_goods)? 'block' : 'none' %>;">
+                <div class="input-field col s12 m6">
+                  <br>
+                  <%= form.label :service_start, t('service_start') %>
+                  <%= form.text_field :service_start, id: "service_start", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
+                </div>
+
+                <div class="input-field col s12 m6">
+                  <br>
+                  <%= form.label :service_end, t('service_end') %>
+                  <%= form.text_field :service_end, id: "service_end", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
+                </div>
+
+                <div class="input-field col s12 m6">
+                  <br>
+                  <%= form.label :availability, t('availability') %>
+                  <%= form.text_field :availability, id: "availability", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
+                </div>
+              </div>
+
               <div class="input-field col s12 m12">
-                <label for="export_application_delivery_start" class="active">Weiterere zahlungsrelevante
-                  Termine</label>
+                <label for="export_application_delivery_start" class="active">Weiterere zahlungsrelevante Termine</label>
               </div>
 
               <div class="input-field col s12 m12">

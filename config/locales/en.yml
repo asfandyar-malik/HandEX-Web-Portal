@@ -284,6 +284,9 @@ en:
   has_payment_experience_with_security_provider: "Haben Sie bereits Zahlungserfahrungen mit Ihrem Sicherheitengeber?  "
   explain_previous_payment_experience_with_security_provider: "Bitte beschreiben Sie diese näher."
   security_provider_address: "Bitte geben Sie die Adresse des Sicherheitengebers an."
+  service_start: "Service start"
+  service_end: "Service end"
+  availability: "Availability"
 
   #financing
   finance_and_payment: "Zahlung & Finanzierung"

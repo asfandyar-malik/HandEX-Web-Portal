@@ -233,6 +233,9 @@ es:
   has_payment_experience_with_security_provider: "¿Ya tiene experiencia de pago con su garante? "
   explain_previous_payment_experience_with_security_provider: "Por favor, descríbalas con más detalle."
   security_provider_address: "Por favor, introduzca la dirección del garante."
+  service_start: "Service start - Please translate"
+  service_end: "Service end - Please translate"
+  availability: "Availability - Please translate"
   #customer information
   your_importer: "Cliente"
   importer_address: "Por favor, introduzca la dirección de su cliente"
