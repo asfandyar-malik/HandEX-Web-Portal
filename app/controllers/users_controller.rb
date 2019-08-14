@@ -57,9 +57,4 @@ class UsersController < ApplicationController
     def filter_importer_information status
         current_user.importer_informations.where("application_status = ?", status)
     end
-    
-    # def set_user
-    #     current_user = User.find(params[:id])
-    # end
-
 end
