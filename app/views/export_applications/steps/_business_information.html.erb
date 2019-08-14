@@ -228,10 +228,11 @@
                 <%= form.text_field :delivery_end, id: "start_date", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
               </div>
 
-              <div class="input-field col s12 m6">
+              <div class="input-field col s12 m12">
                 <label for="export_application_delivery_start" class="active">Weiterere zahlungsrelevante
                   Termine</label>
               </div>
+
               <div class="input-field col s12 m12">
                 <table class='table'>
                   <tbody class='multiple_shipments'>
@@ -252,12 +253,16 @@
 
               <div class="input-field col s12 m6">
                 <label for="delivery_start" class="active">Erste Lieferung</label>
-                <br>
+                <br />
                 <%= form.label :delivery_start, t('delivery_start') %>
                 <%= form.text_field :delivery_start, id: "start_date", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
               </div>
 
-              <label for="export_application_delivery_start" class="active">Weiterere zahlungsrelevante Termine</label>
+              <div class="input-field col s12 m12">
+                <label for="export_application_delivery_start" class="active">Weiterere zahlungsrelevante
+                  Termine</label>
+              </div>
+
               <div class="input-field col s12 m12">
                 <table class='table'>
                   <tbody class='multiple_shipments'>
