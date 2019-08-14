@@ -41,9 +41,9 @@ class InsurancesController < ApplicationController
 	        @insurance.has_invited_importer = true
             if @insurance.update(insurance_params)
 	            send_importer_invitation
-                redirect_to "/insurances/" + @insurance.id.to_s , notice: 'Antrag wurde erfolgreich aktualisiert.'
+	            redirect_to "/insurances/" + @insurance.id.to_s + "/edit", notice: 'Einladung zum Kunden erfolgreich abgeschickt...'
             else
-                flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+	            flash[:notice] = "Beim Einladen des Kunden ist ein Problem aufgetreten...."
                 show
             end
         else
@@ -73,9 +73,9 @@ class InsurancesController < ApplicationController
 	        @insurance.has_invited_importer = true
             if @insurance.update(insurance_params)
 	            send_importer_invitation
-                redirect_to "/insurances/" + @insurance.id.to_s , notice:        'Antrag wurde erfolgreich aktualisiert.'
+	            redirect_to "/insurances/" + @insurance.id.to_s + "/edit", notice: 'Einladung zum Kunden erfolgreich abgeschickt...'
             else
-                flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+	            flash[:notice] = "Beim Einladen des Kunden ist ein Problem aufgetreten...."
                 show
             end
         else
@@ -111,7 +111,8 @@ class InsurancesController < ApplicationController
     def send_importer_invitation
 	    if @insurance.invitation_importer_email.present? && @insurance.invitation_importer_company_name.present?
 		    UserMailer.with(user: current_user, insurance: @insurance).invite_importer_email_insurance.deliver_now
-	    end
+            flash[:notice] = "Einladung zum Kunden erfolgreich abgeschickt...."
+        end
     end
     
     def all_applications

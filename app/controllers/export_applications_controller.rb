@@ -38,9 +38,9 @@ class ExportApplicationsController < ApplicationController
             @export_application.has_invited_importer = true
             if @export_application.save
 	            send_importer_invitation
-	            redirect_to "/export_applications/" + @export_application.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert (create).'
+	            redirect_to "/export_applications/" + @export_application.id.to_s + "/edit", notice: 'Einladung zum Kunden erfolgreich abgeschickt...'
             else
-	            flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+	            flash[:notice] = "Beim Einladen des Kunden ist ein Problem aufgetreten...."
 	            render :new
             end
         else
@@ -69,9 +69,9 @@ class ExportApplicationsController < ApplicationController
 	        if @export_application.update(export_application_params)
 		        @export_application.has_invited_importer = true
 		        send_importer_invitation
-		        redirect_to "/export_applications/" + @export_application.id.to_s + "/edit", notice: 'Antrag wurde erfolgreich aktualisiert (create).'
+		        redirect_to "/export_applications/" + @export_application.id.to_s + "/edit", notice: 'Einladung zum Kunden erfolgreich abgeschickt...'
 	        else
-		        flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+		        flash[:notice] = "Beim Einladen des Kunden ist ein Problem aufgetreten...."
 		        render :new
 	        end
         else
@@ -106,7 +106,8 @@ class ExportApplicationsController < ApplicationController
     def send_importer_invitation
 	    if @export_application.invitation_importer_email.present? && @export_application.invitation_importer_company_name.present?
 		    UserMailer.with(user: current_user, export_application: @export_application).invite_importer_email.deliver_now
-	    end
+            flash[:notice] = "Einladung zum Kunden erfolgreich abgeschickt...."
+        end
     end
     
     def all_applications
