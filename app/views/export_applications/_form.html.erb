@@ -50,6 +50,8 @@
 
 <!--  Scripts-->
 <script type="text/javascript">
+
+    //disabling ENTER key (AscII: 13) on our form because enter was submitting application
     jQuery(function($) { // DOM ready
 
         $('form').on('keydown', function(e) {
@@ -705,7 +707,7 @@
         var x = document.getElementById("corruptionDeclaration");
         if (x.style.display === "none") {
             x.style.display = "block";
-            $('.yes.yes-no-btns.exporter_external_rating_available').addClass('active-btn');
+            $('.yes.yes-no-btns.does_corruption_declaration_apply').addClass('active-btn');
         }
         $('.no.yes-no-btns.does_corruption_declaration_apply').removeClass('active-btn');
     }
