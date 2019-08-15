@@ -384,6 +384,7 @@ pt:
   exporter_plz: "Código Postal"
   importer_plz: "Código Postal"
   importer_shipment_plz: "Código Postal"
+  importer_shipment_address_line2: "Adresszeile 2"
   exporter_country: "País"
   importer_country: "País"
   employees_count: "Número de colaboradores"

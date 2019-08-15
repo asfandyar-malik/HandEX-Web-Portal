@@ -152,12 +152,12 @@
                                     <%= form.text_field :importer_shipment_company_name, autofocus: true, class: "validate"%>
                                 </div>
                                 <div class="input-field col s6 m4">
-                                    <%= form.label :importer_shipment_country, t('importer_shipment_country') %>
-                                    <%= form.text_field :importer_shipment_country, autofocus: true, class: "validate"%>
-                                </div>
-                                <div class="input-field col s6 m4">
                                     <%= form.label :importer_shipment_street_hno, t('importer_shipment_street_hno') %>
                                     <%= form.text_field :importer_shipment_street_hno, autofocus: true, class: "validate" %>
+                                </div>
+                                <div class="input-field col s6 m4">
+                                    <%= form.label :importer_shipment_address_line2, t('importer_shipment_address_line2') %>
+                                    <%= form.text_field :importer_shipment_address_line2, autofocus: true, class: "validate" %>
                                 </div>
                                 <div class="input-field col s6 m4">
                                     <%= form.label :importer_shipment_plz, t('importer_shipment_plz') %>
@@ -166,6 +166,10 @@
                                 <div class="input-field col s6 m4">
                                     <%= form.label :importer_shipment_city, t('importer_shipment_city') %>
                                     <%= form.text_field :importer_shipment_city, autofocus: true, class: "validate" %>
+                                </div>
+                                <div class="input-field col s6 m4">
+                                    <%= form.label :importer_shipment_country, t('importer_shipment_country') %>
+                                    <%= form.text_field :importer_shipment_country, autofocus: true, class: "validate"%>
                                 </div>
                             </div>
                         </div>

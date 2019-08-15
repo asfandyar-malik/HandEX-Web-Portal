@@ -393,6 +393,7 @@ de:
   exporter_plz: "PLZ"
   importer_plz: "PLZ"
   importer_shipment_plz: "PLZ"
+  importer_shipment_address_line2: "Adresszeile 2"
   exporter_country: "Land"
   importer_country: "Land"
   employees_count: "Anzahl der Mitarbeiterinnen und Mitarbeiter "
