@@ -277,6 +277,16 @@
         $('.yes.yes-no-btns.are_goods_overhauled').removeClass('active-btn');
     }
 
+    function servicesNotVisibleForCustomer() {
+        $('.yes.yes-no-btns.services_not_visible_to_customer').addClass('active-btn');
+        $('.no.yes-no-btns.services_not_visible_to_customer').removeClass('active-btn');
+    }
+
+    function noServicesNotVisibleForCustomer() {
+        $('.yes.yes-no-btns.services_not_visible_to_customer').removeClass('active-btn');
+        $('.no.yes-no-btns.services_not_visible_to_customer').addClass('active-btn');
+    }
+
     function incoTerms() {
         var x = document.getElementById("incotermsAgreed");
         if (x.style.display === "none") {
@@ -637,7 +647,7 @@
 
     function goodsSentMultipleDeliveries() {
         var x = document.getElementById("goodsSentMultipleDeliveries");
-        var y = document.getElementById("notRelevantForNoGoodsSentMultipleDeliveries");
+        var y = document.getElementById("notRelevantIfNoServiceProvided");
         if (x.style.display === "none") {
             x.style.display = "block";
         }
@@ -651,7 +661,7 @@
 
     function noGoodsSentMultipleDeliveries() {
         var x = document.getElementById("goodsSentMultipleDeliveries");
-        var y = document.getElementById("notRelevantForNoGoodsSentMultipleDeliveries");
+        var y = document.getElementById("notRelevantIfNoServiceProvided");
         if (x.style.display === "none") {
             x.style.display = "block";
         }

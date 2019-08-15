@@ -223,7 +223,7 @@
                 <%= form.text_field :delivery_start, id: "delivery_start", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
               </div>
 
-              <div id="notRelevantForNoGoodsSentMultipleDeliveries" style="display: <%= (@insurance.is_good_sent_in_multiple_deliveries.present? && @insurance.is_good_sent_in_multiple_deliveries)? 'block' : 'none' %>;">
+              <div id="notRelevantIfNoServiceProvided" style="display: <%= (@insurance.is_good_sent_in_multiple_deliveries.present? && @insurance.is_good_sent_in_multiple_deliveries)? 'block' : 'none' %>;">
                 <div class="input-field col s12 m6">
                   <br>
                   <%= form.label :delivery_end, t('delivery_end') %>
