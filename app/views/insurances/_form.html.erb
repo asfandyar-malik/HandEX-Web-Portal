@@ -195,6 +195,7 @@
         if (y.style.display === "block") {
             y.style.display = "none";
         }
+
         $('.yes.yes-no-btns.has_german_certificate_of_origin').addClass('active-btn');
         $('.no.yes-no-btns.has_german_certificate_of_origin').removeClass('active-btn');
         $('.partly.yes-no-btns.has_german_certificate_of_origin_for_only_parts_of_good').removeClass('active-btn');
@@ -211,6 +212,7 @@
         if (y.style.display === "block") {
             y.style.display = "none";
         }
+
         $('.no.yes-no-btns.has_german_certificate_of_origin').addClass('active-btn');
         $('.yes.yes-no-btns.has_german_certificate_of_origin').removeClass('active-btn');
         $('.partly.yes-no-btns.has_german_certificate_of_origin_for_only_parts_of_good').removeClass('active-btn');
@@ -253,6 +255,16 @@
         $('.are_goods_overhauled').removeClass('dialog_background');
         $('.no.yes-no-btns.are_goods_overhauled').addClass('active-btn');
         $('.yes.yes-no-btns.are_goods_overhauled').removeClass('active-btn');
+    }
+
+    function servicesNotVisibleForCustomer() {
+        $('.yes.yes-no-btns.services_not_visible_to_customer').addClass('active-btn');
+        $('.no.yes-no-btns.services_not_visible_to_customer').removeClass('active-btn');
+    }
+
+    function noServicesNotVisibleForCustomer() {
+        $('.yes.yes-no-btns.services_not_visible_to_customer').removeClass('active-btn');
+        $('.no.yes-no-btns.services_not_visible_to_customer').addClass('active-btn');
     }
 
     function incoTerms() {
@@ -447,12 +459,14 @@
 
     function servicingForGoods() {
         $('#exporterOffersServicingForGoods').show();
+        $('#notRelevantIfNoServiceProvided').show();
         $('.yes.yes-no-btns.exporter_offers_servicing_for_goods').addClass('active-btn');
         $('.no.yes-no-btns.exporter_offers_servicing_for_goods').removeClass('active-btn');
     }
 
     function noServicingForGoods() {
         $('#exporterOffersServicingForGoods').hide();
+        $('#notRelevantIfNoServiceProvided').hide();
         $('.no.yes-no-btns.exporter_offers_servicing_for_goods').addClass('active-btn');
         $('.yes.yes-no-btns.exporter_offers_servicing_for_goods').removeClass('active-btn');
     }

@@ -252,8 +252,7 @@
               </div>
 
               <div class="input-field col s12 m12">
-                <label for="export_application_delivery_start" class="active">Weiterere zahlungsrelevante
-                  Termine</label>
+                <label for="insurance_delivery_start" class="active">Weiterere zahlungsrelevante Termine</label>
               </div>
 
               <div class="input-field col s12 m12">
@@ -294,10 +293,29 @@
               <div> <%= form.text_field :percentage_of_spareparts_in_whole_order, class: "validate", placeholder: t('percentage_of_spareparts_in_whole_order_placeholder'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
             </div>
 
-            <div class="input-field col s12 m12">
-              <%= form.label :percentage_of_service_in_whole_order, t('percentage_of_service_in_whole_order') %>
+            <div id="notRelevantIfNoServiceProvided" style="display: <%= (@insurance.is_good_sent_in_multiple_deliveries.present? && @insurance.is_good_sent_in_multiple_deliveries)? 'block' : 'none' %>;">
+              <div class="input-field col s12 m12">
+                <%= form.label :percentage_of_service_in_whole_order, t('percentage_of_service_in_whole_order') %>
+                <div> <%= form.text_field :percentage_of_service_in_whole_order, class: "validate", placeholder: t('percentage_of_service_in_whole_order_placeholder'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+              </div>
+              <div class="input-field col s12 m12">
+                <%= form.label :services_not_visible_to_customer, t('services_not_visible_to_customer') %>
+                <br><br>
 
-              <div> <%= form.text_field :percentage_of_service_in_whole_order, class: "validate", placeholder: t('percentage_of_service_in_whole_order_placeholder'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
+                <label onclick="servicesNotVisibleForCustomer()">
+                  <span class="yes yes-no-btns services_not_visible_to_customer <%= 'active-btn' if (!@insurance.services_not_visible_to_customer.nil? && @insurance.services_not_visible_to_customer == "1") %>">
+                      <%= check_box_tag "insurance[services_not_visible_to_customer]", '1' %>
+                    <%= t :yes_button %>
+                  </span>
+                </label>
+
+                <label onclick="noServicesNotVisibleForCustomer()">
+                  <span class="no yes-no-btns services_not_visible_to_customer <%= 'active-btn' if (!@insurance.services_not_visible_to_customer.nil? && @insurance.services_not_visible_to_customer == "0") %>">
+                      <%= check_box_tag "insurance[services_not_visible_to_customer]", '0' %>
+                    <%= t :no_button %>
+                  </span>
+                </label>
+              </div>
             </div>
 
             <div class="input-field col s12 m12">
@@ -584,13 +602,13 @@
               </div>
 
               <div class="col">
-              <table class='table'>
-                <tbody class='supplies_from_foreign_origins'>
-                <%= form.fields_for :insurance_supplies_from_foreign_origins do |builder| %>
-                  <%= render 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', f: builder %>
-                <% end %>
-                </tbody>
-              </table>
+                <table class='table'>
+                  <tbody class='supplies_from_foreign_origins'>
+                  <%= form.fields_for :insurance_supplies_from_foreign_origins do |builder| %>
+                    <%= render 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', f: builder %>
+                  <% end %>
+                  </tbody>
+                </table>
                 <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :insurance_supplies_from_foreign_origins, :partial => 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins', association_insertion_method: :append} %>
               </div>
 
@@ -607,14 +625,14 @@
               </div>
 
               <div class="col">
-              <table class='table'>
-                <tbody class='supplies_from_foreign_origins_partly'>
-                <%= form.fields_for :insurance_supplies_from_foreign_origins do |builder| %>
-                  <%= render 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', f: builder %>
-                <% end %>
-                </tbody>
-              </table>
-              <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :insurance_supplies_from_foreign_origins, :partial => 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins_partly', association_insertion_method: :append} %>
+                <table class='table'>
+                  <tbody class='supplies_from_foreign_origins_partly'>
+                  <%= form.fields_for :insurance_supplies_from_foreign_origins do |builder| %>
+                    <%= render 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', f: builder %>
+                  <% end %>
+                  </tbody>
+                </table>
+                <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :insurance_supplies_from_foreign_origins, :partial => 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins_partly', association_insertion_method: :append} %>
               </div>
               <div class="input-field col s12 m12">
                 <br>
