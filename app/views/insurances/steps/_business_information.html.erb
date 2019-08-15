@@ -30,17 +30,17 @@
             <br><br>
 
             <label onclick="investmentGoods()">
-                            <span class="yes yes-no-btns is_investment_good <%= 'active-btn' if (@insurance.is_investment_good) %>">
-                                <%= check_box_tag "insurance[is_investment_good]", '1' %>
-                              <%= t :yes_button %>
-                            </span>
+                <span class="yes yes-no-btns is_investment_good <%= 'active-btn' if (@insurance.is_investment_good) %>">
+                    <%= check_box_tag "insurance[is_investment_good]", '1' %>
+                  <%= t :yes_button %>
+                </span>
             </label>
 
             <label onclick="noInvestmentGoods()">
-                            <span class="no yes-no-btns is_investment_good <%= 'active-btn' if (!@insurance.is_investment_good.nil? && !@insurance.is_investment_good) %>">
-                                <%= check_box_tag "insurance[is_investment_good]", '0' %>
-                              <%= t :no_button %>
-                            </span>
+                <span class="no yes-no-btns is_investment_good <%= 'active-btn' if (!@insurance.is_investment_good.nil? && !@insurance.is_investment_good) %>">
+                    <%= check_box_tag "insurance[is_investment_good]", '0' %>
+                  <%= t :no_button %>
+                </span>
             </label>
           </div>
 
@@ -97,17 +97,17 @@
               <br><br>
 
               <label onclick="deliveredPartOfConsortiumWithOtherCompanies()">
-                                    <span class="yes yes-no-btns is_delivered_part_of_consortium_with_other_companies <%= 'active-btn' if (@insurance.is_delivered_part_of_consortium_with_other_companies) %>">
-                                        <%= check_box_tag "insurance[is_delivered_part_of_consortium_with_other_companies]", '1' %>
-                                      <%= t :yes_button %>
-                                    </span>
+                                <span class="yes yes-no-btns is_delivered_part_of_consortium_with_other_companies <%= 'active-btn' if (@insurance.is_delivered_part_of_consortium_with_other_companies) %>">
+                                    <%= check_box_tag "insurance[is_delivered_part_of_consortium_with_other_companies]", '1' %>
+                                  <%= t :yes_button %>
+                                </span>
               </label>
 
               <label onclick="notDeliveredPartOfConsortiumWithOtherCompanies()">
-                                    <span class="no yes-no-btns is_delivered_part_of_consortium_with_other_companies <%= 'active-btn' if (!@insurance.is_delivered_part_of_consortium_with_other_companies.nil? && !@insurance.is_delivered_part_of_consortium_with_other_companies) %>">
-                                        <%= check_box_tag "insurance[is_delivered_part_of_consortium_with_other_companies]", '0' %>
-                                      <%= t :no_button %>
-                                    </span>
+                                <span class="no yes-no-btns is_delivered_part_of_consortium_with_other_companies <%= 'active-btn' if (!@insurance.is_delivered_part_of_consortium_with_other_companies.nil? && !@insurance.is_delivered_part_of_consortium_with_other_companies) %>">
+                                    <%= check_box_tag "insurance[is_delivered_part_of_consortium_with_other_companies]", '0' %>
+                                  <%= t :no_button %>
+                                </span>
               </label>
             </div>
 
@@ -206,8 +206,8 @@
               <label onclick="noGoodsSentMultipleDeliveries()">
                 <span class="no yes-no-btns is_good_sent_in_multiple_deliveries <%= 'active-btn' if (!@insurance.is_good_sent_in_multiple_deliveries.nil? && !@insurance.is_good_sent_in_multiple_deliveries) %>">
                     <%= check_box_tag "insurance[is_good_sent_in_multiple_deliveries]", '0' %>
-                                  <%= t :no_button %>
-                                </span>
+                  <%= t :no_button %>
+                </span>
               </label>
             </div>
 
@@ -223,7 +223,7 @@
                 <%= form.text_field :delivery_start, id: "delivery_start", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
               </div>
 
-              <div id="notRelevantIfNoServiceProvided" style="display: <%= (@insurance.is_good_sent_in_multiple_deliveries.present? && @insurance.is_good_sent_in_multiple_deliveries)? 'block' : 'none' %>;">
+              <div id="notRelevantIfNotDeliveredInMultipleShipments" style="display: <%= (@insurance.is_good_sent_in_multiple_deliveries.present? && @insurance.is_good_sent_in_multiple_deliveries)? 'block' : 'none' %>;">
                 <div class="input-field col s12 m6">
                   <br>
                   <%= form.label :delivery_end, t('delivery_end') %>
