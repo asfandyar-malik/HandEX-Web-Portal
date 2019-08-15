@@ -390,6 +390,7 @@ en:
   exporter_plz: "Postcode"
   importer_plz: "Postcode"
   importer_shipment_plz: "Postcode"
+  importer_shipment_address_line2: "Adresszeile 2"
   exporter_country: "Country"
   importer_country: "Country"
   employees_count: "Anzahl der Mitarbeiterinnen und Mitarbeiter "

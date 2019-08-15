@@ -251,6 +251,7 @@ es:
   importer_shipment_country: "País"
   importer_shipment_street_hno: "Calle / Número de casa"
   importer_shipment_plz: "Código Postal"
+  importer_shipment_address_line2: "Adresszeile 2"
   importer_shipment_city: "Ciudad"
   has_significant_influence_on_importer_management: "¿Está usted involucrado de alguna manera con su cliente y/o ejerce una influencia significativa en la dirección?"
   has_payment_experience_with_importer: "¿Ya tiene experiencia de pago con su cliente? "
