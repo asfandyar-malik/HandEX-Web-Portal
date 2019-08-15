@@ -43,6 +43,14 @@ class ExportApplicationsController < ApplicationController
 	            flash[:notice] = "Beim Einladen des Kunden ist ein Problem aufgetreten...."
 	            render :new
             end
+        elsif params[:overview] == 'Zusamenfassung'
+            @export_application.application_status = 'DRAFT'
+            if @export_application.save
+                redirect_to "/export_applications/" + @export_application.id.to_s , notice: 'Antrag wurde erfolgreich aktualisiert und die Zusammenfassung wurde vorbereitet. (create).'
+            else
+                flash[:notice] = "Beim Erstellen der Zusaamenfassung des Antrags ist ein Fehler aufgetreten...."
+                render :new
+            end
         else
             @export_application.application_status = 'SUBMITTED'
             if @export_application.save
@@ -73,7 +81,15 @@ class ExportApplicationsController < ApplicationController
 	        else
 		        flash[:notice] = "Beim Einladen des Kunden ist ein Problem aufgetreten...."
 		        render :new
-	        end
+          end
+        elsif params[:overview] == 'Zusamenfassung'
+            @export_application.application_status = 'DRAFT'
+            if @export_application.save
+                redirect_to "/export_applications/" + @export_application.id.to_s , notice: 'Antrag wurde erfolgreich aktualisiert und die Zusammenfassung wurde vorbereitet. (create).'
+            else
+                flash[:notice] = "Beim Erstellen der Zusaamenfassung des Antrags ist ein Fehler aufgetreten...."
+                render :new
+            end
         else
             @export_application.application_status = 'SUBMITTED'
             if @export_application.update(export_application_params)
