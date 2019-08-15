@@ -41,7 +41,7 @@
                             </div>
 
                             <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text"/>
+                                <input class="file-path validate" type="text" placeholder="<%= @insurance.credit_bureaus_importer_file_name if (@insurance.credit_bureaus_importer.present?)%>">
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                                     </div>
 
                                     <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text"/>
+                                        <input class="file-path validate" type="text" placeholder="<%= @insurance.self_declaration_file_name if (@insurance.self_declaration.present?)%>">
                                     </div>
                                 </div>
                             </div>
@@ -78,7 +78,7 @@
                             </div>
 
                             <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text"/>
+                                <input class="file-path validate" type="text" placeholder="<%= @insurance.export_contract_or_bills_file_name if (@insurance.export_contract_or_bills.present?)%>">
                             </div>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                             </div>
 
                             <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text"/>
+                                <input class="file-path validate" type="text" placeholder="<%= @insurance.project_memorandum_exporter_business_file_name if (@insurance.project_memorandum_exporter_business.present?)%>">
                             </div>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
                             </div>
 
                             <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text" />
+                                <input class="file-path validate" type="text" placeholder="<%= @insurance.environment_social_audit_file_name if (@insurance.environment_social_audit.present?)%>">
                             </div>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                             </div>
 
                             <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text"/>
+                                <input class="file-path validate" type="text" placeholder="<%= @insurance.other_document_file_name if (@insurance.other_document.present?)%>">
                             </div>
                         </div>
                     </div>

@@ -264,7 +264,7 @@
                                 </div>
 
                                 <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text"/>
+                                    <input class="file-path validate" type="text" placeholder="<%= @insurance.annual_financial_statement_importer_file_name if (@insurance.annual_financial_statement_importer.present?)%>">
                                 </div>
                             </div>
                         </div>
@@ -281,7 +281,7 @@
                                 </div>
 
                                 <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text"/>
+                                    <input class="file-path validate" type="text" placeholder="<%= @insurance.annual_financial_statement_importer_second_last_file_name if (@insurance.annual_financial_statement_importer_second_last.present?)%>">
                                 </div>
                             </div>
                         </div>
