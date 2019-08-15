@@ -1,7 +1,7 @@
 <!-- step_3 start -->
 <div class="step_3 tab" id="step_3">
   <!--   Form Navigation Section   -->
-  <div class="row form-nav-top">
+  <div class="row form-nav-top ">
     <div class="col s12 m4">
       <div class="form-nav form-nav-percent">
         <p><span> 50% <%= t :complete %> </span></p>
@@ -24,6 +24,7 @@
     <div class="col s12">
       <div class="form-content">
         <div class="row">
+
           <div class="input-field col s12 m12">
             <%= form.label :is_investment_good, t('is_investment_good') %>
             <br><br>
@@ -71,18 +72,20 @@
             <div class="input-field col s12 m12">
               <label>Bitte ordnen Sie die von Ihnen zu liefernden Waren/Güter/Anlagen bzw. Dienstleistungen Ihrer
                 Branche und der passenden Warenart zu.</label>
-              <p>Wichtig: Diese Angabe kann ggf. von der Branche Ihres Kunden abweichen.</p>
+              <p> Wichtig: Diese Angabe kann ggf. von der Branche Ihres Kunden abweichen.</p>
               <div class="select_box">
-                <div id="exportGoodsType" style="display: <%= (@insurance.is_investment_good.present? && @insurance.is_investment_good)? 'block' : 'none' %>; ">
 
+                <div id="exportGoodsType" style="display: <%= (!@insurance.is_investment_good.nil? && !@insurance.is_investment_good)? 'block' : 'none' %>; ">
                   <%= form.select :exported_goods_type, options_for_select([t('please_select_corresponding_option'), "Konsumgüter, Rohstoffe, Halbfabrikate, Massengüter, Komponenten, Ersatzteile", "Düngemittel, Insektizide, Zuchtvieh, Agrargüter und Saatgut", "langlebige Konsumgüter", "Sonstige"], @insurance.exported_goods_type ? @insurance.exported_goods_type : nil), {}, id: "firstdrop" %>
-
                 </div>
+
+
                 <%= form.select :exported_goods_type_two, options_for_select([@insurance.exported_goods_type_two.nil? ? t('please_select_corresponding_option') : @insurance.exported_goods_type_two], @insurance.exported_goods_type_two ? @insurance.exported_goods_type_two : nil), {}, id: "exported_goods_type_two", class: "validate" %>
 
                 <%= form.select :exported_goods_type_three, options_for_select([@insurance.exported_goods_type_three], @insurance.exported_goods_type_three ? @insurance.exported_goods_type_three : nil), {}, id: "exported_goods_type_three", class: "validate" %>
 
                 <%= form.select :exported_goods_type_four, options_for_select([@insurance.exported_goods_type_four], @insurance.exported_goods_type_four ? @insurance.exported_goods_type_four : nil), {}, id: "exported_goods_type_four", class: "validate" %>
+
               </div>
             </div>
           </div>
@@ -187,28 +190,28 @@
             </div>
           </div>
 
-          <div class="background_toggle is_good_sent_in_multiple_deliveries <%= (@insurance.is_good_sent_in_multiple_deliveries.present? && @insurance.is_good_sent_in_multiple_deliveries) ? 'dialog_background' : '' %>">
+          <div class="background_toggle is_good_sent_in_multiple_deliveries <%= !@insurance.is_good_sent_in_multiple_deliveries.nil? ? 'dialog_background' : '' %>">
 
             <div class="input-field col s12 m12">
               <%= form.label :is_good_sent_in_multiple_deliveries, t('is_good_sent_in_multiple_deliveries') %>
               <br><br>
 
               <label onclick="goodsSentMultipleDeliveries()">
-                                <span class="yes yes-no-btns is_good_sent_in_multiple_deliveries <%= 'active-btn' if (!@insurance.is_good_sent_in_multiple_deliveries.nil? && @insurance.is_good_sent_in_multiple_deliveries) %>">
-                                    <%= check_box_tag "insurance[is_good_sent_in_multiple_deliveries]", '1' %>
-                                  <%= t :yes_button %>
-                                </span>
+                <span class="yes yes-no-btns is_good_sent_in_multiple_deliveries <%= 'active-btn' if (!@insurance.is_good_sent_in_multiple_deliveries.nil? && @insurance.is_good_sent_in_multiple_deliveries) %>">
+                    <%= check_box_tag "insurance[is_good_sent_in_multiple_deliveries]", '1' %>
+                  <%= t :yes_button %>
+                </span>
               </label>
 
               <label onclick="noGoodsSentMultipleDeliveries()">
-                                <span class="no yes-no-btns is_good_sent_in_multiple_deliveries <%= 'active-btn' if (!@insurance.is_good_sent_in_multiple_deliveries.nil? && !@insurance.is_good_sent_in_multiple_deliveries) %>">
-                                    <%= check_box_tag "insurance[is_good_sent_in_multiple_deliveries]", '0' %>
+                <span class="no yes-no-btns is_good_sent_in_multiple_deliveries <%= 'active-btn' if (!@insurance.is_good_sent_in_multiple_deliveries.nil? && !@insurance.is_good_sent_in_multiple_deliveries) %>">
+                    <%= check_box_tag "insurance[is_good_sent_in_multiple_deliveries]", '0' %>
                                   <%= t :no_button %>
                                 </span>
               </label>
             </div>
 
-            <div id="goodsSentMultipleDeliveries" style="display: <%= (@insurance.is_good_sent_in_multiple_deliveries.present? && @insurance.is_good_sent_in_multiple_deliveries  )? 'block' : 'none' %>;">
+            <div id="goodsSentMultipleDeliveries" style="display: <%= !(@insurance.is_good_sent_in_multiple_deliveries.nil?)? 'block' : 'none' %>;">
               <div class="input-field col s12 m12">
                 <%= form.label :delivery_or_performance_dates, t('delivery_or_performance_dates') %>
               </div>
@@ -217,13 +220,15 @@
                 <label for="delivery_start" class="active">Erste Lieferung</label>
                 <br>
                 <%= form.label :delivery_start, t('delivery_start') %>
-                <%= form.text_field :delivery_start, id: "start_date", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
+                <%= form.text_field :delivery_start, id: "delivery_start", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
               </div>
 
-              <div class="input-field col s12 m6">
-                <br>
-                <%= form.label :delivery_end, t('delivery_end') %>
-                <%= form.text_field :delivery_end, id: "start_date", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
+              <div id="notRelevantForNoGoodsSentMultipleDeliveries" style="display: <%= (@insurance.is_good_sent_in_multiple_deliveries.present? && @insurance.is_good_sent_in_multiple_deliveries)? 'block' : 'none' %>;">
+                <div class="input-field col s12 m6">
+                  <br>
+                  <%= form.label :delivery_end, t('delivery_end') %>
+                  <%= form.text_field :delivery_end, id: "delivery_end", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
+                </div>
               </div>
 
               <div id="exporterOffersServicingForGoods" style="display: <%= (@insurance.exporter_offers_servicing_for_goods.present? && @insurance.exporter_offers_servicing_for_goods)? 'block' : 'none' %>;">
@@ -247,36 +252,6 @@
               </div>
 
               <div class="input-field col s12 m12">
-                <label for="export_application_delivery_start" class="active">Weiterere zahlungsrelevante Termine</label>
-              </div>
-
-              <div class="input-field col s12 m12">
-                <table class='table'>
-                  <tbody class='multiple_shipments'>
-                  <%= form.fields_for :insurance_multiple_shipments do |builder| %>
-                    <%= render 'insurances/dynamic/insurance_multiple_shipment_fields', f: builder %>
-                  <% end %>
-                  </tbody>
-                </table>
-
-                <div class="form-actions">
-                  <%= link_to_add_association t('add_multiple_shipment_entry'), form, :insurance_multiple_shipments, :partial => 'insurances/dynamic/insurance_multiple_shipment_fields', class: 'btn btn-primary', data: {association_insertion_node: '.multiple_shipments', association_insertion_method: :append} %>
-                </div>
-              </div>
-            </div>
-            <div id="noGoodsSentMultipleDeliveries" style="display: <%= (@insurance.is_good_sent_in_multiple_deliveries.present? && @insurance.is_good_sent_in_multiple_deliveries  )? 'block' : 'none' %>;">
-              <div class="input-field col s12 m12">
-                <%= form.label :delivery_or_performance_dates, t('delivery_or_performance_dates') %>
-              </div>
-
-              <div class="input-field col s12 m6">
-                <label for="delivery_start" class="active">Erste Lieferung</label>
-                <br />
-                <%= form.label :delivery_start, t('delivery_start') %>
-                <%= form.text_field :delivery_start, id: "start_date", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
-              </div>
-
-              <div class="input-field col s12 m12">
                 <label for="export_application_delivery_start" class="active">Weiterere zahlungsrelevante
                   Termine</label>
               </div>
@@ -289,13 +264,11 @@
                   <% end %>
                   </tbody>
                 </table>
-
                 <div class="form-actions">
                   <%= link_to_add_association t('add_multiple_shipment_entry'), form, :insurance_multiple_shipments, :partial => 'insurances/dynamic/insurance_multiple_shipment_fields', class: 'btn btn-primary', data: {association_insertion_node: '.multiple_shipments', association_insertion_method: :append} %>
                 </div>
               </div>
             </div>
-
           </div>
           <div class="input-field col s12 m12">
             <div>
@@ -310,6 +283,7 @@
               <%= form.text_field :contract_value, class: "validate", :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %>
             </div>
           </div>
+
           <div class="background_toggle dialog_background">
             <div class="input-field col s12 m12">
               <%= form.label :total_delivery_value_excluding_servicing, t('total_delivery_value_excluding_servicing') %>
@@ -319,10 +293,13 @@
               <%= form.label :percentage_of_spareparts_in_whole_order, t('percentage_of_spareparts_in_whole_order') %>
               <div> <%= form.text_field :percentage_of_spareparts_in_whole_order, class: "validate", placeholder: t('percentage_of_spareparts_in_whole_order_placeholder'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
             </div>
+
             <div class="input-field col s12 m12">
               <%= form.label :percentage_of_service_in_whole_order, t('percentage_of_service_in_whole_order') %>
+
               <div> <%= form.text_field :percentage_of_service_in_whole_order, class: "validate", placeholder: t('percentage_of_service_in_whole_order_placeholder'), :onkeypress => "return onlyAllowNumericalValueAndDotComma(event)" %> </div>
             </div>
+
             <div class="input-field col s12 m12">
               <%= form.label :other_billed_items_in_contract, t('other_billed_items_in_contract') %>
               <table class='table'>
@@ -403,6 +380,7 @@
               </div>
             </div>
           </div>
+
           <div class="background_toggle does_delivery_affect_sensitive_areas  <%= (@insurance.does_delivery_affect_sensitive_areas.present? && @insurance.does_delivery_affect_sensitive_areas) ? 'dialog_background' : '' %>">
 
             <div class="input-field col s12 m12">
@@ -437,6 +415,7 @@
           </div>
 
           <div class="background_toggle is_export_licence_needed  <%= (@insurance.is_export_licence_needed.present? && @insurance.is_export_licence_needed) ? 'dialog_background' : '' %>">
+
             <div class="input-field col s12 m12">
               <%= form.label :is_export_licence_needed, t('is_export_licence_needed') %>
               <br><br>
@@ -488,7 +467,6 @@
                                 </span>
               </label>
             </div>
-
 
             <div id="deliverySecondHandGoods" style="display: <%= (@insurance.are_secondhand_goods_delivered.present? && @insurance.are_secondhand_goods_delivered)? 'block' : 'none' %>;">
               <div class="input-field col s12">
@@ -593,7 +571,6 @@
 
               <label onclick="partlyGermanCertificateOfOrigin()">
                                 <span class="partly yes-no-btns has_german_certificate_of_origin_for_only_parts_of_good <%= 'active-btn' if (@insurance.has_german_certificate_of_origin_for_only_parts_of_good.present? && @insurance.has_german_certificate_of_origin_for_only_parts_of_good) %>">
-
                                     <%= check_box_tag "insurance[has_german_certificate_of_origin_for_only_parts_of_good]", '1' %>
                                   <%= t('partial_german_certificate_of_origin') %>
                                 </span>
@@ -601,28 +578,19 @@
 
             </div>
 
-            <div id="noGermanCertificateOfOriginId" style="display: <%= (!@insurance.has_german_certificate_of_origin.nil? && !@insurance.has_german_certificate_of_origin)? 'block' : 'none' %>;">
+            <div id="noGermanCertificateOfOriginId" style="display: <%=(!@insurance.has_german_certificate_of_origin.nil? && !@insurance.has_german_certificate_of_origin)? 'block' : 'none' %>;">
               <div class="input-field col s12">
                 <%= form.label :goods_supplied_from_foreign_origin, t('goods_supplied_from_foreign_origin') %>
               </div>
 
+              <div class="col">
               <table class='table'>
-                <thead>
-                <tr>
-                  <th>Währung</th>
-                  <th>Betrag</th>
-                  <th>Land</th>
-                  <th></th>
-                </tr>
-                </thead>
                 <tbody class='supplies_from_foreign_origins'>
                 <%= form.fields_for :insurance_supplies_from_foreign_origins do |builder| %>
                   <%= render 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', f: builder %>
                 <% end %>
                 </tbody>
               </table>
-
-              <div class="form-actions">
                 <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :insurance_supplies_from_foreign_origins, :partial => 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins', association_insertion_method: :append} %>
               </div>
 
@@ -637,15 +605,17 @@
               <div class="input-field col s12">
                 <%= form.label :goods_supplied_from_foreign_origin, t('goods_supplied_from_foreign_origin') %>
               </div>
+
+              <div class="col">
               <table class='table'>
-                <tbody class='supplies_from_foreign_origins_partly col'>
+                <tbody class='supplies_from_foreign_origins_partly'>
                 <%= form.fields_for :insurance_supplies_from_foreign_origins do |builder| %>
                   <%= render 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', f: builder %>
                 <% end %>
                 </tbody>
               </table>
               <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :insurance_supplies_from_foreign_origins, :partial => 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins_partly', association_insertion_method: :append} %>
-
+              </div>
               <div class="input-field col s12 m12">
                 <br>
                 <%= form.label :why_partly_foreign_rawgoods_necessary, t('why_partly_foreign_rawgoods_necessary') %>
