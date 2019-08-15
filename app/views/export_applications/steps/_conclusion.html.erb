@@ -39,7 +39,7 @@
                             <%= form.file_field :annual_financial_statement_exporter %>
                         </div>
                         <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text"/>
+                            <input class="file-path validate" type="text" placeholder="<%= @export_application.annual_financial_statement_exporter_file_name if (@export_application.annual_financial_statement_exporter.present?)%>">
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                             <%= form.file_field :annual_financial_statement_exporter_second_last %>
                         </div>
                         <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text"/>
+                            <input class="file-path validate" type="text" placeholder="<%= @export_application.annual_financial_statement_exporter_second_last_file_name if (@export_application.annual_financial_statement_exporter_second_last.present?)%>">
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                             <%= form.file_field :export_contract_or_bills %>
                         </div>
                         <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text"/>
+                            <input class="file-path validate" type="text" placeholder="<%= @export_application.export_contract_or_bills_file_name if (@export_application.export_contract_or_bills.present?)%>">
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                         </div>
 
                         <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text"/>
+                            <input class="file-path validate" type="text" placeholder="<%= @export_application.credit_bureaus_importer_file_name if (@export_application.credit_bureaus_importer.present?)%>">
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
                                 </div>
 
                                 <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text"/>
+                                    <input class="file-path validate" type="text" placeholder="<%= @export_application.self_declaration_file_name if (@export_application.self_declaration.present?)%>">
                                 </div>
                             </div>
                         </div>
@@ -123,7 +123,7 @@
                         </div>
 
                         <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text"/>
+                            <input class="file-path validate" type="text" placeholder="<%= @export_application.project_memorandum_exporter_business_file_name if (@export_application.project_memorandum_exporter_business.present?)%>">
                         </div>
                     </div>
                 </div>
@@ -143,7 +143,7 @@
                         </div>
 
                         <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text"/>
+                            <input class="file-path validate" type="text" placeholder="<%= @export_application.environment_social_audit_file_name if (@export_application.environment_social_audit.present?)%>">
                         </div>
                     </div>
                 </div>
