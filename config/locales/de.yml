@@ -291,6 +291,7 @@ de:
   service_start: "Leistungsbegin"
   service_end: "Leistungsende"
   availability: "Betriebsbereitschaft"
+  services_not_visible_to_customer: "Die Leistungen sind für den Kunden nicht sichtbar ausgewiesen oder es sind Auszahlungen zum Spätesttermin vereinbart, auch wenn die vertraglich geschuldeten Leistungen noch nicht (vollständig) erbracht sind."
 
   #financing
   finance_and_payment: "Zahlung & Finanzierung"

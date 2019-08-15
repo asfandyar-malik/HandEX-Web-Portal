@@ -287,6 +287,7 @@ en:
   service_start: "Service start"
   service_end: "Service end"
   availability: "Availability"
+  services_not_visible_to_customer: "Please translate! Die Leistungen sind für den Kunden nicht sichtbar ausgewiesen oder es sind Auszahlungen zum Spätesttermin vereinbart, auch wenn die vertraglich geschuldeten Leistungen noch nicht (vollständig) erbracht sind."
 
   #financing
   finance_and_payment: "Zahlung & Finanzierung"

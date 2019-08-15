@@ -262,6 +262,7 @@ es:
   add_goods_supplied_from_foreign_origin: "Translate me"
   percentage_of_service_in_whole_order: "Wie hoch ist der Leistungswert ?"
   percentage_of_service_in_whole_order_placeholder: "Wert der Leistungen in Prozent oder Betrag"
+  services_not_visible_to_customer: "Please translate! Die Leistungen sind für den Kunden nicht sichtbar ausgewiesen oder es sind Auszahlungen zum Spätesttermin vereinbart, auch wenn die vertraglich geschuldeten Leistungen noch nicht (vollständig) erbracht sind."
 
   #financing
   your_financing: "Pago y Financiación"
