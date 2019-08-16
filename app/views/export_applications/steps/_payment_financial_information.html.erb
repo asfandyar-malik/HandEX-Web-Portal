@@ -23,9 +23,7 @@
 
     <div class="col s12">
       <div class="form-content">
-        <div class="row">
           <div class="background_toggle is_security_present_for_transaction <%= (@export_application.is_security_present_for_transaction.present? && @export_application.is_security_present_for_transaction) ? 'dialog_background' : '' %>">
-
             <div class="input-field col s12 m12">
               <%= form.label :is_security_present_for_transaction, t('is_security_present_for_transaction') %>
               <br><br>
@@ -396,17 +394,17 @@
                   <br><br>
 
                   <label onclick="degressiveInterestRate()">
-                                    <span class="yes yes-no-btns degressive_interest_rate <%= 'active-btn' if (@export_application.degressive_interest_rate.present? && @export_application.degressive_interest_rate) == "1" %>">
-                                        <%= check_box_tag "export_application[degressive_interest_rate]", '1' %>
-                                      <%= t :yes_button %>
-                                    </span>
+                    <span class="yes yes-no-btns degressive_interest_rate <%= 'active-btn' if (@export_application.degressive_interest_rate.present? && @export_application.degressive_interest_rate) == "1" %>">
+                        <%= check_box_tag "export_application[degressive_interest_rate]", '1' %>
+                      <%= t :yes_button %>
+                    </span>
                   </label>
 
                   <label onclick="noDegressiveInterestRate()">
-                                    <span class="no yes-no-btns degressive_interest_rate <%= 'active-btn' if (@export_application.degressive_interest_rate.present? && @export_application.degressive_interest_rate != "1") %>">
-                                        <%= check_box_tag "export_application[degressive_interest_rate]", '0' %>
-                                      <%= t :no_button %>
-                                    </span>
+                    <span class="no yes-no-btns degressive_interest_rate <%= 'active-btn' if (@export_application.degressive_interest_rate.present? && @export_application.degressive_interest_rate != "1") %>">
+                        <%= check_box_tag "export_application[degressive_interest_rate]", '0' %>
+                      <%= t :no_button %>
+                    </span>
                   </label>
                 </div>
 
@@ -419,7 +417,6 @@
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
   </div>

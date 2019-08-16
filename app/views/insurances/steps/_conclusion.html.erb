@@ -131,108 +131,107 @@
           </div>
         </div>
 
-      </div>
-
-      <div class="input-field col s12 m12">
-        <label> <%= t('corruption_prevention_statement') %></label>
-      </div>
-      <div class="input-field col s12 greybox">
-
         <div class="input-field col s12 m12">
-          <label> <%= t('compliance_heading') %> </label>
-          <p> <%= t('compliance_statement') %></p>
+          <label> <%= t('corruption_prevention_statement') %></label>
         </div>
+        <div class="input-field col s12 greybox">
 
-        <div class="input-field col s12 m12">
-          <label><%= t('obligation_heading') %></label>
-          <p> <%= t('obligation_statement') %> </p>
-        </div>
+          <div class="input-field col s12 m12">
+            <label> <%= t('compliance_heading') %> </label>
+            <p> <%= t('compliance_statement') %></p>
+          </div>
 
-        <div class="input-field col s12 m12">
-          <label><%= t('criminal_information_heading') %> </label>
-          <p> <%= t('criminal_information_statement') %> </p>
-        </div>
+          <div class="input-field col s12 m12">
+            <label><%= t('obligation_heading') %></label>
+            <p> <%= t('obligation_statement') %> </p>
+          </div>
 
-        <div class="input-field col s12 m12">
-          <ul>
-            <li> * <%= t('state_court') %></li>
-            <li> * <%= t('court_case_5_years') %> </li>
-            <li> * <%= t('sanction_by_court') %> </li>
-            <li> * <%= t('subjected_to_public_prosecutor') %> </li>
-            <li> * <%= t('listed_on_blacklist') %> </li>
-          </ul>
-        </div>
+          <div class="input-field col s12 m12">
+            <label><%= t('criminal_information_heading') %> </label>
+            <p> <%= t('criminal_information_statement') %> </p>
+          </div>
 
-        <div class="input-field col s12 m12">
+          <div class="input-field col s12 m12">
+            <ul>
+              <li> * <%= t('state_court') %></li>
+              <li> * <%= t('court_case_5_years') %> </li>
+              <li> * <%= t('sanction_by_court') %> </li>
+              <li> * <%= t('subjected_to_public_prosecutor') %> </li>
+              <li> * <%= t('listed_on_blacklist') %> </li>
+            </ul>
+          </div>
 
-          <label onclick="corruptionDeclaration()">
+          <div class="input-field col s12 m12">
+
+            <label onclick="corruptionDeclaration()">
                             <span class="yes yes-no-btns does_corruption_declaration_apply <%= 'active-btn' if (@insurance.does_corruption_declaration_apply) %>">
                                 <%= check_box_tag "insurance[does_corruption_declaration_apply]", '1' %>
                               Trifft zu
                             </span>
-          </label>
+            </label>
 
-          <label onclick="noCorruptionDeclaration()">
+            <label onclick="noCorruptionDeclaration()">
                             <span class="no yes-no-btns does_corruption_declaration_apply <%= 'active-btn' if (!@insurance.does_corruption_declaration_apply.nil? && !@insurance.does_corruption_declaration_apply) %>">
                                 <%= check_box_tag "insurance[does_corruption_declaration_apply]", '0' %>
                               Trifft nicht zu
                             </span>
+            </label>
+          </div>
+
+          <div id="corruptionDeclaration" style="display: none">
+            <div class="input-field col s12">
+              <%= form.label :explain_corruption_sanctions, t('explain_corruption_sanctions') %>
+              <%= form.text_area :explain_corruption_sanctions, autofocus: true, class: "validate" %>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="input-field col s12 m12">
+          <label>
+            <input type="checkbox"/>
+            <span class="terms"> <%= t('is_all_information_provided_with_best_of_knowledge') %></span>
           </label>
         </div>
 
-        <div id="corruptionDeclaration" style="display: none">
-          <div class="input-field col s12">
-            <%= form.label :explain_corruption_sanctions, t('explain_corruption_sanctions') %>
-            <%= form.text_area :explain_corruption_sanctions, autofocus: true, class: "validate" %>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="input-field col s12 m12">
-        <label>
-          <input type="checkbox"/>
-          <span class="terms"> <%= t('is_all_information_provided_with_best_of_knowledge') %></span>
-        </label>
-      </div>
-
-      <div class="input-field col s12 m12">
-        <label>
-          <input type="checkbox"/>
-          <span class="terms">
+        <div class="input-field col s12 m12">
+          <label>
+            <input type="checkbox"/>
+            <span class="terms">
                             <%= t("has_accepted_terms_conditions_one_html", href: link_to(t('has_accepted_terms_conditions_one_text'), t("has_accepted_terms_conditions_one_href"), target: "_blank", rel: "noopener noreferrer")) %>
 
-            <%= t("has_accepted_terms_conditions_two_html", href: link_to(t('has_accepted_terms_conditions_two_text'), t("has_accepted_terms_conditions_two_href"), target: "_blank", rel: "noopener noreferrer")) %>
+              <%= t("has_accepted_terms_conditions_two_html", href: link_to(t('has_accepted_terms_conditions_two_text'), t("has_accepted_terms_conditions_two_href"), target: "_blank", rel: "noopener noreferrer")) %>
 
                         </span>
-        </label>
-      </div>
+          </label>
+        </div>
 
 
-      <div class="input-field col s12 m12">
-        <%#= form.check_box :has_read_privacy_policy, type: "checkbox"%>
-        <label>
-          <input type="checkbox"/>
-          <span class="terms">
+        <div class="input-field col s12 m12">
+          <%#= form.check_box :has_read_privacy_policy, type: "checkbox"%>
+          <label>
+            <input type="checkbox"/>
+            <span class="terms">
                             <%= t("has_read_privacy_policy_html", href: link_to(t('has_read_privacy_policy_text'), t("has_read_privacy_policy_href"), target: "_blank", rel: "noopener noreferrer")) %>
 
                         </span>
-        </label>
-      </div>
+          </label>
+        </div>
 
-      <div class="input-field col s12 m12">
-        <%#= form.check_box :has_read_all_instructions, :style => "width: 20px; height: 20px;" %>
-        <label>
-          <input type="checkbox"/>
-          <span class="terms">
+        <div class="input-field col s12 m12">
+          <%#= form.check_box :has_read_all_instructions, :style => "width: 20px; height: 20px;" %>
+          <label>
+            <input type="checkbox"/>
+            <span class="terms">
                             <%= t("read_all_instruction_html", href: link_to(t('read_all_instruction_text'), t("read_all_instruction_href"), target: "_blank", rel: "noopener noreferrer")) %>
                         </span>
-        </label>
-      </div>
+          </label>
+        </div>
 
-      <div class="input-field col s12 m12">
-        <input class="btn handex-btn z-depth-0" type="submit" name="submit" value="Antrag schicken">
-        <%#= form.button :submit, name: "submit", value: "Antrag Schicken", class: "btn handex-btn z-depth-0" %>
+        <div class="input-field col s12 m12">
+          <input class="btn handex-btn z-depth-0" type="submit" name="submit" value="Antrag schicken">
+          <%#= form.button :submit, name: "submit", value: "Antrag Schicken", class: "btn handex-btn z-depth-0" %>
+        </div>
       </div>
     </div>
   </div>
