@@ -200,7 +200,7 @@
             </label>
           </div>
 
-          <div id="corruptionDeclaration" style="display: none">
+          <div id="corruptionDeclaration" style="display: <%= (@export_application.does_corruption_declaration_apply.present? && @export_application.does_corruption_declaration_apply)? 'block' : 'none' %>;">
             <div class="input-field col s12">
               <%= form.label :explain_corruption_sanctions, t('explain_corruption_sanctions') %>
               <%= form.text_area :explain_corruption_sanctions, autofocus: true, class: "validate" %>
