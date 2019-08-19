@@ -60,23 +60,6 @@
                                     <%= link_to_add_association t('add_guarantee_fields'), form, :insurance_guarantees, :partial => 'insurances/dynamic/insurance_guarantee_fields', class: 'btn btn-primary', data: {association_insertion_node: '.guarantees', association_insertion_method: :append} %>
                                 </div>
                             </div>
-
-                            <div class="input-field col m10">
-                                <%= form.label :proportion_of_good_covered_by_security, t('proportion_of_good_covered_by_security') %>
-                            </div>
-
-                            <div class="input-field col m4">
-                                <div> <%= form.text_field :proportion_of_good_covered_by_security, class: "validate", placeholder: "  %" %> </div>
-                            </div>
-
-                            <div class="input-field col s12 m12">
-                                <%= form.label :when_security_received, t('when_security_received') %>
-                            </div>
-
-                            <div class="input-field col m4">
-                                <%= form.select :when_security_received, options_for_select([[t('please_select'), "0"], ["Vor Fabrikationsbeginn", "1"], ["bereits erhalten", "2"], ["Vor Liefer-/Leistungsbeginn", "3"], ["Später", "4"], ["Anderer Termin", "5"]], @insurance.when_security_received ? @insurance.when_security_received : nil), {}, id: "when_security_received", class: "validate" %>
-                            </div>
-
                         </div>
                     </div>
 

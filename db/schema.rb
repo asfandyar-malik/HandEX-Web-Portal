@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_15_105534) do
+ActiveRecord::Schema.define(version: 2019_08_19_132827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -109,8 +109,6 @@ ActiveRecord::Schema.define(version: 2019_08_15_105534) do
     t.string "why_partly_foreign_rawgoods_necessary"
     t.string "security_type"
     t.string "security_type_name"
-    t.string "proportion_of_good_covered_by_security"
-    t.string "when_security_received"
     t.string "importer_company_name"
     t.string "importer_street_hno"
     t.string "importer_plz"
@@ -301,6 +299,8 @@ ActiveRecord::Schema.define(version: 2019_08_15_105534) do
     t.bigint "export_application_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "proportion_of_good_covered_by_security"
+    t.string "when_security_received"
     t.index ["export_application_id"], name: "index_guarantees_on_export_application_id"
   end
 
@@ -405,6 +405,8 @@ ActiveRecord::Schema.define(version: 2019_08_15_105534) do
     t.bigint "insurance_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "proportion_of_good_covered_by_security"
+    t.string "when_security_received"
     t.index ["insurance_id"], name: "index_insurance_guarantees_on_insurance_id"
   end
 
@@ -500,8 +502,6 @@ ActiveRecord::Schema.define(version: 2019_08_15_105534) do
     t.string "why_partly_foreign_rawgoods_necessary"
     t.string "security_type"
     t.string "security_type_name"
-    t.string "proportion_of_good_covered_by_security"
-    t.string "when_security_received"
     t.string "importer_company_name"
     t.string "importer_street_hno"
     t.string "importer_plz"
