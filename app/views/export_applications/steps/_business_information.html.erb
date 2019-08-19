@@ -54,17 +54,17 @@
             <br><br>
 
             <label onclick="servicingForGoods()">
-                            <span class="yes yes-no-btns exporter_offers_servicing_for_goods <%= 'active-btn' if (@export_application.exporter_offers_servicing_for_goods) %>">
-                                <%= check_box_tag "export_application[exporter_offers_servicing_for_goods]", '1' %>
-                              <%= t :yes_button %>
-                            </span>
+                <span class="yes yes-no-btns exporter_offers_servicing_for_goods <%= 'active-btn' if (@export_application.exporter_offers_servicing_for_goods) %>">
+                    <%= check_box_tag "export_application[exporter_offers_servicing_for_goods]", '1' %>
+                  <%= t :yes_button %>
+                </span>
             </label>
 
             <label onclick="noServicingForGoods()">
-                            <span class="no yes-no-btns exporter_offers_servicing_for_goods <%= 'active-btn' if (!@export_application.exporter_offers_servicing_for_goods.nil? && !@export_application.exporter_offers_servicing_for_goods) %>">
-                                <%= check_box_tag "export_application[exporter_offers_servicing_for_goods]", '0' %>
-                              <%= t :no_button %>
-                            </span>
+                <span class="no yes-no-btns exporter_offers_servicing_for_goods <%= 'active-btn' if (!@export_application.exporter_offers_servicing_for_goods.nil? && !@export_application.exporter_offers_servicing_for_goods) %>">
+                    <%= check_box_tag "export_application[exporter_offers_servicing_for_goods]", '0' %>
+                  <%= t :no_button %>
+                </span>
             </label>
           </div>
 
@@ -97,17 +97,17 @@
               <br><br>
 
               <label onclick="deliveredPartOfConsortiumWithOtherCompanies()">
-                                <span class="yes yes-no-btns is_delivered_part_of_consortium_with_other_companies <%= 'active-btn' if (@export_application.is_delivered_part_of_consortium_with_other_companies) %>">
-                                    <%= check_box_tag "export_application[is_delivered_part_of_consortium_with_other_companies]", '1' %>
-                                  <%= t :yes_button %>
-                                </span>
+                    <span class="yes yes-no-btns is_delivered_part_of_consortium_with_other_companies <%= 'active-btn' if (@export_application.is_delivered_part_of_consortium_with_other_companies) %>">
+                        <%= check_box_tag "export_application[is_delivered_part_of_consortium_with_other_companies]", '1' %>
+                      <%= t :yes_button %>
+                    </span>
               </label>
 
               <label onclick="notDeliveredPartOfConsortiumWithOtherCompanies()">
-                                <span class="no yes-no-btns is_delivered_part_of_consortium_with_other_companies <%= 'active-btn' if (!@export_application.is_delivered_part_of_consortium_with_other_companies.nil? && !@export_application.is_delivered_part_of_consortium_with_other_companies) %>">
-                                    <%= check_box_tag "export_application[is_delivered_part_of_consortium_with_other_companies]", '0' %>
-                                  <%= t :no_button %>
-                                </span>
+                    <span class="no yes-no-btns is_delivered_part_of_consortium_with_other_companies <%= 'active-btn' if (!@export_application.is_delivered_part_of_consortium_with_other_companies.nil? && !@export_application.is_delivered_part_of_consortium_with_other_companies) %>">
+                        <%= check_box_tag "export_application[is_delivered_part_of_consortium_with_other_companies]", '0' %>
+                      <%= t :no_button %>
+                    </span>
               </label>
             </div>
 
@@ -123,17 +123,17 @@
                 <br><br>
 
                 <label onclick="isFullyResponsibleForProject()">
-                                    <span class="yes yes-no-btns is_fully_responsible_for_project <%= 'active-btn' if (@export_application.is_fully_responsible_for_project) %>">
-                                        <%= check_box_tag "export_application[is_fully_responsible_for_project]", '1' %>
-                                      <%= t :yes_button %>
-                                    </span>
+                    <span class="yes yes-no-btns is_fully_responsible_for_project <%= 'active-btn' if (@export_application.is_fully_responsible_for_project) %>">
+                        <%= check_box_tag "export_application[is_fully_responsible_for_project]", '1' %>
+                      <%= t :yes_button %>
+                    </span>
                 </label>
 
                 <label onclick="isNotFullyResponsibleForProject()">
-                                    <span class="no yes-no-btns is_fully_responsible_for_project <%= 'active-btn' if (!@export_application.is_fully_responsible_for_project.nil? && !@export_application.is_fully_responsible_for_project) %>">
-                                        <%= check_box_tag "export_application[is_fully_responsible_for_project]", '0' %>
-                                      <%= t :no_button %>
-                                    </span>
+                    <span class="no yes-no-btns is_fully_responsible_for_project <%= 'active-btn' if (!@export_application.is_fully_responsible_for_project.nil? && !@export_application.is_fully_responsible_for_project) %>">
+                        <%= check_box_tag "export_application[is_fully_responsible_for_project]", '0' %>
+                      <%= t :no_button %>
+                    </span>
                 </label>
               </div>
 
@@ -342,17 +342,17 @@
               <br><br>
 
               <label onclick="contractAlreadySignedBetweenParties()">
-                                <span class="yes yes-no-btns is_contract_already_signed_between_parties <%= 'active-btn' if (@export_application.is_contract_already_signed_between_parties) %>">
-                                    <%= check_box_tag "export_application[is_contract_already_signed_between_parties]", '1' %>
-                                  <%= t :yes_button %>
-                                </span>
+                    <span class="yes yes-no-btns is_contract_already_signed_between_parties <%= 'active-btn' if (@export_application.is_contract_already_signed_between_parties) %>">
+                        <%= check_box_tag "export_application[is_contract_already_signed_between_parties]", '1' %>
+                      <%= t :yes_button %>
+                    </span>
               </label>
 
               <label onclick="noContractAlreadySignedBetweenParties()">
-                                <span class="no yes-no-btns is_contract_already_signed_between_parties <%= 'active-btn' if (!@export_application.is_contract_already_signed_between_parties.nil? && !@export_application.is_contract_already_signed_between_parties) %>">
-                                    <%= check_box_tag "export_application[is_contract_already_signed_between_parties]", '0' %>
-                                  <%= t :no_button %>
-                                </span>
+                    <span class="no yes-no-btns is_contract_already_signed_between_parties <%= 'active-btn' if (!@export_application.is_contract_already_signed_between_parties.nil? && !@export_application.is_contract_already_signed_between_parties) %>">
+                        <%= check_box_tag "export_application[is_contract_already_signed_between_parties]", '0' %>
+                      <%= t :no_button %>
+                    </span>
               </label>
             </div>
 
@@ -377,17 +377,17 @@
                 <br><br>
 
                 <label onclick="partInTender()">
-                                    <span class="yes yes-no-btns taking_part_in_tender <%= 'active-btn' if (@export_application.taking_part_in_tender) %>">
-                                        <%= check_box_tag "export_application[taking_part_in_tender]", '1' %>
-                                      <%= t :yes_button %>
-                                    </span>
+                    <span class="yes yes-no-btns taking_part_in_tender <%= 'active-btn' if (@export_application.taking_part_in_tender) %>">
+                        <%= check_box_tag "export_application[taking_part_in_tender]", '1' %>
+                      <%= t :yes_button %>
+                    </span>
                 </label>
 
                 <label onclick="noPartInTender()">
-                                    <span class="no yes-no-btns taking_part_in_tender <%= 'active-btn' if (!@export_application.taking_part_in_tender.nil? && !@export_application.taking_part_in_tender) %>">
-                                        <%= check_box_tag "export_application[taking_part_in_tender]", '0' %>
-                                      <%= t :no_button %>
-                                    </span>
+                    <span class="no yes-no-btns taking_part_in_tender <%= 'active-btn' if (!@export_application.taking_part_in_tender.nil? && !@export_application.taking_part_in_tender) %>">
+                        <%= check_box_tag "export_application[taking_part_in_tender]", '0' %>
+                      <%= t :no_button %>
+                    </span>
                 </label>
               </div>
               <div id="partInTender" style="display: <%= (@export_application.taking_part_in_tender.present? && @export_application.taking_part_in_tender)? 'block' : 'none' %>;">
@@ -406,17 +406,17 @@
               <p> <%= t :sensitivearea_additional_information %></p>
 
               <label onclick="deliveryAffectsSensitiveArea()">
-                                <span class="yes yes-no-btns does_delivery_affect_sensitive_areas <%= 'active-btn' if (@export_application.does_delivery_affect_sensitive_areas) %>">
-                                    <%= check_box_tag "export_application[does_delivery_affect_sensitive_areas]", '1' %>
-                                  <%= t :yes_button %>
-                                </span>
+                    <span class="yes yes-no-btns does_delivery_affect_sensitive_areas <%= 'active-btn' if (@export_application.does_delivery_affect_sensitive_areas) %>">
+                        <%= check_box_tag "export_application[does_delivery_affect_sensitive_areas]", '1' %>
+                      <%= t :yes_button %>
+                    </span>
               </label>
 
               <label onclick="deliveryDoesNotAffectsSensitiveArea()">
-                                <span class="no yes-no-btns does_delivery_affect_sensitive_areas <%= 'active-btn' if (!@export_application.does_delivery_affect_sensitive_areas.nil? && !@export_application.does_delivery_affect_sensitive_areas) %>">
-                                    <%= check_box_tag "export_application[does_delivery_affect_sensitive_areas]", '0' %>
-                                  <%= t :no_button %>
-                                </span>
+                    <span class="no yes-no-btns does_delivery_affect_sensitive_areas <%= 'active-btn' if (!@export_application.does_delivery_affect_sensitive_areas.nil? && !@export_application.does_delivery_affect_sensitive_areas) %>">
+                        <%= check_box_tag "export_application[does_delivery_affect_sensitive_areas]", '0' %>
+                      <%= t :no_button %>
+                    </span>
               </label>
             </div>
 
@@ -440,17 +440,17 @@
               <br><br>
 
               <label onclick="exportLicenceNeeded()">
-                                <span class="yes yes-no-btns is_export_licence_needed <%= 'active-btn' if (@export_application.is_export_licence_needed) %>">
-                                    <%= check_box_tag "export_application[is_export_licence_needed]", '1' %>
-                                  <%= t :yes_button %>
-                                </span>
+                    <span class="yes yes-no-btns is_export_licence_needed <%= 'active-btn' if (@export_application.is_export_licence_needed) %>">
+                        <%= check_box_tag "export_application[is_export_licence_needed]", '1' %>
+                      <%= t :yes_button %>
+                    </span>
               </label>
 
               <label onclick="noExportLicenceNeeded()">
-                                <span class="no yes-no-btns is_export_licence_needed <%= 'active-btn' if (!@export_application.is_export_licence_needed.nil? && !@export_application.is_export_licence_needed) %>">
-                                    <%= check_box_tag "export_application[is_export_licence_needed]", '0' %>
-                                  <%= t :no_button %>
-                                </span>
+                    <span class="no yes-no-btns is_export_licence_needed <%= 'active-btn' if (!@export_application.is_export_licence_needed.nil? && !@export_application.is_export_licence_needed) %>">
+                        <%= check_box_tag "export_application[is_export_licence_needed]", '0' %>
+                      <%= t :no_button %>
+                    </span>
               </label>
             </div>
 
@@ -473,17 +473,17 @@
               <br><br>
 
               <label onclick="deliverySecondHandGoods()">
-                                <span class="yes yes-no-btns are_secondhand_goods_delivered <%= 'active-btn' if (@export_application.are_secondhand_goods_delivered) %>">
-                                    <%= check_box_tag "export_application[are_secondhand_goods_delivered]", '1' %>
-                                  <%= t :yes_button %>
-                                </span>
+                    <span class="yes yes-no-btns are_secondhand_goods_delivered <%= 'active-btn' if (@export_application.are_secondhand_goods_delivered) %>">
+                        <%= check_box_tag "export_application[are_secondhand_goods_delivered]", '1' %>
+                      <%= t :yes_button %>
+                    </span>
               </label>
 
               <label onclick="noDeliverySecondHandGoods()">
-                                <span class="no yes-no-btns are_secondhand_goods_delivered <%= 'active-btn' if (!@export_application.are_secondhand_goods_delivered.nil? && !@export_application.are_secondhand_goods_delivered) %>">
-                                    <%= check_box_tag "export_application[are_secondhand_goods_delivered]", '0' %>
-                                  <%= t :no_button %>
-                                </span>
+                    <span class="no yes-no-btns are_secondhand_goods_delivered <%= 'active-btn' if (!@export_application.are_secondhand_goods_delivered.nil? && !@export_application.are_secondhand_goods_delivered) %>">
+                        <%= check_box_tag "export_application[are_secondhand_goods_delivered]", '0' %>
+                      <%= t :no_button %>
+                    </span>
               </label>
             </div>
 
@@ -502,17 +502,17 @@
                 <br><br>
 
                 <label onclick="goodOverhauled()">
-                                    <span class="yes yes-no-btns are_goods_overhauled <%= 'active-btn' if (@export_application.are_goods_overhauled) %>">
-                                        <%= check_box_tag "export_application[are_goods_overhauled]", '1' %>
-                                      <%= t :yes_button %>
-                                    </span>
+                    <span class="yes yes-no-btns are_goods_overhauled <%= 'active-btn' if (@export_application.are_goods_overhauled) %>">
+                        <%= check_box_tag "export_application[are_goods_overhauled]", '1' %>
+                      <%= t :yes_button %>
+                    </span>
                 </label>
 
                 <label onclick="noGoodsOverhauled()">
-                                    <span class="no yes-no-btns are_goods_overhauled <%= 'active-btn' if (!@export_application.are_goods_overhauled.nil? && !@export_application.are_goods_overhauled) %>">
-                                        <%= check_box_tag "export_application[are_goods_overhauled]", '0' %>
-                                      <%= t :no_button %>
-                                    </span>
+                    <span class="no yes-no-btns are_goods_overhauled <%= 'active-btn' if (!@export_application.are_goods_overhauled.nil? && !@export_application.are_goods_overhauled) %>">
+                        <%= check_box_tag "export_application[are_goods_overhauled]", '0' %>
+                      <%= t :no_button %>
+                    </span>
                 </label>
               </div>
 
@@ -546,17 +546,17 @@
               <br><br>
 
               <label onclick="specialContractStructure()">
-                                <span class="yes yes-no-btns has_special_contract_structure <%= 'active-btn' if (@export_application.has_special_contract_structure) %>">
-                                    <%= check_box_tag "export_application[has_special_contract_structure]", '1' %>
-                                  <%= t :yes_button %>
-                                </span>
+                     <span class="yes yes-no-btns has_special_contract_structure <%= 'active-btn' if (@export_application.has_special_contract_structure) %>">
+                        <%= check_box_tag "export_application[has_special_contract_structure]", '1' %>
+                      <%= t :yes_button %>
+                    </span>
               </label>
 
               <label onclick="noSpecialContractStructure()">
-                                <span class="no yes-no-btns has_special_contract_structure <%= 'active-btn' if (!@export_application.has_special_contract_structure.nil? && !@export_application.has_special_contract_structure) %>">
-                                    <%= check_box_tag "export_application[has_special_contract_structure]", '0' %>
-                                  <%= t :no_button %>
-                                </span>
+                    <span class="no yes-no-btns has_special_contract_structure <%= 'active-btn' if (!@export_application.has_special_contract_structure.nil? && !@export_application.has_special_contract_structure) %>">
+                        <%= check_box_tag "export_application[has_special_contract_structure]", '0' %>
+                      <%= t :no_button %>
+                    </span>
               </label>
             </div>
 
@@ -575,24 +575,24 @@
               <br><br>
 
               <label onclick="germanCertificateOfOrigin()">
-                                <span class="yes yes-no-btns has_german_certificate_of_origin <%= 'active-btn' if (@export_application.has_german_certificate_of_origin) %>">
-                                    <%= check_box_tag "export_application[has_german_certificate_of_origin]", '1' %>
-                                  <%= t :yes_button %>
-                                </span>
+                    <span class="yes yes-no-btns has_german_certificate_of_origin <%= 'active-btn' if (@export_application.has_german_certificate_of_origin) %>">
+                        <%= check_box_tag "export_application[has_german_certificate_of_origin]", '1' %>
+                      <%= t :yes_button %>
+                    </span>
               </label>
 
               <label onclick="noGermanCertificateOfOrigin()">
-                                <span class="no yes-no-btns has_german_certificate_of_origin <%= 'active-btn' if (!@export_application.has_german_certificate_of_origin.nil? && !@export_application.has_german_certificate_of_origin) %>">
-                                    <%= check_box_tag "export_application[has_german_certificate_of_origin]", '0' %>
-                                  <%= t :no_button %>
-                                </span>
+                    <span class="no yes-no-btns has_german_certificate_of_origin <%= 'active-btn' if (!@export_application.has_german_certificate_of_origin.nil? && !@export_application.has_german_certificate_of_origin) %>">
+                        <%= check_box_tag "export_application[has_german_certificate_of_origin]", '0' %>
+                      <%= t :no_button %>
+                    </span>
               </label>
 
               <label onclick="partlyGermanCertificateOfOrigin()">
-                                <span class="partly yes-no-btns has_german_certificate_of_origin_for_only_parts_of_good <%= 'active-btn' if (@export_application.has_german_certificate_of_origin_for_only_parts_of_good.present? && @export_application.has_german_certificate_of_origin_for_only_parts_of_good) %>">
-                                    <%= check_box_tag "export_application[has_german_certificate_of_origin_for_only_parts_of_good]", '1' %>
-                                  <%= t('partial_german_certificate_of_origin') %>
-                                </span>
+                    <span class="partly yes-no-btns has_german_certificate_of_origin_for_only_parts_of_good <%= 'active-btn' if (@export_application.has_german_certificate_of_origin_for_only_parts_of_good.present? && @export_application.has_german_certificate_of_origin_for_only_parts_of_good) %>">
+                        <%= check_box_tag "export_application[has_german_certificate_of_origin_for_only_parts_of_good]", '1' %>
+                      <%= t('partial_german_certificate_of_origin') %>
+                    </span>
               </label>
 
             </div>
