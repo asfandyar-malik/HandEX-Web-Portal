@@ -56,7 +56,7 @@
                                     <% end %>
                                     </tbody>
                                 </table>
-                                <div class="form-actions">
+                                <div class="counters form-actions">
                                     <%= link_to_add_association t('add_guarantee_fields'), form, :insurance_guarantees, :partial => 'insurances/dynamic/insurance_guarantee_fields', class: 'btn btn-primary', data: {association_insertion_node: '.guarantees', association_insertion_method: :append} %>
                                 </div>
                             </div>
@@ -140,7 +140,7 @@
                                     </table>
                                 </div>
                                 <div class="input-field col m12">
-                                    <div class="form-actions">
+                                    <div class="counters form-actions">
                                         <%= link_to_add_association t('add_agreed_payment'), form, :insurance_agreed_payments, :partial => 'insurances/dynamic/insurance_agreed_payment_fields', class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payments', association_insertion_method: :append} %>
                                     </div>
                                 </div>
@@ -168,7 +168,7 @@
                                     </table>
                                 </div>
                                 <div class="input-field col m12">
-                                    <div class="form-actions">
+                                    <div class="counters form-actions">
                                         <%= link_to_add_association t('add'), form, :insurance_agreed_payment_mid_longs, :partial => 'insurances/dynamic/insurance_agreed_payment_mid_long_fields', class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payment_mid_longs', association_insertion_method: :append} %>
                                     </div>
                                 </div>
@@ -238,7 +238,7 @@
                                 </table>
 
                                 <div class="input-field col m12">
-                                    <div class="form-actions">
+                                    <div class="counters form-actions">
                                         <%= link_to_add_association 'Hinzufügen', form, :insurance_agreed_payments, :partial => 'insurances/dynamic/insurance_agreed_payment_fields', class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payments_both', association_insertion_method: :append} %>
                                     </div>
                                 </div>
@@ -264,7 +264,7 @@
                                 </table>
                             </div>
                             <div class="input-field col m12">
-                                <div class="form-actions">
+                                <div class="counters form-actions">
                                     <%= link_to_add_association t('add'), form, :insurance_agreed_payment_mid_longs, :partial => 'insurances/dynamic/insurance_agreed_payment_mid_long_fields', class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payment_mid_longs', association_insertion_method: :append} %>
                                 </div>
                             </div>

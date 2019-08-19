@@ -56,7 +56,7 @@
                                 </tbody>
                             </table>
 
-                            <div class="form-actions">
+                            <div class="counters form-actions">
                                 <%= link_to_add_association t('add_guarantee_fields'), form, :guarantees, :partial => 'export_applications/dynamic/guarantee_fields', class: 'btn btn-primary', data: {association_insertion_node: '.guarantees', association_insertion_method: :append} %>
                             </div>
                         </div>
@@ -141,7 +141,7 @@
                                 </table>
                             </div>
                             <div class="input-field col m12">
-                                <div class="form-actions">
+                                <div class="counters form-actions">
                                     <%= link_to_add_association t('add_agreed_payment'), form, :agreed_payments, :partial => 'export_applications/dynamic/agreed_payment_fields', class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payments', association_insertion_method: :append} %>
                                 </div>
                             </div>
@@ -171,7 +171,7 @@
                             </table>
 
                             <div class="input-field col m4">
-                                <div class="form-actions">
+                                <div class="counters form-actions">
                                     <%= link_to_add_association t('add'), form, :agreed_payment_mid_longs, :partial => 'export_applications/dynamic/agreed_payment_mid_long_fields', class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payment_mid_longs', association_insertion_method: :append} %>
                                 </div>
                             </div>
@@ -241,7 +241,7 @@
                             </table>
 
                             <div class="input-field col m4">
-                                <div class="form-actions">
+                                <div class="counters form-actions">
                                     <%= link_to_add_association 'Hinzufügen', form, :agreed_payments, :partial => 'export_applications/dynamic/agreed_payment_fields', class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payments_both', association_insertion_method: :append} %>
                                 </div>
                             </div>
@@ -270,7 +270,7 @@
                             </table>
 
                             <div class="input-field col m4">
-                                <div class="form-actions">
+                                <div class="counters form-actions">
                                     <%= link_to_add_association t('add'), form, :agreed_payment_mid_longs, :partial => 'export_applications/dynamic/agreed_payment_mid_long_fields', class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payment_mid_longs', association_insertion_method: :append} %>
                                 </div>
                             </div>

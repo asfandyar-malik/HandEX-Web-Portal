@@ -1,18 +1,22 @@
 <tr class="nested-fields">
-  <td  class="explanation_field_in_multi_row">
-    <br>
-    <label for="insurance_delivery_start" class="active">Zahlungsrelevanz</label>
-    <div>
-      <%= f.text_field :payment_relevant_information, id: "start_date", autofocus: true, class: "datepicker", placeholder: "Information über die Milestone" %>
-    </div>
-  </td>
-  <td>
-    <br>
-    <label for="export_application_delivery_start" class="active">Milestone</label>
-    <%= f.text_field :payment_relevant_milestone, id: "end_date", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
-  </td>
-  <td>
-    <br>
-    <%= link_to_remove_association t('delete'), f, class: 'btn btn-primary btn-xs right remove_fields_with_label' %>
-  </td>
+
+    <td class="counter">
+    </td>
+
+    <td class="explanation_field_in_multi_row">
+        <br>
+        <label for="insurance_delivery_start" class="active">Zahlungsrelevanz</label>
+        <div>
+            <%= f.text_field :payment_relevant_information, id: "start_date", autofocus: true, class: "datepicker", placeholder: "Information über die Milestone" %>
+        </div>
+    </td>
+    <td>
+        <br>
+        <label for="export_application_delivery_start" class="active">Milestone</label>
+        <%= f.text_field :payment_relevant_milestone, id: "end_date", autofocus: true, class: "datepicker", placeholder: "dd/mm/yyyy" %>
+    </td>
+    <td>
+        <br>
+        <%= link_to_remove_association t('delete'), f, class: 'btn btn-primary btn-xs right remove_fields_with_label' %>
+    </td>
 </tr>

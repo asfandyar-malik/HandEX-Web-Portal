@@ -1,22 +1,24 @@
 <tr class="nested-fields">
 
-    <td class="input-field col m5">
+    <td class="counter">
+    </td>
+
+    <td class="input-field col m6">
         <%= f.label :security_type, t('type_of_security') %>
         <%= f.select :security_type, [[t('please_select'), "0"], ["Unbestätigtes Akkreditiv einer Bank", "1"], ["Bestätigtes Akkreditiv", "2"], ["Zahlungsgarantie einer Bank", "3"], ["Zahlungsgarantie eines Unternehmens", "4"], ["(eingetragener) Eigentumsvorbehalt (dingliche Sicherheit)", "5"], ["Pfandrecht (dingliche Sicherheit)", "6"], ["sonstige", "7"]], {}, id: "security_type", class: "validate" %>
     </td>
 
-    <td class="input-field col m7">
+    <td class="input-field col m6">
         <%= f.label :security_type_name, t('security_name') %>
         <%= f.text_field :security_type_name, class: "validate", placeholder: t('security_name') %>
     </td>
 
-    <td class="input-field col m5">
+    <td class="input-field col m6">
         <%= f.label :proportion_of_good_covered_by_security, t('proportion_of_good_covered_by_security') %>
         <%= f.text_field :proportion_of_good_covered_by_security, class: "validate", placeholder: "  %" %>
     </td>
 
-    <td class="input-field col m7">
-        <br>
+    <td class="input-field col m6">
         <%= f.label :when_security_received, t('when_security_received') %>
         <%= f.select :when_security_received, options_for_select([[t('please_select'), "0"], ["Vor Fabrikationsbeginn", "1"], ["bereits erhalten", "2"], ["Vor Liefer-/Leistungsbeginn", "3"], ["Später", "4"], ["Anderer Termin", "5"]]), {}, id: "when_security_received", class: "validate" %>
     </td>
