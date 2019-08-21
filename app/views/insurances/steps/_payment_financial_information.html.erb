@@ -307,7 +307,7 @@
                                     </div>
                                 </div>
 
-                                <div class="input-field col m12">
+                                <div class="input-field col m8">
                                     <%= form.label :repayment_structure_payment_term_both, t('repayment_structure_payment_term_both') %>
                                     <%= form.select :repayment_structure_payment_term_both, options_for_select([t('please_select'), "Monatliche Tilgungsraten", "Vierteljährliche Tilgungsprofil", "Halbjährige Tilgungsprofil", "Unregelmäßig"], @insurance.repayment_structure_payment_term_both ? @insurance.repayment_structure_payment_term_both : nil), {}, class: "validate", id: "repayment_structure_payment_term_both", :onchange => 'repaymentStructurePaymentTermBoth()' %>
                                 </div>
@@ -334,12 +334,7 @@
                                     </div>
                                 </div>
 
-                                <div class="input-field col m12">
-                                    <%= form.label :repayment_structure_payment_term_both, t('repayment_structure_payment_term_both') %>
-                                    <%= form.select :repayment_structure_payment_term_both, options_for_select([t('please_select'), "Monatliche Tilgungsraten", "Vierteljährliche Tilgungsprofil", "Halbjährige Tilgungsprofil", "Unregelmäßig"], @insurance.repayment_structure_payment_term_both ? @insurance.repayment_structure_payment_term_both : nil), {}, class: "validate" %>
-                                </div>
-
-                                <div class="input-field col m12">
+                                <div class="input-field col m8">
                                     <%= form.label :loan_term_start_payment_term_both, t('loan_term_start_payment_term_both') %>
                                     <%= form.select :loan_term_start_payment_term_both, options_for_select([t('please_select'), "mit Lieferung", "mit erster Lieferung (bei mehreren Lieferungen)", "mit jeweiliger Lieferung (bei mehreren Lieferungen)", "mittlerer gewogener Liefertermin (bei mehreren Lieferungen)", "mit Betriebsbereitschaft", "Sonstige"], @insurance.loan_term_start_payment_term_both ? @insurance.loan_term_start_payment_term_both : nil), {}, class: "validate", id: "loan_term_start_payment_term_both", :onchange => 'loanTermStartPaymentTermBoth()' %>
                                 </div>
