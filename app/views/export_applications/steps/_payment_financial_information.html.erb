@@ -217,7 +217,7 @@
                                 </div>
 
                                 <table class='table'>
-                                    <tbody class='special_repayment_profiles'>
+                                    <tbody class='special_repayment_profiles_mid'>
                                     <%= form.fields_for :special_repayment_profiles do |builder| %>
                                         <%= render 'export_applications/dynamic/special_repayment_profile_fields', f: builder %>
                                     <% end %>
@@ -226,7 +226,7 @@
 
                                 <div class="input-field col m6">
                                     <div class="counters form-actions">
-                                        <%= link_to_add_association "Besondere Tilgungsprofil Hinzufügen", form, :special_repayment_profiles, :partial => 'export_applications/dynamic/special_repayment_profile_fields', class: 'btn btn-primary', data: {association_insertion_node: '.special_repayment_profiles', association_insertion_method: :append} %>
+                                        <%= link_to_add_association "Besondere Tilgungsprofil Hinzufügen", form, :special_repayment_profiles, :partial => 'export_applications/dynamic/special_repayment_profile_fields', class: 'btn btn-primary', data: {association_insertion_node: '.special_repayment_profiles_mid ', association_insertion_method: :append} %>
                                     </div>
                                 </div>
                             </div>
@@ -335,16 +335,39 @@
 
                             <div class="input-field col m12">
                                 <%= form.label :repayment_structure_payment_term_both, t('repayment_structure_payment_term_both') %>
-                                <%= form.select :repayment_structure_payment_term_both, options_for_select([t('please_select'), "Monatliche Tilgungsraten", "Vierteljährliche Tilgungsprofil", "Halbjährige Tilgungsprofil", "Unregelmäßig"], @export_application.repayment_structure_payment_term_both ? @export_application.repayment_structure_payment_term_both : nil), {}, class: "validate" %>
+                                <%= form.select :repayment_structure_payment_term_both, options_for_select([t('please_select'), "Monatliche Tilgungsraten", "Vierteljährliche Tilgungsprofil", "Halbjährige Tilgungsprofil", "Unregelmäßig"], @export_application.repayment_structure_payment_term_both ? @export_application.repayment_structure_payment_term_both : nil), {}, class: "validate", id: "repayment_structure_payment_term_both", :onchange => 'repaymentStructurePaymentTermBoth()' %>
+                            </div>
+
+                            <div class="input-field col s12 m12 no-padding" id="repaymentStructurePaymentTermBoth" style="display: <%=(!@export_application.repayment_structure_payment_term_both.nil? && @export_application.repayment_structure_payment_term_both == "Unregelmäßig") ? 'block' : 'none' %>;">
+
+                                <div class="input-field col m12">
+                                    <label> Bitte erläutern Sie das besondere Tilgungsprofil. </label>
+                                    <!--                                    <p> Über die Schalter können Sie auswählen, ob Sie die Höhe der Tilgungsraten in absoluten Beträgen oder in Prozent des Auftragswertes angeben, und ob Sie die Fälligkeiten über ein Fälligkeitsdatum oder einen Referenztermin (z.B."sechs Monate nach Betriebsbereitschaft") angeben.</p>-->
+                                </div>
+
+                                <table class='table'>
+                                    <tbody class='special_repayment_profiles_both'>
+                                    <%= form.fields_for :special_repayment_profiles do |builder| %>
+                                        <%= render 'export_applications/dynamic/special_repayment_profile_fields', f: builder %>
+                                    <% end %>
+                                    </tbody>
+                                </table>
+
+                                <div class="input-field col m6">
+                                    <div class="counters form-actions">
+                                        <%= link_to_add_association "Besondere Tilgungsprofil Hinzufügen", form, :special_repayment_profiles, :partial => 'export_applications/dynamic/special_repayment_profile_fields', class: 'btn btn-primary', data: {association_insertion_node: '.special_repayment_profiles_both', association_insertion_method: :append} %>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="input-field col m12">
                                 <%= form.label :loan_term_start_payment_term_both, t('loan_term_start_payment_term_both') %>
-                                <%= form.select :loan_term_start_payment_term_both, options_for_select([t('please_select'), "mit Lieferung", "mit erster Lieferung (bei mehreren Lieferungen)", "mit jeweiliger Lieferung (bei mehreren Lieferungen)", "mittlerer gewogener Liefertermin (bei mehreren Lieferungen)", "mit Betriebsbereitschaft", "sonstige"], @export_application.loan_term_start_payment_term_both ? @export_application.loan_term_start_payment_term_both : nil), {}, class: "validate" %>
+                                <%= form.select :loan_term_start_payment_term_both, options_for_select([t('please_select'), "mit Lieferung", "mit erster Lieferung (bei mehreren Lieferungen)", "mit jeweiliger Lieferung (bei mehreren Lieferungen)", "mittlerer gewogener Liefertermin (bei mehreren Lieferungen)", "mit Betriebsbereitschaft", "Sonstige"], @export_application.loan_term_start_payment_term_both ? @export_application.loan_term_start_payment_term_both : nil), {}, class: "validate", id: "loan_term_start_payment_term_both", :onchange => 'loanTermStartPaymentTermBoth()' %>
                             </div>
-                            <div class="input-field col m12">
-                                <br>
-                                <%= form.text_area :loan_term_start_description_payment_term_both, class: "validate", placeholder: "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
+
+                            <div class="input-field col s12 m12" id="loanTermStartDescriptionPaymentTermBoth" style="display: <%=(!@export_application.loan_term_start_description_payment_term_both.nil? && @export_application.loan_term_start_description_payment_term_both == "Sonstige") ? 'block' : 'none' %>;">
+                                <%= form.label :loan_term_start_description_payment_term_both, "Wenn sonstige ausgewahlt, bitte erläutern Sie, wann die Kreditlaufzeit beginnt." %>
+                                <%= form.text_area :loan_term_start_description_payment_term_both, class: "validate handex_text_area", :rows => 5 %>
                             </div>
 
                             <div id="workwithothercompanies">

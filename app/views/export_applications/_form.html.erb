@@ -914,4 +914,20 @@
         }
     }
 
+    function loanTermStartPaymentTermBoth() {
+        if ($('#loan_term_start_payment_term_both option:selected').val() === 'Sonstige') {
+            $('#loanTermStartDescriptionPaymentTermBoth').show();
+        } else {
+            $('#loanTermStartDescriptionPaymentTermBoth').hide();
+        }
+    }
+
+    function repaymentStructurePaymentTermBoth() {
+        if ($('#repayment_structure_payment_term_both option:selected').val() === 'Unregelmäßig') {
+            $('#repaymentStructurePaymentTermBoth').show();
+        } else {
+            $('#repaymentStructurePaymentTermBoth').hide();
+        }
+    }
+
 </script>
