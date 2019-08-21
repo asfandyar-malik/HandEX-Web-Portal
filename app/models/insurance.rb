@@ -8,6 +8,7 @@ class Insurance < ApplicationRecord
     has_many :insurance_source_of_funds, dependent: :destroy
     has_many :insurance_application_of_funds, dependent: :destroy
     has_many :insurance_extra_billed_items, dependent: :destroy
+    has_many :insurance_special_repayment_profiles, dependent: :destroy
 
     accepts_nested_attributes_for :insurance_supplies_from_foreign_origins,
                                   allow_destroy: true
@@ -31,6 +32,9 @@ class Insurance < ApplicationRecord
                                   allow_destroy: true
 
     accepts_nested_attributes_for :insurance_extra_billed_items,
+                                  allow_destroy: true
+
+    accepts_nested_attributes_for :insurance_special_repayment_profiles,
                                   allow_destroy: true
     
     has_attached_file :annual_financial_statement_importer, :storage => :cloudinary, :cloudinary_resource_type => :image, :path => "insurances/:attachment/:id/:style/:filename",

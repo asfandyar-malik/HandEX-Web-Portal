@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_19_165046) do
+ActiveRecord::Schema.define(version: 2019_08_21_115738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -429,6 +429,16 @@ ActiveRecord::Schema.define(version: 2019_08_19_165046) do
     t.index ["insurance_id"], name: "index_insurance_source_of_funds_on_insurance_id"
   end
 
+  create_table "insurance_special_repayment_profiles", force: :cascade do |t|
+    t.string "currency"
+    t.string "amount_receivable"
+    t.string "due_date"
+    t.bigint "insurance_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["insurance_id"], name: "index_insurance_special_repayment_profiles_on_insurance_id"
+  end
+
   create_table "insurance_supplies_from_foreign_origins", force: :cascade do |t|
     t.string "all_rawgoods_supplier_currency"
     t.string "all_rawgoods_supplier_amount"
@@ -837,6 +847,7 @@ ActiveRecord::Schema.define(version: 2019_08_19_165046) do
   add_foreign_key "insurance_guarantees", "insurances"
   add_foreign_key "insurance_multiple_shipments", "insurances"
   add_foreign_key "insurance_source_of_funds", "insurances"
+  add_foreign_key "insurance_special_repayment_profiles", "insurances"
   add_foreign_key "insurance_supplies_from_foreign_origins", "insurances"
   add_foreign_key "insurances", "users"
   add_foreign_key "multiple_shipments", "export_applications"
