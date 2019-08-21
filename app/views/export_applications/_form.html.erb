@@ -107,7 +107,8 @@
     }
 
     function kurzFristigTermOfPayment() {
-        $('#export_application_payment_term_short').prop('checked', true);
+        // $('#export_application_payment_term_short').prop('checked', true);
+
         var x = document.getElementById("ShortTermOfPayment");
         var y = document.getElementById("MidTermOfPayment");
         var z = document.getElementById("BothTermOfPayment");
@@ -891,10 +892,26 @@
     }
 
     function closeForm() {
-        $("#export_application_invitation_importer_company_name").prop('required',false);
-        $("#export_application_invitation_importer_representative_name").prop('required',false);
-        $("#export_application_invitation_importer_email").prop('required',false);
+        $("#export_application_invitation_importer_company_name").prop('required', false);
+        $("#export_application_invitation_importer_representative_name").prop('required', false);
+        $("#export_application_invitation_importer_email").prop('required', false);
         document.getElementById("myForm").style.display = "none";
+    }
+
+    function loanTermStartPaymentTermMid() {
+        if ($('#loan_term_start_payment_term_mid option:selected').val() === 'Sonstige') {
+            $('#loanTermStartDescriptionPaymentTermMid').show();
+        } else {
+            $('#loanTermStartDescriptionPaymentTermMid').hide();
+        }
+    }
+
+    function repaymentStructurePaymentTermMid() {
+        if ($('#repayment_structure_payment_term_mid option:selected').val() === 'Unregelmäßig') {
+            $('#repaymentStructurePaymentTermMid').show();
+        } else {
+            $('#repaymentStructurePaymentTermMid').hide();
+        }
     }
 
 </script>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_19_132827) do
+ActiveRecord::Schema.define(version: 2019_08_19_165046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -777,6 +777,16 @@ ActiveRecord::Schema.define(version: 2019_08_19_132827) do
     t.index ["export_application_id"], name: "index_source_of_funds_on_export_application_id"
   end
 
+  create_table "special_repayment_profiles", force: :cascade do |t|
+    t.string "currency"
+    t.string "amount_receivable"
+    t.string "due_date"
+    t.bigint "export_application_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["export_application_id"], name: "index_special_repayment_profiles_on_export_application_id"
+  end
+
   create_table "supplies_from_foreign_origins", force: :cascade do |t|
     t.string "all_rawgoods_supplier_currency"
     t.string "all_rawgoods_supplier_amount"
@@ -831,5 +841,6 @@ ActiveRecord::Schema.define(version: 2019_08_19_132827) do
   add_foreign_key "insurances", "users"
   add_foreign_key "multiple_shipments", "export_applications"
   add_foreign_key "source_of_funds", "export_applications"
+  add_foreign_key "special_repayment_profiles", "export_applications"
   add_foreign_key "supplies_from_foreign_origins", "export_applications"
 end
