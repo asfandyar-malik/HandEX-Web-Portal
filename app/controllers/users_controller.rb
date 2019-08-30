@@ -36,7 +36,7 @@ class UsersController < ApplicationController
         @all_applications = @all_export_applications + @all_insurances + @all_importer_informations
     end
 
-    def invited_exporters
+    def invite_exporters
         @invited_exporters = filter_invite_exporter "INVITED"
     end
     

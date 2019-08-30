@@ -48,7 +48,7 @@ Rails.application.routes.draw do
                 get 'approved_applications'
                 get 'draft_applications'
                 get 'all_applications'
-                get 'invited_exporter'
+                get 'invite_exporters'
             end
         end
     end

@@ -6,7 +6,7 @@
             <span class="nav-title">Makler Portal</span>
             <a class="z-depth-0 btn z-depth-0 handex-btn-positiv" href="<%= pages_products_path %>" >Antrag starten</a>
 <!--            <a class="z-depth-0 btn z-depth-0 handex-btn" href="<%#= new_invite_exporter_path %>" >Kunden einladen</a>-->
-            <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= invited_exporter_user_path(current_user.id) %>" > Eingeladen </a>
+            <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= invite_exporters_user_path(current_user.id) %>" > Eingeladen </a>
         <% else %>
             <span class="nav-title">Anträge</span>
             <a class="z-depth-0 btn z-depth-0 handex-btn-positiv" href="<%= pages_products_path %>">Antrag starten</a>

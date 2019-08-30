@@ -18,8 +18,8 @@ class InviteExportersController < ApplicationController
     end
     
     def create
-        @invite_exporter.application_type = 'invite_exporter'
         @invite_exporter = current_user.invite_exporters.build(invite_exporter_params)
+        @invite_exporter.application_type = 'invite_exporter'
         @invite_exporter.application_status = 'INVITED'
         if @invite_exporter.save
             UserMailer.with(user: current_user, invite_exporter: @invite_exporter).invite_exporter_email.deliver_now
@@ -65,6 +65,6 @@ class InviteExportersController < ApplicationController
     end
     
     def invite_exporter_params
-        params.require(:invite_exporter).permit(:exporter_company_name, :exporter_broker_id, :exporter_email, :exporter_telephone, :exporter_representative_name)
+        params.require(:invite_exporter).permit(:application_type, :application_status, :exporter_company_name, :exporter_broker_id, :exporter_email, :exporter_telephone, :exporter_representative_name)
     end
 end
