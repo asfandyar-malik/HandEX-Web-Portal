@@ -305,7 +305,7 @@
                                 </div>
 
                                 <table class='table'>
-                                    <tbody class='agreed_payment_both'>
+                                    <tbody class='agreed_payment_mid_long_small'>
                                     <%= form.fields_for :insurance_agreed_payment_mid_longs do |builder| %>
                                         <%= render 'insurances/dynamic/insurance_agreed_payment_mid_long_fields', f: builder %>
                                     <% end %>
@@ -314,7 +314,7 @@
 
                                 <div class="input-field col m12">
                                     <div class="counters form-actions">
-                                        <%= link_to_add_association t('add'), form, :insurance_agreed_payment_mid_longs, :partial => 'insurances/dynamic/insurance_agreed_payment_mid_long_fields', class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payment_both', association_insertion_method: :append} %>
+                                        <%= link_to_add_association t('add'), form, :insurance_agreed_payment_mid_longs, :partial => 'insurances/dynamic/insurance_agreed_payment_mid_long_fields', class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payment_mid_long_small', association_insertion_method: :append} %>
                                     </div>
                                 </div>
 
