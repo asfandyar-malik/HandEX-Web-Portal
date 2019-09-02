@@ -196,10 +196,10 @@
                             <br><br>
 
                             <label onclick="goodsSentMultipleDeliveries()">
-                <span class="yes yes-no-btns is_good_sent_in_multiple_deliveries <%= 'active-btn' if (!@insurance.is_good_sent_in_multiple_deliveries.nil? && @insurance.is_good_sent_in_multiple_deliveries) %>">
-                    <%= check_box_tag "insurance[is_good_sent_in_multiple_deliveries]", '1' %>
-                    <%= t :yes_button %>
-                </span>
+                                <span class="yes yes-no-btns is_good_sent_in_multiple_deliveries <%= 'active-btn' if (!@insurance.is_good_sent_in_multiple_deliveries.nil? && @insurance.is_good_sent_in_multiple_deliveries) %>">
+                                    <%= check_box_tag "insurance[is_good_sent_in_multiple_deliveries]", '1' %>
+                                    <%= t :yes_button %>
+                                </span>
                             </label>
 
                             <label onclick="noGoodsSentMultipleDeliveries()">

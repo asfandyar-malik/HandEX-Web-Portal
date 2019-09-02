@@ -130,7 +130,7 @@
                                 </label>
 
                                 <label onclick="isNotFullyResponsibleForProject()">
-                                    <span class="no yes-no-btns is_fully_responsible_for_project <%= 'active-btn' if (!@export_application.is_fully_responsible_for_project.nil? && !@export_application.is_fully_responsible_for_project) %>">
+                                        <span class="no yes-no-btns is_fully_responsible_for_project <%= 'active-btn' if (!@export_application.is_fully_responsible_for_project.nil? && !@export_application.is_fully_responsible_for_project) %>">
                                         <%= check_box_tag "export_application[is_fully_responsible_for_project]", '0' %>
                                         <%= t :no_button %>
                                     </span>

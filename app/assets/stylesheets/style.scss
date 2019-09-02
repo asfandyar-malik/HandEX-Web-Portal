@@ -222,31 +222,6 @@ h3 {
       }
     }
 
-    span.threecol.btn {
-      border: 0;
-      background-color: #d6d0d0;
-      border-color: #d6d0d0;
-      color: white;
-    }
-
-    span.threecol.btn:hover {
-      background-color: #2541b2;
-      color: white;
-      border: 0;
-      label {
-        color: white;
-      }
-    }
-
-    span.threecol.btn.active_selection_card {
-      background-color: #2541b2;
-      color: white;
-      border: 0;
-      label {
-        color: white;
-      }
-    }
-
     .custom-area {
       height: 120px !important;
     }
@@ -323,6 +298,33 @@ h3 {
     max-width: 30% !important;
     color: white;
   }
+
+  .threecol.btn {
+    border: 0;
+    background-color: #d6d0d0;
+    border-color: #d6d0d0;
+    color: white;
+  }
+
+  .threecol.btn:hover {
+    background-color: #2541b2;
+    color: white;
+    border: 0;
+    label {
+      color: white;
+    }
+  }
+
+  .threecol.btn.active_selection_card {
+    background-color: #2541b2;
+    color: white;
+    border: 0;
+    label {
+      color: white;
+    }
+  }
+
+
 }
 
 .disabled {
@@ -335,6 +337,7 @@ form.col.s12.custom-form {
   padding: 15px 15px 0;
   border-radius: 5px;
 }
+
 
 .form-section {
   .form-nav-top {

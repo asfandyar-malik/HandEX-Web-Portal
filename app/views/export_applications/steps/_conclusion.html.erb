@@ -1,259 +1,259 @@
 <!-- step_5 start -->
 <div class="step_5 tab" id="step_5">
-  <!--   Form Navigation Section   -->
-  <div class="row form-nav-top">
-    <div class="col s12 m4">
-      <div class="form-nav form-nav-percent">
-        <p><span> 80% Fertig</span></p>
-      </div>
-    </div>
-    <div class="col s12 m2">
-      <div class="form-nav">
-        <h2>Abschluss</h2>
-      </div>
-    </div>
-    <div class="col s12 m6">
-      <div class="form-nav right">
-        <input class="btn handex-btn z-depth-0" type="submit" name="draft" value="Entwurf speichern">
-        <%= form.submit class: 'btn handex-btn z-depth-0', value: t('application_submit') %>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col s12">
-
-      <div class="form-content">
-
-        <div class="input-field col s12 m12">
-          <label> <%= t('information_for_business_examination') %> </label>
-          <p> <%= t('information_for_business_examination_description') %> </p>
+    <!--   Form Navigation Section   -->
+    <div class="row form-nav-top">
+        <div class="col s12 m4">
+            <div class="form-nav form-nav-percent">
+                <p><span> 80% Fertig</span></p>
+            </div>
         </div>
-
-        <div class="col s12 m6" style="display: <%= (@export_application.exporter_external_rating_available.present? && @export_application.exporter_external_rating_available)? 'none' : 'block' %>;">
-          <br>
-          <%= form.label :annual_financial_statement_exporter, t('annual_financial_statement_exporter') %>
-          <br><br>
-          <div class="file-field">
-            <div class="btn handex-btn z-depth-0">
-              <span> <%= t('browse') %></span>
-              <%= form.file_field :annual_financial_statement_exporter %>
+        <div class="col s12 m2">
+            <div class="form-nav">
+                <h2>Abschluss</h2>
             </div>
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="<%= @export_application.annual_financial_statement_exporter_file_name if (@export_application.annual_financial_statement_exporter.present?) %>">
-            </div>
-          </div>
         </div>
-
-        <div class="col s12 m6" style="display: <%= (@export_application.exporter_external_rating_available.present? && @export_application.exporter_external_rating_available)? 'none' : 'block' %>;">
-          <br>
-          <%= form.label :annual_financial_statement_exporter_second_last, t('annual_financial_statement_exporter_second_last') %>
-          <br><br>
-          <div class="file-field">
-            <div class="btn handex-btn z-depth-0">
-              <span> <%= t('browse') %></span>
-              <%= form.file_field :annual_financial_statement_exporter_second_last %>
-            </div>
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="<%= @export_application.annual_financial_statement_exporter_second_last_file_name if (@export_application.annual_financial_statement_exporter_second_last.present?) %>">
-            </div>
-          </div>
-        </div>
-
-        <div class="col s12 m6" style="display: <%= (@export_application.exporter_external_rating_available.present? && @export_application.exporter_external_rating_available)? 'none' : 'block' %>;">
-          <br>
-          <%= form.label :export_contract_or_bills, t('export_contract_or_bills') %>
-          <br><br>
-          <div class="file-field">
-            <div class="btn handex-btn z-depth-0">
-              <span> <%= t('browse') %></span>
-              <%= form.file_field :export_contract_or_bills %>
-            </div>
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="<%= @export_application.export_contract_or_bills_file_name if (@export_application.export_contract_or_bills.present?) %>">
-            </div>
-          </div>
-        </div>
-
         <div class="col s12 m6">
-          <br>
-          <%= form.label :credit_bureaus_importer, t('credit_bureaus_importer') %>
-          <br><br>
-          <div class="file-field">
-            <div class="btn handex-btn z-depth-0">
-              <span><%= t('browse') %></span>
-              <%= form.file_field :credit_bureaus_importer %>
+            <div class="form-nav right">
+                <input class="btn handex-btn z-depth-0" type="submit" name="draft" value="Entwurf speichern">
+                <%= form.submit class: 'btn handex-btn z-depth-0', value: t('application_submit') %>
             </div>
-
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="<%= @export_application.credit_bureaus_importer_file_name if (@export_application.credit_bureaus_importer.present?) %>">
-            </div>
-          </div>
         </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
 
-        <div class="background_toggle has_previously_used_hermes_cover <%= (!@export_application.has_previously_used_hermes_cover.nil? && !@export_application.has_previously_used_hermes_cover) ? 'dialog_background' : '' %>">
+            <div class="form-content">
 
-          <div id="selfDeclaration" style="display: <%= (!@export_application.has_previously_used_hermes_cover.nil? && !@export_application.has_previously_used_hermes_cover)? 'block' : 'none' %>;">
-
-            <div class="col s12 m6 ">
-              <%= form.label :self_declaration, t('self_declaration') %>
-              <a target="_blank" rel="noopener noreferrer" href="https://www.agaportal.de/_Resources/Persistent/807c621f75c95e07842bb115a430704d97636d1c/aval-und-neukd-bestandskd_selbstauskunft.pdf">
-                <i class="material-icons gray-text">helpcircle</i></a>
-              <br><br>
-              <div class="file-field">
-                <div class="btn handex-btn z-depth-0">
-                  <span><%= t('browse') %></span>
-                  <%= form.file_field :self_declaration %>
+                <div class="input-field col s12 m12">
+                    <label> <%= t('information_for_business_examination') %> </label>
+                    <p> <%= t('information_for_business_examination_description') %> </p>
                 </div>
 
-                <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text" placeholder="<%= @export_application.self_declaration_file_name if (@export_application.self_declaration.present?) %>">
+                <div class="col s12 m6" style="display: <%= (@export_application.exporter_external_rating_available.present? && @export_application.exporter_external_rating_available)? 'none' : 'block' %>;">
+                    <br>
+                    <%= form.label :annual_financial_statement_exporter, t('annual_financial_statement_exporter') %>
+                    <br><br>
+                    <div class="file-field">
+                        <div class="btn handex-btn z-depth-0">
+                            <span> <%= t('browse') %></span>
+                            <%= form.file_field :annual_financial_statement_exporter %>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="<%= @export_application.annual_financial_statement_exporter_file_name if (@export_application.annual_financial_statement_exporter.present?) %>">
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="col s12 m6">
-          <br>
-          <%= form.label :project_memorandum_exporter_business, t('project_memorandum_exporter_business') %>
-          <br><br>
-          <div class="file-field">
-            <div class="btn handex-btn z-depth-0">
-              <span><%= t('browse') %></span>
-              <%= form.file_field :project_memorandum_exporter_business %>
-            </div>
+                <div class="col s12 m6" style="display: <%= (@export_application.exporter_external_rating_available.present? && @export_application.exporter_external_rating_available)? 'none' : 'block' %>;">
+                    <br>
+                    <%= form.label :annual_financial_statement_exporter_second_last, t('annual_financial_statement_exporter_second_last') %>
+                    <br><br>
+                    <div class="file-field">
+                        <div class="btn handex-btn z-depth-0">
+                            <span> <%= t('browse') %></span>
+                            <%= form.file_field :annual_financial_statement_exporter_second_last %>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="<%= @export_application.annual_financial_statement_exporter_second_last_file_name if (@export_application.annual_financial_statement_exporter_second_last.present?) %>">
+                        </div>
+                    </div>
+                </div>
 
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="<%= @export_application.project_memorandum_exporter_business_file_name if (@export_application.project_memorandum_exporter_business.present?) %>">
-            </div>
-          </div>
-        </div>
+                <div class="col s12 m6" style="display: <%= (@export_application.exporter_external_rating_available.present? && @export_application.exporter_external_rating_available)? 'none' : 'block' %>;">
+                    <br>
+                    <%= form.label :export_contract_or_bills, t('export_contract_or_bills') %>
+                    <br><br>
+                    <div class="file-field">
+                        <div class="btn handex-btn z-depth-0">
+                            <span> <%= t('browse') %></span>
+                            <%= form.file_field :export_contract_or_bills %>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="<%= @export_application.export_contract_or_bills_file_name if (@export_application.export_contract_or_bills.present?) %>">
+                        </div>
+                    </div>
+                </div>
 
-        <div class="col s12 m6">
-          <br>
+                <div class="col s12 m6">
+                    <br>
+                    <%= form.label :credit_bureaus_importer, t('credit_bureaus_importer') %>
+                    <br><br>
+                    <div class="file-field">
+                        <div class="btn handex-btn z-depth-0">
+                            <span><%= t('browse') %></span>
+                            <%= form.file_field :credit_bureaus_importer %>
+                        </div>
 
-          <%= form.label :environment_social_audit, t('environment_social_audit') %>
-          <a target="_blank" rel="noopener noreferrer" href="https://www.agaportal.de/exportkreditgarantien/verfahren/usm">
-            <i class="material-icons gray-text">helpcircle</i></a>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="<%= @export_application.credit_bureaus_importer_file_name if (@export_application.credit_bureaus_importer.present?) %>">
+                        </div>
+                    </div>
+                </div>
 
-          <br><br>
-          <div class="file-field">
+                <div class="background_toggle has_previously_used_hermes_cover <%= (!@export_application.has_previously_used_hermes_cover.nil? && !@export_application.has_previously_used_hermes_cover) ? 'dialog_background' : '' %>">
 
-            <div class="btn handex-btn z-depth-0">
-              <span><%= t('browse') %></span>
-              <%= form.file_field :environment_social_audit %>
-            </div>
+                    <div id="selfDeclaration" style="display: <%= (!@export_application.has_previously_used_hermes_cover.nil? && !@export_application.has_previously_used_hermes_cover)? 'block' : 'none' %>;">
 
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="<%= @export_application.environment_social_audit_file_name if (@export_application.environment_social_audit.present?) %>">
-            </div>
-          </div>
-        </div>
+                        <div class="col s12 m6 ">
+                            <%= form.label :self_declaration, t('self_declaration') %>
+                            <a target="_blank" rel="noopener noreferrer" href="https://www.agaportal.de/_Resources/Persistent/807c621f75c95e07842bb115a430704d97636d1c/aval-und-neukd-bestandskd_selbstauskunft.pdf">
+                                <i class="material-icons gray-text">helpcircle</i></a>
+                            <br><br>
+                            <div class="file-field">
+                                <div class="btn handex-btn z-depth-0">
+                                    <span><%= t('browse') %></span>
+                                    <%= form.file_field :self_declaration %>
+                                </div>
 
-        <div class="col s12 m12">
-          <br>
-          <label> <%= t('corruption_prevention_statement') %></label>
-          <br>
-        </div>
-        <div class="background_toggle dialog_background">
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text" placeholder="<%= @export_application.self_declaration_file_name if (@export_application.self_declaration.present?) %>">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-          <div class="input-field col s12 m12">
-            <label> <%= t('compliance_heading') %> </label>
-            <p> <%= t('compliance_statement') %></p>
-          </div>
+                <div class="col s12 m6">
+                    <br>
+                    <%= form.label :project_memorandum_exporter_business, t('project_memorandum_exporter_business') %>
+                    <br><br>
+                    <div class="file-field">
+                        <div class="btn handex-btn z-depth-0">
+                            <span><%= t('browse') %></span>
+                            <%= form.file_field :project_memorandum_exporter_business %>
+                        </div>
 
-          <div class="input-field col s12 m12">
-            <label><%= t('obligation_heading') %></label>
-            <p> <%= t('obligation_statement') %> </p>
-          </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="<%= @export_application.project_memorandum_exporter_business_file_name if (@export_application.project_memorandum_exporter_business.present?) %>">
+                        </div>
+                    </div>
+                </div>
 
-          <div class="input-field col s12 m12">
-            <label><%= t('criminal_information_heading') %> </label>
-            <p> <%= t('criminal_information_statement') %> </p>
-          </div>
+                <div class="col s12 m6">
+                    <br>
 
-          <div class="input-field col s12 m12">
-            <ul>
-              <li> * <%= t('state_court') %></li>
-              <li> * <%= t('court_case_5_years') %> </li>
-              <li> * <%= t('sanction_by_court') %> </li>
-              <li> * <%= t('subjected_to_public_prosecutor') %> </li>
-              <li> * <%= t('listed_on_blacklist') %> </li>
-            </ul>
-          </div>
+                    <%= form.label :environment_social_audit, t('environment_social_audit') %>
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.agaportal.de/exportkreditgarantien/verfahren/usm">
+                        <i class="material-icons gray-text">helpcircle</i></a>
 
-          <div class="input-field col s12 m12">
+                    <br><br>
+                    <div class="file-field">
 
-            <label onclick="corruptionDeclaration()">
+                        <div class="btn handex-btn z-depth-0">
+                            <span><%= t('browse') %></span>
+                            <%= form.file_field :environment_social_audit %>
+                        </div>
+
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="<%= @export_application.environment_social_audit_file_name if (@export_application.environment_social_audit.present?) %>">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m12">
+                    <br>
+                    <label> <%= t('corruption_prevention_statement') %></label>
+                    <br>
+                </div>
+                <div class="background_toggle dialog_background">
+
+                    <div class="input-field col s12 m12">
+                        <label> <%= t('compliance_heading') %> </label>
+                        <p> <%= t('compliance_statement') %></p>
+                    </div>
+
+                    <div class="input-field col s12 m12">
+                        <label><%= t('obligation_heading') %></label>
+                        <p> <%= t('obligation_statement') %> </p>
+                    </div>
+
+                    <div class="input-field col s12 m12">
+                        <label><%= t('criminal_information_heading') %> </label>
+                        <p> <%= t('criminal_information_statement') %> </p>
+                    </div>
+
+                    <div class="input-field col s12 m12">
+                        <ul>
+                            <li> * <%= t('state_court') %></li>
+                            <li> * <%= t('court_case_5_years') %> </li>
+                            <li> * <%= t('sanction_by_court') %> </li>
+                            <li> * <%= t('subjected_to_public_prosecutor') %> </li>
+                            <li> * <%= t('listed_on_blacklist') %> </li>
+                        </ul>
+                    </div>
+
+                    <div class="input-field col s12 m12">
+
+                        <label onclick="corruptionDeclaration()">
                             <span class="yes yes-no-btns does_corruption_declaration_apply <%= 'active-btn' if (@export_application.does_corruption_declaration_apply) %>">
                                 <%= check_box_tag "export_application[does_corruption_declaration_apply]", '1' %>
-                              Trifft zu
+                                Trifft zu
                             </span>
-            </label>
+                        </label>
 
-            <label onclick="noCorruptionDeclaration()">
+                        <label onclick="noCorruptionDeclaration()">
                             <span class="no yes-no-btns does_corruption_declaration_apply <%= 'active-btn' if (!@export_application.does_corruption_declaration_apply.nil? && !@export_application.does_corruption_declaration_apply) %>">
                                 <%= check_box_tag "export_application[does_corruption_declaration_apply]", '0' %>
-                              Trifft nicht zu
+                                Trifft nicht zu
                             </span>
-            </label>
-          </div>
+                        </label>
+                    </div>
 
-          <div id="corruptionDeclaration" style="display: <%= (@export_application.does_corruption_declaration_apply.present? && @export_application.does_corruption_declaration_apply)? 'block' : 'none' %>;">
-            <div class="input-field col s12">
-              <%= form.label :explain_corruption_sanctions, t('explain_corruption_sanctions') %>
-              <%= form.text_area :explain_corruption_sanctions, autofocus: true, class: "validate" %>
-            </div>
-          </div>
+                    <div id="corruptionDeclaration" style="display: <%= (@export_application.does_corruption_declaration_apply.present? && @export_application.does_corruption_declaration_apply)? 'block' : 'none' %>;">
+                        <div class="input-field col s12">
+                            <%= form.label :explain_corruption_sanctions, t('explain_corruption_sanctions') %>
+                            <%= form.text_area :explain_corruption_sanctions, autofocus: true, class: "validate" %>
+                        </div>
+                    </div>
 
-        </div>
+                </div>
 
-        <div class="input-field col s12 m12">
-          <label>
-            <input type="checkbox"/>
-            <span class="terms"> <%= t('is_all_information_provided_with_best_of_knowledge') %></span>
-          </label>
-        </div>
+                <div class="input-field col s12 m12">
+                    <label>
+                        <input type="checkbox"/>
+                        <span class="terms"> <%= t('is_all_information_provided_with_best_of_knowledge') %></span>
+                    </label>
+                </div>
 
-        <div class="input-field col s12 m12">
-          <label>
-            <input type="checkbox"/>
-            <span class="terms">
+                <div class="input-field col s12 m12">
+                    <label>
+                        <input type="checkbox"/>
+                        <span class="terms">
                             <%= t("has_accepted_terms_conditions_one_html", href: link_to(t('has_accepted_terms_conditions_one_text'), t("has_accepted_terms_conditions_one_href"), target: "_blank", rel: "noopener noreferrer")) %>
 
-              <%= t("has_accepted_terms_conditions_two_html", href: link_to(t('has_accepted_terms_conditions_two_text'), t("has_accepted_terms_conditions_two_href"), target: "_blank", rel: "noopener noreferrer")) %>
+                            <%= t("has_accepted_terms_conditions_two_html", href: link_to(t('has_accepted_terms_conditions_two_text'), t("has_accepted_terms_conditions_two_href"), target: "_blank", rel: "noopener noreferrer")) %>
 
                         </span>
-          </label>
-        </div>
+                    </label>
+                </div>
 
 
-        <div class="input-field col s12 m12">
-          <%#= form.check_box :has_read_privacy_policy, type: "checkbox"%>
-          <label>
-            <input type="checkbox"/>
-            <span class="terms">
+                <div class="input-field col s12 m12">
+                    <%#= form.check_box :has_read_privacy_policy, type: "checkbox"%>
+                    <label>
+                        <input type="checkbox"/>
+                        <span class="terms">
                             <%= t("has_read_privacy_policy_html", href: link_to(t('has_read_privacy_policy_text'), t("has_read_privacy_policy_href"), target: "_blank", rel: "noopener noreferrer")) %>
 
                         </span>
-          </label>
-        </div>
+                    </label>
+                </div>
 
-        <div class="input-field col s12 m12">
-          <%#= form.check_box :has_read_all_instructions, :style => "width: 20px; height: 20px;" %>
-          <label>
-            <input type="checkbox"/>
-            <span class="terms">
+                <div class="input-field col s12 m12">
+                    <%#= form.check_box :has_read_all_instructions, :style => "width: 20px; height: 20px;" %>
+                    <label>
+                        <input type="checkbox"/>
+                        <span class="terms">
                             <%= t("read_all_instruction_html", href: link_to(t('read_all_instruction_text'), t("read_all_instruction_href"), target: "_blank", rel: "noopener noreferrer")) %>
                         </span>
-          </label>
-        </div>
+                    </label>
+                </div>
 
-        <div class="input-field col s12 m12">
-          <input class="btn handex-btn z-depth-0" type="submit" name="submit" value="Antrag schicken">
-          <%#= form.button :submit, name: "submit", value: "Antrag Schicken", class: "btn handex-btn z-depth-0" %>
+                <div class="input-field col s12 m12">
+                    <input class="btn handex-btn z-depth-0" type="submit" name="submit" value="Antrag schicken">
+                    <%#= form.button :submit, name: "submit", value: "Antrag Schicken", class: "btn handex-btn z-depth-0" %>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>

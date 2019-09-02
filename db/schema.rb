@@ -10,11 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_21_115738) do
+ActiveRecord::Schema.define(version: 2019_09_02_144608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
+
+  create_table "additional_financials", force: :cascade do |t|
+    t.string "lei"
+    t.bigint "export_applications_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["export_applications_id"], name: "index_additional_financials_on_export_applications_id"
+  end
 
   create_table "agreed_payment_mid_longs", force: :cascade do |t|
     t.string "currency"
@@ -169,9 +177,6 @@ ActiveRecord::Schema.define(version: 2019_08_21_115738) do
     t.boolean "has_accepted_terms_conditions"
     t.boolean "has_read_privacy_policy"
     t.boolean "has_read_all_instructions"
-    t.boolean "payment_term_short"
-    t.boolean "payment_term_mid"
-    t.boolean "payment_term_both"
     t.string "downpayment_delivery_currency_payment_term_mid"
     t.string "downpayment_delivery_amount_payment_term_mid"
     t.string "downpayment_delivery_description_payment_term_mid"
@@ -280,6 +285,7 @@ ActiveRecord::Schema.define(version: 2019_08_21_115738) do
     t.string "availability"
     t.string "importer_shipment_address_line2"
     t.string "services_not_visible_to_customer"
+    t.string "payment_term"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
@@ -571,9 +577,6 @@ ActiveRecord::Schema.define(version: 2019_08_21_115738) do
     t.boolean "has_accepted_terms_conditions"
     t.boolean "has_read_privacy_policy"
     t.boolean "has_read_all_instructions"
-    t.boolean "payment_term_short"
-    t.boolean "payment_term_mid"
-    t.boolean "payment_term_both"
     t.string "downpayment_delivery_currency_payment_term_mid"
     t.string "downpayment_delivery_amount_payment_term_mid"
     t.string "downpayment_delivery_description_payment_term_mid"
@@ -680,6 +683,7 @@ ActiveRecord::Schema.define(version: 2019_08_21_115738) do
     t.string "availability"
     t.string "importer_shipment_address_line2"
     t.string "services_not_visible_to_customer"
+    t.string "payment_term"
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 
