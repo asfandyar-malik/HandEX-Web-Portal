@@ -106,7 +106,6 @@
         $('.yes.yes-no-btns.is_interest_charged_to_importer').removeClass('active-btn');
     }
 
-
     function kurzFristigTermOfPayment() {
         var x = document.getElementById("ShortTermOfPayment");
         var y = document.getElementById("MidTermOfPayment");
@@ -116,10 +115,13 @@
             $("[name='kurzfristigtermofpayment']").addClass("active_selection_card");
             $("[name='mitteltermofpayment']").removeClass("active_selection_card");
             $("[name='sonstigekurzfristigtermofpayment']").removeClass("active_selection_card");
-
             x.style.display = "block";
             y.style.display = "none";
             z.style.display = "none";
+        }
+        else {
+            $("[name='kurzfristigtermofpayment']").removeClass("active_selection_card");
+            x.style.display = "none";
         }
     }
 
@@ -127,14 +129,18 @@
         var x = document.getElementById("ShortTermOfPayment");
         var y = document.getElementById("MidTermOfPayment");
         var z = document.getElementById("BothTermOfPayment");
+
         if (y.style.display === "none") {
             $("[name='kurzfristigtermofpayment']").removeClass("active_selection_card");
             $("[name='mitteltermofpayment']").addClass("active_selection_card");
             $("[name='sonstigekurzfristigtermofpayment']").removeClass("active_selection_card");
-            y.class = "active";
             y.style.display = "block";
             z.style.display = "none";
             x.style.display = "none";
+        }
+        else {
+            $("[name='mitteltermofpayment']").removeClass("active_selection_card");
+            y.style.display = "none";
         }
     }
 
@@ -150,6 +156,9 @@
             z.style.display = "block";
             x.style.display = "none";
             y.style.display = "none";
+        } else {
+            $("[name='sonstigekurzfristigtermofpayment']").removeClass("active_selection_card");
+            z.style.display = "none";
         }
     }
 

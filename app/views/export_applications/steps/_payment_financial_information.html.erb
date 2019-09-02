@@ -87,27 +87,28 @@
 
                     <div id="agreedTermsOfPayments" style="display: <%= (@export_application.has_agreed_payment_term_already.present? && @export_application.has_agreed_payment_term_already) ? 'block' : 'none' %>">
                         <div class="input-field col s12 m12">
-                            <label id="export_application_payment_term_short" class="active_selection_card_label">
-                              <span class="input-field col s12 m4 threecol z-depth-1-half btn <%= (@export_application.payment_term_short.present? && @export_application.payment_term_short) ? 'active_selection_card' : '' %>" name="kurzfristigtermofpayment">
-                                      <%= check_box_tag "export_application[payment_term_short]", @export_application.payment_term_short ? @export_application.payment_term_short : nil, '0', :onclick => "kurzFristigTermOfPayment();", id: "export_application_payment_term_short" %>
-                                  <%= form.label :payment_term_short, t('payment_term_short'), id: "export_application_payment_term_short" %>
-                              </span>
-                            </label>
 
-                            <label id="export_application_payment_term_mid" class="active_selection_card_label">
-                              <span class="input-field col s12 m4 threecol z-depth-1-half btn <%= (@export_application.payment_term_mid.present? && @export_application.payment_term_mid) ? 'active_selection_card' : '' %>"
-                                    name="mitteltermofpayment">
-                                  <%= check_box_tag "export_application[payment_term_mid]", @export_application.payment_term_mid ? @export_application.payment_term_mid : nil, '0', :onclick => "mittelTermOfPayment();", id: "export_application_payment_term_mid" %>
-                                  <%= form.label :payment_term_mid, t('payment_term_mid'), id: "export_application_payment_term_mid" %>
-                              </span>
-                            </label>
+                            <span class="threecol col s12 m4 z-depth-1-half btn <%= (@export_application.payment_term_short.present? && @export_application.payment_term_short) ? 'active_selection_card' : '' %>" name="kurzfristigtermofpayment" onclick="kurzFristigTermOfPayment();" id="export_application_payment_term_short">
 
-                            <label id="export_application_payment_term_both" class="active_selection_card_label">
-                              <span class="input-field col s12 m4 threecol z-depth-1-half btn  <%= (@export_application.payment_term_both.present? && @export_application.payment_term_both) ? 'active_selection_card' : '' %>" name="sonstigekurzfristigtermofpayment">
-                                  <%= check_box_tag "export_application[payment_term_both]", @export_application.payment_term_both ? @export_application.payment_term_both : nil, '0', :onclick => "sonstigeKurzFristigTermOfPayment();", id: "export_application_payment_term_both" %>
-                                  <%= form.label :payment_term_both, t('payment_term_both'), id: "export_application_payment_term_both" %>
-                              </span>
-                            </label>
+                                <%= check_box_tag "export_application[payment_term_short]" %>
+                                <%= form.label :payment_term_short, t('payment_term_short'), id: "export_application_payment_term_short" %>
+
+                            </span>
+
+                            <span class="input-field col s12 m4 threecol z-depth-1-half btn <%= (@export_application.payment_term_mid.present? && @export_application.payment_term_mid) ? 'active_selection_card' : '' %>" name="mitteltermofpayment" onclick="mittelTermOfPayment();" id="export_application_payment_term_mid">
+
+                              <%= check_box_tag "export_application[payment_term_mid]", id: "export_application_payment_term_mid" %>
+                                <%= form.label :payment_term_mid, t('payment_term_mid'), id: "export_application_payment_term_mid" %>
+
+                            </span>
+
+                            <span class="input-field col s12 m4 threecol z-depth-1-half btn  <%= (@export_application.payment_term_both.present? && @export_application.payment_term_both) ? 'active_selection_card' : '' %>" name="sonstigekurzfristigtermofpayment" onclick="sonstigeKurzFristigTermOfPayment();" id="export_application_payment_term_both">
+
+                              <%= check_box_tag "export_application[payment_term_both]", id: "export_application_payment_term_both" %>
+                                <%= form.label :payment_term_both, t('payment_term_both'), id: "export_application_payment_term_both" %>
+
+                          </span>
+
                         </div>
 
                         <div id="ShortTermOfPayment" style="display: none;">
@@ -133,18 +134,18 @@
 
                                     <tbody class='agreed_payments'>
 
-                                        <tr>
-                                            <th></th>
-                                            <th>Währung</th>
-                                            <th>Betrag</th>
-                                            <th>Fälligkeit</th>
-                                            <th>Referenztermin</th>
-                                            <th></th>
-                                        </tr>
+                                    <tr>
+                                        <th></th>
+                                        <th>Währung</th>
+                                        <th>Betrag</th>
+                                        <th>Fälligkeit</th>
+                                        <th>Referenztermin</th>
+                                        <th></th>
+                                    </tr>
 
-                                        <%= form.fields_for :agreed_payments do |builder| %>
-                                            <%= render 'export_applications/dynamic/agreed_payment_fields', f: builder %>
-                                        <% end %>
+                                    <%= form.fields_for :agreed_payments do |builder| %>
+                                        <%= render 'export_applications/dynamic/agreed_payment_fields', f: builder %>
+                                    <% end %>
 
                                     </tbody>
 
