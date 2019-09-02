@@ -265,7 +265,7 @@ de:
   is_good_sent_in_multiple_deliveries: "Versenden Sie Ihre Waren/Güter/Anlagen in mehreren Lieferungen?"
   delivery_or_performance_dates: "Bitte teilen Sie uns die Liefer- und ggf. Leistungstermine Ihres Exportgeschäftes mit."
   partial_german_certificate_of_origin: "Teilweise"
-  has_german_certificate_of_origin: "Haben Sie ein deutsches Ursprungszeugnis für die liefernde Ware"
+  german_certificate_of_origin_status: "Haben Sie ein deutsches Ursprungszeugnis für die liefernde Ware"
   all_rawgoods_supplier_country: "Bitte geben Sie die Zulieferungen aus dem Ausland an."
   goods_supplied_from_foreign_origin: "Bitte geben Sie die Zulieferungen aus dem Ausland an."
   why_all_foreign_rawgoods_necessary: "Bitte erläutern Sie, warum diese Zulieferungen aus dem Ausland notwendig sind."

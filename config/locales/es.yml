@@ -211,7 +211,7 @@ es:
   explain_accounting_methods: "Describa los detalles del método de compensación (método de porcentaje o de importe)."
   is_good_sent_in_multiple_deliveries: "¿Envían sus mercancías/mercancías/sistemas en varias entregas?"
   delivery_or_performance_dates: "Por favor, háganos saber las fechas de entrega y rendimiento de su transacción de exportación, si corresponde."
-  has_german_certificate_of_origin: "¿Tiene usted un certificado de origen alemán para las mercancías a entregar? "
+  german_certificate_of_origin_status: "¿Tiene usted un certificado de origen alemán para las mercancías a entregar? "
   all_rawgoods_supplier_country: "Por favor, indique las entregas desde el extranjero."
   why_all_foreign_rawgoods_necessary: "Por favor, explique por qué son necesarias estas entregas desde el extranjero."
   partly_rawgoods_supplier_country: "Por favor, indique las entregas desde el extranjero."

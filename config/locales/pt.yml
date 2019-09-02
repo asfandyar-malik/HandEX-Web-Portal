@@ -258,7 +258,7 @@ pt:
   is_good_sent_in_multiple_deliveries: "Você envia seus produtos / mercadorias / equipamentos em várias entregas?"
   delivery_or_performance_dates: "Por favor, informe-nos sobre a entrega e, se aplicável, as datas de entrega do seu negócio de exportação."
   partial_german_certificate_of_origin: "Parcialmente"
-  german_certificate_of_origin: ""
+  german_certificate_of_origin_status: ""
   all_rawgoods_supplier_country: "Por favor, indique as matérias-primas vindas do exterior."
   goods_supplied_from_foreign_origin: "Por favor, indique as entregas dos bens produzidos no exterior."
   why_all_foreign_rawgoods_necessary: "Explique porque a matéria-prima é necessária"

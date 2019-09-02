@@ -566,56 +566,62 @@
                         </div>
                     </div>
 
-                    <div class="background_toggle has_german_certificate_of_origin  <%= ((!@insurance.has_german_certificate_of_origin.nil? && !@insurance.has_german_certificate_of_origin) || (@insurance.has_german_certificate_of_origin_for_only_parts_of_good.present? && @insurance.has_german_certificate_of_origin_for_only_parts_of_good)) ? 'dialog_background' : '' %>">
+                    <div class="background_toggle german_certificate_of_origin_status  <%= (@insurance.german_certificate_of_origin_status.present?) ? 'dialog_background' : '' %>">
 
                         <div class="input-field col s12 m12">
-                            <%= form.label :has_german_certificate_of_origin, t('has_german_certificate_of_origin') %>
-                            <br><br>
-
-                            <label onclick="germanCertificateOfOrigin()">
-                                <span class="yes yes-no-btns has_german_certificate_of_origin <%= 'active-btn' if (@insurance.has_german_certificate_of_origin) %>">
-                                    <%= check_box_tag "insurance[has_german_certificate_of_origin]", '1' %>
-                                    <%= t :yes_button %>
-                                </span>
-                            </label>
-
-                            <label onclick="noGermanCertificateOfOrigin()">
-                                <span class="no yes-no-btns has_german_certificate_of_origin <%= 'active-btn' if (!@insurance.has_german_certificate_of_origin.nil? && !@insurance.has_german_certificate_of_origin) %>">
-                                    <%= check_box_tag "insurance[has_german_certificate_of_origin]", '0' %>
-                                    <%= t :no_button %>
-                                </span>
-                            </label>
-
-                            <label onclick="partlyGermanCertificateOfOrigin()">
-                                <span class="partly yes-no-btns has_german_certificate_of_origin_for_only_parts_of_good <%= 'active-btn' if (@insurance.has_german_certificate_of_origin_for_only_parts_of_good.present? && @insurance.has_german_certificate_of_origin_for_only_parts_of_good) %>">
-                                    <%= check_box_tag "insurance[has_german_certificate_of_origin_for_only_parts_of_good]", '1' %>
-                                    <%= t('partial_german_certificate_of_origin') %>
-                                </span>
-                            </label>
-
+                            <%= form.label :german_certificate_of_origin_status, t('german_certificate_of_origin_status') %>
                         </div>
 
-                        <div id="noGermanCertificateOfOriginId" style="display: <%=(!@insurance.has_german_certificate_of_origin.nil? && !@insurance.has_german_certificate_of_origin)? 'block' : 'none' %>;">
+                        <div class="input-field col s4 m2">
+                            <label onclick="germanCertificateOfOrigin()">
+                            <span class="yes yes-no-btns german_certificate_of_origin_status <%= 'active-btn' if (@insurance.german_certificate_of_origin_status == "yes") %>">
+                                <%= check_box_tag "insurance[german_certificate_of_origin_status]", 'yes' %>
+                                <%= t :yes_button %>
+                            </span>
+                            </label>
+                        </div>
+
+                        <div class="input-field col s4 m2">
+                            <label onclick="noGermanCertificateOfOrigin()">
+                            <span class="no yes-no-btns german_certificate_of_origin_status <%= 'active-btn' if (@insurance.german_certificate_of_origin_status == "no") %>">
+                                <%= check_box_tag "insurance[german_certificate_of_origin_status]", 'no' %>
+                                <%= t :no_button %>
+                            </span>
+                            </label>
+                        </div>
+
+                        <div class="input-field col s4 m2">
+                            <label onclick="partlyGermanCertificateOfOrigin()">
+                            <span class="both yes-no-btns german_certificate_of_origin_status <%= 'active-btn' if (@insurance.german_certificate_of_origin_status == "part_of_goods") %>">
+                                <%= check_box_tag "insurance[german_certificate_of_origin_status]", 'part_of_goods' %>
+                                <%= t('partial_german_certificate_of_origin') %>
+                            </span>
+                            </label>
+                            <br>
+                        </div>
+
+                        <div id="noGermanCertificateOfOriginId" style="display: <%=(@insurance.german_certificate_of_origin_status == "no") ? 'block' : 'none' %>;">
                             <div class="input-field col s12">
                                 <%= form.label :goods_supplied_from_foreign_origin, t('goods_supplied_from_foreign_origin') %>
                             </div>
 
                             <div class="counters col">
                                 <table class='table'>
-                                    <tbody class='supplies_from_foreign_origins'>
-                                        <tr>
-                                            <th></th>
-                                            <th>Währung</th>
-                                            <th>Betrag</th>
-                                            <th>Land</th>
-                                            <th></th>
-                                        </tr>
-                                        <%= form.fields_for :insurance_supplies_from_foreign_origins do |builder| %>
-                                            <%= render 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', f: builder %>
-                                        <% end %>
+                                    <tbody class='insurance_supplies_from_foreign_origins'>
+                                    <tr>
+                                        <th></th>
+                                        <th>Währung</th>
+                                        <th>Betrag</th>
+                                        <th>Land</th>
+                                        <th></th>
+                                    </tr>
+
+                                    <%= form.fields_for :insurance_supplies_from_foreign_origins do |builder| %>
+                                        <%= render 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', f: builder %>
+                                    <% end %>
                                     </tbody>
                                 </table>
-                                <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :insurance_supplies_from_foreign_origins, :partial => 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins', association_insertion_method: :append} %>
+                                <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :insurance_supplies_from_foreign_origins, :partial => 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.insurance_supplies_from_foreign_origins', association_insertion_method: :append} %>
                             </div>
 
                             <div class="input-field col s12 m12">
@@ -625,20 +631,28 @@
                             </div>
                         </div>
 
-                        <div id="partlyGermanCertificateOfOrigin" style="display: <%= (@insurance.has_german_certificate_of_origin_for_only_parts_of_good.present? && @insurance.has_german_certificate_of_origin_for_only_parts_of_good)? 'block' : 'none' %>;">
+                        <div id="partlyGermanCertificateOfOrigin" style="display: <%= (@insurance.german_certificate_of_origin_status == "part_of_goods")? 'block' : 'none' %>;">
                             <div class="input-field col s12">
                                 <%= form.label :goods_supplied_from_foreign_origin, t('goods_supplied_from_foreign_origin') %>
                             </div>
 
                             <div class="counters col">
                                 <table class='table'>
-                                    <tbody class='supplies_from_foreign_origins_partly'>
+                                    <tbody class='insurance_supplies_from_foreign_origins_partly'>
+                                    <tr>
+                                        <th></th>
+                                        <th>Währung</th>
+                                        <th>Betrag</th>
+                                        <th>Land</th>
+                                        <th></th>
+                                    </tr>
                                     <%= form.fields_for :insurance_supplies_from_foreign_origins do |builder| %>
                                         <%= render 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', f: builder %>
                                     <% end %>
                                     </tbody>
                                 </table>
-                                <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :insurance_supplies_from_foreign_origins, :partial => 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.supplies_from_foreign_origins_partly', association_insertion_method: :append} %>
+
+                                <%= link_to_add_association t('add_goods_supplied_from_foreign_origin'), form, :insurance_supplies_from_foreign_origins, :partial => 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', class: 'btn btn-primary', data: {association_insertion_node: '.insurance_supplies_from_foreign_origins_partly', association_insertion_method: :append} %>
                             </div>
                             <div class="input-field col s12 m12">
                                 <br>

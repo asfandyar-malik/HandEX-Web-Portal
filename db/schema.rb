@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_02_150317) do
+ActiveRecord::Schema.define(version: 2019_09_02_151705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -77,7 +77,6 @@ ActiveRecord::Schema.define(version: 2019_09_02_150317) do
     t.string "loan_term_start_description_payment_term_both"
     t.string "number_of_installments_payment_term_both"
     t.string "payment_vehichle_payment_term_both"
-    t.string "has_german_certificate_of_origin_for_only_parts_of_good"
     t.boolean "delivery_affects_natural_reserves"
     t.boolean "delivery_affects_indigenous_people"
     t.boolean "delivery_affects_cultural_heritage"
@@ -167,7 +166,6 @@ ActiveRecord::Schema.define(version: 2019_09_02_150317) do
     t.boolean "is_servicing_for_goods_offered"
     t.string "loan_duration"
     t.string "contract_value"
-    t.boolean "has_german_certificate_of_origin"
     t.boolean "is_security_present_for_transaction"
     t.boolean "has_significant_influence_on_importer_management"
     t.boolean "has_payment_experience_with_importer"
@@ -286,6 +284,7 @@ ActiveRecord::Schema.define(version: 2019_09_02_150317) do
     t.string "importer_shipment_address_line2"
     t.string "services_not_visible_to_customer"
     t.string "payment_term"
+    t.string "german_certificate_of_origin_status"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
@@ -477,7 +476,6 @@ ActiveRecord::Schema.define(version: 2019_09_02_150317) do
     t.string "loan_term_start_description_payment_term_both"
     t.string "number_of_installments_payment_term_both"
     t.string "payment_vehichle_payment_term_both"
-    t.string "has_german_certificate_of_origin_for_only_parts_of_good"
     t.boolean "delivery_doesnt_affects_sensitive_areas", default: false
     t.boolean "delivery_affects_natural_reserves"
     t.boolean "delivery_affects_indigenous_people"
@@ -567,7 +565,6 @@ ActiveRecord::Schema.define(version: 2019_09_02_150317) do
     t.boolean "is_servicing_for_goods_offered"
     t.string "loan_duration"
     t.string "contract_value"
-    t.boolean "has_german_certificate_of_origin"
     t.boolean "is_security_present_for_transaction"
     t.boolean "has_significant_influence_on_importer_management"
     t.boolean "has_payment_experience_with_importer"
@@ -684,6 +681,7 @@ ActiveRecord::Schema.define(version: 2019_09_02_150317) do
     t.string "importer_shipment_address_line2"
     t.string "services_not_visible_to_customer"
     t.string "payment_term"
+    t.string "german_certificate_of_origin_status"
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 
