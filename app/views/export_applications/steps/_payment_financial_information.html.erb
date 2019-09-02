@@ -193,6 +193,7 @@
                                     <%= render 'export_applications/dynamic/agreed_payment_mid_long_fields', f: builder %>
                                 <% end %>
                                 </tbody>
+
                             </table>
 
                             <div class="input-field col m4">
@@ -323,7 +324,14 @@
 
                             <table class='table'>
 
-                                <tbody class='agreed_payment_mid_longs'>
+                                <tr>
+                                    <th></th>
+                                    <th>Währung</th>
+                                    <th>Betrag</th>
+                                    <th>Fälligkeit</th>
+                                </tr>
+
+                                <tbody class='agreed_payment_mid_long_and_short_both'>
                                 <%= form.fields_for :agreed_payment_mid_longs do |builder| %>
                                     <%= render 'export_applications/dynamic/agreed_payment_mid_long_fields', f: builder %>
                                 <% end %>
@@ -333,7 +341,7 @@
 
                             <div class="input-field col m4">
                                 <div class="counters form-actions">
-                                    <%= link_to_add_association t('add'), form, :agreed_payment_mid_longs, :partial => 'export_applications/dynamic/agreed_payment_mid_long_fields', class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payment_mid_longs', association_insertion_method: :append} %>
+                                    <%= link_to_add_association t('add'), form, :agreed_payment_mid_longs, :partial => 'export_applications/dynamic/agreed_payment_mid_long_fields', class: 'btn btn-primary', data: {association_insertion_node: '.agreed_payment_mid_long_and_short_both', association_insertion_method: :append} %>
                                 </div>
                             </div>
 
