@@ -22,7 +22,7 @@
     <div class="section overview">
         <div class="row">
 
-            <% if @all_applications.empty? && @invited_exporters.empty? %>
+            <% if @all_applications.empty? && @invite_exporters.empty? %>
                 <%= render "users/no_application" %>
 
             <% elsif !@all_applications.empty? %>
@@ -35,10 +35,10 @@
                     <% end %>
                 <% end %>
 
-            <% elsif !@invited_exporters.empty? %>
+            <% elsif !@invite_exporters.empty? %>
 
-                 <% @invited_exporters.each do |application| %>
-                    <%= render partial: "users/invited_exporter_listing_card", locals:  {application: application,
+                 <% @invite_exporters.each do |application| %>
+                    <%= render partial: "users/invite_exporter_listing_card", locals:  {application: application,
                                                                                          can_edit: false} %>
                 <% end %>
 

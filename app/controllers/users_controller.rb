@@ -32,12 +32,12 @@ class UsersController < ApplicationController
         @all_insurances = current_user.insurances
         @all_export_applications = current_user.export_applications
         @all_importer_informations = current_user.importer_informations
-        @invited_exporters = current_user.invite_exporters
+        @invite_exporters = current_user.invite_exporters
         @all_applications = @all_export_applications + @all_insurances + @all_importer_informations
     end
 
     def invite_exporters
-        @invited_exporters = filter_invite_exporter "INVITED"
+        @invite_exporters = filter_invite_exporter "INVITED"
     end
     
     private

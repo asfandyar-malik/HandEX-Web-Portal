@@ -2,7 +2,7 @@ class ExportApplicationsController < ApplicationController
 	
 	before_action :set_export_application, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!
-	before_action :is_authorised, only: [:update]
+	before_action :is_authorised, only: [:show, :update]
 	
 	def index
 		@new_applications = filer_application_by_status "NEW"
@@ -83,17 +83,17 @@ class ExportApplicationsController < ApplicationController
 		head :no_content
 	end
 	
-	def submitted_applications
-		@submitted_applications = filer_application_by_status "SUBMITTED"
-	end
-	
-	def draft_applications
-		@draft_applications = filer_application_by_status "DRAFT"
-	end
-	
-	def approved_applications
-		@approved_applications = filer_application_by_status "APPROVED"
-	end
+	# def submitted_applications
+	# 	@submitted_applications = filer_application_by_status "SUBMITTED"
+	# end
+	#
+	# def draft_applications
+	# 	@draft_applications = filer_application_by_status "DRAFT"
+	# end
+	#
+	# def approved_applications
+	# 	@approved_applications = filer_application_by_status "APPROVED"
+	# end
 	
 	def send_importer_invitation
 		if @export_application.invitation_importer_email.present? && @export_application.invitation_importer_company_name.present?
