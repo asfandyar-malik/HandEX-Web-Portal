@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
     
     
+  resources :prefills
     devise_for :users, only: :omniauth_callbacks,
                controllers: {omniauth_callbacks: 'omniauth_callbacks'}
     
@@ -30,9 +31,11 @@ Rails.application.routes.draw do
         get 'pages/advice_insurance' => 'pages#advice_insurance'
         get 'pages/advice_credit' => 'pages#advice_credit'
         get 'pages/advice_refinance' => 'pages#advice_refinance'
-        get 'pages/invite_or_fill_yourself' => 'pages#invite_or_fill_yourself'
+        get 'pages/invite_or_fill_yourself_export_appilcation' => 'pages#invite_or_fill_yourself_export_appilcation'
+        get 'pages/invite_or_fill_yourself_insurance' => 'pages#invite_or_fill_yourself_insurance'
         get 'pages/application_submitted' => 'pages#application_submitted'
         get 'pages/importer_information_saved' => 'pages#importer_information_saved'
+        get 'pages/document_prefill_saved' => 'pages#document_prefill_saved'
         
         resources :insurances
         resources :export_applications

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_03_100107) do
+ActiveRecord::Schema.define(version: 2019_09_03_142609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -797,6 +797,36 @@ ActiveRecord::Schema.define(version: 2019_09_03_100107) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["export_application_id"], name: "index_peps_on_export_application_id"
+  end
+
+  create_table "prefills", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "supply_contract_file_name"
+    t.string "supply_contract_content_type"
+    t.integer "supply_contract_file_size"
+    t.datetime "supply_contract_updated_at"
+    t.string "document_one_file_name"
+    t.string "document_one_content_type"
+    t.integer "document_one_file_size"
+    t.datetime "document_one_updated_at"
+    t.string "document_two_file_name"
+    t.string "document_two_content_type"
+    t.integer "document_two_file_size"
+    t.datetime "document_two_updated_at"
+    t.string "document_three_file_name"
+    t.string "document_three_content_type"
+    t.integer "document_three_file_size"
+    t.datetime "document_three_updated_at"
+    t.string "document_four_file_name"
+    t.string "document_four_content_type"
+    t.integer "document_four_file_size"
+    t.datetime "document_four_updated_at"
+    t.string "document_five_file_name"
+    t.string "document_five_content_type"
+    t.integer "document_five_file_size"
+    t.datetime "document_five_updated_at"
+    t.integer "user_id"
   end
 
   create_table "source_of_funds", force: :cascade do |t|

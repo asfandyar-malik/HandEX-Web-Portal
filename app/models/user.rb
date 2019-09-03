@@ -11,9 +11,9 @@ class User < ApplicationRecord
   has_many :insurances
   has_many :invite_exporters
   has_many :export_applications
-  has_many :credits
   has_many :importer_informations
-  
+  has_many :prefills
+
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first
 

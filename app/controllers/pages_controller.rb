@@ -36,9 +36,12 @@ class PagesController < ApplicationController
     def advice_credit
     end
     
-    def invite_or_fill_yourself
+    def invite_or_fill_yourself_export_appilcation
     end
 
+    def invite_or_fill_yourself_insurance
+    end
+    
     def terms_and_conditions
     end
     
@@ -49,5 +52,8 @@ class PagesController < ApplicationController
     end
 
     def importer_information_saved
+    end
+    
+    def document_prefill_saved
     end
 end

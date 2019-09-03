@@ -76,7 +76,7 @@ class ExportApplicationsController < ApplicationController
 		end
 		end
 	end
-	
+
 	def destroy
 		@export_application.destroy
 		redirect_to export_applications_url, notice: 'Antrag wurde erfolgreich zerstört'
