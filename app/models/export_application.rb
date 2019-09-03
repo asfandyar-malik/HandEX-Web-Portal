@@ -11,7 +11,8 @@ class ExportApplication < ApplicationRecord
     has_many :application_of_funds, dependent: :destroy
     has_many :extra_billed_items, dependent: :destroy
     has_many :special_repayment_profiles, dependent: :destroy
-    
+    has_many :peps, dependent: :destroy
+
     accepts_nested_attributes_for :invite_importers,
                                   allow_destroy: true
 
@@ -40,6 +41,9 @@ class ExportApplication < ApplicationRecord
                                   allow_destroy: true
 
     accepts_nested_attributes_for :special_repayment_profiles,
+                                  allow_destroy: true
+
+    accepts_nested_attributes_for :peps,
                                   allow_destroy: true
     
     has_attached_file :annual_financial_statement_importer, :storage => :cloudinary, :cloudinary_resource_type => :image, :path => "export_applications/:attachment/:id/:style/:filename",

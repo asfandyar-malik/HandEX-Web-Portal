@@ -117,6 +117,54 @@
                                 </div>
                             </div>
 
+
+                            <div class="background_toggle does_pep_exist <%= (@export_application.does_pep_exist.present? && @export_application.does_pep_exist) ? 'dialog_background' : '' %>">
+
+                                <div class="input-field col s12 m12">
+                                    <%= form.label :does_pep_exist, t('does_pep_exist') %>
+                                    <br><br>
+
+                                    <label onclick="policallyExposedPerson()">
+                                        <span class="yes yes-no-btns does_pep_exist <%= 'active-btn' if (@export_application.does_pep_exist) %>">
+                                            <%= check_box_tag "export_application[does_pep_exist]", '1' %>
+                                            <%= t :yes_button %>
+                                        </span>
+                                    </label>
+
+                                    <label onclick="noPolicallyExposedPerson()">
+                                        <span class="no yes-no-btns does_pep_exist <%= 'active-btn' if (!@export_application.does_pep_exist.nil? && !@export_application.does_pep_exist) %>">
+                                            <%= check_box_tag "export_application[exporter_external_rating_available]", '0' %>
+                                            <%= t :no_button %>
+                                        </span>
+                                    </label>
+                                </div>
+
+                                <div id="policallyExposedPerson" style="display: <%= (@export_application.does_pep_exist.present? && @export_application.does_pep_exist)? 'block' : 'none' %>;">
+
+                                    <div class="input-field col s4">
+                                        <%= form.label :numer_of_pep, "Wie viele PEP gibt es?" %>
+                                        <%= form.text_field :numer_of_pep, autofocus: true, class: "validate" %>
+                                    </div>
+
+                                    <div class="input-field col s12">
+
+                                        <table class='table'>
+                                            <tbody class='peps'>
+
+                                                <%= form.fields_for :peps do |builder| %>
+                                                    <%= render 'export_applications/dynamic/pep_fields', f: builder %>
+                                                <% end %>
+                                            </tbody>
+                                        </table>
+
+                                        <div class="counters form-actions">
+                                            <%= link_to_add_association t('add_pep_fields'), form, :peps, :partial => 'export_applications/dynamic/pep_fields', class: 'btn btn-primary', data: {association_insertion_node: '.peps', association_insertion_method: :append} %>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
                             <div class="background_toggle exporter_external_rating_available <%= (@export_application.exporter_external_rating_available.present? && @export_application.exporter_external_rating_available) ? 'dialog_background' : '' %>">
 
                                 <div class="input-field col s12 m12">

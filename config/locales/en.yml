@@ -132,7 +132,7 @@ en:
   buyers_financing: "Einkaufs finanzierung"
   export_credit_insurance: "Exportkredit versicherung"
 
-  #compnay
+  #company
   company: "Unternehmen"
   exporter_company_name: "Company"
   importer_company_name: "Company"
@@ -167,7 +167,14 @@ en:
   add_goods_supplied_from_foreign_origin: "Translate me"
   percentage_of_service_in_whole_order: "Wie hoch ist der Leistungswert ?"
   percentage_of_service_in_whole_order_placeholder: "Wert in Prozent oder Betrag"
-
+  #pep
+  does_pep_exist: "Ist/sind eine/mehrere politische exponierte Personen (PEP(s)) bzw. PEP-relevante Person(en) Organ (z.B. Geschäftsleitung, Aufsichtorgan) oder Gesellschafter der Firma"
+  pep:
+    last_name: ""
+    first_name: ""
+    date_of_birth: ""
+    address: ""
+    why_pep_relevant: ""
 
   #customer information
   your_importer: "Kunde"
@@ -392,6 +399,7 @@ en:
   importer_shipment_plz: "Postcode"
   importer_shipment_address_line2: "Adresszeile 2"
   exporter_country: "Country"
+  business_focus_country: "Bitte geben Sie die Länder Ihrer schwerpunktmäßigen Geschäftstätigkeit an"
   importer_country: "Country"
   employees_count: "Anzahl der Mitarbeiterinnen und Mitarbeiter "
   revenue_last_year: "Umsatz im letzten vollen Geschäftsjahr (in Euro Mio.)"

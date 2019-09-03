@@ -153,6 +153,13 @@ es:
   exporter_rating_agency: "Ratingagentur"
   importer_rating_issued_date: "Datum des Ratings"
   exporter_rating_issued_date: "Datum des Ratings"
+  does_pep_exist: "Ist/sind eine/mehrere politische exponierte Personen (PEP(s)) bzw. PEP-relevante Person(en) Organ (z.B. Geschäftsleitung, Aufsichtorgan) oder Gesellschafter der Firma"
+  pep:
+    last_name: ""
+    first_name: ""
+    date_of_birth: ""
+    address: ""
+    why_pep_relevant: ""
 
   #customer information
   is_exporting_to_private_sector: "Ist Ihr Kunde ein öffentliches oder privates Unternehmen?"
@@ -317,6 +324,7 @@ es:
   exporter_street_hno: "Dirección de Empresa"
   exporter_plz: "Codigo Postal"
   exporter_country: "Pais"
+  business_focus_country: "Bitte geben Sie die Länder Ihrer schwerpunktmäßigen Geschäftstätigkeit an"
   employees_count: "Número de Empleados"
   revenue_last_year: "Volumen de negocios del último Año Fiscal (en millones de euros)"
   exporter_representative: "¿Con quién podemos hablar?"

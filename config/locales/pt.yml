@@ -160,6 +160,13 @@ pt:
   importer_rating_issued_date: "Data da avaliação"
   exporter_rating_issued_date: "Data da avaliação"
   registration_court: "Amtsgericht"
+  does_pep_exist: "Ist/sind eine/mehrere politische exponierte Personen (PEP(s)) bzw. PEP-relevante Person(en) Organ (z.B. Geschäftsleitung, Aufsichtorgan) oder Gesellschafter der Firma"
+  pep:
+    last_name: ""
+    first_name: ""
+    date_of_birth: ""
+    address: ""
+    why_pep_relevant: ""
 
   #customer information
   your_importer: "Cliente"
@@ -386,6 +393,7 @@ pt:
   importer_shipment_plz: "Código Postal"
   importer_shipment_address_line2: "Adresszeile 2"
   exporter_country: "País"
+  business_focus_country: "Bitte geben Sie die Länder Ihrer schwerpunktmäßigen Geschäftstätigkeit an"
   importer_country: "País"
   employees_count: "Número de colaboradores"
   revenue_last_year: "Receita relativa ao ano fiscal anterior (em milhões de Euros)"

@@ -1,0 +1,35 @@
+<tr class="nested-fields">
+
+    <td class="counter">
+    </td>
+
+    <td class="input-field col m4">
+        <%= f.label :last_name, t('pep.last_name') %>
+        <%= f.text_field :last_name, class: "validate" %>
+    </td>
+
+    <td class="input-field col m4">
+        <%= f.label :first_name, t('pep.first_name') %>
+        <%= f.text_field :first_name, class: "validate" %>
+    </td>
+
+    <td class="input-field col m4">
+        <%= f.label :date_of_birth, t('pep.date_of_birth') %>
+        <%= f.text_field :date_of_birth, class: "validate" %>
+    </td>
+
+    <td class="input-field col m12">
+        <%= f.label :address, t('pep.address') %>
+        <%= f.text_field :address, class: "validate" %>
+    </td>
+
+    <td class="input-field col m12">
+        <%= f.label :why_pep_relevant, t('pep.why_pep_relevant') %>
+        <%= f.text_field :why_pep_relevant, class: "validate" %>
+    </td>
+
+    <td>
+        <%= link_to_remove_association t('delete'), f, class: 'btn btn-primary btn-xs right remove_fields dynamic remove_fields_with_label' %>
+    </td>
+
+</tr>

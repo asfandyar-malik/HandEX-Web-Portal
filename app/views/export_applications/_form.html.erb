@@ -303,6 +303,26 @@
         }
     }
 
+    function policallyExposedPerson() {
+        var x = document.getElementById("policallyExposedPerson");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('.yes.yes-no-btns.does_pep_exist').addClass('active-btn');
+        }
+        $('.no.yes-no-btns.does_pep_exist').removeClass('active-btn');
+        $('.does_pep_exist').addClass('dialog_background');
+    }
+
+    function noPolicallyExposedPerson() {
+        var x = document.getElementById("policallyExposedPerson");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        }
+        $('.does_pep_exist').removeClass('dialog_background');
+        $('.no.yes-no-btns.does_pep_exist').addClass('active-btn');
+        $('.yes.yes-no-btns.does_pep_exist').removeClass('active-btn');
+    }
+
     function exporterExternalRatingFunction() {
         var x = document.getElementById("exporterExternalRating");
         if (x.style.display === "none") {

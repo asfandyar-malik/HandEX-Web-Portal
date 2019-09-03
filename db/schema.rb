@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_03_073031) do
+ActiveRecord::Schema.define(version: 2019_09_03_094631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -290,6 +290,8 @@ ActiveRecord::Schema.define(version: 2019_09_03_073031) do
     t.string "business_focus_country_three"
     t.string "business_focus_country_four"
     t.string "business_focus_country_five"
+    t.boolean "does_pep_exist"
+    t.integer "numer_of_pep"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
@@ -784,6 +786,18 @@ ActiveRecord::Schema.define(version: 2019_09_03_073031) do
     t.string "external_rating_specify"
   end
 
+  create_table "peps", force: :cascade do |t|
+    t.string "last_name"
+    t.string "first_name"
+    t.string "date_of_birth"
+    t.string "address"
+    t.string "why_pep_relevant"
+    t.bigint "export_application_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["export_application_id"], name: "index_peps_on_export_application_id"
+  end
+
   create_table "source_of_funds", force: :cascade do |t|
     t.string "description"
     t.string "currency"
@@ -858,6 +872,7 @@ ActiveRecord::Schema.define(version: 2019_09_03_073031) do
   add_foreign_key "insurance_supplies_from_foreign_origins", "insurances"
   add_foreign_key "insurances", "users"
   add_foreign_key "multiple_shipments", "export_applications"
+  add_foreign_key "peps", "export_applications"
   add_foreign_key "source_of_funds", "export_applications"
   add_foreign_key "special_repayment_profiles", "export_applications"
   add_foreign_key "supplies_from_foreign_origins", "export_applications"
