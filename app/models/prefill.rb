@@ -1,5 +1,4 @@
 class Prefill < ApplicationRecord
-	
 	belongs_to :user
 	
 	has_attached_file :supply_contract, :storage => :cloudinary, :cloudinary_resource_type => :image, :path => "prefills/:attachment/:id/:style/:filename",

@@ -1,17 +1,17 @@
 <%= form_with(model: prefill, local: true) do |form| %>
-  <% if prefill.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(prefill.errors.count, "error") %> prohibited this prefill from being saved:</h2>
+    <% if prefill.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(prefill.errors.count, "error") %> prohibited this prefill from being saved:</h2>
 
-      <ul>
-      <% prefill.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+            <ul>
+                <% prefill.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="actions">
+        <%= form.submit %>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

@@ -19,18 +19,21 @@ class PrefillsController < ApplicationController
 	
 	def create
 		@prefill = current_user.prefills.build(prefill_params)
+		@prefill.application_type = 'prefill'
 		if @prefill.save
 			redirect_to pages_document_prefill_saved_path, notice: 'Ihre Daten wurden erfolgreich versendet.'
-		else flash[:notice] = "beim Speichern von Daten ist ein Fehler aufgetreten...."
-		render :new
+		else
+			flash[:notice] = "beim Speichern von Daten ist ein Fehler aufgetreten...."
+			render :new
 		end
 	end
 	
 	def update
+		@prefill.application_type = 'prefill'
 		if @prefill.update(prefill_params)
 			redirect_to pages_document_prefill_saved_path, notice: 'Ihre Daten wurden erfolgreich gespeichert.'
-		else flash[:notice] = "Beim Speichern von Daten ist ein Fehler aufgetreten...."
-			render :update
+		else
+			flash[:notice] = "Beim Speichern von Daten ist ein Fehler aufgetreten...."
 		end
 	end
 	
@@ -51,8 +54,7 @@ class PrefillsController < ApplicationController
 		redirect_to root_path, alert: "You don't have permission" unless current_user.id = @prefill.user_id
 	end
 	
-	# Never trust parameters from the scary internet, only allow the white list through.
 	def prefill_params
-		params.permit(:supply_contract, :document_one, :document_two, :document_three, :document_four, :document_five)
+		params.require(:prefill).permit(:application_type, :supply_contract, :document_one, :document_two, :document_three, :document_four, :document_five)
 	end
 end
