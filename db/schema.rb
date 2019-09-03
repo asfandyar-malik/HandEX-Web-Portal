@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_02_151705) do
+ActiveRecord::Schema.define(version: 2019_09_03_073031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -285,6 +285,11 @@ ActiveRecord::Schema.define(version: 2019_09_02_151705) do
     t.string "services_not_visible_to_customer"
     t.string "payment_term"
     t.string "german_certificate_of_origin_status"
+    t.string "business_focus_country_one"
+    t.string "business_focus_country_two"
+    t.string "business_focus_country_three"
+    t.string "business_focus_country_four"
+    t.string "business_focus_country_five"
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
