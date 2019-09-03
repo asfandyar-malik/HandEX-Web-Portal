@@ -166,7 +166,7 @@ de:
   exporter_company_registration_number: "Handelsregisternummer"
   registration_court: "Amtsgericht"
   #pep
-  does_pep_exist: "Ist/sind eine/mehrere politische exponierte Personen (PEP(s)) bzw. PEP-relevante Person(en) Organ (z.B. Geschäftsleitung, Aufsichtorgan) oder Gesellschafter der Firma"
+  does_pep_exist: "Ist/sind eine/mehrere politische exponierte Personen (PEP(s)) bzw. PEP-relevante Person(en) Organ (z.B. Geschäftsleitung, Aufsichtorgan) oder Gesellschafter der Firma?"
   add_pep_fields: "PEP Hinzufügen"
   pep:
     last_name: "Nachname"
