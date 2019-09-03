@@ -608,14 +608,6 @@
                             <div class="counters col">
                                 <table class='table'>
                                     <tbody class='insurance_supplies_from_foreign_origins'>
-                                    <tr>
-                                        <th></th>
-                                        <th>Währung</th>
-                                        <th>Betrag</th>
-                                        <th>Land</th>
-                                        <th></th>
-                                    </tr>
-
                                     <%= form.fields_for :insurance_supplies_from_foreign_origins do |builder| %>
                                         <%= render 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', f: builder %>
                                     <% end %>
@@ -639,13 +631,6 @@
                             <div class="counters col">
                                 <table class='table'>
                                     <tbody class='insurance_supplies_from_foreign_origins_partly'>
-                                    <tr>
-                                        <th></th>
-                                        <th>Währung</th>
-                                        <th>Betrag</th>
-                                        <th>Land</th>
-                                        <th></th>
-                                    </tr>
                                     <%= form.fields_for :insurance_supplies_from_foreign_origins do |builder| %>
                                         <%= render 'insurances/dynamic/insurance_supplies_from_foreign_origin_fields', f: builder %>
                                     <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_03_094631) do
+ActiveRecord::Schema.define(version: 2019_09_03_100107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -458,6 +458,7 @@ ActiveRecord::Schema.define(version: 2019_09_03_094631) do
     t.bigint "insurance_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "supplier_name"
     t.index ["insurance_id"], name: "index_insurance_supplies_from_foreign_origins_on_insurance_id"
   end
 
@@ -825,6 +826,7 @@ ActiveRecord::Schema.define(version: 2019_09_03_094631) do
     t.bigint "export_application_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "supplier_name"
     t.index ["export_application_id"], name: "index_supplies_from_foreign_origins_on_export_application_id"
   end
 
