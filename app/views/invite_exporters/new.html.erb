@@ -49,6 +49,11 @@
                                                 </div>
 
                                                 <div class="input-field col s12">
+                                                    <label> <%= t :product_type %> </label>
+                                                    <%= f.select :product_type, [t('please_select'), "Exportkreditversicherung", "Gedeckter Exportkredit"], {}, class: 'validate' %>
+                                                </div>
+
+                                                <div class="input-field col s12">
                                                     <div class="actions">
                                                         <%= f.submit "Absenden", id: "submit", class: "btn z-depth-0 handex-btn handex-big-btn btn-flat z-depth-0 validate white-text" %>
                                                     </div>

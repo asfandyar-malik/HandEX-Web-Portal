@@ -487,6 +487,7 @@ en:
   exporter_representative_name: "Kontaktperson"
   exporter_email: "Email"
   exporter_broker_id: "Interne Kundennummer"
+  product_type: "Für welches Produkt soll der Kunde eingeladen werden?"
   invited_application: "Eingeladene Anträge"
   contact_info_customer: "Kontaktdaten Ihres Kunden"
   invite_exporter_info: "Bitte füllen Sie hier die Kontaktdaten Ihres Kunden ein. Ihr Kunde erhält per Email eine Einladung zu unserem Portal und kann sich selbst registrieren und wird danach direkt in die Antragsstrecke des von Ihnen ausgewählten Produktes geleitet. Bitte stellen Sie sicher, dass Sie die Erlabunis haben die Kontaktdaten Ihres Kunden an HandEX weiterzugeben."
