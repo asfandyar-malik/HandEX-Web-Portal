@@ -88,22 +88,6 @@ class InsurancesController < ApplicationController
 		head :no_content
 	end
 	
-	# def submitted_applications
-	# 	@submitted_applications = filer_application_by_status "SUBMITTED"
-	# end
-	#
-	# def draft_applications
-	# 	@draft_applications = filer_application_by_status "DRAFT"
-	# end
-	#
-	# def approved_applications
-	# 	@approved_applications = filer_application_by_status "APPROVED"
-	# end
-	#
-	# def all_applications
-	# 	@all_applications = current_user.insurances
-	# end
-	
 	def send_importer_invitation
 		if @insurance.invitation_importer_email.present? && @insurance.invitation_importer_company_name.present?
 			UserMailer.with(user: current_user, insurance: @insurance).invite_importer_email_insurance.deliver_now
