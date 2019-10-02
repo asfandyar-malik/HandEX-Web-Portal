@@ -77,7 +77,6 @@
                                 <%= form.select :exported_goods_type, options_for_select([t('please_select_corresponding_option'), "Konsumgüter, Rohstoffe, Halbfabrikate, Massengüter, Komponenten, Ersatzteile", "Düngemittel, Insektizide, Zuchtvieh, Agrargüter und Saatgut", "langlebige Konsumgüter", "Sonstige"], @export_application.exported_goods_type ? @export_application.exported_goods_type : nil), {}, id: "firstdrop" %>
                             </div>
 
-
                             <%= form.select :exported_goods_type_two, options_for_select([@export_application.exported_goods_type_two.nil? ? t('please_select_corresponding_option') : @export_application.exported_goods_type_two], @export_application.exported_goods_type_two ? @export_application.exported_goods_type_two : nil), {}, id: "exported_goods_type_two", class: "validate" %>
 
                             <%= form.select :exported_goods_type_three, options_for_select([@export_application.exported_goods_type_three], @export_application.exported_goods_type_three ? @export_application.exported_goods_type_three : nil), {}, id: "exported_goods_type_three", class: "validate" %>
