@@ -16,14 +16,6 @@ ActiveRecord::Schema.define(version: 2019_09_03_171853) do
   enable_extension "citext"
   enable_extension "plpgsql"
 
-  create_table "additional_financials", force: :cascade do |t|
-    t.string "lei"
-    t.bigint "export_applications_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["export_applications_id"], name: "index_additional_financials_on_export_applications_id"
-  end
-
   create_table "agreed_payment_mid_longs", force: :cascade do |t|
     t.string "currency"
     t.string "output"
@@ -236,9 +228,9 @@ ActiveRecord::Schema.define(version: 2019_09_03_171853) do
     t.string "entire_project_amount"
     t.boolean "taking_part_in_tender"
     t.string "tender_submission_date"
-    t.string "downpayment_delivery_description_payment_term_both"
     t.string "interest_currency"
     t.string "interest_value"
+    t.string "downpayment_delivery_description_payment_term_both"
     t.string "fixed_interest_rate"
     t.string "fixed_interest_rate_value"
     t.string "variable_interest_rate"
@@ -281,8 +273,8 @@ ActiveRecord::Schema.define(version: 2019_09_03_171853) do
     t.string "service_start"
     t.string "service_end"
     t.string "availability"
-    t.string "importer_shipment_address_line2"
     t.string "services_not_visible_to_customer"
+    t.string "importer_shipment_address_line2"
     t.string "payment_term"
     t.string "german_certificate_of_origin_status"
     t.string "business_focus_country_one"
@@ -686,8 +678,8 @@ ActiveRecord::Schema.define(version: 2019_09_03_171853) do
     t.string "service_start"
     t.string "service_end"
     t.string "availability"
-    t.string "importer_shipment_address_line2"
     t.string "services_not_visible_to_customer"
+    t.string "importer_shipment_address_line2"
     t.string "payment_term"
     t.string "german_certificate_of_origin_status"
     t.index ["user_id"], name: "index_insurances_on_user_id"
