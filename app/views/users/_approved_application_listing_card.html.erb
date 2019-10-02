@@ -80,7 +80,12 @@
                 <% end %>
         
                 <div>
-                    <%= link_to "Deckungzusage Herunterladen",  "/sample.pdf",  { target: '_blank', class: 'btn btn-primary btn-xs' } %>
+                    <%= link_to "Deckungzusage-Herunterladen",  "/sample.pdf",  { target: '_blank', class: 'btn btn-primary btn-xs', download: true  } %>
+                </div>
+    
+                <div>
+                    <br>
+                    <a href="<%= pages_webid_instructions_path %>" class="btn" name="action"> Weiter zu WebID</a>
                 </div>
 
             </div>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
     
     
+  resources :web_ids
   resources :prefills
     devise_for :users, only: :omniauth_callbacks,
                controllers: {omniauth_callbacks: 'omniauth_callbacks'}
@@ -36,6 +37,7 @@ Rails.application.routes.draw do
         get 'pages/application_submitted' => 'pages#application_submitted'
         get 'pages/importer_information_saved' => 'pages#importer_information_saved'
         get 'pages/document_prefill_saved' => 'pages#document_prefill_saved'
+        get 'pages/webid_instructions' => 'pages#webid_instructions'
         
         resources :insurances
         resources :export_applications

@@ -56,4 +56,7 @@ class PagesController < ApplicationController
     
     def document_prefill_saved
     end
+
+    def webid_instructions
+    end
 end
