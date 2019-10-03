@@ -96,10 +96,8 @@ class ExportApplicationsController < ApplicationController
 	# end
 	
 	def send_importer_invitation
-		if @export_application.invitation_importer_email.present? && @export_application.invitation_importer_company_name.present?
-			UserMailer.with(user: current_user, export_application: @export_application).invite_importer_email.deliver_now
-			flash[:notice] = "Einladung zum Kunden erfolgreich abgeschickt...."
-		end
+		UserMailer.with(user: current_user, export_application: @export_application).invite_importer_email.deliver_now
+		flash[:notice] = "Einladung zum Kunden erfolgreich abgeschickt...."
 	end
 	
 	def all_applications

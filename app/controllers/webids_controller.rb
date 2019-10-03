@@ -20,6 +20,7 @@ class WebidsController < ApplicationController
     def create
         @webid = current_user.webids.build(webid_params)
         if @webid.save
+            send_webid_email
             redirect_to pages_webid_instructions_path, notice: 'E-Mail erfolgreich gesendet'
         else
             flash[:notice] = "beim Speichern von Daten ist ein Fehler aufgetreten...."
@@ -40,6 +41,11 @@ class WebidsController < ApplicationController
         @webid.destroy
         redirect_to webids_url, notice: 'Ihre Daten wurden erfolgreich zerstört'
         head :no_content
+    end
+
+    def send_webid_email
+        UserMailer.send_webid_email.deliver_now
+        flash[:notice] = "WebID Email zum Kunden erfolgreich abgeschickt...."
     end
     
     private

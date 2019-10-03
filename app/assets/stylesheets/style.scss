@@ -310,6 +310,7 @@ h3 {
     background-color: #2541b2;
     color: white;
     border: 0;
+
     label {
       color: white;
     }
@@ -319,6 +320,7 @@ h3 {
     background-color: #2541b2;
     color: white;
     border: 0;
+
     label {
       color: white;
     }
@@ -508,9 +510,11 @@ form.col.s12.custom-form {
   .col {
     width: 95%
   }
+
   ul {
     margin: 0;
   }
+
   li {
     list-style: none;
     display: inline-block;
@@ -550,6 +554,7 @@ form.col.s12.custom-form {
   .overview-top-button {
     margin-top: 0.4%;
   }
+
   .row {
     margin-bottom: 0;
   }
@@ -597,6 +602,7 @@ form.col.s12.custom-form {
 
 .card {
   border-radius: 8px 8px 8px 8px;
+
   .card-title {
     font-size: medium;
     height: 55px;
@@ -678,6 +684,7 @@ nav {
   .btn.rounded.active {
     color: white;
   }
+
   .btn.rounded.inactive {
     background-color: white;
   }
@@ -900,6 +907,22 @@ nav ul a:hover {
     height: 16%;
   }
 }
+
+.card.large-choice-card {
+  margin: auto;
+  width: 70%;
+  height: 660px;
+
+  .card-title {
+    padding-top: 7%;
+  }
+
+  .card-action:last-child {
+    height: 16%;
+  }
+}
+
+
 
 .text-button {
   background-color: white;

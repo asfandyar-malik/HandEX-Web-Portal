@@ -18,13 +18,10 @@
         
         <div class="container valign-wrapper">
             <div class="section">
-                <div class="card medium choice-card big-choice-card">
+                <div class="card medium choice-card large-choice-card">
                     
-                    <div class="card-title valign-wrapper">
-                        <%= image_tag "webid_logo.png",  style: 'height:11em;width:auto;' %>
-                        <div class="title-text">
-                            <h5>Identification</h5>
-                        </div>
+                    <div class="center-align">
+                        <%= image_tag "webid_logo.png",  style: 'height:11em;' %>
                     </div>
                     
                     <div class="card-content center-align">
@@ -32,44 +29,28 @@
                     
                         <table>
                             <tbody>
-                            
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Status</th>
-                            </tr>
-                            
-                            <tr>
-                                <td>
-                                    Asfandyar Malik
-                                </td>
-                                <td>
-                                    asfandyar@handex.co
-                                </td>
-                                <td>
-                                    In progress
-                                </td>
-                            </tr>
-                            
-                            <tr>
-                                <td>
-                                    Umair Janua
-                                </td>
-                                <td>
-                                    umairjanjua420@gmail.com
-                                </td>
-                                <td>
-                                    In progress
-                                </td>
-                            </tr>
-                            
+                                <tr>
+                                    <th>Name</th> <th>Email</th> <th>Status</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td> Asfandyar Malik </td>
+                                    <td> asfandyar@handex.co </td>
+                                    <td> In progress </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td> Umair Janua </td>
+                                    <td> umairjanjua420@gmail.com </td>
+                                    <td> In progress </td>
+                                </tr>
                             </tbody>
                         </table>
-    
-                        <%= form.submit "Send WebID Links" %>
+                        
+                        <br><br>
+                        <%= form.submit "Send WebID Links", id: "submit", class: "btn handex-btn z-depth-0" %>
                         
                     </div>
-                    
                 </div>
             </div>
         </div>
