@@ -12,7 +12,7 @@ class ExportApplication < ApplicationRecord
     has_many :extra_billed_items, dependent: :destroy
     has_many :special_repayment_profiles, dependent: :destroy
     has_many :peps, dependent: :destroy
-
+    
     accepts_nested_attributes_for :invite_importers,
                                   allow_destroy: true
 

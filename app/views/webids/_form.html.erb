@@ -1,0 +1,78 @@
+<%= form_with(model: webid, local: true) do |form| %>
+    
+    <% if webid.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(webid.errors.count, "error") %> prohibited this webid from being saved:</h2>
+            
+            <ul>
+                <% webid.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    
+    <div class="actions">
+        
+        <%= render 'shared/navbar' %>
+        
+        <div class="container valign-wrapper">
+            <div class="section">
+                <div class="card medium choice-card big-choice-card">
+                    
+                    <div class="card-title valign-wrapper">
+                        <%= image_tag "webid_logo.png",  style: 'height:11em;width:auto;' %>
+                        <div class="title-text">
+                            <h5>Identification</h5>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content center-align">
+                        <p> We will send WebID identification link to the following email addresses. Please click on following button to receive WebID link </p>
+                    
+                        <table>
+                            <tbody>
+                            
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    Asfandyar Malik
+                                </td>
+                                <td>
+                                    asfandyar@handex.co
+                                </td>
+                                <td>
+                                    In progress
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    Umair Janua
+                                </td>
+                                <td>
+                                    umairjanjua420@gmail.com
+                                </td>
+                                <td>
+                                    In progress
+                                </td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+    
+                        <%= form.submit "Send WebID Links" %>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<% end %>

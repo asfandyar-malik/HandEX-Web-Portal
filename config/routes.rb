@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
     
     
+  resources :webids
   resources :web_ids
   resources :prefills
     devise_for :users, only: :omniauth_callbacks,

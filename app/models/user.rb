@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :export_applications
   has_many :importer_informations
   has_many :prefills
+  has_many :webids
 
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Webids</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @webids.each do |webid| %>
+      <tr>
+        <td><%= link_to 'Show', webid %></td>
+        <td><%= link_to 'Edit', edit_webid_path(webid) %></td>
+        <td><%= link_to 'Destroy', webid, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Webid', new_webid_path %>

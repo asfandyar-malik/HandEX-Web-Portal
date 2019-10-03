@@ -74,18 +74,18 @@
                 <% end %>
                 
                 <% if application.application_type == "insurance" %>
-                    <div class="card-action center">
+                    <div class="card-action">
                         <%= link_to t('see_summary_of_application'), controller: "insurances", action: "show", id: application %>
                     </div>
                 <% end %>
         
-                <div>
-                    <%= link_to "Deckungzusage-Herunterladen",  "/sample.pdf",  { target: '_blank', class: 'btn btn-primary btn-xs', download: true  } %>
+                <div class="center">
+                    <%= link_to "Deckungzusage",  "/sample.pdf",  { target: '_blank', class: 'btn btn-primary btn-xs', download: true  } %>
                 </div>
     
-                <div>
+                <div class="center">
                     <br>
-                    <a href="<%= pages_webid_instructions_path %>" class="btn" name="action"> Weiter zu WebID</a>
+                    <%= link_to 'Weiter zu WebID', new_webid_path %>
                 </div>
 
             </div>
@@ -126,16 +126,6 @@
                         <p><b><%= application.importer_company_name %></b></p>
                     </div>
                 </div>
-                
-<!--                <div class="valign-wrapper">-->
-<!--                    <div class="col m2">-->
-<!--                        <i class="custom_icon box-icon"></i>-->
-<!--                    </div>-->
-<!--                    <div class="col m10">-->
-<!--                        <div class="summary"> <%#= t('product') %> </div>-->
-<!--                        <p><b><%#= application.exported_goods_type %></b></p>-->
-<!--                    </div>-->
-<!--                </div>-->
                 
                 <div class="valign-wrapper">
                     <div class="col m2">
