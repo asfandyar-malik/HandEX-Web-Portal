@@ -66,7 +66,7 @@
                         <p><b><%= application.updated_at.strftime('%d %b %Y') %> </b></p>
                     </div>
                 </div>
-            
+                
                 <% if application.application_type == "export_application" %>
                     <div class="card-action center">
                         <%= link_to t('see_summary_of_application'), controller: "export_applications", action: "show", id: application %>
@@ -78,17 +78,29 @@
                         <%= link_to t('see_summary_of_application'), controller: "insurances", action: "show", id: application %>
                     </div>
                 <% end %>
-        
+                
                 <div class="center">
+                    <%= link_to 'Deckungzusage <i class="inline-icon material-icons">cloud_download</i>'.html_safe, "/sample.pdf", {target: '_blank', class: 'btn btn-primary btn-xs', download: true} %>
+                </div>
+                
+                <% if !application.webid_identification %>
                     
-                    <%= link_to 'Deckungzusage <i class="inline-icon material-icons">cloud_download</i>'.html_safe,  "/sample.pdf",  { target: '_blank', class: 'btn btn-primary btn-xs', download: true  } %>
-                </div>
-    
-                <div class="center">
-                    <br>
-                    <%= link_to 'Weiter zu WebID', new_webid_path %>
-                </div>
-
+                    <div class="center">
+                        <br>
+                        <div>  Wir kümmern uns um Ihren Forfaitierungsvertrag, bitte schauen Sie nochmal hier drin in 24 Stunden </div>
+                    </div>
+                
+                <% else %>
+        
+                    <div class="center">
+                        <br>
+                        <%= link_to 'Weiter zu WebID', new_webid_path %>
+                    </div>
+                    
+                <% end %>
+                
+             
+            
             </div>
         </div>
     </div>
