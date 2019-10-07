@@ -25,8 +25,8 @@
                 <%= render "users/no_application" %>
             <% else %>
                 <% @submitted_applications.each do |application| %>
-                    <%= render partial: "users/ ", locals:  {application: application,
-                                                                                                   can_edit: false} %>
+                    <%= render partial: "users/submitted_application_listing_card", locals:  {application: application,
+                                                                                              can_edit: false} %>
                 <% end %>
             <% end %>
         </div>
