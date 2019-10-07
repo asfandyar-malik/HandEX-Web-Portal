@@ -1,0 +1,39 @@
+<%= render 'shared/navbar' %>
+
+
+<%= form_with(model: docusign, local: true) do |form| %>
+    <% if docusign.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(docusign.errors.count, "error") %> prohibited this docusign from being saved:</h2>
+            
+            <ul>
+                <% docusign.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    
+    <div class="container valign-wrapper">
+        <div class="section">
+            <div class="card medium choice-card big-choice-card">
+                <div class="card-title valign-wrapper">
+                    <%= image_tag "handex-logo.png" %>
+                    <div class="title-text">
+                        <h3>Forfaitierung vertrag wird freigegeben</h3>
+                    </div>
+                </div>
+                <div class="card-content center-align light-hint">
+                    <p> Sie erhalten eine E-Mail mit dem Forfaitierungsvertrag. </p>
+                </div>
+                <div class="card-action">
+                    <div class="col s12 center-align">
+                        <%= form.submit class: "btn-large z-depth-0 handex-btn btn-flat z-depth-0 validate white-text", value: "Weiter zum Antrag" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<% end %>

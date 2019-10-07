@@ -28,6 +28,11 @@ class UserMailer < ApplicationMailer
         emails = [@insurance.invitation_importer_email]
         mail(to: emails, subject: 'Welcome to HandEX', bcc: ["Asfandyar <asfandyar@handex.co>", "Hamid <hamid@handex.co>"])
     end
+
+    def notify_docusign_email
+        emails = 'malikasfandyarashraf@gmail.com'
+        mail(to: emails, subject: 'Welcome to HandEX', bcc: ["Asfandyar <asfandyar@handex.co>", "Hamid <hamid@handex.co>"])
+    end
     
     def send_webid_email
         mail(to: ["Asfandyar <asfandyar@handex.co>"], subject: 'WebID Invitation', bcc: ["Asfandyar <asfandyar@handex.co>", "Hamid <hamid@handex.co>"] )

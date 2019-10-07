@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Docusigns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @docusigns.each do |docusign| %>
+      <tr>
+        <td><%= link_to 'Show', docusign %></td>
+        <td><%= link_to 'Edit', edit_docusign_path(docusign) %></td>
+        <td><%= link_to 'Destroy', docusign, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Docusign', new_docusign_path %>

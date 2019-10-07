@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
     
     
+  resources :docusigns
   resources :webids
   resources :web_ids
   resources :prefills

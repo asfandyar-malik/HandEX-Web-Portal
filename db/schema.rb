@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_07_132450) do
+ActiveRecord::Schema.define(version: 2019_10_07_155705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -45,6 +45,11 @@ ActiveRecord::Schema.define(version: 2019_10_07_132450) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["export_application_id"], name: "index_application_of_funds_on_export_application_id"
+  end
+
+  create_table "docusigns", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "export_applications", force: :cascade do |t|

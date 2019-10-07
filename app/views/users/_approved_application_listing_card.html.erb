@@ -52,7 +52,7 @@
                         <% if application.contract_value %>
                             <p><b>&euro; <%= application.contract_value %> </b></p>
                         <% else %>
-                            <p><b>MISSING </b></p>
+                            <p><b> MISSING </b></p>
                         <% end %>
                     </div>
                 </div>
@@ -87,15 +87,15 @@
                     
                     <div class="center">
                         <br>
-                        <a href="/" class="smooth"><%= image_tag "docusign.jpg", style: 'height:4em;width:auto;' %></a>
+                        <a href= "<%= new_docusign_path %>" class="smooth"><%= image_tag "docusign.jpg", style: 'height:4em;width:auto;' %></a>
                     </div>
                 
                 <% else %>
+                    
                     <% if application.webid_identification %>
                         <div class="center">
                             <br>
-                            <div> Wir kümmern uns um Ihren Forfaitierungsvertrag, bitte schauen Sie nochmal hier drin in 24
-                                Stunden
+                            <div> Wir kümmern uns um Ihren Forfaitierungsvertrag, bitte schauen Sie nochmal hier drin in 24 Stunden
                             </div>
                         </div>
                     <% else %>
@@ -106,7 +106,7 @@
                     <% end %>
     
                 <% end %>
-            
+                
             </div>
         </div>
     </div>
