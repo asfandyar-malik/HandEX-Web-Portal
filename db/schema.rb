@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_07_125207) do
+ActiveRecord::Schema.define(version: 2019_10_07_132450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -285,6 +285,7 @@ ActiveRecord::Schema.define(version: 2019_10_07_125207) do
     t.boolean "does_pep_exist"
     t.integer "numer_of_pep"
     t.boolean "webid_identification"
+    t.boolean "is_docusign_step", default: false
     t.index ["user_id"], name: "index_export_applications_on_user_id"
   end
 
@@ -684,6 +685,7 @@ ActiveRecord::Schema.define(version: 2019_10_07_125207) do
     t.string "payment_term"
     t.string "german_certificate_of_origin_status"
     t.boolean "webid_identification"
+    t.boolean "is_docusign_step", default: false
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 

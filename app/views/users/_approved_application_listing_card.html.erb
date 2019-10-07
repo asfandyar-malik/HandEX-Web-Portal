@@ -82,25 +82,30 @@
                 <div class="center">
                     <%= link_to 'Deckungzusage <i class="inline-icon material-icons">cloud_download</i>'.html_safe, "/sample.pdf", {target: '_blank', class: 'btn btn-primary btn-xs', download: "Deckungzusage "} %>
                 </div>
-                
-                <% if application.webid_identification %>
+    
+                <% if application.is_docusign_step %>
                     
                     <div class="center">
                         <br>
-                        <div> Wir kümmern uns um Ihren Forfaitierungsvertrag, bitte schauen Sie nochmal hier drin in 24
-                            Stunden
-                        </div>
+                        <a href="/" class="smooth"><%= image_tag "docusign.jpg", style: 'height:4em;width:auto;' %></a>
                     </div>
                 
                 <% else %>
-                    
-                    <div class="center">
-                        <br>
-                        <%= link_to 'Weiter zu WebID', new_webid_path %>
-                    </div>
-                
+                    <% if application.webid_identification %>
+                        <div class="center">
+                            <br>
+                            <div> Wir kümmern uns um Ihren Forfaitierungsvertrag, bitte schauen Sie nochmal hier drin in 24
+                                Stunden
+                            </div>
+                        </div>
+                    <% else %>
+                        <div class="center">
+                            <br>
+                            <%= link_to 'Weiter zu WebID', new_webid_path %>
+                        </div>
+                    <% end %>
+    
                 <% end %>
-            
             
             </div>
         </div>
