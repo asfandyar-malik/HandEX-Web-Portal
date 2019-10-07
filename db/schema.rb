@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_04_120123) do
+ActiveRecord::Schema.define(version: 2019_10_07_125207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -822,6 +822,7 @@ ActiveRecord::Schema.define(version: 2019_10_04_120123) do
     t.datetime "document_five_updated_at"
     t.integer "user_id"
     t.string "application_type"
+    t.string "exporter_name"
   end
 
   create_table "source_of_funds", force: :cascade do |t|

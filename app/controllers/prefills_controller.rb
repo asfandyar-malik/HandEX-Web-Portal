@@ -55,6 +55,6 @@ class PrefillsController < ApplicationController
 	end
 	
 	def prefill_params
-		params.require(:prefill).permit(:application_type, :supply_contract, :document_one, :document_two, :document_three, :document_four, :document_five)
+		params.require(:prefill).permit(:exporter_name, :supply_contract, :document_one, :document_two, :document_three, :document_four, :document_five)
 	end
 end
