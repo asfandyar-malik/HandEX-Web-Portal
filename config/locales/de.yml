@@ -194,6 +194,9 @@ de:
   #business information
   business_heading: "Geschäft"
   exported_goods_type: "Bitte ordnen Sie die von Ihnen zu liefernden Waren bzw. Dienstleistungen Ihrer Branche zu."
+  exported_goods_type_two: "Bitte ordnen Sie die von Ihnen zu liefernden Waren bzw. Dienstleistungen Ihrer Branche zu."
+  exported_goods_type_three: "Bitte ordnen Sie die von Ihnen zu liefernden Waren bzw. Dienstleistungen Ihrer Branche zu."
+  exported_goods_type_four: "Bitte ordnen Sie die von Ihnen zu liefernden Waren bzw. Dienstleistungen Ihrer Branche zu."
   mining: "Bergbau, inkl. Verarbeitung"
   oil_gas_extraction: "Erdöl- und Erdgasförderung inkl. Verarbeitung"
   chemistry: "Chemie"
