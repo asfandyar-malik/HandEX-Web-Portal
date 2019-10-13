@@ -7,7 +7,7 @@
                 <div class="text-section black-text">
                     <a class="smooth"><%= image_tag "HandEX_logo4.png", style: 'height:5em;width:auto;' %></a>
                     <h3> <%= t('your_profile') %></h3>
-                    <p>Hier können Sie Ihr Profil bearbeiten </p>
+                    <p>Hier können Sie Ihr Profil ansehen </p>
                 </div>
             </div>
 
@@ -42,22 +42,29 @@
                                                 <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                                                     <div>Wartet momentan auf Bestätigung für: <%= resource.unconfirmed_email %></div>
                                                 <% end %>
-
-                                                <div class="input-field col s12 no-padding">
-                                                    <label> Neues Passwort (Lassen Sie das Feld leer, wenn Sie es nicht ändern möchten) </label>
-                                                    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-                                                </div>
-
-                                                <div class="input-field col s12 no-padding">
-                                                    <label> Passwort bestätigen </label>
-                                                    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-                                                </div>
-
+    
                                                 <div class="input-field col s12 no-padding">
                                                     <div class="actions">
-                                                        <%= f.submit t('submit'), class: "btn-big btn z-depth-0 handex-btn validate" %>
+                                                        <a class="btn-big btn z-depth-0 handex-btn validate" href="<%= submitted_applications_user_path(current_user.id) %>">Zurück</a>
+                                                        <%#= f.submit t('submit'), class: "btn-big btn z-depth-0 handex-btn validate" %>
                                                     </div>
                                                 </div>
+
+<!--                                                <div class="input-field col s12 no-padding">-->
+<!--                                                    <label> Neues Passwort (Lassen Sie das Feld leer, wenn Sie es nicht ändern möchten) </label>-->
+                                                    <%#= f.password_field :password, autocomplete: "off", class: "form-control" %>
+<!--                                                </div>-->
+
+<!--                                                <div class="input-field col s12 no-padding">-->
+<!--                                                    <label> Passwort bestätigen </label>-->
+                                                    <%#= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+<!--                                                </div>-->
+
+<!--                                                <div class="input-field col s12 no-padding">-->
+<!--                                                    <div class="actions">-->
+                                                        <%#= f.submit t('submit'), class: "btn-big btn z-depth-0 handex-btn validate" %>
+<!--                                                    </div>-->
+<!--                                                </div>-->
 
                                             </div>
                                         </div>
