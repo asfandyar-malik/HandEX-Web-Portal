@@ -6,12 +6,18 @@
             <div class="card-title valign-wrapper">
                 <a class="smooth"><%= image_tag "HandEX_logo4.png", style: 'height:5em;width:auto;' %></a>
                 <div class="title-text">
-                    <h5>Identification emailt</h5>
+                    <h5>Identification email</h5>
                 </div>
             </div>
             <div class="card-content center-align">
                 <p> Please check your email and follow the Webid Identification process. It can take upto 30 minutes for you to receive this emai.
                     Once the WebID identification process is complete we will update your status on our portal. Thanks a lot. </p>
+            </div>
+    
+            <div class="card-action">
+                <div class="col s12 center-align">
+                    <a href="<%= submitted_applications_user_path(current_user.id) %>" class="btn-large z-depth-0 handex-btn btn-flat z-depth-0 validate white-text" name="action">Zurück zur Übersicht</a>
+                </div>
             </div>
         </div>
     </div>
