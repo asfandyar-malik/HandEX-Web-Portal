@@ -31,7 +31,7 @@ class UserMailer < ApplicationMailer
 
     def notify_docusign_email
         emails = 'malikasfandyarashraf@gmail.com'
-        mail(to: emails, subject: 'Welcome to HandEX', bcc: ["Asfandyar <asfandyar@handex.co>", "Hamid <hamid@handex.co>"])
+        mail(to: emails, subject: 'Bitte geben Sie den Forfaitierungsvertrag frei', bcc: ["Asfandyar <asfandyar@handex.co>", "Hamid <hamid@handex.co>"])
     end
     
     def send_webid_email
