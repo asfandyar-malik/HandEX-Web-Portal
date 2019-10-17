@@ -22,6 +22,8 @@ class InviteExportersController < ApplicationController
         @invite_exporter.application_type = 'invite_exporter'
         @invite_exporter.application_status = 'INVITED'
         if @invite_exporter.save
+            @user = User.new(:email => 'testhandex@example.com', :password => 'password', :password_confirmation => 'password', :company_name => 'Pikachu')
+            @user.save
             UserMailer.with(user: current_user, invite_exporter: @invite_exporter).invite_exporter_email.deliver_now
             redirect_to pages_contacted_exporter_path, notice: 'Antrag wurde erfolgreich erstellt.'
         else
@@ -45,17 +47,17 @@ class InviteExportersController < ApplicationController
         redirect_to invite_exporters_url, notice: 'Invite exporter was successfully destroyed.'
         head :no_content
     end
-
+    
     def invitation_customer_sent
         @invited_applications = filer_application_by_status "INVITED"
     end
     
     private
-
+    
     def filer_application_by_status status
         current_user.invite_exporters.where("application_status = ?", status)
     end
-
+    
     def set_invite_exporter
         @invite_exporter = InviteExporter.find(params[:id])
     end
