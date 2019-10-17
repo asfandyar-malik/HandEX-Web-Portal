@@ -15,7 +15,9 @@
                 <div class="row">
                     <div class="col s12 custom-form">
                         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                            <%= devise_error_messages! %>
                             <%= render 'shared/devisemes' %>
+                            
                             <div class="form-section z-depth-1">
                                 <div class="row">
 
@@ -44,28 +46,30 @@
                                                 <% end %>
     
                                                 <div class="input-field col s12 no-padding">
-                                                    <div class="actions">
-                                                        <a class="btn-big btn z-depth-0 handex-btn validate" href="<%= submitted_applications_user_path(current_user.id) %>">Zurück</a>
-                                                        <%#= f.submit t('submit'), class: "btn-big btn z-depth-0 handex-btn validate" %>
-                                                    </div>
+                                                    <% if @minimum_password_length %>
+                                                        <label> Neues Passwort (Mindestens <%= @minimum_password_length %>  Zeichen) </label>
+                                                        <label> (Lassen Sie das Feld leer, wenn Sie es nicht ändern möchten) </label>
+                                                    <% end %>
+                                                    <%= f.password_field :password, autocomplete: "off", minlength: 6 , class: "form-control" %>
                                                 </div>
 
-<!--                                                <div class="input-field col s12 no-padding">-->
-<!--                                                    <label> Neues Passwort (Lassen Sie das Feld leer, wenn Sie es nicht ändern möchten) </label>-->
-                                                    <%#= f.password_field :password, autocomplete: "off", class: "form-control" %>
-<!--                                                </div>-->
+                                                <div class="input-field col s12 no-padding">
+                                                    <label> Passwort bestätigen </label>
+                                                    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+                                                </div>
+    
+                                                <div class="input-field col s12 no-padding">
+                                                    <label> Aktuelles Passwort </label>
+                                                    <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+                                                </div>
 
-<!--                                                <div class="input-field col s12 no-padding">-->
-<!--                                                    <label> Passwort bestätigen </label>-->
-                                                    <%#= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-<!--                                                </div>-->
-
-<!--                                                <div class="input-field col s12 no-padding">-->
-<!--                                                    <div class="actions">-->
-                                                        <%#= f.submit t('submit'), class: "btn-big btn z-depth-0 handex-btn validate" %>
-<!--                                                    </div>-->
-<!--                                                </div>-->
-
+                                                <div class="input-field col s12 no-padding">
+                                                    <div class="actions">
+                                                        <a class="btn-big btn z-depth-0 handex-btn validate" href="<%= submitted_applications_user_path(current_user.id) %>">Zurück</a>
+                                                        <%= f.submit t('submit'), class: "btn-big btn z-depth-0 handex-btn validate" %>
+                                                    </div>
+                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
