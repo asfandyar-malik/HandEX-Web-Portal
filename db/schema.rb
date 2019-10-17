@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_17_114553) do
+ActiveRecord::Schema.define(version: 2019_10_17_143343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -705,6 +705,7 @@ ActiveRecord::Schema.define(version: 2019_10_17_114553) do
     t.string "exporter_representative_name"
     t.string "application_status"
     t.string "application_type"
+    t.string "product_type"
     t.index ["exporter_email"], name: "index_invite_exporters_on_exporter_email", unique: true
   end
 

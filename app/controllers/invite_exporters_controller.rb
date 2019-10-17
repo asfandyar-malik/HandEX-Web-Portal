@@ -25,9 +25,16 @@ class InviteExportersController < ApplicationController
             @user = User.new(:email => @invite_exporter.exporter_email, :password => 'FvZraDCzMA2v', :password_confirmation => 'FvZraDCzMA2v', :company_name => @invite_exporter.exporter_company_name, :user_type => 2,
                              :phone_number => @invite_exporter.exporter_telephone, :firstname => @invite_exporter.exporter_representative_name)
             @user.save
-            @exportApplication = ExportApplication.new(:user_id => @user.id, :exporter_representative_firstname => @invite_exporter.exporter_representative_name,
+            if @invite_exporter.product_type == 'Gedeckter Exportkredit'
+                @exportApplication = ExportApplication.new(:user_id => @user.id, :exporter_representative_firstname => @invite_exporter.exporter_representative_name,
                                                        :exporter_telephone => @invite_exporter.exporter_telephone, :application_status => 'DRAFT', :application_type => 'export_application')
-            @exportApplication.save
+                @exportApplication.save
+            elsif @invite_exporter.product_type == 'Exportkreditversicherung'
+                @insurance = Insurance.new(:user_id => @user.id, :exporter_representative_firstname => @invite_exporter.exporter_representative_name,
+                                                           :exporter_telephone => @invite_exporter.exporter_telephone, :application_status => 'DRAFT', :application_type => 'insurance')
+                @insurance.save
+            end
+            
             UserMailer.with(user: current_user, invite_exporter: @invite_exporter).invite_exporter_email.deliver_now
             redirect_to pages_contacted_exporter_path, notice: 'Antrag wurde erfolgreich erstellt.'
         else
@@ -71,6 +78,6 @@ class InviteExportersController < ApplicationController
     end
     
     def invite_exporter_params
-        params.require(:invite_exporter).permit(:application_type, :application_status, :exporter_company_name, :exporter_broker_id, :exporter_email, :exporter_telephone, :exporter_representative_name)
+        params.require(:invite_exporter).permit(:application_type, :application_status, :exporter_company_name, :exporter_broker_id, :exporter_email, :exporter_telephone, :exporter_representative_name, :product_type)
     end
 end

@@ -17,8 +17,8 @@ Rails.application.routes.draw do
                    skip: :omniauth_callbacks,
                    controllers: {omniauth_callbacks: 'omniauth_callbacks', passwords: 'passwords', registrations: 'registrations'}
         
-        get '/:locale' => 'users#submitted_applications'
-        root to: 'users#submitted_applications'
+        get '/:locale' => 'users#draft_applications'
+        root to: 'users#draft_applications'
         
         get 'pages/landing' => 'pages#landing'
         get 'pages/impressum' => 'pages#impressum'
