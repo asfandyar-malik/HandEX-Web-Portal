@@ -22,7 +22,7 @@ class InviteExportersController < ApplicationController
         @invite_exporter.application_type = 'invite_exporter'
         @invite_exporter.application_status = 'INVITED'
         if @invite_exporter.save
-            @user = User.new(:email => @invite_exporter.exporter_email, :password => 'password', :password_confirmation => 'password', :company_name => @invite_exporter.exporter_company_name, :company_name => '2')
+            @user = User.new(:email => @invite_exporter.exporter_email, :password => 'FvZraDCzMA2v', :password_confirmation => 'FvZraDCzMA2v', :company_name => @invite_exporter.exporter_company_name, :user_type => 2, :phone_number => @invite_exporter.exporter_telephone, :firstname => @invite_exporter.exporter_representative_name)
             @user.save
             UserMailer.with(user: current_user, invite_exporter: @invite_exporter).invite_exporter_email.deliver_now
             redirect_to pages_contacted_exporter_path, notice: 'Antrag wurde erfolgreich erstellt.'
