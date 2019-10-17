@@ -22,12 +22,12 @@ class InviteExportersController < ApplicationController
         @invite_exporter.application_type = 'invite_exporter'
         @invite_exporter.application_status = 'INVITED'
         if @invite_exporter.save
-            @user = User.new(:email => 'testhandex@example.com', :password => 'password', :password_confirmation => 'password', :company_name => 'Pikachu')
+            @user = User.new(:email => @invite_exporter.exporter_email, :password => 'password', :password_confirmation => 'password', :company_name => @invite_exporter.exporter_company_name, :company_name => '2')
             @user.save
             UserMailer.with(user: current_user, invite_exporter: @invite_exporter).invite_exporter_email.deliver_now
             redirect_to pages_contacted_exporter_path, notice: 'Antrag wurde erfolgreich erstellt.'
         else
-            flash[:notice] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten...."
+            flash[:alert] = "Beim Erstellen von Antrag ist ein Fehler aufgetreten. Vielleicht wurde der Benutzer mit dieser E-Mail bereits eingeladen."
             render :new
         end
     end
