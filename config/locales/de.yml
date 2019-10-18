@@ -379,7 +379,6 @@ de:
   variable_interest_rate: "Ihr Zinssatz wird variabel berechnet. Bitte stellen Sie Ihre Berechnungsvariante dar."
   degressive_interest_rate: "Werden die vertraglichen Zinsen degressiv berechnet und fällig gestellt?"
   interest_calculation_description: "Bitte erläutern Sie die Zinsberechnung."
-  accept_partial_refinancing: "Sind Sie bereit eine (Re-)Finanzierung anzunehmen, die nicht dem vollständigen Auftragswert entspricht (85-95%)? "
   accepted_partial_refinancing_text: "In diesem Fall gibt es die Möglichkeit die Finanzierung im Rahmen einer Forfaitierung oder eines direkten Kredites von einer unserer Partnerbanken an Ihren Käufer zu realisieren. Im Laufe des Antrages ermitteln wir welche der beiden Finanzierungsformen wir Ihnen anbieten können."
   reject_partial_refinancing_text: "In diesem Fall gibt es die Möglichkeit die Finanzierung im Rahmen eines direkten Kredites von einer unserer Partnerbanken an Ihren Käufer zu realisieren. "
   payment_term: "Wie sind Ihre Zahlungsbedingungen gestaltet?"

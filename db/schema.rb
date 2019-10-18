@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_17_143343) do
+ActiveRecord::Schema.define(version: 2019_10_18_113515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -158,7 +158,6 @@ ActiveRecord::Schema.define(version: 2019_10_17_143343) do
     t.string "exporter_street_hno"
     t.string "loan_term"
     t.string "application_status", default: "new"
-    t.boolean "accept_partial_refinancing"
     t.boolean "is_investment_good"
     t.boolean "is_servicing_for_goods_offered"
     t.string "loan_duration"
@@ -570,7 +569,6 @@ ActiveRecord::Schema.define(version: 2019_10_17_143343) do
     t.string "is_all_information_provided_with_best_of_knowledge"
     t.string "exporter_street_hno"
     t.string "loan_term"
-    t.boolean "accept_partial_refinancing"
     t.boolean "is_investment_good"
     t.boolean "is_servicing_for_goods_offered"
     t.string "loan_duration"

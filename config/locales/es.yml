@@ -274,7 +274,6 @@ es:
 
   #financing
   your_financing: "Pago y Financiación"
-  accept_partial_refinancing: "¿Está dispuesto a aceptar (re)financiación que no corresponda al valor total del pedido (85-95%)? "
   accepted_partial_refinancing_text: "En este caso existe la posibilidad de realizar la financiación en el contexto de un forfaiting o un crédito directo de uno de nuestros bancos asociados a su comprador. En el curso de la solicitud determinamos cuál de las dos formas de financiación podemos ofrecerle."
   reject_partial_refinancing_text: "En este caso existe la posibilidad de realizar la financiación en el contexto de un crédito directo de uno de nuestros bancos asociados a su comprador. "
   has_agreed_payment_term_already: "¿Ya ha acordado un plazo de pago o su propia financiación con su cliente?"
