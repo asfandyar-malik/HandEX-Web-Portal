@@ -5,14 +5,16 @@
         <% if current_user.user_type == 3 %>
             <span class="nav-title">Makler Portal</span>
             <a class="z-depth-0 btn z-depth-0 handex-btn-positiv" href="<%= pages_products_path %>" >Antrag starten</a>
-<!--            <a class="z-depth-0 btn z-depth-0 handex-btn" href="<%#= new_invite_exporter_path %>" >Kunden einladen</a>-->
-            <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= invite_exporters_user_path(current_user.id) %>" > Eingeladen </a>
+            <a class="z-depth-0 btn z-depth-0 handex-btn" href="<%= new_invite_exporter_path %>" >Kunden einladen</a>
+            <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= invite_exporters_user_path(current_user.id) %>" > Eingeladene-Kunden </a>
+            <a class="z-depth-0 btn handex-btn rounded active" href="<%= invite_exporters_user_path(current_user.id) %>">
+                Eigene Kundenanträge </a>
         <% else %>
             <span class="nav-title">Anträge</span>
             <a class="z-depth-0 btn z-depth-0 handex-btn-positiv" href="<%= pages_products_path %>">Antrag starten</a>
+            <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= draft_applications_user_path(current_user.id) %>">Entwürfe</a>
+            <a class="z-depth-0 btn handex-btn rounded active" href="<%= submitted_applications_user_path(current_user.id) %>">Versendet</a>
         <% end %>
-        <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= draft_applications_user_path(current_user.id) %>">Entwürfe</a>
-        <a class="z-depth-0 btn handex-btn rounded active" href="<%= submitted_applications_user_path(current_user.id) %>">Versendet</a>
         <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= approved_applications_user_path(current_user.id) %>">Genehmigt</a>
         <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= all_applications_user_path(current_user.id) %>">Alle</a>
     </div>

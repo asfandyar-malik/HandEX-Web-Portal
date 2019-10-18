@@ -6,8 +6,8 @@
             <span class="nav-title">Makler Portal</span>
             <a class="z-depth-0 btn z-depth-0 handex-btn-positiv" href="<%= pages_products_path %>">Antrag starten</a>
             <a class="z-depth-0 btn z-depth-0 handex-btn" href="<%= new_invite_exporter_path %>">Kunden einladen</a>
-            <a class="z-depth-0 btn handex-btn rounded active" href="<%= invite_exporters_user_path(current_user.id) %>"> Eingeladene-Kunden </a>
-            <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= broker_filled_applications_user_path(current_user.id) %>"> Eigene Kundenanträge </a>
+            <a class="z-depth-0 btn handex-btn rounded inactive" href="<%= invite_exporters_user_path(current_user.id) %>"> Eingeladene-Kunden </a>
+            <a class="z-depth-0 btn handex-btn rounded active" href="<%= broker_filled_applications_user_path(current_user.id) %>"> Eigene Kundenanträge </a>
         <% else %>
             <span class="nav-title">Anträge</span>
             <a class="z-depth-0 btn z-depth-0 handex-btn-positiv" href="<%= pages_products_path %>">Antrag starten</a>
@@ -21,18 +21,24 @@
 
 <div class="container">
     <div class="section overview">
-        
         <div class="row">
-            <% if @invite_exporters.empty? %>
-                <%= render "users/no_exporter_invited" %>
-            <% else %>
-                <% @invite_exporters.each do |application| %>
-                    <%= render partial: "users/invite_exporter_listing_card", locals: {application: application,
-                                                                                       can_edit: false} %>
+            
+            <% if @broker_filled_applications.empty? %>
+                <%= render "users/no_application" %>
+            
+            <% elsif !@broker_filled_applications.empty? %>
+                
+                <% @broker_filled_applications.each do |application| %>
+                    <% if application.application_status == "DRAFT" %>
+                        <%= render partial: "users/draft_application_listing_card", locals: {application: application, can_edit: false} %>
+                    <% elsif application.application_status == "SUBMITTED" %>
+                        <%= render partial: "users/submitted_application_listing_card", locals: {application: application, can_edit: false} %>
+                    <% elsif application.application_status == "APPROVED" %>
+                        <%= render partial: "users/approved_application_listing_card", locals: {application: application, can_edit: false} %>
+                    <% end %>
                 <% end %>
+            
             <% end %>
-        
         </div>
-    
     </div>
 </div>

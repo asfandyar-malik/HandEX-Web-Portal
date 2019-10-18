@@ -36,6 +36,12 @@ class UsersController < ApplicationController
         @all_applications = @all_export_applications + @all_insurances + @all_importer_informations
     end
 
+    def broker_filled_applications
+        @all_insurances = current_user.insurances
+        @all_export_applications = current_user.export_applications
+        @broker_filled_applications = @all_insurances + @all_export_applications
+    end
+
     def invite_exporters
         @invite_exporters = filter_invite_exporter "INVITED"
     end

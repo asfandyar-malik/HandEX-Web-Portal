@@ -56,6 +56,7 @@ Rails.application.routes.draw do
                 get 'draft_applications'
                 get 'all_applications'
                 get 'invite_exporters'
+                get 'broker_filled_applications'
             end
         end
     end
