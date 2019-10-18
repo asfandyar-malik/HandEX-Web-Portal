@@ -14,15 +14,15 @@
 
         <div class="card-content">
 
-            <div class="valign-wrapper">
-                <div class="col m2">
-                    <i class="custom_icon box-icon"></i>
-                </div>
-                <div class="col m10">
-                    <div class="summary"> <%= t('application_type') %></div>
-                    <p class="bold-font"><%= application.application_type %></p>
-                </div>
-            </div>
+<!--            <div class="valign-wrapper">-->
+<!--                <div class="col m2">-->
+<!--                    <i class="custom_icon box-icon"></i>-->
+<!--                </div>-->
+<!--                <div class="col m10">-->
+<!--                    <div class="summary"> <%#= t('application_type') %></div>-->
+<!--                    <p class="bold-font"><%#= application.application_type %></p>-->
+<!--                </div>-->
+<!--            </div>-->
 
             <div class="valign-wrapper">
                 <div class="col m2">
@@ -30,7 +30,7 @@
                 </div>
                 <div class="col m10">
                     <div class="summary"> <%= t('importer') %></div>
-                    <p class="bold-font"><%= application.importer_company_name %></p>
+                    <p><b><%= (application.importer_company_name == '') ? '-' : application.importer_company_name %></b></p>
                 </div>
             </div>
 
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col m10">
                     <div class="summary"> <%= t('destination_country') %></div>
-                    <p class="bold-font"> <%= application.importer_country %></p>
+                    <p><b><%= (application.importer_country == 'Bitte auswählen') ? '-' : application.importer_country %></b></p>
                 </div>
             </div>
 
@@ -50,7 +50,7 @@
                 </div>
                 <div class="col m10">
                     <div class="summary"> <%= t('product') %></div>
-                    <p><b><%= application.exported_goods_type_two %></b></p>
+                    <p><b><%= (application.exported_goods_type_two == 'Bitte wählen Sie eine Warenkategorie, die zu Ihrem Produkt passt') ? '-' : application.exported_goods_type_two %></b></p>
                 </div>
             </div>
 
@@ -60,11 +60,7 @@
                 </div>
                 <div class="col m10">
                     <div class="summary"> <%= t('contract_value') %></div>
-                    <% if application.contract_value %>
-                        <p><b>&euro; <%= application.contract_value %> </b></p>
-                    <% else %>
-                        <p><b>MISSING </b></p>
-                    <% end %>
+                    <p><b><%= (application.contract_value == '') ? '-' : application.contract_value  %></b></p>
                 </div>
             </div>
 
@@ -74,7 +70,7 @@
                 </div>
                 <div class="col m10">
                     <div class="summary"> <%= t('application_sent_at') %></div>
-                    <p><b><%= application.updated_at.strftime('%d %b %Y') %> </b></p>
+                    <p><b><%= (application.updated_at == '') ? '-' : application.updated_at.strftime('%d %b %Y') %></b></p>
                 </div>
             </div>
         </div>
@@ -108,15 +104,15 @@
 
         <div class="card-content">
 
-            <div class="valign-wrapper">
-                <div class="col m2">
-                    <i class="custom_icon box-icon"></i>
-                </div>
-                <div class="col m10">
-                    <div class="summary"> <%= t('application_type') %></div>
-                    <p class="bold-font"><%= application.application_type %></p>
-                </div>
-            </div>
+<!--            <div class="valign-wrapper">-->
+<!--                <div class="col m2">-->
+<!--                    <i class="custom_icon box-icon"></i>-->
+<!--                </div>-->
+<!--                <div class="col m10">-->
+<!--                    <div class="summary"> <%#= t('application_type') %></div>-->
+<!--                    <p class="bold-font"><%#= application.application_type %></p>-->
+<!--                </div>-->
+<!--            </div>-->
 
             <div class="valign-wrapper">
                 <div class="col m2">
@@ -124,7 +120,7 @@
                 </div>
                 <div class="col m10">
                     <div class="summary"> <%= t('importer') %></div>
-                    <p><b><%= application.importer_company_name %></b></p>
+                    <p><b><%= (application.importer_company_name == '') ? '-' : application.importer_company_name %></b></p>
                 </div>
             </div>
 
@@ -134,7 +130,7 @@
                 </div>
                 <div class="col m10">
                     <div class="summary"> <%= t('destination_country') %></div>
-                    <p><b><%= application.importer_country %></b></p>
+                    <p><b><%= (application.importer_country == 'Bitte auswählen') ? '-' : application.importer_country %></b></p>
                 </div>
             </div>
 
@@ -144,7 +140,7 @@
                 </div>
                 <div class="col m10">
                     <div class="summary"> <%= t('importer_tax_id') %></div>
-                    <p><b><%= application.importer_tax_id %></b></p>
+                    <p><b><%= (application.importer_tax_id == '') ? '-' : application.importer_tax_id %></b></p>
                 </div>
             </div>
 
@@ -154,7 +150,7 @@
                 </div>
                 <div class="col m10">
                     <div class="summary"> <%= t('servicing_offered') %></div>
-                    <p><b><%= application.exporter_offers_servicing_for_goods %></b></p>
+                    <p><b><%= (application.exporter_offers_servicing_for_goods == '') ? '-' : application.exporter_offers_servicing_for_goods %></b></p>
                 </div>
             </div>
         </div>
