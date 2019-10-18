@@ -568,7 +568,7 @@ de:
   security_type_name: "Bitte Name von Sicherheiten vergeben"
 
   #application_prefill
-  application_prefill_paragraph: "Gerne füllen wir den Antrag weitestgehend für Sie aus. Hierfür benötigen wir bspw. den aktuellen Entwurf des Liefervertrages oder Ihrer AGBs sowie weitere Dateien, die uns ermöglichen das Geschäft so gut wie möglich zu verstehen. Nach etwa 24 Stunden erhalten Sie von uns eine Meldung, dass wir den Antrag für Sie befüllt haben. Nach Ihrer Durchsicht und Ergänzung des Antrags bestätigen Sie den Versand durch den Button \"Antrag Shicken\" "
+  application_prefill_paragraph: "Mit unserer automatischen Erkennung von relevanten Daten in Ihren hochgeladenen Dokumenten erstellen wir einen Antrag für Sie. Hierfür benötigen wir bspw. den aktuellen Entwurf des Liefervertrages oder Ihrer AGBs sowie weitere Dateien, die uns ermöglichen das Geschäft so gut wie möglich zu verstehen. Nach etwa 24 Stunden erhalten Sie von uns eine Meldung, dass wir den Antrag für Sie erstellt haben. Nach Ihrer Durchsicht und Ergänzung des Antrags bestätigen Sie den Versand durch den Button \"Antrag Shicken\" "
   application_prefill_header: "Anwendung vorab ausfüllen"
   supply_contract: "Liefervertrag"
   document_one: "Zusätzliches Dokument"
