@@ -2,13 +2,20 @@ Guten Tag <%= @invite_exporter.exporter_representative_name %>,
 
 ===============================================
 
-Ihr Versicherungsmakler <%= @invite_exporter.exporter_company_name %> hat Sie eingeladen, sich bei HandEX zu registrierten. HandEX ist Spezialist für Exportkredite und Exportkreditversicherungen.
+Ihr Makler <%= @user.company_name %> hat Sie eingeladen, sich bei HandEX zu registrierten. HandEX ist Spezialist für hermesgedeckte Exportkredite und
+Hermes-Exportkreditversicherungen. Ihr Makler hat bereits einen Antrag für Sie erstellt, den Sie in Ihrer Kontoübersicht als Entwurf finden.
 
-Bitte klicken Sie auf den folgenden Link, um sich zu registrieren und einen Antrag einzureichen.
-<br>
-https://portal.handex.co/de/users/registration
-<br><br>
-Bei Rückfragen können Sie sich jederzeit an HandEX wenden, indem Sie uns eine Email senden an info@handex.co oder unsere Webseite besuchen www.handex.co
+Bitte klicken Sie auf den folgenden Link, um einen Antrag zu stellen:
+
+https://portal.handex.co/users/login
+
+Ihr Benutzername und Ihr Passwort lauten wie folgt:
+Email: <%= @invite_exporter.exporter_email %>
+Passwort: FvZraDCzMA2v
+
+Vergessen Sie aus Sicherheitsgründen nicht, Ihr Passwort im Profilbereich zu ändern.
+
+Bei Rückfragen können Sie sich jederzeit an HandEX wenden, indem Sie uns eine Email senden an info@handex.co
 
 Mit freundlichen Grüßen
 HandEX GmbH
