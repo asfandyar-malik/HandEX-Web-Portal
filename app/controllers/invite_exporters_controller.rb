@@ -25,7 +25,7 @@ class InviteExportersController < ApplicationController
             @user = User.new(:email => @invite_exporter.exporter_email, :password => 'FvZraDCzMA2v', :password_confirmation => 'FvZraDCzMA2v', :company_name => @invite_exporter.exporter_company_name, :user_type => 2,
                              :phone_number => @invite_exporter.exporter_telephone, :firstname => @invite_exporter.exporter_representative_name)
             @user.save
-            if @invite_exporter.product_type == 'Gedeckter Exportkredit'
+            if @invite_exporter.product_type == 'Hermesgedeckte Forfaitierung'
                 @exportApplication = ExportApplication.new(:user_id => @user.id, :exporter_representative_firstname => @invite_exporter.exporter_representative_name,
                                                        :exporter_telephone => @invite_exporter.exporter_telephone, :application_status => 'DRAFT', :application_type => 'export_application')
                 @exportApplication.save
