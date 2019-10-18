@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_17_143343) do
+ActiveRecord::Schema.define(version: 2019_10_18_113515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -158,7 +158,6 @@ ActiveRecord::Schema.define(version: 2019_10_17_143343) do
     t.string "exporter_street_hno"
     t.string "loan_term"
     t.string "application_status", default: "new"
-    t.boolean "accept_partial_refinancing"
     t.boolean "is_investment_good"
     t.boolean "is_servicing_for_goods_offered"
     t.string "loan_duration"
@@ -228,20 +227,20 @@ ActiveRecord::Schema.define(version: 2019_10_17_143343) do
     t.string "exporter_date_founded"
     t.string "project_detailed_description"
     t.boolean "is_fully_responsible_for_project"
-    t.string "contract_currency"
     t.string "entire_project_currency"
     t.string "entire_project_amount"
+    t.string "contract_currency"
     t.boolean "taking_part_in_tender"
     t.string "tender_submission_date"
     t.string "interest_currency"
     t.string "interest_value"
-    t.string "downpayment_delivery_description_payment_term_both"
     t.string "fixed_interest_rate"
     t.string "fixed_interest_rate_value"
     t.string "variable_interest_rate"
+    t.string "downpayment_delivery_description_payment_term_both"
     t.string "degressive_interest_rate"
     t.string "interest_calculation_description"
-    t.string "application_type"
+    t.string "application_type", default: "export_application"
     t.string "exporter_company_registration_number"
     t.string "registration_court"
     t.string "importer_email"
@@ -280,6 +279,9 @@ ActiveRecord::Schema.define(version: 2019_10_17_143343) do
     t.string "availability"
     t.string "services_not_visible_to_customer"
     t.string "importer_shipment_address_line2"
+    t.string "importer_has_significant_influence_on_exporter_management"
+    t.string "explain_importer_influence_on_exporter_management"
+    t.string "AddExplainImporterInfluenceOnExporterManagementToInosurance"
     t.string "payment_term"
     t.string "german_certificate_of_origin_status"
     t.string "business_focus_country_one"
@@ -567,7 +569,6 @@ ActiveRecord::Schema.define(version: 2019_10_17_143343) do
     t.string "is_all_information_provided_with_best_of_knowledge"
     t.string "exporter_street_hno"
     t.string "loan_term"
-    t.boolean "accept_partial_refinancing"
     t.boolean "is_investment_good"
     t.boolean "is_servicing_for_goods_offered"
     t.string "loan_duration"
@@ -652,7 +653,7 @@ ActiveRecord::Schema.define(version: 2019_10_17_143343) do
     t.string "variable_interest_rate"
     t.string "degressive_interest_rate"
     t.string "interest_calculation_description"
-    t.string "application_type"
+    t.string "application_type", default: "insurance"
     t.string "exporter_company_registration_number"
     t.string "registration_court"
     t.string "importer_email"
@@ -687,6 +688,7 @@ ActiveRecord::Schema.define(version: 2019_10_17_143343) do
     t.string "availability"
     t.string "services_not_visible_to_customer"
     t.string "importer_shipment_address_line2"
+    t.string "importer_has_significant_influence_on_exporter_management"
     t.string "payment_term"
     t.string "german_certificate_of_origin_status"
     t.boolean "webid_identification"
@@ -706,7 +708,6 @@ ActiveRecord::Schema.define(version: 2019_10_17_143343) do
     t.string "application_status"
     t.string "application_type"
     t.string "product_type"
-    t.index ["exporter_email"], name: "index_invite_exporters_on_exporter_email", unique: true
   end
 
   create_table "multiple_shipments", force: :cascade do |t|

@@ -363,7 +363,6 @@ pt:
   variable_interest_rate: "Caso a taxa de juros seja variável. Taxa de juros variável"
   degressive_interest_rate: "Os juros contratuais serão calculados com base no saldo decrescente e pagos?"
   interest_calculation_description: "Por favor, explique a taxa de juros"
-  accept_partial_refinancing: "Você está preparado para aceitar um (re-)financiamento que não corresponda ao valor total do pedido (85-95%)?"
   accepted_partial_refinancing_text: "Neste caso, existe a possibilidade de realizar o financiamento no contexto de um forfaiting ou um empréstimo direto de um dos nossos bancos parceiros para o seu comprador. No decorrer da aplicação, vamos determinar qual das duas formas de financiamento podemos oferecer a você."
   reject_partial_refinancing_text: "Neste caso, existe a possibilidade de realizar um financiamento para seu comprador diretamente com nossos bancos parceiros"
   payment_term: "Por favor, detalhe suas condições de pagamento"
@@ -552,3 +551,4 @@ pt:
   importer_street_hno: "Importeur Straße hno"
   explain_exporter_influence_on_importer_management: "Bitte beschreiben Sie den Einfluss auf das Management"
   security_type_name: "Bitte Name von Sicherheiten vergeben"
+  no_value: "-"
