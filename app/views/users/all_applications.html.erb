@@ -30,19 +30,22 @@
                 
                 <% @all_applications.each do |application| %>
                     <% if application.application_status == "DRAFT" %>
-                        <%= render partial: "users/draft_application_listing_card", locals: {application: application, can_edit: false} %>
+                        <%= render partial: "users/draft_application_listing_card", locals:  {application: application, can_edit: false} %>
                     <% elsif application.application_status == "SUBMITTED" %>
-                        <%= render partial: "users/submitted_application_listing_card", locals: {application: application, can_edit: false} %>
+                        <%= render partial: "users/submitted_application_listing_card", locals:  {application: application, can_edit: false} %>
                     <% elsif application.application_status == "APPROVED" %>
-                        <%= render partial: "users/approved_application_listing_card", locals: {application: application, can_edit: false} %>
+                        <%= render partial: "users/approved_application_listing_card", locals:  {application: application, can_edit: false} %>
                     <% end %>
                 <% end %>
-            
+        
+                <% @invite_exporters.each do |application| %>
+                    <%= render partial: "users/invite_exporter_listing_card", locals:  {application: application,                                                                                         can_edit: false} %>
+                <% end %>
+                
             <% elsif !@invite_exporters.empty? %>
                 
                 <% @invite_exporters.each do |application| %>
-                    <%= render partial: "users/invite_exporter_listing_card", locals: {application: application,
-                                                                                       can_edit: false} %>
+                    <%= render partial: "users/invite_exporter_listing_card", locals:  {application: application,                                                                                         can_edit: false} %>
                 <% end %>
             
             <% end %>
