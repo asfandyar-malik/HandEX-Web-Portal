@@ -29,7 +29,8 @@
                 </div>
                 <div class="col m10">
                     <div class="summary"> <%= t('exporter_name') %></div>
-                    <p><b><%= application.exporter_company_name %></b></p>
+                    <p><b><%= (application.exporter_company_name == '') ? '-' : application.exporter_company_name %></b></p>
+
                 </div>
             </div>
 
@@ -39,7 +40,8 @@
                 </div>
                 <div class="col m10">
                     <div class="summary"> <%= t('exporter_email') %></div>
-                    <p><b><%= application.exporter_email %></b></p>
+                    <p><b><%= (application.exporter_email == '') ? '-' : application.exporter_email %></b></p>
+
                 </div>
             </div>
 
@@ -49,7 +51,7 @@
                 </div>
                 <div class="col m10">
                     <div class="summary"> <%= t('exporter_representative_name') %></div>
-                    <p><b><%= application.exporter_representative_name %></b></p>
+                    <p><b><%= (application.exporter_representative_name == '') ? '-' : application.exporter_representative_name %></b></p>
                 </div>
             </div>
 
@@ -59,11 +61,9 @@
                 </div>
                 <div class="col m10">
                     <div class="summary"> <%= t('exporter_telephone') %></div>
-                    <p><b><%= application.exporter_telephone %></b></p>
+                    <p><b><%= (application.exporter_telephone == '') ? '-' : application.exporter_telephone %></b></p>
                 </div>
             </div>
-
         </div>
-
     </div>
 </div>

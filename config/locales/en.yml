@@ -116,7 +116,7 @@ en:
   destination_country: "Zielland"
   product: "Produkt"
   contract_value: "Auftragswert"
-  application_sent_at: "Abgeschickt am"
+  application_sent_at: "Erstellt am"
   see_summary_of_application: "Zusammenfassung ansehen"
   currency: "Währung"
   back: "Zurück"
