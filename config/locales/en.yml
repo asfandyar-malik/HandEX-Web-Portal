@@ -553,3 +553,4 @@ en:
   importer_street_hno: "Street/Nr."
   explain_exporter_influence_on_importer_management: "Bitte beschreiben Sie den Einfluss auf das Management"
   security_type_name: "Bitte Name von Sicherheiten vergeben"
+  no_value: "-"
