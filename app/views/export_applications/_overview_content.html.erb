@@ -27,7 +27,7 @@
                                                     t('no')
                                                 elsif !attr_value.nil? and attr_value == true
                                                     t('yes')
-                                                elsif !attr_name.nil? and !attr_name.empty? and  (attr_value.nil? or attr_value.empty?)
+                                                elsif !attr_name.nil? and attr_name != '' and  (attr_value.nil? or attr_value == '')
                                                   t('no_value')
                                                 elsif !attr_value.nil?
                                                     attr_value
@@ -60,7 +60,7 @@
                                                     t('no')
                                                 elsif !attr_value.nil? and attr_value == true
                                                     t('yes')
-                                                elsif !attr_name.nil? and !attr_name.empty? and  (attr_value.nil? or attr_value.empty?)
+                                                elsif !attr_name.nil? and attr_name != '' and  (attr_value.nil? or attr_value == '')
                                                   t('no_value')
                                                 elsif !attr_value.nil?
                                                     attr_value
@@ -93,7 +93,7 @@
                                                     t('no')
                                                 elsif !attr_value.nil? and attr_value == true
                                                     t('yes')
-                                                elsif !attr_name.nil? and !attr_name.empty? and  (attr_value.nil? or attr_value.empty?)
+                                                elsif !attr_name.nil? and attr_name != '' and  (attr_value.nil? or attr_value == '')
                                                   t('no_value')
                                                 elsif !attr_value.nil?
                                                     attr_value
@@ -126,7 +126,7 @@
                                                     t('no')
                                                 elsif !attr_value.nil? and attr_value == true
                                                     t('yes')
-                                                elsif !attr_name.nil? and !attr_name.empty? and  (attr_value.nil? or attr_value.empty?)
+                                                elsif !attr_name.nil? and attr_name != '' and  (attr_value.nil? or attr_value == '')
                                                   t('no_value')
                                                 elsif !attr_value.nil?
                                                     attr_value
