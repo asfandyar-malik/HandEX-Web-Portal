@@ -466,7 +466,7 @@ en:
   annual_financial_statement_importer_second_last: "Jahresabschluss des Kunden vorletztes Jahr"
   annual_financial_statement_exporter: "Jahresabschluss letztes Geschäftsjahr"
   annual_financial_statement_exporter_second_last: "Jahresabschluss vorletztes Geschäftsjahr"
-  credit_bureaus_importer: "Bonitätsauskunft über den Kunden"
+  credit_bureaus_importer: "Bonitätsauskunft über den Kunden(sofern verfügbar)"
   self_declaration: "Selbstauskunft (bei Neukunden)"
   export_contract_or_bills: "Liefervertrag (aktueller Entwurf, sofern verfügbar)"
   project_memorandum_exporter_business: "ggf. Projektmemorandum"
@@ -528,6 +528,7 @@ en:
   importer_information_saved: "Your data has been saved successfully!"
   importer_information_saved_text: "Your data have been sent. We are now reviewing the data so that we can proceed with the export financing and insurance. If you have any questions, you can always contact us by e-mail at info@handex.co."
   invite_importer_to_fill_application: "Sie möchten diesen Teil des Antrags und Dokumente von Ihrem Kunden selbst senden lassen? Dann laden Sie Ihn zum HandEX-Portal ein!"
+  message_after_importer_invited: "Sie haben Ihren Kunden zu diesem Antrag eingeladen. Daher beötigen wir von Ihnen nur noch Antworten zu zwei Fragen"
   servicing_offered: "Leistung anbieten"
 
   #summary
