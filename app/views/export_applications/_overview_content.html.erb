@@ -12,27 +12,28 @@
             <div class="handex-form-container">
                 <div class="container">
                     <div class="section">
-
+                        
                         <ul class="collection with-header">
                             <% @export_application.attributes.each do |attr_name, attr_value|
-                                next if (attr_name == "id" or !@company_attr_list.include? attr_name)   %>
+                                next if (attr_name == "id" or !@company_attr_list.include? attr_name)    %>
                                 <li class="collection-item">
-                                    <div class="overview-item"><%= t(attr_name) %>
-                                        <div class="secondary-content">
-                                            <%= if !attr_value.nil? and attr_value == t('please_select')
-                                                    t('not_selected_yet')
-                                                elsif !attr_value.nil? and attr_value == "export_application"
-                                                    t('export_application')
-                                                elsif !attr_value.nil? and !attr_value
-                                                    t('no')
-                                                elsif !attr_value.nil? and attr_value == true
-                                                    t('yes')
-                                                elsif !attr_name.nil? and attr_name != '' and  (attr_value.nil? or attr_value == '')
-                                                  t('no_value')
-                                                elsif !attr_value.nil?
-                                                    attr_value
-                                                end %>
-                                        </div>
+                                    <div class="overview-item">
+                                        <%= t(attr_name) %>
+                                    </div>
+                                    <div class="secondary-content">
+                                        <%= if !attr_value.nil? and attr_value == t('please_select')
+                                                t('not_selected_yet')
+                                            elsif !attr_value.nil? and attr_value == "export_application"
+                                                t('export_application')
+                                            elsif !attr_value.nil? and !attr_value
+                                                t('no')
+                                            elsif !attr_value.nil? and attr_value == true
+                                                t('yes')
+                                            elsif !attr_name.nil? and attr_name != '' and (attr_value.nil? or attr_value == '')
+                                                t('no_value')
+                                            elsif !attr_value.nil?
+                                                attr_value
+                                            end %>
                                     </div>
                                 </li>
                             <% end %>
@@ -45,27 +46,28 @@
             <div class="handex-form-container">
                 <div class="container">
                     <div class="section">
-
+                        
                         <ul class="collection with-header">
                             <% @export_application.attributes.each do |attr_name, attr_value|
-                                next if (attr_name == "id" or !@your_importer_attr_list.include? attr_name)    %>
+                                next if (attr_name == "id" or !@your_importer_attr_list.include? attr_name)     %>
                                 <li class="collection-item">
-                                    <div class="overview-item"><%= t(attr_name) %>
-                                        <div class="secondary-content">
-                                            <%= if !attr_value.nil? and attr_value == t('please_select')
-                                                    t('not_selected_yet')
-                                                elsif !attr_value.nil? and attr_value == "export_application"
-                                                    t('export_application')
-                                                elsif !attr_value.nil? and !attr_value
-                                                    t('no')
-                                                elsif !attr_value.nil? and attr_value == true
-                                                    t('yes')
-                                                elsif !attr_name.nil? and attr_name != '' and  (attr_value.nil? or attr_value == '')
-                                                  t('no_value')
-                                                elsif !attr_value.nil?
-                                                    attr_value
-                                                end %>
-                                        </div>
+                                    <div class="overview-item">
+                                        <%= t(attr_name) %>
+                                    </div>
+                                    <div class="secondary-content">
+                                        <%= if !attr_value.nil? and attr_value == t('please_select')
+                                                t('not_selected_yet')
+                                            elsif !attr_value.nil? and attr_value == "export_application"
+                                                t('export_application')
+                                            elsif !attr_value.nil? and !attr_value
+                                                t('no')
+                                            elsif !attr_value.nil? and attr_value == true
+                                                t('yes')
+                                            elsif !attr_name.nil? and attr_name != '' and (attr_value.nil? or attr_value == '')
+                                                t('no_value')
+                                            elsif !attr_value.nil?
+                                                attr_value
+                                            end %>
                                     </div>
                                 </li>
                             <% end %>
@@ -78,27 +80,28 @@
             <div class="handex-form-container">
                 <div class="container">
                     <div class="section">
-
+                        
                         <ul class="collection with-header">
                             <% @export_application.attributes.each do |attr_name, attr_value|
-                                next if (attr_name == "id" or !@business_attr_list.include? attr_name)     %>
+                                next if (attr_name == "id" or !@business_attr_list.include? attr_name)      %>
                                 <li class="collection-item">
-                                    <div class="overview-item"><%= t(attr_name) %>
-                                        <div class="secondary-content">
-                                            <%= if !attr_value.nil? and attr_value == t('please_select')
-                                                    t('not_selected_yet')
-                                                elsif !attr_value.nil? and attr_value == "export_application"
-                                                    t('export_application')
-                                                elsif !attr_value.nil? and !attr_value
-                                                    t('no')
-                                                elsif !attr_value.nil? and attr_value == true
-                                                    t('yes')
-                                                elsif !attr_name.nil? and attr_name != '' and  (attr_value.nil? or attr_value == '')
-                                                  t('no_value')
-                                                elsif !attr_value.nil?
-                                                    attr_value
-                                                end %>
-                                        </div>
+                                    <div class="overview-item">
+                                        <%= t(attr_name) %>
+                                    </div>
+                                    <div class="secondary-content">
+                                        <%= if !attr_value.nil? and attr_value == t('please_select')
+                                                t('not_selected_yet')
+                                            elsif !attr_value.nil? and attr_value == "export_application"
+                                                t('export_application')
+                                            elsif !attr_value.nil? and !attr_value
+                                                t('no')
+                                            elsif !attr_value.nil? and attr_value == true
+                                                t('yes')
+                                            elsif !attr_name.nil? and attr_name != '' and (attr_value.nil? or attr_value == '')
+                                                t('no_value')
+                                            elsif !attr_value.nil?
+                                                attr_value
+                                            end %>
                                     </div>
                                 </li>
                             <% end %>
@@ -111,27 +114,28 @@
             <div class="handex-form-container">
                 <div class="container">
                     <div class="section">
-
+                        
                         <ul class="collection with-header">
                             <% @export_application.attributes.each do |attr_name, attr_value|
-                                next if (attr_name == "id" or !@finance_and_payment_attr_list.include? attr_name)     %>
+                                next if (attr_name == "id" or !@finance_and_payment_attr_list.include? attr_name)      %>
                                 <li class="collection-item">
-                                    <div class="overview-item"><%= t(attr_name) %>
-                                        <div class="secondary-content">
-                                            <%= if !attr_value.nil? and attr_value == t('please_select')
-                                                    t('not_selected_yet')
-                                                elsif !attr_value.nil? and attr_value == "export_application"
-                                                    t('export_application')
-                                                elsif !attr_value.nil? and !attr_value
-                                                    t('no')
-                                                elsif !attr_value.nil? and attr_value == true
-                                                    t('yes')
-                                                elsif !attr_name.nil? and attr_name != '' and  (attr_value.nil? or attr_value == '')
-                                                  t('no_value')
-                                                elsif !attr_value.nil?
-                                                    attr_value
-                                                end %>
-                                        </div>
+                                    <div class="overview-item">
+                                        <%= t(attr_name) %>
+                                    </div>
+                                    <div class="secondary-content">
+                                        <%= if !attr_value.nil? and attr_value == t('please_select')
+                                                t('not_selected_yet')
+                                            elsif !attr_value.nil? and attr_value == "export_application"
+                                                t('export_application')
+                                            elsif !attr_value.nil? and !attr_value
+                                                t('no')
+                                            elsif !attr_value.nil? and attr_value == true
+                                                t('yes')
+                                            elsif !attr_name.nil? and attr_name != '' and (attr_value.nil? or attr_value == '')
+                                                t('no_value')
+                                            elsif !attr_value.nil?
+                                                attr_value
+                                            end %>
                                     </div>
                                 </li>
                             <% end %>

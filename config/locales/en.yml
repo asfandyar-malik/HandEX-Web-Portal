@@ -446,6 +446,11 @@ en:
   how_high_contract_value: "Wie hoch ist der Auftragswert in Euro?"
   exporting_to_private_sector: "Liefern Sie an Privatsektor?"
   corruption_delcaration: "Korruptionserklärung"
+  business_focus_country_one: "Länder der schwerpunktmäßigen Geschäftstätigkeit 1"
+  business_focus_country_two: "Länder der schwerpunktmäßigen Geschäftstätigkeit 2"
+  business_focus_country_three: "Länder der schwerpunktmäßigen Geschäftstätigkeit 3"
+  business_focus_country_four: "Länder der schwerpunktmäßigen Geschäftstätigkeit 4"
+  business_focus_country_five: "Länder der schwerpunktmäßigen Geschäftstätigkeit 5"
 
   #submit_application
   application_sent_successfully: "Ihr Antrag wurde erfolgreich versendet !"

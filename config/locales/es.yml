@@ -368,12 +368,19 @@ es:
   read_all_instruction_href: "/páginas/guías"
   has_read_all_instructions: "Hemos tomado nota del %{href} para la aplicación, publicación de datos de proyectos, Directrices de la OCDE para Empresas Multinacionales y Directrices de las Naciones Unidas para los Derechos Económicos y Humanos."
   has_read_all_instructions_link: "/páginas/guías"
+
   #summary
   summary: "Resumen"
   where_should_it_go: "¿Dónde Tiene que ir?"
   how_high_contract_value: "¿Cuál es el Valor del Pedido en Euros?"
   exporting_to_private_sector: "¿Suministran al sector privado?"
   corruption_delcaration: "Declaración de Corrupción"
+  business_focus_country_one: "Länder der schwerpunktmäßigen Geschäftstätigkeit 1"
+  business_focus_country_two: "Länder der schwerpunktmäßigen Geschäftstätigkeit 2"
+  business_focus_country_three: "Länder der schwerpunktmäßigen Geschäftstätigkeit 3"
+  business_focus_country_four: "Länder der schwerpunktmäßigen Geschäftstätigkeit 4"
+  business_focus_country_five: "Länder der schwerpunktmäßigen Geschäftstätigkeit 5"
+
   #submit_application
   application_sent_successfully: "Su solicitud ha sido enviada con éxito!"
   application_sent_successfully_text: "Su solicitud ha sido enviada con éxito y ahora está siendo revisada por HandEX. Probablemente recibirá una respuesta en las próximas dos semanas. Si tiene alguna pregunta, puede ponerse en contacto con nosotros en cualquier momento enviando un correo electrónico a info@handex.co"

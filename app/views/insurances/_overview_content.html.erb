@@ -15,25 +15,27 @@
                         
                         <ul class="collection with-header">
                             <% @insurance.attributes.each do |attr_name, attr_value|
-                                next if (attr_name == "id" or !@insurance_company_attr_list.include? attr_name)   %>
+                                next if (attr_name == "id" or !@insurance_company_attr_list.include? attr_name)    %>
                                 <li class="collection-item">
-                                    <div class="overview-item"><%= t(attr_name) %>
-                                        <div class="secondary-content">
-                                            <%= if !attr_value.nil? and attr_value == t('please_select')
-                                                    t('not_selected_yet')
-                                                elsif !attr_value.nil? and attr_value == "insurance"
-                                                    t('insurance')
-                                                elsif !attr_value.nil? and !attr_value
-                                                    t('no')
-                                                elsif !attr_value.nil? and attr_value == true
-                                                    t('yes')
-                                                elsif !attr_name.nil? and attr_name != '' and  (attr_value.nil? or attr_value == '')
-                                                    t('no_value')
-                                                elsif !attr_value.nil?
-                                                    attr_value
-                                                end
-                                            %>
-                                        </div>
+                                    <div class="overview-item">
+                                        <%= t(attr_name) %>
+                                    </div>
+                                    
+                                    <div class="secondary-content">
+                                        <%= if !attr_value.nil? and attr_value == t('please_select')
+                                                t('not_selected_yet')
+                                            elsif !attr_value.nil? and attr_value == "insurance"
+                                                t('insurance')
+                                            elsif !attr_value.nil? and !attr_value
+                                                t('no')
+                                            elsif !attr_value.nil? and attr_value == true
+                                                t('yes')
+                                            elsif !attr_name.nil? and attr_name != '' and (attr_value.nil? or attr_value == '')
+                                                t('no_value')
+                                            elsif !attr_value.nil?
+                                                attr_value
+                                            end
+                                        %>
                                     </div>
                                 </li>
                             <% end %>
@@ -49,25 +51,27 @@
                         
                         <ul class="collection with-header">
                             <% @insurance.attributes.each do |attr_name, attr_value|
-                                next if (attr_name == "id" or !@insurance_your_importer_attr_list.include? attr_name)    %>
+                                next if (attr_name == "id" or !@insurance_your_importer_attr_list.include? attr_name)     %>
                                 <li class="collection-item">
-                                    <div class="overview-item"><%= t(attr_name) %>
-                                        <div class="secondary-content">
-                                            <%= if !attr_value.nil? and attr_value == t('please_select')
-                                                    t('not_selected_yet')
-                                                elsif !attr_value.nil? and attr_value == "insurance"
-                                                    t('insurance')
-                                                elsif !attr_value.nil? and !attr_value
-                                                    t('no')
-                                                elsif !attr_value.nil? and attr_value == true
-                                                    t('yes')
-                                                elsif !attr_name.nil? and attr_name != '' and  (attr_value.nil? or attr_value == '')
-                                                    t('no_value')
-                                                elsif !attr_value.nil?
-                                                    attr_value
-                                                end
-                                            %>
-                                        </div>
+                                    <div class="overview-item">
+                                        <%= t(attr_name) %>
+                                    </div>
+                                    
+                                    <div class="secondary-content">
+                                        <%= if !attr_value.nil? and attr_value == t('please_select')
+                                                t('not_selected_yet')
+                                            elsif !attr_value.nil? and attr_value == "insurance"
+                                                t('insurance')
+                                            elsif !attr_value.nil? and !attr_value
+                                                t('no')
+                                            elsif !attr_value.nil? and attr_value == true
+                                                t('yes')
+                                            elsif !attr_name.nil? and attr_name != '' and (attr_value.nil? or attr_value == '')
+                                                t('no_value')
+                                            elsif !attr_value.nil?
+                                                attr_value
+                                            end
+                                        %>
                                     </div>
                                 </li>
                             <% end %>
@@ -83,25 +87,26 @@
                         
                         <ul class="collection with-header">
                             <% @insurance.attributes.each do |attr_name, attr_value|
-                                next if (attr_name == "id" or !@insurance_business_attr_list.include? attr_name)     %>
+                                next if (attr_name == "id" or !@insurance_business_attr_list.include? attr_name)      %>
                                 <li class="collection-item">
-                                    <div class="overview-item"><%= t(attr_name) %>
-                                        <div class="secondary-content">
-                                            <%= if !attr_value.nil? and attr_value == t('please_select')
-                                                    t('not_selected_yet')
-                                                elsif !attr_value.nil? and attr_value == "insurance"
-                                                    t('insurance')
-                                                elsif !attr_value.nil? and !attr_value
-                                                    t('no')
-                                                elsif !attr_value.nil? and attr_value == true
-                                                    t('yes')
-                                                elsif !attr_name.nil? and attr_name != '' and  (attr_value.nil? or attr_value == '')
-                                                    t('no_value')
-                                                elsif !attr_value.nil?
-                                                    attr_value
-                                                end
-                                            %>
-                                        </div>
+                                    <div class="overview-item">
+                                        <%= t(attr_name) %>
+                                    </div>
+                                    <div class="secondary-content">
+                                        <%= if !attr_value.nil? and attr_value == t('please_select')
+                                                t('not_selected_yet')
+                                            elsif !attr_value.nil? and attr_value == "insurance"
+                                                t('insurance')
+                                            elsif !attr_value.nil? and !attr_value
+                                                t('no')
+                                            elsif !attr_value.nil? and attr_value == true
+                                                t('yes')
+                                            elsif !attr_name.nil? and attr_name != '' and (attr_value.nil? or attr_value == '')
+                                                t('no_value')
+                                            elsif !attr_value.nil?
+                                                attr_value
+                                            end
+                                        %>
                                     </div>
                                 </li>
                             <% end %>
@@ -117,25 +122,26 @@
                         
                         <ul class="collection with-header">
                             <% @insurance.attributes.each do |attr_name, attr_value|
-                                next if (attr_name == "id" or !@insurance_finance_and_payment_attr_list.include? attr_name)     %>
+                                next if (attr_name == "id" or !@insurance_finance_and_payment_attr_list.include? attr_name)      %>
                                 <li class="collection-item">
-                                    <div class="overview-item"><%= t(attr_name) %>
-                                        <div class="secondary-content">
-                                            <%= if !attr_value.nil? and attr_value == t('please_select')
-                                                    t('not_selected_yet')
-                                                elsif !attr_value.nil? and attr_value == "insurance"
-                                                    t('insurance')
-                                                elsif !attr_value.nil? and !attr_value
-                                                    t('no')
-                                                elsif !attr_value.nil? and attr_value == true
-                                                    t('yes')
-                                                elsif !attr_name.nil? and attr_name != '' and  (attr_value.nil? or attr_value == '')
-                                                    t('no_value')
-                                                elsif !attr_value.nil?
-                                                    attr_value
-                                                end
-                                            %>
-                                        </div>
+                                    <div class="overview-item">
+                                        <%= t(attr_name) %>
+                                    </div>
+                                    <div class="secondary-content">
+                                        <%= if !attr_value.nil? and attr_value == t('please_select')
+                                                t('not_selected_yet')
+                                            elsif !attr_value.nil? and attr_value == "insurance"
+                                                t('insurance')
+                                            elsif !attr_value.nil? and !attr_value
+                                                t('no')
+                                            elsif !attr_value.nil? and attr_value == true
+                                                t('yes')
+                                            elsif !attr_name.nil? and attr_name != '' and (attr_value.nil? or attr_value == '')
+                                                t('no_value')
+                                            elsif !attr_value.nil?
+                                                attr_value
+                                            end
+                                        %>
                                     </div>
                                 </li>
                             <% end %>

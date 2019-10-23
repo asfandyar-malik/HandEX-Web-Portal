@@ -9,7 +9,7 @@
                 </li>
                 <li><%= t('product') %>
                     <div class="overview_header_value">
-                        <%= (@export_application.exported_goods_type.nil? or (!@export_application.exported_goods_type.nil? and @export_application.exported_goods_type.to_s.empty?) or (!@export_application.exported_goods_type.nil? and @export_application.exported_goods_type.to_s == t('please_select')) or (!@export_application.exported_goods_type.nil? and @export_application.exported_goods_type.to_s == t('please_select_corresponding_option'))) ? render('shared/missing_icon') : @export_application.exported_goods_type %>
+                        <%= (@export_application.exported_goods_type_two.nil? or (!@export_application.exported_goods_type_two.nil? and @export_application.exported_goods_type_two.to_s.empty?) or (!@export_application.exported_goods_type_two.nil? and @export_application.exported_goods_type_two.to_s == t('please_select')) or (!@export_application.exported_goods_type_two.nil? and @export_application.exported_goods_type_two.to_s == t('please_select_corresponding_option'))) ? render('shared/missing_icon') : @export_application.exported_goods_type_two %>
                     </div>
                 </li>
                 <li><%= t('contract_value') %>

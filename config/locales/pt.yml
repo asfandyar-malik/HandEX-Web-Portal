@@ -439,6 +439,11 @@ pt:
   how_high_contract_value: "Qual é o volume do contrato em euros?"
   exporting_to_private_sector: "Você/sua empresa entregam para o setor privado?"
   corruption_delcaration: "Declaração de idoneidade"
+  business_focus_country_one: "Länder der schwerpunktmäßigen Geschäftstätigkeit 1"
+  business_focus_country_two: "Länder der schwerpunktmäßigen Geschäftstätigkeit 2"
+  business_focus_country_three: "Länder der schwerpunktmäßigen Geschäftstätigkeit 3"
+  business_focus_country_four: "Länder der schwerpunktmäßigen Geschäftstätigkeit 4"
+  business_focus_country_five: "Länder der schwerpunktmäßigen Geschäftstätigkeit 5"
 
   #submit_application
   application_sent_successfully: "Sua aplicação foi enviada com sucesso!"
