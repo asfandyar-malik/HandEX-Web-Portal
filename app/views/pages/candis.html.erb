@@ -3,6 +3,7 @@
     <div class="input-field col s2">
         
         <ul id="slide-out" class="sidenav sidenav-fixed">
+            
             <li>
                 <div class="user-view">
                     <div class="background">
@@ -18,32 +19,38 @@
                 </div>
             </li>
             
-            <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Liefervertrag</a></li>
+            <li><a class="waves-effect" href="#!"><i class="material-icons">web</i> Liefervertrag</a></li>
             <li>
                 <div class="divider"></div>
             </li>
     
-            <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Jahresabschluss</a></li>
+            <li><a class="waves-effect" href="#!"><i class="material-icons">sd_storage</i> Jahresabschluss</a></li>
             <li>
                 <div class="divider"></div>
             </li>
     
-            <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Bonitätsauskunft</a></li>
+            <li><a class="waves-effect" href="#!"><i class="material-icons">view_carousel</i> Bonitätsauskunft</a></li>
             <li>
                 <div class="divider"></div>
             </li>
-            
         </ul>
+        
         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     
     </div>
     
-    <div class="input-field col s10">
+    <div class="input-field col s10"  style="height: 100%">
     
-        <%= render 'shared/navbar' %>
+        <nav>
+            <div class="nav-wrapper">
+                <ul class="left hide-on-med-and-down">
+                </ul>
+            </div>
+        </nav>
     
-        <div class="input-field col s6">
-        
+        <div class="input-field col s7">
+            <h5>Liefervertrag</h5>
+            <br><br>
             <form action="#">
                 <div class="file-field input-field">
                     <div class="btn">
@@ -57,8 +64,63 @@
             </form>
         </div>
     
-        <div class="input-field col s6">
+        <div class="flex">
+            <div class="white z-depth-1 input-field col s12 no-padding">
         
+                <nav>
+                    <div class="nav-wrapper">
+                        <ul class="left hide-on-med-and-down">
+                            <li><a href="#">Payment</a></li>
+                            <li><a href="#">Document</a></li>
+                            <li><a href="#">Accounting</a></li>
+                        </ul>
+                    </div>
+                </nav>
+        
+                <div class="container">
+                    <div class="row">
+                        <form class="col s12">
+                            <br><br>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input id="first_name" type="text" class="validate">
+                                    <label for="first_name">Invoice Amount</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="last_name" type="text" class="validate">
+                                    <label for="last_name">Expenses</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input id="first_name" type="text" class="validate">
+                                    <label for="first_name">Netto Amount</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="last_name" type="text" class="validate">
+                                    <label for="last_name">Yearly Costs</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="first_name" type="text" class="validate">
+                                    <label for="first_name">Interest</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input id="first_name" type="text" class="validate">
+                                    <label for="first_name">Steuer</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="last_name" type="text" class="validate">
+                                    <label for="last_name">Tax</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

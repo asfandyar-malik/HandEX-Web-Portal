@@ -1209,3 +1209,11 @@ counters {
   vertical-align: top;
   font-size: 18px !important;
 }
+
+/* candis */
+
+.flex {
+  display: flex;
+  //flex-wrap: wrap;
+  min-height: 100vh;  /*or use calc(100vh - header_height)*/
+}
