@@ -40,7 +40,8 @@ Rails.application.routes.draw do
         get 'pages/importer_information_saved' => 'pages#importer_information_saved'
         get 'pages/document_prefill_saved' => 'pages#document_prefill_saved'
         get 'pages/webid_instructions' => 'pages#webid_instructions'
-        
+        get 'pages/candis' => 'pages#candis'
+
         resources :insurances
         resources :export_applications
         resources :credits

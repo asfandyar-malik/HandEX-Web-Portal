@@ -1,0 +1,64 @@
+<div class="row">
+    
+    <div class="input-field col s2">
+        
+        <ul id="slide-out" class="sidenav sidenav-fixed">
+            <li>
+                <div class="user-view">
+                    <div class="background">
+                        <%= image_tag "banner5.jpg", style: 'height:13em;width:auto;' %>
+                        <!--            <img src="images/office.jpg">-->
+                    </div>
+                    <a href="#user">
+                        <br>
+                        <br>
+                    </a>
+                    <a href="#name"><span class="white-text name">Asfandyar Malik</span></a>
+                    <a href="#email"><span class="white-text email">asfandyar@handex.co</span></a>
+                </div>
+            </li>
+            
+            <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Liefervertrag</a></li>
+            <li>
+                <div class="divider"></div>
+            </li>
+    
+            <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Jahresabschluss</a></li>
+            <li>
+                <div class="divider"></div>
+            </li>
+    
+            <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i> Bonitätsauskunft</a></li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            
+        </ul>
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    
+    </div>
+    
+    <div class="input-field col s10">
+    
+        <%= render 'shared/navbar' %>
+    
+        <div class="input-field col s6">
+        
+            <form action="#">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>File</span>
+                        <input type="file">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+            </form>
+        </div>
+    
+        <div class="input-field col s6">
+        
+        </div>
+    </div>
+</div>

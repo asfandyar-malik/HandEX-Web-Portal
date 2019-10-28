@@ -59,4 +59,7 @@ class PagesController < ApplicationController
 
     def docusign
     end
+
+    def candis
+    end
 end
