@@ -52,7 +52,8 @@
 
                                             <div class="input-field col s12 m12">
                                                 <%= f.label :user_type, t('user_type') %>
-                                                <%= f.select :user_type, [[t("importer"), "1"], [t("exporter"), "2"], [t("broker"), "3"]], {}, class: 'validate', required: true %>
+                                                <%#= f.select :user_type, [[t("importer"), "1"], [t("exporter"), "2"], [t("broker"), "3"]], {}, class: 'validate', required: true %>
+                                                <%= f.select :user_type, [[t("exporter"), "2"], [t("broker"), "3"]], {}, class: 'validate', required: true %>
                                             </div>
 
                                             <div class="input-field col s12">
