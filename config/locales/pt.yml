@@ -110,7 +110,7 @@ pt:
   importer: "Importador"
   exporter: "Exporteur"
   broker: "Makler"
-  user_type: "Sind Sie Makler, Exporteur oder Importeur?"
+  user_type: "Sind Sie Makler oder Exporteur?"
   destination_country: "País de destino"
   product: "Produto"
   contract_value: "Valor do contrato"
