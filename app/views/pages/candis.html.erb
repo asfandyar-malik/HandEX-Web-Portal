@@ -2,256 +2,268 @@
     <div class="section">
         
         <div class="sidebar">
-            <a class="active" href="#home">All Documents</a>
-            <a href="#liefervertrag">Liefervertrag</a>
-            <a href="#jahresabschluss">Jahresabschluss</a>
+            <a class="active" href="#liefervertrag" id="financialStatement2018" onclick="financialStatement2018()">Financial
+                Statement</a>
+            
+            <a href="#sentiment" id="sentimentId" onclick="sentimentAnalysis()"> Sentiment Analysis </a>
         </div>
         
         <div class="form-section z-depth-1 handex_form_section">
-            <div class="row">
+            <div accept-charset="UTF-8"
+                 class="new_generic_application"
+                 enctype="multipart/form-data"
+                 id="new_generic_application"
+                 method="post">
                 
-                <div class="col s4 offset-s2">
-                    <div class="row">
-                        <br>
-                        <form action="#">
-                            <div class="file-field input-field">
+                <div class="col s10 offset-s2">
+                    
+                    <div id="sentiment">
+                        
+                        <nav class="nav-extended-extracted">
+                            <div class="nav-content">
+                                <ul class="tabs  tabs-transparent">
+                                    <li class="tab handex_side_tab">
+                                        <a onclick="companyData()"> Company Data </a>
+                                    </li>
+                                    <li class="tab handex_side_tab">
+                                        <a onclick="transactionData()"> Transaction Data </a>
+                                    </li>
+                                    <li class="tab handex_side_tab">
+                                        <a onclick="keyPersons()"> Key Persons </a>
+                                    </li>
+                                    <li class="tab handex_side_tab">
+                                        <a onclick="documents()"> Documents </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                        
+                        <div class="col s12" id="companyData">
+                            
+                            <br><br>
+                            
+                            <h4> Company </h4>
+                            
+                            <form class="col s12">
                                 
-                                <div class="btn">
-                                    <span> Dokument hochladen</span>
-                                    <input id="liefervertrag_file" type="file">
+                                <div class="row">
+                                    <div class="input-field col s4">
+                                        <input id="company_name" type="text" class="validate">
+                                        <label for="company_name">Company Name</label>
+                                    </div>
+                                    <div class="input-field col s4">
+                                        <input id="company_address" type="text" class="validate">
+                                        <label for="company_address">Company Address </label>
+                                    </div>
                                 </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate"
-                                           id="generic_application_liefervertrag_file"
-                                           type="text">
+                                
+                                <div class="row">
+                                    <div class="input-field col s4">
+                                        <input id="commercial_register_number" type="text" class="validate">
+                                        <label for="commercial_register_number">Commercial register
+                                            number</label>
+                                    </div>
+                                    <div class="input-field col s4">
+                                        <input id="tax_id" type="text" class="validate">
+                                        <label for="tax_id">Tax Id </label>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                
-                <div class="col s10 offset-s2 no-padding">
-                    
-                    <div id="liefervertrag">
-                        <nav class="nav-extended">
-                            <div class="nav-content">
-                                <ul class="tabs tabs-transparent">
-                                    <li class="tab handex_side_tab">
-                                        <a onclick="openDocument()">Document</a>
-                                    </li>
-                                    <li class="tab handex_side_tab">
-                                        <a onclick="openTranslatedDocuments()" >Translated Document</a>
-                                    </li>
-                                    <li class="tab handex_side_tab">
-                                        <a  onclick="openExtractedInformation()" >Extracted Information</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                    
-                    <div class="col s12" id="documentDisplay" style="display: none">
-    
-                        <img src="https://www.investopedia.com/thmb/2ojo7SyRapAmPZkLSMdNlY3-Lwk=/908x822/filters:no_upscale():max_bytes(150000):strip_icc()/exxonIS09-30-2018-5c5dc83c46e0fb00017dd129.jpg"
-                             alt="FinancialStatement" />
-                    </div>
-                    
-                    <div class="col s12" id="translateDocument" style="display: none">
-                        <img src="https://www.ifrsbox.com/wp-content/uploads/ForeignSubsidiaryExample.png"
-                             alt="TranslatedFinancialStatement" />
+                                
+                                <div class="row">
+                                    <div class="input-field col s4">
+                                        <input id="register_date" type="text" class="validate">
+                                        <label for="register_date"> Registration Date</label>
+                                    </div>
+                                </div>
+                            
+                            </form>
+                        </div>
                         
-                    </div>
-                    
-                    <div class="col s12 no-padding" id="extractedInformation" style="display: none">
-                        
-                        <br>
-                        <nav class="nav-extended">
-                            <div class="nav-content">
-                                <ul class="tabs tabs-transparent">
-                                    <li class="tab handex_side_tab">
-                                        <a onclick="basicInformation()">Basic Information</a>
-                                    </li>
-                                    <li class="tab handex_side_tab">
-                                        <a onclick="financialAndAccounting()">Financial & Accounting</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>
-                        
-                        <div class="col s12" id="basicInformation" style="display: none">
+                        <div class="col s12" id="transactionData" style="display: none;">
+                            
+                            <br><br>
+                            
+                            <h4> Transaction </h4>
+                            
                             <div class="row">
                                 <form class="col s12">
+                                    
+                                    <div class="row">
+                                        <div class="input-field col s4">
+                                            <input id="industry_type" type="text" class="validate">
+                                            <label for="industry_type"> Industry Type</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="input-field col s8">
+                                            <input id="core_markets" type="text" class="validate">
+                                            <label for="core_markets"> What are your top 5 core markets</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="input-field col s8">
+                                            <input id="purchase_history" type="text" class="validate">
+                                            <label for="purchase_history"> Have you previously purchased from this
+                                                supplier </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="input-field col s8">
+                                            <input id="explain_business_acitivity" type="text" class="validate">
+                                            <label for="explain_business_acitivity"> Please explain your business
+                                                activities and the planned purchase / import of goods incl. contract
+                                                value </label>
+                                        </div>
+                                    </div>
+                                
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div class="col s12" id="keyPersons" style="display: none;">
+                            <br><br>
+                            <h4> Key Persons </h4>
+                            
+                            <div class="row">
+                                <form class="col s10">
                                     <br><br>
+                                    
+                                    <b> Please list all managing directors, ultimate beneficial owners, significant
+                                        shareholders </b>
+                                    
+                                    <br><br><br>
                                     <div class="row">
-                                        <div class="input-field col s6">
-                                            <input class="validate" id="first_name" type="text">
-                                            <label class="" for="first_name">Purchaser Name (importer) </label>
+                                        <div class="input-field col s4">
+                                            <input id="md_name" type="text" class="validate">
+                                            <label for="md_name"> Name </label>
                                         </div>
-                                        <div class="input-field col s6">
-                                            <input class="validate" id="last_name" type="text">
-                                            <label class="" for="last_name">Seller Name (exporter)</label>
+                                        <div class="input-field col s3">
+                                            <input id="md_dob" type="text" class="validate">
+                                            <label for="md_dob"> Date of birth </label>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s6">
-                                            <input class="validate" id="first_name" type="text">
-                                            <label class="" for="first_name">Recipient Name </label>
+                                        <div class="input-field col s3">
+                                            <input id="md_gender" type="text" class="validate">
+                                            <label for="md_gender"> Gender </label>
                                         </div>
-                                        <div class="input-field col s6">
-                                            <input class="validate" id="last_name" type="text">
-                                            <label for="last_name">P.O. Number </label>
+                                        <div class="input-field col s4">
+                                            <input id="md_address" type="text" class="validate">
+                                            <label for="md_address"> Address </label>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input class="validate" id="first_name" type="text">
-                                            <label for="first_name">Seller Full Address </label>
+                                        <div class="input-field col s3">
+                                            <input id="md_country_of_residence" type="text" class="validate">
+                                            <label for="md_country_of_residence"> Country of Residence </label>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s6">
-                                            <input class="validate" id="first_name" type="text">
-                                            <label for="first_name">Recipient Full Address</label>
+                                        <div class="input-field col s3">
+                                            <input id="md_type" type="text" class="validate">
+                                            <label for="md_type"> Type of Person </label>
                                         </div>
-                                        <div class="input-field col s6">
-                                            <input class="validate" id="last_name" type="text">
-                                            <label for="last_name">Purchaser Full Address</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s6">
-                                            <input class="validate" id="first_name" type="text">
-                                            <label for="first_name">Seller Address</label>
-                                        </div>
-                                        <div class="input-field col s6">
-                                            <input class="validate" id="last_name" type="text">
-                                            <label for="last_name">Recipient Phone Number</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s6">
-                                            <input class="validate" id="first_name" type="text">
-                                            <label for="first_name">Seller Phone Number </label>
-                                        </div>
-                                        <div class="input-field col s6">
-                                            <input class="validate" id="last_name" type="text">
-                                            <label for="last_name">Purchaser Phone Number</label>
+                                        <div class="input-field col s4">
+                                            <input id="md_verified" type="text" class="validate">
+                                            <label for="md_verified"> Verified? </label>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
                         
-                        <div class="col s12" id="financialAndAccounting" style="display: none">
+                        <div class="col s12" id="documents" style="display: none;">
+                            
+                            <br><br>
+                            
+                            <h4> Documents </h4>
+                            <br>
+                            
                             <div class="row">
-                                <form class="col s12">
-                                    <br><br>
-    
-                                    <div class="col s5">
-                                        <table>
-                                        <tr>
-                                            <th></th>
-                                            <th>2017</th>
-                                            <th>2018</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Revenue</td>
-                                            <td> - </td>
-                                            <td> - </td>
-                                        </tr>
-                                        <tr>
-                                            <td>EBIT</td>
-                                            <td> - </td>
-                                            <td> -</td>
-                                        </tr>
-                                        <tr>
-                                            <td>EBITDA</td>
-                                            <td> - </td>
-                                            <td> -</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Net Income</td>
-                                            <td> - </td>
-                                            <td> -</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Operational Cashflow</td>
-                                            <td> - </td>
-                                            <td> -</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Investing Cashflow</td>
-                                            <td> - </td>
-                                            <td> -</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Financial Obligation</td>
-                                            <td> - </td>
-                                            <td> -</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cash</td>
-                                            <td> - </td>
-                                            <td> -</td>
-                                        </tr>
-                                    </table>
-                                    </div>
-    
-                                    <div class="col s5">
-                                        <table>
-                                            <tr>
-                                                <th>Key Ratios</th>
-                                                <th>2017</th>
-                                                <th>2018</th>
-                                            </tr>
-                                            <tr>
-                                                <td>Netdebt</td>
-                                                <td> - </td>
-                                                <td> - </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Netdebt/EBITDA </td>
-                                                <td> - </td>
-                                                <td> -</td>
-                                            </tr>
-                                            <tr>
-                                                <td>FCF</td>
-                                                <td> - </td>
-                                                <td> -</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Interest Coverage</td>
-                                                <td> - </td>
-                                                <td> -</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Sales Growth</td>
-                                                <td> - </td>
-                                                <td> -</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Debt/Equity</td>
-                                                <td> - </td>
-                                                <td> -</td>
-                                            </tr>
-                                        </table>
-                                    </div>
+                                <div class="col s5">
                                     
-                                    <div class="col s2">
-    
-                                        <table>
-                                        <tr>
-                                            <th> Credit Score</th>
-                                            <th> Rating </th>
-                                        </tr>
-                                        <tr>
-                                            <td> - </td>
-                                            <td> - </td>
-                                        </tr>
-                                        </table>
+                                    <form action="#">
+                                        <label> Commercial Reports </label>
+                                        
+                                        <div class="file-field input-field">
+                                            <div class="btn">
+                                                <span>File</span>
+                                                <input type="file">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input class="file-path validate" type="text">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                
+                                <div class="col s5">
+                                    <form action="#">
+                                        <label> List of Shareholders </label>
+                                        
+                                        <div class="file-field input-field">
+                                            <div class="btn">
+                                                <span>File</span>
+                                                <input type="file">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input class="file-path validate" type="text">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <br>
+                                <div class="col s5">
                                     
-                                    </div>
-                                </form>
+                                    <form action="#">
+                                        <label> Article of Association </label>
+                                        
+                                        <div class="file-field input-field">
+                                            <div class="btn">
+                                                <span>File</span>
+                                                <input type="file">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input class="file-path validate" type="text">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                
+                                <div class="col s5">
+                                    <form action="#">
+                                        <label> Annual Report </label>
+                                        
+                                        <div class="file-field input-field">
+                                            <div class="btn">
+                                                <span>File</span>
+                                                <input type="file">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input class="file-path validate" type="text">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <br>
+                                
+                                <div class="col s5">
+                                    <form action="#">
+                                        <label> Other Documents </label>
+                                        
+                                        <div class="file-field input-field">
+                                            <div class="btn">
+                                                <span>File</span>
+                                                <input type="file">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input class="file-path validate" type="text">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -262,58 +274,63 @@
 </div>
 
 <script>
-    function openDocument() {
-        var x = document.getElementById("documentDisplay");
-        var y = document.getElementById("translateDocument");
-        var z = document.getElementById("extractedInformation");
 
-        if (x.style.display === "none") {
-            x.style.display = "block";
-            y.style.display = "none";
-            z.style.display = "none";
-        }
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems, options);
+    });
+
+    $(document).ready(function () {
+        $('select').formSelect();
+    });
+
+    function companyData() {
+        var w = document.getElementById("companyData");
+        var x = document.getElementById("transactionData");
+        var y = document.getElementById("keyPersons");
+        var z = document.getElementById("documents");
+
+        w.style.display = "block";
+        x.style.display = "none";
+        y.style.display = "none";
+        z.style.display = "none";
     }
 
-    function openTranslatedDocuments() {
-        var x = document.getElementById("documentDisplay");
-        var y = document.getElementById("translateDocument");
-        var z = document.getElementById("extractedInformation");
-        if (y.style.display === "none") {
-            x.style.display = "none";
-            y.style.display = "block";
-            z.style.display = "none";
-        }
+    function transactionData() {
+        var w = document.getElementById("companyData");
+        var x = document.getElementById("transactionData");
+        var y = document.getElementById("keyPersons");
+        var z = document.getElementById("documents");
+
+        w.style.display = "none";
+        x.style.display = "block";
+        y.style.display = "none";
+        z.style.display = "none";
     }
 
-    function openExtractedInformation() {
-        var x = document.getElementById("documentDisplay");
-        var y = document.getElementById("translateDocument");
-        var z = document.getElementById("extractedInformation");
-        var a = document.getElementById("basicInformation");
-        if (z.style.display === "none") {
-            x.style.display = "none";
-            y.style.display = "none";
-            z.style.display = "block";
-            a.style.display = "block";
-        }
+    function keyPersons() {
+        var w = document.getElementById("companyData");
+        var x = document.getElementById("transactionData");
+        var y = document.getElementById("keyPersons");
+        var z = document.getElementById("documents");
+
+        w.style.display = "none";
+        x.style.display = "none";
+        y.style.display = "block";
+        z.style.display = "none";
     }
 
-    function basicInformation() {
-        var x = document.getElementById("basicInformation");
-        var y = document.getElementById("financialAndAccounting");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-            y.style.display = "none";
-        }
-    }
+    function documents() {
+        var w = document.getElementById("companyData");
+        var x = document.getElementById("transactionData");
+        var y = document.getElementById("keyPersons");
+        var z = document.getElementById("documents");
 
-    function financialAndAccounting() {
-        var x = document.getElementById("basicInformation");
-        var y = document.getElementById("financialAndAccounting");
-        if (y.style.display === "none") {
-            x.style.display = "none";
-            y.style.display = "block";
-        }
+        w.style.display = "none";
+        x.style.display = "none";
+        y.style.display = "none";
+        z.style.display = "block";
     }
 
 </script>
+
