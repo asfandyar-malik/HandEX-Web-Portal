@@ -40,3 +40,5 @@ ocr/.DS_Store
 .gitignore
 app/.DS_Store
 app/views/.DS_Store
+
+secrets*
