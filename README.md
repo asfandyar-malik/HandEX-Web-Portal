@@ -2,7 +2,7 @@
 
 This is backend and frontend code for Handex application which is written in Ruby on Rails
 
-You can view small video of final product [here](https://youtu.be/M0e0Gy21RiE)
+You can view video of final product [here](https://youtu.be/M0e0Gy21RiE)
 
 
 HandEX provides export financing to SMEs in Germany. 
